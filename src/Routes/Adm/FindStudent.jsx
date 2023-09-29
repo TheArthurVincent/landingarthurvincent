@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
-import { Button, Spin, backDomain } from "../../Resources/UniversalComponents";
+import {
+  Button,
+  Spin,
+  Xp,
+  backDomain,
+  linkReset,
+} from "../../Resources/UniversalComponents";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { transparentBg } from "../../Styles/Styles";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export function FindStudent() {
   const { UniversalTexts } = useUserContext();
@@ -22,6 +28,7 @@ export function FindStudent() {
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [ID, setID] = useState(false);
   const [value, setValue] = useState("1");
+  const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleChangeEdit = (event, newValue) => {
@@ -151,6 +158,16 @@ export function FindStudent() {
     }
   };
 
+  const seeAllClasses = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/tutoring/${id}`);
+
+      setClasses(response.data.formattedTutoringFromParticularStudent);
+    } catch (error) {
+      alert("Erro ao listar aulas do mês");
+    }
+  };
+
   return (
     <RouteDiv>
       <HOne>{UniversalTexts.myStudents}</HOne>
@@ -258,7 +275,7 @@ export function FindStudent() {
           display: isVisible ? "block" : "none",
           zIndex: 30,
           position: "fixed",
-          backgroundColor: transparentBg(),
+          backgroundColor: "rgba(0,0,0,0.5)",
           width: "10000px",
           height: "10000px",
           top: 0,
@@ -272,7 +289,7 @@ export function FindStudent() {
             display: isVisible ? "block" : "none",
             zIndex: 100,
             backgroundColor: "#fff",
-            padding: "2rem",
+            padding: "1rem",
             width: "22rem",
             height: "32rem",
             top: "50%",
@@ -281,26 +298,13 @@ export function FindStudent() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <p
-            onClick={() => handleSeeModal()}
-            style={{
-              color: "#111",
-              fontWeight: 900,
-              position: "absolute",
-              top: "-10px",
-              right: "5px",
-              cursor: "pointer",
-              fontSize: "1.2rem",
-              padding: "0.5rem",
-            }}
-          >
+          <Xp onClick={() => handleSeeModal()} style={{}}>
             X
-          </p>
+          </Xp>
           <h1
             style={{
-              backgroundColor: "#111",
-              padding: "0.5rem",
-              color: "#fff",
+              fontSize: "1.5rem",
+              textAlign: "center",
             }}
           >
             Editar
@@ -316,6 +320,7 @@ export function FindStudent() {
                 <Tab label="Dados gerais" value="1" />
                 <Tab label="Permissões" value="2" />
                 <Tab label="Senha" value="3" />
+                <Tab label="Aulas" value="4" />
               </TabList>
             </Box>
             <TabPanel value="1">
@@ -485,7 +490,7 @@ export function FindStudent() {
                     minWidth: "15rem",
                   }}
                 >
-                  <option value="" hidden>
+                  <option value="permissions" hidden>
                     Permissions
                   </option>
                   <option value="student">Student</option>
@@ -571,6 +576,20 @@ export function FindStudent() {
                   </Button>
                 </div>
               </div>
+            </TabPanel>
+            <TabPanel value="4">
+              <button onClick={() => seeAllClasses(ID)}>ver aulas</button>
+              {classes.map((item, index) => (
+                <div key={index}>
+                  <p>{item.videoUrl}</p>
+                  <p>{item.title}</p>
+                  <p>{item.date}</p>
+                  <p>{item.comments}</p>
+                  <Link to={item.attachments} style={linkReset} target="_blank">
+                    {UniversalTexts.attachments}
+                  </Link>
+                </div>
+              ))}
             </TabPanel>
           </TabContext>
         </div>

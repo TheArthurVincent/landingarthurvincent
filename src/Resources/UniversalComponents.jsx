@@ -2,6 +2,7 @@ import { styled, keyframes } from "styled-components";
 import {
   darkGreyColor,
   primaryColor,
+  secondaryColor,
   secondaryContrast,
   textPrimaryColorContrast,
 } from "../Styles/Styles";
@@ -113,6 +114,23 @@ export const ButtonDisapear = styled.button`
 
   @media (max-width: 1350px) {
     display: none;
+  }
+`;
+
+export const Xp = styled.p`
+  cursor: pointer;
+  font-weight: 900;
+  position: absolute;
+  font-family:  Helvetica;
+  top: -10px;
+  right: 5px;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  &:hover {
+    color: ${secondaryColor()};
+  }
+  &:active {
+    font-weight: 500;
   }
 `;
 

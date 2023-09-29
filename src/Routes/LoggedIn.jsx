@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   primaryColor,
-  primaryContrast,
-  secondaryColor,
   setHTMLStyle,
   transparentBg,
 } from "../Styles/Styles";
@@ -11,7 +9,6 @@ import MyProfile from "./MyProfile/MyProfile";
 import MyClasses from "./MyClasses/MyClasses";
 import Courses from "./Courses/Courses";
 import Extras from "./Extras/Extras";
-import Adm from "./Adm/Adm";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
