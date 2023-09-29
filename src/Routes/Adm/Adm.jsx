@@ -10,6 +10,7 @@ import { transparentBg } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
+import { Navigate } from "react-router-dom";
 
 export function Adm() {
   const [value, setValue] = React.useState("1");
@@ -34,9 +35,18 @@ export function Adm() {
       value: "4",
       component: <NewPost />,
     },
+    {
+      title: "Voltar para página inicial",
+      value: "5",
+      component: (
+        <div>
+          <Navigate to="/homepage" />
+        </div>
+      ),
+    },
   ];
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
   return (

@@ -16,6 +16,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
 import { Button, DisapearOnMobile } from "../Resources/UniversalComponents";
+import { Navigate } from "react-router-dom";
 
 export function LoggedIn() {
   useEffect(() => {
@@ -82,7 +83,11 @@ export function LoggedIn() {
     {
       title: "ADM",
       value: "6",
-      component: <Adm />,
+      component: (
+        <div>
+          <Navigate to="/adm" />
+        </div>
+      ),
       display: permissions == "superadmin" ? "block" : "none",
     },
   ];
