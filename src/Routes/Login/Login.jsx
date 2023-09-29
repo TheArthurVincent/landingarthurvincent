@@ -132,6 +132,80 @@ export function Login() {
           </Button>
         </div>
       </form>
+      {/* 
+      <TabContext value={value}>
+      <Box
+        style={{
+          padding: "0.5rem",
+          backgroundColor: transparentBg(),
+        }}
+        sx={{ borderBottom: 1, borderColor: "divider" }}
+      >
+        <div
+          style={{
+            padding: "0 2rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <DisapearOnMobile>
+            <img style={{ width: "9rem" }} src={Logo} alt="logo" />
+          </DisapearOnMobile>
+          <TabList
+            onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            style={{
+              maxWidth: "40rem",
+            }}
+          >
+
+<Tab
+                  style={{
+                    fontWeight: 500,
+                    fontFamily: "Lato",
+                    display: component.display,
+                    color: primaryColor(),
+                    margin: "0.2rem",
+                    backgroundColor: "white",
+                  }}
+                  label="Login"
+                  value={1}
+                />
+                <Tab
+                  style={{
+                    fontWeight: 500,
+                    fontFamily: "Lato",
+                    display: component.display,
+                    color: primaryColor(),
+                    margin: "0.2rem",
+                    backgroundColor: "white",
+                  }}
+                  label="Cadastro"
+                  value={2}
+                />
+          </TabList>
+          <Button onClick={onLoggOut}>Sair</Button>
+        </div>
+      </Box>
+      {appTabs.map((component, index) => {
+        return (
+          <TabPanel
+            key={index}
+            style={{
+              margin: "0 1rem",
+              padding: "1px",
+              display: component.display,
+            }}
+            value={component.value}
+          >
+            {component.component}
+          </TabPanel>
+        );
+      })}
+    </TabContext>
+ */}
     </div>
   );
 }
