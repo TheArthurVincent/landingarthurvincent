@@ -1,0 +1,61 @@
+{
+  "leaveButton": "Sair",
+  "clickHere": "Clique aqui",
+  "homePage": "Página Inicial",
+  "hello": "Olá, ",
+  "welcome": "Bem-vindo (a) ao seu portal de alunos!",
+  "access": "Aqui, você tem acesso a tudo o que é necessário para seguir com seus estudos de inglês!",
+  "nextClass": "Próxima aula particular:",
+  "nextLive": "Próxima aula ao vivo:",
+  "lastClasses": "Precisa relembrar algo?",
+  "extra": "Informações extras",
+  "myProfile": "Meu Perfil",
+  "myClasses": "Minhas Aulas",
+  "calendar": "Calendário",
+  "myCourses": "Meus Cursos",
+  "personalInfo": "Informações Pessoais",
+  "extras": "Extras",
+  "name": "Nome",
+  "document": "CPF",
+  "dateOfBirth": "Data de nascimento",
+  "portalInfo": "Dados Cadastrais",
+  "phoneNumber": "Número de telefone",
+  "permissions": "Permissões",
+  "email": "E-mail",
+  "username": "Nome de usuário",
+  "ankiInfo": "Dados do Anki",
+  "id": "ID",
+  "myStudents": "Meus alunos",
+  "courses": [
+    { "name": "English Rise" },
+    { "name": "English Plus" },
+    { "name": "English Master" },
+    { "name": "Native Accent" },
+    { "name": "Talking Business" }
+  ],
+  "contentExtras": [
+    {
+      "extraContent": "O que é o Anki e como usá-lo?",
+      "url": "https://player.vimeo.com/video/852643150"
+    },
+    {
+      "extraContent": "Estudando",
+      "url": "https://player.vimeo.com/video/852643150"
+    }
+  ],
+  "comments": "Comentários",
+  "attachments": "Anexos",
+  "download": "Clique aqui para baixar",
+  "date": "Data",
+  "previousButton": "Anterior",
+  "nextButton": "Próximo",
+  "publicClasses": "Aulas Públicas",
+  "privateClasses": "Aulas Particulares",
+  "bothLists": "Ambas",
+  "password": "Senha",
+  "description": "Descrição",
+  "time": "Horário",
+  "accessClassLink": "Clique aqui para entrar na aula",
+  "itemsPerPage": "Ítens por página",
+  "specialCharacters": { "rightArrow": ">", "leftArrow": "<", "circle": "●" }
+}
