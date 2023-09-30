@@ -12,7 +12,7 @@ import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
 import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
-import { linkReset } from "../../Resources/UniversalComponents";
+import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
 
 export function Adm() {
   const [value, setValue] = React.useState("1");
@@ -81,9 +81,7 @@ export function Adm() {
               );
             })}
           </TabList>
-          <Link style={linkReset} to="/application">
-            Voltar para página inicial
-          </Link>
+          <BackToHomePage />
         </Box>
         {componentsToRender.map((component, index) => {
           return (

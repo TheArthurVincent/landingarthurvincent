@@ -61,6 +61,9 @@ export const CoursesListItem = styled.li`
 
 export const CoursesListInnerContainer = styled.div`
   width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: ${darkGreyColor()};
 `;
 

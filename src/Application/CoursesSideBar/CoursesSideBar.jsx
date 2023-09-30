@@ -10,7 +10,7 @@ import {
   CoursesListTitleContainer,
 } from "./CoursesSideBarStyled";
 import UniversalTexts from "../../Resources/UniversalTexts.json";
-import { linkReset } from "../../Resources/UniversalComponents";
+import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
 import ListOfCourses from "../../assets/mockdata/universalcontent.json";
 
 function CoursesSideBar() {
@@ -22,47 +22,62 @@ function CoursesSideBar() {
   const [showCourses, setShowCourses] = useState(false);
   const [arrow, setArrow] = useState(false);
   const handleShowCourses = () => {
-    setShowCourses(!showCourses);
-    setArrow(!arrow);
+    setShowCourses(true);
+    setArrow(true);
+  };
+
+  const handleHideCourses = () => {
+    setShowCourses(false);
+    setArrow(false);
   };
 
   return (
     <CoursesListContainer
       style={showCourses ? { left: "0rem" } : { left: "-13rem" }}
     >
-      <CoursesListInnerContainer>
-        <CoursesListTitleContainer
-          style={{ padding: "0 16px" }}
-          onClick={handleShowCourses}
+      <CoursesListInnerContainer
+        onMouseOver={handleShowCourses}
+        onMouseLeave={handleHideCourses}
+      >
+        <div>
+          <CoursesListTitleContainer style={{ padding: "0 16px" }}>
+            <h2>{UniversalTexts.myCourses}</h2>
+            <ArrowStyle>
+              {arrow
+                ? UniversalTexts.specialCharacters.leftArrow
+                : UniversalTexts.specialCharacters.rightArrow}
+            </ArrowStyle>
+          </CoursesListTitleContainer>
+          <CoursesList>
+            {CoursesSideBarItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.url}
+                style={{ ...linkReset, textDecoration: "none" }}
+              >
+                <CoursesListItem>
+                  <span>{item.name}</span>
+                  <span
+                    style={{
+                      color: item.color,
+                      paddingRight: "0.4rem",
+                    }}
+                  >
+                    {UniversalTexts.specialCharacters.circle}
+                  </span>
+                </CoursesListItem>
+              </Link>
+            ))}
+          </CoursesList>
+        </div>
+        <div
+          style={{
+            backgroundColor: "#fff",
+            display: showCourses ? "block" : "none",
+          }}
         >
-          <h2>{UniversalTexts.myCourses}</h2>
-          <ArrowStyle>
-            {arrow
-              ? UniversalTexts.specialCharacters.leftArrow
-              : UniversalTexts.specialCharacters.rightArrow}
-          </ArrowStyle>
-        </CoursesListTitleContainer>
-        <CoursesList>
-          {CoursesSideBarItems.map((item, index) => (
-            <Link
-              key={index}
-              to={item.url}
-              style={{ ...linkReset, textDecoration: "none" }}
-            >
-              <CoursesListItem>
-                <span>{item.name}</span>
-                <span
-                  style={{
-                    color: item.color,
-                    paddingRight: "0.4rem",
-                  }}
-                >
-                  {UniversalTexts.specialCharacters.circle}
-                </span>
-              </CoursesListItem>
-            </Link>
-          ))}
-        </CoursesList>
+          <BackToHomePage />
+        </div>
       </CoursesListInnerContainer>
       <Mask
         onClick={handleShowCourses}
