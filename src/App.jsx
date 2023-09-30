@@ -32,8 +32,6 @@ export function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/application/*" element={<Application />} />
-          {/* <Route path="/my-classes" element={<MyClasses />} />
-          <Route path="/my-profile" element={<MyProfile />} />*/}
           <Route path="/extras" element={<Extras />} />
           <Route path="/adm" element={<Adm />} />
           <Route path="/classes-to-teach" element={<ClassesToTeach />} />
