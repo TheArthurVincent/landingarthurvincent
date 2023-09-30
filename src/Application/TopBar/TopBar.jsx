@@ -53,7 +53,7 @@ export default function TopBar() {
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
-      <Link to="/homepage">
+      <Link to="/application">
         <LogoStyle>
           <img
             style={{ border: "none", maxWidth: "8rem" }}
@@ -86,9 +86,9 @@ export default function TopBar() {
               backgroundColor: transparentBg(),
               textDecoration: "none",
               textTransform:
-                location.pathname === "/homepage" ? "uppercase" : "none",
+                location.pathname === "/application" ? "uppercase" : "none",
             }}
-            to="/homepage"
+            to="/application"
           >
             Backoffice
           </Link>
@@ -117,9 +117,9 @@ export default function TopBar() {
               ...linkReset,
               textDecoration: "none",
               textTransform:
-                location.pathname === "/homepage" ? "uppercase" : "none",
+                location.pathname === "/application" ? "uppercase" : "none",
             }}
-            to="/homepage"
+            to="/application"
           >
             Backoffice
           </Link>

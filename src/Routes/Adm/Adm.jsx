@@ -81,7 +81,7 @@ export function Adm() {
               );
             })}
           </TabList>
-          <Link style={linkReset} to="/homepage">
+          <Link style={linkReset} to="/application">
             Voltar para página inicial
           </Link>
         </Box>

@@ -42,7 +42,7 @@ export function NewStudent() {
         `${backDomain}/api/v1/students/`,
         newStudent
       );
-      window.location.href = "/homepage";
+      window.location.href = "/application";
 
       alert("Usuário cadastrado com sucesso!");
     } catch (error) {

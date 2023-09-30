@@ -84,7 +84,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/students/${id}`,
         editedStudent
       );
-      window.location.href = "/homepage";
+      window.location.href = "/application";
       alert("Usuário editado com sucesso!");
     } catch (error) {
       alert("Erro ao editar usuário");
@@ -100,7 +100,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/studentpermissions/${id}`,
         editedStudent
       );
-      window.location.href = "/homepage";
+      window.location.href = "/application";
 
       alert("Permissões editadas com sucesso!");
     } catch (error) {
@@ -123,7 +123,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/studentpassword/${id}`,
         studentWhosePasswordYouWantToChange
       );
-      window.location.href = "/homepage";
+      window.location.href = "/application";
 
       alert("Senha editada com sucesso!");
     } catch (error) {
@@ -151,7 +151,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/students/${id}`
       );
       alert("Aluno excluído");
-      window.location.href = "/homepage";
+      window.location.href = "/application";
     } catch (error) {
       alert(error);
       console.error(error);

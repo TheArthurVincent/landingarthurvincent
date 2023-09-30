@@ -1,14 +1,17 @@
 import React from "react";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
-import { Link } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { CourseCard } from "./ClassesToTeach.Styled";
 
-const courses = [
+const internalCourses = [
   {
     title: "Phrasal verbs",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704",
     link: "/phrasal-verbs",
   },
+];
+
+const externalCourses = [
   {
     title: "The Beauty of Complexity",
     img: "https://www.usnews.com/object/image/00000186-7a58-d975-aff7-fffbc8910000/iguazu-falls-stock.jpg?update-time=1677089883729&size=responsive970",
@@ -25,7 +28,6 @@ const courses = [
     link: "https://is-it-worth-it.netlify.app/",
   },
 ];
-
 export default function ClassesToTeach() {
   return (
     <RouteSizeControlBox
@@ -46,7 +48,7 @@ export default function ClassesToTeach() {
           flexWrap: "wrap",
         }}
       >
-        {courses.map((course, index) => {
+        {externalCourses.map((course, index) => {
           return (
             <Link key={index} to={course.link} target="_blank">
               <CourseCard>
@@ -64,7 +66,26 @@ export default function ClassesToTeach() {
               </CourseCard>
             </Link>
           );
-        })}{" "}
+        })}
+        {internalCourses.map((course, index) => {
+          return (
+            <NavLink key={index} to={course.link} target="_blank">
+              <CourseCard>
+                <h3>{course.title}</h3>
+                <img
+                  style={{
+                    height: "240px",
+                    width: "240px",
+                    objectFit: "cover",
+                    objectPosition: "left",
+                  }}
+                  src={course.img}
+                  alt=""
+                />
+              </CourseCard>
+            </NavLink>
+          );
+        })}
       </div>
     </RouteSizeControlBox>
   );

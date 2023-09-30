@@ -8,10 +8,10 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
 import { Button, DisapearOnMobile } from "../Resources/UniversalComponents";
-import { Navigate } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
 import ClassesToTeach from "./ClassesToTeach/ClassesToTeach";
 
-export function LoggedIn() {
+export function Application() {
   useEffect(() => {
     setHTMLStyle();
   }, []);
@@ -90,7 +90,7 @@ export function LoggedIn() {
       <Box
         style={{
           padding: "0.5rem",
-          backgroundColor: transparentBg(),
+          backgroundColor: "#123",
         }}
         sx={{ borderBottom: 1, borderColor: "divider" }}
       >
@@ -105,6 +105,7 @@ export function LoggedIn() {
           <DisapearOnMobile>
             <img style={{ width: "9rem" }} src={Logo} alt="logo" />
           </DisapearOnMobile>
+          <NavLink to="/classes-to-teach">Classes</NavLink>
           <TabList
             onChange={handleChange}
             variant="scrollable"
@@ -153,4 +154,4 @@ export function LoggedIn() {
   );
 }
 
-export default LoggedIn;
+export default Application;
