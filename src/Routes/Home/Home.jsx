@@ -5,6 +5,7 @@ import {
   HOne,
   RouteSizeControlBox,
   BlogPostTitle,
+  HTwo,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -126,7 +127,7 @@ export function Home({ name, permissions }) {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
-        <HOne style={{ display: "flex", justifyContent: "space-between" }}>
+        <HTwo style={{ display: "flex", justifyContent: "space-between" }}>
           <span>
             {UniversalTexts.hello}
             {name}
@@ -134,7 +135,7 @@ export function Home({ name, permissions }) {
           <span style={{ fontWeight: 400 }}>
             Próxima aula: SEP 16, 2023, 06:03 PM
           </span>
-        </HOne>
+        </HTwo>
 
         {posts.map((post, index) => (
           <div

@@ -49,15 +49,15 @@ export const HOne = styled.h1`
 `;
 export const BlogPostTitle = styled.h4`
   font-weight: 400;
+  background-color: ${primaryColor()};
   padding: 0rem 0.5rem;
-  margin: 0;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 2.5rem;
-  color: ${primaryColor()};
+  color: ${primaryContrast()};
   @media (max-width: 650px) {
     margin: 3px;
   }
