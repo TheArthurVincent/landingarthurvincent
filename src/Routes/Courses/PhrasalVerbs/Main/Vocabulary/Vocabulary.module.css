@@ -27,11 +27,9 @@
     @media print{
     .theWord{margin: 1rem;padding: 1rem; border: 1px solid var(--blue-arvin);
       page-break-after: always;
-      box-shadow: 1px 1px 1px 1px var(--blue-arvin);
     }
     .questions{
       border-radius: 0;
-      box-shadow: inset 1px 1px 1px 1px var(--blue-arvin);
       background-color: var(--white);
 color: var(--blue-arvin);
     }

@@ -226,7 +226,6 @@ export function Home({ name, permissions }) {
             height: "30rem",
             top: "50%",
             left: "50%",
-            boxShadow: "10px 10px 20px 2px #555",
             transform: "translate(-50%, -50%)",
           }}
         >

@@ -28,7 +28,6 @@ align-items: center;}
   .hidden{display: block !important; }
   .textDiv{margin: 1rem;padding: 1rem; border: 1px solid var(--blue-arvin);
     page-break-inside: avoid;
-    box-shadow: 1px 1px 1px 1px var(--blue-arvin);
   }
   .textDiv h3{
     background-color: white; color:var(--blue-arvin);

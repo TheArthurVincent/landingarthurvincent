@@ -294,7 +294,6 @@ export function FindStudent() {
             height: "32rem",
             top: "50%",
             left: "50%",
-            boxShadow: "10px 10px 20px 2px #555",
             transform: "translate(-50%, -50%)",
           }}
         >

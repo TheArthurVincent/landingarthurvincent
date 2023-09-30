@@ -18,13 +18,11 @@
 .hidden{display: block !important;}
   .exercises .listenExercise{
     display: none;
-    box-shadow: 1px 1px 1px 1px var(--blue-arvin);
   }
     .exercises .printExercise{display: block;
     
       margin: 1rem;padding: 1rem; border: 1px solid var(--blue-arvin);
       page-break-inside: avoid;
-      box-shadow: 1px 1px 1px 1px var(--blue-arvin);
     
     }
     .exercises h3{

@@ -50,7 +50,6 @@ export function Login() {
       style={{
         backgroundColor: transparentBg(),
         color: secondaryContrast(),
-        boxShadow: "6px 6px 10px 0px #999",
         maxWidth: "1000px",
         marginLeft: "auto",
         marginRight: "auto",

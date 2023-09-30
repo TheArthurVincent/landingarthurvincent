@@ -48,8 +48,6 @@ export const HOne = styled.h1`
   }
 `;
 export const BlogPostTitle = styled.h4`
-  /* background-color: ${secondaryContrast()}; */
-  box-shadow: 2px 2px 3px 0px #aaa;
   font-weight: 400;
   padding: 0rem 0.5rem;
   margin: 0;
@@ -89,7 +87,6 @@ export const RouteDiv = styled.div`
   margin-right: auto;
   background-color: ${transparentBg()};
   color: ${secondaryContrast()};
-  box-shadow: 2px 2px 3px 0px #aaa;
   padding: 0.5rem;
   margin: 0.5rem 0;
   @media (max-width: 650px) {
