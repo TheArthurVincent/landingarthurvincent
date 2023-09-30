@@ -10,8 +10,9 @@ import { primaryColor, transparentBg } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
+import { linkReset } from "../../Resources/UniversalComponents";
 
 export function Adm() {
   const [value, setValue] = React.useState("1");
@@ -42,16 +43,6 @@ export function Adm() {
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost />,
     },
-    {
-      title: "Voltar para página inicial",
-      tooltip: "Sair da área de administrador.",
-      value: "5",
-      component: (
-        <div>
-          <Navigate to="/homepage" />
-        </div>
-      ),
-    },
   ];
 
   const handleChange = (event, newValue) => {
@@ -63,8 +54,11 @@ export function Adm() {
       <TabContext value={value}>
         <Box
           style={{
-            padding: "0.5rem",
+            padding: "0.5rem 1rem",
             backgroundColor: transparentBg(),
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
           sx={{ borderBottom: 1, borderColor: "divider" }}
         >
@@ -94,6 +88,9 @@ export function Adm() {
               );
             })}
           </TabList>
+          <Link style={linkReset} to="/homepage">
+            Voltar para página inicial
+          </Link>
         </Box>
         {componentsToRender.map((component, index) => {
           return (

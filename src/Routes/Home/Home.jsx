@@ -16,13 +16,14 @@ import {
   getVideoEmbedUrl,
   ImgBlog,
   Spin,
+  Xp,
 } from "../../Resources/UniversalComponents";
 import {
   primaryColor,
   secondaryContrast,
   textPrimaryColorContrast,
-  transparentBg,
 } from "../../Styles/Styles";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export function Home({ name, permissions }) {
   const { UniversalTexts } = useUserContext();
@@ -206,7 +207,7 @@ export function Home({ name, permissions }) {
           display: isVisible ? "block" : "none",
           zIndex: 30,
           position: "fixed",
-          backgroundColor: transparentBg(),
+          backgroundColor: "rgba(0,0,0,0.5)",
           width: "10000px",
           height: "10000px",
           top: 0,
@@ -221,30 +222,15 @@ export function Home({ name, permissions }) {
             zIndex: 100,
             backgroundColor: "#fff",
             padding: "1rem",
-            width: "22rem",
-            height: "35rem",
+            width: "29rem",
+            height: "30rem",
             top: "50%",
             left: "50%",
             boxShadow: "10px 10px 20px 2px #555",
             transform: "translate(-50%, -50%)",
           }}
         >
-          <div
-            onClick={() => handleSeeModal()}
-            style={{
-              color: "#111",
-              fontWeight: 900,
-              position: "absolute",
-              top: "-10px",
-              right: "5px",
-              marginTop: "0.7rem",
-              cursor: "pointer",
-              fontSize: "1.2rem",
-              padding: "0.5rem",
-            }}
-          >
-            X
-          </div>
+          <Xp onClick={() => handleSeeModal()}>X</Xp>
           <h2
             style={{
               backgroundColor: "#111",
@@ -323,7 +309,9 @@ export function Home({ name, permissions }) {
             }}
           >
             <Button
-              style={{ backgroundColor: "#ba3c3c" }}
+              style={{
+                backgroundColor: "#ba3c3c",
+              }}
               onClick={() => handleConfirmDelete()}
             >
               Excluir
@@ -341,12 +329,22 @@ export function Home({ name, permissions }) {
               Salvar
             </Button>
           </div>
-          <div style={{ display: seeConfirmDelete ? "grid" : "none" }}>
+          <div
+            style={{
+              maxWidth: "22rem",
+              textAlign: "center",
+              marginLeft: "auto",
+              marginRight: "auto",
+              display: seeConfirmDelete ? "grid" : "none",
+            }}
+          >
             <p
               style={{
-                backgroundColor: "#111",
+                color: "#ba3c3c",
+                margin: "0.5rem 0",
                 padding: "0.5rem",
-                color: "#fff",
+                fontWeight:"500"
+                // color: "#fff",
               }}
             >
               Excluir post? (Esta ação nao pode ser desfeita)
@@ -354,7 +352,6 @@ export function Home({ name, permissions }) {
             <div
               style={{
                 display: "flex",
-                gap: "1rem",
                 justifyContent: "space-between",
               }}
             >
