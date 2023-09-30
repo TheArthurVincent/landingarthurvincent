@@ -14,7 +14,7 @@ export const CoursesListContainer = styled.div`
   display: flex;
   height: 100vh;
   position: fixed;
-  top: 5rem;
+  top: 0rem;
   z-index: 2;
   transition: left 0.2s ease-out;
 

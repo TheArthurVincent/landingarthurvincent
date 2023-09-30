@@ -6,7 +6,8 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { CourseCard } from "./ClassesToTeach.Styled";
-import { linkReset } from "../../Resources/UniversalComponents";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
+import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 
 const internalCourses = [
   {
@@ -38,11 +39,8 @@ export default function ClassesToTeach() {
     <RouteSizeControlBox>
       <RouteDiv>
         <HOne>Classes to teach</HOne>
-        <div style={{ display: "flex", justifyContent: "right" }}>
-          <Link style={linkReset} to="/application">
-            Voltar para página inicial
-          </Link>
-        </div>
+        <BackToHomePage />
+        <CoursesSideBar />
         <div
           style={{
             display: "flex",

@@ -6,6 +6,7 @@ import {
   secondaryContrast,
   textPrimaryColorContrast,
 } from "../Styles/Styles";
+import { Link } from "react-router-dom";
 
 export const Button = styled.button`
   border: 1px solid ${primaryColor()};
@@ -216,6 +217,23 @@ export const DisapearOnMobile = styled.div`
     display: none;
   }
 `;
+
+export const BackToHomePage = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        padding: "1rem",
+        justifyContent: "right",
+      }}
+    >
+      <Link style={linkReset} to="/application">
+        Voltar para página inicial
+      </Link>
+    </div>
+  );
+};
 
 export function formatDate(dateString) {
   const options = {
