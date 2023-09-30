@@ -5,14 +5,12 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { NavLink } from "react-router-dom";
 
 export function MyProfile({ user }) {
   const { UniversalTexts } = useUserContext();
   console.log(user);
   return (
     <RouteSizeControlBox>
-      <NavLink to="/oi">oi</NavLink>
       <RouteDiv>
         <HOne>{UniversalTexts.myProfile}</HOne>
         <p>

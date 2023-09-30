@@ -6,9 +6,10 @@ import {
   HTwo,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { IFrameVideo } from "../../Resources/UniversalComponents";
+import { IFrameVideo, linkReset } from "../../Resources/UniversalComponents";
 import generalClasses from "../../assets/mockdata/universalcontent.json";
 import { transparentBg } from "../../Styles/Styles";
+import { Link } from "react-router-dom";
 
 export function Extras() {
   const { UniversalTexts } = useUserContext();
@@ -16,7 +17,12 @@ export function Extras() {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
-        <HOne>{UniversalTexts.extras}</HOne>
+        <HOne>{UniversalTexts.extras}</HOne>{" "}
+        <div style={{ display: "flex", justifyContent: "right" }}>
+          <Link style={linkReset} to="/application">
+            Voltar para página inicial
+          </Link>
+        </div>
         {generalClasses.contentExtras.map((item, index) => (
           <div key={index}>
             <HTwo>{item.instruction}</HTwo>

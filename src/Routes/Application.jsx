@@ -56,32 +56,10 @@ export function Application() {
       display: "block",
     },
     {
-      title: "Resources for Classes",
-      value: "3",
-      component: <ClassesToTeach />,
-      display: permissions == "superadmin" ? "block" : "none",
-    },
-    {
       title: "My Profile",
       value: "4",
       component: <MyProfile user={user} />,
       display: "block",
-    },
-    {
-      title: "Extras",
-      value: "5",
-      component: <Extras />,
-      display: permissions == "superadmin" ? "block" : "none",
-    },
-    {
-      title: "ADM",
-      value: "6",
-      component: (
-        <div>
-          <Navigate to="/adm" />
-        </div>
-      ),
-      display: permissions == "superadmin" ? "block" : "none",
     },
   ];
 
@@ -90,7 +68,7 @@ export function Application() {
       <Box
         style={{
           padding: "0.5rem",
-          backgroundColor: "#123",
+          backgroundColor: "#fff",
         }}
         sx={{ borderBottom: 1, borderColor: "divider" }}
       >
@@ -99,13 +77,13 @@ export function Application() {
             padding: "0 2rem",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
           }}
         >
           <DisapearOnMobile>
             <img style={{ width: "9rem" }} src={Logo} alt="logo" />
           </DisapearOnMobile>
-          <NavLink to="/classes-to-teach">Classes</NavLink>
+
           <TabList
             onChange={handleChange}
             variant="scrollable"
@@ -132,7 +110,43 @@ export function Application() {
               );
             })}
           </TabList>
-          <Button onClick={onLoggOut}>Sair</Button>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+              gap: "1rem",
+            }}
+          >
+            <NavLink
+              style={{
+                display: permissions == "superadmin" ? "block" : "none",
+
+                color: primaryColor(),
+              }}
+              to="/classes-to-teach"
+            >
+              Classes
+            </NavLink>
+            <NavLink
+              style={{
+                display: permissions == "superadmin" ? "block" : "none",
+                color: primaryColor(),
+              }}
+              to="/adm"
+            >
+              Adm
+            </NavLink>
+            <NavLink
+              style={{
+                color: primaryColor(),
+              }}
+              to="/extras"
+            >
+              Extras
+            </NavLink>
+            <Button onClick={onLoggOut}>Sair</Button>
+          </div>
         </div>
       </Box>
       {appTabs.map((component, index) => {

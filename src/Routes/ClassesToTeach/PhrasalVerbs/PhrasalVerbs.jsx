@@ -25,7 +25,7 @@ export function PhrasalVerbs() {
     <div>
       <header className={styles.header}>
         <nav>
-          <a href="/">Main Page</a>
+          <a href="/classes-to-teach">Main Page</a>
         </nav>
         <div>
           <span className={styles.comment}> Choose a class:</span>
@@ -36,7 +36,7 @@ export function PhrasalVerbs() {
             value={selectedClass}
             onChange={handleClassChange}
           >
-            <option value="" hidden>
+            <option value="0000" hidden>
               Select a class
             </option>
             {classes.map((item) => (

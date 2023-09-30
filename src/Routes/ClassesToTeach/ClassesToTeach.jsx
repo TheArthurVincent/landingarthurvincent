@@ -1,7 +1,12 @@
 import React from "react";
-import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { CourseCard } from "./ClassesToTeach.Styled";
+import { linkReset } from "../../Resources/UniversalComponents";
 
 const internalCourses = [
   {
@@ -30,63 +35,65 @@ const externalCourses = [
 ];
 export default function ClassesToTeach() {
   return (
-    <RouteSizeControlBox
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-evenly",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          gap: "0.5rem",
-          alignItems: "center",
-          maxWidth: "70rem",
-          justifyContent: "space-evenly",
-          flexDirection: "row-reverse",
-          flexWrap: "wrap",
-        }}
-      >
-        {externalCourses.map((course, index) => {
-          return (
-            <Link key={index} to={course.link} target="_blank">
-              <CourseCard>
-                <h3>{course.title}</h3>
-                <img
-                  style={{
-                    height: "240px",
-                    width: "240px",
-                    objectFit: "cover",
-                    objectPosition: "left",
-                  }}
-                  src={course.img}
-                  alt=""
-                />
-              </CourseCard>
-            </Link>
-          );
-        })}
-        {internalCourses.map((course, index) => {
-          return (
-            <NavLink key={index} to={course.link} target="_blank">
-              <CourseCard>
-                <h3>{course.title}</h3>
-                <img
-                  style={{
-                    height: "240px",
-                    width: "240px",
-                    objectFit: "cover",
-                    objectPosition: "left",
-                  }}
-                  src={course.img}
-                  alt=""
-                />
-              </CourseCard>
-            </NavLink>
-          );
-        })}
-      </div>
+    <RouteSizeControlBox>
+      <RouteDiv>
+        <HOne>Classes to teach</HOne>
+        <div style={{ display: "flex", justifyContent: "right" }}>
+          <Link style={linkReset} to="/application">
+            Voltar para página inicial
+          </Link>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            gap: "0.5rem",
+            maxWidth: "70rem",
+            flexDirection: "row-reverse",
+            flexWrap: "wrap",
+          }}
+        >
+          {externalCourses.map((course, index) => {
+            return (
+              <Link key={index} to={course.link} target="_blank">
+                <CourseCard>
+                  <h3>{course.title}</h3>
+                  <img
+                    style={{
+                      height: "240px",
+                      width: "240px",
+                      objectFit: "cover",
+                      objectPosition: "left",
+                    }}
+                    src={course.img}
+                    alt=""
+                  />
+                </CourseCard>
+              </Link>
+            );
+          })}
+          {internalCourses.map((course, index) => {
+            return (
+              <NavLink key={index} to={course.link} target="_blank">
+                <CourseCard>
+                  <h3>{course.title}</h3>
+                  <img
+                    style={{
+                      height: "240px",
+                      width: "240px",
+                      objectFit: "cover",
+                      objectPosition: "left",
+                    }}
+                    src={course.img}
+                    alt=""
+                  />
+                </CourseCard>
+              </NavLink>
+            );
+          })}
+        </div>
+      </RouteDiv>
     </RouteSizeControlBox>
   );
 }

@@ -35,7 +35,7 @@ export const CourseCard = styled.div`
   color: black;
   text-align: center;
   display: flex;
-  background-color: #fff;
+  background-color: #ddd;
   height: 20rem;
   width: 15rem;
   padding: 1rem 0.2rem;
@@ -47,6 +47,7 @@ export const CourseCard = styled.div`
     transition: filter 0.1s;
   }
   &:hover {
+    background-image: linear-gradient(to bottom, #3c8806, #54bf08);
     border-radius: 0.7rem;
     img {
       filter: grayscale(0%);
