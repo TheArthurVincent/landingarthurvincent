@@ -86,6 +86,7 @@ export const HThree = styled.h3`
 export const RouteDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0.5rem;
   background-color: ${transparentBg()};
   color: ${secondaryContrast()};
   padding: 0.5rem;

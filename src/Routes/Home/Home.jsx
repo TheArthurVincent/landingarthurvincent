@@ -127,7 +127,13 @@ export function Home({ name, permissions }) {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
-        <HTwo style={{ display: "flex", justifyContent: "space-between" }}>
+        <HTwo
+          style={{
+            margin: "1.2rem",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <span>
             {UniversalTexts.hello}
             {name}

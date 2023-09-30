@@ -8,8 +8,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
 import { Button, DisapearOnMobile } from "../Resources/UniversalComponents";
-import { Link, NavLink, Navigate } from "react-router-dom";
-import ClassesToTeach from "./ClassesToTeach/ClassesToTeach";
+import { NavLink } from "react-router-dom";
 
 export function Application() {
   useEffect(() => {
@@ -81,7 +80,14 @@ export function Application() {
           }}
         >
           <DisapearOnMobile>
-            <img style={{ width: "9rem" }} src={Logo} alt="logo" />
+            <img
+              style={{ width: "9rem", cursor: "pointer" }}
+              onClick={() => {
+                window.location.reload();
+              }}
+              src={Logo}
+              alt="logo"
+            />
           </DisapearOnMobile>
 
           <TabList
