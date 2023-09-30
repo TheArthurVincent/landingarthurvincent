@@ -54,7 +54,7 @@ export function Adm() {
       <TabContext value={value}>
         <Box
           style={{
-            padding: "0.5rem 1rem",
+            padding: "0rem 3rem",
             backgroundColor: transparentBg(),
             display: "flex",
             alignItems: "center",
@@ -70,21 +70,14 @@ export function Adm() {
           >
             {componentsToRender.map((component, index) => {
               return (
-                <Tooltip
-                  key={index}
-                  title={component.tooltip}
-                  placement="bottom"
-                  arrow
-                >
-                  <Tab
-                    style={{
-                      fontWeight: 500,
-                      color: primaryColor(),
-                    }}
-                    label={component.title}
-                    value={component.value}
-                  />
-                </Tooltip>
+                <Tab
+                  style={{
+                    fontWeight: 500,
+                    color: primaryColor(),
+                  }}
+                  label={component.title}
+                  value={component.value}
+                />
               );
             })}
           </TabList>

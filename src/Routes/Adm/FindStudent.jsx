@@ -197,13 +197,13 @@ export function FindStudent() {
                   marginBottom: "2rem",
                 }}
               >
-                <h3
+                <h1
                   style={{
-                    margin: "0.5rem 0",
+                    textAlign: "left",
                   }}
                 >
                   {student.fullname}
-                </h3>{" "}
+                </h1>{" "}
                 <Button onClick={() => seeEdition(student.id)}>Editar</Button>
               </div>
               <p>

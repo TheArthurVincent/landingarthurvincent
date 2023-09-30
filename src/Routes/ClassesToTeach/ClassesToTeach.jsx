@@ -2,7 +2,6 @@ import React from "react";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
 import { CourseCard } from "./ClassesToTeach.Styled";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 const courses = [
   {
@@ -19,6 +18,11 @@ const courses = [
     title: "The Smartest Dog Breed",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/malinoisbg.jpg?updatedAt=1687867713745",
     link: "https://smartest-dog-breed.netlify.app/",
+  },
+  {
+    title: "Worth",
+    img: "https://smartasset.com/wp-content/uploads/sites/2/2021/01/counting-money-picture-id1211981322-2.jpg",
+    link: "https://is-it-worth-it.netlify.app/",
   },
 ];
 
