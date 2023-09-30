@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  --title: "Athiti", sans-serif;
+  --text: "Lato", sans-serif;
+  --blue-arvin: #00132b;
+  --green-arvin: #54bf08;
+  --black-arvin: #101010;
+  --white: #fff;
+  --white-transparent: rgba(255, 255, 255, 0.8);
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: var(--text);
+}
+html {
+  font-size: 1.5rem;
+}
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 0.5rem;
+  display: flex;
+  background-color: var(--black-arvin);
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  z-index: 3;
+}
+.header nav {
+  font-family: var(--text);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+.header nav a {
+  text-decoration: none;
+  color: var(--white);
+}
+.maxwidth {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+  background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg3.png?updatedAt=1687554775703");
+  background-size: cover;
+  background-attachment: fixed;
+}
+.comment {
+  color: var(--white);
+  margin-right: 0.5rem;
+}
+select {
+  max-height: 1.5rem;
+  background-color: var(--blue-arvin);
+  color: var(--white);
+}
+h1 {
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+h1,
+h2 {
+  font-family: var(--title);
+  font-weight: 500;
+  text-align: center;
+}
+h3 {
+  background-color: var(--blue-arvin);
+  font-family: var(--title);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--white);
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+p {
+  margin-bottom: 1.5rem;
+}
+li {
+  list-style: inside;
+}
+.hidden {
+  display: none;
+}
+
+@media print {
+  html {
+    font-size: 70%;
+  }
+  .header {
+    display: none;
+  }
+  body {
+    background-image: none;
+  }
+  h1,
+  h2 {
+    color: var(--blue-arvin);
+    font-size: 1.5rem;
+  }
+  .hidden {
+    display: block !important;
+  }
+}

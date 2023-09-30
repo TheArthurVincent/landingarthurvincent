@@ -1,0 +1,40 @@
+.exercise h3{margin-bottom: 0.5rem; 
+}
+.exercise{margin-bottom: 2rem; animation: slide 0.3s ease-in-out forwards;}
+.hidden{display: none;}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+  @media print{
+.hidden{display: block !important;}
+  .exercises .listenExercise{
+    display: none;
+    box-shadow: 1px 1px 1px 1px var(--blue-arvin);
+  }
+    .exercises .printExercise{display: block;
+    
+      margin: 1rem;padding: 1rem; border: 1px solid var(--blue-arvin);
+      page-break-inside: avoid;
+      box-shadow: 1px 1px 1px 1px var(--blue-arvin);
+    
+    }
+    .exercises h3{
+      background-color: white; color:var(--blue-arvin);
+      text-decoration: underline;
+    }
+    .exercises li{
+      margin-top:1rem ;
+      list-style:decimal;
+      padding-bottom:3rem;
+      border-bottom: 1px solid black;
+    }
+  }

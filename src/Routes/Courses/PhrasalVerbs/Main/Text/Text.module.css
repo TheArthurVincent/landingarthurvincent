@@ -1,0 +1,38 @@
+.text img{
+ width: 30%;
+ height: 40%;
+ }
+ .text{
+ display: grid;
+ gap: 1rem;
+ animation: slide 0.3s ease-in-out forwards;}
+
+ @keyframes slide {
+   from {
+     opacity: 0;
+     transform: translateX(10px);
+   }
+   to {
+     opacity: 1;
+     transform: translateX(0);
+   }
+ }
+.text .textSection{display: flex; gap: 1rem;margin: 0.5rem 0;
+align-items: center;}
+.theText{
+ max-width: 50rem;
+ text-align: right;
+}
+.hidden{display:none}
+  @media print{
+  .hidden{display: block !important; }
+  .textDiv{margin: 1rem;padding: 1rem; border: 1px solid var(--blue-arvin);
+    page-break-inside: avoid;
+    box-shadow: 1px 1px 1px 1px var(--blue-arvin);
+  }
+  .textDiv h3{
+    background-color: white; color:var(--blue-arvin);
+  text-decoration: underline;
+  }
+    }
+  

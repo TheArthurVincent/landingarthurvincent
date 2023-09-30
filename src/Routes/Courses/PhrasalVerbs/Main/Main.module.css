@@ -1,0 +1,95 @@
+main {
+ margin: 0 3rem;
+ margin-top: 4rem;
+ padding: 2rem 2rem;
+ animation: slide 0.3s ease-in-out forwards;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.navClass{display: flex;
+justify-content: space-evenly;
+padding: 1rem;
+background-color: var(--black-arvin);
+margin-bottom: 1rem;
+}
+a:-webkit-any-link {
+ color: var(--white);
+ text-decoration: none;
+}
+a:-webkit-any-link:hover {
+ color: var(--green-arvin);
+}
+a:-webkit-any-link.selected{font-weight: 600;color: var(--green-arvin);}
+article{
+ margin: 1rem;
+ padding: 1rem;
+ background-color: var(--white);
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+h5{
+  display: none;
+}
+  @media print{
+  h5{
+    padding: 1rem;
+    border: 1px solid;
+    margin-bottom: 1rem;
+    display: grid;
+    font-size: 0.5rem;
+    font-weight: 400;
+    text-align: left;
+  }
+  h5 .theName{
+font-size: 1rem;
+  }
+ h5 .theDate{
+  font-size: 0.5rem;
+    }
+  main {
+    margin: 0;
+    padding: 0.5rem;
+  }  
+  main nav.navClass {
+    display: none;
+  }
+  .hide, .show {
+    display: block !important;
+  }
+  h3 {
+background-color: var(--white);
+color: var(--black-arvin);
+  }
+  h1{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+    border: solid 1px var(--blue-arvin);
+    padding: 0.5rem;
+    box-shadow: 1px 1px 1px 1px var(--blue-arvin);
+    font-size: 1.5rem;margin-bottom: 0.5rem;}
+  h2{
+    font-size: 1.2rem;
+  }
+  h3, h4{font-size: 0.8rem;margin-top: 0;}
+  
+  h3{text-align: center;}
+  p, span,li{font-size: 0.6rem;}
+  article{margin: 0;padding: 0;}
+
+}

@@ -5,6 +5,7 @@ import { setHTMLStyle } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
 import LoggedIn from "./Routes/LoggedIn";
 import Adm from "./Routes/Adm/Adm";
+import PhrasalVerbs from "./Routes/Courses/PhrasalVerbs/PhrasalVerbs";
 
 export function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ export function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/homepage" element={<LoggedIn />} />
           <Route path="/adm" element={<Adm />} />
+          <Route path="/phrasal-verbs" element={<PhrasalVerbs />} />
         </Routes>
       </Router>
     </UserProvider>

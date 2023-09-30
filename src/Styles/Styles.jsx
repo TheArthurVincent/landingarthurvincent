@@ -1,10 +1,10 @@
 export const themePartner = {};
 
-// #002950 #5DB008 #0203AD #FACE0A #00a0a0 #a00030 #19D8FA #5b6b13 #86304a
 
-export const primaryColor = () => "#002950";
-export const secondaryColor = () => " #5DB008";
+// #00132b #54bf08 #0203AD #FACE0A #00a0a0 #a00030 #19D8FA #5b6b13 #86304a
 
+export const primaryColor = () => "#00132b";
+export const secondaryColor = () => " #54bf08";
 export const textPrimaryColorContrast = () => "#fff";
 
 var isWhiteTheme = false; // true;

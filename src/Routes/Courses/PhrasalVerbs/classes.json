@@ -1,0 +1,632 @@
+[
+  {
+    "id": 1,
+    "title": "Tell Apart / Tease Out / Draw Out",
+    "content": {
+      "words": [
+        {
+          "wordTitle": "Tell Apart",
+          "definition": "To distinguish or differentiate between two or more similar things or people.",
+          "possibleTranslations": ["Distinguir", "Diferenciar"],
+          "examples": [
+            {
+              "english": "Can you tell the genuine product apart from the counterfeit?",
+              "portuguese": "Você consegue diferenciar o produto original da falsificação?"
+            },
+            {
+              "english": "I can't tell apart the twins; they look exactly the same.",
+              "portuguese": "Eu não consigo distinguir os gêmeos; eles são exatamente iguais."
+            },
+            {
+              "english": "She has a natural talent for telling apart different bird species.",
+              "portuguese": "Ela tem um talento natural para distinguir diferentes espécies de pássaros."
+            }
+          ],
+          "questions": [
+            "Have you ever had difficulty telling apart identical twins or look-alike siblings?",
+            "Can you easily tell apart different varieties or brands of a product?"
+          ]
+        },
+        {
+          "wordTitle": "Tease Out",
+          "definition": "To carefully extract or uncover something gradually, often by examining or analyzing it in detail.",
+          "possibleTranslations": ["Extrair", "Revelar"],
+          "examples": [
+            {
+              "english": "The detective used clever questioning techniques to tease out the truth from the suspect.",
+              "portuguese": "O detetive utilizou técnicas de questionamento inteligentes para extrair a verdade do suspeito."
+            },
+            {
+              "english": "The therapist helped her tease out the underlying emotions causing her anxiety.",
+              "portuguese": "O terapeuta a ajudou a revelar as emoções subjacentes que causavam sua ansiedade."
+            },
+            {
+              "english": "They had to tease out the key details from the complex data set to understand the pattern.",
+              "portuguese": "Eles tiveram que extrair os detalhes-chave do conjunto de dados complexo para entender o padrão."
+            }
+          ],
+          "questions": [
+            "Have you ever had to tease out hidden information during a research project or investigation?",
+            "Can you share an experience where you successfully teased out a difficult-to-express idea from someone else?"
+          ]
+        },
+        {
+          "wordTitle": "Draw Out",
+          "definition": "To elicit or extract information, feelings, or experiences from someone by encouraging them to speak or share.",
+          "possibleTranslations": ["Extrair", "Obter"],
+          "examples": [
+            {
+              "english": "The interviewer tried to draw out more details about the candidate's previous work experience.",
+              "portuguese": "O entrevistador tentou obter mais detalhes sobre a experiência de trabalho anterior do candidato."
+            },
+            {
+              "english": "Her warm and friendly approach helped draw out the shy child, encouraging them to express themselves.",
+              "portuguese": "Sua abordagem calorosa e amigável ajudou a extrair a criança tímida, incentivando-a a se expressar."
+            },
+            {
+              "english": "The therapy session provided a safe space for him to draw out his deep-seated emotions.",
+              "portuguese": "A sessão de terapia proporcionou um espaço seguro para ele extrair suas emoções profundamente enraizadas."
+            }
+          ],
+          "questions": [
+            "How do you typically draw out important information or feedback during a group discussion or meeting?",
+            "Can you recall a time when you used storytelling or other techniques to draw out a shy or reserved individual in a social setting?"
+          ]
+        }
+      ],
+      "texts": [
+        {
+          "textTitle": "Identical twins",
+          "textContent": "When it comes to identical twins, it can be quite challenging to tell them apart. Their physical features and mannerisms are so similar that even their closest friends and family members struggle to differentiate between them. However, there are subtle clues that can help you tell them apart. Pay attention to their unique hairstyles or accessories: these small details can be telling. Moreover, their personalities often differ, so observe their behavior and interests to distinguish one from the other. Spending quality time with them and actively engaging in conversations will make it easier to tease out their individual traits. As you get to know them better, you'll start to notice the little things that differentiate between them, as you draw out their distinct experiences. Remember, it's not always about their physical appearances, but the nuances that bring their unique personalities to light.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/twins.png?updatedAt=1688047755161"
+        },
+        {
+          "textTitle": "Max, the detective",
+          "textContent": "Once upon a time, there was a detective named Max. He was known for his keen observation skills and his ability to solve puzzling mysteries. One day, Max received a mysterious case about a stolen necklace. The problem was that there were no witnesses, and all the suspects looked similar. Max knew he had to tell apart the culprits. He carefully studied the crime scene, examining tiny clues like footprints and fingerprints. With his detective instincts, he managed to tease out some useful information from the suspects by asking clever questions. Slowly, he started drawing out their true intentions and motivations. By combining his powers of observation and his talent for teasing out information, Max was able to uncover the truth behind the stolen necklace. The case was solved, and the thief was caught. Max's ability to tell apart the suspects and draw out the truth made him a legendary detective, respected by all in the town.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/detective.png?updatedAt=1688047752911"
+        },
+        {
+          "textTitle": "Lily's Botanical Quest",
+          "textContent": "In the futuristic world of 2050, there was a young scientist named Lily. She had a special talent for discovering new species of plants. One day, Lily embarked on an expedition to a remote rainforest in search of a rare flower. As she explored the lush greenery, she came across a peculiar plant with vibrant petals. However, it closely resembled another known species. Lily knew she had to carefully tell apart these two plants to determine if it was a new discovery. She carefully examined their leaves, stem structures, and unique characteristics to tease out any subtle differences. With great excitement, she began to draw out her findings and documented the distinct features of the newfound flower. Lily's discovery was groundbreaking, and her ability to tell apart and tease out the unique traits of the plants made her a renowned scientist in the field of botany. Her work helped protect and preserve the precious biodiversity of our planet for future generations.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/scientist.png?updatedAt=1688047752224"
+        }
+      ],
+      "exercises": [
+        {
+          "urlyoutube": "https://www.youtube.com/embed/-uRdQaCXj4c",
+          "listOfSentences": [
+            "O entrevistador tentou extrair mais informações sobre as experiências de trabalho do candidato.",
+            "O terapeuta usou cores para expressar as emoções da pintura.",
+            "Você consegue distinguir o produto genuíno do falsificado?",
+            "Os gêmeos pareciam tão semelhantes que era desafiador distingui-los.",
+            "O jornalista conduziu entrevistas para desvendar a história oculta por trás do escândalo político.",
+            "O olhar aguçado do detetive permitiu que ele diferenciasse as assinaturas falsificadas das autênticas.",
+            "O treinador motivou a equipe com um discurso, visando extrair seu potencial máximo no jogo.",
+            "As habilidades de contar histórias do palestrante conseguiram despertar risos e lágrimas da plateia.",
+            "O terapeuta habilmente revelou o trauma subjacente durante a sessão de terapia.",
+            "Levou horas de questionamento para extrair a verdade das mentiras do suspeito.",
+            "O professor usou perguntas instigantes para extrair as opiniões e perspectivas dos alunos.",
+            "Eu geralmente consigo distinguir a voz da minha mãe da do meu pai, mesmo ao telefone.",
+            "O detetive tentou extrair quaisquer pistas potenciais da declaração da testemunha.",
+            "O artista usou técnicas para resgatar as memórias profundamente enterradas do cliente.",
+            "Os gêmeos pareciam tão semelhantes que era desafiador distingui-los."
+          ],
+          "srcAudio": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1552840762&color=%23f7f8f6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Abide by / Account for / Act On / Act on / Act out",
+    "content": {
+      "words": [
+        {
+          "wordTitle": "Abide by",
+          "definition": "To follow or obey a rule, law, or agreement.",
+          "possibleTranslations": [
+            "Cumprir (uma regra, lei, acordo)",
+            "Obedecer (a uma regra, lei, acordo)"
+          ],
+          "examples": [
+            {
+              "english": "She abides by the company's dress code policy.",
+              "portuguese": "Ela cumpre as normas de vestimenta da empresa."
+            },
+            {
+              "english": "He abided by the judge's decision and paid the fine.",
+              "portuguese": "Ele cumpriu a decisão do juiz e pagou a multa."
+            },
+            {
+              "english": "We will abide by the new regulations set by the government.",
+              "portuguese": "Nós obedeceremos às novas regulamentações estabelecidas pelo governo."
+            }
+          ],
+          "questions": [
+            "Have you ever received instructions or guidance that you disagreed with but had to abide by? How did you handle it?",
+            "How do you ensure you abide by traffic laws and regulations while driving?",
+            "What values or principles do you abide by when making important decisions in your life?"
+          ]
+        },
+        {
+          "wordTitle": "Account for",
+          "definition": "To explain or justify using specific factors. / To result numerically.",
+          "possibleTranslations": [
+            "Explicar / dar satisfação de (algo)",
+            "Prestar conta de (algo/alguém)",
+            "Totalizar numericamente"
+          ],
+          "examples": [
+            {
+              "english": "The witness must account for his actions during the incident.",
+              "portuguese": "A testemunha deve explicar suas ações durante o incidente."
+            },
+            {
+              "english": "The suspect couldn't account for his whereabouts on the night of the crime.",
+              "portuguese": "O suspeito não conseguiu explicar onde estava na noite do crime."
+            },
+            {
+              "english": "She will have to account for her expenses in the monthly report.",
+              "portuguese": "Ela terá que dar conta de seus gastos no relatório mensal."
+            },
+            {
+              "english": "Women account for 55% of the population.",
+              "portuguese": "Mulheres representam 55% da população."
+            }
+          ],
+          "questions": [
+            "What activities do you have to account for throughout the day?",
+            "Have you ever had to account for your whereabouts during a particular event or situation?",
+            "Can you recall a situation where you had to account for a mistake or error in your work? Discuss it."
+          ]
+        },
+        {
+          "wordTitle": "Act On",
+          "definition": "To take action or make a decision based on information or advice.",
+          "possibleTranslations": [
+            "Agir de acordo com",
+            "Tomar providências com base em"
+          ],
+          "examples": [
+            {
+              "english": "The manager acts on customer feedback to improve the product.",
+              "portuguese": "O gerente age de acordo com o feedback dos clientes para melhorar o produto."
+            },
+            {
+              "english": "The government acted on the recommendations of the expert panel.",
+              "portuguese": "O governo tomou providências com base nas recomendações do painel de especialistas."
+            },
+            {
+              "english": "We will act on the results of the market research to develop our strategy.",
+              "portuguese": "Nós agiremos de acordo com os resultados da pesquisa de mercado para desenvolver nossa estratégia."
+            }
+          ],
+          "questions": [
+            "Have you ever had to act on urgent information or recommendations?",
+            "Have you ever acted on other people`s opinions?",
+            "Does a company always have to act on their client`s opinions?"
+          ]
+        },
+        {
+          "wordTitle": "Act Out",
+          "definition": "To express emotions or feelings through behavior, often in an exaggerated manner.",
+          "possibleTranslations": [
+            "Comportar-se de um jeito",
+            "Expressar através de atitudes"
+          ],
+          "examples": [
+            {
+              "english": "The manager acts on customer feedback to improve the product.",
+              "portuguese": "O gerente age de acordo com o feedback dos clientes para melhorar o produto."
+            },
+            {
+              "english": "The government acted on the recommendations of the expert panel.",
+              "portuguese": "O governo tomou providências com base nas recomendações do painel de especialistas."
+            },
+            {
+              "english": "We will act on the results of the market research to develop our strategy.",
+              "portuguese": "Nós agiremos de acordo com os resultados da pesquisa de mercado para desenvolver nossa estratégia."
+            }
+          ],
+          "questions": [
+            "Have you ever witnessed someone acting out their emotions in a negative way?",
+            "Can you think of a time when you acted out your frustration or anger?",
+            "Do you usually act out your happiness?"
+          ]
+        }
+      ],
+      "texts": [
+        {
+          "textTitle": "Elysian Enterprises",
+          "textContent": "Let me introduce you to our company, Elysian Enterprises, a leading player in the industry. At Elysian Enterprises, we firmly abide by rules and regulations to maintain professionalism and integrity. We not only act out these standards ourselves but also ensure that our employees and stakeholders adhere to them as well. We strictly act on ethical guidelines and industry best practices to create a transparent and trustworthy environment.When it comes to accountability, we take it seriously. We account for every decision and action we have taken, ensuring that we can provide a clear and comprehensive explanation for our choices. Additionally, we have implemented robust systems to account for the financial aspects of our business. Our dedicated accounting team meticulously accounts for every penny, maintaining accurate records and ensuring transparency in all financial matters.But we don't just stop at accountability; we also believe in promptly acting on opportunities, challenges, and feedback. Our dynamic team is always ready to act out and seize ways to improve our products and services, constantly striving for innovation and excellence. When our customers provide feedback, we promptly act on it to address their concerns and enhance their experience.We understand the importance of effective communication, and sometimes actions speak louder than words. That's why we also encourage our team members to act out their ideas, bringing them to life through practical demonstrations and prototypes. This hands-on approach allows us to explore new possibilities and make informed decisions. Of course, we are aware that sometimes things don't go as planned. Technology may misbehave, or unexpected challenges may arise. However, we are always prepared to act on these situations head-on. Our dedicated IT team works tirelessly to ensure our systems are reliable and secure. In case of any technical issues, they promptly act on them, minimizing any disruptions and ensuring smooth operations. At Elysian Enterprises, we are more than just a company. We are a team that abides by the highest standards, takes accountability seriously, acts on opportunities, demonstrates innovative ideas, and acts out promptly when challenges arise. We are committed to delivering exceptional products and services, and we look forward to serving you with utmost dedication and professionalism.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/company.jpg?updatedAt=1688423305321"
+        }
+      ],
+      "exercises": [
+        {
+          "urlyoutube": "https://www.youtube.com/embed/I6TCoH4gKtc",
+          "listOfSentences": [
+            "Precisamos cumprir as regras e leis.",
+            "Devemos agir com base nas informações fornecidas.",
+            "O computador está agindo de forma estranha.",
+            "Você precisa dar explicações do seu comportamento.",
+            "A criança estava agindo de forma rebelde.",
+            "Eles agiram com base nas instruções do chefe.",
+            "Meu carro está agindo estranhamente hoje.",
+            "Ele precisa prestar contas por suas ações.",
+            "Devemos sempre cumprir as leis do país.",
+            "Os alunos estavam agindo de forma indisciplinada durante a aula.",
+            "Eles agiram com base nas informações recebidas.",
+            "Ele precisa dar uma explicação e prestar contas por suas decisões.",
+            "O gerente precisa prestar contas pelos resultados do projeto."
+          ],
+          "srcAudio": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1555464505&color=%23f7f8f6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Look (...)",
+    "content": {
+      "words": [
+        {
+          "wordTitle": "Look to",
+          "definition": "To rely on or seek support, guidance, or advice from someone.",
+          "possibleTranslations": ["Contar com", "Depender de"],
+          "examples": [
+            {
+              "english": "In times of trouble, she always looks to her best friend for advice.",
+              "portuguese": "Em tempos difíceis, ela sempre conta com sua melhor amiga para conselhos."
+            },
+            {
+              "english": "They look to their parents for financial support.",
+              "portuguese": "Eles dependem dos pais para apoio financeiro."
+            },
+            {
+              "english": "He looks to his coach for guidance and mentorship.",
+              "portuguese": "Ele conta com seu treinador para orientação e mentoria."
+            }
+          ],
+          "questions": [
+            "Who do you usually look to for advice or support?",
+            "Have you ever looked to a mentor for guidance in your career?"
+          ]
+        },
+        {
+          "wordTitle": "Look at",
+          "definition": "To direct your gaze or attention towards someone or something.",
+          "possibleTranslations": ["Olhar para", "Observar com atenção"],
+          "examples": [
+            {
+              "english": "Look at that beautiful sunset!",
+              "portuguese": "Olhe para aquele lindo pôr do sol!"
+            },
+            {
+              "english": "She looked at herself in the mirror and smiled.",
+              "portuguese": "Ela se olhou no espelho e sorriu."
+            },
+            {
+              "english": "They were all looking at the professor, waiting for her to speak.",
+              "portuguese": "Todos estavam olhando para a professora, esperando que ela falasse."
+            }
+          ],
+          "questions": [
+            "What is the most interesting thing you've ever looked at?",
+            "Have you ever caught someone looking at you when you weren't expecting it?"
+          ]
+        },
+
+        {
+          "wordTitle": "Look on",
+          "definition": "To observe or witness an event or situation without getting directly involved.",
+          "possibleTranslations": [
+            "Observar à distância",
+            "Presenciar algo sem se envolver"
+          ],
+          "examples": [
+            {
+              "english": "They looked on in amazement as the magician performed his tricks.",
+              "portuguese": "Eles observaram maravilhados enquanto o mágico fazia seus truques."
+            },
+            {
+              "english": "I couldn't just look on and do nothing when I saw someone in need.",
+              "portuguese": "Eu não podia apenas observar e não fazer nada quando vi alguém precisando."
+            },
+            {
+              "english": "She looked on with pride as her daughter received the award.",
+              "portuguese": "Ela observou com orgulho enquanto sua filha recebia o prêmio."
+            }
+          ],
+          "questions": [
+            "Have you ever witnessed a memorable event by simply looking on?",
+            "Is there a situation in which you would feel uncomfortable just looking on without taking action?"
+          ]
+        },
+
+        {
+          "wordTitle": "Extra comment - Difference between LOOK ON and LOOK AT ",
+          "definition": "`Look on` typically implies observing a situation or event without actively participating or intervening. It suggests a more passive stance of watching or witnessing something happening. On the other hand, `look at` implies directing your gaze or attention towards a specific object, person, or detail. It suggests a more focused and intentional act of examining or considering something visually.",
+          "possibleTranslations": [
+            "Look at - Olhar para algo",
+            "Look on - Presenciar ou observar algo acontecer, a certa distância."
+          ],
+          "examples": [
+            {
+              "english": "We looked on as the children played in the park.",
+              "portuguese": " (Observing without joining in)"
+            },
+            {
+              "english": "She looked at the painting carefully, appreciating its intricate details.",
+              "portuguese": "(Examining the painting with attention)"
+            }
+          ],
+          "questions": [
+            "Can you give examples of each phrasal verbs used in a real situation?"
+          ]
+        },
+        {
+          "wordTitle": "Look after",
+          "definition": "To take care of or be responsible for someone or something.",
+          "possibleTranslations": ["Cuidar de", "Zelar por"],
+          "examples": [
+            {
+              "english": "Can you look after my dog while I'm on vacation?",
+              "portuguese": "Você pode cuidar do meu cachorro enquanto estou de férias?"
+            },
+            {
+              "english": "She looks after her younger siblings when her parents are at work.",
+              "portuguese": "Ela cuida dos irmãos mais novos quando seus pais estão trabalhando."
+            },
+            {
+              "english": "It's important to look after your health by eating well and exercising regularly.",
+              "portuguese": "É importante zelar pela sua saúde, alimentando-se bem e praticando exercícios regularmente."
+            }
+          ],
+          "questions": [
+            "Who usually looks after your pet when you're away?",
+            "What are some ways you can look after the environment in your daily life?"
+          ]
+        },
+        {
+          "wordTitle": "Look down on",
+          "definition": "To have a feeling of superiority or contempt towards someone or something.",
+          "possibleTranslations": ["Desprezar", "Olhar com desdém"],
+          "examples": [
+            {
+              "english": "She looks down on people who don't share her educational background.",
+              "portuguese": "Ela despreza pessoas que não compartilham sua formação educacional."
+            },
+            {
+              "english": "He always looked down on manual labor jobs, considering them inferior.",
+              "portuguese": "Ele sempre olhou com desdém para empregos de trabalho manual, considerando-os inferiores."
+            },
+            {
+              "english": "We should not look down on others based on their appearance or social status.",
+              "portuguese": "Não devemos desprezar os outros com base em sua aparência ou status social."
+            }
+          ],
+          "questions": [
+            "Have you ever felt looked down on by someone? How did it make you feel?",
+            "In what situations do you think it's important not to look down on others?"
+          ]
+        },
+        {
+          "wordTitle": "Look up to",
+          "definition": "To admire or respect someone; to regard someone as a role model.",
+          "possibleTranslations": ["Admirar", "Ter como exemplo"],
+          "examples": [
+            {
+              "english": "I've always looked up to my older brother; he's achieved so much in his career.",
+              "portuguese": "Eu sempre admirei meu irmão mais velho; ele alcançou muito em sua carreira."
+            },
+            {
+              "english": "She looks up to her favorite actress and hopes to be like her one day.",
+              "portuguese": "Ela admira sua atriz favorita e espera ser como ela um dia."
+            },
+            {
+              "english": "They look up to their coach and strive to emulate his success.",
+              "portuguese": "Eles têm seu treinador como exemplo e se esforçam para emular seu sucesso."
+            }
+          ],
+          "questions": [
+            "Who is someone you look up to and why?",
+            "Have you ever had someone look up to you as a role model?"
+          ]
+        },
+        {
+          "wordTitle": "Look for",
+          "definition": "To search or seek something or someone.",
+          "possibleTranslations": ["Procurar", "Buscar"],
+          "examples": [
+            {
+              "english": "I need to look for my keys; I can't find them anywhere.",
+              "portuguese": "Preciso procurar minhas chaves; não consigo encontrá-las em nenhum lugar."
+            },
+            {
+              "english": "She's looking for a new job with better opportunities.",
+              "portuguese": "Ela está buscando um novo emprego com melhores oportunidades."
+            },
+            {
+              "english": "They looked for answers to their questions in books and online resources.",
+              "portuguese": "Eles procuraram respostas para suas perguntas em livros e recursos online."
+            }
+          ],
+          "questions": [
+            "What is something you've recently looked for but couldn't find?",
+            "Have you ever looked for a lost item and eventually found it in an unexpected place?"
+          ]
+        },
+        {
+          "wordTitle": "Look forward to",
+          "definition": "To feel excited or eager about something that is going to happen.",
+          "possibleTranslations": [
+            "Esperar ansiosamente por",
+            "Aguardar com expectativa"
+          ],
+          "examples": [
+            {
+              "english": "I'm looking forward to our vacation; it's been a long time since we had a break.",
+              "portuguese": "Estou esperando ansiosamente por nossas férias; faz muito tempo desde a última vez que tiramos folga."
+            },
+            {
+              "english": "She's looking forward to the concert; her favorite band will be performing.",
+              "portuguese": "Ela está aguardando com expectativa o show; sua banda favorita estará se apresentando."
+            },
+            {
+              "english": "They look forward to spending time with family during the holidays.",
+              "portuguese": "Eles aguardam com expectativa passar tempo com a família durante as festas."
+            }
+          ],
+          "questions": [
+            "What is something you are currently looking forward to?",
+            "Have you ever looked forward to an event or occasion and then felt disappointed?"
+          ]
+        }
+      ],
+      "texts": [
+        {
+          "textTitle": "Looking Forward to the Weekend",
+          "textContent": "I always look forward to the weekend. On Saturday mornings, I look after my cute dog, Max. We go for long walks in the park, and I look at how happy he is. Later, I look for new recipes to cook and look at different cooking channels for inspiration. In the evening, I look on Netflix for a good movie to watch. Sometimes, I look up to famous chefs and look to improve my cooking skills like them. Weekends are when I recharge and look forward to creating more beautiful memories.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704"
+        },
+        {
+          "textTitle": "Starting a New Job",
+          "textContent": "I am excited to start a new job next week. I look forward to meeting my new colleagues and look forward to learning from them. My friend is already working there, and I look up to her as a role model. She always looks after others and is well-respected in the company. I know I can look to her for guidance. Although I am nervous, I look forward to this new challenge and look for ways to excel in my role. I won't look down on myself; instead, I'll look at each day as an opportunity to grow.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/newjob.jpg?updatedAt=1688471773651"
+        },
+        {
+          "textTitle": "Finding a Lost Treasure",
+          "textContent": "Yesterday, I lost my favorite necklace, and I looked everywhere for it. I looked at the places I had been and even looked on the floor. My mom looks after our house, and she helped me look for it too. She's someone I look up to for her patience and care. Today, I'm still looking for it, but I'm not giving up. I look forward to finding my treasure soon. I won't look down on myself, as I know I'll find it with determination.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/necklace.jpg?updatedAt=1688471773559"
+        },
+        {
+          "textTitle": "The New Student",
+          "textContent": "Today, a new student joined our class. We all looked at him with curiosity. He's from a different country, and we want to make him feel welcome. I look forward to getting to know him better and look forward to becoming friends. I won't look down on his accent or culture; instead, I'll look at it as an opportunity to learn something new. Our teacher told us to look after him and help him adjust. Together, we'll make him feel at home and look after him like a new family member.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/newstudent.jpg?updatedAt=1688471773669"
+        }
+      ],
+      "exercises": [
+        {
+          "urlyoutube": "https://www.youtube.com/embed/W9-Vm0P3hSA",
+          "listOfSentences": [
+            "Sempre espero ansiosamente pelo fim de semana, é meu momento de relaxar e recarregar as energias.",
+            "Ao enfrentar desafios, busco apoio e orientação dos meus amigos.",
+            "A professora olhou para os alunos com um sorriso orgulhoso no rosto.",
+            "Como irmão mais velho, cuido do meu irmão mais novo e me certifico de que ele esteja seguro.",
+            "Não menospreze os outros apenas porque têm opiniões ou origens diferentes.",
+            "Olhe para o lado positivo das coisas e encontrará motivos para ser feliz.",
+            "Perdi minhas chaves, então preciso procurá-las em todos os lugares possíveis.",
+            "Estou realmente ansioso para ir de férias e explorar novos lugares.",
+            "O jovem artista admira Picasso e espera criar obras-primas como ele.",
+            "Quando estiver em dúvida, busque orientação em seu coração e confie em seus instintos.",
+            "É importante cuidar do nosso meio ambiente e protegê-lo para as futuras gerações.",
+            "Esteja atento a oportunidades que surgirem e agarre-as com determinação."
+          ],
+          "srcAudio": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1555795951&color=%23f7f8f6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Break up/Back up/Call off",
+    "content": {
+      "words": [
+        {
+          "wordTitle": "Back up",
+          "definition": "To support or assist someone, or to provide evidence or information that supports a claim.",
+          "possibleTranslations": [
+            "Dar apoio a",
+            "Apoiar",
+            "Fornecer evidências para"
+          ],
+          "examples": [
+            {
+              "english": "She always backs up her colleagues in times of need.",
+              "portuguese": "Ela sempre apoia seus colegas em momentos de necessidade."
+            },
+            {
+              "english": "Can you back up your argument with some facts and figures?",
+              "portuguese": "Você consegue fornecer evidências para o seu argumento com alguns fatos e números?"
+            },
+            {
+              "english": "I'll back you up if you decide to confront the issue.",
+              "portuguese": "Eu vou te apoiar se você decidir enfrentar o problema."
+            }
+          ],
+          "questions": [
+            "Have you ever had someone back you up in a difficult situation?",
+            "How important is it to back up your statements with evidence in professional settings?",
+            "What can you do to back up a friend or colleague when they need support?"
+          ]
+        },
+        {
+          "wordTitle": "Break up",
+          "definition": "To end a romantic relationship or a group or organization, or to separate into smaller parts.",
+          "possibleTranslations": [
+            "Terminar um relacionamento",
+            "Desfazer uma organização",
+            "Dividir em partes menores"
+          ],
+          "examples": [
+            {
+              "english": "They decided to break up after five years of dating.",
+              "portuguese": "Eles decidiram terminar o relacionamento após cinco anos de namoro."
+            },
+            {
+              "english": "The company had to break up due to financial difficulties.",
+              "portuguese": "A empresa teve que se desfazer devido a dificuldades financeiras."
+            },
+            {
+              "english": "Let's break up the project into smaller tasks for better management.",
+              "portuguese": "Vamos dividir o projeto em tarefas menores para uma melhor gestão."
+            }
+          ],
+          "questions": [
+            "Have you ever had to break up with someone, or have you been on the receiving end of a breakup?",
+            "In what situations do you think it's necessary to break up a team or organization?",
+            "How do you usually handle the process of breaking up a complex task or project?"
+          ]
+        },
+        {
+          "wordTitle": "Call off",
+          "definition": "To cancel an event or activity, or to decide that it will not happen.",
+          "possibleTranslations": ["Cancelar"],
+          "examples": [
+            {
+              "english": "Due to bad weather, they had to call off the outdoor picnic.",
+              "portuguese": "Devido ao mau tempo, eles tiveram que cancelar o piquenique ao ar livre."
+            },
+            {
+              "english": "The manager decided to call off the meeting because of the urgent issue.",
+              "portuguese": "O gerente decidiu cancelar a reunião devido ao problema urgente."
+            },
+            {
+              "english": "The school had to call off the field trip due to unforeseen circumstances.",
+              "portuguese": "A escola teve que cancelar a excursão devido a circunstâncias imprevistas."
+            }
+          ],
+          "questions": [
+            "Can you recall a time when you had to call off an event or plan due to unexpected circumstances?",
+            "What factors should be considered before deciding to call off a scheduled activity or event?",
+            "How do you communicate the decision to call off an event effectively to the participants?"
+          ]
+        }
+      ],
+      "texts": [
+        {
+          "textTitle": "Crossroads of Love: The Bittersweet Journey of Sarah and Mark",
+          "textContent": "High school sweethearts, Sarah and Mark, always had each other's backs. They supported each other through thick and thin, acting on their feelings with unwavering dedication. However, as time passed, the pressure of impending college decisions started to break them up. Sarah had dreams of studying on the West Coast, while Mark was committed to an East Coast university. Torn between their futures and the love they shared, they faced a tough decision. After countless discussions and sleepless nights, they realized that their dreams were taking them in different directions. With heavy hearts, they made the painful choice to call off their relationship, agreeing that it was the best way to pursue their individual paths. In this story, the phrasal verbs are used to describe how the young couple supported each other (back up), how their relationship faced challenges and ultimately ended (break up), and how they decided to cancel their romantic relationship (call off).",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/newstudent.jpg?updatedAt=1688471773669"
+        },
+        {
+          "textTitle": "Love Lost, Business Broken",
+          "textContent": "In a small town, Emily and John embarked on an entrepreneurial journey, creating a quaint bookstore and cafe together. Their shared dreams and hard work initially backed up their business, attracting loyal customers. However, as their personal relationship began to deteriorate, it had a ripple effect on their business. The constant disagreements and emotional strain eventually led to their breakup, forcing them to make the heart-wrenching decision to break up their business as well. Unable to sustain it alone, they sadly called off their beloved bookstore and cafe, a casualty of both love and commerce.",
+          "img": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/newstudent.jpg?updatedAt=1688471773669"
+        }
+      ],
+      "exercises": []
+    }
+  }
+]

@@ -1,18 +1,18 @@
 import React from "react";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { CourseItem, CoursesList } from "./Courses.Styled";
 import {
   HOne,
   HTwo,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
-import generalClasses from "../../assets/mockdata/universalcontent.json";
 import { IFrameVideo } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { transparentBg } from "../../Styles/Styles";
+import { Link, Route } from "react-router-dom";
+import PhrasalVerbs from "./PhrasalVerbs/PhrasalVerbs";
 
-function CourseTemplate({
+export function CourseTemplate({
   courseTitle,
   percentageCourse,
   moduleTitle,
@@ -49,8 +49,11 @@ function CourseTemplate({
 }
 
 export function Courses() {
-  const { UniversalTexts } = useUserContext();
-  return <RouteSizeControlBox>oi</RouteSizeControlBox>;
+  return (
+    <RouteSizeControlBox>
+      <Link to="/phrasal-verbs">here</Link>
+    </RouteSizeControlBox>
+  );
 }
 
 export default Courses;

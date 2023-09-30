@@ -1,0 +1,42 @@
+.englishSentence{font-weight: 700;
+ margin-bottom: 0;
+}
+.portugueseSentence{font-style: italic;}
+.hidden{display:none}
+.vocabulary{ animation: slide 0.3s ease-in-out forwards;}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.questions{
+  background-color: var(--black-arvin);
+  color:var(--white);
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+  }
+  
+    @media print{
+    .theWord{margin: 1rem;padding: 1rem; border: 1px solid var(--blue-arvin);
+      page-break-after: always;
+      box-shadow: 1px 1px 1px 1px var(--blue-arvin);
+    }
+    .questions{
+      border-radius: 0;
+      box-shadow: inset 1px 1px 1px 1px var(--blue-arvin);
+      background-color: var(--white);
+color: var(--blue-arvin);
+    }
+.theWord h3{
+  background-color: white; color:var(--blue-arvin);
+text-decoration: underline;
+}
+    }
