@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import styles from "./PhrasalVerbs.module.css";
 import Main from "./Main/Main";
 import classes from "./classes.json";
-import Notes from "./Main/Notes/Notes";
 import Initial from "./Main/Initial/Initial";
+
 import StudentInfo from "./Main/StudentInfo/StudentInfo";
+import Notes from "./Main/Notes/Notes";
+
 export function PhrasalVerbs() {
   const [selectedClass, setSelectedClass] = useState("");
   const [filteredClasses, setFilteredClasses] = useState([]);
@@ -36,7 +38,7 @@ export function PhrasalVerbs() {
   return (
     <div>
       <header className={styles.header}>
-        <Notes />
+        {/* <Notes /> */}
         <nav>
           <a href="/">Main Page</a>
         </nav>

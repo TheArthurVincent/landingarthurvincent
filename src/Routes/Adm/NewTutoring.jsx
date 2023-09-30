@@ -77,7 +77,11 @@ export function NewTutoring() {
           }}
           onChange={handleSelectChange}
         >
-          <option style={{ cursor: "pointer" }} value="aluno" hidden>
+          <option
+            style={{ cursor: "pointer" }}
+            value="aluno"
+            hidden
+          >
             Escolha o aluno
           </option>
           {student.map((option, index) => {
