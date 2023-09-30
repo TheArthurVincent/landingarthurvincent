@@ -4,7 +4,7 @@ import {
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
-import { Link, NavLink, Route, Routes } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CourseCard } from "./ClassesToTeach.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";

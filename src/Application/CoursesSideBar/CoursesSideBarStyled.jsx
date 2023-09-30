@@ -3,7 +3,6 @@ import {
   secondaryContrast,
   darkGreyColor,
   primaryContrast,
-  transparentBg,
   primaryColor,
   alwaysWhite,
   textPrimaryColorContrast,

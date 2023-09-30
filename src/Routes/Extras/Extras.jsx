@@ -13,7 +13,6 @@ import {
 } from "../../Resources/UniversalComponents";
 import generalClasses from "../../assets/mockdata/universalcontent.json";
 import { transparentBg } from "../../Styles/Styles";
-import { Link } from "react-router-dom";
 
 export function Extras() {
   const { UniversalTexts } = useUserContext();
