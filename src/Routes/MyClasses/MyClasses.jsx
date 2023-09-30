@@ -38,8 +38,6 @@ export function MyClasses({ studentID }) {
           console.log("classesDistinctMonthYears", classesDistinctMonthYears);
         });
     } catch (error) {
-      // alert("Erro ao listar meses");
-
       setClassesDistinctMonthYears(["response.data.distinctMonthYears"]);
     }
   }
@@ -51,7 +49,6 @@ export function MyClasses({ studentID }) {
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
     } catch (error) {
-      // alert("Erro ao listar aulas do mês");
       setClasses(["response.data.formattedTutoringFromParticularStudent"]);
     }
   };

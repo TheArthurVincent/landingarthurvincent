@@ -231,9 +231,10 @@ export function formatDate(dateString) {
 
 export function getVideoEmbedUrl(videoUrl) {
   let embedUrl = "";
-
+  if (!videoUrl) {
+    return "";
+  }
   if (videoUrl.includes("youtube.com")) {
-    // Extrair o ID do vídeo do URL do YouTube
     const youtubeIdMatch = videoUrl.match(
       /(?:\?v=|\/embed\/|\/watch\?v=|\/\d\/|\.be\/)([\w\d_-]+)/i
     );
@@ -242,7 +243,6 @@ export function getVideoEmbedUrl(videoUrl) {
       embedUrl = `https://www.youtube.com/embed/${youtubeIdMatch[1]}`;
     }
   } else if (videoUrl.includes("vimeo.com")) {
-    // Extrair o ID do vídeo do URL do Vimeo
     const vimeoIdMatch = videoUrl.match(/vimeo\.com\/(\d+)/);
 
     if (vimeoIdMatch && vimeoIdMatch[1]) {
