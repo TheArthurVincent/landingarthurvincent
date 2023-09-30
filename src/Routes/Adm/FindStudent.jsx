@@ -194,23 +194,24 @@ export function FindStudent() {
                   justifyContent: "space-between",
                   width: "100%",
                   alignItems: "center",
+                  marginBottom: "2rem",
                 }}
               >
-                <HTwo
+                <h3
                   style={{
                     margin: "0.5rem 0",
                   }}
                 >
                   {student.fullname}
-                </HTwo>{" "}
+                </h3>{" "}
                 <Button onClick={() => seeEdition(student.id)}>Editar</Button>
               </div>
-              <h4>
+              <p>
                 <span style={{ fontWeight: 600 }}>
                   {UniversalTexts.username}
                 </span>
                 : {student.username}
-              </h4>
+              </p>
               <p>
                 <span style={{ fontWeight: 600 }}>
                   {UniversalTexts.document}

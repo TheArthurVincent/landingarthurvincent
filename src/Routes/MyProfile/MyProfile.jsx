@@ -1,7 +1,6 @@
 import React from "react";
 import {
   HOne,
-  HTwo,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
@@ -14,7 +13,6 @@ export function MyProfile({ user }) {
     <RouteSizeControlBox>
       <RouteDiv>
         <HOne>{UniversalTexts.myProfile}</HOne>
-        <HTwo>{UniversalTexts.personalInfo}</HTwo>
         <p>
           {UniversalTexts.name}: {user.name} {user.lastname}
         </p>
