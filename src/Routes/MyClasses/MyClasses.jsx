@@ -15,10 +15,11 @@ import {
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
 import { primaryColor } from "../../Styles/Styles";
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
 import axios from "axios";
 
 export function MyClasses({ studentID }) {
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
   const [classes, setClasses] = useState([]);
@@ -35,10 +36,11 @@ export function MyClasses({ studentID }) {
           console.log("response.data", response.data);
           setClassesDistinctMonthYears(response.data.distinctMonthYears);
           console.log("classesDistinctMonthYears", classesDistinctMonthYears);
-          // return classesDistinctMonthYears;
         });
     } catch (error) {
-      alert("Erro ao listar meses");
+      // alert("Erro ao listar meses");
+
+      setClassesDistinctMonthYears(["response.data.distinctMonthYears"]);
     }
   }
 
@@ -47,17 +49,17 @@ export function MyClasses({ studentID }) {
       const response = await axios.get(
         `${backDomain}/api/v1/tutoring/${studentID}`
       );
-
       setClasses(response.data.formattedTutoringFromParticularStudent);
     } catch (error) {
-      alert("Erro ao listar aulas do mês");
+      // alert("Erro ao listar aulas do mês");
+      setClasses(["response.data.formattedTutoringFromParticularStudent"]);
     }
   };
 
   useEffect(() => {
     fetchMonthYear();
     seeAllClasses();
-    console.log("look ", fetchMonthYear());
+    setLoading(false);
   }, []);
 
   const handleNextPage = () => {
@@ -168,42 +170,65 @@ export function MyClasses({ studentID }) {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
-        <HOne>{UniversalTexts.myClasses}</HOne>
-        <ClassesSideBar />
-        {currentClasses.map((item, index) => (
-          <div key={index}>
-            <ClassBox>
-              <div style={{ textAlign: "center" }}>
-                <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
-              </div>
-              <div style={{ marginLeft: "1rem" }}>
-                <HThree>{item.title}</HThree>
-                <div style={{ padding: "1rem" }}>
-                  <HTwo>{UniversalTexts.date}</HTwo>
-                  <p style={{ maxWidth: "80ch" }}>{item.date}</p>
-                  <HTwo>{UniversalTexts.comments}</HTwo>
-                  <div
-                    style={{
-                      backgroundColor: "#f6f6f6",
-                      padding: "10px",
-                      overflow: "auto",
-                      height: "13rem",
-                    }}
-                  >
-                    <p style={{ maxWidth: "80ch", color: "black" }}>
-                      {item.comments}
-                    </p>
+        {!loading ? (
+          <>
+            <HOne>{UniversalTexts.myClasses}</HOne>
+            <ClassesSideBar />
+            {currentClasses.map((item, index) => (
+              <div key={index}>
+                <ClassBox>
+                  <div style={{ textAlign: "center" }}>
+                    <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
                   </div>
-                  <HTwo>{UniversalTexts.attachments}</HTwo>
-                  <Link to={item.attachments} style={linkReset} target="_blank">
-                    {UniversalTexts.attachments}
-                  </Link>
-                </div>
+                  <div style={{ marginLeft: "1rem" }}>
+                    <HThree>{item.title}</HThree>
+                    <div style={{ padding: "1rem" }}>
+                      <HTwo>{UniversalTexts.date}</HTwo>
+                      <p style={{ maxWidth: "80ch" }}>{item.date}</p>
+                      <HTwo>{UniversalTexts.comments}</HTwo>
+                      <div
+                        style={{
+                          backgroundColor: "#f6f6f6",
+                          padding: "10px",
+                          overflow: "auto",
+                          height: "13rem",
+                        }}
+                      >
+                        <p style={{ maxWidth: "80ch", color: "black" }}>
+                          {item.comments}
+                        </p>
+                      </div>
+                      <HTwo>{UniversalTexts.attachments}</HTwo>
+                      <Link
+                        to={item.attachments}
+                        style={linkReset}
+                        target="_blank"
+                      >
+                        {UniversalTexts.attachments}
+                      </Link>
+                    </div>
+                  </div>
+                </ClassBox>
               </div>
-            </ClassBox>
-          </div>
-        ))}
-        {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
+            ))}
+            {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
+          </>
+        ) : (
+          <>
+            <div style={{ display: "grid", gap: "0.5rem" }}>
+              <Skeleton variant="rectangular" width={1685} height={100} />
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <Skeleton variant="rectangular" width={1300} height={500} />
+                <Skeleton variant="rectangular" width={370} height={500} />
+              </div>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <Skeleton variant="rectangular" width={500} height={30} />
+                <Skeleton variant="rectangular" width={500} height={30} />
+                <Skeleton variant="rectangular" width={650} height={30} />
+              </div>
+            </div>
+          </>
+        )}
       </RouteDiv>
     </RouteSizeControlBox>
   );

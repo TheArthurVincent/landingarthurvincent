@@ -24,6 +24,7 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Skeleton } from "@mui/material";
 
 export function Home({ name, permissions }) {
   const { UniversalTexts } = useUserContext();
@@ -45,24 +46,20 @@ export function Home({ name, permissions }) {
   const [posts, setPosts] = useState([
     {
       text: (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "2rem",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p>Quando houver posts, eles aparecerão aqui...</p>
-          <Spin>
-            <img
-              style={{ maxWidth: "4rem" }}
-              src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/head-white.png?updatedAt=1687369608637"
-              alt="loading"
-            />
-          </Spin>
-        </div>
+        <>
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <Skeleton variant="rectangular" width={1685} height={100} />
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Skeleton variant="rectangular" width={1300} height={500} />
+              <Skeleton variant="rectangular" width={370} height={500} />
+            </div>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Skeleton variant="rectangular" width={500} height={30} />
+              <Skeleton variant="rectangular" width={500} height={30} />
+              <Skeleton variant="rectangular" width={650} height={30} />
+            </div>
+          </div>
+        </>
       ),
     },
   ]);
@@ -342,7 +339,7 @@ export function Home({ name, permissions }) {
                 color: "#ba3c3c",
                 margin: "0.5rem 0",
                 padding: "0.5rem",
-                fontWeight:"500"
+                fontWeight: "500",
                 // color: "#fff",
               }}
             >

@@ -121,7 +121,6 @@ export const Xp = styled.p`
   cursor: pointer;
   font-weight: 900;
   position: absolute;
-  font-family:  Helvetica;
   top: -10px;
   right: 5px;
   font-size: 1.2rem;

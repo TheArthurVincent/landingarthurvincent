@@ -10,7 +10,7 @@ import { primaryColor, transparentBg } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import { linkReset } from "../../Resources/UniversalComponents";
 
