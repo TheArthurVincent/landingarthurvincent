@@ -3,23 +3,10 @@ import styles from "./PhrasalVerbs.module.css";
 import Main from "./Main/Main";
 import classes from "./classes.json";
 import Initial from "./Main/Initial/Initial";
-import StudentInfo from "./Main/StudentInfo/StudentInfo";
-import Notes from "./Main/Notes/Notes";
 
 export function PhrasalVerbs() {
   const [selectedClass, setSelectedClass] = useState("");
   const [filteredClasses, setFilteredClasses] = useState([]);
-  const [studentName, setStudentName] = useState("");
-  const [date, setDate] = useState("");
-
-  const handleNameChange = (event) => {
-    setStudentName(event.target.value);
-  };
-
-  const handleDateChange = (event) => {
-    setDate(event.target.value);
-    ("");
-  };
 
   useEffect(() => {
     if (selectedClass) {
@@ -37,7 +24,6 @@ export function PhrasalVerbs() {
   return (
     <div>
       <header className={styles.header}>
-        {/* <Notes /> */}
         <nav>
           <a href="/">Main Page</a>
         </nav>
@@ -61,10 +47,7 @@ export function PhrasalVerbs() {
           </select>
         </div>
       </header>
-      {/* <StudentInfo
-        onNameChange={handleNameChange}
-        onDateChange={handleDateChange}
-      /> */}
+
       {selectedClass ? (
         filteredClasses.map((item) => (
           <div className={styles.maxwidth}>
@@ -73,8 +56,6 @@ export function PhrasalVerbs() {
               key={`${item.id}0`}
               title={item.title}
               content={item.content}
-              name={studentName}
-              day={date}
             />
           </div>
         ))
