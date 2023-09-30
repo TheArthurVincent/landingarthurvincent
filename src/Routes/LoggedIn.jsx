@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {
-  primaryColor,
-  setHTMLStyle,
-  transparentBg,
-} from "../Styles/Styles";
+import { primaryColor, setHTMLStyle, transparentBg } from "../Styles/Styles";
 import Home from "./Home/Home";
 import MyProfile from "./MyProfile/MyProfile";
 import MyClasses from "./MyClasses/MyClasses";
-import Courses from "./Courses/Courses";
 import Extras from "./Extras/Extras";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
 import { Button, DisapearOnMobile } from "../Resources/UniversalComponents";
 import { Navigate } from "react-router-dom";
+import ClassesToTeach from "./ClassesToTeach/ClassesToTeach";
 
 export function LoggedIn() {
   useEffect(() => {
@@ -60,9 +56,9 @@ export function LoggedIn() {
       display: "block",
     },
     {
-      title: "Courses",
+      title: "Resources for Classes",
       value: "3",
-      component: <Courses />,
+      component: <ClassesToTeach />,
       display: permissions == "superadmin" ? "block" : "none",
     },
     {

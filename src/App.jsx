@@ -5,7 +5,7 @@ import { setHTMLStyle } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
 import LoggedIn from "./Routes/LoggedIn";
 import Adm from "./Routes/Adm/Adm";
-import PhrasalVerbs from "./Routes/Courses/PhrasalVerbs/PhrasalVerbs";
+import PhrasalVerbs from "./Routes/ClassesToTeach/PhrasalVerbs/PhrasalVerbs";
 
 export function App() {
   useEffect(() => {

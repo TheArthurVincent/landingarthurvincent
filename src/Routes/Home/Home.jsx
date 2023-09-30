@@ -15,7 +15,6 @@ import {
   IFrameVideo,
   getVideoEmbedUrl,
   ImgBlog,
-  Spin,
   Xp,
 } from "../../Resources/UniversalComponents";
 import {
@@ -23,7 +22,6 @@ import {
   secondaryContrast,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { Skeleton } from "@mui/material";
 
 export function Home({ name, permissions }) {
