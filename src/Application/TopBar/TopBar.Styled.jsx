@@ -14,8 +14,7 @@ export const TopBarContainer = styled.header`
   background-color: ${primaryContrast()};
   justify-content: space-evenly;
   align-items: center;
-  min-height: 5rem;
-  padding: 0rem 4rem;
+  padding: 0.4rem 4rem;
   z-index: 6;
 `;
 
