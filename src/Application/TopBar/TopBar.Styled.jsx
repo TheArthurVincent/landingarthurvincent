@@ -9,11 +9,10 @@ import {
 
 export const TopBarContainer = styled.header`
   display: flex;
-  position: fixed;
   top: 0;
   width: 96%;
   background-color: ${primaryContrast()};
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   min-height: 5rem;
   padding: 0rem 4rem;

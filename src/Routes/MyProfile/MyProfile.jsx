@@ -5,6 +5,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 
 export function MyProfile() {
   const [user, setUser] = useState({});
@@ -18,6 +19,7 @@ export function MyProfile() {
     <RouteSizeControlBox>
       <RouteDiv>
         <HOne>{UniversalTexts.myProfile}</HOne>
+        <BackToHomePage />
         <div style={{ padding: "0.5rem" }}>
           <p>
             {UniversalTexts.name}: {user.name} {user.lastname}
