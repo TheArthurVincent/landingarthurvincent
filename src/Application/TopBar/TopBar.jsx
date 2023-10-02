@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   TopBarContainer,
-  LinkItem,
   TopBarNavigation,
   TopBarNavigationBurger,
   BackgroundClick,
 } from "./TopBar.Styled";
 import Logo from "../../assets/complete-logo.png";
-import { Button, linkReset } from "../../Resources/UniversalComponents";
+import { Button } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import { primaryColor, transparentBg } from "../../Styles/Styles";
+import {
+  primaryColor,
+  secondaryColor,
+  transparentBg,
+} from "../../Styles/Styles";
 
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
@@ -35,27 +38,25 @@ export default function TopBar() {
     {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
-      display: "block",
     },
     {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",
-      display: "block",
     },
     {
       title: UniversalTexts.extras,
       endpoint: "/extras",
-      display: "block",
     },
+  ];
+
+  const toAdm = [
     {
       title: "Classes to teach",
       endpoint: "/classes-to-teach",
-      display: permissions == "superadmin" ? "block" : "none",
     },
     {
       title: "Adm",
       endpoint: "/adm",
-      display: permissions == "superadmin" ? "block" : "none",
     },
   ];
 
@@ -99,6 +100,28 @@ export default function TopBar() {
             );
           })}
         </div>
+        <div
+          style={{
+            display: permissions == "superadmin" ? "grid" : "none",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            gap: "2rem",
+          }}
+        >
+          {toAdm.map((link, index) => {
+            return (
+              <NavLink
+                key={index}
+                style={{
+                  color: secondaryColor(),
+                }}
+                to={link.endpoint}
+              >
+                {link.title}
+              </NavLink>
+            );
+          })}
+        </div>
       </TopBarNavigationBurger>
       <BackgroundClick onClick={handleVisible} style={{ display: visible }} />
       <TopBarNavigation>
@@ -115,8 +138,30 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  display: link.display,
                   color: primaryColor(),
+                }}
+                to={link.endpoint}
+              >
+                {link.title}
+              </NavLink>
+            );
+          })}
+        </div>
+        <div
+          style={{
+            display: permissions == "superadmin" ? "flex" : "none",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            gap: "2rem",
+          }}
+        >
+          <span>|</span>
+          {toAdm.map((link, index) => {
+            return (
+              <NavLink
+                key={index}
+                style={{
+                  color: secondaryColor(),
                 }}
                 to={link.endpoint}
               >

@@ -88,7 +88,7 @@ body {
   margin-right: 0.5rem;
 }
 select {
-  min-height: 3rem;
+  min-height: 2rem;
   background-color: var(--blue-arvin);
   color: var(--white);
 }
