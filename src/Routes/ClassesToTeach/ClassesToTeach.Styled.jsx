@@ -42,19 +42,16 @@ export const CourseCard = styled.div`
   flex-direction: column;
   border-radius: 0.5rem;
   transition: 0.1s;
+  border: solid 1px #ddd;
   img {
     filter: grayscale(100%);
     transition: filter 0.1s;
   }
   &:hover {
-    background-image: linear-gradient(to bottom, #3c8806, #54bf08);
-    border-radius: 0.7rem;
+    border: solid 1px #54bf08;
+    border-radius: 0;
     img {
       filter: grayscale(0%);
-    }
-    h3 {
-      background-color: #000;
-      transition: 0.1s;
     }
   }
 `;

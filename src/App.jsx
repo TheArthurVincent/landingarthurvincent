@@ -18,7 +18,6 @@ export function App() {
 
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
-    console.log(token);
     return token;
   };
 

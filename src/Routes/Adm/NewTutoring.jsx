@@ -28,7 +28,6 @@ export function NewTutoring() {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`);
         setStudent(response.data.listOfStudents);
-        console.log(student);
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }
