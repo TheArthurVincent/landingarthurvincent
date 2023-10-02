@@ -3,7 +3,7 @@ import { setHTMLStyle } from "../Styles/Styles";
 import Blog from "./Blog/Blog";
 import TopBar from "../Application/TopBar/TopBar";
 
-export function Application() {
+export function HomePage() {
   useEffect(() => {
     setHTMLStyle();
   }, []);
@@ -23,4 +23,4 @@ export function Application() {
   );
 }
 
-export default Application;
+export default HomePage;

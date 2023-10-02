@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import { setHTMLStyle } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
-import Application from "./Routes/Application";
+import HomePage from "./Routes/HomePage";
 import Adm from "./Routes/Adm/Adm";
 import PhrasalVerbs from "./Routes/ClassesToTeach/PhrasalVerbs/PhrasalVerbs";
 import MyClasses from "./Routes/MyClasses/MyClasses";
@@ -25,12 +25,9 @@ export function App() {
     <UserProvider>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={verifyToken() ? <Application /> : <Login />}
-          />
+          <Route path="/" element={verifyToken() ? <HomePage /> : <Login />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/homepage/*" element={<Application />} />
+          <Route path="/homepage/*" element={<HomePage />} />
           <Route path="/extras" element={<Extras />} />
           <Route path="/adm" element={<Adm />} />
           <Route path="/my-classes" element={<MyClasses />} />
