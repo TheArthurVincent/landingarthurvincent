@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { primaryColor, setHTMLStyle, transparentBg } from "../Styles/Styles";
 import Blog from "./Home/Home";
-import MyProfile from "./MyProfile/MyProfile";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
 import { Button, DisapearOnMobile } from "../Resources/UniversalComponents";
 import { NavLink } from "react-router-dom";
@@ -13,12 +10,6 @@ export function Application() {
     setHTMLStyle();
   }, []);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const [value, setValue] = useState("1");
-  const [user, setUser] = useState({});
   const [name, setName] = useState("");
   const [permissions, setPermissions] = useState("");
 
@@ -30,7 +21,6 @@ export function Application() {
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setUser(getLoggedUser);
     setName(getLoggedUser.name);
     setPermissions(getLoggedUser.permissions);
   }, []);
@@ -50,8 +40,10 @@ export function Application() {
         style={{
           padding: "0 2rem",
           display: "flex",
+          padding: "0.5rem",
           alignItems: "center",
           justifyContent: "space-evenly",
+          backgroundColor: "#fff",
         }}
       >
         <DisapearOnMobile>
@@ -116,10 +108,10 @@ export function Application() {
           >
             Extras
           </NavLink>
-          <Button onClick={onLoggOut}>Sair</Button>
         </div>
+        <Button onClick={onLoggOut}>Sair</Button>
       </div>
-      <Blog />
+      <Blog name={name} />
     </>
   );
 }
