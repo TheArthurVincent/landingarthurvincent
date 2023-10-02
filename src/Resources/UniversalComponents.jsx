@@ -229,7 +229,7 @@ export const BackToHomePage = () => {
       }}
     >
       <Link style={linkReset} to="/application">
-        Voltar para página inicial
+        Voltar à página inicial
       </Link>
     </div>
   );

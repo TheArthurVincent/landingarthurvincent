@@ -49,12 +49,6 @@ export function Application() {
       display: "block",
     },
     {
-      title: "My Classes",
-      value: "2",
-      component: <MyClasses studentID={ID} />,
-      display: "block",
-    },
-    {
       title: "My Profile",
       value: "4",
       component: <MyProfile user={user} />,
@@ -121,7 +115,7 @@ export function Application() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-evenly",
-              gap: "1rem",
+              gap: "2rem",
             }}
           >
             <NavLink
@@ -133,6 +127,16 @@ export function Application() {
               to="/classes-to-teach"
             >
               Classes
+            </NavLink>{" "}
+            <NavLink
+              style={{
+                display: permissions == "superadmin" ? "block" : "none",
+
+                color: primaryColor(),
+              }}
+              to="/my-classes"
+            >
+              My Classes
             </NavLink>
             <NavLink
               style={{

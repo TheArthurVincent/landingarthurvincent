@@ -34,6 +34,7 @@ export function App() {
           <Route path="/application/*" element={<Application />} />
           <Route path="/extras" element={<Extras />} />
           <Route path="/adm" element={<Adm />} />
+          <Route path="/my-classes" element={<MyClasses />} />
           <Route path="/classes-to-teach" element={<ClassesToTeach />} />
           <Route path="/phrasal-verbs" element={<PhrasalVerbs />} />
         </Routes>

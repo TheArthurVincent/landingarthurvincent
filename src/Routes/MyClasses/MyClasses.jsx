@@ -7,6 +7,7 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
+  BackToHomePage,
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
@@ -18,7 +19,7 @@ import { primaryColor } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import axios from "axios";
 
-export function MyClasses({ studentID }) {
+export function MyClasses() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
@@ -29,33 +30,24 @@ export function MyClasses({ studentID }) {
 
   const { UniversalTexts } = useUserContext();
   async function fetchMonthYear() {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     try {
       await axios
-        .get(`${backDomain}/api/v1/tutoringmonthyear/${studentID}`)
+        .get(`${backDomain}/api/v1/tutoringmonthyear/${getLoggedUser.id}`)
         .then((response) => {
-          console.log("response.data", response.data);
           setClassesDistinctMonthYears(response.data.distinctMonthYears);
-          console.log("classesDistinctMonthYears", classesDistinctMonthYears);
         });
+      const response = await axios.get(
+        `${backDomain}/api/v1/tutoring/${getLoggedUser.id}`
+      );
+      setClasses(response.data.formattedTutoringFromParticularStudent);
     } catch (error) {
       setClassesDistinctMonthYears(["response.data.distinctMonthYears"]);
     }
   }
 
-  const seeAllClasses = async () => {
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/tutoring/${studentID}`
-      );
-      setClasses(response.data.formattedTutoringFromParticularStudent);
-    } catch (error) {
-      setClasses(["response.data.formattedTutoringFromParticularStudent"]);
-    }
-  };
-
   useEffect(() => {
     fetchMonthYear();
-    seeAllClasses();
     setLoading(false);
   }, []);
 
@@ -171,6 +163,7 @@ export function MyClasses({ studentID }) {
         {!loading ? (
           <>
             <HOne>{UniversalTexts.myClasses}</HOne>
+            <BackToHomePage />
             <ClassesSideBar />
             {currentClasses.map((item, index) => (
               <div key={index}>
