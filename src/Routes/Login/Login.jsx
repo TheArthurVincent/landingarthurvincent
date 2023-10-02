@@ -50,11 +50,11 @@ export function Login() {
       style={{
         backgroundColor: transparentBg(),
         color: secondaryContrast(),
-        maxWidth: "1000px",
+        maxWidth: "400px",
         marginLeft: "auto",
         marginRight: "auto",
-        border: "solid 1px black",
-        padding: "10rem 0",
+        padding: "5rem 0",
+        marginTop:"200px"
       }}
     >
       <form
