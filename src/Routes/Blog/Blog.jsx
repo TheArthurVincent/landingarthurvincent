@@ -103,7 +103,7 @@ export function Blog({ name, permissions }) {
         `${backDomain}/api/v1/blogposts/${id}`,
         editedPost
       );
-      window.location.href = "/application";
+      window.location.href = "/";
     } catch (error) {
       alert("Erro ao editar post");
       console.error(error);
@@ -116,7 +116,7 @@ export function Blog({ name, permissions }) {
         `${backDomain}/api/v1/blogposts/${id}`
       );
       alert("Post definitivamente excluído");
-      window.location.href = "/application";
+      window.location.href = "/";
     } catch (error) {
       alert("Erro ao editar post");
       console.error(error);

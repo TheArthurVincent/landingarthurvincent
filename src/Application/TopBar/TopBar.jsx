@@ -67,7 +67,7 @@ export default function TopBar() {
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
-      <Link to="/application">
+      <Link to="/">
         <LogoStyle>
           <img
             style={{ border: "none", maxWidth: "8rem" }}

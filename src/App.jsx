@@ -30,7 +30,7 @@ export function App() {
             element={verifyToken() ? <Application /> : <Login />}
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/application/*" element={<Application />} />
+          <Route path="/homepage/*" element={<Application />} />
           <Route path="/extras" element={<Extras />} />
           <Route path="/adm" element={<Adm />} />
           <Route path="/my-classes" element={<MyClasses />} />

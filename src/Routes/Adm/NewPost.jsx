@@ -22,7 +22,7 @@ export function NewPost() {
         newPost
       );
       alert("Post criado com sucesso!");
-      window.location.href = "/application";
+      window.location.href = "/";
     } catch (error) {
       alert("Erro ao cadastrar usuário");
     }

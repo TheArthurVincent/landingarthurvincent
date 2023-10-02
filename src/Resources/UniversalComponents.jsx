@@ -228,7 +228,7 @@ export const BackToHomePage = () => {
         justifyContent: "right",
       }}
     >
-      <Link style={linkReset} to="/application">
+      <Link style={linkReset} to="/">
         Voltar à página inicial
       </Link>
     </div>

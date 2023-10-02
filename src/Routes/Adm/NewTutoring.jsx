@@ -57,7 +57,7 @@ export function NewTutoring() {
         newTutoring
       );
       alert("Aula criada com sucesso!");
-      window.location.href = "/application";
+      window.location.href = "/";
     } catch (error) {
       alert("Erro ao salvar aula");
     }

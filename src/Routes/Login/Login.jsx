@@ -34,7 +34,7 @@ export function Login() {
       const { token, loggedIn } = response.data;
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-      window.location.assign("/application");
+      window.location.assign("/");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");
       console.error(error);
