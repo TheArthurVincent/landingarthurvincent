@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { primaryColor, setHTMLStyle, transparentBg } from "../Styles/Styles";
-import Home from "./Home/Home";
+import Blog from "./Home/Home";
 import MyProfile from "./MyProfile/MyProfile";
-import MyClasses from "./MyClasses/MyClasses";
-import Extras from "./Extras/Extras";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import Logo from "../assets/complete-logo.png";
@@ -22,9 +20,7 @@ export function Application() {
   const [value, setValue] = useState("1");
   const [user, setUser] = useState({});
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
   const [permissions, setPermissions] = useState("");
-  const [ID, setID] = useState("");
 
   const onLoggOut = () => {
     localStorage.removeItem("authorization");
@@ -36,145 +32,95 @@ export function Application() {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
     setName(getLoggedUser.name);
-    setLastname(getLoggedUser.lastname);
-    setID(getLoggedUser.id);
     setPermissions(getLoggedUser.permissions);
   }, []);
 
   const appTabs = [
     {
-      title: "Home",
+      title: "Blog",
       value: "1",
-      component: <Home name={name} permissions={permissions} />,
-      display: "block",
-    },
-    {
-      title: "My Profile",
-      value: "4",
-      component: <MyProfile user={user} />,
+      component: <Blog name={name} permissions={permissions} />,
       display: "block",
     },
   ];
 
   return (
-    <TabContext value={value}>
-      <Box
+    <>
+      <div
         style={{
-          padding: "0.5rem",
-          backgroundColor: "#fff",
+          padding: "0 2rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
         }}
-        sx={{ borderBottom: 1, borderColor: "divider" }}
       >
+        <DisapearOnMobile>
+          <img
+            style={{ width: "9rem", cursor: "pointer" }}
+            onClick={() => {
+              window.location.reload();
+            }}
+            src={Logo}
+            alt="logo"
+          />
+        </DisapearOnMobile>
+
         <div
           style={{
-            padding: "0 2rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-evenly",
+            gap: "2rem",
           }}
         >
-          <DisapearOnMobile>
-            <img
-              style={{ width: "9rem", cursor: "pointer" }}
-              onClick={() => {
-                window.location.reload();
-              }}
-              src={Logo}
-              alt="logo"
-            />
-          </DisapearOnMobile>
-
-          <TabList
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
+          <NavLink
             style={{
-              maxWidth: "40rem",
+              display: permissions == "superadmin" ? "block" : "none",
+
+              color: primaryColor(),
             }}
+            to="/classes-to-teach"
           >
-            {appTabs.map((component, index) => {
-              return (
-                <Tab
-                  key={index}
-                  style={{
-                    fontWeight: 500,
-                    fontFamily: "Lato",
-                    display: component.display,
-                    color: primaryColor(),
-                    margin: "0.2rem",
-                    backgroundColor: "white",
-                  }}
-                  label={component.title}
-                  value={component.value}
-                />
-              );
-            })}
-          </TabList>
-          <div
+            Classes
+          </NavLink>{" "}
+          <NavLink
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-evenly",
-              gap: "2rem",
+              color: primaryColor(),
             }}
+            to="/my-classes"
           >
-            <NavLink
-              style={{
-                display: permissions == "superadmin" ? "block" : "none",
-
-                color: primaryColor(),
-              }}
-              to="/classes-to-teach"
-            >
-              Classes
-            </NavLink>{" "}
-            <NavLink
-              style={{
-                display: permissions == "superadmin" ? "block" : "none",
-
-                color: primaryColor(),
-              }}
-              to="/my-classes"
-            >
-              My Classes
-            </NavLink>
-            <NavLink
-              style={{
-                display: permissions == "superadmin" ? "block" : "none",
-                color: primaryColor(),
-              }}
-              to="/adm"
-            >
-              Adm
-            </NavLink>
-            <NavLink
-              style={{
-                color: primaryColor(),
-              }}
-              to="/extras"
-            >
-              Extras
-            </NavLink>
-            <Button onClick={onLoggOut}>Sair</Button>
-          </div>
+            My Classes
+          </NavLink>
+          <NavLink
+            style={{
+              display: permissions == "superadmin" ? "block" : "none",
+              color: primaryColor(),
+            }}
+            to="/adm"
+          >
+            Adm
+          </NavLink>{" "}
+          <NavLink
+            style={{
+              color: primaryColor(),
+            }}
+            to="/my-profile"
+          >
+            My profile
+          </NavLink>
+          <NavLink
+            style={{
+              color: primaryColor(),
+            }}
+            to="/extras"
+          >
+            Extras
+          </NavLink>
+          <Button onClick={onLoggOut}>Sair</Button>
         </div>
-      </Box>
-      {appTabs.map((component, index) => {
-        return (
-          <TabPanel
-            key={index}
-            style={{
-              margin: "0 1rem",
-              padding: "1px",
-              display: component.display,
-            }}
-            value={component.value}
-          >
-            {component.component}
-          </TabPanel>
-        );
-      })}
-    </TabContext>
+      </div>
+      <Blog />
+    </>
   );
 }
 

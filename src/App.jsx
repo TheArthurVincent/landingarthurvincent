@@ -35,6 +35,7 @@ export function App() {
           <Route path="/extras" element={<Extras />} />
           <Route path="/adm" element={<Adm />} />
           <Route path="/my-classes" element={<MyClasses />} />
+          <Route path="/my-profile" element={<MyProfile />} />
           <Route path="/classes-to-teach" element={<ClassesToTeach />} />
           <Route path="/phrasal-verbs" element={<PhrasalVerbs />} />
         </Routes>

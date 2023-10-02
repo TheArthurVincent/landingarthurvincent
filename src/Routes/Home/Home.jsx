@@ -25,7 +25,7 @@ import {
 } from "../../Styles/Styles";
 import { Skeleton } from "@mui/material";
 
-export function Home({ name, permissions }) {
+export function Blog({ name, permissions }) {
   const { UniversalTexts } = useUserContext();
   const [newTitle, setNewTitle] = useState("");
   const [id, setID] = useState("");
@@ -47,15 +47,14 @@ export function Home({ name, permissions }) {
       text: (
         <>
           <div style={{ display: "grid", gap: "0.5rem" }}>
-            <Skeleton variant="rectangular" width={1685} height={100} />
+            <Skeleton variant="rectangular" width={1650} height={100} />
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              <Skeleton variant="rectangular" width={1300} height={500} />
-              <Skeleton variant="rectangular" width={370} height={500} />
+              <Skeleton variant="rectangular" width={1650} height={500} />
             </div>
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              <Skeleton variant="rectangular" width={500} height={30} />
-              <Skeleton variant="rectangular" width={500} height={30} />
-              <Skeleton variant="rectangular" width={650} height={30} />
+              <Skeleton variant="rectangular" width={500} height={60} />
+              <Skeleton variant="rectangular" width={500} height={60} />
+              <Skeleton variant="rectangular" width={650} height={60} />
             </div>
           </div>
         </>
@@ -376,4 +375,4 @@ export function Home({ name, permissions }) {
   );
 }
 
-export default Home;
+export default Blog;
