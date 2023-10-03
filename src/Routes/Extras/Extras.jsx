@@ -9,7 +9,6 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import {
   BackToHomePage,
   IFrameVideo,
-  linkReset,
 } from "../../Resources/UniversalComponents";
 import generalClasses from "../../assets/mockdata/universalcontent.json";
 import { transparentBg } from "../../Styles/Styles";
