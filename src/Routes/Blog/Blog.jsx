@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import {
   RouteDiv,
-  HOne,
   RouteSizeControlBox,
   BlogPostTitle,
   HTwo,
@@ -25,7 +24,7 @@ import {
 } from "../../Styles/Styles";
 import { Skeleton } from "@mui/material";
 
-export function Blog({ name, permissions }) {
+export function Blog() {
   const { UniversalTexts } = useUserContext();
   const [newTitle, setNewTitle] = useState("");
   const [id, setID] = useState("");
@@ -33,6 +32,8 @@ export function Blog({ name, permissions }) {
   const [newUrlVideo, setNewUrlVideo] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
+  const [name1, setName] = useState(false);
+  const [permissions, setPermissions] = useState(false);
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -61,6 +62,14 @@ export function Blog({ name, permissions }) {
       ),
     },
   ]);
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+  }, []);
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setName(getLoggedUser.name);
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -135,7 +144,7 @@ export function Blog({ name, permissions }) {
         >
           <span>
             {UniversalTexts.hello}
-            {name}
+            {name1}
           </span>
           <span style={{ fontWeight: 400 }}>
             Próxima aula: SEP 16, 2023, 06:03 PM
@@ -314,19 +323,19 @@ export function Blog({ name, permissions }) {
               }}
               onClick={() => handleConfirmDelete()}
             >
-              Excluir
+              {UniversalTexts.delete}
             </Button>
             <Button
               style={{ backgroundColor: "#194169" }}
               onClick={() => handleSeeModal()}
             >
-              Cancelar
+              {UniversalTexts.cancel}
             </Button>
             <Button
               style={{ backgroundColor: "#138017" }}
               onClick={() => editPost(id)}
             >
-              Salvar
+              {UniversalTexts.save}
             </Button>
           </div>
           <div
@@ -347,7 +356,7 @@ export function Blog({ name, permissions }) {
                 // color: "#fff",
               }}
             >
-              Excluir post? (Esta ação nao pode ser desfeita)
+              {UniversalTexts.deleteConfirm}
             </p>
             <div
               style={{
@@ -359,13 +368,13 @@ export function Blog({ name, permissions }) {
                 style={{ backgroundColor: "#194169" }}
                 onClick={() => handleConfirmDelete()}
               >
-                Não!!
+                {UniversalTexts.no}
               </Button>
               <Button
                 style={{ backgroundColor: "#ba3c3c" }}
                 onClick={() => deletePost(id)}
               >
-                Sim...
+                {UniversalTexts.yes}
               </Button>
             </div>
           </div>

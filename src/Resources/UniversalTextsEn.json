@@ -24,6 +24,12 @@
   "email": "E-mail",
   "username": "Username",
   "ankiInfo": "Anki Information",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "save": "Save",
+  "yes": "Yes",
+  "no": "No",
+  "deleteConfirm": "Delete post? (This action cannot be undone)",
   "id": "ID",
   "myStudents": "My students",
   "courses": [

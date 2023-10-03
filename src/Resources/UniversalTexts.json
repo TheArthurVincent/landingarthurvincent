@@ -24,6 +24,12 @@
   "email": "E-mail",
   "username": "Nome de usuário",
   "ankiInfo": "Dados do Anki",
+  "delete": "Excluir",
+  "cancel": "Cancelar",
+  "save": "Salvar",
+  "yes": "Sim",
+  "no": "Não",
+  "deleteConfirm":"Excluir post? (Esta ação não pode ser desfeita)",
   "id": "ID",
   "myStudents": "Meus alunos",
   "courses": [
