@@ -37,6 +37,7 @@ export function Blog() {
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
+    console.log(Date());
   };
 
   const handleConfirmDelete = () => {
