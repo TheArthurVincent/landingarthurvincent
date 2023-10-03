@@ -147,7 +147,7 @@ export function Blog() {
             {name1}
           </span>
           <span style={{ fontWeight: 400 }}>
-            Próxima aula: SEP 16, 2023, 06:03 PM
+            {UniversalTexts.nextClass} SEP 16, 2023, 06:03 PM
           </span>
         </HTwo>
 
