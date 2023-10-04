@@ -23,17 +23,19 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import { Skeleton } from "@mui/material";
+import { useFetcher } from "react-router-dom";
 
 export function Blog() {
   const { UniversalTexts } = useUserContext();
   const [newTitle, setNewTitle] = useState("");
-  const [id, setID] = useState("");
+  const [_id, setID] = useState("");
   const [newText, setNewText] = useState("");
   const [newUrlVideo, setNewUrlVideo] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
-  const [name1, setName] = useState(false);
+  const [name, setName] = useState(false);
   const [permissions, setPermissions] = useState(false);
+  const [nextTutoring, setNextTutoring] = useState([]);
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -70,6 +72,7 @@ export function Blog() {
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setName(getLoggedUser.name);
+    setID(getLoggedUser.id);
   }, []);
 
   useEffect(() => {
@@ -86,6 +89,18 @@ export function Blog() {
     }
 
     fetchData();
+  }, []);
+
+  const findNextTutoring = async () => {
+    const theNextTutoring = await axios.get(
+      `${backDomain}/api/v1/nexttutoring/${_id}`
+    );
+    setNextTutoring(theNextTutoring.data.nextTutoring);
+  };
+
+  useEffect(() => {
+    findNextTutoring();
+    console.log(nextTutoring);
   }, []);
 
   const seeEdition = async (id) => {
@@ -145,10 +160,10 @@ export function Blog() {
         >
           <span>
             {UniversalTexts.hello}
-            {name1}
+            {name}
           </span>
           <span style={{ fontWeight: 400 }}>
-            {UniversalTexts.nextClass} SEP 16, 2023, 06:03 PM
+            {UniversalTexts.nextClass} {nextTutoring.date} | {nextTutoring.time}
           </span>
         </HTwo>
 

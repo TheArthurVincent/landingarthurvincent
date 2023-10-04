@@ -31,9 +31,10 @@ export function Login() {
         password,
       });
 
-      const { token, loggedIn } = response.data;
+      const { token, loggedIn, nextTutoring } = response.data;
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+      localStorage.setItem("nextTutoring", JSON.stringify(nextTutoring));
       window.location.assign("/");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");
@@ -54,7 +55,7 @@ export function Login() {
         marginLeft: "auto",
         marginRight: "auto",
         padding: "5rem 0",
-        marginTop:"200px"
+        marginTop: "200px",
       }}
     >
       <form

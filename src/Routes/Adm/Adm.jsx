@@ -10,15 +10,21 @@ import { primaryColor, transparentBg } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
-import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
+import NextTutoring from "./NextTutoring";
 
 export function Adm() {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState("0");
   const componentsToRender = [
     {
-      title: "Nova aula",
+      title: "Marcar aula particular",
+      value: "0",
+      tooltip: "Adicione a um aluno específico uma aula que já foi dada.",
+      component: <NextTutoring />,
+    },
+    {
+      title: "Postar aula dada",
       value: "1",
       tooltip: "Adicione a um aluno específico uma aula que já foi dada.",
       component: <NewTutoring />,
@@ -71,6 +77,7 @@ export function Adm() {
             {componentsToRender.map((component, index) => {
               return (
                 <Tab
+                  key={index + component.value}
                   style={{
                     fontWeight: 500,
                     color: primaryColor(),
@@ -87,7 +94,7 @@ export function Adm() {
           return (
             <TabPanel
               style={{ padding: 0 }}
-              key={index}
+              key={index + component.value}
               value={component.value}
             >
               {component.component}

@@ -8,17 +8,10 @@ export function HomePage() {
     setHTMLStyle();
   }, []);
 
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setName(getLoggedUser.name);
-  }, []);
-
   return (
     <>
       <TopBar />
-      <Blog name={name} />
+      <Blog />
     </>
   );
 }
