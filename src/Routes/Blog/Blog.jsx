@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import {
   RouteDiv,
@@ -9,7 +9,6 @@ import {
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
 import {
-  Button,
   formatDate,
   backDomain,
   IFrameVideo,
@@ -22,20 +21,31 @@ import {
   secondaryContrast,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
-import { Skeleton } from "@mui/material";
-import { useFetcher } from "react-router-dom";
+import { Button, Skeleton } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export function Blog() {
   const { UniversalTexts } = useUserContext();
   const [newTitle, setNewTitle] = useState("");
   const [_id, setID] = useState("");
+  const [_StudentId, setStudentId] = useState("");
   const [newText, setNewText] = useState("");
   const [newUrlVideo, setNewUrlVideo] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
-  const [name, setName] = useState(false);
-  const [permissions, setPermissions] = useState(false);
-  const [nextTutoring, setNextTutoring] = useState([]);
+  const [name, setName] = useState("");
+  const [permissions, setPermissions] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [isNextClassVisible, setIsNextClassVisible] = useState(false);
+
+  const [nextTutoring, setNextTutoring] = useState({
+    nextTutoring: {
+      studentID: "...",
+      date: "__/__/__",
+      time: "__:__",
+      meetingUrl: "/",
+    },
+  });
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -65,15 +75,33 @@ export function Blog() {
       ),
     },
   ]);
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setPermissions(getLoggedUser.permissions);
-  }, []);
+
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setName(getLoggedUser.name);
-    setID(getLoggedUser.id);
+    setStudentId(getLoggedUser.id || _StudentId);
+    setPermissions(getLoggedUser.permissions);
   }, []);
+
+  // useEffect(() => {}, [_StudentId]);
+
+  const handleSeeIsNextClassVisibleModal = () => {
+    const fetchNextClass = async () => {
+      try {
+        const response = await axios.get(
+          `${backDomain}/api/v1/nexttutoring/${_StudentId}`
+        );
+
+        setLoading(false);
+        setNextTutoring(response.data);
+      } catch (error) {
+        alert("Erro ao importar próximas aulas");
+      }
+    };
+
+    fetchNextClass();
+    setIsNextClassVisible(!isNextClassVisible);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -89,18 +117,6 @@ export function Blog() {
     }
 
     fetchData();
-  }, []);
-
-  const findNextTutoring = async () => {
-    const theNextTutoring = await axios.get(
-      `${backDomain}/api/v1/nexttutoring/${_id}`
-    );
-    setNextTutoring(theNextTutoring.data.nextTutoring);
-  };
-
-  useEffect(() => {
-    findNextTutoring();
-    console.log(nextTutoring);
   }, []);
 
   const seeEdition = async (id) => {
@@ -151,21 +167,43 @@ export function Blog() {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
-        <HTwo
+        <div
           style={{
             margin: "1.2rem",
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <span>
+          <HTwo>
             {UniversalTexts.hello}
             {name}
-          </span>
-          <span style={{ fontWeight: 400 }}>
-            {UniversalTexts.nextClass} {nextTutoring.date} | {nextTutoring.time}
-          </span>
-        </HTwo>
+          </HTwo>
+          <Button
+            style={{
+              color: primaryColor(),
+            }}
+            onClick={handleSeeIsNextClassVisibleModal}
+          >
+            {UniversalTexts.nextClass}
+          </Button>
+        </div>
+        <Link
+          style={{
+            display: isNextClassVisible ? "block" : "none",
+            marginRight: "1.2rem",
+            marginLeft: "auto",
+            maxWidth: "fit-content",
+            backgroundColor: primaryColor(),
+            padding: "0.5rem",
+            fontSize: "1rem",
+            borderRadius: "5px",
+          }}
+          target="_blank"
+          to={nextTutoring.nextTutoring.meetingUrl}
+        >
+          {nextTutoring.nextTutoring.date} |{nextTutoring.nextTutoring.time}
+        </Link>
 
         {posts.map((post, index) => (
           <div
@@ -182,6 +220,7 @@ export function Blog() {
                   <span>{post.title} </span>
                   <button
                     style={{
+                      padding: "2px",
                       cursor: "pointer",
                       display: permissions == "superadmin" ? "block" : "none",
                     }}
@@ -349,7 +388,7 @@ export function Blog() {
             </Button>
             <Button
               style={{ backgroundColor: "#138017" }}
-              onClick={() => editPost(id)}
+              onClick={() => editPost(_id)}
             >
               {UniversalTexts.save}
             </Button>
@@ -388,7 +427,7 @@ export function Blog() {
               </Button>
               <Button
                 style={{ backgroundColor: "#ba3c3c" }}
-                onClick={() => deletePost(id)}
+                onClick={() => deletePost(_id)}
               >
                 {UniversalTexts.yes}
               </Button>
