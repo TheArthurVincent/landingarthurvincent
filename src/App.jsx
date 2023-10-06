@@ -67,12 +67,12 @@ function App() {
           gap: "0.7rem",
           backgroundColor: secondaryColor(),
           color: primaryContrast(),
+          width: "100vw",
         }}
       >
         <img
           style={{
             maxWidth: "3rem",
-            width: "100vw",
           }}
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/head-white.png?updatedAt=1687369608637"
           alt=""
