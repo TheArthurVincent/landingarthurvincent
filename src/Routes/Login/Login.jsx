@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  setHTMLStyle,
-  secondaryContrast,
-  transparentBg,
-} from "../../Styles/Styles";
+import { secondaryContrast, transparentBg } from "../../Styles/Styles";
 import {
   Button,
   InputField,
@@ -41,10 +37,6 @@ export function Login() {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    setHTMLStyle();
-  }, []);
 
   return (
     <div

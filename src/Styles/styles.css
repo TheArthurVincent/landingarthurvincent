@@ -55,7 +55,6 @@ h3 {
   top: 0;
   padding: 0.5rem;
   display: flex;
-  background-color: var(--black-arvin);
   justify-content: space-around;
   align-items: center;
   margin: 0;
@@ -74,11 +73,12 @@ h3 {
   color: var(--white);
 }
 .maxwidth {
-  max-width: 2000px;
+  max-width: 1800px;
   margin-left: auto;
   margin-right: auto;
 }
 body {
+  background-color: #eee;
   background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg3.png?updatedAt=1687554775703");
   background-size: cover;
   background-attachment: fixed;
@@ -89,8 +89,8 @@ body {
 }
 select {
   min-height: 2rem;
-  background-color: var(--blue-arvin);
-  color: var(--white);
+  color: var(--blue-arvin);
+  background-color: var(--white);
 }
 li {
   list-style: inside;

@@ -3,7 +3,6 @@ import {
   primaryContrast,
   secondaryColor,
   secondaryContrast,
-  textPrimaryColorContrast,
   transparentBg,
 } from "../../Styles/Styles";
 

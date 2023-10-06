@@ -18,6 +18,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import {
   primaryColor,
+  secondaryColor,
   secondaryContrast,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
@@ -82,8 +83,6 @@ export function Blog() {
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
   }, []);
-
-  // useEffect(() => {}, [_StudentId]);
 
   const handleSeeIsNextClassVisibleModal = () => {
     const fetchNextClass = async () => {
@@ -167,6 +166,7 @@ export function Blog() {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
+        {/* <NextClassButton /> */}
         <div
           style={{
             margin: "1.2rem",
@@ -216,18 +216,24 @@ export function Blog() {
           >
             {post.title && (
               <BlogPostTitle>
-                <span style={{ display: "flex", gap: "1rem" }}>
+                <span
+                  style={{ display: "flex", alignItems: "center", gap: "2rem" }}
+                >
                   <span>{post.title} </span>
-                  <button
+                  <Button
                     style={{
-                      padding: "2px",
-                      cursor: "pointer",
-                      display: permissions == "superadmin" ? "block" : "none",
+                      display: permissions == "superadmin" ? "flex" : "none",
+                      alignItems: "center",
+                      backgroundColor: secondaryColor(),
+                      color: secondaryContrast(),
+                      fontSize: "0.7rem",
+                      maxHeight: "1.2rem",
+                      maxWidth: "1.2rem",
                     }}
                     onClick={() => seeEdition(post._id)}
                   >
                     Editar
-                  </button>
+                  </Button>
                 </span>
                 {post.createdAt && (
                   <span
@@ -374,6 +380,7 @@ export function Blog() {
           >
             <Button
               style={{
+                color: "#fff",
                 backgroundColor: "#ba3c3c",
               }}
               onClick={() => handleConfirmDelete()}
@@ -381,13 +388,21 @@ export function Blog() {
               {UniversalTexts.delete}
             </Button>
             <Button
-              style={{ backgroundColor: "#194169" }}
+              style={{
+                color: "#fff",
+
+                backgroundColor: "#194169",
+              }}
               onClick={() => handleSeeModal()}
             >
               {UniversalTexts.cancel}
             </Button>
             <Button
-              style={{ backgroundColor: "#138017" }}
+              style={{
+                color: "#fff",
+
+                backgroundColor: "#138017",
+              }}
               onClick={() => editPost(_id)}
             >
               {UniversalTexts.save}
@@ -420,13 +435,21 @@ export function Blog() {
               }}
             >
               <Button
-                style={{ backgroundColor: "#194169" }}
+                style={{
+                  color: "#fff",
+
+                  backgroundColor: "#194169",
+                }}
                 onClick={() => handleConfirmDelete()}
               >
                 {UniversalTexts.no}
               </Button>
               <Button
-                style={{ backgroundColor: "#ba3c3c" }}
+                style={{
+                  color: "#fff",
+
+                  backgroundColor: "#ba3c3c",
+                }}
                 onClick={() => deletePost(_id)}
               >
                 {UniversalTexts.yes}

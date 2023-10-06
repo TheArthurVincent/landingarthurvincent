@@ -3,7 +3,11 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
 import { Input } from "@mui/material";
-import { primaryColor, primaryContrast } from "../../Styles/Styles";
+import {
+  darkGreyColor,
+  primaryColor,
+  primaryContrast,
+} from "../../Styles/Styles";
 
 export function NextTutoring() {
   const [newTutoringMeetingURL, setNewTutoringMeetingURL] = useState("");
@@ -13,7 +17,9 @@ export function NextTutoring() {
   const [student, setStudent] = useState([]);
   const [seeButton, setSeeButton] = useState(false);
 
-  const [studentName, setStudentName] = useState("________________________________");
+  const [studentName, setStudentName] = useState(
+    "________________________________"
+  );
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -73,7 +79,7 @@ export function NextTutoring() {
           gap: "2rem",
           borderRadius: "1rem",
           padding: "1rem",
-          border: `solid 1px #ccc`,
+          border: `solid 1px ${darkGreyColor()}`,
           maxWidth: "700px",
           margin: "2rem auto",
         }}
@@ -88,8 +94,6 @@ export function NextTutoring() {
         >
           <select
             style={{
-              backgroundColor: "#fff",
-              color: primaryColor(),
               minWidth: "4.5rem",
               padding: "0.3rem",
               fontSize: "1rem",
