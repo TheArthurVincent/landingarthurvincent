@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
-import "react-quill/dist/quill.snow.css";
+import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
   RouteSizeControlBox,
@@ -18,7 +17,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import {
   primaryColor,
-  secondaryColor,
+  primaryContrast,
   secondaryContrast,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
@@ -42,15 +41,14 @@ export function Blog() {
   const [nextTutoring, setNextTutoring] = useState({
     nextTutoring: {
       studentID: "...",
-      date: "__/__/__",
-      time: "__:__",
+      date: "_/_/_",
+      time: "_:_",
       meetingUrl: "/",
     },
   });
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
-    console.log(Date());
   };
 
   const handleConfirmDelete = () => {
@@ -224,8 +222,8 @@ export function Blog() {
                     style={{
                       display: permissions == "superadmin" ? "flex" : "none",
                       alignItems: "center",
-                      backgroundColor: secondaryColor(),
-                      color: secondaryContrast(),
+                      backgroundColor: primaryContrast(),
+                      color: primaryColor(),
                       fontSize: "0.7rem",
                       maxHeight: "1.2rem",
                       maxWidth: "1.2rem",
