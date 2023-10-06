@@ -299,9 +299,7 @@ export function Blog() {
           <Xp onClick={() => handleSeeModal()}>X</Xp>
           <h2
             style={{
-              backgroundColor: "#111",
-              padding: "0.5rem",
-              color: "#fff",
+              margin: "0.5rem 0",
             }}
           >
             Editar Postagem

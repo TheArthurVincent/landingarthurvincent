@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import {
-  Button,
   Spin,
   Xp,
   backDomain,
@@ -10,8 +9,9 @@ import {
 } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab } from "@mui/material";
+import { Box, Tab, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { alwaysWhite } from "../../Styles/Styles";
 
 export function FindStudent() {
   const { UniversalTexts } = useUserContext();
@@ -169,7 +169,7 @@ export function FindStudent() {
   };
 
   return (
-    <RouteDiv>
+    <RouteDiv style={{ margin: "1rem auto" }}>
       <HOne>{UniversalTexts.myStudents}</HOne>
 
       {!loading ? (
@@ -189,17 +189,21 @@ export function FindStudent() {
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr",
+                  display: "flex",
+                  gap: "1rem",
+                  borderRadius: "1rem",
+                  padding: "0.5rem",
+                  border: "1px solid",
                   justifyContent: "space-between",
-                  width: "100%",
                   alignItems: "center",
                   marginBottom: "2rem",
                 }}
               >
                 <h1
                   style={{
+                    fontSize: "1.5rem",
                     textAlign: "left",
+                    margin: 0,
                   }}
                 >
                   {student.fullname}
@@ -259,7 +263,7 @@ export function FindStudent() {
             justifyContent: "center",
           }}
         >
-          <h1>Carregando dados</h1>
+          <p>Carregando dados</p>
           <Spin>
             <img
               style={{ maxWidth: "3rem" }}
@@ -291,7 +295,7 @@ export function FindStudent() {
             zIndex: 100,
             backgroundColor: "#fff",
             padding: "1rem",
-            width: "22rem",
+            width: "25rem",
             height: "32rem",
             top: "50%",
             left: "50%",
@@ -304,10 +308,11 @@ export function FindStudent() {
           <h1
             style={{
               fontSize: "1.5rem",
-              textAlign: "center",
+              marginBottom: 0,
+              margin: "1rem 0",
             }}
           >
-            Editar
+            Editar aluno
           </h1>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -404,19 +409,31 @@ export function FindStudent() {
                 }}
               >
                 <Button
-                  style={{ backgroundColor: "#ba3c3c" }}
+                  style={{
+                    color: alwaysWhite(),
+
+                    backgroundColor: "#ba3c3c",
+                  }}
                   onClick={() => handleConfirmDelete()}
                 >
                   Excluir
                 </Button>
                 <Button
-                  style={{ backgroundColor: "#194169" }}
+                  style={{
+                    color: alwaysWhite(),
+
+                    backgroundColor: "#194169",
+                  }}
                   onClick={() => handleSeeModal()}
                 >
                   Cancelar
                 </Button>
                 <Button
-                  style={{ backgroundColor: "#138017" }}
+                  style={{
+                    color: alwaysWhite(),
+
+                    backgroundColor: "#138017",
+                  }}
                   onClick={() => editStudent(ID)}
                 >
                   Salvar
@@ -456,13 +473,21 @@ export function FindStudent() {
                   }}
                 >
                   <Button
-                    style={{ backgroundColor: "#194169" }}
+                    style={{
+                      color: alwaysWhite(),
+
+                      backgroundColor: "#194169",
+                    }}
                     onClick={() => handleConfirmDelete()}
                   >
                     Não!!
                   </Button>
                   <Button
-                    style={{ backgroundColor: "#ba3c3c" }}
+                    style={{
+                      color: alwaysWhite(),
+
+                      backgroundColor: "#ba3c3c",
+                    }}
                     onClick={() => deleteStudent(ID)}
                   >
                     Sim...
@@ -506,13 +531,23 @@ export function FindStudent() {
                   }}
                 >
                   <Button
-                    style={{ width: "8rem", backgroundColor: "#194169" }}
+                    style={{
+                      color: alwaysWhite(),
+
+                      width: "8rem",
+                      backgroundColor: "#194169",
+                    }}
                     onClick={() => handleSeeModal()}
                   >
                     Cancelar
                   </Button>
                   <Button
-                    style={{ width: "8rem", backgroundColor: "#138017" }}
+                    style={{
+                      color: alwaysWhite(),
+
+                      width: "8rem",
+                      backgroundColor: "#138017",
+                    }}
                     onClick={() => editStudentPermissions(ID)}
                   >
                     Salvar
@@ -563,13 +598,23 @@ export function FindStudent() {
                   }}
                 >
                   <Button
-                    style={{ width: "8rem", backgroundColor: "#194169" }}
+                    style={{
+                      color: alwaysWhite(),
+
+                      width: "8rem",
+                      backgroundColor: "#194169",
+                    }}
                     onClick={() => handleSeeModal()}
                   >
                     Cancelar
                   </Button>
                   <Button
-                    style={{ width: "8rem", backgroundColor: "#138017" }}
+                    style={{
+                      color: alwaysWhite(),
+
+                      width: "8rem",
+                      backgroundColor: "#138017",
+                    }}
                     onClick={() => editStudentPassword(ID)}
                   >
                     Salvar

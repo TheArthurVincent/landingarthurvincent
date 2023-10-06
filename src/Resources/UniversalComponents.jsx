@@ -122,7 +122,7 @@ export const Xp = styled.p`
   cursor: pointer;
   font-weight: 900;
   position: absolute;
-  top: -10px;
+  top: -5px;
   right: 5px;
   font-size: 1.2rem;
   padding: 0.5rem;
