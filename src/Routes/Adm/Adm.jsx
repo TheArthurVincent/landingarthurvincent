@@ -56,19 +56,28 @@ export function Adm() {
     setValue(newValue);
   };
   return (
-    <RouteSizeControlBox>
+    <RouteSizeControlBox
+      style={{
+        maxWidth: "1200px",
+      }}
+    >
       <TabContext value={value}>
         <Box
           style={{
-            padding: "0rem 3rem",
             backgroundColor: transparentBg(),
             display: "flex",
+            borderRadius: "1rem",
             alignItems: "center",
             justifyContent: "space-between",
           }}
           sx={{ borderBottom: 1, borderColor: "divider" }}
         >
           <TabList
+            style={{
+              backgroundColor: "#f0f0f0",
+              margin: "0.3rem",
+              borderRadius: "1rem",
+            }}
             onChange={handleChange}
             variant="scrollable"
             scrollButtons="auto"
@@ -93,7 +102,7 @@ export function Adm() {
         {componentsToRender.map((component, index) => {
           return (
             <TabPanel
-              style={{ padding: 0 }}
+              style={{ padding: 0, margin: "1rem auto", maxWidth: "1000px" }}
               key={index + component.value}
               value={component.value}
             >
