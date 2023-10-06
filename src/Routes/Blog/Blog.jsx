@@ -88,8 +88,6 @@ export function Blog() {
         const response = await axios.get(
           `${backDomain}/api/v1/nexttutoring/${_StudentId}`
         );
-
-        setLoading(false);
         setNextTutoring(response.data);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
