@@ -43,13 +43,13 @@ export default function TopBar() {
       title: UniversalTexts.extras,
       endpoint: "/extras",
     },
+    {
+      title: "Classes",
+      endpoint: "/classes-to-teach",
+    },
   ];
 
   const toAdm = [
-    {
-      title: "Classes to teach",
-      endpoint: "/classes-to-teach",
-    },
     {
       title: "Adm",
       endpoint: "/adm",

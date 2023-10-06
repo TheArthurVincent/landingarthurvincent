@@ -40,7 +40,7 @@ export default function ClassesToTeach() {
       <RouteDiv>
         <HOne>Classes to teach</HOne>
         <BackToHomePage />
-        <CoursesSideBar />
+        {/* <CoursesSideBar /> */}
         <div
           style={{
             display: "flex",
