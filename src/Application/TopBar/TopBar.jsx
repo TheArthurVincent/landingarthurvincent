@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   TopBarContainer,
   TopBarNavigation,
@@ -11,11 +11,7 @@ import { Button } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import {
-  primaryColor,
-  secondaryColor,
-  transparentBg,
-} from "../../Styles/Styles";
+import { primaryColor } from "../../Styles/Styles";
 
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
@@ -113,7 +109,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: secondaryColor(),
+                  color: "#000",
                 }}
                 to={link.endpoint}
               >
@@ -161,7 +157,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: secondaryColor(),
+                  color: "#000",
                 }}
                 to={link.endpoint}
               >
