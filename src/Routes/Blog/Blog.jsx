@@ -36,7 +36,6 @@ export function Blog() {
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [name, setName] = useState("");
   const [permissions, setPermissions] = useState("");
-  const [loading, setLoading] = useState(true);
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
 
   const [nextTutoring, setNextTutoring] = useState({
@@ -163,7 +162,6 @@ export function Blog() {
   return (
     <RouteSizeControlBox>
       <RouteDiv>
-        {/* <NextClassButton /> */}
         <div
           style={{
             margin: "1.2rem",
@@ -289,7 +287,7 @@ export function Blog() {
             position: "fixed",
             display: isVisible ? "block" : "none",
             zIndex: 100,
-            backgroundColor: "#fff",
+            backgroundColor: alwaysWhite(),
             padding: "1rem",
             width: "29rem",
             height: "30rem",
@@ -376,7 +374,7 @@ export function Blog() {
           >
             <Button
               style={{
-                color: "#fff",
+                color: alwaysWhite(),
                 backgroundColor: "#ba3c3c",
               }}
               onClick={() => handleConfirmDelete()}
@@ -385,8 +383,7 @@ export function Blog() {
             </Button>
             <Button
               style={{
-                color: "#fff",
-
+                color: alwaysWhite(),
                 backgroundColor: "#194169",
               }}
               onClick={() => handleSeeModal()}
@@ -395,8 +392,7 @@ export function Blog() {
             </Button>
             <Button
               style={{
-                color: "#fff",
-
+                color: alwaysWhite(),
                 backgroundColor: "#138017",
               }}
               onClick={() => editPost(_id)}
@@ -419,7 +415,6 @@ export function Blog() {
                 margin: "0.5rem 0",
                 padding: "0.5rem",
                 fontWeight: "500",
-                // color: "#fff",
               }}
             >
               {UniversalTexts.deleteConfirm}
@@ -432,7 +427,7 @@ export function Blog() {
             >
               <Button
                 style={{
-                  color: "#fff",
+                  color: alwaysWhite(),
 
                   backgroundColor: "#194169",
                 }}
@@ -442,7 +437,7 @@ export function Blog() {
               </Button>
               <Button
                 style={{
-                  color: "#fff",
+                  color: alwaysWhite(),
 
                   backgroundColor: "#ba3c3c",
                 }}
