@@ -16,6 +16,7 @@ import {
   Xp,
 } from "../../Resources/UniversalComponents";
 import {
+  alwaysWhite,
   primaryColor,
   primaryContrast,
   secondaryContrast,
@@ -193,6 +194,7 @@ export function Blog() {
             backgroundColor: primaryColor(),
             padding: "0.5rem",
             fontSize: "1rem",
+            color: alwaysWhite(),
             borderRadius: "5px",
           }}
           target="_blank"

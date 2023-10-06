@@ -15,7 +15,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
-import { primaryColor } from "../../Styles/Styles";
+import { alwaysWhite, primaryColor } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
@@ -98,7 +98,7 @@ export function MyClasses() {
           <Button
             style={{
               backgroundColor: primaryColor(),
-              color: "#fff",
+              color: alwaysWhite(),
             }}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
@@ -111,7 +111,7 @@ export function MyClasses() {
           <Button
             style={{
               backgroundColor: primaryColor(),
-              color: "#fff",
+              color: alwaysWhite(),
             }}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
