@@ -10,8 +10,7 @@ import { primaryColor, transparentBg } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
-import Tooltip from "@mui/material/Tooltip";
-import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 
 export function Adm() {

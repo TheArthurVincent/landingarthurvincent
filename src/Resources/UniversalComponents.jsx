@@ -272,11 +272,9 @@ export function getVideoEmbedUrl(videoUrl) {
 }
 
 export function isDev() {
-  // Verifica se o navegador está acessando o localhost
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";
   } else {
-    // Se não for localhost, retorne o outro domínio desejado
     return "https://seu-outro-dominio.com";
   }
 }

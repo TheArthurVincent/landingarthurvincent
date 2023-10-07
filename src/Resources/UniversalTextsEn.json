@@ -29,6 +29,8 @@
   "save": "Save",
   "yes": "Yes",
   "no": "No",
+  "editPost": "Edit",
+  "loading": "Loading...",
   "deleteConfirm": "Delete post? (This action cannot be undone)",
   "id": "ID",
   "myStudents": "My students",

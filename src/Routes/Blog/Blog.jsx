@@ -40,9 +40,9 @@ export function Blog() {
 
   const [nextTutoring, setNextTutoring] = useState({
     nextTutoring: {
-      studentID: "...",
-      date: "_/_/_",
-      time: "_:_",
+      studentID: "",
+      date: "",
+      time: "",
       meetingUrl: "/",
     },
   });
@@ -159,6 +159,13 @@ export function Blog() {
     }
   };
 
+  const formatData = (theDate) => {
+    const parts = theDate.split("-");
+    const formatted = parts[2] + "/" + parts[1] + "/" + parts[0];
+
+    return formatted;
+  };
+
   return (
     <RouteSizeControlBox>
       <RouteDiv>
@@ -183,24 +190,51 @@ export function Blog() {
             {UniversalTexts.nextClass}
           </Button>
         </div>
-        <Link
-          style={{
-            display: isNextClassVisible ? "block" : "none",
-            marginRight: "1.2rem",
-            marginLeft: "auto",
-            maxWidth: "fit-content",
-            backgroundColor: primaryColor(),
-            padding: "0.5rem",
-            fontSize: "1rem",
-            color: alwaysWhite(),
-            borderRadius: "5px",
-          }}
-          target="_blank"
-          to={nextTutoring.nextTutoring.meetingUrl}
-        >
-          {nextTutoring.nextTutoring.date} |{nextTutoring.nextTutoring.time}
-        </Link>
-
+        {nextTutoring.nextTutoring.date == "" ? (
+          <div
+            style={{
+              display: isNextClassVisible ? "block" : "none",
+              marginRight: "1.2rem",
+              marginLeft: "auto",
+              maxWidth: "fit-content",
+              padding: "0.5rem",
+            }}
+          >
+            {UniversalTexts.loading}
+          </div>
+        ) : (
+          <Link
+            style={{
+              display: isNextClassVisible ? "block" : "none",
+              marginRight: "1.2rem",
+              marginLeft: "auto",
+              maxWidth: "fit-content",
+              backgroundColor: primaryColor(),
+              padding: "0.5rem",
+              fontSize: "1rem",
+              color: alwaysWhite(),
+              borderRadius: "5px",
+            }}
+            target="_blank"
+            to={nextTutoring.nextTutoring.meetingUrl}
+          >
+            <span
+              style={{
+                textDecoration: "underline",
+              }}
+            >
+              {" "}
+              {formatData(nextTutoring.nextTutoring.date)}
+            </span>{" "}
+            <span
+              style={{
+                fontWeight: 600,
+              }}
+            >
+              - {nextTutoring.nextTutoring.time}
+            </span>{" "}
+          </Link>
+        )}
         {posts.map((post, index) => (
           <div
             key={index}
@@ -228,7 +262,7 @@ export function Blog() {
                     }}
                     onClick={() => seeEdition(post._id)}
                   >
-                    Editar
+                    {UniversalTexts.editPost}
                   </Button>
                 </span>
                 {post.createdAt && (
@@ -302,7 +336,7 @@ export function Blog() {
               margin: "0.5rem 0",
             }}
           >
-            Editar Postagem
+            {UniversalTexts.editPost}
           </h2>
           <div style={{ display: "grid", gap: "2px" }}>
             <input

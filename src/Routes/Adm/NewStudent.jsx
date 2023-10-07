@@ -42,7 +42,7 @@ export function NewStudent() {
         `${backDomain}/api/v1/students/`,
         newStudent
       );
-      window.location.href = "/";
+      window.location.href = "/adm";
 
       alert("Usuário cadastrado com sucesso!");
     } catch (error) {

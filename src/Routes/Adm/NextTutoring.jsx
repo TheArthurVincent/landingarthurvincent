@@ -11,8 +11,8 @@ import {
 
 export function NextTutoring() {
   const [newTutoringMeetingURL, setNewTutoringMeetingURL] = useState("");
-  const [newDate, setNewDate] = useState("__:__");
-  const [newTime, setNewTime] = useState("__/__/__");
+  const [newDate, setNewDate] = useState("__/__/__");
+  const [newTime, setNewTime] = useState("__:__");
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
   const [seeButton, setSeeButton] = useState(false);

@@ -29,7 +29,9 @@
   "save": "Salvar",
   "yes": "Sim",
   "no": "Não",
-  "deleteConfirm":"Excluir post? (Esta ação não pode ser desfeita)",
+  "editPost": "Editar",
+  "loading": "Carregando...",
+  "deleteConfirm": "Excluir post? (Esta ação não pode ser desfeita)",
   "id": "ID",
   "myStudents": "Meus alunos",
   "courses": [
