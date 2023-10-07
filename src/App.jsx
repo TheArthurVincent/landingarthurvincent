@@ -9,12 +9,7 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
-import {
-  primaryColor,
-  primaryContrast,
-  secondaryColor,
-  secondaryContrast,
-} from "./Styles/Styles";
+import { primaryContrast, secondaryColor } from "./Styles/Styles";
 
 function App() {
   const verifyToken = () => {
