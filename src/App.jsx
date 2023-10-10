@@ -11,6 +11,7 @@ import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { primaryContrast, secondaryColor } from "./Styles/Styles";
 import { logout24h } from "./Resources/UniversalComponents";
+import BasicTexts from "./Routes/ClassesToTeach/BasicTexts/BasicTexts";
 
 function App() {
   const verifyToken = () => {
@@ -72,6 +73,10 @@ function App() {
               <Route
                 path="/phrasal-verbs"
                 element={verifyToken() ? <PhrasalVerbs /> : <Login />}
+              />
+              <Route
+                path="/basic-texts"
+                element={verifyToken() ? <BasicTexts /> : <Login />}
               />
             </Routes>
           </Router>

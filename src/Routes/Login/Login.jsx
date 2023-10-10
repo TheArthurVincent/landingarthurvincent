@@ -28,7 +28,7 @@ export function Login() {
         password,
       });
 
-      const { token, loggedIn, nextTutoring } = response.data;
+      const { token, loggedIn } = response.data;
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       window.location.assign("/homepage");
