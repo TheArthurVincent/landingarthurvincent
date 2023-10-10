@@ -15,6 +15,7 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
@@ -89,7 +90,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/students/${id}`,
         editedStudent
       );
-      window.location.href = "/";
+      window.location.href = "/adm";
       alert("Usuário editado com sucesso!");
     } catch (error) {
       alert("Erro ao editar usuário");
@@ -105,7 +106,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/studentpermissions/${id}`,
         editedStudent
       );
-      window.location.href = "/";
+      window.location.href = "/adm";
 
       alert("Permissões editadas com sucesso!");
     } catch (error) {
@@ -128,7 +129,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/studentpassword/${id}`,
         studentWhosePasswordYouWantToChange
       );
-      window.location.href = "/";
+      window.location.href = "/adm";
 
       alert("Senha editada com sucesso!");
     } catch (error) {
@@ -156,7 +157,7 @@ export function FindStudent() {
         `${backDomain}/api/v1/students/${id}`
       );
       alert("Aluno excluído");
-      window.location.href = "/";
+      window.location.href = "/adm";
     } catch (error) {
       alert(error);
       console.error(error);
@@ -355,6 +356,7 @@ export function FindStudent() {
               fontSize: "1.5rem",
               marginBottom: 0,
               margin: "1rem 0",
+              color: textSecondaryColorContrast(),
             }}
           >
             Editar aluno
@@ -374,7 +376,6 @@ export function FindStudent() {
               </TabList>
             </Box>
             <TabPanel value="1">
-              {" "}
               <form style={{ display: !seeConfirmDelete ? "block" : "none" }}>
                 <input
                   value={newName}
@@ -456,7 +457,6 @@ export function FindStudent() {
                 <Button
                   style={{
                     color: alwaysWhite(),
-
                     backgroundColor: "#ba3c3c",
                   }}
                   onClick={() => handleConfirmDelete()}
@@ -466,7 +466,6 @@ export function FindStudent() {
                 <Button
                   style={{
                     color: alwaysWhite(),
-
                     backgroundColor: "#194169",
                   }}
                   onClick={() => handleSeeModal()}
@@ -476,7 +475,6 @@ export function FindStudent() {
                 <Button
                   style={{
                     color: alwaysWhite(),
-
                     backgroundColor: "#138017",
                   }}
                   onClick={() => editStudent(ID)}
@@ -491,14 +489,17 @@ export function FindStudent() {
                   justifyContent: "space-evenly",
                   padding: "1rem",
                   backgroundColor: "#ffd1d1",
+                  textAlign: "center",
+                  borderRadius: "1rem",
                 }}
               >
-                <h3 style={{ color: "#111" }}>
+                <h3>
                   Esta ação não pode ser desfeita! Tem certeza que deseja
                   excluir o(a) aluno(a) <br />
                   <br />{" "}
                   <span
                     style={{
+                      borderRadius: "1rem",
                       backgroundColor: "#111",
                       color: "#fff",
                       padding: "0.5rem",
@@ -520,7 +521,6 @@ export function FindStudent() {
                   <Button
                     style={{
                       color: alwaysWhite(),
-
                       backgroundColor: "#194169",
                     }}
                     onClick={() => handleConfirmDelete()}
