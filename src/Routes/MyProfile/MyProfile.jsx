@@ -7,6 +7,11 @@ import {
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { BackToHomePage, logout24h } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
+import {
+  primaryContrast,
+  secondaryContrast,
+  textSecondaryColorContrast,
+} from "../../Styles/Styles";
 
 export function MyProfile() {
   const [user, setUser] = useState({});
@@ -26,7 +31,9 @@ export function MyProfile() {
         <RouteDiv>
           <HOne>{UniversalTexts.myProfile}</HOne>
           <BackToHomePage />
-          <div style={{ padding: "0.5rem" }}>
+          <div
+            style={{ color: textSecondaryColorContrast(), padding: "0.5rem" }}
+          >
             <p>
               {UniversalTexts.name}: {user.name} {user.lastname}
             </p>

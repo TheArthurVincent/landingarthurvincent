@@ -21,6 +21,7 @@ import {
   primaryContrast,
   secondaryContrast,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -269,7 +270,7 @@ export function Blog() {
                   <span
                     style={{
                       backgroundColor: textPrimaryColorContrast(),
-                      color: primaryColor(),
+                      color: textSecondaryColorContrast(),
                       padding: "0.2rem 0.6rem",
                     }}
                   >
@@ -295,6 +296,7 @@ export function Blog() {
                 margin: "1rem",
                 fontSize: "1.2rem",
                 display: "block",
+                color: textSecondaryColorContrast(),
               }}
             >
               {post.text}

@@ -9,7 +9,11 @@ import {
   RouteDiv,
   RouteSizeControlBox,
 } from "../../../Resources/Components/RouteBox";
-import { primaryColor, primaryContrast } from "../../../Styles/Styles";
+import {
+  primaryColor,
+  primaryContrast,
+  textSecondaryColorContrast,
+} from "../../../Styles/Styles";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
 
 export function BasicTextsPresentTense() {
@@ -90,7 +94,13 @@ export function BasicTextsPresentTense() {
                   <HTwo style={{ fontSize: "1.3rem" }}>
                     {presentation.title}
                   </HTwo>
-                  <p style={{ padding: "1.1rem", fontSize: "1.2rem" }}>
+                  <p
+                    style={{
+                      color: textSecondaryColorContrast(),
+                        padding: "1.1rem",
+                      fontSize: "1.2rem",
+                    }}
+                  >
                     {presentation.text}
                   </p>
                 </div>
@@ -103,7 +113,13 @@ export function BasicTextsPresentTense() {
                   <HTwo style={{ fontSize: "1.3rem" }}>
                     {presentation.title}
                   </HTwo>
-                  <p style={{ padding: "1.1rem", fontSize: "1.2rem" }}>
+                  <p
+                    style={{
+                      color: textSecondaryColorContrast(),
+                      padding: "1.1rem",
+                      fontSize: "1.2rem",
+                    }}
+                  >
                     {presentation.text}
                   </p>
                 </div>

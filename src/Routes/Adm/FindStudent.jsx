@@ -11,7 +11,12 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { alwaysWhite } from "../../Styles/Styles";
+import {
+  alwaysWhite,
+  primaryColor,
+  secondaryColor,
+  textSecondaryColorContrast,
+} from "../../Styles/Styles";
 
 export function FindStudent() {
   const { UniversalTexts } = useUserContext();
@@ -185,6 +190,7 @@ export function FindStudent() {
             <div
               style={{
                 padding: "0.6rem",
+                color: textSecondaryColorContrast(),
               }}
             >
               <div
@@ -211,40 +217,79 @@ export function FindStudent() {
                 <Button onClick={() => seeEdition(student.id)}>Editar</Button>
               </div>
               <p>
-                <span style={{ fontWeight: 600 }}>
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
                   {UniversalTexts.username}
                 </span>
                 : {student.username}
               </p>
               <p>
-                <span style={{ fontWeight: 600 }}>
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
                   {UniversalTexts.document}
                 </span>
                 : {student.doc}
               </p>
               <p>
-                <span style={{ fontWeight: 600 }}>{UniversalTexts.id}</span>:{" "}
-                {student.id}
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
+                  {UniversalTexts.id}
+                </span>
+                : {student.id}
               </p>
 
               <p>
-                <span style={{ fontWeight: 600 }}>
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
                   {UniversalTexts.dateOfBirth}
                 </span>
                 : {student.dateOfBirth}
               </p>
               <p>
-                <span style={{ fontWeight: 600 }}>{UniversalTexts.email}</span>:{" "}
-                {student.email}
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
+                  {UniversalTexts.email}
+                </span>
+                : {student.email}
               </p>
               <p>
-                <span style={{ fontWeight: 600 }}>
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
                   {UniversalTexts.phoneNumber}
                 </span>
                 : {student.phoneNumber}
               </p>
               <p>
-                <span style={{ fontWeight: 600 }}>
+                <span
+                  style={{
+                    color: secondaryColor(),
+                    fontWeight: 600,
+                  }}
+                >
                   {UniversalTexts.permissions}
                 </span>
                 : {student.permissions}

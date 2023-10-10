@@ -4,6 +4,7 @@ import {
   primaryColor,
   primaryContrast,
   secondaryContrast,
+  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 export const EventsCardsContainer = styled.div`
@@ -29,7 +30,7 @@ export const EventsCard = styled.div`
 export const HThree = styled.h3`
   padding: 0.5rem;
   margin: 0.5rem;
-  background-color: ${secondaryContrast()};
+  background-color: ${primaryColor()};
   color: ${primaryContrast()};
   @media (max-width: 700px) {
     background-color: ${lightGreyColor()};

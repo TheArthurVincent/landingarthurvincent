@@ -16,7 +16,13 @@ import {
 } from "../../Resources/UniversalComponents";
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
-import { alwaysWhite, primaryColor } from "../../Styles/Styles";
+import {
+  alwaysWhite,
+  primaryColor,
+  secondaryColor,
+  textPrimaryColorContrast,
+  textSecondaryColorContrast,
+} from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
@@ -110,7 +116,11 @@ export function MyClasses() {
           >
             {UniversalTexts.previousButton}
           </Button>
-          <span>
+          <span
+            style={{
+              color: textSecondaryColorContrast(),
+            }}
+          >
             {currentPage}/{totalPages}
           </span>
           <Button
@@ -181,9 +191,21 @@ export function MyClasses() {
                     </div>
                     <div style={{ marginLeft: "1rem" }}>
                       <HThree>{item.title}</HThree>
-                      <div style={{ padding: "1rem" }}>
+                      <div
+                        style={{
+                          color: textSecondaryColorContrast(),
+                          padding: "1rem",
+                        }}
+                      >
                         <HTwo>{UniversalTexts.date}</HTwo>
-                        <p style={{ maxWidth: "80ch" }}>{item.date}</p>
+                        <p
+                          style={{
+                            color: textSecondaryColorContrast(),
+                            maxWidth: "80ch",
+                          }}
+                        >
+                          {item.date}
+                        </p>
                         <HTwo>{UniversalTexts.comments}</HTwo>
                         <div
                           style={{
@@ -200,8 +222,8 @@ export function MyClasses() {
                         <HTwo>{UniversalTexts.attachments}</HTwo>
                         <Link
                           to={item.attachments}
-                          style={linkReset}
                           target="_blank"
+                          style={{ color: secondaryColor() }}
                         >
                           {UniversalTexts.attachments}
                         </Link>

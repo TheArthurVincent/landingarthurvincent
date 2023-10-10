@@ -95,8 +95,8 @@ function App() {
           flexDirection: "column",
           alignItems: "center",
           gap: "0.7rem",
-          backgroundColor: secondaryContrast(),
-          color: primaryContrast(),
+          backgroundColor: "#111",
+          color: "#eee",
           width: "100vw",
         }}
       >

@@ -1,10 +1,13 @@
 import { styled, keyframes } from "styled-components";
 import {
+  alwaysWhite,
   darkGreyColor,
   primaryColor,
+  primaryContrast,
   secondaryColor,
   secondaryContrast,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
 } from "../Styles/Styles";
 import { Link } from "react-router-dom";
 
@@ -136,7 +139,7 @@ export const Xp = styled.p`
 
 export const linkReset = {
   display: "inline",
-  color: secondaryContrast(),
+  color: alwaysWhite(),
 };
 
 export const IFrameVideo = styled.iframe`
@@ -228,7 +231,14 @@ export const BackToHomePage = () => {
         justifyContent: "right",
       }}
     >
-      <Link style={linkReset} to="/">
+      <Link
+        style={{
+          ...linkReset,
+          backgroundColor: primaryColor(),
+          padding: "0.5rem",
+        }}
+        to="/"
+      >
         Voltar à página inicial
       </Link>
     </div>

@@ -67,7 +67,7 @@ export const CoursesListInnerContainer = styled.div`
 `;
 
 export const Mask = styled.div`
-  background-color: ${transparentBg2()};
+  background-color: ${alwaysWhite()};
   width: 10000px;
 `;
 export const ArrowStyle = styled.span`

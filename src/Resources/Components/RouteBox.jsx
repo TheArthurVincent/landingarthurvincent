@@ -5,6 +5,7 @@ import {
   secondaryColor,
   secondaryContrast,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
   transparentBg,
 } from "../../Styles/Styles";
 
@@ -34,7 +35,7 @@ export const RouteSizeControlBox = styled.div`
 `;
 
 export const HOne = styled.h1`
-  background-color: ${primaryColor()};
+  background-color: ${textSecondaryColorContrast()};
   font-size: 1.3rem;
   padding: 0rem 1rem;
   margin: 0;
@@ -67,6 +68,7 @@ export const BlogPostTitle = styled.h4`
 export const HTwo = styled.h2`
   font-size: 1.4rem;
   font-weight: 400;
+  color: ${textSecondaryColorContrast()};
   @media (max-width: 650px) {
     padding: 3px;
     margin: 3px;
@@ -87,7 +89,7 @@ export const RouteDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.5rem;
-  background-color: ${transparentBg()};
+  background-color: ${secondaryContrast()};
   color: ${secondaryContrast()};
   padding: 0.5rem;
   margin: 0.5rem 0;

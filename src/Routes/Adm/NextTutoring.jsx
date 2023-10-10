@@ -7,6 +7,7 @@ import {
   darkGreyColor,
   primaryColor,
   primaryContrast,
+  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 export function NextTutoring() {
@@ -141,7 +142,7 @@ export function NextTutoring() {
             display: "flex",
           }}
         >
-          <span>
+          <span style={{ color: textSecondaryColorContrast() }}>
             {" "}
             Aula de {studentName} no dia {newDate} às {newTime}
           </span>{" "}
