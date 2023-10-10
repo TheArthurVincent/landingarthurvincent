@@ -12,6 +12,7 @@ import {
   backDomain,
   getVideoEmbedUrl,
   linkReset,
+  logout24h,
 } from "../../Resources/UniversalComponents";
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
@@ -28,6 +29,10 @@ export function MyClasses() {
   const [classesDistinctMonthYears, setClassesDistinctMonthYears] = useState(
     []
   );
+
+  useEffect(() => {
+    logout24h();
+  }, []);
 
   const { UniversalTexts } = useUserContext();
   async function fetchMonthYear() {

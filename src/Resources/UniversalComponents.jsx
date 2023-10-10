@@ -279,4 +279,13 @@ export function isDev() {
   }
 }
 
+export function logout24h() {
+  setTimeout(() => {
+    alert("Token expirado: Faça login novamente");
+    localStorage.removeItem("authorization");
+    localStorage.removeItem("loggedIn");
+    window.location.assign("/");
+  }, 86400000); // vai expirar o login em 24h de inatividade
+}
+
 export const backDomain = isDev();

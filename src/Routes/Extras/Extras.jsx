@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   RouteDiv,
   HOne,
@@ -9,12 +9,17 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import {
   BackToHomePage,
   IFrameVideo,
+  logout24h,
 } from "../../Resources/UniversalComponents";
 import generalClasses from "../../assets/mockdata/universalcontent.json";
 import { transparentBg } from "../../Styles/Styles";
 import TopBar from "../../Application/TopBar/TopBar";
 
 export function Extras() {
+  useEffect(() => {
+    logout24h();
+  }, []);
+
   const { UniversalTexts } = useUserContext();
 
   return (

@@ -31,8 +31,7 @@ export function Login() {
       const { token, loggedIn, nextTutoring } = response.data;
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-      localStorage.setItem("nextTutoring", JSON.stringify(nextTutoring));
-      window.location.assign("/");
+      window.location.assign("/homepage");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");
       console.error(error);

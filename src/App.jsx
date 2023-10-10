@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
@@ -10,12 +10,17 @@ import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { primaryContrast, secondaryColor } from "./Styles/Styles";
+import { logout24h } from "./Resources/UniversalComponents";
 
 function App() {
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
     return token;
   };
+
+  useEffect(() => {
+    logout24h();
+  }, []);
 
   return (
     <div
