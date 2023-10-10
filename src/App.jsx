@@ -40,18 +40,39 @@ function App() {
         <UserProvider>
           <Router>
             <Routes>
+              <Route path="/login" element={<Login />} />
               <Route
                 path="/"
                 element={verifyToken() ? <HomePage /> : <Login />}
               />
-              <Route path="/login" element={<Login />} />
-              <Route path="/homepage/*" element={<HomePage />} />
-              <Route path="/extras" element={<Extras />} />
-              <Route path="/adm" element={<Adm />} />
-              <Route path="/my-classes" element={<MyClasses />} />
-              <Route path="/my-profile" element={<MyProfile />} />
-              <Route path="/classes-to-teach" element={<ClassesToTeach />} />
-              <Route path="/phrasal-verbs" element={<PhrasalVerbs />} />
+              <Route
+                path="/homepage/*"
+                element={verifyToken() ? <HomePage /> : <Login />}
+              />
+              <Route
+                path="/extras"
+                element={verifyToken() ? <Extras /> : <Login />}
+              />
+              <Route
+                path="/adm"
+                element={verifyToken() ? <Adm /> : <Login />}
+              />
+              <Route
+                path="/my-classes"
+                element={verifyToken() ? <MyClasses /> : <Login />}
+              />
+              <Route
+                path="/my-profile"
+                element={verifyToken() ? <MyProfile /> : <Login />}
+              />
+              <Route
+                path="/classes-to-teach"
+                element={verifyToken() ? <ClassesToTeach /> : <Login />}
+              />
+              <Route
+                path="/phrasal-verbs"
+                element={verifyToken() ? <PhrasalVerbs /> : <Login />}
+              />
             </Routes>
           </Router>
         </UserProvider>
