@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { logout24h } from "../../../Resources/UniversalComponents";
+import React, { useEffect } from "react";
+import {
+  BackToHomePage,
+  logout24h,
+} from "../../../Resources/UniversalComponents";
 import {
   HOne,
   HTwo,
@@ -9,7 +12,7 @@ import {
 import { primaryColor, primaryContrast } from "../../../Styles/Styles";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
 
-export function BasicTexts() {
+export function BasicTextsPresentTense() {
   useEffect(() => {
     logout24h();
   }, []);
@@ -36,6 +39,28 @@ export function BasicTexts() {
       text: "Hola, amigos! I'm Isabella, and I come from Mexico. I'm 35 years old. I work as a nurse. I'm happily married and have a son. In Mexico, I enjoy celebrating cultural festivals and cooking traditional dishes for my family. As a nurse, I find fulfillment in taking care of others and making a positive impact on their lives. During my free time, I like gardening and dancing to Mexican music. Excited to connect with you all!",
     },
   ];
+  const professions = [
+    {
+      title: "Teacher",
+      text: "A teacher is someone who educates students in various subjects. They help students learn and develop skills. Teachers can work in schools, colleges, or even offer private tutoring. In many places, a teacher needs a bachelor's degree in education or the subject they teach. The average salary for teachers varies depending on the location and level of education. In the United States, for example, elementary school teachers earn around $60,000 per year on average.",
+    },
+    {
+      title: "Nurse",
+      text: "A nurse is a healthcare professional who takes care of patients in hospitals, clinics, and other medical settings. They assist doctors, administer medications, and provide emotional support to patients. Nurses usually need to complete a nursing program and obtain a nursing license. Salaries for nurses vary based on their experience and location. In the United Kingdom, a registered nurse can earn an average salary of around £25,000 to £35,000 per year.",
+    },
+    {
+      title: "Engineer",
+      text: "An engineer is someone who applies scientific and mathematical principles to design and build structures, devices, and systems. There are various types of engineers, such as mechanical, electrical, and civil engineers. Engineers typically have a bachelor's degree in engineering or a related field. Salaries for engineers differ depending on their specialization and experience. In Australia, a mid-level engineer can earn an average salary of AUD 80,000 to AUD 100,000 annually.",
+    },
+    {
+      title: "Accountant",
+      text: "An accountant is a professional responsible for managing financial records, preparing tax returns, and analyzing financial data. They play a crucial role in maintaining the financial health of individuals and businesses. To become an accountant, one often needs a degree in accounting or a related field. Salaries for accountants can vary based on location and level of expertise. In Canada, a certified accountant can earn an average salary of around CAD 60,000 to CAD 80,000 per year.",
+    },
+    {
+      title: "Chef",
+      text: "A chef is a culinary professional who prepares and cooks meals in restaurants, hotels, and other food establishments. Chefs create menus, oversee kitchen operations, and ensure the quality of dishes. Becoming a chef might involve formal culinary education or years of practical experience. Chef salaries can differ widely based on factors like the type of restaurant and the chef's reputation. In the United States, an executive chef can earn an average annual salary of approximately $50,000 to $80,000.",
+    },
+  ];
 
   return (
     <RouteSizeControlBox
@@ -43,6 +68,7 @@ export function BasicTexts() {
         backgroundColor: "#ddd",
         padding: "0.5rem",
         height: "max-content",
+        marginBottom: "1rem",
       }}
     >
       <HOne>Basic Texts</HOne>
@@ -57,13 +83,26 @@ export function BasicTexts() {
               overflow: "auto",
             }}
           >
-            <HTwo>Presentations</HTwo>
+            <HThree>Presentations</HThree>
             {presentations.map((presentation, index) => {
               return (
                 <div style={{ marginBottom: "3rem" }} key={index}>
-                  <HThree style={{ fontSize: "1.3rem" }}>
+                  <HTwo style={{ fontSize: "1.3rem" }}>
                     {presentation.title}
-                  </HThree>
+                  </HTwo>
+                  <p style={{ padding: "1.1rem", fontSize: "1.2rem" }}>
+                    {presentation.text}
+                  </p>
+                </div>
+              );
+            })}
+            <HThree>Professions</HThree>
+            {professions.map((presentation, index) => {
+              return (
+                <div style={{ marginBottom: "3rem" }} key={index}>
+                  <HTwo style={{ fontSize: "1.3rem" }}>
+                    {presentation.title}
+                  </HTwo>
                   <p style={{ padding: "1.1rem", fontSize: "1.2rem" }}>
                     {presentation.text}
                   </p>
@@ -73,12 +112,13 @@ export function BasicTexts() {
           </RouteDiv>
         </div>
         <RouteSizeControlBox>
+          <BackToHomePage />
           <textarea
             name=""
             id=""
             style={{
-              minWidth: "700px",
-              minHeight: "700px",
+              minWidth: "750px",
+              minHeight: "620px",
               padding: "1rem",
               backgroundColor: primaryColor(),
               color: primaryContrast(),
@@ -91,4 +131,4 @@ export function BasicTexts() {
   );
 }
 
-export default BasicTexts;
+export default BasicTextsPresentTense;

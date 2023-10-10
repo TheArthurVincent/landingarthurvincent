@@ -11,7 +11,7 @@ import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { primaryContrast, secondaryColor } from "./Styles/Styles";
 import { logout24h } from "./Resources/UniversalComponents";
-import BasicTexts from "./Routes/ClassesToTeach/BasicTexts/BasicTexts";
+import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 
 function App() {
   const verifyToken = () => {
@@ -75,8 +75,8 @@ function App() {
                 element={verifyToken() ? <PhrasalVerbs /> : <Login />}
               />
               <Route
-                path="/basic-texts"
-                element={verifyToken() ? <BasicTexts /> : <Login />}
+                path="/basic-texts-present-tense"
+                element={verifyToken() ? <BasicTextsPresentTense /> : <Login />}
               />
             </Routes>
           </Router>

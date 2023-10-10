@@ -12,9 +12,9 @@ import { HThree } from "../MyClasses/MyClasses.Styled";
 
 const basicClasses = [
   {
-    title: "Basic texts",
+    title: "Basic texts - Present Tense",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387",
-    link: "/basic-texts",
+    link: "/basic-texts-present-tense",
   },
 ];
 
