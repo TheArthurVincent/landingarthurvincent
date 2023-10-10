@@ -9,7 +9,11 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
-import { primaryContrast, secondaryColor } from "./Styles/Styles";
+import {
+  primaryContrast,
+  secondaryColor,
+  secondaryContrast,
+} from "./Styles/Styles";
 import { logout24h } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 
@@ -91,7 +95,7 @@ function App() {
           flexDirection: "column",
           alignItems: "center",
           gap: "0.7rem",
-          backgroundColor: secondaryColor(),
+          backgroundColor: secondaryContrast(),
           color: primaryContrast(),
           width: "100vw",
         }}
