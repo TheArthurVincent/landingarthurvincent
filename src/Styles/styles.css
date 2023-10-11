@@ -2,9 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Athiti:wght@200;300;400;500;600;700&family=Electrolize&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,900&family=PT+Sans+Narrow:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Athiti:wght@200;300;400;500;600;700&family=Electrolize&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,900&family=PT+Sans+Narrow:wght@400;700&display=swap");
 :root {
-  --title: "Athiti", sans-serif;
   --text: "Lato", sans-serif;
-  --blue-arvin: #00132b;
   --green-arvin: #54bf08;
   --black-arvin: #101010;
   --white: #fff;
@@ -25,52 +23,10 @@
   }
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-h1,
-h2 {
-  font-family: var(--title);
-  font-weight: 500;
-  text-align: center;
-}
-h3 {
-  background-color: var(--blue-arvin);
-  font-family: var(--title);
-  font-weight: 400;
-  color: #fff;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .modal {
   animation-name: slideIn;
   animation-duration: 0.3s;
   animation-timing-function: ease;
-}
-.header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0;
-  z-index: 3;
-}
-.header nav {
-  font-family: var(--text);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  gap: 1rem;
-}
-.header nav a {
-  text-decoration: none;
-  color: var(--white);
 }
 .maxwidth {
   max-width: 1800px;
@@ -78,7 +34,6 @@ h3 {
   margin-right: auto;
 }
 body {
-  background-color: #eee;
   background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg3.png?updatedAt=1687554775703");
   background-size: cover;
   background-attachment: fixed;
@@ -88,9 +43,7 @@ body {
   margin-right: 0.5rem;
 }
 select {
-  min-height: 2rem;
-  color: var(--blue-arvin);
-  background-color: var(--white);
+  min-height: 1.6rem;
 }
 li {
   list-style: inside;

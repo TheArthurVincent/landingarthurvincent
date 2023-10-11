@@ -6,12 +6,18 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { primaryColor, transparentWhite } from "../../Styles/Styles";
+import {
+  alwaysWhite,
+  primaryColor,
+  secondaryColor,
+  transparentWhite,
+} from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
+import TopBar from "../../Application/TopBar/TopBar";
 
 export function Adm() {
   const [value, setValue] = React.useState("0");
@@ -55,62 +61,65 @@ export function Adm() {
     setValue(newValue);
   };
   return (
-    <RouteSizeControlBox
-      style={{
-        maxWidth: "1200px",
-      }}
-    >
-      <TabContext value={value}>
-        <Box
-          style={{
-            backgroundColor: transparentWhite(),
-            display: "flex",
-            borderRadius: "1rem",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-          sx={{ borderBottom: 1, borderColor: "divider" }}
-        >
-          <TabList
+    <>
+      <TopBar />
+      <RouteSizeControlBox
+        style={{
+          maxWidth: "1200px",
+        }}
+      >
+        <TabContext value={value}>
+          <Box
             style={{
-              backgroundColor: "#f0f0f0",
-              margin: "0.3rem",
+              backgroundColor: secondaryColor(),
+              display: "flex",
               borderRadius: "1rem",
+              alignItems: "center",
+              justifyContent: "space-between",
             }}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="scrollable auto tabs example"
+            sx={{ borderBottom: 1, borderColor: "divider" }}
           >
-            {componentsToRender.map((component, index) => {
-              return (
-                <Tab
-                  key={index + component.value}
-                  style={{
-                    fontWeight: 500,
-                    color: primaryColor(),
-                  }}
-                  label={component.title}
-                  value={component.value}
-                />
-              );
-            })}
-          </TabList>
-          <BackToHomePage />
-        </Box>
-        {componentsToRender.map((component, index) => {
-          return (
-            <TabPanel
-              style={{ padding: 0, margin: "1rem auto", maxWidth: "1000px" }}
-              key={index + component.value}
-              value={component.value}
+            <TabList
+              style={{
+                backgroundColor: alwaysWhite(),
+                margin: "0.3rem",
+                borderRadius: "1rem",
+              }}
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
             >
-              {component.component}
-            </TabPanel>
-          );
-        })}
-      </TabContext>
-    </RouteSizeControlBox>
+              {componentsToRender.map((component, index) => {
+                return (
+                  <Tab
+                    key={index + component.value}
+                    style={{
+                      fontWeight: 500,
+                      color: primaryColor(),
+                    }}
+                    label={component.title}
+                    value={component.value}
+                  />
+                );
+              })}
+            </TabList>
+            <BackToHomePage />
+          </Box>
+          {componentsToRender.map((component, index) => {
+            return (
+              <TabPanel
+                style={{ padding: 0, margin: "1rem auto", maxWidth: "1000px" }}
+                key={index + component.value}
+                value={component.value}
+              >
+                {component.component}
+              </TabPanel>
+            );
+          })}
+        </TabContext>
+      </RouteSizeControlBox>
+    </>
   );
 }
 
