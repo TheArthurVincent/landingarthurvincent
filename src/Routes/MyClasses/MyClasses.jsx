@@ -18,6 +18,7 @@ import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
 import {
   alwaysWhite,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -205,7 +206,7 @@ export function MyClasses() {
                         <HTwo>{UniversalTexts.comments}</HTwo>
                         <div
                           style={{
-                            backgroundColor: "#f6f6f6",
+                            backgroundColor: lightGreyColor(),
                             padding: "10px",
                             overflow: "auto",
                             height: "13rem",

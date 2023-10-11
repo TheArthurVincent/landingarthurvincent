@@ -12,7 +12,7 @@ export const darkGreyColor = () => "#888";
 export const transparentBg = () => "rgba(255, 255, 255, 0.5)";
 export const transparentBg2 = () => "rgba(1, 1, 1, 0.2)";
 export const alwaysWhite = () => "#fff";
-export const lightGreyColor = () => "#ccc";
+export const lightGreyColor = () => "#eee";
 
 // export const primaryColor = () => "#eee";
 // export const secondaryColor = () => " #111";
