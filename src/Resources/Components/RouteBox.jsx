@@ -31,7 +31,7 @@ export const RouteSizeControlBox = styled.div`
 `;
 
 export const HOne = styled.h1`
-  background-color: ${textSecondaryColorContrast()};
+  background-color: ${primaryColor()};
   font-size: 1.3rem;
   padding: 0rem 1rem;
   margin: 0;
@@ -40,7 +40,7 @@ export const HOne = styled.h1`
   align-items: center;
   justify-content: center;
   min-height: 3rem;
-  color: ${primaryColor()};
+  color: ${textPrimaryColorContrast()};
   @media (max-width: 650px) {
     margin: 3px;
   }

@@ -191,7 +191,8 @@ export function Blog() {
             </HTwo>
             <Button
               style={{
-                color: primaryColor(),
+                backgroundColor: alwaysBlack(),
+                color: alwaysWhite(),
               }}
               onClick={handleSeeIsNextClassVisibleModal}
             >
@@ -217,10 +218,10 @@ export function Blog() {
                 marginRight: "1.2rem",
                 marginLeft: "auto",
                 maxWidth: "fit-content",
-                backgroundColor: primaryColor(),
+                backgroundColor: secondaryColor(),
                 padding: "0.5rem",
                 fontSize: "1rem",
-                color: textPrimaryColorContrast(),
+                color: textSecondaryColorContrast(),
                 borderRadius: "5px",
               }}
               target="_blank"
