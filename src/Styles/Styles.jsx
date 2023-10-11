@@ -4,7 +4,7 @@ export const themePartner = {};
 
 export const primaryColor = () => "#00132b"; //Cor primária da marc
 export const secondaryColor = () => " #54bf08"; // Cor secundária da marca
-export const textPrimaryColorContrast = () => "#eee"; //Cor pra ficar atrás da primária
+export const textPrimaryColorContrast = () => "#fff"; //Cor pra ficar atrás da primária
 export const textSecondaryColorContrast = () => "#00132b"; // Cor pra ficar atrás da secundária
 export const darkGreyColor = () => "#555";
 export const lightGreyColor = () => "#eee";

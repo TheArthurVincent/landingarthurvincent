@@ -11,7 +11,7 @@ import { Button } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import { primaryColor } from "../../Styles/Styles";
+import { primaryColor, secondaryColor } from "../../Styles/Styles";
 
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
@@ -109,7 +109,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: "#000",
+                  color: primaryColor(),
                 }}
                 to={link.endpoint}
               >
@@ -151,13 +151,13 @@ export default function TopBar() {
             gap: "2rem",
           }}
         >
-          <span>|</span>
+          <span style={{ color: secondaryColor(), fontWeight: 600 }}>|</span>
           {toAdm.map((link, index) => {
             return (
               <NavLink
                 key={index}
                 style={{
-                  color: "#000",
+                  color: primaryColor(),
                 }}
                 to={link.endpoint}
               >

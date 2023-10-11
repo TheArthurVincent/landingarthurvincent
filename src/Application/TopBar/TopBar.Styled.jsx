@@ -4,6 +4,7 @@ import {
   secondaryColor,
   textSecondaryColorContrast,
   transparentWhite,
+  alwaysWhite,
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
