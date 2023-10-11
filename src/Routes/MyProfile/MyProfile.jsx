@@ -8,8 +8,7 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import { BackToHomePage, logout24h } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import {
-  primaryContrast,
-  secondaryContrast,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 

@@ -6,7 +6,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { primaryColor, transparentBg } from "../../Styles/Styles";
+import { primaryColor, transparentWhite } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
@@ -63,7 +63,7 @@ export function Adm() {
       <TabContext value={value}>
         <Box
           style={{
-            backgroundColor: transparentBg(),
+            backgroundColor: transparentWhite(),
             display: "flex",
             borderRadius: "1rem",
             alignItems: "center",

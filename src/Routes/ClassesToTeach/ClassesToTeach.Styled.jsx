@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import {
   lightGreyColor,
   primaryColor,
-  secondaryContrast,
+  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 export const CoursesList = styled.div`
@@ -26,7 +26,7 @@ export const CourseItem = styled.div`
   transition: 0.2s;
   &:hover {
     background-color: ${primaryColor()};
-    color: ${secondaryContrast()};
+    color: ${textSecondaryColorContrast()};
     font-weight: 700;
   }
 `;

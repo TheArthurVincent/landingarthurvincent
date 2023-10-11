@@ -1,12 +1,10 @@
 import { styled } from "styled-components";
 import {
-  secondaryContrast,
+  textSecondaryColorContrast,
   darkGreyColor,
-  primaryContrast,
   primaryColor,
   alwaysWhite,
   textPrimaryColorContrast,
-  transparentBg2,
 } from "../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
@@ -23,8 +21,8 @@ export const CoursesListContainer = styled.div`
 `;
 
 export const CoursesListTitleContainer = styled.div`
-  background-color: ${primaryContrast()};
-  color: ${secondaryContrast()};
+  background-color: ${textPrimaryColorContrast()};
+  color: ${textSecondaryColorContrast()};
   display: flex;
   align-items: center;
   justify-content: space-between;

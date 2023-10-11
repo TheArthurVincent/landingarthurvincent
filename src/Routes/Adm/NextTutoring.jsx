@@ -6,7 +6,7 @@ import { Input } from "@mui/material";
 import {
   darkGreyColor,
   primaryColor,
-  primaryContrast,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
@@ -157,7 +157,7 @@ export function NextTutoring() {
                 padding: "0.5rem",
                 borderRadius: "0.5rem",
                 marginLeft: "auto",
-                color: primaryContrast(),
+                color: textPrimaryColorContrast(),
                 cursor: "not-allowed",
               }}
             >

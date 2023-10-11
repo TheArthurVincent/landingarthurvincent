@@ -13,7 +13,6 @@ import { Box, Tab, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysWhite,
-  primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,

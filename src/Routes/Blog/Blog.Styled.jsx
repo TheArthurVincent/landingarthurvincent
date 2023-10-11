@@ -1,6 +1,9 @@
 import { styled } from "styled-components";
 import {
+  alwaysBlack,
+  alwaysWhite,
   lightGreyColor,
+  primaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
@@ -32,10 +35,11 @@ export const TitleChangeSize = styled.span`
 `;
 
 export const SpanDisapear = styled.span`
+  color: ${primaryColor()};
   background-color: ${textPrimaryColorContrast()};
-  color: ${textSecondaryColorContrast()};
   padding: 3px;
   font-size: 1rem;
+  font-weight: 700;
   padding: "0.2rem 0.6rem";
   @media (max-width: 900px) {
     display: none;

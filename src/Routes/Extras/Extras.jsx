@@ -12,7 +12,7 @@ import {
   logout24h,
 } from "../../Resources/UniversalComponents";
 import generalClasses from "../../assets/mockdata/universalcontent.json";
-import { transparentBg } from "../../Styles/Styles";
+import { transparentWhite } from "../../Styles/Styles";
 import TopBar from "../../Application/TopBar/TopBar";
 
 export function Extras() {
@@ -36,7 +36,7 @@ export function Extras() {
               </div>
               <div
                 style={{
-                  backgroundColor: transparentBg(),
+                  backgroundColor: transparentWhite(),
                   padding: "1rem",
                   overflow: "auto",
                   maxHeight: "14rem",

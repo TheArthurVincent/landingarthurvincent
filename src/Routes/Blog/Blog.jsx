@@ -4,6 +4,7 @@ import {
   RouteSizeControlBox,
   BlogPostTitle,
   HTwo,
+  BackgroundClickBlog,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -16,10 +17,10 @@ import {
   Xp,
 } from "../../Resources/UniversalComponents";
 import {
+  alwaysBlack,
   alwaysWhite,
   primaryColor,
-  primaryContrast,
-  secondaryContrast,
+  secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
@@ -169,147 +170,143 @@ export function Blog() {
   };
 
   return (
-    <RouteSizeControlBox>
-      <RouteDiv>
-        <div
-          style={{
-            margin: "1.2rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <HTwo>
-            {UniversalTexts.hello}
-            {name}
-          </HTwo>
-          <Button
-            style={{
-              color: primaryColor(),
-            }}
-            onClick={handleSeeIsNextClassVisibleModal}
-          >
-            {UniversalTexts.nextClass}
-          </Button>
-        </div>
-        {nextTutoring.nextTutoring.date == "" ? (
+    <>
+      <BackgroundClickBlog
+        onClick={() => handleSeeModal()}
+        style={{ display: !isVisible ? "none" : "flex" }}
+      />
+      <RouteSizeControlBox>
+        <RouteDiv>
           <div
             style={{
-              display: isNextClassVisible ? "block" : "none",
-              marginRight: "1.2rem",
-              marginLeft: "auto",
-              maxWidth: "fit-content",
-              padding: "0.5rem",
+              margin: "1.2rem",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            {UniversalTexts.loading}
+            <HTwo>
+              {UniversalTexts.hello}
+              {name}
+            </HTwo>
+            <Button
+              style={{
+                color: primaryColor(),
+              }}
+              onClick={handleSeeIsNextClassVisibleModal}
+            >
+              {UniversalTexts.nextClass}
+            </Button>
           </div>
-        ) : (
-          <Link
-            style={{
-              display: isNextClassVisible ? "block" : "none",
-              marginRight: "1.2rem",
-              marginLeft: "auto",
-              maxWidth: "fit-content",
-              backgroundColor: primaryColor(),
-              padding: "0.5rem",
-              fontSize: "1rem",
-              color: alwaysWhite(),
-              borderRadius: "5px",
-            }}
-            target="_blank"
-            to={nextTutoring.nextTutoring.meetingUrl}
-          >
-            <span
+          {nextTutoring.nextTutoring.date == "" ? (
+            <div
               style={{
-                textDecoration: "underline",
+                display: isNextClassVisible ? "block" : "none",
+                marginRight: "1.2rem",
+                marginLeft: "auto",
+                maxWidth: "fit-content",
+                padding: "0.5rem",
               }}
             >
-              {" "}
-              {formatData(nextTutoring.nextTutoring.date)}
-            </span>{" "}
-            <span
+              {UniversalTexts.loading}
+            </div>
+          ) : (
+            <Link
               style={{
-                fontWeight: 600,
+                display: isNextClassVisible ? "block" : "none",
+                marginRight: "1.2rem",
+                marginLeft: "auto",
+                maxWidth: "fit-content",
+                backgroundColor: primaryColor(),
+                padding: "0.5rem",
+                fontSize: "1rem",
+                color: textPrimaryColorContrast(),
+                borderRadius: "5px",
+              }}
+              target="_blank"
+              to={nextTutoring.nextTutoring.meetingUrl}
+            >
+              <span
+                style={{
+                  textDecoration: "underline",
+                }}
+              >
+                {" "}
+                {formatData(nextTutoring.nextTutoring.date)}
+              </span>{" "}
+              <span
+                style={{
+                  fontWeight: 600,
+                }}
+              >
+                - {nextTutoring.nextTutoring.time}
+              </span>{" "}
+            </Link>
+          )}
+          {posts.map((post, index) => (
+            <div
+              key={index}
+              style={{
+                borderBottom: `solid 3px ${primaryColor()} `,
+                paddingBottom: "5rem",
+                marginBottom: "1rem",
               }}
             >
-              - {nextTutoring.nextTutoring.time}
-            </span>{" "}
-          </Link>
-        )}
-        {posts.map((post, index) => (
-          <div
-            key={index}
-            style={{
-              borderBottom: `solid 1px ${secondaryContrast()} `,
-              paddingBottom: "5rem",
-              marginBottom: "1rem",
-            }}
-          >
-            {post.title && (
-              <BlogPostTitle>
-                <span
-                  style={{ display: "flex", alignItems: "center", gap: "2rem" }}
-                >
-                  <TitleChangeSize>{post.title} </TitleChangeSize>
-                  <Button
+              {post.title && (
+                <BlogPostTitle>
+                  <span
                     style={{
-                      display: permissions == "superadmin" ? "flex" : "none",
+                      display: "flex",
                       alignItems: "center",
-                      backgroundColor: primaryContrast(),
-                      color: primaryColor(),
-                      fontSize: "0.7rem",
-                      maxHeight: "1.2rem",
-                      maxWidth: "1.2rem",
+                      gap: "2rem",
                     }}
-                    onClick={() => seeEdition(post._id)}
                   >
-                    {UniversalTexts.editPost}
-                  </Button>
-                </span>
-                {post.createdAt && (
-                  <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
-                )}{" "}
-              </BlogPostTitle>
-            )}{" "}
-            {post.img && <ImgBlog src={post.img} alt="" />}{" "}
-            {post.videoUrl && (
+                    <TitleChangeSize>{post.title} </TitleChangeSize>
+                    <Button
+                      style={{
+                        display: permissions == "superadmin" ? "flex" : "none",
+                        alignItems: "center",
+                        backgroundColor: secondaryColor(),
+                        color: textSecondaryColorContrast(),
+                        fontSize: "0.7rem",
+                        maxHeight: "1.2rem",
+                        maxWidth: "1.2rem",
+                      }}
+                      onClick={() => seeEdition(post._id)}
+                    >
+                      {UniversalTexts.editPost}
+                    </Button>
+                  </span>
+                  {post.createdAt && (
+                    <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
+                  )}{" "}
+                </BlogPostTitle>
+              )}{" "}
+              {post.img && <ImgBlog src={post.img} alt="logo" />}{" "}
               <div
                 style={{
                   display: "flex",
-                  width: "100%",
-                  justifyContent: "center",
+                  textAlign: "left",
                 }}
               >
-                <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />{" "}
+                {" "}
+                {post.videoUrl && (
+                  <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
+                )}
+                <div
+                  style={{
+                    margin: "1rem",
+                    display: "block",
+                    backgroundColor: alwaysWhite(),
+                    color: alwaysBlack(),
+                  }}
+                >
+                  {post.text}
+                </div>
               </div>
-            )}
-            <div
-              style={{
-                margin: "1rem",
-                fontSize: "1.2rem",
-                display: "block",
-                color: textSecondaryColorContrast(),
-              }}
-            >
-              {post.text}
             </div>
-          </div>
-        ))}
-      </RouteDiv>
-      <div
-        className="modal"
-        style={{
-          display: isVisible ? "block" : "none",
-          zIndex: 30,
-          position: "fixed",
-          backgroundColor: "rgba(0,0,0,0.5)",
-          width: "10000px",
-          height: "10000px",
-          top: 0,
-          left: 0,
-        }}
-      >
+          ))}
+        </RouteDiv>
         <div
           className="modal"
           style={{
@@ -477,8 +474,8 @@ export function Blog() {
             </div>
           </div>
         </div>
-      </div>
-    </RouteSizeControlBox>
+      </RouteSizeControlBox>
+    </>
   );
 }
 

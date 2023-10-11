@@ -3,9 +3,7 @@ import {
   alwaysWhite,
   darkGreyColor,
   primaryColor,
-  primaryContrast,
   secondaryColor,
-  secondaryContrast,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../Styles/Styles";
@@ -143,9 +141,9 @@ export const linkReset = {
 };
 
 export const IFrameVideo = styled.iframe`
-  margin-top: 0;
-  min-width: 1188px;
-  min-height: 660px;
+  margin: 0 1rem ;
+  min-width: 1200px;
+  min-height: 650px;
   border: none;
   display: inline-block;
   @media (max-width: 1250px) {

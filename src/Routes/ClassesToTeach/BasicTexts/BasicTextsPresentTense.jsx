@@ -11,7 +11,7 @@ import {
 } from "../../../Resources/Components/RouteBox";
 import {
   primaryColor,
-  primaryContrast,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
@@ -137,7 +137,7 @@ export function BasicTextsPresentTense() {
               minHeight: "620px",
               padding: "1rem",
               backgroundColor: primaryColor(),
-              color: primaryContrast(),
+              color: textPrimaryColorContrast(),
               fontSize: "1.5rem",
             }}
           />

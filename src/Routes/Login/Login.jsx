@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import {
   primaryColor,
-  secondaryContrast,
-  transparentBg,
+  textSecondaryColorContrast,
+  transparentWhite,
 } from "../../Styles/Styles";
 import { InputField, backDomain } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
@@ -41,8 +41,8 @@ export function Login() {
   return (
     <div
       style={{
-        backgroundColor: transparentBg(),
-        color: secondaryContrast(),
+        backgroundColor: transparentWhite(),
+        color: textSecondaryColorContrast(),
         maxWidth: "400px",
         marginLeft: "auto",
         marginRight: "auto",

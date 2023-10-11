@@ -2,8 +2,6 @@ import { styled } from "styled-components";
 import {
   lightGreyColor,
   primaryColor,
-  primaryContrast,
-  secondaryContrast,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";

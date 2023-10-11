@@ -1,16 +1,16 @@
 import { styled } from "styled-components";
 import {
-  primaryContrast,
+  textPrimaryColorContrast,
   secondaryColor,
   textSecondaryColorContrast,
-  transparentBg,
+  transparentWhite,
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
   display: flex;
   top: 0;
   width: 100vw;
-  background-color: ${primaryContrast()};
+  background-color: ${textPrimaryColorContrast()};
   justify-content: space-evenly;
   align-items: center;
   padding: 0.4rem 4rem;
@@ -38,7 +38,7 @@ export const TopBarNavigationBurger = styled.div`
   left: 1rem;
   gap: 1rem;
   text-align: left;
-  background-color: ${primaryContrast()};
+  background-color: ${textPrimaryColorContrast()};
   padding: 1rem;
   display: none;
 `;
@@ -48,9 +48,9 @@ export const BackgroundClick = styled.div`
   display: none;
   left: -30rem;
   z-index: 2;
-  background-color: ${transparentBg()};
-  min-height: 1000vh;
-  min-width: 1000vw;
+  background-color: ${transparentWhite()};
+  min-height: 10000vh;
+  min-width: 10000vw;
 `;
 
 export const LinkItem = styled.li`

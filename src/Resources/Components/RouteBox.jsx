@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
 import {
   primaryColor,
-  primaryContrast,
-  secondaryContrast,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
+  alwaysWhite,
+  alwaysBlack,
+  transparentWhite,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
@@ -44,7 +45,7 @@ export const HOne = styled.h1`
     margin: 3px;
   }
 `;
-export const BlogPostTitle = styled.h4`
+export const BlogPostTitle = styled.div`
   font-weight: 400;
   background-color: ${primaryColor()};
   padding: 0rem 0.5rem;
@@ -54,7 +55,7 @@ export const BlogPostTitle = styled.h4`
   align-items: center;
   justify-content: space-between;
   min-height: 2.5rem;
-  color: ${primaryContrast()};
+  color: ${textPrimaryColorContrast()};
   @media (max-width: 650px) {
     margin: 3px;
   }
@@ -62,18 +63,19 @@ export const BlogPostTitle = styled.h4`
 
 export const HTwo = styled.h2`
   font-size: 1.4rem;
-  font-weight: 400;
-  color: ${textSecondaryColorContrast()};
+  font-weight: 500;
+  color: ${alwaysBlack()};
   @media (max-width: 650px) {
     padding: 3px;
     margin: 3px;
+    font-size: 1rem;
   }
 `;
 
 export const HThree = styled.h3`
   padding: 0.5rem;
-  background-color: ${primaryContrast()};
-  color: ${secondaryContrast()};
+  background-color: ${textPrimaryColorContrast()};
+  color: ${textSecondaryColorContrast()};
   @media (max-width: 650px) {
     padding: 3px;
     margin: 3px;
@@ -84,8 +86,8 @@ export const RouteDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.5rem;
-  background-color: ${secondaryContrast()};
-  color: ${secondaryContrast()};
+  background-color: ${alwaysWhite()};
+  color: ${alwaysBlack()};
   padding: 0.5rem;
   margin: 0.5rem 0;
   @media (max-width: 750px) {
@@ -93,4 +95,12 @@ export const RouteDiv = styled.div`
     margin: 5px;
     max-width: 390px;
   }
+`;
+
+export const BackgroundClickBlog = styled.div`
+  position: fixed;
+  z-index: 5;
+  background-color: ${transparentWhite()};
+  height: 10000vh;
+  width: 10000vw;
 `;
