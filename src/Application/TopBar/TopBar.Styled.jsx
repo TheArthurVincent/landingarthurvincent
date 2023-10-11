@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import {
   primaryContrast,
   secondaryColor,
-  secondaryContrast,
+  textSecondaryColorContrast,
   transparentBg,
 } from "../../Styles/Styles";
 
@@ -71,7 +71,7 @@ export const LogoStyle = styled.div`
 
 export const Hamburguer = styled.div`
   display: none;
-  color: ${secondaryContrast()};
+  color: ${textSecondaryColorContrast()};
   font-weight: 900;
   font-size: 2rem;
   cursor: pointer;

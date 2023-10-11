@@ -94,7 +94,7 @@ export function FindStudent() {
       alert("Usuário editado com sucesso!");
     } catch (error) {
       alert("Erro ao editar usuário");
-    }
+    } 
   };
 
   const editStudentPermissions = async (id) => {

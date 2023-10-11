@@ -25,6 +25,7 @@ import {
 } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
+import { SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
 export function Blog() {
   const { UniversalTexts } = useUserContext();
@@ -250,7 +251,7 @@ export function Blog() {
                 <span
                   style={{ display: "flex", alignItems: "center", gap: "2rem" }}
                 >
-                  <span>{post.title} </span>
+                  <TitleChangeSize>{post.title} </TitleChangeSize>
                   <Button
                     style={{
                       display: permissions == "superadmin" ? "flex" : "none",
@@ -267,15 +268,7 @@ export function Blog() {
                   </Button>
                 </span>
                 {post.createdAt && (
-                  <span
-                    style={{
-                      backgroundColor: textPrimaryColorContrast(),
-                      color: textSecondaryColorContrast(),
-                      padding: "0.2rem 0.6rem",
-                    }}
-                  >
-                    {formatDate(post.createdAt)}
-                  </span>
+                  <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
                 )}{" "}
               </BlogPostTitle>
             )}{" "}

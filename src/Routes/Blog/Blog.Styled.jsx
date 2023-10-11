@@ -1,5 +1,9 @@
 import { styled } from "styled-components";
-import { lightGreyColor, primaryColor, secondaryContrast } from "../../Styles/Styles";
+import {
+  lightGreyColor,
+  textPrimaryColorContrast,
+  textSecondaryColorContrast,
+} from "../../Styles/Styles";
 
 export const EventsCardsContainer = styled.div`
   display: flex;
@@ -18,4 +22,22 @@ export const EventsCard = styled.div`
   text-align: center;
   padding: 0.5rem;
   background-color: ${lightGreyColor()};
+`;
+
+export const TitleChangeSize = styled.span`
+  font-size: 1rem;
+  @media (max-width: 800px) {
+    font-size: 0.8rem;
+  }
+`;
+
+export const SpanDisapear = styled.span`
+  background-color: ${textPrimaryColorContrast()};
+  color: ${textSecondaryColorContrast()};
+  padding: 3px;
+  font-size: 1rem;
+  padding: "0.2rem 0.6rem";
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
