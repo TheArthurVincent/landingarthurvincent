@@ -45,3 +45,10 @@ export const SpanDisapear = styled.span`
     display: none;
   }
 `;
+export const DivPost = styled.div`
+  display: flex;
+  text-align: left;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+`;

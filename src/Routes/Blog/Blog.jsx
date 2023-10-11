@@ -26,7 +26,7 @@ import {
 } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
-import { SpanDisapear, TitleChangeSize } from "./Blog.Styled";
+import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
 export function Blog() {
   const { UniversalTexts } = useUserContext();
@@ -283,12 +283,7 @@ export function Blog() {
                 </BlogPostTitle>
               )}{" "}
               {post.img && <ImgBlog src={post.img} alt="logo" />}{" "}
-              <div
-                style={{
-                  display: "flex",
-                  textAlign: "left",
-                }}
-              >
+              <DivPost>
                 {" "}
                 {post.videoUrl && (
                   <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
@@ -303,7 +298,7 @@ export function Blog() {
                 >
                   {post.text}
                 </div>
-              </div>
+              </DivPost>
             </div>
           ))}
         </RouteDiv>
