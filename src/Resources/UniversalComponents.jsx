@@ -150,17 +150,11 @@ export const IFrameVideo = styled.iframe`
   display: inline-block;
   @media (max-width: 1250px) {
     margin-top: 0;
-    min-width: 1080px;
+    min-width: 1100px;
     min-height: 600px;
   }
 
   @media (max-width: 1140px) {
-    margin-top: 0;
-    min-width: 900px;
-    min-height: 500px;
-  }
-
-  @media (max-width: 1030px) {
     margin-top: 0;
     min-width: 810px;
     min-height: 450px;
@@ -174,14 +168,8 @@ export const IFrameVideo = styled.iframe`
 
   @media (max-width: 750px) {
     margin-top: 0;
-    min-width: 583.2px;
-    min-height: 324px;
-  }
-
-  @media (max-width: 650px) {
-    margin-top: 0;
-    min-width: 472.392px;
-    min-height: 262.44px;
+    min-width: 350px;
+    min-height: 200px;
   }
 `;
 
@@ -201,16 +189,8 @@ export const ImgBlog = styled.img`
   }
   @media (max-width: 700px) {
     margin-top: 0;
-    width: 580px;
-    height: 300px;
-  }
-  @media (max-width: 650px) {
     width: 300px;
     height: 200px;
-  }
-  @media (max-width: 400px) {
-    width: 230px;
-    height: 180px;
   }
 `;
 

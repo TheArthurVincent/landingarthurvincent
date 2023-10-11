@@ -9,7 +9,7 @@ export const textSecondaryColorContrast = () => "#1a1a1a";
 export const primaryContrast = () => "#fff";
 export const secondaryContrast = () => "#fff";
 export const darkGreyColor = () => "#888";
-export const transparentBg = () => "rgba(255, 255, 255, 1)";
+export const transparentBg = () => "rgba(255, 255, 255, 0.5)";
 export const transparentBg2 = () => "rgba(1, 1, 1, 0.2)";
 export const alwaysWhite = () => "#fff";
 export const lightGreyColor = () => "#ccc";

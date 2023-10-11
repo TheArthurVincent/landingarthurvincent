@@ -190,18 +190,14 @@ export function MyClasses() {
                       <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
                     </div>
                     <div style={{ marginLeft: "1rem" }}>
-                      <HThree>{item.title}</HThree>
-                      <div
-                        style={{
-                          color: textSecondaryColorContrast(),
-                          padding: "1rem",
-                        }}
-                      >
+                      <HThree style={{}}>{item.title}</HThree>
+                      <div>
                         <HTwo>{UniversalTexts.date}</HTwo>
                         <p
                           style={{
                             color: textSecondaryColorContrast(),
                             maxWidth: "80ch",
+                            textAlign: "center",
                           }}
                         >
                           {item.date}
@@ -213,6 +209,8 @@ export function MyClasses() {
                             padding: "10px",
                             overflow: "auto",
                             height: "13rem",
+                            maxWidth: "22rem",
+                            margin: "0 auto",
                           }}
                         >
                           <p style={{ maxWidth: "80ch", color: "black" }}>
@@ -223,7 +221,10 @@ export function MyClasses() {
                         <Link
                           to={item.attachments}
                           target="_blank"
-                          style={{ color: secondaryColor() }}
+                          style={{
+                            textAlign: "center",
+                            color: secondaryColor(),
+                          }}
                         >
                           {UniversalTexts.attachments}
                         </Link>

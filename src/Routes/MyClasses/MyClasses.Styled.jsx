@@ -4,6 +4,7 @@ import {
   primaryColor,
   primaryContrast,
   secondaryContrast,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
@@ -31,9 +32,10 @@ export const HThree = styled.h3`
   padding: 0.5rem;
   margin: 0.5rem;
   background-color: ${primaryColor()};
-  color: ${primaryContrast()};
-  @media (max-width: 700px) {
-    background-color: ${lightGreyColor()};
+  color: ${textPrimaryColorContrast()};
+  @media (max-width: 900px) {
+    margin: 0 auto;
+    max-width: 20rem;
   }
 `;
 

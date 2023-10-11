@@ -2,11 +2,9 @@ import { styled } from "styled-components";
 import {
   primaryColor,
   primaryContrast,
-  secondaryColor,
   secondaryContrast,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
-  transparentBg,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
@@ -18,18 +16,15 @@ export const RouteSizeControlBox = styled.div`
   @media (max-width: 900px) {
     max-width: 800px;
   }
-  @media (max-width: 800px) {
-    max-width: 700px;
-  }
-  @media (max-width: 650px) {
-    max-width: 500px;
+  @media (max-width: 750px) {
+    max-width: 400px;
     h1,
     h2,
     h3,
     p,
     ul,
     li {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 `;
@@ -93,8 +88,9 @@ export const RouteDiv = styled.div`
   color: ${secondaryContrast()};
   padding: 0.5rem;
   margin: 0.5rem 0;
-  @media (max-width: 650px) {
+  @media (max-width: 750px) {
     padding: 5px;
     margin: 5px;
+    max-width: 390px;
   }
 `;
