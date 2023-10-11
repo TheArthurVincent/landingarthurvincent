@@ -36,16 +36,16 @@ export default function TopBar() {
       endpoint: "/my-classes",
     },
     {
+      title: "Classes",
+      endpoint: "/classes-to-teach",
+    },
+    {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",
     },
     {
       title: UniversalTexts.extras,
       endpoint: "/extras",
-    },
-    {
-      title: "Classes",
-      endpoint: "/classes-to-teach",
     },
   ];
 

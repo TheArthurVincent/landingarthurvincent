@@ -9,6 +9,7 @@ import { Link, NavLink } from "react-router-dom";
 import { CourseCard } from "./ClassesToTeach.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
+import TopBar from "../../Application/TopBar/TopBar";
 
 const basicClasses = [
   {
@@ -47,149 +48,159 @@ const thematicClasses = [
 ];
 export default function ClassesToTeach() {
   return (
-    <RouteSizeControlBox>
-      <RouteDiv>
-        <HOne>Classes</HOne>
-        <BackToHomePage />
-        <div>
-          {" "}
-          <HThree>Basic Classes</HThree>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "5rem",
-              flexDirection: "row-reverse",
-              flexWrap: "wrap",
-            }}
-          >
-            {basicClasses.map((course, index) => {
-              return (
-                <Link key={index} to={course.link} target="_blank">
-                  <CourseCard>
-                    <h3>{course.title}</h3>
-                    <img
-                      style={{
-                        height: "240px",
-                        width: "240px",
-                        objectFit: "cover",
-                        objectPosition: "left",
-                      }}
-                      src={course.img}
-                      alt=""
-                    />
-                  </CourseCard>
-                </Link>
-              );
-            })}
+    <>
+      <TopBar />{" "}
+      <RouteSizeControlBox>
+        <RouteDiv>
+          <HOne>Classes</HOne>
+          <BackToHomePage />
+          <div>
+            {" "}
+            <HThree>Basic Classes</HThree>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "left",
+                gap: "1rem",
+                margin:"0 1rem",
+                flexDirection: "row-reverse",
+                flexWrap: "wrap",
+              }}
+            >
+              {basicClasses.map((course, index) => {
+                return (
+                  <Link key={index} to={course.link} target="_blank">
+                    <CourseCard>
+                      <h3>{course.title}</h3>
+                      <img
+                        style={{
+                          height: "240px",
+                          width: "240px",
+                          objectFit: "cover",
+                          objectPosition: "left",
+                        }}
+                        src={course.img}
+                        alt=""
+                      />
+                    </CourseCard>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        <div>
-          {" "}
-          <HThree>Intermediary Classes</HThree>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "5rem",
-              flexDirection: "row-reverse",
-              flexWrap: "wrap",
-            }}
-          >
-            {intermediaryClasses.map((course, index) => {
-              return (
-                <NavLink key={index} to={course.link} target="_blank">
-                  <CourseCard>
-                    <h3>{course.title}</h3>
-                    <img
-                      style={{
-                        height: "240px",
-                        width: "240px",
-                        objectFit: "cover",
-                        objectPosition: "left",
-                      }}
-                      src={course.img}
-                      alt=""
-                    />
-                  </CourseCard>
-                </NavLink>
-              );
-            })}
-          </div>
-        </div>
-        <div>
-          {" "}
-          <HThree>Advanced Classes</HThree>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "5rem",
-              flexDirection: "row-reverse",
-              flexWrap: "wrap",
-            }}
-          >
-            {advancedClasses.map((course, index) => {
-              return (
-                <NavLink key={index} to={course.link} target="_blank">
-                  <CourseCard>
-                    <h3>{course.title}</h3>
-                    <img
-                      style={{
-                        height: "240px",
-                        width: "240px",
-                        objectFit: "cover",
-                        objectPosition: "left",
-                      }}
-                      src={course.img}
-                      alt=""
-                    />
-                  </CourseCard>
-                </NavLink>
-              );
-            })}
-          </div>
-        </div>
+          <div>
+            {" "}
+            <HThree>Intermediary Classes</HThree>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "left",
+                gap: "1rem",
+                margin:"0 1rem",
 
-        <div>
-          {" "}
-          <HThree>Thematic Classes</HThree>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "5rem",
-              flexDirection: "row-reverse",
-              flexWrap: "wrap",
-            }}
-          >
-            {thematicClasses.map((course, index) => {
-              return (
-                <NavLink key={index} to={course.link} target="_blank">
-                  <CourseCard>
-                    <h3>{course.title}</h3>
-                    <img
-                      style={{
-                        height: "240px",
-                        width: "240px",
-                        objectFit: "cover",
-                        objectPosition: "left",
-                      }}
-                      src={course.img}
-                      alt=""
-                    />
-                  </CourseCard>
-                </NavLink>
-              );
-            })}
+                flexDirection: "row-reverse",
+                flexWrap: "wrap",
+              }}
+            >
+              {intermediaryClasses.map((course, index) => {
+                return (
+                  <NavLink key={index} to={course.link} target="_blank">
+                    <CourseCard>
+                      <h3>{course.title}</h3>
+                      <img
+                        style={{
+                          height: "240px",
+                          width: "240px",
+                          objectFit: "cover",
+                          objectPosition: "left",
+                        }}
+                        src={course.img}
+                        alt=""
+                      />
+                    </CourseCard>
+                  </NavLink>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </RouteDiv>
-    </RouteSizeControlBox>
+          <div>
+            {" "}
+            <HThree>Advanced Classes</HThree>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "left",
+                gap: "1rem",
+                margin:"0 1rem",
+
+                flexDirection: "row-reverse",
+                flexWrap: "wrap",
+              }}
+            >
+              {advancedClasses.map((course, index) => {
+                return (
+                  <NavLink key={index} to={course.link} target="_blank">
+                    <CourseCard>
+                      <h3>{course.title}</h3>
+                      <img
+                        style={{
+                          height: "240px",
+                          width: "240px",
+                          objectFit: "cover",
+                          objectPosition: "left",
+                        }}
+                        src={course.img}
+                        alt=""
+                      />
+                    </CourseCard>
+                  </NavLink>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            {" "}
+            <HThree>Thematic Classes</HThree>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "left",
+                gap: "1rem",
+                margin:"0 1rem",
+
+                flexDirection: "row-reverse",
+                flexWrap: "wrap",
+              }}
+            >
+              {thematicClasses.map((course, index) => {
+                return (
+                  <NavLink key={index} to={course.link} target="_blank">
+                    <CourseCard>
+                      <h3>{course.title}</h3>
+                      <img
+                        style={{
+                          height: "240px",
+                          width: "240px",
+                          objectFit: "cover",
+                          objectPosition: "left",
+                        }}
+                        src={course.img}
+                        alt=""
+                      />
+                    </CourseCard>
+                  </NavLink>
+                );
+              })}
+            </div>
+          </div>
+        </RouteDiv>
+      </RouteSizeControlBox>
+    </>
   );
 }
