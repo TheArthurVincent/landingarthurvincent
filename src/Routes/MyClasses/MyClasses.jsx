@@ -17,6 +17,7 @@ import {
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
 import {
+  alwaysBlack,
   alwaysWhite,
   lightGreyColor,
   primaryColor,
@@ -119,7 +120,7 @@ export function MyClasses() {
           </Button>
           <span
             style={{
-              color: textSecondaryColorContrast(),
+              color: alwaysBlack(),
             }}
           >
             {currentPage}/{totalPages}
@@ -196,8 +197,7 @@ export function MyClasses() {
                         <HTwo>{UniversalTexts.date}</HTwo>
                         <p
                           style={{
-                            color: textSecondaryColorContrast(),
-                            maxWidth: "80ch",
+                            color: alwaysBlack(),
                             textAlign: "center",
                           }}
                         >

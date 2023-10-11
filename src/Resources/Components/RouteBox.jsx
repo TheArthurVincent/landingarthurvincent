@@ -40,7 +40,7 @@ export const HOne = styled.h1`
   align-items: center;
   justify-content: center;
   min-height: 3rem;
-  color: ${textPrimaryColorContrast()};
+  color: ${primaryColor()};
   @media (max-width: 650px) {
     margin: 3px;
   }
@@ -64,7 +64,12 @@ export const BlogPostTitle = styled.div`
 export const HTwo = styled.h2`
   font-size: 1.4rem;
   font-weight: 500;
+  padding: 1rem;
   color: ${alwaysBlack()};
+  @media (max-width: 1700px) {
+    text-align: center;
+    margin-top: 1rem;
+  }
   @media (max-width: 650px) {
     padding: 3px;
     margin: 3px;

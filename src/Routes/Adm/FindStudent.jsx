@@ -12,6 +12,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
+  alwaysBlack,
   alwaysWhite,
   secondaryColor,
   textPrimaryColorContrast,
@@ -93,7 +94,7 @@ export function FindStudent() {
       alert("Usuário editado com sucesso!");
     } catch (error) {
       alert("Erro ao editar usuário");
-    } 
+    }
   };
 
   const editStudentPermissions = async (id) => {
@@ -190,7 +191,7 @@ export function FindStudent() {
             <div
               style={{
                 padding: "0.6rem",
-                color: textSecondaryColorContrast(),
+                color: alwaysBlack(),
               }}
             >
               <div
