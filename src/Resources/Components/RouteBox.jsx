@@ -18,7 +18,7 @@ export const RouteSizeControlBox = styled.div`
     max-width: 800px;
   }
   @media (max-width: 750px) {
-    max-width: 400px;
+    max-width: 500px;
     h1,
     h2,
     h3,
@@ -93,7 +93,7 @@ export const RouteDiv = styled.div`
   @media (max-width: 750px) {
     padding: 5px;
     margin: 5px;
-    max-width: 390px;
+    max-width: 400px;
   }
 `;
 

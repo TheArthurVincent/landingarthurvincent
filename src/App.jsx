@@ -88,21 +88,22 @@ function App() {
           display: "flex",
           bottom: "0vh",
           flexDirection: "column",
+          fontSize: "12px",
           alignItems: "center",
           gap: "0.7rem",
           backgroundColor: "#111",
           color: "#eee",
-          width: "100vw",
+          width: "110vw",
         }}
       >
         <img
           style={{
-            maxWidth: "3rem",
+            maxWidth: "2.2rem",
           }}
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/head-white.png?updatedAt=1687369608637"
           alt=""
         />
-        <span> Arthur Vincent © Some rights reserved</span>{" "}
+        <span>Arthur Vincent © Some rights reserved</span>{" "}
       </footer>
     </div>
   );
