@@ -36,7 +36,7 @@ export default function TopBar() {
       endpoint: "/my-classes",
     },
     {
-      title: "Classes",
+      title: UniversalTexts.englishMaterial,
       endpoint: "/classes-to-teach",
     },
     {

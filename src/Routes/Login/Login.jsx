@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  primaryColor,
-  textSecondaryColorContrast,
-  transparentWhite,
-} from "../../Styles/Styles";
+import { alwaysBlack, alwaysWhite, primaryColor } from "../../Styles/Styles";
 import { InputField, backDomain } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
@@ -41,8 +37,8 @@ export function Login() {
   return (
     <div
       style={{
-        backgroundColor: transparentWhite(),
-        color: textSecondaryColorContrast(),
+        backgroundColor: alwaysWhite(),
+        color: alwaysBlack(),
         maxWidth: "400px",
         marginLeft: "auto",
         marginRight: "auto",

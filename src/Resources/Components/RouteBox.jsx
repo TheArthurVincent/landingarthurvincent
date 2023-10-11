@@ -76,9 +76,9 @@ export const HThree = styled.h3`
   padding: 0.5rem;
   background-color: ${textPrimaryColorContrast()};
   color: ${textSecondaryColorContrast()};
-  @media (max-width: 650px) {
+  @media (max-width: 750px) {
     padding: 3px;
-    margin: 3px;
+    margin: 5px;
   }
 `;
 

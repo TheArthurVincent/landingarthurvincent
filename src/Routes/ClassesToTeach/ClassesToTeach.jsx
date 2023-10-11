@@ -10,6 +10,7 @@ import { CourseCard } from "./ClassesToTeach.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import TopBar from "../../Application/TopBar/TopBar";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 const basicClasses = [
   {
@@ -47,23 +48,25 @@ const thematicClasses = [
   },
 ];
 export default function ClassesToTeach() {
+  const { UniversalTexts } = useUserContext();
+
   return (
     <>
       <TopBar />{" "}
       <RouteSizeControlBox>
         <RouteDiv>
-          <HOne>Classes</HOne>
+          <HOne>{UniversalTexts.englishMaterial}</HOne>
           <BackToHomePage />
           <div>
             {" "}
-            <HThree>Basic Classes</HThree>
+            <HThree>{UniversalTexts.basicClasses}</HThree>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "left",
                 gap: "1rem",
-                margin:"0 1rem",
+                margin: "0 1rem",
                 flexDirection: "row-reverse",
                 flexWrap: "wrap",
               }}
@@ -92,14 +95,14 @@ export default function ClassesToTeach() {
 
           <div>
             {" "}
-            <HThree>Intermediary Classes</HThree>
+            <HThree>{UniversalTexts.intermediaryClasses}</HThree>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "left",
                 gap: "1rem",
-                margin:"0 1rem",
+                margin: "0 1rem",
 
                 flexDirection: "row-reverse",
                 flexWrap: "wrap",
@@ -127,15 +130,14 @@ export default function ClassesToTeach() {
             </div>
           </div>
           <div>
-            {" "}
-            <HThree>Advanced Classes</HThree>
+            <HThree>{UniversalTexts.advancedClasses}</HThree>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "left",
                 gap: "1rem",
-                margin:"0 1rem",
+                margin: "0 1rem",
 
                 flexDirection: "row-reverse",
                 flexWrap: "wrap",
@@ -164,15 +166,14 @@ export default function ClassesToTeach() {
           </div>
 
           <div>
-            {" "}
-            <HThree>Thematic Classes</HThree>
+            <HThree>{UniversalTexts.thematicClasses}</HThree>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "left",
                 gap: "1rem",
-                margin:"0 1rem",
+                margin: "0 1rem",
 
                 flexDirection: "row-reverse",
                 flexWrap: "wrap",

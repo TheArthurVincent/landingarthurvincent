@@ -32,8 +32,10 @@ export const HThree = styled.h3`
   background-color: ${primaryColor()};
   color: ${textPrimaryColorContrast()};
   @media (max-width: 900px) {
-    margin: 0 auto;
-    max-width: 20rem;
+    margin: 10px auto;
+  }
+  @media (max-width: 500px) {
+    max-width: 22rem;
   }
 `;
 
