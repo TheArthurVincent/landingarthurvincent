@@ -11,6 +11,7 @@ import {
 
 export const CoursesListContainer = styled.div`
   display: flex;
+  border-right:1px solid;
   height: 100vh;
   position: fixed;
   top: 0rem;

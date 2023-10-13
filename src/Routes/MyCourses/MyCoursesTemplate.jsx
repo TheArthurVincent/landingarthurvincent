@@ -833,9 +833,11 @@ export default function MyCoursesTemplate() {
     setChosenTitle(selectedTitle);
   };
 
-  const H2Course = styled.div`
+  const DivCourse = styled.div`
     max-height: 90vh;
     overflow: auto;
+    background-color: ${darkGreyColor()};
+    color: ${lightGreyColor()};
     text-transform: capitalize;
 
     &::-webkit-scrollbar {
@@ -869,13 +871,54 @@ export default function MyCoursesTemplate() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "16rem 1fr",
-          backgroundColor: darkGreyColor(),
-          color: lightGreyColor(),
+          gridTemplateColumns: " 1fr 16rem",
           maxWidth: "99vw",
         }}
       >
-        <H2Course>
+        <DivCourse>
+          <h2
+            style={{
+              textAlign: "left",
+              fontSize: "2rem",
+              padding: "1rem",
+              textTransform: "capitalize",
+            }}
+          >
+            {chosenTitle}
+          </h2>
+          {talkingBusiness.modules[chosenModule].classes[
+            chosenClass
+          ].srcVideos.map((videoItem, videoIndex) => {
+            return (
+              <div
+                style={{
+                  padding: "1rem",
+                  display: "grid",
+                  gap: "1rem",
+                  alignContent: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {videoItem.title && (
+                  <h3
+                    style={{
+                      textTransform: "capitalize",
+                      textAlign: "center",
+                      margin: "0.5rem",
+                    }}
+                  >
+                    {videoItem.title}
+                  </h3>
+                )}{" "}
+                {videoItem.src && (
+                  <IFrameVideo src={getVideoEmbedUrl(videoItem.src)} />
+                )}
+                {videoItem.description && <p>{videoItem.description}</p>}
+              </div>
+            );
+          })}
+        </DivCourse>
+        <DivCourse>
           {talkingBusiness.modules.map((item, index) => {
             return (
               <div>
@@ -927,55 +970,7 @@ export default function MyCoursesTemplate() {
               </div>
             );
           })}
-        </H2Course>
-        <div
-          style={{
-            color: lightGreyColor(),
-            backgroundColor: darkGreyColor(),
-          }}
-        >
-          <h2
-            style={{
-              textAlign: "left",
-              fontSize: "2rem",
-              padding: "1rem",
-              textTransform: "capitalize",
-            }}
-          >
-            {chosenTitle}
-          </h2>
-          {talkingBusiness.modules[chosenModule].classes[
-            chosenClass
-          ].srcVideos.map((videoItem, videoIndex) => {
-            return (
-              <div
-                style={{
-                  padding: "1rem",
-                  display: "grid",
-                  gap: "1rem",
-                  alignContent: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {videoItem.title && (
-                  <h3
-                    style={{
-                      textTransform: "capitalize",
-                      textAlign: "center",
-                      margin: "0.5rem",
-                    }}
-                  >
-                    {videoItem.title}
-                  </h3>
-                )}{" "}
-                {videoItem.src && (
-                  <IFrameVideo src={getVideoEmbedUrl(videoItem.src)} />
-                )}
-                {videoItem.description && <p>{videoItem.description}</p>}
-              </div>
-            );
-          })}
-        </div>
+        </DivCourse>
       </div>
     </div>
   );
