@@ -10,6 +10,7 @@ import {
   RouteSizeControlBox,
 } from "../../../Resources/Components/RouteBox";
 import {
+  alwaysWhite,
   primaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
@@ -79,7 +80,7 @@ export function BasicTextsPresentTense() {
   return (
     <RouteSizeControlBox
       style={{
-        backgroundColor: "#ddd",
+        backgroundColor: alwaysWhite(),
         padding: "0.5rem",
         height: "max-content",
         marginBottom: "1rem",
