@@ -15,7 +15,6 @@ import {
   alwaysBlack,
   alwaysWhite,
   secondaryColor,
-  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
@@ -198,105 +197,98 @@ export function FindStudent() {
                 style={{
                   display: "flex",
                   gap: "1rem",
-                  borderRadius: "1rem",
-                  padding: "0.5rem",
+                  borderRadius: "0.5rem",
+                  padding: "0.2rem 1rem",
                   border: "1px solid",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  marginBottom: "2rem",
+                  marginBottom: "1rem",
                 }}
               >
                 <h1
                   style={{
-                    fontSize: "1.5rem",
+                    fontSize: "1.2rem",
                     textAlign: "left",
-                    margin: 0,
                   }}
                 >
                   {student.fullname}
-                </h1>{" "}
+                </h1>
                 <Button onClick={() => seeEdition(student.id)}>Editar</Button>
               </div>
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.username}
-                </span>
-                : {student.username}
-              </p>
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.document}
-                </span>
-                : {student.doc}
-              </p>
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.id}
-                </span>
-                : {student.id}
-              </p>
+              <ul>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.username}
+                  </span>
+                  : {student.username}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.document}
+                  </span>
+                  : {student.doc}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.id}
+                  </span>
+                  : {student.id}
+                </li>
 
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.dateOfBirth}
-                </span>
-                : {student.dateOfBirth}
-              </p>
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.email}
-                </span>
-                : {student.email}
-              </p>
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.phoneNumber}
-                </span>
-                : {student.phoneNumber}
-              </p>
-              <p>
-                <span
-                  style={{
-                    color: secondaryColor(),
-                    fontWeight: 600,
-                  }}
-                >
-                  {UniversalTexts.permissions}
-                </span>
-                : {student.permissions}
-              </p>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.dateOfBirth}
+                  </span>
+                  : {student.dateOfBirth}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.email}
+                  </span>
+                  : {student.email}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.phoneNumber}
+                  </span>
+                  : {student.phoneNumber}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.permissions}
+                  </span>
+                  : {student.permissions}
+                </li>
+              </ul>
             </div>
-            <div></div>
           </div>
         ))
       ) : (
@@ -496,7 +488,7 @@ export function FindStudent() {
                 <h3>
                   Esta ação não pode ser desfeita! Tem certeza que deseja
                   excluir o(a) aluno(a) <br />
-                  <br />{" "}
+                  <br />
                   <span
                     style={{
                       borderRadius: "1rem",

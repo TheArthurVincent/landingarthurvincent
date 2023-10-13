@@ -9,7 +9,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import {
   primaryColor,
   textPrimaryColorContrast,
-  secondaryColor,
+  alwaysWhite,
 } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
@@ -60,7 +60,6 @@ export function Adm() {
     setValue(newValue);
   };
 
-  
   return (
     <>
       <TopBar />
@@ -72,7 +71,7 @@ export function Adm() {
         <TabContext value={value}>
           <Box
             style={{
-              backgroundColor: secondaryColor(),
+              backgroundColor: alwaysWhite(),
               display: "flex",
               borderRadius: "1rem",
               alignItems: "center",
@@ -104,7 +103,6 @@ export function Adm() {
                   />
                 );
               })}
-           
             </TabList>
             <BackToHomePage />
           </Box>
@@ -119,7 +117,6 @@ export function Adm() {
               </TabPanel>
             );
           })}
-      
         </TabContext>
       </RouteSizeControlBox>
     </>
