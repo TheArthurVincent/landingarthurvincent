@@ -4,10 +4,10 @@ import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
 import { Input } from "@mui/material";
 import {
+  alwaysBlack,
   darkGreyColor,
   primaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 export function NextTutoring() {
@@ -142,12 +142,19 @@ export function NextTutoring() {
             display: "flex",
           }}
         >
-          <span style={{ color: textSecondaryColorContrast() }}>
+          <span style={{ color: alwaysBlack() }}>
             {" "}
             Aula de {studentName} no dia {newDate} às {newTime}
           </span>{" "}
           {seeButton ? (
-            <Button style={{ marginLeft: "auto" }} type="submit">
+            <Button
+              style={{
+                marginLeft: "auto",
+                backgroundColor: primaryColor(),
+                color: textPrimaryColorContrast(),
+              }}
+              type="submit"
+            >
               Criar
             </Button>
           ) : (

@@ -11,7 +11,7 @@ import { Button } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import { primaryColor, secondaryColor } from "../../Styles/Styles";
+import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
 
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
@@ -87,7 +87,7 @@ export default function TopBar() {
                 key={index}
                 style={{
                   display: link.display,
-                  color: primaryColor(),
+                  color: alwaysBlack(),
                 }}
                 to={link.endpoint}
               >
@@ -109,7 +109,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: primaryColor(),
+                  color: alwaysBlack(),
                 }}
                 to={link.endpoint}
               >
@@ -134,7 +134,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: primaryColor(),
+                  color: alwaysBlack(),
                 }}
                 to={link.endpoint}
               >
@@ -157,7 +157,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: primaryColor(),
+                  color: alwaysBlack(),
                 }}
                 to={link.endpoint}
               >

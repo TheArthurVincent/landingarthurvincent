@@ -7,7 +7,6 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {
-  alwaysWhite,
   primaryColor,
   textPrimaryColorContrast,
   secondaryColor,
@@ -60,6 +59,8 @@ export function Adm() {
     event.preventDefault();
     setValue(newValue);
   };
+
+  
   return (
     <>
       <TopBar />
@@ -103,6 +104,7 @@ export function Adm() {
                   />
                 );
               })}
+           
             </TabList>
             <BackToHomePage />
           </Box>
@@ -117,6 +119,7 @@ export function Adm() {
               </TabPanel>
             );
           })}
+      
         </TabContext>
       </RouteSizeControlBox>
     </>
