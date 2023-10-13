@@ -49,7 +49,13 @@ export default function MyCourses() {
                 return (
                   <Link key={index} to={course.link} target="_blank">
                     <CourseCard>
-                      <h3>{course.title}</h3>
+                      <h3
+                        style={{
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        {course.title}
+                      </h3>
                       <img
                         style={{
                           height: "240px",
