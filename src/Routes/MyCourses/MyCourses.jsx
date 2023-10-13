@@ -9,17 +9,18 @@ import { CourseCard } from "./MyCourses.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import MyCoursesTemplate from "./MyCoursesTemplate";
 
 const courses = [
   {
     title: "Talking Business",
-    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387",
+    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
     link: "/talking-business",
   },
   {
     title: "Biblical English",
-    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387",
-    link: "/talking-business",
+    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/biblical.jpg?updatedAt=1697220790416",
+    link: "/biblical-english",
   },
 ];
 
@@ -28,6 +29,7 @@ export default function MyCourses() {
 
   return (
     <>
+      <MyCoursesTemplate />
       <TopBar />{" "}
       <RouteSizeControlBox>
         <RouteDiv>
