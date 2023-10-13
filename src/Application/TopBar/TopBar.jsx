@@ -40,12 +40,12 @@ export default function TopBar() {
       endpoint: "/classes-to-teach",
     },
     {
-      title: UniversalTexts.myProfile,
-      endpoint: "/my-profile",
-    },
-    {
       title: UniversalTexts.extras,
       endpoint: "/extras",
+    },
+    {
+      title: UniversalTexts.myProfile,
+      endpoint: "/my-profile",
     },
   ];
 

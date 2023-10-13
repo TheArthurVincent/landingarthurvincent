@@ -6,11 +6,11 @@ export const themePartner = {};
 export const primaryColor = () => "#00132b"; //Cor primária da marc
 export const secondaryColor = () => " #54bf08"; // Cor secundária da marca
 export const textPrimaryColorContrast = () => "#fff"; //Cor pra ficar atrás da primária
-export const textSecondaryColorContrast = () => "#00132b"; // Cor pra ficar atrás da secundária
+export const textSecondaryColorContrast = () => "#000"; // Cor pra ficar atrás da secundária
 
 // teste partner
-// export const primaryColor = () => "#e7ecc0"; //Cor primária da marca
-// export const secondaryColor = () => " #4e4343"; //Cor secundária da marca
+// export const primaryColor = () => "#FACE0A"; //Cor primária da marca
+// export const secondaryColor = () => " #00a0a0"; //Cor secundária da marca
 // export const textPrimaryColorContrast = () => "#362d2d"; //Cor pra ficar atrás da primária
 // export const textSecondaryColorContrast = () => "#ffffff"; // Cor pra ficar atrás da secundária
 
