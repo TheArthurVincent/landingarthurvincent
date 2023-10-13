@@ -50,8 +50,12 @@ export const CourseCard = styled.div`
     color: ${primaryColor()};
     background-color: ${lightGreyColor()};
     border-radius: 0;
+    box-shadow: 1px 1px 10px 1px #aaa;
     img {
       filter: grayscale(0%);
+    }
+    &:active {
+      box-shadow: inset 1px 1px 10px 1px #aaa;
     }
   }
 `;

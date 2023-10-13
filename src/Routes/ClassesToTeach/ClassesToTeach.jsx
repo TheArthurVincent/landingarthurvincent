@@ -1,7 +1,6 @@
 import React from "react";
 import {
   HOne,
-  HTwo,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
@@ -199,6 +198,7 @@ export default function ClassesToTeach() {
                 );
               })}
             </div>
+            <BackToHomePage />
           </div>
         </RouteDiv>
       </RouteSizeControlBox>
