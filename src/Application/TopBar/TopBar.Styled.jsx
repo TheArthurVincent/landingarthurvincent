@@ -11,7 +11,7 @@ export const TopBarContainer = styled.header`
   display: flex;
   top: 0;
   width: 100vw;
-  background-color: ${textPrimaryColorContrast()};
+  background-color: ${alwaysWhite()};
   justify-content: space-evenly;
   align-items: center;
   padding: 0.4rem 4rem;

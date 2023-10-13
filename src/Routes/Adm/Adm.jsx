@@ -9,8 +9,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import {
   alwaysWhite,
   primaryColor,
+  textPrimaryColorContrast,
   secondaryColor,
-  transparentWhite,
 } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
@@ -81,7 +81,7 @@ export function Adm() {
           >
             <TabList
               style={{
-                backgroundColor: alwaysWhite(),
+                backgroundColor: primaryColor(),
                 margin: "0.3rem",
                 borderRadius: "1rem",
               }}
@@ -96,7 +96,7 @@ export function Adm() {
                     key={index + component.value}
                     style={{
                       fontWeight: 500,
-                      color: primaryColor(),
+                      color: textPrimaryColorContrast(),
                     }}
                     label={component.title}
                     value={component.value}

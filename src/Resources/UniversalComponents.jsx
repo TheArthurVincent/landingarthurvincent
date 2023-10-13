@@ -141,7 +141,7 @@ export const linkReset = {
 };
 
 export const IFrameVideo = styled.iframe`
-  margin: 0 1rem ;
+  margin: 0 1rem;
   min-width: 1200px;
   min-height: 650px;
   border: none;
@@ -213,6 +213,7 @@ export const BackToHomePage = () => {
         style={{
           ...linkReset,
           backgroundColor: primaryColor(),
+          color: textPrimaryColorContrast(),
           padding: "0.5rem",
         }}
         to="/"

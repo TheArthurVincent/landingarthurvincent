@@ -111,7 +111,7 @@ export function MyClasses() {
           <Button
             style={{
               backgroundColor: primaryColor(),
-              color: alwaysWhite(),
+              color: textPrimaryColorContrast(),
             }}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
@@ -128,7 +128,7 @@ export function MyClasses() {
           <Button
             style={{
               backgroundColor: primaryColor(),
-              color: alwaysWhite(),
+              color: textPrimaryColorContrast(),
             }}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
