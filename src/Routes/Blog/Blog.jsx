@@ -292,6 +292,7 @@ export function Blog() {
                 <div
                   style={{
                     margin: "1rem",
+                    fontSize: "1.1rem",
                     display: "block",
                     backgroundColor: alwaysWhite(),
                     color: alwaysBlack(),
