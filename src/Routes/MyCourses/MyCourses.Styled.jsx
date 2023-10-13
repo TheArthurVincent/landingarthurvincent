@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import {
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -41,15 +42,13 @@ export const CourseCard = styled.div`
   flex-direction: column;
   border-radius: 0.5rem;
   transition: 0.1s;
-  border: solid 2px ${primaryColor()};
   img {
     filter: grayscale(100%);
     transition: filter 0.1s;
   }
   &:hover {
-    border: solid 2px ${primaryColor()};
     color: ${primaryColor()};
-    background-color: ${textPrimaryColorContrast()};
+    background-color: ${lightGreyColor()};
     border-radius: 0;
     img {
       filter: grayscale(0%);
