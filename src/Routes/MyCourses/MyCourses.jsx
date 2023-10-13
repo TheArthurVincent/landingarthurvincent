@@ -33,44 +33,42 @@ export default function MyCourses() {
         <RouteDiv>
           <HOne>{UniversalTexts.myCourses}</HOne>
           <BackToHomePage />
-          <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "left",
-                gap: "1rem",
-                margin: "0 1rem",
-                flexDirection: "row-reverse",
-                flexWrap: "wrap",
-              }}
-            >
-              {courses.map((course, index) => {
-                return (
-                  <Link key={index} to={course.link} target="_blank">
-                    <CourseCard>
-                      <h3
-                        style={{
-                          marginBottom: "1rem",
-                        }}
-                      >
-                        {course.title}
-                      </h3>
-                      <img
-                        style={{
-                          height: "240px",
-                          width: "240px",
-                          objectFit: "cover",
-                          objectPosition: "left",
-                        }}
-                        src={course.img}
-                        alt=""
-                      />
-                    </CourseCard>
-                  </Link>
-                );
-              })}
-            </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "left",
+              gap: "1rem",
+              margin: "0 1rem",
+              flexDirection: "row-reverse",
+              flexWrap: "wrap",
+            }}
+          >
+            {courses.map((course, index) => {
+              return (
+                <Link key={index} to={course.link} target="_blank">
+                  <CourseCard>
+                    <h3
+                      style={{
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      {course.title}
+                    </h3>
+                    <img
+                      style={{
+                        height: "240px",
+                        width: "240px",
+                        objectFit: "cover",
+                        objectPosition: "left",
+                      }}
+                      src={course.img}
+                      alt=""
+                    />
+                  </CourseCard>
+                </Link>
+              );
+            })}
           </div>
           <BackToHomePage />
         </RouteDiv>
