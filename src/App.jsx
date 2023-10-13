@@ -11,6 +11,7 @@ import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { logout24h } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
+import SignUp from "./Routes/SignUp/SignUp";
 
 function App() {
   const verifyToken = () => {
@@ -53,6 +54,7 @@ function App() {
                 path="/extras"
                 element={verifyToken() ? <Extras /> : <Login />}
               />
+              <Route path="/signup" element={<SignUp />} />
               <Route
                 path="/adm"
                 element={verifyToken() ? <Adm /> : <Login />}

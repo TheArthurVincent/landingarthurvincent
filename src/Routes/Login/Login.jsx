@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { alwaysBlack, alwaysWhite, primaryColor } from "../../Styles/Styles";
+import {
+  alwaysBlack,
+  alwaysWhite,
+  primaryColor,
+  textPrimaryColorContrast,
+} from "../../Styles/Styles";
 import { InputField, backDomain } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import Logo from "../../../src/assets//complete-logo.png";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export function Login() {
   const [email, setEmail] = useState("arthurcardosocorp@gmail.com");
@@ -35,93 +41,109 @@ export function Login() {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: alwaysWhite(),
-        color: alwaysBlack(),
-        maxWidth: "400px",
-        marginLeft: "auto",
-        marginRight: "auto",
-        padding: "5rem 0",
-        marginTop: "200px",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
+    <>
+      <div
         style={{
+          backgroundColor: alwaysWhite(),
+          color: alwaysBlack(),
+          maxWidth: "400px",
+          marginLeft: "auto",
+          marginRight: "auto",
+          padding: "3rem 0",
+          marginTop: "200px",
           display: "grid",
-          alignItems: "center",
           justifyContent: "center",
-          gap: "2rem",
-          padding: "0 5rem",
         }}
       >
-        <img
-          style={{ border: "none", maxWidth: "15rem" }}
-          src={Logo}
-          alt="logo"
-        />
-        <InputField
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          id="name"
-          placeholder="E-mail"
-          type="text"
-        />
-        <InputField
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          id="name"
-          placeholder="Senha"
-          type={passwordVisible ? "text" : "password"}
-        />
-        <div
+        <form
+          onSubmit={handleSubmit}
           style={{
-            display: "flex",
-            justifyContent: "space-between",
+            display: "grid",
             alignItems: "center",
+            justifyContent: "center",
+            gap: "2rem",
+            padding: "0 5rem",
           }}
         >
-          <p
-            onClick={handlePasswordVisible}
+          <img
+            style={{ border: "none", maxWidth: "15rem" }}
+            src={Logo}
+            alt="logo"
+          />
+          <InputField
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            id="name"
+            placeholder="E-mail"
+            type="text"
+          />
+          <InputField
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            id="name"
+            placeholder="Senha"
+            type={passwordVisible ? "text" : "password"}
+          />
+          <div
             style={{
-              fontSize: "1.2rem",
-              display: "block",
-              cursor: "pointer",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            {passwordVisible ? (
-              <i
-                style={{
-                  fontSize: "1.2rem",
-                  display: "block",
-                  cursor: "pointer",
-                }}
-                className="fa fa-eye-slash"
-              />
-            ) : (
-              <i
-                style={{
-                  fontSize: "1.2rem",
-                  display: "block",
-                  cursor: "pointer",
-                }}
-                className="fa fa-eye"
-              />
-            )}
-          </p>
-          <Button
-            style={{
-              backgroundColor: "#eee",
-              color: primaryColor(),
-            }}
-            type="submit"
-          >
-            Login
-          </Button>
-        </div>
-      </form>
-    </div>
+            <p
+              onClick={handlePasswordVisible}
+              style={{
+                fontSize: "1.2rem",
+                display: "block",
+                cursor: "pointer",
+              }}
+            >
+              {passwordVisible ? (
+                <i
+                  style={{
+                    fontSize: "1.2rem",
+                    display: "block",
+                    cursor: "pointer",
+                  }}
+                  className="fa fa-eye-slash"
+                />
+              ) : (
+                <i
+                  style={{
+                    fontSize: "1.2rem",
+                    display: "block",
+                    cursor: "pointer",
+                  }}
+                  className="fa fa-eye"
+                />
+              )}
+            </p>
+            <Button
+              style={{
+                backgroundColor: "#eee",
+                color: primaryColor(),
+              }}
+              type="submit"
+            >
+              Login
+            </Button>
+          </div>
+        </form>
+      </div>
+      <Button
+        style={{
+          marginTop: "1rem",
+          display:"block",
+          marginLeft: "auto",
+          marginRight: "auto",
+          backgroundColor: primaryColor(),
+          color: textPrimaryColorContrast(),
+        }}
+      >
+        <Link to="/signup">Cadastro</Link>{" "}
+      </Button>
+    </>
   );
 }
 

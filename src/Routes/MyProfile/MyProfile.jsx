@@ -7,11 +7,7 @@ import {
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { BackToHomePage, logout24h } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
-import {
-  alwaysBlack,
-  textPrimaryColorContrast,
-  textSecondaryColorContrast,
-} from "../../Styles/Styles";
+import { alwaysBlack } from "../../Styles/Styles";
 
 export function MyProfile() {
   const [user, setUser] = useState({});
@@ -27,30 +23,30 @@ export function MyProfile() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox>
+      <RouteSizeControlBox style={{ maxWidth: "fit-content" }}>
         <RouteDiv>
           <HOne>{UniversalTexts.myProfile}</HOne>
           <BackToHomePage />
-          <div style={{ color: alwaysBlack(), padding: "0.5rem" }}>
-            <p>
+          <ul style={{ color: alwaysBlack(), padding: "0.2rem" }}>
+            <li>
               {UniversalTexts.name}: {user.name} {user.lastname}
-            </p>
-            <p>
+            </li>
+            <li>
               {UniversalTexts.document}: {user.doc}
-            </p>
-            <p>
+            </li>
+            <li>
               {UniversalTexts.phoneNumber}: {user.phoneNumber}
-            </p>
-            <p>
+            </li>
+            <li>
               {UniversalTexts.dateOfBirth}: {user.dateOfBirth}
-            </p>
-            <p>
+            </li>
+            <li>
               {UniversalTexts.email}: {user.email}
-            </p>
-            <p>
+            </li>
+            <li>
               {UniversalTexts.username}: {user.username}
-            </p>
-          </div>
+            </li>
+          </ul>
         </RouteDiv>
       </RouteSizeControlBox>
     </>
