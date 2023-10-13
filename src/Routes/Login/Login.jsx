@@ -50,7 +50,7 @@ export function Login() {
           marginLeft: "auto",
           marginRight: "auto",
           padding: "3rem 0",
-          marginTop: "200px",
+          marginTop: "180px",
           display: "grid",
           justifyContent: "center",
         }}
