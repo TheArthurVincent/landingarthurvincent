@@ -66,6 +66,7 @@ export default function MyCourses() {
               })}
             </div>
           </div>
+          <BackToHomePage />
         </RouteDiv>
       </RouteSizeControlBox>
     </>
