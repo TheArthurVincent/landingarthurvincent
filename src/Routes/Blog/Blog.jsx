@@ -232,16 +232,15 @@ export function Blog() {
                   textDecoration: "underline",
                 }}
               >
-                {" "}
                 {formatData(nextTutoring.nextTutoring.date)}
-              </span>{" "}
+              </span>
               <span
                 style={{
                   fontWeight: 600,
                 }}
               >
                 - {nextTutoring.nextTutoring.time}
-              </span>{" "}
+              </span>
             </Link>
           )}
           {posts.map((post, index) => (
@@ -280,12 +279,11 @@ export function Blog() {
                   </span>
                   {post.createdAt && (
                     <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
-                  )}{" "}
+                  )}
                 </BlogPostTitle>
-              )}{" "}
-              {post.img && <ImgBlog src={post.img} alt="logo" />}{" "}
+              )}
+              {post.img && <ImgBlog src={post.img} alt="logo" />}
               <DivPost>
-                {" "}
                 {post.videoUrl && (
                   <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
                 )}
@@ -386,7 +384,7 @@ export function Blog() {
               rows="10"
               required
             />
-          </div>{" "}
+          </div>
           <div
             style={{
               marginTop: "2rem",
