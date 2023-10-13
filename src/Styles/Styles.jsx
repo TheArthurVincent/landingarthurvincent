@@ -9,10 +9,10 @@ export const textPrimaryColorContrast = () => "#fff"; //Cor pra ficar atrás da 
 export const textSecondaryColorContrast = () => "#00132b"; // Cor pra ficar atrás da secundária
 
 // teste partner
-// export const primaryColor = () => "#440a2a"; //Cor primária da marc
-// export const secondaryColor = () => " #1d015f7c"; // Cor secundária da marca
-// export const textPrimaryColorContrast = () => "#fadddd"; //Cor pra ficar atrás da primária
-// export const textSecondaryColorContrast = () => "#fff"; // Cor pra ficar atrás da secundária
+// export const primaryColor = () => "#e7ecc0"; //Cor primária da marca
+// export const secondaryColor = () => " #4e4343"; //Cor secundária da marca
+// export const textPrimaryColorContrast = () => "#362d2d"; //Cor pra ficar atrás da primária
+// export const textSecondaryColorContrast = () => "#ffffff"; // Cor pra ficar atrás da secundária
 
 //White
 export const darkGreyColor = () => "#555";

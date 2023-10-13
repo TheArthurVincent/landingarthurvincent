@@ -127,6 +127,7 @@ export const Xp = styled.p`
   right: 5px;
   font-size: 1.2rem;
   padding: 0.5rem;
+  color: ${primaryColor()};
   &:hover {
     color: ${secondaryColor()};
   }

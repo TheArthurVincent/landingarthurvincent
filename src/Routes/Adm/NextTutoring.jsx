@@ -19,7 +19,7 @@ export function NextTutoring() {
   const [seeButton, setSeeButton] = useState(false);
 
   const [studentName, setStudentName] = useState(
-    "________________________________"
+    "____________________________"
   );
 
   useEffect(() => {
@@ -123,15 +123,24 @@ export function NextTutoring() {
             onChange={(event) => setNewTutoringMeetingURL(event.target.value)}
             placeholder="Link da aula"
             type="text"
+            style={{
+              color: alwaysBlack(),
+            }}
             required
           />
           <Input
             onChange={(event) => setNewDate(event.target.value)}
+            style={{
+              color: alwaysBlack(),
+            }}
             required
             type="date"
           />
           <Input
             onChange={(event) => setNewTime(event.target.value)}
+            style={{
+              color: alwaysBlack(),
+            }}
             type="time"
             required
           />

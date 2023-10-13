@@ -14,7 +14,9 @@ import { Link } from "react-router-dom";
 import {
   alwaysBlack,
   alwaysWhite,
+  primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
@@ -340,15 +342,15 @@ export function FindStudent() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Xp onClick={() => handleSeeModal()} style={{}}>
-            X
-          </Xp>
+          <Xp onClick={() => handleSeeModal()}>X</Xp>
           <h1
             style={{
               fontSize: "1.5rem",
               marginBottom: 0,
               margin: "1rem 0",
-              color: textSecondaryColorContrast(),
+              color: primaryColor(),
+              padding: "0.5rem",
+              backgroundColor: textPrimaryColorContrast(),
             }}
           >
             Editar aluno
@@ -448,7 +450,7 @@ export function FindStudent() {
               >
                 <Button
                   style={{
-                    color: alwaysWhite(),
+                    color: "#fff",
                     backgroundColor: "#ba3c3c",
                   }}
                   onClick={() => handleConfirmDelete()}
@@ -457,7 +459,7 @@ export function FindStudent() {
                 </Button>
                 <Button
                   style={{
-                    color: alwaysWhite(),
+                    color: "#fff",
                     backgroundColor: "#194169",
                   }}
                   onClick={() => handleSeeModal()}
@@ -466,7 +468,7 @@ export function FindStudent() {
                 </Button>
                 <Button
                   style={{
-                    color: alwaysWhite(),
+                    color: "#fff",
                     backgroundColor: "#138017",
                   }}
                   onClick={() => editStudent(ID)}
@@ -480,7 +482,7 @@ export function FindStudent() {
                   display: seeConfirmDelete ? "grid" : "none",
                   justifyContent: "space-evenly",
                   padding: "1rem",
-                  backgroundColor: "#ffd1d1",
+                  backgroundColor: "#dd6e6e",
                   textAlign: "center",
                   borderRadius: "1rem",
                 }}
@@ -512,7 +514,7 @@ export function FindStudent() {
                 >
                   <Button
                     style={{
-                      color: alwaysWhite(),
+                      color: "#fff",
                       backgroundColor: "#194169",
                     }}
                     onClick={() => handleConfirmDelete()}
@@ -521,7 +523,7 @@ export function FindStudent() {
                   </Button>
                   <Button
                     style={{
-                      color: alwaysWhite(),
+                      color: "#fff",
 
                       backgroundColor: "#ba3c3c",
                     }}
@@ -569,8 +571,7 @@ export function FindStudent() {
                 >
                   <Button
                     style={{
-                      color: alwaysWhite(),
-
+                      color: "#fff",
                       width: "8rem",
                       backgroundColor: "#194169",
                     }}
@@ -580,8 +581,7 @@ export function FindStudent() {
                   </Button>
                   <Button
                     style={{
-                      color: alwaysWhite(),
-
+                      color: "#fff",
                       width: "8rem",
                       backgroundColor: "#138017",
                     }}
@@ -636,8 +636,7 @@ export function FindStudent() {
                 >
                   <Button
                     style={{
-                      color: alwaysWhite(),
-
+                      color: "#fff",
                       width: "8rem",
                       backgroundColor: "#194169",
                     }}
@@ -647,8 +646,7 @@ export function FindStudent() {
                   </Button>
                   <Button
                     style={{
-                      color: alwaysWhite(),
-
+                      color: "#fff",
                       width: "8rem",
                       backgroundColor: "#138017",
                     }}

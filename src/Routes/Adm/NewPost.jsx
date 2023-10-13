@@ -79,7 +79,9 @@ export function NewPost() {
           rows="10"
           required
         ></textarea>
-        <Button type="submit">Criar</Button>
+        <Button style={{ marginLeft: "auto" }} type="submit">
+          Criar
+        </Button>
       </form>
     </RouteDiv>
   );
