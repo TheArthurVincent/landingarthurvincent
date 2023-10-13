@@ -1,833 +1,828 @@
 import React, { useState } from "react";
 import {
-  BackToHomePage,
   IFrameVideo,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
-import TopBar from "../../Application/TopBar/TopBar";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
   alwaysBlack,
   alwaysWhite,
   darkGreyColor,
   lightGreyColor,
 } from "../../Styles/Styles";
-import { HOne } from "../../Resources/Components/RouteBox";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
-import { TextareaAutosize } from "@mui/material";
-
-const talkingBusiness = {
-  courseTitle: "Talking Business",
-  modules: [
-    {
-      moduleTitle: "module one",
-      _id: "1",
-      classes: [
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 3",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/664314536?share=copy",
-            },
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 1",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      moduleTitle: "Module two",
-      classes: [
-        {
-          classTitle: "Class 21",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=NlsP-kCQFI4",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "Class 22",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "Class 23",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/664314536?share=copy",
-            },
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-      ],
-    },
-
-    {
-      moduleTitle: "Module Three",
-      classes: [
-        {
-          classTitle: "Class 245211",
-          srcVideos: [
-            {
-              title: "title",
-              src: "https://www.youtube.com/watch?v=NlsP-kCQFI4",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "Class 22",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "Class 23",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/664314536?share=copy",
-            },
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-        {
-          classTitle: "classe 2ss323",
-          srcVideos: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "https://vimeo.com/742264555?share=copy",
-            },
-          ],
-          srcAudios: [
-            {
-              title: "title",
-              src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-            },
-          ],
-          srcAttachments: [
-            {
-              title: "title",
-              description:
-                "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
-              src: "video",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
+import { styled } from "styled-components";
 
 export default function MyCoursesTemplate() {
-  const { UniversalTexts } = useUserContext();
+  const talkingBusiness = {
+    courseTitle: "Talking Business",
+    courseColor: "#E13300",
+    modules: [
+      {
+        moduleTitle: "module one",
+        _id: "1",
+        classes: [
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 3",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/664314536?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 1",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        moduleTitle: "Module two",
+        classes: [
+          {
+            classTitle: "Class 21",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=NlsP-kCQFI4",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "Class 22",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "Class 23",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/664314536?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        moduleTitle: "Module Three",
+        classes: [
+          {
+            classTitle: "Class 245211",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=NlsP-kCQFI4",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "Class 22",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "Class 23",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/664314536?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2ss323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
   const [chosenModule, setChosenModule] = useState(1);
   const [chosenClass, setChosenClass] = useState(1);
   const [chosenTitle, setChosenTitle] = useState("Class 1");
@@ -838,9 +833,23 @@ export default function MyCoursesTemplate() {
     setChosenTitle(selectedTitle);
   };
 
-  const color = () => {
-    return "#E13300";
-  };
+  const H2Course = styled.div`
+    max-height: 90vh;
+    overflow: auto;
+    text-transform: capitalize;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${talkingBusiness.courseColor};
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: ${lightGreyColor()};
+    }
+  `;
 
   return (
     <div style={{ marginLeft: "2.6rem" }}>
@@ -849,7 +858,7 @@ export default function MyCoursesTemplate() {
         style={{
           marginBottom: 0,
           padding: "1.2rem 2rem",
-          backgroundColor: color(),
+          backgroundColor: talkingBusiness.courseColor,
           fontSize: "2rem",
           color: lightGreyColor(),
           textAlign: "right",
@@ -866,12 +875,7 @@ export default function MyCoursesTemplate() {
           maxWidth: "99vw",
         }}
       >
-        <div
-          style={{
-            maxHeight: "90vh",
-            overflow: "auto",
-          }}
-        >
+        <H2Course>
           {talkingBusiness.modules.map((item, index) => {
             return (
               <div>
@@ -923,7 +927,7 @@ export default function MyCoursesTemplate() {
               </div>
             );
           })}
-        </div>
+        </H2Course>
         <div
           style={{
             color: lightGreyColor(),
@@ -935,8 +939,6 @@ export default function MyCoursesTemplate() {
               textAlign: "left",
               fontSize: "2rem",
               padding: "1rem",
-              maxHeight: "90vh",
-              overflow: "auto",
               textTransform: "capitalize",
             }}
           >
