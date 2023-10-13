@@ -19,8 +19,8 @@ export const darkGreyColor = () => "#555";
 export const lightGreyColor = () => "#eee";
 export const transparentWhite = () => "rgba(255, 255, 255, 0.5)";
 export const transparentBlack = () => "rgba(1, 1, 1, 0.2)";
-export const alwaysWhite = () => "#fff";
-export const alwaysBlack = () => "#000";
+export const alwaysWhite = () => "#eee";
+export const alwaysBlack = () => "#111";
 
 //Black
 
@@ -28,5 +28,5 @@ export const alwaysBlack = () => "#000";
 // export const lightGreyColor = () => "#eee";
 // export const transparentWhite = () => "rgba(255, 255, 255, 0.5)";
 // export const transparentBlack = () => "rgba(1, 1, 1, 0.2)";
-// export const alwaysWhite = () => "#000";
-// export const alwaysBlack = () => "#fff";
+// export const alwaysWhite = () => "#111";
+// export const alwaysBlack = () => "#eee";

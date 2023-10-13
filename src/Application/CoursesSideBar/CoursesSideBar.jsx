@@ -12,6 +12,7 @@ import {
 import UniversalTexts from "../../Resources/UniversalTexts.json";
 import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
 import ListOfCourses from "../../assets/mockdata/universalcontent.json";
+import { alwaysWhite } from "../../Styles/Styles";
 
 function CoursesSideBar() {
   const CoursesSideBarItems = ListOfCourses.courses.map((course) => ({
@@ -72,7 +73,7 @@ function CoursesSideBar() {
         </div>
         <div
           style={{
-            backgroundColor: "#fff",
+            backgroundColor:alwaysWhite(),
             display: showCourses ? "block" : "none",
           }}
         >

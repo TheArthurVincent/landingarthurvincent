@@ -5,6 +5,8 @@ import {
   primaryColor,
   alwaysWhite,
   textPrimaryColorContrast,
+  transparentWhite,
+  transparentBlack,
 } from "../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
@@ -65,7 +67,7 @@ export const CoursesListInnerContainer = styled.div`
 `;
 
 export const Mask = styled.div`
-  background-color: ${alwaysWhite()};
+  background-color: ${transparentBlack()};
   width: 10000px;
 `;
 export const ArrowStyle = styled.span`
