@@ -11,19 +11,16 @@ import {
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
-  linkReset,
   logout24h,
 } from "../../Resources/UniversalComponents";
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
 import {
   alwaysBlack,
-  alwaysWhite,
   lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
 import axios from "axios";
@@ -34,9 +31,6 @@ export function MyClasses() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
   const [classes, setClasses] = useState([]);
-  const [classesDistinctMonthYears, setClassesDistinctMonthYears] = useState(
-    []
-  );
 
   useEffect(() => {
     logout24h();
@@ -46,18 +40,11 @@ export function MyClasses() {
   async function fetchMonthYear() {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     try {
-      await axios
-        .get(`${backDomain}/api/v1/tutoringmonthyear/${getLoggedUser.id}`)
-        .then((response) => {
-          setClassesDistinctMonthYears(response.data.distinctMonthYears);
-        });
       const response = await axios.get(
         `${backDomain}/api/v1/tutoring/${getLoggedUser.id}`
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
-    } catch (error) {
-      setClassesDistinctMonthYears(["response.data.distinctMonthYears"]);
-    }
+    } catch (error) {}
   }
 
   useEffect(() => {
