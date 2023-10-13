@@ -21,7 +21,6 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
-  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
