@@ -12,6 +12,7 @@ import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { logout24h } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 import SignUp from "./Routes/SignUp/SignUp";
+import MyCourses from "./Routes/MyCourses/MyCourses";
 
 function App() {
   const verifyToken = () => {
@@ -53,6 +54,10 @@ function App() {
               <Route
                 path="/extras"
                 element={verifyToken() ? <Extras /> : <Login />}
+              />
+              <Route
+                path="/my-courses"
+                element={verifyToken() ? <MyCourses /> : <Login />}
               />
               <Route path="/signup" element={<SignUp />} />
               <Route
