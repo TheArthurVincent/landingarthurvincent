@@ -60,7 +60,7 @@ export default function MyCoursesTemplate({
   `;
 
   return (
-    <div style={{ marginLeft: "2.6rem", width: "110vw", height: "100vh" }}>
+    <div style={{ marginLeft: "2.6rem" }}>
       <CoursesSideBar />
       <h1
         style={{
