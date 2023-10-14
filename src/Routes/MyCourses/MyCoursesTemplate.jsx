@@ -8,6 +8,8 @@ import {
   alwaysWhite,
   darkGreyColor,
   lightGreyColor,
+  transparentBlack,
+  transparentWhite,
 } from "../../Styles/Styles";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";
@@ -40,7 +42,7 @@ export default function MyCoursesTemplate({
   `;
 
   const DivCourse = styled.div`
-    max-height: 90vh;
+    height: 100vh;
     overflow: auto;
     background-color: ${darkGreyColor()};
     color: ${lightGreyColor()};

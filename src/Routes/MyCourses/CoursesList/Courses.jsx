@@ -374,7 +374,7 @@ export const Courses = [
     courseTitle: "Biblical English",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/biblical.jpg?updatedAt=1697220790416",
     link: "/biblical-english",
-    courseColor: "#123456",
+    courseColor: "#094712",
     modules: [
       {
         moduleTitle: "Module Three",
@@ -474,6 +474,96 @@ export const Courses = [
     link: "/business-dic",
     courseColor: "#dea456",
     modules: [
+      {
+        moduleTitle: "Module Three",
+        classes: [
+          {
+            classTitle: "Class 2411",
+            srcVideos: [
+              {
+                title: "title",
+                src: "https://www.youtube.com/watch?v=NlsP-kCQFI4",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "Class 22",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "Class 21233",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/664314536?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+          {
+            classTitle: "classe 2s23s323",
+            srcVideos: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "https://vimeo.com/742264555?share=copy",
+              },
+            ],
+            srcAudios: [
+              {
+                title: "title",
+                src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1639920315&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+              },
+            ],
+            srcAttachments: [
+              {
+                title: "title",
+                description:
+                  "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+                src: "video",
+              },
+            ],
+          },
+        ],
+      },
       {
         moduleTitle: "Module Three",
         classes: [
@@ -668,7 +758,7 @@ export const Courses = [
     courseTitle: "Outro curso 22",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/malinoisbg.jpg?updatedAt=1687867713745",
     link: "/other22",
-    courseColor: "#456eee",
+    courseColor: "#351c27",
     modules: [
       {
         moduleTitle: "Module Three",
