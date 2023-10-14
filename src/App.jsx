@@ -13,7 +13,8 @@ import { logout24h } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 import SignUp from "./Routes/SignUp/SignUp";
 import MyCourses from "./Routes/MyCourses/MyCourses";
-
+import MyCoursesTemplate from "./Routes/MyCourses/MyCoursesTemplate";
+import { Courses } from "./Routes/MyCourses/CoursesList/Courses";
 function App() {
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
@@ -80,6 +81,25 @@ function App() {
                 path="/phrasal-verbs"
                 element={verifyToken() ? <PhrasalVerbs /> : <Login />}
               />
+              {Courses.map((course, index) => (
+                <Route
+                  key={index}
+                  path={course.link}
+                  element={
+                    verifyToken() ? (
+                      <MyCoursesTemplate
+                        img={course.img}
+                        modules={course.modules}
+                        courseColor={course.courseColor}
+                        title={course.courseTitle}
+                        key={index}
+                      />
+                    ) : (
+                      <Login />
+                    )
+                  }
+                />
+              ))}
               <Route
                 path="/basic-texts-present-tense"
                 element={verifyToken() ? <BasicTextsPresentTense /> : <Login />}
@@ -97,7 +117,7 @@ function App() {
           flexDirection: "column",
           fontSize: "12px",
           alignItems: "center",
-          gap: "0.7rem",
+          gap: "0.8rem",
           backgroundColor: "#111",
           color: "#eee",
           width: "100vw",

@@ -9,27 +9,13 @@ import { CourseCard } from "./MyCourses.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import MyCoursesTemplate from "./MyCoursesTemplate";
-
-const courses = [
-  {
-    title: "Talking Business",
-    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
-    link: "/talking-business",
-  },
-  {
-    title: "Biblical English",
-    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/biblical.jpg?updatedAt=1697220790416",
-    link: "/biblical-english",
-  },
-];
+import { Courses } from "./CoursesList/Courses";
 
 export default function MyCourses() {
   const { UniversalTexts } = useUserContext();
 
   return (
     <>
-      <MyCoursesTemplate />
       <TopBar />
       <RouteSizeControlBox>
         <RouteDiv>
@@ -46,7 +32,7 @@ export default function MyCourses() {
               flexWrap: "wrap",
             }}
           >
-            {courses.map((course, index) => {
+            {Courses.map((course, index) => {
               return (
                 <Link key={index} to={course.link} target="_blank">
                   <CourseCard>
@@ -55,7 +41,7 @@ export default function MyCourses() {
                         marginBottom: "1rem",
                       }}
                     >
-                      {course.title}
+                      {course.courseTitle}
                     </h3>
                     <img
                       style={{

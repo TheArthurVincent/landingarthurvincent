@@ -11,15 +11,10 @@ import {
 } from "./CoursesSideBarStyled";
 import UniversalTexts from "../../Resources/UniversalTexts.json";
 import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
-import ListOfCourses from "../../assets/mockdata/universalcontent.json";
 import { alwaysWhite } from "../../Styles/Styles";
+import { Courses } from "../../Routes/MyCourses/CoursesList/Courses";
 
 function CoursesSideBar() {
-  const CoursesSideBarItems = ListOfCourses.courses.map((course) => ({
-    name: course.name,
-    color: course.color,
-    url: course.url,
-  }));
   const [showCourses, setShowCourses] = useState(false);
   const [arrow, setArrow] = useState(false);
   const handleShowCourses = () => {
@@ -50,17 +45,17 @@ function CoursesSideBar() {
             </ArrowStyle>
           </CoursesListTitleContainer>
           <CoursesList>
-            {CoursesSideBarItems.map((item, index) => (
+            {Courses.map((item, index) => (
               <Link
                 key={index}
-                to={item.url}
+                to={item.link}
                 style={{ ...linkReset, textDecoration: "none" }}
               >
                 <CoursesListItem>
-                  <span>{item.name}</span>
+                  <span>{item.courseTitle}</span>
                   <span
                     style={{
-                      color: item.color,
+                      color: item.courseColor,
                       paddingRight: "0.4rem",
                     }}
                   >
@@ -73,7 +68,7 @@ function CoursesSideBar() {
         </div>
         <div
           style={{
-            backgroundColor:alwaysWhite(),
+            backgroundColor: alwaysWhite(),
             display: showCourses ? "block" : "none",
           }}
         >
