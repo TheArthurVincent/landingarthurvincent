@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   IFrameVideo,
+  IFrameVideoCourses,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
 import {
@@ -122,7 +123,7 @@ export default function MyCoursesTemplate({
                     </h3>
                   )}{" "}
                   {videoItem.src && (
-                    <IFrameVideo src={getVideoEmbedUrl(videoItem.src)} />
+                    <IFrameVideoCourses src={getVideoEmbedUrl(videoItem.src)} />
                   )}
                   {videoItem.description && <p>{videoItem.description}</p>}
                 </div>

@@ -174,6 +174,43 @@ export const IFrameVideo = styled.iframe`
   }
 `;
 
+export const IFrameVideoCourses = styled.iframe`
+  min-width: 1600px;
+  min-height: 750px;
+  border-radius: 0.75rem;
+  border: 1px #222 solid;
+  box-shadow: 2px 2px 20px 3px #222;
+  @media (max-width: 1860px) {
+    margin-top: 0;
+    min-width: 1200px;
+    min-height: 750px;
+  }
+
+  @media (max-width: 1500px) {
+    margin-top: 0;
+    min-width: 810px;
+    min-height: 450px;
+  }
+
+  @media (max-width: 1100px) {
+    margin-top: 0;
+    min-width: 648px;
+    min-height: 360px;
+  }
+
+  @media (max-width: 930px) {
+    margin-top: 0;
+    min-width: 405px;
+    min-height: 225px;
+  }
+
+  @media (max-width: 730px) {
+    margin-top: 0;
+    min-width: 350px;
+    min-height: 200px;
+  }
+`;
+
 export const ImgBlog = styled.img`
   margin-top: 0;
   width: 900px;
