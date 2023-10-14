@@ -5,7 +5,6 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../Styles/Styles";
 import { Link } from "react-router-dom";
 

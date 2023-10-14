@@ -472,7 +472,7 @@ export const Courses = [
     courseTitle: "Business Dictionary",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512",
     link: "/business-dic",
-    courseColor: "#dea456",
+    courseColor: "#ddd222",
     modules: [
       {
         moduleTitle: "Module Three",
