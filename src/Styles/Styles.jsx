@@ -15,7 +15,7 @@ export const textSecondaryColorContrast = () => "#000"; // Cor pra ficar atrás 
 // export const textSecondaryColorContrast = () => "#ffffff"; // Cor pra ficar atrás da secundária
 
 //White
-export const darkGreyColor = () => "#555";
+export const darkGreyColor = () => "#333";
 export const lightGreyColor = () => "#eee";
 export const transparentWhite = () => "rgba(255, 255, 255, 0.5)";
 export const transparentBlack = () => "rgba(1, 1, 1, 0.2)";

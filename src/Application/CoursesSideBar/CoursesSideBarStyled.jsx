@@ -1,16 +1,14 @@
 import { styled } from "styled-components";
 import {
-  textSecondaryColorContrast,
-  darkGreyColor,
   primaryColor,
   alwaysWhite,
   textPrimaryColorContrast,
   transparentBlack,
+  alwaysBlack,
 } from "../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
   display: flex;
-  border-right: 1px solid;
   height: 100vh;
   position: fixed;
   top: 0rem;
@@ -23,16 +21,16 @@ export const CoursesListContainer = styled.div`
 `;
 
 export const CoursesListTitleContainer = styled.div`
-  background-color: ${textPrimaryColorContrast()};
-  color: ${textSecondaryColorContrast()};
+  color: ${textPrimaryColorContrast()};
+  background-color: ${primaryColor()};
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 4rem;
   cursor: pointer;
   &:hover {
-    background-color: ${primaryColor()};
-    color: ${textPrimaryColorContrast()};
+    color: ${primaryColor()};
+    background-color: ${textPrimaryColorContrast()};
   }
 `;
 
@@ -41,8 +39,8 @@ export const CoursesList = styled.ul`
 `;
 
 export const CoursesListItem = styled.li`
-  background-color: ${darkGreyColor()};
-  color: ${alwaysWhite()};
+  background-color: ${alwaysWhite()};
+  color: ${alwaysBlack()};
   list-style: none;
   margin: 2px;
   align-items: center;
@@ -50,7 +48,6 @@ export const CoursesListItem = styled.li`
   display: flex;
   align-items: left;
   justify-content: space-between;
-  border: solid 1px ${darkGreyColor()};
   cursor: pointer;
   &:hover {
     background-color: ${primaryColor()};
@@ -63,7 +60,7 @@ export const CoursesListInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${darkGreyColor()};
+  background-color: ${alwaysWhite()};
 `;
 
 export const Mask = styled.div`

@@ -120,7 +120,7 @@ function App() {
           gap: "0.8rem",
           backgroundColor: "#111",
           color: "#eee",
-          width: "99vw",
+          width: "98vw",
         }}
       >
         <img
