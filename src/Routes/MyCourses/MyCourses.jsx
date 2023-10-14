@@ -34,7 +34,7 @@ export default function MyCourses() {
           >
             {Courses.map((course, index) => {
               return (
-                <Link key={index} to={course.link} target="_blank">
+                <Link key={index} to={course.link} /*target="_blank"*/>
                   <CourseCard style={{ backgroundColor: course.courseColor }}>
                     <h3
                       style={{

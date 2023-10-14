@@ -61,11 +61,15 @@ export default function MyCoursesTemplate({
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
+    @media (max-width: 670px) {
+      max-height: 45vh;
+    }
   `;
 
   const SideBarCourse = styled.div`
     height: 100vh;
     overflow: auto;
+    border-top: 2px solid ${courseColor};
     background-color: ${darkGreyColor()};
     color: ${lightGreyColor()};
     text-transform: capitalize;
@@ -80,6 +84,14 @@ export default function MyCoursesTemplate({
 
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
+    }
+  `;
+  const FullDisplay = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 13rem;
+    max-width: 100vw;
+    @media (max-width: 670px) {
+      grid-template-columns: 1fr;
     }
   `;
 
@@ -99,13 +111,7 @@ export default function MyCoursesTemplate({
       >
         {title}
       </h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: " 1fr 13rem",
-          maxWidth: "100vw",
-        }}
-      >
+      <FullDisplay>
         <DivCourse>
           <h2
             style={{
@@ -160,11 +166,7 @@ export default function MyCoursesTemplate({
           {modules.map((item, index) => {
             return (
               <div>
-                <ul
-                  style={{
-                    maxWidth: "13rem",
-                  }}
-                >
+                <ul>
                   <li
                     style={{
                       listStyle: "none",
@@ -216,7 +218,7 @@ export default function MyCoursesTemplate({
             );
           })}
         </SideBarCourse>
-      </div>
+      </FullDisplay>
     </div>
   );
 }
