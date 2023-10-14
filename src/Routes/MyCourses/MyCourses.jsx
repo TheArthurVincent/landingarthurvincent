@@ -30,7 +30,7 @@ export default function MyCourses() {
   return (
     <>
       <MyCoursesTemplate />
-      <TopBar />{" "}
+      <TopBar />
       <RouteSizeControlBox>
         <RouteDiv>
           <HOne>{UniversalTexts.myCourses}</HOne>

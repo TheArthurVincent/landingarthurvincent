@@ -145,7 +145,8 @@ export const IFrameVideo = styled.iframe`
   margin: 0 1rem;
   min-width: 1200px;
   min-height: 650px;
-  border: none;
+  border-radius: 0.75rem;
+  border: 3px #222 solid;
   display: inline-block;
   @media (max-width: 1250px) {
     margin-top: 0;

@@ -22,10 +22,10 @@ export default function MyCoursesTemplate() {
         _id: "1",
         classes: [
           {
-            classTitle: "classe 1",
+            classTitle: "Title",
             srcVideos: [
               {
-                title: "title",
+                title: "Title",
                 src: "https://www.youtube.com/watch?v=nGs2fH2IaDk",
               },
             ],
@@ -45,7 +45,7 @@ export default function MyCoursesTemplate() {
             ],
           },
           {
-            classTitle: "classe 2",
+            classTitle: "Title",
             srcVideos: [
               {
                 title: "title",
@@ -832,6 +832,17 @@ export default function MyCoursesTemplate() {
     setChosenClass(selectedClass);
     setChosenTitle(selectedTitle);
   };
+  const LiItem = styled.li`
+    color: ${alwaysBlack()};
+    background-color: ${alwaysWhite()};
+    list-style: none;
+    padding: 0.2rem;
+    cursor: pointer;
+    &:hover {
+      color: ${alwaysWhite()};
+      background-color: ${talkingBusiness.courseColor};
+    }
+  `;
 
   const DivCourse = styled.div`
     max-height: 90vh;
@@ -859,11 +870,11 @@ export default function MyCoursesTemplate() {
       <h1
         style={{
           marginBottom: 0,
-          padding: "1.2rem 2rem",
+          padding: "1rem",
           backgroundColor: talkingBusiness.courseColor,
           fontSize: "2rem",
           color: lightGreyColor(),
-          textAlign: "right",
+          textAlign: "center",
         }}
       >
         {talkingBusiness.courseTitle}
@@ -880,7 +891,9 @@ export default function MyCoursesTemplate() {
             style={{
               textAlign: "left",
               fontSize: "2rem",
-              padding: "1rem",
+              padding: "0.7rem",
+              backgroundColor: alwaysBlack(),
+              color: alwaysWhite(),
               textTransform: "capitalize",
             }}
           >
@@ -891,6 +904,7 @@ export default function MyCoursesTemplate() {
           ].srcVideos.map((videoItem, videoIndex) => {
             return (
               <div
+                key={videoIndex}
                 style={{
                   padding: "1rem",
                   display: "grid",
@@ -905,6 +919,7 @@ export default function MyCoursesTemplate() {
                       textTransform: "capitalize",
                       textAlign: "center",
                       margin: "0.5rem",
+                      fontSize: "1.5rem",
                     }}
                   >
                     {videoItem.title}
@@ -943,14 +958,7 @@ export default function MyCoursesTemplate() {
                     <div>
                       <ul>
                         {item.classes.map((classItem, classIndex) => (
-                          <li
-                            style={{
-                              color: alwaysBlack(),
-                              backgroundColor: alwaysWhite(),
-                              listStyle: "none",
-                              padding: "0.2rem",
-                              cursor: "pointer",
-                            }}
+                          <LiItem
                             key={classIndex}
                             onClick={() => {
                               choseClass(
@@ -961,7 +969,7 @@ export default function MyCoursesTemplate() {
                             }}
                           >
                             {classItem.classTitle}
-                          </li>
+                          </LiItem>
                         ))}
                       </ul>
                     </div>

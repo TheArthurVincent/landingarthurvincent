@@ -5,13 +5,12 @@ import {
   primaryColor,
   alwaysWhite,
   textPrimaryColorContrast,
-  transparentWhite,
   transparentBlack,
 } from "../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
   display: flex;
-  border-right:1px solid;
+  border-right: 1px solid;
   height: 100vh;
   position: fixed;
   top: 0rem;
