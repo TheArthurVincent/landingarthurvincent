@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import {
+  alwaysBlack,
+  alwaysWhite,
   lightGreyColor,
   primaryColor,
   secondaryColor,
@@ -32,10 +34,9 @@ export const CourseItem = styled.div`
   }
 `;
 export const CourseCard = styled.div`
-  color: ${textPrimaryColorContrast()};
+  color: ${lightGreyColor()};
   text-align: center;
   display: flex;
-  background-color: ${primaryColor()};
   height: 20rem;
   width: 15rem;
   padding: 1rem 0.2rem;
@@ -47,8 +48,6 @@ export const CourseCard = styled.div`
     transition: filter 0.1s;
   }
   &:hover {
-    color: ${primaryColor()};
-    background-color: ${lightGreyColor()};
     border-radius: 0;
     box-shadow: 1px 1px 10px 1px #aaa;
     img {
