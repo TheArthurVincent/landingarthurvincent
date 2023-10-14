@@ -61,7 +61,7 @@ export default function MyCoursesTemplate({
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
-    @media (max-width: 670px) {
+    @media (max-width: 800px) {
       max-height: 45vh;
     }
   `;
@@ -69,7 +69,6 @@ export default function MyCoursesTemplate({
   const SideBarCourse = styled.div`
     height: 100vh;
     overflow: auto;
-    border-top: 2px solid ${courseColor};
     background-color: ${darkGreyColor()};
     color: ${lightGreyColor()};
     text-transform: capitalize;
@@ -85,12 +84,15 @@ export default function MyCoursesTemplate({
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
+    @media (max-width: 800px) {
+      border-top: 2px solid ${courseColor};
+    }
   `;
   const FullDisplay = styled.div`
     display: grid;
     grid-template-columns: 1fr 13rem;
     max-width: 100vw;
-    @media (max-width: 670px) {
+    @media (max-width: 800px) {
       grid-template-columns: 1fr;
     }
   `;

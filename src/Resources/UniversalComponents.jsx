@@ -198,10 +198,10 @@ export const IFrameVideoCourses = styled.iframe`
     min-height: 225px;
   }
 
-  @media (max-width: 730px) {
+  @media (max-width: 800px) {
     margin-top: 0;
-    min-width: 350px;
-    min-height: 200px;
+    min-width: 560px;
+    min-height: 320px;
   }
 `;
 
