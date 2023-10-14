@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  BackToHomePage,
   IFrameVideo,
   IFrameVideoCourses,
   getVideoEmbedUrl,
@@ -50,7 +51,7 @@ export default function MyCoursesTemplate({
     text-transform: capitalize;
 
     &::-webkit-scrollbar {
-      width: 10px;
+      width: 5px;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -58,19 +59,40 @@ export default function MyCoursesTemplate({
     }
 
     &::-webkit-scrollbar-track {
-      background-color: ${lightGreyColor()};
+      background-color: ${alwaysWhite()};
+    }
+  `;
+
+  const SideBarCourse = styled.div`
+    height: 100vh;
+    overflow: auto;
+    background-color: ${darkGreyColor()};
+    color: ${lightGreyColor()};
+    text-transform: capitalize;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${courseColor};
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: ${alwaysWhite()};
     }
   `;
 
   return (
-    <div style={{ marginLeft: "2.6rem" }}>
+    <div>
       <CoursesSideBar />
       <h1
         style={{
           marginBottom: 0,
-          padding: "1rem",
+          padding: "0.3rem",
           backgroundColor: courseColor,
-          fontSize: "2rem",
+          fontSize: "1.5rem",
+          fontWeight: 600,
           color: lightGreyColor(),
           textAlign: "center",
         }}
@@ -87,12 +109,14 @@ export default function MyCoursesTemplate({
         <DivCourse>
           <h2
             style={{
-              textAlign: "left",
-              fontSize: "2rem",
+              textAlign: "right",
+              fontSize: "1.3rem",
               padding: "0.7rem",
+              fontWeight: 500,
               backgroundColor: alwaysBlack(),
               color: alwaysWhite(),
               textTransform: "capitalize",
+              boxShadow: `2px 2px 20px 5px ${alwaysBlack()}`,
             }}
           >
             {chosenTitle}
@@ -131,7 +155,8 @@ export default function MyCoursesTemplate({
             }
           )}
         </DivCourse>
-        <DivCourse>
+        <SideBarCourse>
+          <BackToHomePage />
           {modules.map((item, index) => {
             return (
               <div>
@@ -190,7 +215,7 @@ export default function MyCoursesTemplate({
               </div>
             );
           })}
-        </DivCourse>
+        </SideBarCourse>
       </div>
     </div>
   );
