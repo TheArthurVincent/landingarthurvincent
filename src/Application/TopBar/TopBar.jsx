@@ -36,10 +36,6 @@ export default function TopBar() {
       endpoint: "/my-classes",
     },
     {
-      title: UniversalTexts.englishMaterial,
-      endpoint: "/classes-to-teach",
-    },
-    {
       title: UniversalTexts.myCourses,
       endpoint: "/my-courses",
     },
@@ -57,6 +53,10 @@ export default function TopBar() {
     {
       title: "Adm",
       endpoint: "/adm",
+    },
+    {
+      title: UniversalTexts.englishMaterial,
+      endpoint: "/classes-to-teach",
     },
   ];
 
