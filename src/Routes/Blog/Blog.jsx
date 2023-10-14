@@ -291,6 +291,8 @@ export function Blog() {
                     margin: "1rem",
                     fontSize: "1.1rem",
                     display: "block",
+                    padding: "1rem",
+                    borderRadius: "1rem",
                     backgroundColor: alwaysWhite(),
                     color: alwaysBlack(),
                   }}

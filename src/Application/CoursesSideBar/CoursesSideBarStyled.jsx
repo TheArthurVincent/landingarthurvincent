@@ -26,12 +26,8 @@ export const CoursesListTitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 4rem;
+  min-height: 3.2rem;
   cursor: pointer;
-  &:hover {
-    color: ${primaryColor()};
-    background-color: ${textPrimaryColorContrast()};
-  }
 `;
 
 export const CoursesList = styled.ul`

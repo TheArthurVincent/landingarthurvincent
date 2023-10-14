@@ -102,8 +102,8 @@ export default function MyCoursesTemplate({
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: " 1fr 16rem",
-          maxWidth: "99vw",
+          gridTemplateColumns: " 1fr 13rem",
+          maxWidth: "100vw",
         }}
       >
         <DivCourse>
@@ -162,7 +162,7 @@ export default function MyCoursesTemplate({
               <div>
                 <ul
                   style={{
-                    maxWidth: "16rem",
+                    maxWidth: "13rem",
                   }}
                 >
                   <li

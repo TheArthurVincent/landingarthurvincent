@@ -48,7 +48,7 @@ export const SpanDisapear = styled.span`
 export const DivPost = styled.div`
   display: flex;
   text-align: left;
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
   }
 `;
