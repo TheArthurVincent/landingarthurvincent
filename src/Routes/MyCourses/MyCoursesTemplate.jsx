@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   BackToHomePage,
-  IFrameVideo,
   IFrameVideoCourses,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
@@ -11,7 +10,6 @@ import {
   darkGreyColor,
   lightGreyColor,
   transparentBlack,
-  transparentWhite,
 } from "../../Styles/Styles";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";
@@ -46,7 +44,7 @@ export default function MyCoursesTemplate({
   const DivCourse = styled.div`
     height: 100vh;
     overflow: auto;
-    background-color: ${darkGreyColor()};
+    background-color: ${transparentBlack()};
     color: ${lightGreyColor()};
     text-transform: capitalize;
 
@@ -69,8 +67,8 @@ export default function MyCoursesTemplate({
   const SideBarCourse = styled.div`
     height: 100vh;
     overflow: auto;
-    background-color: ${darkGreyColor()};
-    color: ${lightGreyColor()};
+    background-color: ${lightGreyColor()};
+    color: ${darkGreyColor()};
     text-transform: capitalize;
 
     &::-webkit-scrollbar {
@@ -163,7 +161,11 @@ export default function MyCoursesTemplate({
             }
           )}
         </DivCourse>
-        <SideBarCourse>
+        <SideBarCourse
+          style={{
+            borderLeft: `3px solid ${courseColor}`,
+          }}
+        >
           <BackToHomePage />
           {modules.map((item, index) => {
             return (
