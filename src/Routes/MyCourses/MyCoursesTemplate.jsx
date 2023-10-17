@@ -83,7 +83,7 @@ export default function MyCoursesTemplate({
       background-color: ${alwaysWhite()};
     }
     @media (max-width: 800px) {
-      border-top: 2px solid ${courseColor};
+      border-top: 1px solid ${courseColor};
     }
   `;
   const FullDisplay = styled.div`
@@ -102,10 +102,11 @@ export default function MyCoursesTemplate({
         style={{
           marginBottom: 0,
           padding: "0.3rem",
-          backgroundColor: courseColor,
           fontSize: "1.5rem",
           fontWeight: 600,
-          color: lightGreyColor(),
+          color: alwaysWhite(),
+          backgroundColor: alwaysBlack(),
+
           textAlign: "center",
         }}
       >
@@ -119,8 +120,8 @@ export default function MyCoursesTemplate({
               fontSize: "1.3rem",
               padding: "0.7rem",
               fontWeight: 500,
-              color: alwaysWhite(),
-              backgroundColor: alwaysBlack(),
+              color: lightGreyColor(),
+              backgroundColor: darkGreyColor(),
               textTransform: "capitalize",
             }}
           >
@@ -146,7 +147,7 @@ export default function MyCoursesTemplate({
                         textAlign: "center",
                         margin: "0.5rem",
                         fontSize: "1.5rem",
-                        color:alwaysBlack()
+                        color: alwaysBlack(),
                       }}
                     >
                       {videoItem.title}
@@ -163,7 +164,7 @@ export default function MyCoursesTemplate({
         </DivCourse>
         <SideBarCourse
           style={{
-            borderLeft: `3px solid ${courseColor}`,
+            borderLeft: `1px solid ${courseColor}`,
           }}
         >
           <BackToHomePage />
