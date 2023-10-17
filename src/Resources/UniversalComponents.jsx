@@ -17,7 +17,6 @@ export const Button = styled.button`
   width: 5.5rem;
   border-radius: 8px;
   max-height: 2rem;
-
   &:hover {
     border: 1px solid ${darkGreyColor()};
   }
@@ -169,36 +168,46 @@ export const IFrameVideo = styled.iframe`
 export const IFrameVideoCourses = styled.iframe`
   min-width: 1600px;
   min-height: 750px;
-  border-radius: 0.75rem;
-  border: 1px #777 solid;
+  border: none;
   @media (max-width: 1860px) {
     margin-top: 0;
     min-width: 1200px;
     min-height: 750px;
   }
-
   @media (max-width: 1500px) {
     margin-top: 0;
     min-width: 810px;
     min-height: 450px;
   }
-
   @media (max-width: 1100px) {
     margin-top: 0;
     min-width: 648px;
     min-height: 360px;
   }
-
   @media (max-width: 930px) {
     margin-top: 0;
-    min-width: 405px;
-    min-height: 225px;
+    min-width: 580px;
+    min-height: 330px;
   }
-
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     margin-top: 0;
-    min-width: 560px;
-    min-height: 320px;
+    min-width: 380px;
+    min-height: 210px;
+  }
+  @media (max-width: 400px) {
+    margin-top: 0;
+    min-width: 295px;
+    min-height: 165px;
+  }
+  @media (max-width: 300px) {
+    margin-top: 0;
+    min-width: 160px;
+    min-height: 75px;
+  }
+  @media (max-width: 210px) {
+    margin-top: 0;
+    min-width: 80px;
+    min-height: 38px;
   }
 `;
 
