@@ -134,7 +134,7 @@ export function Login() {
       <Button
         style={{
           marginTop: "1rem",
-          display:"block",
+          display: "block",
           marginLeft: "auto",
           marginRight: "auto",
           backgroundColor: primaryColor(),

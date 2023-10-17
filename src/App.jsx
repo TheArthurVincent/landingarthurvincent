@@ -127,10 +127,10 @@ function App() {
           style={{
             maxWidth: "2.2rem",
           }}
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/head-white.png?updatedAt=1687369608637"
+          src="https://ik.imagekit.io/vjz75qw96/assets/aRVIN).png?updatedAt=1697560090366"
           alt=""
         />
-        <span>Arthur Vincent © Some rights reserved</span>{" "}
+        <span>Portal Arvin para professores particulares © Some rights reserved</span>{" "}
       </footer>
     </div>
   );
