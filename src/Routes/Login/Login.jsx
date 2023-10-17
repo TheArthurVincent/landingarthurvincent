@@ -70,7 +70,7 @@ export function Login() {
             src={Logo}
             alt="logo"
           />
-          <InputField
+          <InputField 
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             id="name"

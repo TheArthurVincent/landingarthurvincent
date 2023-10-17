@@ -12,6 +12,7 @@ import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
+import { styled } from "styled-components";
 
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
@@ -64,6 +65,12 @@ export default function TopBar() {
     visible === "flex" ? setVisible("none") : setVisible("flex");
   };
 
+  const SpanHover = styled.span`
+    &:hover {
+      color: ${secondaryColor()};
+    }
+  `;
+
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
@@ -95,7 +102,7 @@ export default function TopBar() {
                 }}
                 to={link.endpoint}
               >
-                {link.title}
+                <SpanHover>{link.title}</SpanHover>
               </NavLink>
             );
           })}
@@ -111,13 +118,14 @@ export default function TopBar() {
           {toAdm.map((link, index) => {
             return (
               <NavLink
-                key={index}
                 style={{
+                  display: link.display,
                   color: alwaysBlack(),
                 }}
+                key={index}
                 to={link.endpoint}
               >
-                {link.title}
+                <SpanHover>{link.title}</SpanHover>
               </NavLink>
             );
           })}
@@ -142,7 +150,7 @@ export default function TopBar() {
                 }}
                 to={link.endpoint}
               >
-                {link.title}
+                <SpanHover>{link.title}</SpanHover>
               </NavLink>
             );
           })}
@@ -165,7 +173,7 @@ export default function TopBar() {
                 }}
                 to={link.endpoint}
               >
-                {link.title}
+                <SpanHover> {link.title}</SpanHover>
               </NavLink>
             );
           })}
