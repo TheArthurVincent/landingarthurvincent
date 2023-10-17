@@ -41,9 +41,10 @@ h4 {
   margin-right: auto;
 }
 body {
-  background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514");
+  /* background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514");
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: #ddd;
 }
 .comment {
   color: var(--white);

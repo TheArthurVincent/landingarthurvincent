@@ -147,7 +147,6 @@ export const IFrameVideo = styled.iframe`
   border-radius: 0.75rem;
   border: 1px #222 solid;
   display: inline-block;
-  box-shadow: 2px 2px 20px 3px #222;
   @media (max-width: 1550px) {
     margin-top: 0;
     min-width: 810px;
@@ -171,8 +170,7 @@ export const IFrameVideoCourses = styled.iframe`
   min-width: 1600px;
   min-height: 750px;
   border-radius: 0.75rem;
-  border: 1px #222 solid;
-  box-shadow: 2px 2px 20px 3px #222;
+  border: 1px #777 solid;
   @media (max-width: 1860px) {
     margin-top: 0;
     min-width: 1200px;

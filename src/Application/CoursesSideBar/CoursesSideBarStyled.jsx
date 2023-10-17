@@ -35,8 +35,8 @@ export const CoursesList = styled.ul`
 `;
 
 export const CoursesListItem = styled.li`
-  background-color: ${alwaysWhite()};
-  color: ${alwaysBlack()};
+  color: ${alwaysWhite()};
+  background-color: ${alwaysBlack()};
   list-style: none;
   margin: 2px;
   align-items: center;
@@ -56,7 +56,7 @@ export const CoursesListInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${alwaysWhite()};
+  background-color: ${alwaysBlack()};
 `;
 
 export const Mask = styled.div`

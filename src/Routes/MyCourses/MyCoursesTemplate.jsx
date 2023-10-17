@@ -44,7 +44,7 @@ export default function MyCoursesTemplate({
   const DivCourse = styled.div`
     height: 100vh;
     overflow: auto;
-    background-color: ${transparentBlack()};
+    background-color: ${alwaysWhite()};
     color: ${lightGreyColor()};
     text-transform: capitalize;
 
@@ -119,10 +119,9 @@ export default function MyCoursesTemplate({
               fontSize: "1.3rem",
               padding: "0.7rem",
               fontWeight: 500,
-              backgroundColor: alwaysBlack(),
               color: alwaysWhite(),
+              backgroundColor: alwaysBlack(),
               textTransform: "capitalize",
-              boxShadow: `2px 2px 20px 5px ${alwaysBlack()}`,
             }}
           >
             {chosenTitle}
@@ -147,6 +146,7 @@ export default function MyCoursesTemplate({
                         textAlign: "center",
                         margin: "0.5rem",
                         fontSize: "1.5rem",
+                        color:alwaysBlack()
                       }}
                     >
                       {videoItem.title}

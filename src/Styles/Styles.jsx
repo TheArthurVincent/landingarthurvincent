@@ -9,18 +9,17 @@ export const textPrimaryColorContrast = () => "#fff"; //Cor pra ficar atrás da 
 export const textSecondaryColorContrast = () => "#000"; // Cor pra ficar atrás da secundária
 
 // teste partner
-// export const primaryColor = () => "#FACE0A"; //Cor primária da marca
-// export const secondaryColor = () => " #00a0a0"; //Cor secundária da marca
-// export const textPrimaryColorContrast = () => "#362d2d"; //Cor pra ficar atrás da primária
+// export const primaryColor = () => "#ff6a00"; //Cor primária da marca
+// export const secondaryColor = () => " #000000"; //Cor secundária da marca
+// export const textPrimaryColorContrast = () => "#ffffff"; //Cor pra ficar atrás da primária
 // export const textSecondaryColorContrast = () => "#ffffff"; // Cor pra ficar atrás da secundária
 
 //White
 export const darkGreyColor = () => "#333";
 export const lightGreyColor = () => "#eee";
-export const transparentWhite = () => "rgba(255, 255, 255, 0.5)";
-export const transparentBlack = () => "rgba(1, 1, 1, 0.2)";
-export const alwaysWhite = () => "#f5f5f5f0";
-// export const alwaysWhite = () => "#f5f5f5";
+export const transparentWhite = () => "rgba(255, 255, 255, 0.7)";
+export const transparentBlack = () => "rgba(1, 1, 1, 0.7)";
+export const alwaysWhite = () => "#f5f5f5";
 export const alwaysBlack = () => "#1a1a1a";
 
 //Black
@@ -29,5 +28,5 @@ export const alwaysBlack = () => "#1a1a1a";
 // export const lightGreyColor = () => "#eee";
 // export const transparentWhite = () => "rgba(255, 255, 255, 0.5)";
 // export const transparentBlack = () => "rgba(1, 1, 1, 0.2)";
-// export const alwaysWhite = () => "#111";
+// export const alwaysWhite = () => "#1c1c1c";
 // export const alwaysBlack = () => "#eee";
