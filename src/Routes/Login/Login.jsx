@@ -3,9 +3,14 @@ import {
   alwaysBlack,
   alwaysWhite,
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
-import { InputField, backDomain } from "../../Resources/UniversalComponents";
+import {
+  InputField,
+  LogoSVG,
+  backDomain,
+} from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import Logo from "../../../src/assets//complete-logo.png";
@@ -40,6 +45,8 @@ export function Login() {
     }
   };
 
+  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
+
   return (
     <>
       <div
@@ -65,12 +72,8 @@ export function Login() {
             padding: "0 5rem",
           }}
         >
-          <img
-            style={{ border: "none", maxWidth: "15rem" }}
-            src={Logo}
-            alt="logo"
-          />
-          <InputField 
+          <div style={{ margin: "0 auto" }}>{myLogo}</div>
+          <InputField
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             id="name"
