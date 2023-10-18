@@ -9,9 +9,12 @@ import {
   alwaysWhite,
   darkGreyColor,
   lightGreyColor,
+  primaryColor,
+  textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";
+import TopBar from "../../Application/TopBar/TopBar";
 
 export default function MyCoursesTemplate({
   title,
@@ -97,35 +100,41 @@ export default function MyCoursesTemplate({
   return (
     <div>
       <CoursesSideBar />
-      <h1
-        style={{
-          marginBottom: 0,
-          padding: "0.3rem",
-          fontSize: "1.5rem",
-          fontWeight: 600,
-          color: alwaysWhite(),
-          backgroundColor: alwaysBlack(),
-
-          textAlign: "center",
-        }}
-      >
-        {title}
-      </h1>
+      <TopBar />
+      <div>
+        <h1
+          style={{
+            marginBottom: 0,
+            padding: "0.5rem 0",
+            fontSize: "2rem",
+            fontWeight: 600,
+            backgroundColor: lightGreyColor(),
+            color: alwaysBlack(),
+            textAlign: "center",
+          }}
+        >
+          {title}
+        </h1>
+        <h2
+          style={{
+            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: 0,
+            padding: "5px",
+            fontSize: "1.3rem",
+            fontWeight: 500,
+            color: courseColor,
+            backgroundColor: textPrimaryColorContrast(),
+            textTransform: "capitalize",
+          }}
+        >
+          {chosenTitle}
+        </h2>
+      </div>
       <FullDisplay>
         <DivCourse>
-          <h2
-            style={{
-              textAlign: "center",
-              fontSize: "1.3rem",
-              padding: "0.8rem 0rem",
-              fontWeight: 500,
-              color: lightGreyColor(),
-              backgroundColor: darkGreyColor(),
-              textTransform: "capitalize",
-            }}
-          >
-            {chosenTitle}
-          </h2>
           {modules[chosenModule].classes[chosenClass].srcVideos.map(
             (videoItem, videoIndex) => {
               return (
@@ -143,10 +152,13 @@ export default function MyCoursesTemplate({
                     <h3
                       style={{
                         textTransform: "capitalize",
-                        textAlign: "center",
+                        textAlign: "left",
                         margin: "0.5rem",
-                        fontSize: "1.5rem",
-                        color: alwaysBlack(),
+                        fontSize: "1.2rem",
+                        borderLeft: `3px solid ${courseColor}`,
+                        borderRadius: "0.5rem",
+                        paddingLeft: "1rem",
+                        color: courseColor,
                       }}
                     >
                       {videoItem.title}
@@ -167,7 +179,7 @@ export default function MyCoursesTemplate({
         </DivCourse>
         <SideBarCourse
           style={{
-            borderLeft: `1px solid ${courseColor}`,
+            borderLeft: `1px solid ${lightGreyColor()}`,
           }}
         >
           <BackToHomePage />
