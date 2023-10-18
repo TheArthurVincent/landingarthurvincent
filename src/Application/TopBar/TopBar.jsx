@@ -7,7 +7,7 @@ import {
   BackgroundClick,
 } from "./TopBar.Styled";
 import Logo from "../../assets/complete-logo.png";
-import { Button } from "../../Resources/UniversalComponents";
+import { Button, LogoSVG } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
@@ -71,17 +71,12 @@ export default function TopBar() {
     }
   `;
 
+  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.5);
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
       <Link to="/">
-        <LogoStyle>
-          <img
-            style={{ border: "none", maxWidth: "8rem" }}
-            src={Logo}
-            alt="logo"
-          />
-        </LogoStyle>
+        <LogoStyle>{myLogo}</LogoStyle>
       </Link>
       <TopBarNavigationBurger style={{ display: visible }}>
         <div

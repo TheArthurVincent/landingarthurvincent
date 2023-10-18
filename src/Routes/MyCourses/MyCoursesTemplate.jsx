@@ -155,7 +155,11 @@ export default function MyCoursesTemplate({
                   {videoItem.src && (
                     <IFrameVideoCourses src={getVideoEmbedUrl(videoItem.src)} />
                   )}
-                  {videoItem.description && <p>{videoItem.description}</p>}
+                  {videoItem.description && (
+                    <p style={{ color: alwaysBlack() }}>
+                      {videoItem.description}
+                    </p>
+                  )}
                 </div>
               );
             }

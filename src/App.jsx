@@ -15,6 +15,8 @@ import SignUp from "./Routes/SignUp/SignUp";
 import MyCourses from "./Routes/MyCourses/MyCourses";
 import MyCoursesTemplate from "./Routes/MyCourses/MyCoursesTemplate";
 import { Courses } from "./Routes/MyCourses/CoursesList/Courses";
+import { styled } from "styled-components";
+import { darkGreyColor, lightGreyColor, secondaryColor } from "./Styles/Styles";
 function App() {
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
@@ -25,16 +27,29 @@ function App() {
     logout24h();
   }, []);
 
+  const All = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-between;
+
+    & *::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    & *::-webkit-scrollbar-track {
+      background: ${darkGreyColor()};
+    }
+
+    & *::-webkit-scrollbar-thumb {
+      background-color: ${secondaryColor()};
+      border-radius: 10px;
+    }
+  `;
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        width: "100vw",
-        justifyContent: "space-between",
-      }}
-    >
+    <All>
       <div
         style={{
           width: "100vw",
@@ -130,9 +145,11 @@ function App() {
           src="https://ik.imagekit.io/vjz75qw96/assets/aRVIN).png?updatedAt=1697560090366"
           alt=""
         />
-        <span>Portal Arvin para professores particulares © Some rights reserved</span>{" "}
+        <span>
+          Portal Arvin para professores particulares © Some rights reserved
+        </span>{" "}
       </footer>
-    </div>
+    </All>
   );
 }
 

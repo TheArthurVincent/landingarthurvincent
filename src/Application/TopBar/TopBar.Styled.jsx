@@ -71,12 +71,12 @@ export const LogoStyle = styled.div`
 
 export const Hamburguer = styled.div`
   display: none;
-  color: ${textSecondaryColorContrast()};
+  color: ${secondaryColor()};
   font-weight: 900;
   font-size: 2rem;
   cursor: pointer;
   &:hover {
-    color: ${secondaryColor()};
+    color: ${textSecondaryColorContrast()};
   }
   @media (max-width: 1030px) {
     display: block;
