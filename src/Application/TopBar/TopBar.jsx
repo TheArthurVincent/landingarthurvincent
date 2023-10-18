@@ -33,6 +33,10 @@ export default function TopBar() {
 
   const topLinks = [
     {
+      title: UniversalTexts.homePage,
+      endpoint: "/",
+    },
+    {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
     },

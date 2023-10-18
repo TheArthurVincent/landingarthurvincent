@@ -126,8 +126,6 @@ function App() {
       <footer
         style={{
           textAlign: "center",
-          padding: "0.7rem",
-          display: "flex",
           bottom: "0vh",
           flexDirection: "column",
           fontSize: "12px",
@@ -135,17 +133,23 @@ function App() {
           gap: "0.8rem",
           backgroundColor: "#111",
           color: "#eee",
-          width: "98.5vw",
+          display: "flex",
+          width: "100vw",
         }}
       >
         <img
           style={{
             maxWidth: "2.2rem",
+            marginTop: "1rem",
           }}
           src="https://ik.imagekit.io/vjz75qw96/assets/aRVIN).png?updatedAt=1697560090366"
           alt=""
         />
-        <span>
+        <span
+          style={{
+            marginBottom: "1rem",
+          }}
+        >
           Portal Arvin para professores particulares © Some rights reserved
         </span>{" "}
       </footer>

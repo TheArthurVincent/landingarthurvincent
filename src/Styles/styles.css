@@ -5,7 +5,7 @@
   --text: "Lato", sans-serif;
   --title: "Athiti", sans-serif;
   --black-arvin: #101010;
-  --white: #fff;
+  --white: #fefefe;
 }
 * {
   padding: 0;
@@ -32,7 +32,7 @@ h4 {
 
 .modal {
   animation-name: slideIn;
-  animation-duration: 0.3s;
+  animation-duration: 0.1s;
   animation-timing-function: ease;
 }
 .maxwidth {
@@ -41,9 +41,6 @@ h4 {
   margin-right: auto;
 }
 body {
-  /* background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514");
-  background-size: cover;
-  background-attachment: fixed; */
   background-color: #ddd;
 }
 .comment {

@@ -8,13 +8,13 @@ import {
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
-  display: flex;
   top: 0;
   background-color: ${alwaysWhite()};
   justify-content: space-evenly;
   align-items: center;
-  padding: 0.4rem 4rem;
   z-index: 6;
+  display: flex;
+  width: 100vw;
 `;
 
 export const TopBarNavigation = styled.div`
