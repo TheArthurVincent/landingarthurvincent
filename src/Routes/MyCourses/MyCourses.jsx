@@ -25,7 +25,7 @@ export default function MyCourses() {
             style={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "left",
+              justifyContent: "center",
               gap: "1rem",
               margin: "0 1rem",
               flexDirection: "row-reverse",

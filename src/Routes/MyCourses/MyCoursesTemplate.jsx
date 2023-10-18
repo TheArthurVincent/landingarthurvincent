@@ -33,7 +33,7 @@ export default function MyCoursesTemplate({
     color: ${alwaysBlack()};
     background-color: ${alwaysWhite()};
     list-style: none;
-    padding: 0.2rem;
+    padding: 0.2rem 0.8rem;
     cursor: pointer;
     &:hover {
       color: ${alwaysWhite()};
@@ -116,9 +116,9 @@ export default function MyCoursesTemplate({
         <DivCourse>
           <h2
             style={{
-              textAlign: "right",
+              textAlign: "center",
               fontSize: "1.3rem",
-              padding: "0.7rem",
+              padding: "0.8rem 0rem",
               fontWeight: 500,
               color: lightGreyColor(),
               backgroundColor: darkGreyColor(),
@@ -179,7 +179,7 @@ export default function MyCoursesTemplate({
                   >
                     <h2
                       style={{
-                        padding: "0.3rem ",
+                        padding: "0.3rem 1em",
                         textTransform: "uppercase",
                       }}
                     >

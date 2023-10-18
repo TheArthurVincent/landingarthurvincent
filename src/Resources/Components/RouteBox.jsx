@@ -10,15 +10,16 @@ import {
 
 export const RouteSizeControlBox = styled.div`
   max-width: 1700px;
-  min-width: 500px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
   @media (max-width: 900px) {
-    max-width: 800px;
+    max-width: 750px;
   }
-  @media (max-width: 750px) {
-    max-width: 500px;
+  @media (max-width: 800px) {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
     h1,
     h2,
     h3,
@@ -27,6 +28,12 @@ export const RouteSizeControlBox = styled.div`
     li {
       font-size: 1rem;
     }
+  }
+  @media (max-width: 700px) {
+    max-width: 550px;
+  }
+  @media (max-width: 600px) {
+    max-width: 450px;
   }
 `;
 
@@ -97,8 +104,22 @@ export const RouteDiv = styled.div`
   margin: 0.5rem 0;
   @media (max-width: 750px) {
     padding: 5px;
-    margin: 5px;
+    max-width: 600px;
+  }
+  @media (max-width: 610px) {
+    max-width: 600px;
+  }
+  @media (max-width: 550px) {
+    max-width: 500px;
+  }
+  @media (max-width: 450px) {
     max-width: 400px;
+  }
+  @media (max-width: 350px) {
+    max-width: 300px;
+  }
+  @media (max-width: 300px) {
+    max-width: 250px;
   }
 `;
 
