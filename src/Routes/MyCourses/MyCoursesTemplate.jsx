@@ -38,7 +38,7 @@ export default function MyCoursesTemplate({
     padding: 0.2rem 0.8rem;
     cursor: pointer;
     &:hover {
-      color: ${alwaysWhite()};
+      color: ${alwaysWhite()} !important;
       background-color: ${courseColor};
     }
   `;
@@ -205,13 +205,22 @@ export default function MyCoursesTemplate({
                         {item.classes.map((classItem, classIndex) => (
                           <LiItem
                             style={{
-                              backgroundColor:
+                              paddingLeft: "8px",
+                              borderRadius:
                                 classItem.classTitle == chosenTitle
-                                  ? "black"
+                                  ? "0.2rem"
+                                  : "none",
+                              borderLeft:
+                                classItem.classTitle == chosenTitle
+                                  ? `4px solid ${courseColor}`
                                   : "none",
                               color:
                                 classItem.classTitle == chosenTitle
-                                  ? "white"
+                                  ? courseColor
+                                  : "none",
+                              fontWeight:
+                                classItem.classTitle == chosenTitle
+                                  ? 800
                                   : "none",
                               cursor:
                                 classItem.classTitle == chosenTitle

@@ -5,11 +5,13 @@ import {
   textPrimaryColorContrast,
   transparentBlack,
   alwaysBlack,
+  lightGreyColor,
 } from "../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
   display: flex;
   height: 100vh;
+  border-right: solid 1px ${lightGreyColor()};
   position: fixed;
   top: 0rem;
   z-index: 2;
@@ -21,12 +23,12 @@ export const CoursesListContainer = styled.div`
 `;
 
 export const CoursesListTitleContainer = styled.div`
-  color: ${textPrimaryColorContrast()};
-  background-color: ${primaryColor()};
+  color: ${primaryColor()};
+  background-color: ${alwaysWhite()};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 3.2rem;
+  min-height: 63px;
   cursor: pointer;
 `;
 
@@ -35,8 +37,8 @@ export const CoursesList = styled.ul`
 `;
 
 export const CoursesListItem = styled.li`
-  color: ${alwaysWhite()};
-  background-color: ${alwaysBlack()};
+  background-color: ${alwaysWhite()};
+  color: ${alwaysBlack()};
   list-style: none;
   margin: 2px;
   align-items: center;
@@ -56,7 +58,7 @@ export const CoursesListInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${alwaysBlack()};
+  background-color: ${lightGreyColor()};
 `;
 
 export const Mask = styled.div`
