@@ -3,7 +3,7 @@ export const themePartner = {};
 // #00132b #54bf08 #0203AD #FACE0A #00a0a0 #a00030 #19D8FA #5b6b13 #86304a
 
 // Vincent
-export const primaryColor = () => "#0f3a63"; //Cor primária da marc
+export const primaryColor = () => "#00132b"; //Cor primária da marc
 export const secondaryColor = () => " #51be03"; // Cor secundária da marca
 export const textPrimaryColorContrast = () => "#fff"; //Cor pra ficar atrás da primária
 export const textSecondaryColorContrast = () => "#08223a"; // Cor pra ficar atrás da secundária

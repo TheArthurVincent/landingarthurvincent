@@ -9,7 +9,6 @@ import {
   alwaysWhite,
   darkGreyColor,
   lightGreyColor,
-  primaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
