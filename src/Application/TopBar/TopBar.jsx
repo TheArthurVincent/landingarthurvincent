@@ -6,7 +6,6 @@ import {
   TopBarNavigationBurger,
   BackgroundClick,
 } from "./TopBar.Styled";
-import Logo from "../../assets/complete-logo.png";
 import { Button, LogoSVG } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
