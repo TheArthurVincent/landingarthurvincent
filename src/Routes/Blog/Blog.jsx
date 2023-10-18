@@ -21,6 +21,7 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, Skeleton } from "@mui/material";
@@ -190,8 +191,8 @@ export function Blog() {
             </HTwo>
             <Button
               style={{
-                backgroundColor: alwaysBlack(),
-                color: alwaysWhite(),
+                backgroundColor: secondaryColor(),
+                color: textSecondaryColorContrast(),
               }}
               onClick={handleSeeIsNextClassVisibleModal}
             >
@@ -217,10 +218,10 @@ export function Blog() {
                 marginRight: "1.2rem",
                 marginLeft: "auto",
                 maxWidth: "fit-content",
-                backgroundColor: secondaryColor(),
+                color: primaryColor(),
                 padding: "0.5rem",
                 fontSize: "1rem",
-                color: textSecondaryColorContrast(),
+                backgroundColor: textPrimaryColorContrast(),
                 borderRadius: "5px",
               }}
               target="_blank"

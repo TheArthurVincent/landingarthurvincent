@@ -9,7 +9,6 @@ import {
   alwaysWhite,
   darkGreyColor,
   lightGreyColor,
-  transparentBlack,
 } from "../../Styles/Styles";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";

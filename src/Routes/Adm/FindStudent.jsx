@@ -13,11 +13,9 @@ import { Box, Tab, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysBlack,
-  alwaysWhite,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 export function FindStudent() {
@@ -215,7 +213,14 @@ export function FindStudent() {
                 >
                   {student.fullname}
                 </h1>
-                <Button onClick={() => seeEdition(student.id)}>Editar</Button>
+                <Button
+                  style={{
+                    color: secondaryColor(),
+                  }}
+                  onClick={() => seeEdition(student.id)}
+                >
+                  Editar
+                </Button>
               </div>
               <ul>
                 <li>
