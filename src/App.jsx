@@ -9,14 +9,13 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
-import { backDomain, logout24h } from "./Resources/UniversalComponents";
+import { All, backDomain, logout24h } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 import SignUp from "./Routes/SignUp/SignUp";
 import MyCourses from "./Routes/MyCourses/MyCourses";
 import MyCoursesTemplate from "./Routes/MyCourses/MyCoursesTemplate";
-import { styled } from "styled-components";
-import { darkGreyColor, secondaryColor } from "./Styles/Styles";
 import axios from "axios";
+
 function App() {
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
@@ -30,7 +29,6 @@ function App() {
       try {
         const response = await axios.get(`${backDomain}/api/v1/courses`);
         setCourses(response.data.courses);
-        console.log(response.data.courses);
       } catch (error) {
         alert("Erro ao importar posts");
       }
@@ -42,28 +40,6 @@ function App() {
   useEffect(() => {
     logout24h();
   }, []);
-
-  const All = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    justify-content: space-between;
-
-    & *::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    & *::-webkit-scrollbar-track {
-      background: ${darkGreyColor()};
-    }
-
-    & *::-webkit-scrollbar-thumb {
-      background-color: ${secondaryColor()};
-      border-radius: 10px;
-    }
-  `;
-
   return (
     <All>
       <div

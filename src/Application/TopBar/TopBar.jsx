@@ -12,7 +12,11 @@ import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
 import { styled } from "styled-components";
-
+const SpanHover = styled.span`
+  &:hover {
+    color: ${secondaryColor()};
+  }
+`;
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
@@ -67,12 +71,6 @@ export default function TopBar() {
   const handleVisible = () => {
     visible === "flex" ? setVisible("none") : setVisible("flex");
   };
-
-  const SpanHover = styled.span`
-    &:hover {
-      color: ${secondaryColor()};
-    }
-  `;
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.5);
   return (
