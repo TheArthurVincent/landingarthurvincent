@@ -93,6 +93,7 @@ export default function MyCoursesTemplate({
     background-color: ${lightGreyColor()};
     color: ${darkGreyColor()};
     text-transform: capitalize;
+    border-left: 1px solid lightGreyColor();
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -225,7 +226,8 @@ export default function MyCoursesTemplate({
                       <span style={{ maxWidth: "120ch" }}>
                         {att.description}
                       </span>
-                    )} | 
+                    )}{" "}
+                    |
                     {att.src && (
                       <Link
                         to={att.src}
@@ -239,11 +241,7 @@ export default function MyCoursesTemplate({
               }
             )}
         </DivCourse>
-        <SideBarCourse
-          style={{
-            borderLeft: `1px solid ${lightGreyColor()}`,
-          }}
-        >
+        <SideBarCourse>
           <BackToHomePage />
           {courseModules.map((item, index) => {
             return (
