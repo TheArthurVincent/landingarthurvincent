@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
@@ -9,19 +9,35 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
-import { logout24h } from "./Resources/UniversalComponents";
+import { backDomain, logout24h } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 import SignUp from "./Routes/SignUp/SignUp";
 import MyCourses from "./Routes/MyCourses/MyCourses";
 import MyCoursesTemplate from "./Routes/MyCourses/MyCoursesTemplate";
-import { Courses } from "./Routes/MyCourses/CoursesList/Courses";
 import { styled } from "styled-components";
-import { darkGreyColor, lightGreyColor, secondaryColor } from "./Styles/Styles";
+import { darkGreyColor, secondaryColor } from "./Styles/Styles";
+import axios from "axios";
 function App() {
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
     return token;
   };
+
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(`${backDomain}/api/v1/courses`);
+        setCourses(response.data.courses);
+        console.log(response.data.courses);
+      } catch (error) {
+        alert("Erro ao importar posts");
+      }
+    }
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     logout24h();
@@ -73,7 +89,9 @@ function App() {
               />
               <Route
                 path="/my-courses"
-                element={verifyToken() ? <MyCourses /> : <Login />}
+                element={
+                  verifyToken() ? <MyCourses courses={courses} /> : <Login />
+                }
               />
               <Route path="/signup" element={<SignUp />} />
               <Route
@@ -96,19 +114,20 @@ function App() {
                 path="/phrasal-verbs"
                 element={verifyToken() ? <PhrasalVerbs /> : <Login />}
               />
-              {Courses.map((course, index) => (
+              {courses.map((course, index) => (
                 <Route
                   key={index}
                   path={course.link}
                   element={
                     verifyToken() ? (
-                      <MyCoursesTemplate
-                        img={course.img}
-                        modules={course.modules}
-                        courseColor={course.courseColor}
-                        title={course.courseTitle}
-                        key={index}
-                      />
+                      <>
+                        <MyCoursesTemplate
+                          courseColor={course.courseColor}
+                          title={course.courseTitle}
+                          key={index}
+                          _id={course._id}
+                        />
+                      </>
                     ) : (
                       <Login />
                     )

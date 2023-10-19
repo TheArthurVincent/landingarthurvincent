@@ -11,7 +11,7 @@ import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { Courses } from "./CoursesList/Courses";
 
-export default function MyCourses() {
+export default function MyCourses({courses}) {
   const { UniversalTexts } = useUserContext();
 
   return (
@@ -32,7 +32,7 @@ export default function MyCourses() {
               flexWrap: "wrap",
             }}
           >
-            {Courses.map((course, index) => {
+            {courses.map((course, index) => {
               return (
                 <Link key={index} to={course.link} /*target="_blank"*/>
                   <CourseCard style={{ backgroundColor: course.courseColor }}>

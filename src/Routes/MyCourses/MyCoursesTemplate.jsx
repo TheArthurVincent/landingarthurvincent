@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BackToHomePage,
   IFrameVideoCourses,
+  backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
 import {
@@ -14,16 +15,30 @@ import {
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";
 import TopBar from "../../Application/TopBar/TopBar";
+import axios from "axios";
 
-export default function MyCoursesTemplate({
-  title,
-  courseColor,
-  img,
-  modules,
-}) {
+export default function MyCoursesTemplate({ _id, title, courseColor }) {
+  const [courseModules, setCourseModules] = useState([]);
   const [chosenModule, setChosenModule] = useState(0);
   const [chosenClass, setChosenClass] = useState(0);
-  const [chosenTitle, setChosenTitle] = useState("Class 1");
+  const [chosenTitle, setChosenTitle] = useState("");
+
+  useEffect(() => {
+    // console.log(_id, courseColor, img, modules, title);
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          `${backDomain}/api/v1/moduleforcourse/${_id}`
+        );
+        console.log(response.data.modules);
+        setCourseModules(response.data.modules);
+        console.log(courseModules);
+      } catch (error) {
+        alert("Erro ao importar módulos");
+      }
+    }
+    fetchData();
+  }, []);
 
   const choseClass = (selectedModule, selectedClass, selectedTitle) => {
     setChosenModule(selectedModule);
@@ -98,7 +113,7 @@ export default function MyCoursesTemplate({
 
   return (
     <div>
-      <CoursesSideBar />
+      {/* <CoursesSideBar /> */}
       <TopBar />
       <div>
         <h1
@@ -134,47 +149,52 @@ export default function MyCoursesTemplate({
       </div>
       <FullDisplay>
         <DivCourse>
-          {modules[chosenModule].classes[chosenClass].srcVideos.map(
-            (videoItem, videoIndex) => {
-              return (
-                <div
-                  key={videoIndex}
-                  style={{
-                    padding: "1rem",
-                    display: "grid",
-                    gap: "1rem",
-                    alignContent: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {videoItem.title && (
-                    <h3
-                      style={{
-                        textTransform: "capitalize",
-                        textAlign: "left",
-                        margin: "0.5rem",
-                        fontSize: "1.2rem",
-                        borderLeft: `3px solid ${courseColor}`,
-                        borderRadius: "0.5rem",
-                        paddingLeft: "1rem",
-                        color: courseColor,
-                      }}
-                    >
-                      {videoItem.title}
-                    </h3>
-                  )}{" "}
-                  {videoItem.src && (
-                    <IFrameVideoCourses src={getVideoEmbedUrl(videoItem.src)} />
-                  )}
-                  {videoItem.description && (
-                    <p style={{ color: alwaysBlack() }}>
-                      {videoItem.description}
-                    </p>
-                  )}
-                </div>
-              );
-            }
-          )}
+          {courseModules[chosenModule] &&
+            courseModules[chosenModule].classes &&
+            courseModules[chosenModule].classes[chosenClass] &&
+            courseModules[chosenModule].classes[chosenClass].srcVideos.map(
+              (videoItem, videoIndex) => {
+                return (
+                  <div
+                    key={videoIndex}
+                    style={{
+                      padding: "1rem",
+                      display: "grid",
+                      gap: "1rem",
+                      alignContent: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {videoItem.title && (
+                      <h3
+                        style={{
+                          textTransform: "capitalize",
+                          textAlign: "left",
+                          margin: "0.5rem",
+                          fontSize: "1.2rem",
+                          borderLeft: `3px solid ${courseColor}`,
+                          borderRadius: "0.5rem",
+                          paddingLeft: "1rem",
+                          color: courseColor,
+                        }}
+                      >
+                        {videoItem.title}
+                      </h3>
+                    )}{" "}
+                    {videoItem.src && (
+                      <IFrameVideoCourses
+                        src={getVideoEmbedUrl(videoItem.src)}
+                      />
+                    )}
+                    {videoItem.description && (
+                      <p style={{ color: alwaysBlack() }}>
+                        {videoItem.description}
+                      </p>
+                    )}
+                  </div>
+                );
+              }
+            )}
         </DivCourse>
         <SideBarCourse
           style={{
@@ -182,9 +202,9 @@ export default function MyCoursesTemplate({
           }}
         >
           <BackToHomePage />
-          {modules.map((item, index) => {
+          {courseModules.map((item, index) => {
             return (
-              <div>
+              <div key={index}>
                 <ul>
                   <li
                     style={{
@@ -200,45 +220,47 @@ export default function MyCoursesTemplate({
                       {item.moduleTitle}
                     </h2>
                     <div>
-                      <ul>
-                        {item.classes.map((classItem, classIndex) => (
-                          <LiItem
-                            style={{
-                              paddingLeft: "8px",
-                              borderRadius:
-                                classItem.classTitle == chosenTitle
-                                  ? "0.2rem"
-                                  : "none",
-                              borderLeft:
-                                classItem.classTitle == chosenTitle
-                                  ? `4px solid ${courseColor}`
-                                  : "none",
-                              color:
-                                classItem.classTitle == chosenTitle
-                                  ? courseColor
-                                  : "none",
-                              fontWeight:
-                                classItem.classTitle == chosenTitle
-                                  ? 800
-                                  : "none",
-                              cursor:
-                                classItem.classTitle == chosenTitle
-                                  ? "auto"
-                                  : "pointer",
-                            }}
-                            key={classIndex}
-                            onClick={() => {
-                              choseClass(
-                                index,
-                                classIndex,
-                                classItem.classTitle
-                              );
-                            }}
-                          >
-                            {classItem.classTitle}
-                          </LiItem>
-                        ))}
-                      </ul>
+                      {item.classes && (
+                        <ul>
+                          {item.classes.map((classItem, classIndex) => (
+                            <LiItem
+                              style={{
+                                paddingLeft: "8px",
+                                borderRadius:
+                                  classItem.classTitle === chosenTitle
+                                    ? "0.2rem"
+                                    : "none",
+                                borderLeft:
+                                  classItem.classTitle === chosenTitle
+                                    ? `4px solid ${courseColor}`
+                                    : "none",
+                                color:
+                                  classItem.classTitle === chosenTitle
+                                    ? courseColor
+                                    : "none",
+                                fontWeight:
+                                  classItem.classTitle === chosenTitle
+                                    ? 800
+                                    : "none",
+                                cursor:
+                                  classItem.classTitle === chosenTitle
+                                    ? "auto"
+                                    : "pointer",
+                              }}
+                              key={classIndex}
+                              onClick={() => {
+                                choseClass(
+                                  index,
+                                  classIndex,
+                                  classItem.classTitle
+                                );
+                              }}
+                            >
+                              {classItem.classTitle}
+                            </LiItem>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </li>
                 </ul>
