@@ -185,13 +185,13 @@ export default function MyCoursesTemplate({
                         {videoItem.title}
                       </h3>
                     )}{" "}
-                    {videoItem.src && (
+                    {videoItem.url && (
                       <IFrameVideoCourses
-                        src={getVideoEmbedUrl(videoItem.src)}
+                        src={getVideoEmbedUrl(videoItem.url)}
                       />
                     )}
                     {videoItem.description && (
-                      <p style={{ color: alwaysBlack() }}>
+                      <p style={{ color: alwaysBlack(), maxWidth: "120ch" }}>
                         {videoItem.description}
                       </p>
                     )}

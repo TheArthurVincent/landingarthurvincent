@@ -9,9 +9,8 @@ import { CourseCard } from "./MyCourses.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { Courses } from "./CoursesList/Courses";
 
-export default function MyCourses({courses}) {
+export default function MyCourses({ courses }) {
   const { UniversalTexts } = useUserContext();
 
   return (
