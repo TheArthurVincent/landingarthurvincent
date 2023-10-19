@@ -114,6 +114,53 @@ export function InputField({ value, onChange, id, placeholder, type }) {
   );
 }
 
+export function InputFieldNotRequired({
+  value,
+  onChange,
+  id,
+  placeholder,
+  type,
+}) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        alignItems: "center",
+        justifyContent: "space-around",
+      }}
+    >
+      <p
+        style={{
+          margin: 0,
+          marginBottom: "3px",
+          fontWeight: 500,
+          textAlign: "right",
+        }}
+      >
+        {placeholder}
+      </p>
+      <input
+        style={{
+          alignItems: "center",
+          justifyContent: "space-around",
+          padding: "0.4rem",
+          marginBottom: "0.3rem",
+          fontSize: "1.1rem",
+          fontWeight: 500,
+          backgroundColor: "white",
+          minWidth: "15rem",
+          border: "#555 1px solid",
+        }}
+        value={value}
+        onChange={onChange}
+        id={id}
+        placeholder={placeholder}
+        type={type}
+      />
+    </div>
+  );
+}
+
 export const ButtonDisapear = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};

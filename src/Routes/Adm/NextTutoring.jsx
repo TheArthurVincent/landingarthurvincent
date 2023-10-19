@@ -78,9 +78,7 @@ export function NextTutoring() {
         style={{
           display: "grid",
           gap: "2rem",
-          borderRadius: "1rem",
           padding: "1rem",
-          border: `solid 1px ${darkGreyColor()}`,
           maxWidth: "700px",
           margin: "2rem auto",
         }}
@@ -152,9 +150,8 @@ export function NextTutoring() {
           }}
         >
           <span style={{ color: alwaysBlack() }}>
-            {" "}
             Aula de {studentName} no dia {newDate} às {newTime}
-          </span>{" "}
+          </span>
           {seeButton ? (
             <Button
               style={{

@@ -17,38 +17,42 @@ import NewTutoring from "./NewTutoring";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
+import NewCourse from "./NewCourse";
 
 export function Adm() {
   const [value, setValue] = React.useState("0");
   const componentsToRender = [
     {
-      title: "Marcar aula particular",
+      title: "Aulas particulares",
       value: "0",
-      tooltip: "Adicione a um aluno específico uma aula que já foi dada.",
-      component: <NextTutoring />,
+      tooltip: "Marque uma aula particular.",
+      component: (
+        <div>
+          <NextTutoring />
+          <NewTutoring />
+        </div>
+      ),
     },
     {
-      title: "Postar aula dada",
+      title: "Alunos",
       value: "1",
-      tooltip: "Adicione a um aluno específico uma aula que já foi dada.",
-      component: <NewTutoring />,
-    },
-    {
-      title: "Gerenciar alunos",
-      value: "2",
       tooltip:
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
-      component: <FindStudent />,
+      component: (
+        <div>
+          <NewStudent /> <FindStudent />
+        </div>
+      ),
     },
     {
-      title: "Novo aluno",
+      title: "Cursos",
       value: "3",
-      tooltip: "Cadastre um novo aluno.",
-      component: <NewStudent />,
+      tooltip: "Adicione um novo curso.",
+      component: <NewCourse />,
     },
     {
-      title: "Novo Postagem",
-      value: "4",
+      title: "Postagens",
+      value: "2",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost />,
@@ -65,23 +69,22 @@ export function Adm() {
       <TopBar />
       <RouteSizeControlBox
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1000px",
         }}
       >
         <TabContext value={value}>
           <Box
             style={{
-              backgroundColor: alwaysWhite(),
               display: "flex",
               borderRadius: "1rem",
               alignItems: "center",
+              backgroundColor: alwaysWhite(),
               justifyContent: "space-between",
             }}
             sx={{ borderBottom: 1, borderColor: "divider" }}
           >
             <TabList
               style={{
-                backgroundColor: primaryColor(),
                 margin: "0.3rem",
                 borderRadius: "1rem",
               }}
@@ -96,7 +99,7 @@ export function Adm() {
                     key={index + component.value}
                     style={{
                       fontWeight: 500,
-                      color: textPrimaryColorContrast(),
+                      // color: textPrimaryColorContrast(),
                     }}
                     label={component.title}
                     value={component.value}

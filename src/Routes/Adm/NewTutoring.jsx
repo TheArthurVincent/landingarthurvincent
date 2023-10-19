@@ -65,7 +65,7 @@ export function NewTutoring() {
 
   return (
     <RouteDiv>
-      <HOne>Nova aula particular</HOne>
+      <HOne>Postar aula dada</HOne>
       <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
         <select
           style={{
@@ -76,11 +76,7 @@ export function NewTutoring() {
           }}
           onChange={handleSelectChange}
         >
-          <option
-            style={{ cursor: "pointer" }}
-            value="aluno"
-            hidden
-          >
+          <option style={{ cursor: "pointer" }} value="aluno" hidden>
             Escolha o aluno
           </option>
           {student.map((option, index) => {
