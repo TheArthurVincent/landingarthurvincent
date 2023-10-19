@@ -17,7 +17,12 @@ import { styled } from "styled-components";
 import TopBar from "../../Application/TopBar/TopBar";
 import axios from "axios";
 
-export default function MyCoursesTemplate({ _id, title, courseColor }) {
+export default function MyCoursesTemplate({
+  _id,
+  title,
+  courseColor,
+  courses,
+}) {
   const [courseModules, setCourseModules] = useState([]);
   const [chosenModule, setChosenModule] = useState(0);
   const [chosenClass, setChosenClass] = useState(0);
@@ -113,7 +118,7 @@ export default function MyCoursesTemplate({ _id, title, courseColor }) {
 
   return (
     <div>
-      {/* <CoursesSideBar /> */}
+      <CoursesSideBar courses={courses} />
       <TopBar />
       <div>
         <h1

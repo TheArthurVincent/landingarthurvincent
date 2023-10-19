@@ -12,9 +12,8 @@ import {
 import UniversalTexts from "../../Resources/UniversalTexts.json";
 import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
 import { alwaysWhite } from "../../Styles/Styles";
-import { Courses } from "../../Routes/MyCourses/CoursesList/Courses";
 
-function CoursesSideBar() {
+function CoursesSideBar({ courses }) {
   const [showCourses, setShowCourses] = useState(false);
   const [arrow, setArrow] = useState(false);
   const handleShowCourses = () => {
@@ -45,7 +44,7 @@ function CoursesSideBar() {
             </ArrowStyle>
           </CoursesListTitleContainer>
           <CoursesList>
-            {Courses.map((item, index) => (
+            {courses.map((item, index) => (
               <Link
                 key={index}
                 to={item.link}

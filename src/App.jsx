@@ -126,6 +126,7 @@ function App() {
                           title={course.courseTitle}
                           key={index}
                           _id={course._id}
+                          courses={courses}
                         />
                       </>
                     ) : (
