@@ -1,5 +1,6 @@
 import { styled, keyframes } from "styled-components";
 import {
+  alwaysBlack,
   alwaysWhite,
   darkGreyColor,
   primaryColor,
@@ -158,6 +159,13 @@ export const Xp = styled.p`
 export const linkReset = {
   display: "inline",
   color: alwaysWhite(),
+};
+
+export const linkReset2 = {
+  display: "inline",
+  backgroundColor: alwaysBlack(),
+  padding: "1px",
+  borderRadius: "5px",
 };
 
 export const IFrameVideo = styled.iframe`

@@ -4,6 +4,8 @@ import {
   IFrameVideoCourses,
   backDomain,
   getVideoEmbedUrl,
+  linkReset,
+  linkReset2,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -16,6 +18,7 @@ import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";
 import TopBar from "../../Application/TopBar/TopBar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function MyCoursesTemplate({
   _id,
@@ -194,6 +197,42 @@ export default function MyCoursesTemplate({
                       <p style={{ color: alwaysBlack(), maxWidth: "120ch" }}>
                         {videoItem.description}
                       </p>
+                    )}
+                  </div>
+                );
+              }
+            )}
+          {courseModules[chosenModule] &&
+            courseModules[chosenModule].classes &&
+            courseModules[chosenModule].classes[chosenClass] &&
+            courseModules[chosenModule].classes[chosenClass].srcAttachments.map(
+              (att, index) => {
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      padding: "0.5rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-evenly",
+                      maxWidth: "30rem",
+                      margin: "5px auto",
+                      borderRadius: "0.5rem",
+                      backgroundColor: alwaysBlack(),
+                    }}
+                  >
+                    {att.title && att.description && (
+                      <span style={{ maxWidth: "120ch" }}>
+                        {att.description}
+                      </span>
+                    )} | 
+                    {att.src && (
+                      <Link
+                        to={att.src}
+                        style={{ textDecoration: "underline" }}
+                      >
+                        {att.title}
+                      </Link>
                     )}
                   </div>
                 );
