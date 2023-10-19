@@ -29,7 +29,6 @@ export default function MyCoursesTemplate({
   const [chosenTitle, setChosenTitle] = useState("");
 
   useEffect(() => {
-    // console.log(_id, courseColor, img, modules, title);
     async function fetchData() {
       try {
         const response = await axios.get(
