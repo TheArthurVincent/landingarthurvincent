@@ -69,9 +69,10 @@ export const BlogPostTitle = styled.div`
 `;
 
 export const HTwo = styled.h2`
-  font-size: 1.4rem;
-  font-weight: 500;
-  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
   color: ${alwaysBlack()};
   @media (max-width: 1700px) {
     text-align: center;

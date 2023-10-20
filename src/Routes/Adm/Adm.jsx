@@ -17,7 +17,8 @@ import NewTutoring from "./NewTutoring";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
-import NewCourse from "./NewCourse";
+import ManageCourses from "./ManageCourses";
+import { ManageModules } from "./ManageModules";
 
 export function Adm() {
   const [value, setValue] = React.useState("0");
@@ -48,7 +49,12 @@ export function Adm() {
       title: "Cursos",
       value: "3",
       tooltip: "Adicione um novo curso.",
-      component: <NewCourse />,
+      component: (
+        <div>
+          <ManageCourses />
+          <ManageModules />
+        </div>
+      ),
     },
     {
       title: "Postagens",

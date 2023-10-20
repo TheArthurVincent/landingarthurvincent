@@ -14,3 +14,11 @@ export const FormList = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+export const FormList2 = styled.div`
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
+  justify-content: left;
+  align-items: center;
+`;
