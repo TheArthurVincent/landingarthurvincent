@@ -145,7 +145,7 @@ export function BasicTextsPresentTense() {
                   </HTwo>
                   <p
                     style={{
-                      color: textSecondaryColorContrast(),
+                      color: alwaysBlack(),
                       padding: "1.1rem",
                       fontSize: "1.2rem",
                     }}
