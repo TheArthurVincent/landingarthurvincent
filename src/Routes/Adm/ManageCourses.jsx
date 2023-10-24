@@ -14,7 +14,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { alwaysBlack, alwaysWhite } from "../../Styles/Styles";
+import { alwaysWhite } from "../../Styles/Styles";
 
 export function ManageCourses() {
   const [title, setTitle] = useState("");
