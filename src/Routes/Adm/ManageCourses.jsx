@@ -33,6 +33,21 @@ export function ManageCourses() {
   const [colorToEdit, setColorToEdit] = useState("");
   const [imgToEdit, setImgToEdit] = useState("");
   const [value, setValue] = React.useState("1");
+  const [newModule, setNewModule] = React.useState("");
+
+  const createNewModule = async (courseId) => {
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/moduleforcourse/${courseId}`,
+        { moduleTitle: newModule }
+      );
+
+      alert("Módulo postado com sucesso");
+      window.location.reload();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -471,7 +486,47 @@ export function ManageCourses() {
               </Button>
             </div>
           </TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
+          <TabPanel value="2">
+            <h3 style={{ marginBottom: "2rem" }}>Adicionar um novo módulo</h3>
+            <InputField
+              value={newModule}
+              onChange={(event) => setNewModule(event.target.value)}
+              placeholder="Nome do novo módulo"
+              type="text"
+            />
+            <div
+              style={{
+                justifyContent: "space-between",
+                display: "flex",
+                minWidth: "fit-content",
+              }}
+            >
+              <Button
+                style={{
+                  color: "#fff",
+                  padding: "5px",
+                  backgroundColor: "#091a7a",
+                  minWidth: "fit-content",
+                }}
+                onClick={() => setSeeEditCourse(false)}
+              >
+                Cancelar
+              </Button>
+              <Button
+                style={{
+                  color: "#fff",
+                  padding: "5px",
+                  backgroundColor: "#118016",
+                  minWidth: "fit-content",
+                }}
+                onClick={() => {
+                  createNewModule(courseId);
+                }}
+              >
+                Salvar módulo
+              </Button>
+            </div>
+          </TabPanel>
         </TabContext>
       </div>
     </RouteDiv>
