@@ -7,6 +7,7 @@ import {
   backDomain,
   InputFieldNotRequired,
   Spin,
+  Xp,
 } from "../../Resources/UniversalComponents";
 import { FormList2 } from "./Adm.Styled";
 import Box from "@mui/material/Box";
@@ -34,6 +35,7 @@ export function ManageCourses() {
   const [imgToEdit, setImgToEdit] = useState("");
   const [value, setValue] = React.useState("1");
   const [newModule, setNewModule] = React.useState("");
+  const [modules, seeMmodules] = React.useState([]);
 
   const createNewModule = async (courseId) => {
     try {
@@ -44,6 +46,18 @@ export function ManageCourses() {
 
       alert("Módulo postado com sucesso");
       window.location.reload();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const seeModules = async (courseId) => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/moduleforcourse/${courseId}`
+      );
+      console.log(response.data.modules);
+      seeMmodules(response.data.modules);
     } catch (e) {
       console.log(e);
     }
@@ -96,6 +110,18 @@ export function ManageCourses() {
         `${backDomain}/api/v1/courses/${courseId}`
       );
       alert("Curso excluído");
+      window.location.reload();
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+  const deleteModule = async (id) => {
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/moduleforcourse/${id}`
+      );
+      alert("Módulo excluído");
       window.location.reload();
     } catch (error) {
       alert(error);
@@ -405,13 +431,22 @@ export function ManageCourses() {
           textAlign: "center",
           position: "fixed",
           top: "20%",
-          left: "40%",
+          left: "30%",
           zIndex: 2000,
           padding: "1rem",
+          minWidth: "40rem",
+          minHeight: "30rem",
           display: seeEditCourse ? "block" : "none",
           backgroundColor: "#fff",
         }}
       >
+        <Xp
+          onClick={() => {
+            setSeeEditCourse(false);
+          }}
+        >
+          x
+        </Xp>
         <h2>Editar curso</h2>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -421,38 +456,50 @@ export function ManageCourses() {
             </TabList>
           </Box>
           <TabPanel value="1">
-            <InputField
-              value={titleToEdit}
-              onChange={(event) => setTitleToEdit(event.target.value)}
-              placeholder="Nome do Curso"
-              type="text"
-            />
-            <InputField
-              value={descriptionToEdit}
-              onChange={(event) => setDescriptionToEdit(event.target.value)}
-              placeholder="Descrição do curso"
-              type="text"
-            />
-            <InputFieldNotRequired
-              value={imgToEdit}
-              onChange={(event) => setImgToEdit(event.target.value)}
-              placeholder="Link da imagem do curso (opcional)"
-              type="text"
-            />
-            <p
-              style={{
-                display: "grid",
-                gap: "0.2rem",
-                margin: "0 0 3px 0",
-              }}
-            >
-              <span>Cor do curso: {courseColor}</span>
-              <input
-                type="color"
-                value={colorToEdit}
-                onChange={(event) => setColorToEdit(event.target.value)}
+            <div style={{ maxWidth: "10rem", margin: "auto" }}>
+              <InputField
+                value={titleToEdit}
+                onChange={(event) => setTitleToEdit(event.target.value)}
+                placeholder="Nome do Curso"
+                type="text"
               />
-            </p>
+              <InputField
+                value={descriptionToEdit}
+                onChange={(event) => setDescriptionToEdit(event.target.value)}
+                placeholder="Descrição do curso"
+                type="text"
+              />
+              <InputFieldNotRequired
+                value={imgToEdit}
+                onChange={(event) => setImgToEdit(event.target.value)}
+                placeholder="Link da imagem do curso (opcional)"
+                type="text"
+              />
+              <p
+                style={{
+                  display: "grid",
+                  gap: "0.2rem",
+                  margin: "0 0 3px 0",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    margin: "1rem",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                  }}
+                >
+                  <span>Cor do curso: {courseColor}</span>
+                  <input
+                    type="color"
+                    value={colorToEdit}
+                    onChange={(event) => setColorToEdit(event.target.value)}
+                  />
+                </div>
+              </p>
+            </div>
             <div
               style={{
                 justifyContent: "space-between",
@@ -487,6 +534,55 @@ export function ManageCourses() {
             </div>
           </TabPanel>
           <TabPanel value="2">
+            <span
+              style={{
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+              }}
+            >
+              <h3 style={{ marginBottom: "2rem" }}>Módulos</h3>
+              <Button onClick={() => seeModules(courseId)}>Ver Módulos</Button>
+            </span>
+            {modules.map((module, index) => {
+              return module ? (
+                <div key={index}>
+                  <span
+                    style={{
+                      margin: "0.5rem",
+                      display: "flex",
+                      gap: "1rem",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <h3>{module.moduleTitle}</h3>
+                    <span
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Button>Nova aula</Button>
+                      <Button>Ver aulas</Button>
+                      <Button
+                        style={{
+                          backgroundColor: "#aa1a1a",
+                        }}
+                        onClick={() => {
+                          deleteModule(module._id);
+                        }}
+                      >
+                        Excluir módulo
+                      </Button>
+                    </span>
+                  </span>
+                </div>
+              ) : null;
+            })}
             <h3 style={{ marginBottom: "2rem" }}>Adicionar um novo módulo</h3>
             <InputField
               value={newModule}

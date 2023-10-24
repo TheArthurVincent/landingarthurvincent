@@ -244,7 +244,7 @@ export default function MyCoursesTemplate({
         <SideBarCourse>
           <BackToHomePage />
           {courseModules.map((item, index) => {
-            return (
+            return item ? (
               <div key={index}>
                 <ul>
                   <li
@@ -254,7 +254,9 @@ export default function MyCoursesTemplate({
                   >
                     <h2
                       style={{
-                        padding: "0.3rem 1em",
+                        padding: "0.3rem 1rem",
+                        fontSize: "1.2rem",
+                        fontWeight: "600",
                         textTransform: "uppercase",
                       }}
                     >
@@ -266,6 +268,7 @@ export default function MyCoursesTemplate({
                           {item.classes.map((classItem, classIndex) => (
                             <LiItem
                               style={{
+                                fontSize: "1rem",
                                 paddingLeft: "8px",
                                 borderRadius:
                                   classItem.classTitle === chosenTitle
@@ -306,7 +309,7 @@ export default function MyCoursesTemplate({
                   </li>
                 </ul>
               </div>
-            );
+            ) : null;
           })}
         </SideBarCourse>
       </FullDisplay>
