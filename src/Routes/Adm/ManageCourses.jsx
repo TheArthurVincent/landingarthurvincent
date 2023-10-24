@@ -14,6 +14,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import { alwaysBlack, alwaysWhite } from "../../Styles/Styles";
 
 export function ManageCourses() {
   const [title, setTitle] = useState("");
@@ -203,6 +204,7 @@ export function ManageCourses() {
               justifyContent: "space-evenly",
               flexDirection: "column",
               gap: "0.5rem",
+              backgroundColor: alwaysBlack(),
             }}
           >
             {loading ? (
@@ -211,6 +213,7 @@ export function ManageCourses() {
               <div
                 style={{
                   maxHeight: "20rem",
+                  width: "20rem",
                   overflow: "auto",
                 }}
               >
@@ -218,21 +221,26 @@ export function ManageCourses() {
                   <div
                     key={index}
                     style={{
+                      margin: "5px",
                       minWidth: "fit-content",
                       marginBottom: "12px",
                       borderRadius: "5px",
                       border: "solid 1px",
                       padding: "1rem",
-                      backgroundColor: course.courseColor,
+                      border: `2px solid ${course.courseColor}`,
                       color: "#fff",
+                      backgroundColor: alwaysWhite(),
                     }}
                   >
-                    <h3 style={{ textAlign: "center", marginBottom: "12px" }}>
+                    <h3
+                      style={{
+                        textAlign: "center",
+                        marginBottom: "12px",
+                        backgroundColor: course.courseColor,
+                      }}
+                    >
                       {course.courseTitle}
                     </h3>
-                    <p style={{ textAlign: "center", marginBottom: "12px" }}>
-                      ID: {course._id}
-                    </p>
                     <div
                       style={{
                         margin: "5px",
@@ -244,58 +252,19 @@ export function ManageCourses() {
                       <p style={{ marginBottom: "12px" }}>
                         <img
                           style={{
-                            maxWidth: "5rem",
+                            maxWidth: "15rem",
                           }}
                           src={course.img}
                           alt={course.img}
                         />
                       </p>
-                      <div
-                        style={{
-                          margin: "5px",
-                          display: "flex",
-                          alignItems: "center",
-                          maxWidth: "fit-content",
-                          flexDirection: "column",
-                          gap: "5px",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: course.courseColor,
-                            backgroundColor: "#fff",
-                            padding: "5px",
-                            maxWidth: "fit-content",
-                            maxHeight: "1rem",
-                            display: "flex",
-                            alignItems: "center",
-                            maxWidth: "fit-content",
-                          }}
-                        >
-                          {course.courseColor}
-                        </div>
-
-                        <div
-                          style={{
-                            color: course.courseColor,
-                            backgroundColor: "#fff",
-                            padding: "5px",
-                            maxWidth: "fit-content",
-                            maxHeight: "1rem",
-                            display: "flex",
-                            alignItems: "center",
-                            maxWidth: "fit-content",
-                          }}
-                        >
-                          {course.link}
-                        </div>
-                      </div>
                     </div>
                     <div
                       style={{
                         justifyContent: "space-between",
                         display: "flex",
                         minWidth: "fit-content",
+                        gap: "0.5rem",
                       }}
                     >
                       <Button
@@ -310,7 +279,7 @@ export function ManageCourses() {
                           setCourseId(course._id);
                         }}
                       >
-                        Editar este curso
+                        Gerenciar curso
                       </Button>
                       <Button
                         style={{
