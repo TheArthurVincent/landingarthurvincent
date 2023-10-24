@@ -8,9 +8,12 @@ import {
   InputFieldNotRequired,
   Spin,
 } from "../../Resources/UniversalComponents";
-import { FormList, FormList2 } from "./Adm.Styled";
-import { Link } from "react-router-dom";
-import { primaryColor, textPrimaryColorContrast } from "../../Styles/Styles";
+import { FormList2 } from "./Adm.Styled";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 
 export function ManageCourses() {
   const [title, setTitle] = useState("");
@@ -21,26 +24,71 @@ export function ManageCourses() {
   const [loading, setLoading] = useState(true);
   const [coursesList, setCoursesList] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(true);
+  const [courseId, setCourseId] = useState("");
+  const [seeDeleteCourse, setSeeDeleteCourse] = useState(true);
+  const [seeEditCourse, setSeeEditCourse] = useState(false);
+  const [titleToEdit, setTitleToEdit] = useState("");
+  const [descriptionToEdit, setDescriptionToEdit] = useState("");
+  const [colorToEdit, setColorToEdit] = useState("");
+  const [imgToEdit, setImgToEdit] = useState("");
+  const [value, setValue] = React.useState("1");
 
-  const handleSeeModal = () => {
-    setIsModalVisible(!isModalVisible);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
-  const seeEdition = async (id) => {
-    handleSeeModal();
+  const handleSeeEditCourse = async (courseId) => {
     try {
-      const response = await axios.put(`${backDomain}/api/v1/courses/${id}`);
-      // setNewName(response.data.formattedStudentData.name);
-      // setNewLastName(response.data.formattedStudentData.lastname);
-      // setNewUsername(response.data.formattedStudentData.username);
-      // setNewPhone(response.data.formattedStudentData.phoneNumber);
-      // setNewEmail(response.data.formattedStudentData.email);
-      // setPermissions(response.data.formattedStudentData.permissions);
-      // setID(response.data.formattedStudentData.id);
+      const response = await axios.get(
+        `${backDomain}/api/v1/courses/${courseId}`
+      );
+      setTitleToEdit(response.data.course.courseTitle);
+      setImgToEdit(response.data.course.img);
+      setColorToEdit(response.data.course.courseColor);
+      setDescriptionToEdit(response.data.course.description);
+      setSeeEditCourse(true);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const saveCourse = async (courseId) => {
+    const data = {
+      courseTitle: titleToEdit,
+      description: descriptionToEdit,
+      img: imgToEdit,
+      courseColor: colorToEdit,
+    };
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/courses/${courseId}`,
+        data
+      );
+      alert("Curso editado com sucesso");
+      window.location.reload();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleSeeDeleteCourse = () => {
+    setSeeDeleteCourse(!seeDeleteCourse);
+  };
+
+  const deleteCourse = async () => {
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/courses/${courseId}`
+      );
+      alert("Curso excluído");
+      window.location.reload();
     } catch (error) {
       alert(error);
       console.error(error);
     }
+  };
+
+  const handleSeeModal = () => {
+    setIsModalVisible(!isModalVisible);
   };
 
   const handleSubmit = (e) => {
@@ -68,7 +116,6 @@ export function ManageCourses() {
       const response = await axios.get(`${backDomain}/api/v1/courses`);
       setCoursesList(response.data.courses);
       setLoading(false);
-      console.log(coursesList);
     } catch (error) {
       alert("Erro ao encontrar cursos");
     }
@@ -169,6 +216,7 @@ export function ManageCourses() {
               >
                 {coursesList.map((course, index) => (
                   <div
+                    key={index}
                     style={{
                       minWidth: "fit-content",
                       marginBottom: "12px",
@@ -257,6 +305,10 @@ export function ManageCourses() {
                           backgroundColor: "#091a7a",
                           minWidth: "fit-content",
                         }}
+                        onClick={() => {
+                          handleSeeEditCourse(course._id);
+                          setCourseId(course._id);
+                        }}
                       >
                         Editar este curso
                       </Button>
@@ -267,7 +319,10 @@ export function ManageCourses() {
                           backgroundColor: "#a81d1d",
                           minWidth: "fit-content",
                         }}
-                        type="submit"
+                        onClick={() => {
+                          setCourseId(course._id);
+                          handleSeeDeleteCourse();
+                        }}
                       >
                         Apagar este curso
                       </Button>
@@ -278,6 +333,178 @@ export function ManageCourses() {
             )}
           </div>
         </div>
+      </div>
+      <div
+        style={{
+          backgroundColor: "#00000073",
+          width: "6000px",
+          top: 0,
+          left: 0,
+          position: "fixed",
+          zIndex: 1000,
+          display: !seeDeleteCourse ? "block" : "none",
+          height: "6000px",
+        }}
+        onClick={() => {
+          handleSeeDeleteCourse();
+        }}
+      />
+      <div
+        style={{
+          textAlign: "center",
+          position: "fixed",
+          top: "30%",
+          left: "40%",
+          zIndex: 2000,
+          padding: "1rem",
+          display: !seeDeleteCourse ? "block" : "none",
+          backgroundColor: "#fff",
+        }}
+      >
+        <p>
+          Tem certeza que deseja apagar este curso?
+          <br />
+          Obs.: Esta ação não pode ser desfeita!
+        </p>
+        <div
+          style={{
+            justifyContent: "space-between",
+            display: "flex",
+            minWidth: "fit-content",
+          }}
+        >
+          <Button
+            style={{
+              color: "#fff",
+              padding: "5px",
+              backgroundColor: "#20308a",
+              minWidth: "fit-content",
+            }}
+            onClick={() => {
+              handleSeeDeleteCourse();
+            }}
+          >
+            Não
+          </Button>
+          <Button
+            style={{
+              color: "#fff",
+              padding: "5px",
+              backgroundColor: "#c70000",
+              minWidth: "fit-content",
+            }}
+            onClick={() => {
+              deleteCourse();
+            }}
+          >
+            Sim
+          </Button>
+        </div>
+      </div>
+
+      <div
+        style={{
+          backgroundColor: "#00000073",
+          width: "6000px",
+          top: 0,
+          left: 0,
+          position: "fixed",
+          zIndex: 1000,
+          display: seeEditCourse ? "block" : "none",
+          height: "6000px",
+        }}
+        onClick={() => {
+          setSeeEditCourse(false);
+        }}
+      />
+      <div
+        style={{
+          textAlign: "center",
+          position: "fixed",
+          top: "20%",
+          left: "40%",
+          zIndex: 2000,
+          padding: "1rem",
+          display: seeEditCourse ? "block" : "none",
+          backgroundColor: "#fff",
+        }}
+      >
+        <h2>Editar curso</h2>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab label="Editar curso" value="1" />
+              <Tab label="Editar conteúdo" value="2" />
+            </TabList>
+          </Box>
+          <TabPanel value="1">
+            <InputField
+              value={titleToEdit}
+              onChange={(event) => setTitleToEdit(event.target.value)}
+              placeholder="Nome do Curso"
+              type="text"
+            />
+            <InputField
+              value={descriptionToEdit}
+              onChange={(event) => setDescriptionToEdit(event.target.value)}
+              placeholder="Descrição do curso"
+              type="text"
+            />
+            <InputFieldNotRequired
+              value={imgToEdit}
+              onChange={(event) => setImgToEdit(event.target.value)}
+              placeholder="Link da imagem do curso (opcional)"
+              type="text"
+            />
+            <p
+              style={{
+                display: "grid",
+                gap: "0.2rem",
+                margin: "0 0 3px 0",
+              }}
+            >
+              <span>Cor do curso: {courseColor}</span>
+              <input
+                type="color"
+                value={colorToEdit}
+                onChange={(event) => setColorToEdit(event.target.value)}
+              />
+            </p>
+            <div
+              style={{
+                justifyContent: "space-between",
+                display: "flex",
+                minWidth: "fit-content",
+              }}
+            >
+              <Button
+                style={{
+                  color: "#fff",
+                  padding: "5px",
+                  backgroundColor: "#091a7a",
+                  minWidth: "fit-content",
+                }}
+                onClick={() => setSeeEditCourse(false)}
+              >
+                Cancelar
+              </Button>
+              <Button
+                style={{
+                  color: "#fff",
+                  padding: "5px",
+                  backgroundColor: "#118016",
+                  minWidth: "fit-content",
+                }}
+                onClick={() => {
+                  saveCourse(courseId);
+                }}
+              >
+                Salvar edições
+              </Button>
+            </div>
+          </TabPanel>
+          <TabPanel value="2">Item Two</TabPanel>
+        </TabContext>
       </div>
     </RouteDiv>
   );

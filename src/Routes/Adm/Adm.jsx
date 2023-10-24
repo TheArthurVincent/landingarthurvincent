@@ -6,11 +6,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import {
-  primaryColor,
-  textPrimaryColorContrast,
-  alwaysWhite,
-} from "../../Styles/Styles";
+import { alwaysWhite } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
@@ -18,7 +14,6 @@ import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses from "./ManageCourses";
-import { ManageModules } from "./ManageModules";
 
 export function Adm() {
   const [value, setValue] = React.useState("0");
@@ -52,7 +47,6 @@ export function Adm() {
       component: (
         <div>
           <ManageCourses />
-          <ManageModules />
         </div>
       ),
     },
