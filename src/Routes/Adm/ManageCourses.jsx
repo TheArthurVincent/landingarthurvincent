@@ -204,7 +204,6 @@ export function ManageCourses() {
               justifyContent: "space-evenly",
               flexDirection: "column",
               gap: "0.5rem",
-              backgroundColor: alwaysBlack(),
             }}
           >
             {loading ? (
@@ -221,13 +220,13 @@ export function ManageCourses() {
                   <div
                     key={index}
                     style={{
-                      margin: "5px",
+                      margin: "2px",
                       minWidth: "fit-content",
                       marginBottom: "12px",
                       borderRadius: "5px",
                       border: "solid 1px",
                       padding: "1rem",
-                      border: `2px solid ${course.courseColor}`,
+                      border: `5px solid ${course.courseColor}`,
                       color: "#fff",
                       backgroundColor: alwaysWhite(),
                     }}
