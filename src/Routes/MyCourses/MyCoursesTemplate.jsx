@@ -112,7 +112,7 @@ export default function MyCoursesTemplate({
   `;
   const FullDisplay = styled.div`
     display: grid;
-    grid-template-columns: 1fr 13rem;
+    grid-template-columns: 1fr 20rem;
     max-width: 100vw;
     @media (max-width: 800px) {
       grid-template-columns: 1fr;
