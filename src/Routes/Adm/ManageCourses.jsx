@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  HThree,
+  HTwo,
+  RouteDiv,
+} from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   InputField,
@@ -29,13 +34,16 @@ export function ManageCourses() {
   const [courseId, setCourseId] = useState("");
   const [seeDeleteCourse, setSeeDeleteCourse] = useState(true);
   const [seeEditCourse, setSeeEditCourse] = useState(false);
+  const [seeEditModule, setSeeEditModule] = useState(false);
   const [titleToEdit, setTitleToEdit] = useState("");
   const [descriptionToEdit, setDescriptionToEdit] = useState("");
   const [colorToEdit, setColorToEdit] = useState("");
   const [imgToEdit, setImgToEdit] = useState("");
   const [value, setValue] = React.useState("1");
+  const [value2, setValue2] = React.useState("1");
   const [newModule, setNewModule] = React.useState("");
   const [modules, seeMmodules] = React.useState([]);
+  const [descriptionClass, setDescriptionClass] = useState("");
 
   const createNewModule = async (courseId) => {
     try {
@@ -65,6 +73,9 @@ export function ManageCourses() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const handleChange2 = (event, newValue2) => {
+    setValue2(newValue2);
   };
 
   const handleSeeEditCourse = async (courseId) => {
@@ -129,10 +140,6 @@ export function ManageCourses() {
     }
   };
 
-  const handleSeeModal = () => {
-    setIsModalVisible(!isModalVisible);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const postCourse = async () => {
@@ -151,6 +158,27 @@ export function ManageCourses() {
       }
     };
     postCourse();
+  };
+
+  const postClass = (moduleid) => {
+    const postNewModule = async () => {
+      try {
+        const response = await axios.post(
+          `${backDomain}/api/v1/classformodule/${moduleid}`,
+          {
+            classTitle,
+            srcVideos,
+            description: descriptionClass,
+            srcAttachments,
+          }
+        );
+        alert("Curso postado com sucesso");
+        window.location.href = "/adm";
+      } catch (error) {
+        alert("Erro ao postar curso");
+      }
+    };
+    postNewModule();
   };
 
   const postCourse = async () => {
@@ -317,6 +345,7 @@ export function ManageCourses() {
                         onClick={() => {
                           handleSeeEditCourse(course._id);
                           setCourseId(course._id);
+                          seeModules(course._id);
                         }}
                       >
                         Gerenciar curso
@@ -430,12 +459,12 @@ export function ManageCourses() {
         style={{
           textAlign: "center",
           position: "fixed",
-          top: "20%",
+          top: "10%",
           left: "30%",
           zIndex: 2000,
           padding: "1rem",
-          minWidth: "40rem",
-          minHeight: "30rem",
+          minWidth: "50rem",
+          minHeight: "40rem",
           display: seeEditCourse ? "block" : "none",
           backgroundColor: "#fff",
         }}
@@ -452,7 +481,8 @@ export function ManageCourses() {
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
               <Tab label="Editar curso" value="1" />
-              <Tab label="Editar conteúdo" value="2" />
+              <Tab label="Adicionar novo módulo" value="2" />
+              <Tab label="Ver módulos" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1">
@@ -534,56 +564,7 @@ export function ManageCourses() {
             </div>
           </TabPanel>
           <TabPanel value="2">
-            <span
-              style={{
-                display: "flex",
-                gap: "10px",
-                alignItems: "center",
-                justifyContent: "space-evenly",
-              }}
-            >
-              <h3 style={{ marginBottom: "2rem" }}>Módulos</h3>
-              <Button onClick={() => seeModules(courseId)}>Ver Módulos</Button>
-            </span>
-            {modules.map((module, index) => {
-              return module ? (
-                <div key={index}>
-                  <span
-                    style={{
-                      margin: "0.5rem",
-                      display: "flex",
-                      gap: "1rem",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <h3>{module.moduleTitle}</h3>
-                    <span
-                      style={{
-                        display: "flex",
-                        gap: "10px",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Button>Nova aula</Button>
-                      <Button>Ver aulas</Button>
-                      <Button
-                        style={{
-                          backgroundColor: "#aa1a1a",
-                        }}
-                        onClick={() => {
-                          deleteModule(module._id);
-                        }}
-                      >
-                        Excluir módulo
-                      </Button>
-                    </span>
-                  </span>
-                </div>
-              ) : null;
-            })}
-            <h3 style={{ marginBottom: "2rem" }}>Adicionar um novo módulo</h3>
+            <HTwo>Adicionar um novo módulo</HTwo>
             <InputField
               value={newModule}
               onChange={(event) => setNewModule(event.target.value)}
@@ -594,7 +575,6 @@ export function ManageCourses() {
               style={{
                 justifyContent: "space-between",
                 display: "flex",
-                minWidth: "fit-content",
               }}
             >
               <Button
@@ -623,10 +603,245 @@ export function ManageCourses() {
               </Button>
             </div>
           </TabPanel>
+
+          <TabPanel value="3">
+            <HTwo>Ver módulos</HTwo>
+            {modules.map((module, index) => {
+              return module ? (
+                <div
+                  style={{
+                    marginTop: "0.2rem",
+                    backgroundColor: "#eee",
+                    padding: "0.2rem",
+                  }}
+                  key={index}
+                >
+                  <span
+                    style={{
+                      margin: "0.5rem",
+                      display: "flex",
+                      gap: "1rem",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <h3>{module.moduleTitle}</h3>
+                    <span
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Button
+                        style={{
+                          minWidth: "fit-content",
+                        }}
+                        onClick={() => {
+                          setSeeEditModule(true);
+                        }}
+                      >
+                        Gerenciar módulo
+                      </Button>
+                      <Button
+                        style={{
+                          minWidth: "fit-content",
+                          backgroundColor: "#aa1a1a",
+                        }}
+                        onClick={() => {
+                          deleteModule(module._id);
+                        }}
+                      >
+                        Excluir módulo
+                      </Button>
+                    </span>
+                  </span>
+                </div>
+              ) : null;
+            })}
+          </TabPanel>
         </TabContext>
       </div>
+      <>
+        <div
+          style={{
+            backgroundColor: "#000000c2",
+            width: "6000px",
+            top: 0,
+            left: 0,
+            position: "fixed",
+            zIndex: 2500,
+            display: seeEditModule ? "block" : "none",
+            height: "6000px",
+          }}
+          onClick={() => {
+            setSeeEditModule(false);
+          }}
+        />
+        <div
+          style={{
+            textAlign: "center",
+            position: "fixed",
+            top: "10%",
+            left: "30%",
+            zIndex: 3000,
+            padding: "1rem",
+            minWidth: "40rem",
+            borderRadius: "1rem",
+            minHeight: "30rem",
+            display: seeEditModule ? "block" : "none",
+            backgroundColor: "#eaeaea",
+          }}
+        >
+          <Xp
+            onClick={() => {
+              setSeeEditModule(false);
+            }}
+          >
+            x
+          </Xp>
+          <h2>Editar Módulo</h2>
+          <TabContext value={value2}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <TabList
+                onChange={handleChange2}
+                aria-label="lab API tabs example"
+              >
+                <Tab label="Editar módulo" value="1" />
+                <Tab label="Adicionar nova aula" value="2" />
+                <Tab label="Ver aulas" value="3" />
+              </TabList>
+            </Box>
+            <TabPanel value="1">
+              <InputField placeholder="Nome do Módulo" type="text" />
+              <div
+                style={{
+                  justifyContent: "space-between",
+                  display: "flex",
+                  minWidth: "fit-content",
+                }}
+              >
+                <Button
+                  style={{
+                    color: "#fff",
+                    padding: "5px",
+                    backgroundColor: "#091a7a",
+                    minWidth: "fit-content",
+                  }}
+                  onClick={() => setSeeEditModule(false)}
+                >
+                  Cancelar
+                </Button>
+                <Button
+                  style={{
+                    color: "#fff",
+                    padding: "5px",
+                    backgroundColor: "#118016",
+                    minWidth: "fit-content",
+                  }}
+                >
+                  Salvar edições
+                </Button>
+              </div>
+            </TabPanel>
+            <TabPanel value="2">
+              <HTwo>Adicionar uma nova aula</HTwo>
+              <InputField
+                value={newModule}
+                placeholder="Nome da nova aula"
+                type="text"
+              />
+              <div
+                style={{
+                  justifyContent: "space-between",
+                  display: "flex",
+                }}
+              >
+                <Button
+                  style={{
+                    color: "#fff",
+                    padding: "5px",
+                    backgroundColor: "#091a7a",
+                    minWidth: "fit-content",
+                  }}
+                  onClick={() => setSeeEditModule(false)}
+                >
+                  Cancelar
+                </Button>
+                <Button
+                  style={{
+                    color: "#fff",
+                    padding: "5px",
+                    backgroundColor: "#118016",
+                    minWidth: "fit-content",
+                  }}
+                >
+                  Salvar aula
+                </Button>
+              </div>
+            </TabPanel>
+
+            <TabPanel value="3">
+              <HTwo>Ver aulas</HTwo>
+              {modules.map((module, index) => {
+                return module ? (
+                  <div
+                    style={{
+                      marginTop: "0.2rem",
+                      backgroundColor: "#eee",
+                      padding: "0.2rem",
+                    }}
+                    key={index}
+                  >
+                    <span
+                      style={{
+                        margin: "0.5rem",
+                        display: "flex",
+                        gap: "1rem",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <h3>{module.moduleTitle}</h3>
+                      <span
+                        style={{
+                          display: "flex",
+                          gap: "10px",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Button
+                          style={{
+                            minWidth: "fit-content",
+                          }}
+                        >
+                          Gerenciar aula
+                        </Button>
+                        <Button
+                          style={{
+                            minWidth: "fit-content",
+                            backgroundColor: "#aa1a1a",
+                          }}
+                        >
+                          Excluir aula
+                        </Button>
+                      </span>
+                    </span>
+                  </div>
+                ) : null;
+              })}
+            </TabPanel>
+          </TabContext>
+        </div>
+      </>
     </RouteDiv>
   );
 }
 
 export default ManageCourses;
+
+/*
+
+*/
