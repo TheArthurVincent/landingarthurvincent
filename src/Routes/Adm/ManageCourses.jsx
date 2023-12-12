@@ -293,7 +293,6 @@ export function ManageCourses() {
                       minWidth: "fit-content",
                       marginBottom: "12px",
                       borderRadius: "5px",
-                      border: "solid 1px",
                       padding: "1rem",
                       border: `5px solid ${course.courseColor}`,
                       color: "#fff",
@@ -703,7 +702,7 @@ export function ManageCourses() {
           </Xp>
           <h2>Editar Módulo</h2>
           <TabContext value={value2}>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box>
               <TabList
                 onChange={handleChange2}
                 aria-label="lab API tabs example"
