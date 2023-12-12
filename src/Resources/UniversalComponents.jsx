@@ -620,7 +620,7 @@ export function isDev() {
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";
   } else {
-    return "https://seu-outro-dominio.com";
+    return "https://arvin-server-node.onrender.com/";
   }
 }
 
