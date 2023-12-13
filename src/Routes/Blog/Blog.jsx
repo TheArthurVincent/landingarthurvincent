@@ -38,6 +38,9 @@ export function Blog() {
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [name, setName] = useState("");
+  const [ankiEmail, setAnkiEmail] = useState("");
+  const [ankiPassword, setAnkiPassword] = useState("");
+  const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [permissions, setPermissions] = useState("");
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
 
@@ -83,6 +86,9 @@ export function Blog() {
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
+    setAnkiEmail(getLoggedUser.ankiEmail);
+    setAnkiPassword(getLoggedUser.setAnkiPassword);
+    setGoogleDriveLink(getLoggedUser.googleDriveLink);
   }, []);
 
   const handleSeeIsNextClassVisibleModal = () => {
@@ -212,36 +218,84 @@ export function Blog() {
               {UniversalTexts.loading}
             </div>
           ) : (
-            <Link
-              style={{
-                display: isNextClassVisible ? "block" : "none",
-                marginRight: "1.2rem",
-                marginLeft: "auto",
-                maxWidth: "fit-content",
-                color: primaryColor(),
-                padding: "0.5rem",
-                fontSize: "1rem",
-                backgroundColor: textPrimaryColorContrast(),
-                borderRadius: "5px",
-              }}
-              target="_blank"
-              to={nextTutoring.nextTutoring.meetingUrl}
-            >
-              <span
+            <>
+              <Link
                 style={{
-                  textDecoration: "underline",
+                  display: isNextClassVisible ? "block" : "none",
+                  marginRight: "1.2rem",
+                  marginLeft: "auto",
+                  maxWidth: "fit-content",
+                  color: primaryColor(),
+                  padding: "0.5rem",
+                  fontSize: "1rem",
+                  backgroundColor: textPrimaryColorContrast(),
+                  borderRadius: "5px",
                 }}
+                target="_blank"
+                to={nextTutoring.nextTutoring.meetingUrl}
               >
-                {formatData(nextTutoring.nextTutoring.date)}
-              </span>
-              <span
+                <span
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
+                  {formatData(nextTutoring.nextTutoring.date)}
+                </span>
+                <span
+                  style={{
+                    fontWeight: 600,
+                  }}
+                >
+                  - {nextTutoring.nextTutoring.time}
+                </span>
+              </Link>
+              <Link
                 style={{
-                  fontWeight: 600,
+                  display: isNextClassVisible ? "block" : "none",
+                  marginRight: "1.2rem",
+                  marginLeft: "auto",
+                  maxWidth: "fit-content",
+                  color: primaryColor(),
+                  padding: "0.5rem",
+                  fontSize: "1rem",
+                  backgroundColor: textPrimaryColorContrast(),
+                  borderRadius: "5px",
                 }}
+                target="_blank"
+                to="https://ankiweb.net/decks"
               >
-                - {nextTutoring.nextTutoring.time}
-              </span>
-            </Link>
+                <span
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
+                  Anki
+                </span>
+              </Link>{" "}
+              <Link
+                style={{
+                  display: isNextClassVisible ? "block" : "none",
+                  marginRight: "1.2rem",
+                  marginLeft: "auto",
+                  maxWidth: "fit-content",
+                  color: primaryColor(),
+                  padding: "0.5rem",
+                  fontSize: "1rem",
+                  backgroundColor: textPrimaryColorContrast(),
+                  borderRadius: "5px",
+                }}
+                target="_blank"
+                to={googleDriveLink}
+              >
+                <span
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
+                  {UniversalTexts.googleDriveLink}
+                </span>
+              </Link>
+            </>
           )}
           {posts.map((post, index) => (
             <div

@@ -9,6 +9,7 @@ import {
 import { FormList } from "./Adm.Styled";
 
 export function NewStudent() {
+  const [loading, setLoading] = useState(false);
   const [newName, setNewName] = useState("");
   const [newLastName, setNewLastName] = useState("");
   const [newUsername, setNewUsername] = useState("");
@@ -18,8 +19,12 @@ export function NewStudent() {
   const [newCPF, setNewCPF] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [newAnkiEmail, setNewAnkiEmail] = useState("");
+  const [newAnkiPassword, setNewAnkiPassword] = useState("");
+  const [newGoogleDriveLink, setNewGoogleDriveLink] = useState("");
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     let newStudent = {
       username: newUsername,
       password: newPassword,
@@ -29,6 +34,9 @@ export function NewStudent() {
       doc: newCPF,
       phoneNumber: newPhone,
       dateOfBirth: newDateOfBirth,
+      googleDriveLink: newGoogleDriveLink,
+      ankiEmail: newAnkiEmail,
+      ankiPassword: newAnkiPassword,
     };
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -42,7 +50,8 @@ export function NewStudent() {
         `${backDomain}/api/v1/students/`,
         newStudent
       );
-      window.location.href = "/adm";
+      window.location.reload();
+      setLoading(false);
 
       alert("Usuário cadastrado com sucesso!");
     } catch (error) {
@@ -99,6 +108,24 @@ export function NewStudent() {
             type="number"
           />
           <InputField
+            value={newAnkiEmail}
+            onChange={(event) => setNewAnkiEmail(event.target.value)}
+            placeholder="E-mail do Anki"
+            type="text"
+          />
+          <InputField
+            value={newAnkiPassword}
+            onChange={(event) => setNewAnkiPassword(event.target.value)}
+            placeholder="Senha do Anki"
+            type="text"
+          />
+          <InputField
+            value={newGoogleDriveLink}
+            onChange={(event) => setNewGoogleDriveLink(event.target.value)}
+            placeholder="Link do Drive"
+            type="text"
+          />
+          <InputField
             value={newPassword}
             onChange={(event) => setNewPassword(event.target.value)}
             placeholder="Escolha uma senha"
@@ -112,7 +139,7 @@ export function NewStudent() {
           />
         </FormList>
         <Button style={{ marginLeft: "auto" }} type="submit">
-          Criar
+          {loading ? "..." : "Criar"}
         </Button>
       </form>
     </RouteDiv>

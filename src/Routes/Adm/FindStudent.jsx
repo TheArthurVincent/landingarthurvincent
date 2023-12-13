@@ -29,6 +29,9 @@ export function FindStudent() {
   const [permissions, setPermissions] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [googleDriveLink, setGoogleDriveLink] = useState("");
+  const [ankiEmail, setAnkiEmail] = useState("");
+  const [ankiPassword, setAnkiPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [ID, setID] = useState(false);
@@ -62,6 +65,9 @@ export function FindStudent() {
       setNewEmail(response.data.formattedStudentData.email);
       setPermissions(response.data.formattedStudentData.permissions);
       setID(response.data.formattedStudentData.id);
+      setAnkiEmail(response.data.formattedStudentData.ankiEmail);
+      setAnkiPassword(response.data.formattedStudentData.ankiPassword);
+      setGoogleDriveLink(response.data.formattedStudentData.googleDriveLink);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -294,6 +300,51 @@ export function FindStudent() {
                   </span>
                   : {student.permissions}
                 </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.ankiEmail}
+                  </span>
+                  : {student.ankiEmail}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.ankiPassword}
+                  </span>
+                  : {student.ankiPassword}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.googleDriveLink}
+                  </span>
+                  :
+                  <Link
+                    style={{
+                      // ...linkReset,
+                      color: primaryColor(),
+                      padding: "0.5rem",
+                    }}
+                    to={
+                      student.googleDriveLink
+                        ? student.googleDriveLink
+                        : "http://www.google.com/"
+                    }
+                    target="_blank"
+                  >
+                    {UniversalTexts.clickHere}
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -434,6 +485,58 @@ export function FindStudent() {
                 <input
                   value={newEmail}
                   onChange={(event) => setNewEmail(event.target.value)}
+                  placeholder="E-mail"
+                  type="email"
+                  style={{
+                    padding: "0.5rem",
+                    marginBottom: "0.3rem",
+                    fontSize: "1.1rem",
+                    color: "#111",
+                    margin: "0.5rem",
+                  }}
+                />
+                <input
+                  value={googleDriveLink}
+                  onChange={(event) => setGoogleDriveLink(event.target.value)}
+                  placeholder="E-mail"
+                  type="email"
+                  style={{
+                    padding: "0.5rem",
+                    marginBottom: "0.3rem",
+                    fontSize: "1.1rem",
+                    color: "#111",
+                    margin: "0.5rem",
+                  }}
+                />
+                <input
+                  value={googleDriveLink}
+                  onChange={(event) => setGoogleDriveLink(event.target.value)}
+                  placeholder="E-mail"
+                  type="email"
+                  style={{
+                    padding: "0.5rem",
+                    marginBottom: "0.3rem",
+                    fontSize: "1.1rem",
+                    color: "#111",
+                    margin: "0.5rem",
+                  }}
+                />
+                <input
+                  value={ankiEmail}
+                  onChange={(event) => setAnkiEmail(event.target.value)}
+                  placeholder="E-mail"
+                  type="email"
+                  style={{
+                    padding: "0.5rem",
+                    marginBottom: "0.3rem",
+                    fontSize: "1.1rem",
+                    color: "#111",
+                    margin: "0.5rem",
+                  }}
+                />
+                <input
+                  value={ankiPassword}
+                  onChange={(event) => setAnkiPassword(event.target.value)}
                   placeholder="E-mail"
                   type="email"
                   style={{
