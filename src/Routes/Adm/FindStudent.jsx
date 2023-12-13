@@ -331,7 +331,6 @@ export function FindStudent() {
                   :
                   <Link
                     style={{
-                      // ...linkReset,
                       color: primaryColor(),
                       padding: "0.5rem",
                     }}
