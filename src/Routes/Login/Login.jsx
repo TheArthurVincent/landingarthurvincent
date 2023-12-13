@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   // const [email, setEmail] = useState("arthurcardosocorp@gmail.com");
   // const [password, setPassword] = useState("123456789");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -30,7 +31,7 @@ export function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {
         email,
@@ -41,6 +42,8 @@ export function Login() {
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       // window.location.assign("/homepage");
+      setLoading(false);
+
       window.location.reload("/");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");
@@ -132,7 +135,7 @@ export function Login() {
               }}
               type="submit"
             >
-              Login
+              {loading ? "..." : "Login"}
             </Button>
           </div>
         </form>
