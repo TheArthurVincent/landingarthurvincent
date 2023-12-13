@@ -40,7 +40,8 @@ export function Login() {
       const { token, loggedIn } = response.data;
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-      window.location.assign("/homepage");
+      // window.location.assign("/homepage");
+      window.location.reload("/");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");
       console.error(error);

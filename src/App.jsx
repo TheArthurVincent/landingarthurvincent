@@ -56,7 +56,7 @@ function App() {
                 element={verifyToken() ? <HomePage /> : <Login />}
               />
               <Route
-                path="/homepage/*"
+                path="/homepage"
                 element={verifyToken() ? <HomePage /> : <Login />}
               />
               <Route
