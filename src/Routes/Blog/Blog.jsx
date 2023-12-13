@@ -185,118 +185,145 @@ export function Blog() {
         <RouteDiv>
           <div
             style={{
-              margin: "1.2rem",
+              margin: "1rem 0",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
-            <HTwo>
-              {UniversalTexts.hello}
-              {name}
-            </HTwo>
-            <Button
-              style={{
-                backgroundColor: secondaryColor(),
-                color: textSecondaryColorContrast(),
-              }}
-              onClick={handleSeeIsNextClassVisibleModal}
-            >
-              {UniversalTexts.nextClass}
-            </Button>
-          </div>
-          {nextTutoring.nextTutoring.date == "" ? (
             <div
               style={{
-                display: isNextClassVisible ? "block" : "none",
-                marginRight: "1.2rem",
-                marginLeft: "auto",
-                maxWidth: "fit-content",
-                padding: "0.5rem",
+                display: "grid",
+                margin: "1rem",
+                gap: "0.1rem",
               }}
             >
-              {UniversalTexts.loading}
+              {" "}
+              <HTwo
+                style={{
+                  margin: 0,
+
+                  textAlign: "left",
+                }}
+              >
+                {UniversalTexts.hello}
+                {name}!
+              </HTwo>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Link
+                  style={{
+                    marginRight: "1.2rem",
+                    marginLeft: "auto",
+                    maxWidth: "fit-content",
+                    color: primaryColor(),
+                    padding: "0.5rem",
+                    fontSize: "1rem",
+                    backgroundColor: textPrimaryColorContrast(),
+                    borderRadius: "5px",
+                  }}
+                  target="_blank"
+                  to="https://ankiweb.net/decks"
+                >
+                  <span
+                    style={{
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Anki
+                  </span>
+                </Link>{" "}
+                <Link
+                  style={{
+                    marginRight: "1.2rem",
+                    marginLeft: "auto",
+                    maxWidth: "fit-content",
+                    color: primaryColor(),
+                    padding: "0.5rem",
+                    fontSize: "1rem",
+                    backgroundColor: textPrimaryColorContrast(),
+                    borderRadius: "5px",
+                  }}
+                  target="_blank"
+                  to={googleDriveLink}
+                >
+                  <span
+                    style={{
+                      textDecoration: "underline",
+                    }}
+                  >
+                    {UniversalTexts.googleDriveLink}
+                  </span>
+                </Link>{" "}
+              </div>
             </div>
-          ) : (
-            <>
-              <Link
+            {!isNextClassVisible ? (
+              <Button
                 style={{
-                  display: isNextClassVisible ? "block" : "none",
-                  marginRight: "1.2rem",
-                  marginLeft: "auto",
-                  maxWidth: "fit-content",
-                  color: primaryColor(),
-                  padding: "0.5rem",
-                  fontSize: "1rem",
-                  backgroundColor: textPrimaryColorContrast(),
-                  borderRadius: "5px",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
                 }}
-                target="_blank"
-                to={nextTutoring.nextTutoring.meetingUrl}
+                onClick={handleSeeIsNextClassVisibleModal}
               >
-                <span
-                  style={{
-                    textDecoration: "underline",
-                  }}
-                >
-                  {formatData(nextTutoring.nextTutoring.date)}
-                </span>
-                <span
-                  style={{
-                    fontWeight: 600,
-                  }}
-                >
-                  - {nextTutoring.nextTutoring.time}
-                </span>
-              </Link>
-              <Link
-                style={{
-                  display: isNextClassVisible ? "block" : "none",
-                  marginRight: "1.2rem",
-                  marginLeft: "auto",
-                  maxWidth: "fit-content",
-                  color: primaryColor(),
-                  padding: "0.5rem",
-                  fontSize: "1rem",
-                  backgroundColor: textPrimaryColorContrast(),
-                  borderRadius: "5px",
-                }}
-                target="_blank"
-                to="https://ankiweb.net/decks"
-              >
-                <span
-                  style={{
-                    textDecoration: "underline",
-                  }}
-                >
-                  Anki
-                </span>
-              </Link>{" "}
-              <Link
-                style={{
-                  display: isNextClassVisible ? "block" : "none",
-                  marginRight: "1.2rem",
-                  marginLeft: "auto",
-                  maxWidth: "fit-content",
-                  color: primaryColor(),
-                  padding: "0.5rem",
-                  fontSize: "1rem",
-                  backgroundColor: textPrimaryColorContrast(),
-                  borderRadius: "5px",
-                }}
-                target="_blank"
-                to={googleDriveLink}
-              >
-                <span
-                  style={{
-                    textDecoration: "underline",
-                  }}
-                >
-                  {UniversalTexts.googleDriveLink}
-                </span>
-              </Link>
-            </>
-          )}
+                {UniversalTexts.nextClass}
+              </Button>
+            ) : (
+              <span>
+                {nextTutoring.nextTutoring.date == "" ? (
+                  <div
+                    style={{
+                      display: isNextClassVisible ? "block" : "none",
+                      marginRight: "1.2rem",
+                      marginLeft: "auto",
+                      maxWidth: "fit-content",
+                      padding: "0.5rem",
+                    }}
+                  >
+                    {UniversalTexts.loading}
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      style={{
+                        display: isNextClassVisible ? "block" : "none",
+                        marginRight: "1.2rem",
+                        marginLeft: "auto",
+                        maxWidth: "fit-content",
+                        color: primaryColor(),
+                        padding: "0.5rem",
+                        fontSize: "1rem",
+                        backgroundColor: textPrimaryColorContrast(),
+                        borderRadius: "5px",
+                      }}
+                      target="_blank"
+                      to={nextTutoring.nextTutoring.meetingUrl}
+                    >
+                      <span
+                        style={{
+                          textDecoration: "underline",
+                        }}
+                      >
+                        {formatData(nextTutoring.nextTutoring.date)
+                          ? formatData(nextTutoring.nextTutoring.date)
+                          : "http://google.com"}
+                      </span>
+                      <span
+                        style={{
+                          fontWeight: 600,
+                        }}
+                      >
+                        - {nextTutoring.nextTutoring.time}
+                      </span>
+                    </Link>
+                  </>
+                )}
+              </span>
+            )}
+          </div>
+
           {posts.map((post, index) => (
             <div
               key={index}
