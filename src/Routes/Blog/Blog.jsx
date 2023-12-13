@@ -272,6 +272,13 @@ export function Blog() {
               </Button>
             ) : (
               <span>
+                <span
+                  style={{
+                    marginBottom: "5px",
+                  }}
+                >
+                  {UniversalTexts.nextClass}
+                </span>
                 {nextTutoring.nextTutoring.date == "" ? (
                   <div
                     style={{
