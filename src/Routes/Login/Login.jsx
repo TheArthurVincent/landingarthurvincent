@@ -18,8 +18,10 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export function Login() {
-  const [email, setEmail] = useState("arthurcardosocorp@gmail.com");
-  const [password, setPassword] = useState("123456789");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("arthurcardosocorp@gmail.com");
+  // const [password, setPassword] = useState("123456789");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handlePasswordVisible = () => {
