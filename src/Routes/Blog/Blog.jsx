@@ -274,7 +274,7 @@ export function Blog() {
               <span>
                 <span
                   style={{
-                    marginBottom: "5px",
+                    margin: "3px",
                   }}
                 >
                   {UniversalTexts.nextClass}
