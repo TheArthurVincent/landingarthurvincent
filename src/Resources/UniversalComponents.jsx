@@ -630,7 +630,7 @@ export function logout24h() {
     localStorage.removeItem("authorization");
     localStorage.removeItem("loggedIn");
     window.location.assign("/");
-  }, 43200000); // vai expirar o login em 12h de inatividade
+  }, 43200000); // expirar o login em 12h de inatividade
 }
 
 export const backDomain = isDev();
