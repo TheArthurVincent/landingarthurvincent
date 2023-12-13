@@ -205,7 +205,7 @@ export function MyClasses() {
                             {item.comments}
                           </p>
                         </div>
-                        <HTwo>{UniversalTexts.attachments}</HTwo>
+                        {/* <HTwo>{UniversalTexts.attachments}</HTwo>
                         <Link
                           to={item.attachments}
                           target="_blank"
@@ -215,7 +215,7 @@ export function MyClasses() {
                           }}
                         >
                           {UniversalTexts.attachments}
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </ClassBox>
