@@ -11,7 +11,6 @@ import {
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
-  logout24h,
 } from "../../Resources/UniversalComponents";
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
 import { Link } from "react-router-dom";
@@ -31,10 +30,6 @@ export function MyClasses() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
   const [classes, setClasses] = useState([]);
-
-  useEffect(() => {
-    logout24h();
-  }, []);
 
   const { UniversalTexts } = useUserContext();
   async function fetchMonthYear() {

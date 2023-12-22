@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   BackToHomePage,
-  logout24h,
 } from "../../../Resources/UniversalComponents";
 import {
   HOne,
@@ -14,14 +13,11 @@ import {
   alwaysWhite,
   primaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../../Styles/Styles";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
 
 export function BasicTextsPresentTense() {
-  useEffect(() => {
-    logout24h();
-  }, []);
+
 
   const presentations = [
     {

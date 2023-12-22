@@ -8,7 +8,6 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import {
   BackToHomePage,
   IFrameVideo,
-  logout24h,
 } from "../../Resources/UniversalComponents";
 import {
   primaryColor,
@@ -20,9 +19,6 @@ import { HThree } from "../MyClasses/MyClasses.Styled";
 import { Link } from "react-router-dom";
 
 export function Extras() {
-  useEffect(() => {
-    logout24h();
-  }, []);
 
   const { UniversalTexts } = useUserContext();
 

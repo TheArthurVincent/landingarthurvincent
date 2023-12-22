@@ -30,7 +30,6 @@ export function ManageCourses() {
   const [courseColor, setCourseColor] = useState("");
   const [loading, setLoading] = useState(true);
   const [coursesList, setCoursesList] = useState([]);
-  const [isModalVisible, setIsModalVisible] = useState(true);
   const [courseId, setCourseId] = useState("");
   const [seeDeleteCourse, setSeeDeleteCourse] = useState(true);
   const [seeEditCourse, setSeeEditCourse] = useState(false);
@@ -44,6 +43,7 @@ export function ManageCourses() {
   const [newModule, setNewModule] = React.useState("");
   const [modules, seeMmodules] = React.useState([]);
   const [descriptionClass, setDescriptionClass] = useState("");
+  const [postedCourse, setPostedCourse] = useState(false);
 
   const createNewModule = async (courseId) => {
     try {
@@ -53,7 +53,8 @@ export function ManageCourses() {
       );
 
       alert("Módulo postado com sucesso");
-      window.location.reload();
+      setSeeEditModule(!seeEditModule);
+      setPostedCourse(!postedCourse);
     } catch (e) {
       console.log(e);
     }
@@ -105,7 +106,8 @@ export function ManageCourses() {
         data
       );
       alert("Curso editado com sucesso");
-      window.location.reload();
+      setSeeEditCourse(!seeEditCourse);
+      setPostedCourse(!postedCourse);
     } catch (e) {
       console.log(e);
     }
@@ -121,7 +123,8 @@ export function ManageCourses() {
         `${backDomain}/api/v1/courses/${courseId}`
       );
       alert("Curso excluído");
-      window.location.reload();
+      setSeeDeleteCourse(!seeDeleteCourse);
+      setPostedCourse(!postedCourse);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -133,7 +136,8 @@ export function ManageCourses() {
         `${backDomain}/api/v1/moduleforcourse/${id}`
       );
       alert("Módulo excluído");
-      window.location.reload();
+      setSeeDeleteCourse(!seeDeleteCourse);
+      setPostedCourse(!postedCourse);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -152,12 +156,18 @@ export function ManageCourses() {
           courseColor,
         });
         alert("Curso postado com sucesso");
-        window.location.href = "/adm";
+        setPostedCourse(!postedCourse);
+        // window.location.href = "/adm";
       } catch (error) {
         alert("Erro ao postar curso");
       }
     };
     postCourse();
+    setTitle("");
+    setImg("");
+    setDescription("");
+    setLink("");
+    setCourseColor("");
   };
 
   const postClass = (moduleid) => {
@@ -172,8 +182,9 @@ export function ManageCourses() {
             srcAttachments,
           }
         );
-        alert("Curso postado com sucesso");
-        window.location.href = "/adm";
+        alert("Aula postado com sucesso");
+        // window.location.href = "/adm";
+        setPostedCourse(!postedCourse);
       } catch (error) {
         alert("Erro ao postar curso");
       }
@@ -182,17 +193,20 @@ export function ManageCourses() {
   };
 
   const postCourse = async () => {
+    setLoading(true);
+
     try {
       const response = await axios.get(`${backDomain}/api/v1/courses`);
       setCoursesList(response.data.courses);
       setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar cursos");
+      setLoading(false);
     }
   };
   useEffect(() => {
     postCourse();
-  }, []);
+  }, [postedCourse]);
 
   return (
     <RouteDiv>

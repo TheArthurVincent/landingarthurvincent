@@ -9,7 +9,7 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
-import { All, backDomain, logout24h } from "./Resources/UniversalComponents";
+import { All, backDomain } from "./Resources/UniversalComponents";
 import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 import SignUp from "./Routes/SignUp/SignUp";
 import MyCourses from "./Routes/MyCourses/MyCourses";
@@ -37,9 +37,7 @@ function App() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    logout24h();
-  }, []);
+
   return (
     <All>
       <div

@@ -5,7 +5,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { BackToHomePage, logout24h } from "../../Resources/UniversalComponents";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { alwaysBlack, primaryColor } from "../../Styles/Styles";
 import { Link } from "react-router-dom";
@@ -16,9 +16,8 @@ export function MyProfile() {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
   }, []);
-  useEffect(() => {
-    logout24h();
-  }, []);
+ 
+
 
   const { UniversalTexts } = useUserContext();
   return (
