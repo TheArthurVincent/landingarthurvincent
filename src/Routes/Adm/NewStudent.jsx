@@ -9,7 +9,7 @@ import {
 import { FormList } from "./Adm.Styled";
 import FindStudent from "./FindStudent";
 
-export function NewStudent() {
+export function NewStudent({ headers }) {
   const [newName, setNewName] = useState("");
   const [newLastName, setNewLastName] = useState("");
   const [newUsername, setNewUsername] = useState("");
@@ -172,7 +172,7 @@ export function NewStudent() {
           </Button>
         </form>
       </RouteDiv>
-      <FindStudent uploadStatus={upload} />
+      <FindStudent uploadStatus={upload} headers={headers} />
     </>
   );
 }

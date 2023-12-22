@@ -3,7 +3,7 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
 
-export function NewTutoring() {
+export function NewTutoring({ headers }) {
   const [newTitle, setNewTitle] = useState("");
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
@@ -26,7 +26,10 @@ export function NewTutoring() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`${backDomain}/api/v1/students/`);
+        const response = await axios.get(
+          `${backDomain}/api/v1/students/`,
+          headers
+        );
         setStudent(response.data.listOfStudents);
       } catch (error) {
         alert("Erro ao encontrar alunos");

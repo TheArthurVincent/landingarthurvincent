@@ -38,7 +38,9 @@ export function Login() {
         password,
       });
       const { token, loggedIn } = response.data;
-      localStorage.setItem("authorization", `Bearer ${token}`);
+      console.log("Token:", token);
+
+      localStorage.setItem("authorization", `${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       setLoading(false);
       setButton("Sucesso");

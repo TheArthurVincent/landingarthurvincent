@@ -17,6 +17,12 @@ import ManageCourses from "./ManageCourses";
 export function Adm() {
   const [value, setValue] = useState("0");
 
+  const headers = {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("authorization")}`,
+    },
+  };
+
   const componentsToRender = [
     {
       title: "Aulas particulares",
@@ -24,8 +30,8 @@ export function Adm() {
       tooltip: "Marque uma aula particular.",
       component: (
         <div>
-          <NextTutoring />
-          <NewTutoring />
+          <NextTutoring headers={headers} />
+          <NewTutoring headers={headers} />
         </div>
       ),
     },
@@ -36,7 +42,7 @@ export function Adm() {
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
       component: (
         <div>
-          <NewStudent />
+          <NewStudent headers={headers} />
         </div>
       ),
     },
@@ -46,7 +52,7 @@ export function Adm() {
       tooltip: "Adicione um novo curso.",
       component: (
         <div>
-          <ManageCourses />
+          <ManageCourses headers={headers} />
         </div>
       ),
     },
@@ -55,7 +61,7 @@ export function Adm() {
       value: "2",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
-      component: <NewPost />,
+      component: <NewPost headers={headers} />,
     },
   ];
 

@@ -3,7 +3,7 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
 
-export function NewPost() {
+export function NewPost({ headers }) {
   const [newTitle, setNewTitle] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newText, setNewText] = useState("");

@@ -10,7 +10,7 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 
-export function NextTutoring() {
+export function NextTutoring({ headers }) {
   const [newTutoringMeetingURL, setNewTutoringMeetingURL] = useState("");
   const [newDate, setNewDate] = useState("__/__/__");
   const [newTime, setNewTime] = useState("__:__");
@@ -25,7 +25,10 @@ export function NextTutoring() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`${backDomain}/api/v1/students/`);
+        const response = await axios.get(
+          `${backDomain}/api/v1/students/`,
+          headers
+        );
         setStudent(response.data.listOfStudents);
       } catch (error) {
         alert("Erro ao encontrar alunos");

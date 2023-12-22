@@ -18,7 +18,7 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 
-export function FindStudent({ uploadStatus }) {
+export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
   const [students, setStudents] = useState([]);
   const [newName, setNewName] = useState("");
@@ -38,7 +38,6 @@ export function FindStudent({ uploadStatus }) {
   const [value, setValue] = useState("1");
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -143,14 +142,23 @@ export function FindStudent({ uploadStatus }) {
     }
   };
 
+  // const see = () => {
+  //   let authorization = JSON.parse(localStorage.getItem("authorization"));
+  //   let authorization2 = JSON.parse(localStorage.authorization);
+  //   console.log(authorization2);
+  // };
+
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`${backDomain}/api/v1/students/`);
+        const response = await axios.get(
+          `${backDomain}/api/v1/students/`,
+          headers
+        );
         setStudents(response.data.listOfStudents);
         setLoading(false);
       } catch (error) {
-        alert("Erro ao encontrar posts"); 
+        alert("Erro ao encontrar alunos");
       }
     };
 

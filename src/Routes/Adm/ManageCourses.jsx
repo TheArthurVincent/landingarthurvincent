@@ -22,7 +22,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { alwaysWhite } from "../../Styles/Styles";
 
-export function ManageCourses() {
+export function ManageCourses({ headers }) {
   const [title, setTitle] = useState("");
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
