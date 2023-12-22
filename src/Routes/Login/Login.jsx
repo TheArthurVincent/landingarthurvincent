@@ -13,10 +13,8 @@ import {
 } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
-import Logo from "../../../src/assets//complete-logo.png";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { SipOutlined } from "@mui/icons-material";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -24,8 +22,6 @@ export function Login() {
   const [loading, setLoading] = useState(false);
   const [button, setButton] = useState("Entrar");
 
-  // const [email, setEmail] = useState("arthurcardosocorp@gmail.com");
-  // const [password, setPassword] = useState("123456789");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handlePasswordVisible = () => {
@@ -41,12 +37,12 @@ export function Login() {
         email,
         password,
       });
-
       const { token, loggedIn } = response.data;
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       setLoading(false);
       setButton("Sucesso");
+
       window.location.reload("/");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");

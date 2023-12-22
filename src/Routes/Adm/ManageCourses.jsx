@@ -157,7 +157,6 @@ export function ManageCourses() {
         });
         alert("Curso postado com sucesso");
         setPostedCourse(!postedCourse);
-        // window.location.href = "/adm";
       } catch (error) {
         alert("Erro ao postar curso");
       }
@@ -183,7 +182,6 @@ export function ManageCourses() {
           }
         );
         alert("Aula postado com sucesso");
-        // window.location.href = "/adm";
         setPostedCourse(!postedCourse);
       } catch (error) {
         alert("Erro ao postar curso");
