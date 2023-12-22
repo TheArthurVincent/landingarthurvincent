@@ -46,30 +46,32 @@ const thematicClasses = [
     link: "https://smartest-dog-breed.netlify.app/",
   },
 ];
+
 export default function ClassesToTeach() {
   const { UniversalTexts } = useUserContext();
+
+  const cardStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "left",
+    gap: "1rem",
+    margin: "0 1rem",
+    overflowY: "auto",
+    overflowX: "scroll",
+    maxWidth: "100%",
+  };
 
   return (
     <>
       <TopBar />{" "}
-      <RouteSizeControlBox>
+      <RouteSizeControlBox style={{ maxWidth: "70rem" }}>
         <RouteDiv>
           <HOne>{UniversalTexts.englishMaterial}</HOne>
           <BackToHomePage />
           <div>
             {" "}
             <HThree>{UniversalTexts.basicClasses}</HThree>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "left",
-                gap: "1rem",
-                margin: "0 1rem",
-                flexDirection: "row-reverse",
-                flexWrap: "wrap",
-              }}
-            >
+            <div style={cardStyle}>
               {basicClasses.map((course, index) => {
                 return (
                   <Link key={index} to={course.link} target="_blank">
@@ -95,18 +97,7 @@ export default function ClassesToTeach() {
           <div>
             {" "}
             <HThree>{UniversalTexts.intermediaryClasses}</HThree>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "left",
-                gap: "1rem",
-                margin: "0 1rem",
-
-                flexDirection: "row-reverse",
-                flexWrap: "wrap",
-              }}
-            >
+            <div style={cardStyle}>
               {intermediaryClasses.map((course, index) => {
                 return (
                   <NavLink key={index} to={course.link} target="_blank">
@@ -130,18 +121,7 @@ export default function ClassesToTeach() {
           </div>
           <div>
             <HThree>{UniversalTexts.advancedClasses}</HThree>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "left",
-                gap: "1rem",
-                margin: "0 1rem",
-
-                flexDirection: "row-reverse",
-                flexWrap: "wrap",
-              }}
-            >
+            <div style={cardStyle}>
               {advancedClasses.map((course, index) => {
                 return (
                   <NavLink key={index} to={course.link} target="_blank">
@@ -166,18 +146,7 @@ export default function ClassesToTeach() {
 
           <div>
             <HThree>{UniversalTexts.thematicClasses}</HThree>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "left",
-                gap: "1rem",
-                margin: "0 1rem",
-
-                flexDirection: "row-reverse",
-                flexWrap: "wrap",
-              }}
-            >
+            <div style={cardStyle}>
               {thematicClasses.map((course, index) => {
                 return (
                   <NavLink key={index} to={course.link} target="_blank">
