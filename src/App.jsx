@@ -4,13 +4,11 @@ import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
 import Adm from "./Routes/Adm/Adm";
-import PhrasalVerbs from "./Routes/ClassesToTeach/PhrasalVerbs/PhrasalVerbs";
 import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { All, backDomain } from "./Resources/UniversalComponents";
-import { BasicTextsPresentTense } from "./Routes/ClassesToTeach/BasicTexts/BasicTextsPresentTense";
 import SignUp from "./Routes/SignUp/SignUp";
 import MyCourses from "./Routes/MyCourses/MyCourses";
 import MyCoursesTemplate from "./Routes/MyCourses/MyCoursesTemplate";
@@ -36,7 +34,6 @@ function App() {
 
     fetchData();
   }, []);
-
 
   return (
     <All>
@@ -84,10 +81,6 @@ function App() {
                 path="/classes-to-teach"
                 element={verifyToken() ? <ClassesToTeach /> : <Login />}
               />
-              <Route
-                path="/phrasal-verbs"
-                element={verifyToken() ? <PhrasalVerbs /> : <Login />}
-              />
               {courses.map((course, index) => (
                 <Route
                   key={index}
@@ -109,10 +102,6 @@ function App() {
                   }
                 />
               ))}
-              <Route
-                path="/basic-texts-present-tense"
-                element={verifyToken() ? <BasicTextsPresentTense /> : <Login />}
-              />
             </Routes>
           </Router>
         </UserProvider>

@@ -15,7 +15,7 @@ const basicClasses = [
   {
     title: "Basic texts - Present Tense",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387",
-    link: "/basic-texts-present-tense",
+    link: "https://arvin-phrasal-verbs.netlify.app/",
   },
 ];
 
@@ -23,7 +23,7 @@ const advancedClasses = [
   {
     title: "Phrasal verbs",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704",
-    link: "/phrasal-verbs",
+    link: "https://arvin-phrasal-verbs.netlify.app/",
   },
 ];
 const intermediaryClasses = [
