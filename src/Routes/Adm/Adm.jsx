@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import NewStudent from "./NewStudent";
-import FindStudent from "./FindStudent";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -16,7 +15,8 @@ import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses from "./ManageCourses";
 
 export function Adm() {
-  const [value, setValue] = React.useState("0");
+  const [value, setValue] = useState("0");
+
   const componentsToRender = [
     {
       title: "Aulas particulares",
@@ -36,7 +36,7 @@ export function Adm() {
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
       component: (
         <div>
-          <NewStudent /> <FindStudent />
+          <NewStudent />
         </div>
       ),
     },
@@ -66,7 +66,7 @@ export function Adm() {
 
   return (
     <>
-      <TopBar />  
+      <TopBar />
       <RouteSizeControlBox
         style={{
           maxWidth: "1000px",

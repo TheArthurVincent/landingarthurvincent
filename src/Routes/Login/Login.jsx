@@ -16,11 +16,14 @@ import axios from "axios";
 import Logo from "../../../src/assets//complete-logo.png";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { SipOutlined } from "@mui/icons-material";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [button, setButton] = useState("Entrar");
+
   // const [email, setEmail] = useState("arthurcardosocorp@gmail.com");
   // const [password, setPassword] = useState("123456789");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -31,6 +34,7 @@ export function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setButton("...");
     setLoading(true);
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {
@@ -42,10 +46,11 @@ export function Login() {
       localStorage.setItem("authorization", `Bearer ${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       setLoading(false);
+      setButton("Sucesso");
       window.location.reload("/");
     } catch (error) {
       alert("Credenciais inválidas. Tente novamente.");
-      console.error(error);
+      setButton("Entrar");
     }
   };
 
@@ -133,7 +138,7 @@ export function Login() {
               }}
               type="submit"
             >
-              {loading ? "..." : "Login"}
+              {button}
             </Button>
           </div>
         </form>

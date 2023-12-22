@@ -7,9 +7,9 @@ import {
   backDomain,
 } from "../../Resources/UniversalComponents";
 import { FormList } from "./Adm.Styled";
+import FindStudent from "./FindStudent";
 
 export function NewStudent() {
-  const [loading, setLoading] = useState(false);
   const [newName, setNewName] = useState("");
   const [newLastName, setNewLastName] = useState("");
   const [newUsername, setNewUsername] = useState("");
@@ -22,9 +22,35 @@ export function NewStudent() {
   const [newAnkiEmail, setNewAnkiEmail] = useState("");
   const [newAnkiPassword, setNewAnkiPassword] = useState("");
   const [newGoogleDriveLink, setNewGoogleDriveLink] = useState("");
+  const [upload, setUpload] = useState(true);
+  const [button, setButton] = useState("Cadastrar");
+  const [uploadStatus, setUploadStatus] = useState(false);
 
+  const handleUploadStatusChange = () => {
+    setUploadStatus(!uploadStatus);
+  };
+
+  const reset = () => {
+    setNewName("");
+    setNewLastName("");
+    setNewUsername("");
+    setNewPhone("");
+    setNewEmail("");
+    setNewDateOfBirth("2000-12-12");
+    setNewCPF("");
+    setNewPassword("");
+    setConfirmPassword("");
+    setNewAnkiEmail("");
+    setNewAnkiPassword("");
+    setNewGoogleDriveLink("");
+    setButton("Sucesso");
+    setUpload(!upload);
+    setButton("Cadastrar");
+    alert("Usuário cadastrado com sucesso!");
+  };
   const handleSubmit = async (event) => {
-    setLoading(true);
+    event.preventDefault();
+    setButton("...");
     let newStudent = {
       username: newUsername,
       password: newPassword,
@@ -43,6 +69,7 @@ export function NewStudent() {
     } else {
       alert("As senhas são diferentes");
       event.preventDefault();
+      setButton("Cadastrar");
       return;
     }
     try {
@@ -50,99 +77,103 @@ export function NewStudent() {
         `${backDomain}/api/v1/students/`,
         newStudent
       );
-      window.location.reload();
-      setLoading(false);
 
-      alert("Usuário cadastrado com sucesso!");
+      reset();
     } catch (error) {
-      alert("Erro ao cadastrar usuário");
+      setButton("...");
+      alert("Erro ao cadastrar aluno");
+      setButton("Cadastrar");
     }
   };
+
   return (
-    <RouteDiv>
-      <HOne>Novo Aluno</HOne>
-      <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
-        <FormList>
-          <InputField
-            value={newName}
-            onChange={(event) => setNewName(event.target.value)}
-            id="name"
-            placeholder="Nome"
-            type="text"
-          />
-          <InputField
-            value={newLastName}
-            onChange={(event) => setNewLastName(event.target.value)}
-            id="lastname"
-            placeholder="Sobrenome"
-            type="text"
-          />
-          <InputField
-            value={newUsername}
-            onChange={(event) => setNewUsername(event.target.value)}
-            placeholder="Username"
-            type="text"
-          />
-          <InputField
-            value={newPhone}
-            onChange={(event) => setNewPhone(event.target.value)}
-            placeholder="Número de celular"
-            type="number"
-          />
-          <InputField
-            value={newEmail}
-            onChange={(event) => setNewEmail(event.target.value)}
-            placeholder="E-mail"
-            type="email"
-          />
-          <InputField
-            value={newDateOfBirth}
-            onChange={(event) => setNewDateOfBirth(event.target.value)}
-            placeholder="Data de nascimento"
-            type="date"
-          />
-          <InputField
-            value={newCPF}
-            onChange={(event) => setNewCPF(event.target.value)}
-            placeholder="CPF"
-            type="number"
-          />
-          <InputField
-            value={newAnkiEmail}
-            onChange={(event) => setNewAnkiEmail(event.target.value)}
-            placeholder="E-mail do Anki"
-            type="text"
-          />
-          <InputField
-            value={newAnkiPassword}
-            onChange={(event) => setNewAnkiPassword(event.target.value)}
-            placeholder="Senha do Anki"
-            type="text"
-          />
-          <InputField
-            value={newGoogleDriveLink}
-            onChange={(event) => setNewGoogleDriveLink(event.target.value)}
-            placeholder="Link do Drive"
-            type="text"
-          />
-          <InputField
-            value={newPassword}
-            onChange={(event) => setNewPassword(event.target.value)}
-            placeholder="Escolha uma senha"
-            type="password"
-          />
-          <InputField
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            placeholder="Confirme a Senha"
-            type="password"
-          />
-        </FormList>
-        <Button style={{ marginLeft: "auto" }} type="submit">
-          {loading ? "..." : "Criar"}
-        </Button>
-      </form>
-    </RouteDiv>
+    <>
+      <RouteDiv>
+        <HOne>Novo Aluno</HOne>
+        <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
+          <FormList>
+            <InputField
+              value={newName}
+              onChange={(event) => setNewName(event.target.value)}
+              id="name"
+              placeholder="Nome"
+              type="text"
+            />
+            <InputField
+              value={newLastName}
+              onChange={(event) => setNewLastName(event.target.value)}
+              id="lastname"
+              placeholder="Sobrenome"
+              type="text"
+            />
+            <InputField
+              value={newUsername}
+              onChange={(event) => setNewUsername(event.target.value)}
+              placeholder="Username"
+              type="text"
+            />
+            <InputField
+              value={newPhone}
+              onChange={(event) => setNewPhone(event.target.value)}
+              placeholder="Número de celular"
+              type="number"
+            />
+            <InputField
+              value={newEmail}
+              onChange={(event) => setNewEmail(event.target.value)}
+              placeholder="E-mail"
+              type="email"
+            />
+            <InputField
+              value={newDateOfBirth}
+              onChange={(event) => setNewDateOfBirth(event.target.value)}
+              placeholder="Data de nascimento"
+              type="date"
+            />
+            <InputField
+              value={newCPF}
+              onChange={(event) => setNewCPF(event.target.value)}
+              placeholder="CPF"
+              type="number"
+            />
+            <InputField
+              value={newAnkiEmail}
+              onChange={(event) => setNewAnkiEmail(event.target.value)}
+              placeholder="E-mail do Anki"
+              type="text"
+            />
+            <InputField
+              value={newAnkiPassword}
+              onChange={(event) => setNewAnkiPassword(event.target.value)}
+              placeholder="Senha do Anki"
+              type="text"
+            />
+            <InputField
+              value={newGoogleDriveLink}
+              onChange={(event) => setNewGoogleDriveLink(event.target.value)}
+              placeholder="Link do Drive"
+              type="text"
+            />
+            <InputField
+              value={newPassword}
+              onChange={(event) => setNewPassword(event.target.value)}
+              placeholder="Escolha uma senha"
+              type="password"
+            />
+            <InputField
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
+              placeholder="Confirme a Senha"
+              type="password"
+            />
+          </FormList>
+          <Button style={{ marginLeft: "auto" }} type="submit">
+            {button}
+          </Button>
+        </form>
+      </RouteDiv>
+      <FindStudent uploadStatus={upload} />
+    </>
   );
 }
 

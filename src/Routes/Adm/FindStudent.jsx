@@ -18,7 +18,7 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 
-export function FindStudent() {
+export function FindStudent({ uploadStatus }) {
   const { UniversalTexts } = useUserContext();
   const [students, setStudents] = useState([]);
   const [newName, setNewName] = useState("");
@@ -38,6 +38,7 @@ export function FindStudent() {
   const [value, setValue] = useState("1");
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
+
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -149,12 +150,12 @@ export function FindStudent() {
         setStudents(response.data.listOfStudents);
         setLoading(false);
       } catch (error) {
-        alert("Erro ao encontrar posts");
+        alert("Erro ao encontrar posts"); 
       }
     };
 
     fetchStudents();
-  }, []);
+  }, [uploadStatus]);
 
   const deleteStudent = async (id) => {
     try {
