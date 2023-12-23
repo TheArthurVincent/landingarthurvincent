@@ -11,16 +11,17 @@ import {
 } from "../../Styles/Styles";
 
 export function NextTutoring({ headers }) {
-  const [newTutoringMeetingURL, setNewTutoringMeetingURL] = useState("");
-  const [newDate, setNewDate] = useState("__/__/__");
-  const [newTime, setNewTime] = useState("__:__");
-  const [selectedStudentID, setSelectedStudentID] = useState("");
-  const [student, setStudent] = useState([]);
-  const [seeButton, setSeeButton] = useState(false);
+  const initialFormState = {
+    newTutoringMeetingURL: "",
+    newDate: "__/__/__",
+    newTime: "__:__",
+    selectedStudentID: "",
+    student: [],
+    seeButton: false,
+    studentName: "____________________________",
+  };
 
-  const [studentName, setStudentName] = useState(
-    "____________________________"
-  );
+  const [formState, setFormState] = useState({ ...initialFormState });
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -29,7 +30,10 @@ export function NextTutoring({ headers }) {
           `${backDomain}/api/v1/students/`,
           headers
         );
-        setStudent(response.data.listOfStudents);
+        setFormState((prev) => ({
+          ...prev,
+          student: response.data.listOfStudents,
+        }));
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }
@@ -39,28 +43,36 @@ export function NextTutoring({ headers }) {
   }, []);
 
   const findStudentIndexById = (id) => {
-    return student.findIndex((student) => student.id === id);
+    return formState.student.findIndex((student) => student.id === id);
   };
+
   const handleSelectChange = (event) => {
     const selectedID = event.target.value;
-    setSelectedStudentID(selectedID);
+    setFormState((prev) => ({ ...prev, selectedStudentID: selectedID }));
     const studentIndex = findStudentIndexById(selectedID);
     if (studentIndex !== -1) {
-      setStudentName(student[studentIndex].fullname);
+      setFormState((prev) => ({
+        ...prev,
+        studentName: formState.student[studentIndex].fullname,
+      }));
     } else {
-      setStudentName("");
+      setFormState((prev) => ({ ...prev, studentName: "" }));
     }
-    setSeeButton(true);
+    setFormState((prev) => ({ ...prev, seeButton: true }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(selectedStudentID, newDate, newTutoringMeetingURL);
+    console.log(
+      formState.selectedStudentID,
+      formState.newDate,
+      formState.newTutoringMeetingURL
+    );
     let newScheduledTutoring = {
-      studentID: selectedStudentID,
-      meetingUrl: newTutoringMeetingURL,
-      date: newDate,
-      time: newTime,
+      studentID: formState.selectedStudentID,
+      meetingUrl: formState.newTutoringMeetingURL,
+      date: formState.newDate,
+      time: formState.newTime,
     };
     try {
       const response = await axios.post(
@@ -69,9 +81,14 @@ export function NextTutoring({ headers }) {
       );
       alert("Aula marcada com sucesso!");
       window.location.href = "/adm";
+      resetForm();
     } catch (error) {
       alert("Erro ao marcar aula");
     }
+  };
+
+  const resetForm = () => {
+    setFormState({ ...initialFormState });
   };
 
   return (
@@ -107,7 +124,7 @@ export function NextTutoring({ headers }) {
             <option style={{ cursor: "pointer" }} value="aluno" hidden>
               Escolha o aluno
             </option>
-            {student.map((option, index) => {
+            {formState.student.map((option, index) => {
               return (
                 <option
                   style={{ cursor: "pointer" }}
@@ -120,8 +137,13 @@ export function NextTutoring({ headers }) {
             })}
           </select>
           <Input
-            value={newTutoringMeetingURL}
-            onChange={(event) => setNewTutoringMeetingURL(event.target.value)}
+            value={formState.newTutoringMeetingURL}
+            onChange={(event) =>
+              setFormState((prev) => ({
+                ...prev,
+                newTutoringMeetingURL: event.target.value,
+              }))
+            }
             placeholder="Link da aula"
             type="text"
             style={{
@@ -130,7 +152,9 @@ export function NextTutoring({ headers }) {
             required
           />
           <Input
-            onChange={(event) => setNewDate(event.target.value)}
+            onChange={(event) =>
+              setFormState((prev) => ({ ...prev, newDate: event.target.value }))
+            }
             style={{
               color: alwaysBlack(),
             }}
@@ -138,7 +162,9 @@ export function NextTutoring({ headers }) {
             type="date"
           />
           <Input
-            onChange={(event) => setNewTime(event.target.value)}
+            onChange={(event) =>
+              setFormState((prev) => ({ ...prev, newTime: event.target.value }))
+            }
             style={{
               color: alwaysBlack(),
             }}
@@ -153,9 +179,10 @@ export function NextTutoring({ headers }) {
           }}
         >
           <span style={{ color: alwaysBlack() }}>
-            Aula de {studentName} no dia {newDate} às {newTime}
+            Aula de {formState.studentName} no dia {formState.newDate} às{" "}
+            {formState.newTime}
           </span>
-          {seeButton ? (
+          {formState.seeButton ? (
             <Button
               style={{
                 marginLeft: "auto",

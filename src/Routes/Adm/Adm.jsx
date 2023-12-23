@@ -5,14 +5,18 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { alwaysWhite } from "../../Styles/Styles";
-import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
+import { alwaysWhite, transparentWhite } from "../../Styles/Styles";
+import {
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
-import { BackToHomePage } from "../../Resources/UniversalComponents";
+import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses from "./ManageCourses";
+import { Link } from "react-router-dom";
 
 export function Adm() {
   const [value, setValue] = useState("0");
@@ -48,7 +52,7 @@ export function Adm() {
     },
     {
       title: "Cursos",
-      value: "3",
+      value: "2",
       tooltip: "Adicione um novo curso.",
       component: (
         <div>
@@ -58,13 +62,99 @@ export function Adm() {
     },
     {
       title: "Postagens",
-      value: "2",
+      value: "3",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost headers={headers} />,
     },
+    {
+      title: "Links úteis",
+      value: "4",
+      tooltip:
+        "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
+      component: (
+        <RouteDiv>
+          <ul
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "5px",
+            }}
+          >
+            <li>
+              <Link to="https://my.nutror.com/cursos" target="_blank">
+                Portais dos alunos
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="https://app.blasteronline.com/speechelo/"
+                target="_blank"
+              >
+                Gerador de áudios
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.canva.com/" target="_blank">
+                Canva
+              </Link>
+            </li>
+            <li>
+              <Link to="https://chat.openai.com/" target="_blank">
+                GPT
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.linguee.com/" target="_blank">
+                Linguee
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="https://imagekit.io/dashboard/media-library/L2Fzc2V0cy9pY29ucw"
+                target="_blank"
+              >
+                Diretório de imagens
+              </Link>
+            </li>
+            <li>
+              <Link to="https://soundcloud.com/feed" target="_blank">
+                Diretório de áudios
+              </Link>
+            </li>
+            <li>
+              <Link to="https://app.netlify.com/" target="_blank">
+                Hospedagem
+              </Link>
+            </li>
+            <li>
+              <Link to="https://youglish.com/" target="_blank">
+                Pronúncia
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.freesqldatabase.com/" target="_blank">
+                MyFreeSQL
+              </Link>
+            </li>
+            <li>
+              <Link to="https://www.phpmyadmin.co/index.php" target="_blank">
+                Gestão do banco de dados
+              </Link>
+            </li>
+            <li>
+              <Link to="https://github.com/" target="_blank">
+                GitHub
+              </Link>
+            </li>
+          </ul>
+        </RouteDiv>
+      ),
+    },
   ];
+  /*
 
+*/
   const handleChange = (event, newValue) => {
     event.preventDefault();
     setValue(newValue);
