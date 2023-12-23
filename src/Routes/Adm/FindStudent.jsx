@@ -16,6 +16,8 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
+  transparentBlack,
+  transparentWhite,
 } from "../../Styles/Styles";
 
 export function FindStudent({ uploadStatus, headers }) {
@@ -148,20 +150,19 @@ export function FindStudent({ uploadStatus, headers }) {
   //   console.log(authorization2);
   // };
 
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/students/`,
+        headers
+      );
+      setStudents(response.data.listOfStudents);
+      setLoading(false);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
   useEffect(() => {
-    const fetchStudents = async () => {
-      try {
-        const response = await axios.get(
-          `${backDomain}/api/v1/students/`,
-          headers
-        );
-        setStudents(response.data.listOfStudents);
-        setLoading(false);
-      } catch (error) {
-        alert("Erro ao encontrar alunos");
-      }
-    };
-
     fetchStudents();
   }, [uploadStatus]);
 
@@ -171,9 +172,13 @@ export function FindStudent({ uploadStatus, headers }) {
         `${backDomain}/api/v1/students/${id}`
       );
       alert("Aluno excluído");
-      window.location.href = "/adm";
+      fetchStudents();
+      handleSeeModal();
+      // window.location.href = "/adm";
     } catch (error) {
       alert(error);
+
+      handleSeeModal();
       console.error(error);
     }
   };
@@ -434,7 +439,16 @@ export function FindStudent({ uploadStatus, headers }) {
               </TabList>
             </Box>
             <TabPanel value="1">
-              <form style={{ display: !seeConfirmDelete ? "block" : "none" }}>
+              <form
+                style={{
+                  display: !seeConfirmDelete ? "block" : "none",
+                  maxHeight: "10rem",
+                  padding: "5px",
+                  overflow: "auto",
+                  height: "22rem",
+                  backgroundColor: "#eee",
+                }}
+              >
                 <input
                   value={newName}
                   onChange={(event) => setNewName(event.target.value)}
@@ -506,20 +520,7 @@ export function FindStudent({ uploadStatus, headers }) {
                 <input
                   value={googleDriveLink}
                   onChange={(event) => setGoogleDriveLink(event.target.value)}
-                  placeholder="E-mail"
-                  type="email"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={googleDriveLink}
-                  onChange={(event) => setGoogleDriveLink(event.target.value)}
-                  placeholder="E-mail"
+                  placeholder="Link do Google Drive"
                   type="email"
                   style={{
                     padding: "0.5rem",
@@ -532,7 +533,7 @@ export function FindStudent({ uploadStatus, headers }) {
                 <input
                   value={ankiEmail}
                   onChange={(event) => setAnkiEmail(event.target.value)}
-                  placeholder="E-mail"
+                  placeholder="E-mail do Anki"
                   type="email"
                   style={{
                     padding: "0.5rem",
@@ -545,7 +546,7 @@ export function FindStudent({ uploadStatus, headers }) {
                 <input
                   value={ankiPassword}
                   onChange={(event) => setAnkiPassword(event.target.value)}
-                  placeholder="E-mail"
+                  placeholder="Senha do Anki"
                   type="email"
                   style={{
                     padding: "0.5rem",

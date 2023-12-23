@@ -141,7 +141,7 @@ export function Login() {
           </div>
         </form>
       </div>
-      <Button
+      {/* <Button
         style={{
           marginTop: "1rem",
           display: "block",
@@ -152,7 +152,7 @@ export function Login() {
         }}
       >
         <Link to="/signup">Cadastro</Link>{" "}
-      </Button>
+      </Button> */}
     </>
   );
 }
