@@ -66,14 +66,14 @@ export function Blog() {
       text: (
         <>
           <div style={{ display: "grid", gap: "0.5rem" }}>
-            <Skeleton variant="rectangular" width={1650} height={100} />
+            <Skeleton variant="rectangular" width={1500} height={100} />
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              <Skeleton variant="rectangular" width={1650} height={500} />
+              <Skeleton variant="rectangular" width={1500} height={400} />
             </div>
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              <Skeleton variant="rectangular" width={500} height={60} />
-              <Skeleton variant="rectangular" width={500} height={60} />
-              <Skeleton variant="rectangular" width={650} height={60} />
+              <Skeleton variant="rectangular" width={490} height={60} />
+              <Skeleton variant="rectangular" width={490} height={60} />
+              <Skeleton variant="rectangular" width={490} height={60} />
             </div>
           </div>
         </>

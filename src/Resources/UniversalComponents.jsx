@@ -227,7 +227,6 @@ export const IFrameVideo = styled.iframe`
     min-width: 810px;
     min-height: 450px;
   }
-
   @media (max-width: 1100px) {
     margin-top: 0;
     min-width: 648px;
@@ -243,15 +242,15 @@ export const IFrameVideo = styled.iframe`
     min-width: 380px;
     min-height: 210px;
   }
-  @media (max-width: 350px) {
+  @media (max-width: 380px) {
     margin-top: 0;
-    min-width: 295px;
-    min-height: 165px;
+    min-width: 265px;
+    min-height: 150px;
   }
-  @media (max-width: 250px) {
+  @media (max-width: 280px) {
     margin-top: 0;
-    min-width: 160px;
-    min-height: 75px;
+    min-width: 140px;
+    min-height: 64px;
   }
   @media (max-width: 210px) {
     margin-top: 0;
