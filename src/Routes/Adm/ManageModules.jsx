@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
-import {
-  InputField,
-  Button,
-  backDomain,
-  InputFieldNotRequired,
-  Spin,
-} from "../../Resources/UniversalComponents";
-import { FormList } from "./Adm.Styled";
+import { backDomain, SpinLoading } from "../../Resources/UniversalComponents";
+
 
 export function ManageModules() {
   const [title, setTitle] = useState("");
@@ -17,7 +11,6 @@ export function ManageModules() {
   const [link, setLink] = useState("");
   const [coursesList, setCoursesList] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   const postCourse = async () => {
     try {
@@ -38,7 +31,7 @@ export function ManageModules() {
       <HOne>Gerenciar Módulos</HOne>
       <HTwo>Inserir novo módulo</HTwo>
       {loading ? (
-        <Spin />
+        <SpinLoading />
       ) : (
         <select name="courses" id="courses">
           {coursesList.map((course, index) => (

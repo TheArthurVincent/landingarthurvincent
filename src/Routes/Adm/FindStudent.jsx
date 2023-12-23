@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import {
-  Spin,
+  SpinLoading,
   Xp,
   backDomain,
   linkReset,
@@ -373,13 +373,7 @@ export function FindStudent({ uploadStatus, headers }) {
           }}
         >
           <p>Carregando dados</p>
-          <Spin>
-            <img
-              style={{ maxWidth: "3rem" }}
-              src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/head-white.png?updatedAt=1687369608637"
-              alt="loading"
-            />
-          </Spin>
+          <SpinLoading />
         </div>
       )}
 

@@ -64,13 +64,24 @@ export const Spin = styled.div`
   padding: 1rem;
   justify-content: center;
   align-items: center;
-  background-color: ${`#aaa`};
   animation-name: ${spinAnimation};
   animation-duration: 5000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   transform: rotate(0.03turn);
 `;
+
+export const SpinLoading = () => {
+  return (
+    <Spin>
+      <img
+        style={{ maxWidth: "3rem" }}
+        src="https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Spin.png?updatedAt=1703334149713"
+        alt="loading"
+      />
+    </Spin>
+  );
+};
 
 export function InputField({ value, onChange, id, placeholder, type }) {
   return (

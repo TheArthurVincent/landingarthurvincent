@@ -15,6 +15,7 @@ import {
   getVideoEmbedUrl,
   ImgBlog,
   Xp,
+  SpinLoading,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -61,25 +62,7 @@ export function Blog() {
     setSeeConfirmDelete(!seeConfirmDelete);
   };
 
-  const [posts, setPosts] = useState([
-    {
-      text: (
-        <>
-          <div style={{ display: "grid", gap: "0.5rem" }}>
-            <Skeleton variant="rectangular" width={1500} height={100} />
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-              <Skeleton variant="rectangular" width={1500} height={400} />
-            </div>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-              <Skeleton variant="rectangular" width={490} height={60} />
-              <Skeleton variant="rectangular" width={490} height={60} />
-              <Skeleton variant="rectangular" width={490} height={60} />
-            </div>
-          </div>
-        </>
-      ),
-    },
-  ]);
+  const [posts, setPosts] = useState([{ text: <SpinLoading /> }]);
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));

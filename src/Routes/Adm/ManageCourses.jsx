@@ -11,8 +11,8 @@ import {
   Button,
   backDomain,
   InputFieldNotRequired,
-  Spin,
   Xp,
+  SpinLoading,
 } from "../../Resources/UniversalComponents";
 import { FormList2 } from "./Adm.Styled";
 import Box from "@mui/material/Box";
@@ -288,7 +288,7 @@ export function ManageCourses({ headers }) {
             }}
           >
             {loading ? (
-              <Spin />
+              <SpinLoading />
             ) : (
               <div
                 style={{
