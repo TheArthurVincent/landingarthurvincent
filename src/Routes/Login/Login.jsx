@@ -13,7 +13,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export function Login() {
@@ -30,7 +30,7 @@ export function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButton("...");
+    setButton(<CircularProgress/>);
     setLoading(true);
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {

@@ -3,9 +3,9 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   Button,
-  SpinLoading,
   backDomain,
 } from "../../Resources/UniversalComponents";
+import { CircularProgress } from "@mui/material";
 
 export function NewTutoring({ headers }) {
   const [newTitle, setNewTitle] = useState("");
@@ -18,7 +18,6 @@ export function NewTutoring({ headers }) {
   const [standardValue, setStandardValue] = useState("Aluno");
   const [verify, setVerify] = useState(true);
   const [button, setButton] = useState("Criar");
-  const [dots, setDots] = useState("");
 
   const reset = () => {
     setNewTitle("");
@@ -60,46 +59,10 @@ export function NewTutoring({ headers }) {
     setVerify(false);
     setSelectedStudentID(event.target.value);
   };
-  function setButtonDots() {
-    const intervalId = setInterval(() => {
-      setDots(".");
-    }, 500);
-
-    setTimeout(() => {
-      clearInterval(intervalId); // Stop the first interval
-
-      const intervalId2 = setInterval(() => {
-        setDots("..");
-      }, 500);
-
-      setTimeout(() => {
-        clearInterval(intervalId2); // Stop the second interval
-
-        const intervalId3 = setInterval(() => {
-          setDots("...");
-        }, 500);
-
-        setTimeout(() => {
-          clearInterval(intervalId3); // Stop the third interval
-
-          // After the third interval, you can call setButtonDots again to make it cyclical
-          setButtonDots();
-        }, 500);
-      }, 500);
-    }, 500);
-  }
-
-  // useEffect(() => {
-  //   setButtonDots().then((result) => {
-  //     buttonText = result;
-  //     console.log("Texto completo:", buttonText);
-  //   });
-  // }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setButton(dots);
-    setButtonDots();
+    setButton(<CircularProgress />);
     let newTutoring = {
       title: newTitle,
       date: newDate,

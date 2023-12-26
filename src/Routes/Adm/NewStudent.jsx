@@ -8,6 +8,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import { FormList } from "./Adm.Styled";
 import FindStudent from "./FindStudent";
+import { CircularProgress } from "@mui/material";
 
 export function NewStudent({ headers }) {
   const [newName, setNewName] = useState("");
@@ -24,11 +25,6 @@ export function NewStudent({ headers }) {
   const [newGoogleDriveLink, setNewGoogleDriveLink] = useState("");
   const [upload, setUpload] = useState(true);
   const [button, setButton] = useState("Cadastrar");
-  const [uploadStatus, setUploadStatus] = useState(false);
-
-  const handleUploadStatusChange = () => {
-    setUploadStatus(!uploadStatus);
-  };
 
   const reset = () => {
     setNewName("");
@@ -50,7 +46,7 @@ export function NewStudent({ headers }) {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setButton("...");
+    setButton(<CircularProgress />);
     let newStudent = {
       username: newUsername,
       password: newPassword,
@@ -77,12 +73,12 @@ export function NewStudent({ headers }) {
         `${backDomain}/api/v1/students/`,
         newStudent
       );
-
       reset();
     } catch (error) {
       setButton("...");
       alert("Erro ao cadastrar aluno");
       setButton("Cadastrar");
+      reset();
     }
   };
 
