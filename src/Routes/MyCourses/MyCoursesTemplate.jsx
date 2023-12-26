@@ -10,13 +10,20 @@ import {
   alwaysWhite,
   darkGreyColor,
   lightGreyColor,
-  textPrimaryColorContrast,
+  primaryColor,
 } from "../../Styles/Styles";
 import CoursesSideBar from "../../Application/CoursesSideBar/CoursesSideBar";
 import { styled } from "styled-components";
 import TopBar from "../../Application/TopBar/TopBar";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {
+  HOne,
+  HThree,
+  HTwo,
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
 
 export default function MyCoursesTemplate({
   _id,
@@ -121,198 +128,176 @@ export default function MyCoursesTemplate({
     <div>
       <CoursesSideBar courses={courses} />
       <TopBar />
-      <div style={{ maxWidth: "105rem", margin: "auto", padding: "1rem" }}>
-        <div>
-          <h1
-            style={{
-              marginBottom: 0,
-              padding: "0.5rem 0",
-              fontSize: "2rem",
-              fontWeight: 600,
-              backgroundColor: lightGreyColor(),
-              color: alwaysBlack(),
-              textAlign: "center",
-            }}
-          >
-            {title}
-          </h1>
-          <h2
-            style={{
-              textAlign: "center",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: 0,
-              padding: "5px",
-              fontSize: "1.3rem",
-              fontWeight: 500,
-              color: courseColor,
-              backgroundColor: textPrimaryColorContrast(),
-              textTransform: "capitalize",
-            }}
-          >
-            {chosenTitle}
-          </h2>
-        </div>
-        <FullDisplay>
-          <DivCourse>
-            {courseModules[chosenModule] &&
-              courseModules[chosenModule].classes &&
-              courseModules[chosenModule].classes[chosenClass] &&
-              courseModules[chosenModule].classes[chosenClass].srcVideos.map(
-                (videoItem, videoIndex) => {
+      <RouteSizeControlBox
+      style={{maxWidth:"75rem"}}>
+        <RouteDiv>
+          <div>
+            <HOne>{title}</HOne>
+
+            <HTwo>{chosenTitle}</HTwo>
+          </div>
+          <FullDisplay>
+            <DivCourse>
+              {courseModules[chosenModule] &&
+                courseModules[chosenModule].classes &&
+                courseModules[chosenModule].classes[chosenClass] &&
+                courseModules[chosenModule].classes[chosenClass].srcVideos.map(
+                  (videoItem, videoIndex) => {
+                    return (
+                      <div
+                        key={videoIndex}
+                        style={{
+                          padding: "1rem",
+                          display: "grid",
+                          gap: "1rem",
+                          alignContent: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {videoItem.title && (
+                          <p style={{ color: primaryColor() }}>
+                            {videoItem.title}
+                          </p>
+                        )}{" "}
+                        {videoItem.url && (
+                          <IFrameVideoCourses
+                            style={{
+                              border: "solid 1px black",
+                              borderRadius: "1rem",
+                            }}
+                            src={getVideoEmbedUrl(videoItem.url)}
+                          />
+                        )}
+                        {videoItem.description && (
+                          <p
+                            style={{
+                              color: alwaysBlack(),
+                              maxWidth: "120ch",
+                              padding: "1rem",
+                            }}
+                          >
+                            {videoItem.description}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  }
+                )}
+              {courseModules[chosenModule] &&
+                courseModules[chosenModule].classes &&
+                courseModules[chosenModule].classes[chosenClass] &&
+                courseModules[chosenModule].classes[
+                  chosenClass
+                ].srcAttachments.map((att, index) => {
                   return (
                     <div
-                      key={videoIndex}
+                      key={index}
                       style={{
-                        padding: "1rem",
-                        display: "grid",
-                        gap: "1rem",
-                        alignContent: "center",
-                        justifyContent: "center",
+                        padding: "0.5rem",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-evenly",
+                        maxWidth: "30rem",
+                        margin: "5px auto",
+                        borderRadius: "0.5rem",
+                        backgroundColor: alwaysBlack(),
                       }}
                     >
-                      {videoItem.title && (
-                        <h3
+                      {att.title && att.description && (
+                        <span style={{ maxWidth: "120ch" }}>
+                          {att.description}
+                        </span>
+                      )}
+                      |
+                      {att.url && (
+                        <Link
+                          to={att.url}
                           style={{
-                            textTransform: "capitalize",
-                            textAlign: "left",
-                            margin: "0.5rem",
-                            fontSize: "1.2rem",
-                            borderLeft: `3px solid ${courseColor}`,
-                            borderRadius: "0.5rem",
-                            paddingLeft: "1rem",
-                            color: courseColor,
+                            textDecoration: "underline",
+                            color: "white",
                           }}
                         >
-                          {videoItem.title}
-                        </h3>
-                      )}{" "}
-                      {videoItem.url && (
-                        <IFrameVideoCourses
-                          src={getVideoEmbedUrl(videoItem.url)}
-                        />
-                      )}
-                      {videoItem.description && (
-                        <p style={{ color: alwaysBlack(), maxWidth: "120ch" }}>
-                          {videoItem.description}
-                        </p>
+                          {att.title}
+                        </Link>
                       )}
                     </div>
                   );
-                }
-              )}
-            {courseModules[chosenModule] &&
-              courseModules[chosenModule].classes &&
-              courseModules[chosenModule].classes[chosenClass] &&
-              courseModules[chosenModule].classes[
-                chosenClass
-              ].srcAttachments.map((att, index) => {
-                return (
-                  <div
-                    key={index}
-                    style={{
-                      padding: "0.5rem",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-evenly",
-                      maxWidth: "30rem",
-                      margin: "5px auto",
-                      borderRadius: "0.5rem",
-                      backgroundColor: alwaysBlack(),
-                    }}
-                  >
-                    {att.title && att.description && (
-                      <span style={{ maxWidth: "120ch" }}>
-                        {att.description}
-                      </span>
-                    )}
-                    |
-                    {att.url && (
-                      <Link
-                        to={att.url}
-                        style={{ textDecoration: "underline", color: "white" }}
-                      >
-                        {att.title}
-                      </Link>
-                    )}
-                  </div>
-                );
-              })}
-          </DivCourse>
-          <SideBarCourse>
-            <BackToHomePage />
-            {courseModules.map((item, index) => {
-              return item ? (
-                <div key={index}>
-                  <ul>
-                    <li
-                      style={{
-                        listStyle: "none",
-                      }}
-                    >
-                      <h2
+                })}
+            </DivCourse>
+            <SideBarCourse>
+              <BackToHomePage />
+              {courseModules.map((item, index) => {
+                return item ? (
+                  <div key={index}>
+                    <ul>
+                      <li
                         style={{
-                          padding: "0.3rem 1rem",
-                          fontSize: "1.2rem",
-                          fontWeight: "600",
-                          textTransform: "uppercase",
+                          listStyle: "none",
                         }}
                       >
-                        {item.moduleTitle}
-                      </h2>
-                      <div>
-                        {item.classes && (
-                          <ul>
-                            {item.classes.map((classItem, classIndex) => (
-                              <LiItem
-                                style={{
-                                  fontSize: "1rem",
-                                  paddingLeft: "8px",
-                                  borderRadius:
-                                    classItem.classTitle === chosenTitle
-                                      ? "0.2rem"
-                                      : "none",
-                                  borderLeft:
-                                    classItem.classTitle === chosenTitle
-                                      ? `4px solid ${courseColor}`
-                                      : "none",
-                                  color:
-                                    classItem.classTitle === chosenTitle
-                                      ? courseColor
-                                      : "none",
-                                  fontWeight:
-                                    classItem.classTitle === chosenTitle
-                                      ? 800
-                                      : "none",
-                                  cursor:
-                                    classItem.classTitle === chosenTitle
-                                      ? "auto"
-                                      : "pointer",
-                                }}
-                                key={classIndex}
-                                onClick={() => {
-                                  choseClass(
-                                    index,
-                                    classIndex,
-                                    classItem.classTitle
-                                  );
-                                }}
-                              >
-                                {classItem.classTitle}
-                              </LiItem>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              ) : null;
-            })}
-          </SideBarCourse>
-        </FullDisplay>
-      </div>
+                        <h2
+                          style={{
+                            padding: "0.3rem 1rem",
+                            fontSize: "1.2rem",
+                            fontWeight: "600",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          {item.moduleTitle}
+                        </h2>
+                        <div>
+                          {item.classes && (
+                            <ul>
+                              {item.classes.map((classItem, classIndex) => (
+                                <LiItem
+                                  style={{
+                                    fontSize: "1rem",
+                                    paddingLeft: "8px",
+                                    borderRadius:
+                                      classItem.classTitle === chosenTitle
+                                        ? "0.2rem"
+                                        : "none",
+                                    borderLeft:
+                                      classItem.classTitle === chosenTitle
+                                        ? `4px solid ${courseColor}`
+                                        : "none",
+                                    color:
+                                      classItem.classTitle === chosenTitle
+                                        ? courseColor
+                                        : "none",
+                                    fontWeight:
+                                      classItem.classTitle === chosenTitle
+                                        ? 800
+                                        : "none",
+                                    cursor:
+                                      classItem.classTitle === chosenTitle
+                                        ? "auto"
+                                        : "pointer",
+                                  }}
+                                  key={classIndex}
+                                  onClick={() => {
+                                    choseClass(
+                                      index,
+                                      classIndex,
+                                      classItem.classTitle
+                                    );
+                                  }}
+                                >
+                                  {classItem.classTitle}
+                                </LiItem>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                ) : null;
+              })}
+            </SideBarCourse>
+          </FullDisplay>
+        </RouteDiv>
+      </RouteSizeControlBox>
     </div>
   );
 }

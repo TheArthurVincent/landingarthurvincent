@@ -271,14 +271,10 @@ export const IFrameVideo = styled.iframe`
 `;
 
 export const IFrameVideoCourses = styled.iframe`
-  min-width: 1600px;
-  min-height: 750px;
   border: none;
-  @media (max-width: 1860px) {
-    margin-top: 0;
-    min-width: 1200px;
-    min-height: 750px;
-  }
+  margin-top: 0;
+  min-width: 1200px;
+  min-height: 750px;
   @media (max-width: 1500px) {
     margin-top: 0;
     min-width: 810px;
