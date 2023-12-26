@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
-import { Button, backDomain } from "../../Resources/UniversalComponents";
+import {
+  Button,
+  SpinLoading,
+  backDomain,
+} from "../../Resources/UniversalComponents";
 
 export function NewTutoring({ headers }) {
   const [newTitle, setNewTitle] = useState("");
@@ -11,6 +15,20 @@ export function NewTutoring({ headers }) {
   const [newAttachment, setNewAttachment] = useState("");
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
+  const [standardValue, setStandardValue] = useState("Aluno");
+  const [verify, setVerify] = useState(true);
+  const [button, setButton] = useState("Criar");
+  const [dots, setDots] = useState("");
+
+  const reset = () => {
+    setNewTitle("");
+    setNewDate("");
+    setNewVideoUrl("");
+    setNewText("");
+    setNewAttachment("");
+    setSelectedStudentID("");
+    setVerify(true);
+  };
 
   function formatDate(inputDate) {
     const parts = inputDate.split("-");
@@ -23,29 +41,65 @@ export function NewTutoring({ headers }) {
     return formattedDate;
   }
 
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/students/`,
+        headers
+      );
+      setStudent(response.data.listOfStudents);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
   useEffect(() => {
-    const fetchStudents = async () => {
-      try {
-        const response = await axios.get(
-          `${backDomain}/api/v1/students/`,
-          headers
-        );
-        setStudent(response.data.listOfStudents);
-      } catch (error) {
-        alert("Erro ao encontrar alunos");
-      }
-    };
-
     fetchStudents();
   }, []);
 
   const handleSelectChange = (event) => {
+    setVerify(false);
     setSelectedStudentID(event.target.value);
   };
+  function setButtonDots() {
+    const intervalId = setInterval(() => {
+      setDots(".");
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(intervalId); // Stop the first interval
+
+      const intervalId2 = setInterval(() => {
+        setDots("..");
+      }, 500);
+
+      setTimeout(() => {
+        clearInterval(intervalId2); // Stop the second interval
+
+        const intervalId3 = setInterval(() => {
+          setDots("...");
+        }, 500);
+
+        setTimeout(() => {
+          clearInterval(intervalId3); // Stop the third interval
+
+          // After the third interval, you can call setButtonDots again to make it cyclical
+          setButtonDots();
+        }, 500);
+      }, 500);
+    }, 500);
+  }
+
+  // useEffect(() => {
+  //   setButtonDots().then((result) => {
+  //     buttonText = result;
+  //     console.log("Texto completo:", buttonText);
+  //   });
+  // }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setButton(dots);
+    setButtonDots();
     let newTutoring = {
       title: newTitle,
       date: newDate,
@@ -60,9 +114,14 @@ export function NewTutoring({ headers }) {
         newTutoring
       );
       alert("Aula criada com sucesso!");
-      window.location.href = "/";
+      fetchStudents();
+      reset();
+      setButton("Criar");
     } catch (error) {
       alert("Erro ao salvar aula");
+      fetchStudents();
+      reset();
+      setButton("Criar");
     }
   };
 
@@ -79,7 +138,7 @@ export function NewTutoring({ headers }) {
           }}
           onChange={handleSelectChange}
         >
-          <option style={{ cursor: "pointer" }} value="aluno" hidden>
+          <option style={{ cursor: "pointer" }} value={standardValue} hidden>
             Escolha o aluno
           </option>
           {student.map((option, index) => {
@@ -182,7 +241,7 @@ export function NewTutoring({ headers }) {
           required
         />
         <Button style={{ marginLeft: "auto" }} type="submit">
-          Criar
+          {button}
         </Button>
       </form>
     </RouteDiv>

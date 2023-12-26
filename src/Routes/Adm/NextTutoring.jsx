@@ -80,7 +80,6 @@ export function NextTutoring({ headers }) {
         newScheduledTutoring
       );
       alert("Aula marcada com sucesso!");
-      window.location.href = "/adm";
       resetForm();
     } catch (error) {
       alert("Erro ao marcar aula");

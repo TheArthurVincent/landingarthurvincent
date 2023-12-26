@@ -90,19 +90,18 @@ export function Blog() {
     setIsNextClassVisible(!isNextClassVisible);
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(`${backDomain}/api/v1/blogposts`);
+  async function fetchData() {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/blogposts`);
 
-        setTimeout(() => {
-          setPosts(response.data.listOfPosts || posts);
-        }, 500);
-      } catch (error) {
-        alert("Erro ao importar posts");
-      }
+      setTimeout(() => {
+        setPosts(response.data.listOfPosts || posts);
+      }, 500);
+    } catch (error) {
+      alert("Erro ao importar posts");
     }
-
+  }
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -131,10 +130,13 @@ export function Blog() {
         `${backDomain}/api/v1/blogposts/${id}`,
         editedPost
       );
-      window.location.href = "/";
+      fetchData();
+      handleSeeModal();
     } catch (error) {
       alert("Erro ao editar post");
       console.error(error);
+      fetchData();
+      handleSeeModal();
     }
   };
 
@@ -144,10 +146,13 @@ export function Blog() {
         `${backDomain}/api/v1/blogposts/${id}`
       );
       alert("Post definitivamente excluído");
-      window.location.href = "/";
+      handleSeeModal();
+      fetchData();
     } catch (error) {
       alert("Erro ao editar post");
       console.error(error);
+      handleSeeModal();
+      fetchData();
     }
   };
 

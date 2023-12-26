@@ -97,10 +97,12 @@ export function FindStudent({ uploadStatus, headers }) {
         `${backDomain}/api/v1/students/${id}`,
         editedStudent
       );
-      window.location.href = "/adm";
       alert("Usuário editado com sucesso!");
+      handleSeeModal();
+      fetchStudents();
     } catch (error) {
       alert("Erro ao editar usuário");
+      handleSeeModal();
     }
   };
 
@@ -113,11 +115,12 @@ export function FindStudent({ uploadStatus, headers }) {
         `${backDomain}/api/v1/studentpermissions/${id}`,
         editedStudent
       );
-      window.location.href = "/adm";
-
+      handleSeeModal();
+      fetchStudents();
       alert("Permissões editadas com sucesso!");
     } catch (error) {
       alert("Erro ao editar permissões");
+      handleSeeModal();
     }
   };
 
@@ -136,19 +139,14 @@ export function FindStudent({ uploadStatus, headers }) {
         `${backDomain}/api/v1/studentpassword/${id}`,
         studentWhosePasswordYouWantToChange
       );
-      window.location.href = "/adm";
-
       alert("Senha editada com sucesso!");
+      fetchStudents();
+      handleSeeModal();
     } catch (error) {
       alert("Erro ao editar senha");
+      handleSeeModal();
     }
   };
-
-  // const see = () => {
-  //   let authorization = JSON.parse(localStorage.getItem("authorization"));
-  //   let authorization2 = JSON.parse(localStorage.authorization);
-  //   console.log(authorization2);
-  // };
 
   const fetchStudents = async () => {
     try {
@@ -174,7 +172,6 @@ export function FindStudent({ uploadStatus, headers }) {
       alert("Aluno excluído");
       fetchStudents();
       handleSeeModal();
-      // window.location.href = "/adm";
     } catch (error) {
       alert(error);
 
@@ -263,17 +260,6 @@ export function FindStudent({ uploadStatus, headers }) {
                   </span>
                   : {student.doc}
                 </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.id}
-                  </span>
-                  : {student.id}
-                </li>
-
                 <li>
                   <span
                     style={{
