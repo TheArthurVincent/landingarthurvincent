@@ -30,7 +30,7 @@ export function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButton(<CircularProgress/>);
+    setButton(<CircularProgress />);
     setLoading(true);
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {
@@ -140,6 +140,15 @@ export function Login() {
             </Button>
           </div>
         </form>
+        <img
+          style={{
+            marginTop: "2rem",
+            maxWidth: "5rem",
+            margin: "auto",
+          }}
+          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/arvinarvin.png?updatedAt=1703700008978"
+          alt=""
+        />
       </div>
       {/* <Button
         style={{
