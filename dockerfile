@@ -6,9 +6,11 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 RUN npm install
+RUN npm isntall --global serve
+COPY . .
+RUN npm run build
 # If you are building your code for production
 # RUN npm ci --omit=dev
 # Bundle app source
-COPY . .
-EXPOSE 5173
+EXPOSE 3000
 CMD [ "npm", "start" ]
