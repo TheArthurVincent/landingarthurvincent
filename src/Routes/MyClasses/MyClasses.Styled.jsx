@@ -46,7 +46,7 @@ export const ClassBox = styled.div`
   justify-content: space-evenly;
   padding-bottom: 4rem;
   border-bottom: solid 1px ${primaryColor()};
-  @media (max-width: 1700px) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
 `;

@@ -85,9 +85,6 @@ export default function MyCoursesTemplate({
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
-    /* @media (max-width: 800px) {
-      max-height: 45vh;
-    } */
   `;
 
   const SideBarCourse = styled.div`

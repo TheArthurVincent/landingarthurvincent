@@ -110,22 +110,22 @@ function App() {
         style={{
           textAlign: "center",
           bottom: "0vh",
-          flexDirection: "column",
-          fontSize: "12px",
+          fontSize: "15px",
           alignItems: "center",
-          gap: "0.8rem",
           backgroundColor: "#111",
           color: "#eee",
           display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
           width: "100vw",
         }}
       >
         <img
           style={{
-            maxWidth: "2.2rem",
+            maxWidth: "15rem",
             marginTop: "1rem",
           }}
-          src="https://ik.imagekit.io/vjz75qw96/assets/aRVIN).png?updatedAt=1697560090366"
+          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/arvinarvin.png?updatedAt=1703700008978"
           alt=""
         />
         <span
@@ -133,8 +133,8 @@ function App() {
             marginBottom: "1rem",
           }}
         >
-          Portal Arvin para professores particulares © Some rights reserved
-        </span>{" "}
+          This platform is powered by ARVIN ENGLISH SCHOOL © Some rights reserved
+        </span>
       </footer>
     </All>
   );
