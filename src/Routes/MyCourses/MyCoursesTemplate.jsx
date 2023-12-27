@@ -70,8 +70,6 @@ export default function MyCoursesTemplate({
   `;
 
   const DivCourse = styled.div`
-    height: 100vh;
-    overflow: auto;
     background-color: ${alwaysWhite()};
     color: ${lightGreyColor()};
     text-transform: capitalize;
@@ -87,9 +85,9 @@ export default function MyCoursesTemplate({
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
-    @media (max-width: 800px) {
+    /* @media (max-width: 800px) {
       max-height: 45vh;
-    }
+    } */
   `;
 
   const SideBarCourse = styled.div`
@@ -118,7 +116,6 @@ export default function MyCoursesTemplate({
   const FullDisplay = styled.div`
     display: grid;
     grid-template-columns: 1fr 20rem;
-    max-width: 100vw;
     @media (max-width: 800px) {
       grid-template-columns: 1fr;
     }
@@ -129,11 +126,10 @@ export default function MyCoursesTemplate({
       <CoursesSideBar courses={courses} />
       <TopBar />
       <RouteSizeControlBox
-      style={{maxWidth:"75rem"}}>
+      >
         <RouteDiv>
           <div>
             <HOne>{title}</HOne>
-
             <HTwo>{chosenTitle}</HTwo>
           </div>
           <FullDisplay>
