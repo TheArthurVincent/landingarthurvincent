@@ -34,6 +34,7 @@ export function Blog() {
   const [_id, setID] = useState("");
   const [_StudentId, setStudentId] = useState("");
   const [newText, setNewText] = useState("");
+  const [newImg, setNewImg] = useState("");
   const [newUrlVideo, setNewUrlVideo] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
@@ -116,6 +117,7 @@ export function Blog() {
       setNewTitle(response.data.formattedBlogPost.title);
       setNewUrlVideo(response.data.formattedBlogPost.videoUrl);
       setNewText(response.data.formattedBlogPost.text);
+      setNewImg(response.data.formattedBlogPost.img);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -128,6 +130,7 @@ export function Blog() {
         title: newTitle,
         videoUrl: newUrlVideo,
         text: newText,
+        img: newImg,
       };
       const response = await axios.put(
         `${backDomain}/api/v1/blogposts/${id}`,
@@ -255,72 +258,6 @@ export function Blog() {
                     </Tooltip>
                   );
                 })}
-                {/* <Link
-                  style={{
-                    marginRight: "1.2rem",
-                    marginLeft: "auto",
-                    maxWidth: "fit-content",
-                    color: primaryColor(),
-                    padding: "0.5rem",
-                    fontSize: "0.8rem",
-                    backgroundColor: textPrimaryColorContrast(),
-                    borderRadius: "5px",
-                  }}
-                  target="_blank"
-                  to="https://ankiweb.net/decks"
-                >
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    Anki
-                  </span>
-                </Link>
-                <Link
-                  style={{
-                    marginRight: "1.2rem",
-                    marginLeft: "auto",
-                    maxWidth: "fit-content",
-                    color: primaryColor(),
-                    padding: "0.5rem",
-                    fontSize: "1rem",
-                    backgroundColor: textPrimaryColorContrast(),
-                    borderRadius: "5px",
-                  }}
-                  target="_blank"
-                  to={googleDriveLink}
-                >
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    {UniversalTexts.personalFolder}
-                  </span>
-                </Link>
-                <Link
-                  style={{
-                    marginRight: "1.2rem",
-                    marginLeft: "auto",
-                    maxWidth: "fit-content",
-                    color: primaryColor(),
-                    padding: "0.5rem",
-                    fontSize: "1rem",
-                    backgroundColor: textPrimaryColorContrast(),
-                    borderRadius: "5px",
-                  }}
-                  target="_blank"
-                  to="https://wa.me/5511915857807"
-                >
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    {UniversalTexts.talkToTheTeacher}
-                  </span>
-                </Link> */}
               </div>
             </div>
             {!isNextClassVisible ? (
@@ -433,11 +370,14 @@ export function Blog() {
                   )}
                 </BlogPostTitle>
               )}
-              {post.img && <ImgBlog src={post.img} alt="logo" />}
               <DivPost>
-                {post.videoUrl && (
-                  <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
-                )}
+                <>
+                  {post.videoUrl ? (
+                    <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
+                  ) : post.img ? (
+                    <ImgBlog src={post.img} alt="logo" />
+                  ) : null}
+                </>
                 <div
                   style={{
                     margin: "1rem",
@@ -502,6 +442,24 @@ export function Blog() {
               onChange={(event) => setNewUrlVideo(event.target.value)}
               id="VideoUrl"
               placeholder="VideoUrl (Youtube/Vimeo)"
+              type="text"
+              style={{
+                alignItems: "center",
+                justifyContent: "space-around",
+                padding: "0.4rem",
+                marginBottom: "0.3rem",
+                fontSize: "1.1rem",
+                fontWeight: 500,
+                backgroundColor: "white",
+                width: "95%",
+                border: "#555 1px solid",
+              }}
+            />
+            <input
+              value={newImg}
+              onChange={(event) => setNewImg(event.target.value)}
+              id="VideoUrl"
+              placeholder="Imagem URL"
               type="text"
               style={{
                 alignItems: "center",
