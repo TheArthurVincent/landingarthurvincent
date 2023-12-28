@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
-import {
-  SpinLoading,
-  Xp,
-  backDomain,
-  linkReset,
-} from "../../Resources/UniversalComponents";
+import { Xp, backDomain, linkReset } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab, Button } from "@mui/material";
+import { Box, Tab, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysBlack,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  transparentBlack,
-  transparentWhite,
 } from "../../Styles/Styles";
 
 export function FindStudent({ uploadStatus, headers }) {
@@ -359,7 +352,7 @@ export function FindStudent({ uploadStatus, headers }) {
           }}
         >
           <p>Carregando dados</p>
-          <SpinLoading />
+          <CircularProgress />
         </div>
       )}
 
