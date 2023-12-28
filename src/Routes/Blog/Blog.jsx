@@ -1,4 +1,4 @@
-import ReactHtmlParser from "react-html-parser";
+// import ReactHtmlParser from "react-html-parser";
 
 import React, { useEffect, useState } from "react";
 import {
@@ -398,7 +398,8 @@ export function Blog() {
                     color: alwaysBlack(),
                   }}
                 >
-                  {ReactHtmlParser(post.text)}
+                  {/* {ReactHtmlParser(post.text)} */}
+                  {post.text}
                 </div>
               </DivPost>
             </div>
