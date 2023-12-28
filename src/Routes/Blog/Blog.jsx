@@ -1,5 +1,3 @@
-// import ReactHtmlParser from "react-html-parser";
-
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
@@ -398,8 +396,7 @@ export function Blog() {
                     color: alwaysBlack(),
                   }}
                 >
-                  {/* {ReactHtmlParser(post.text)} */}
-                  {post.text}
+                  <div dangerouslySetInnerHTML={{ __html: post.text }} />
                 </div>
               </DivPost>
             </div>
