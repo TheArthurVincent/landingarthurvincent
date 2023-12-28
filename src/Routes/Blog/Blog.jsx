@@ -352,7 +352,7 @@ export function Blog() {
                       padding: "0.5rem",
                     }}
                   >
-                    {UniversalTexts.loading}
+                    <CircularProgress />
                   </div>
                 ) : (
                   <>
