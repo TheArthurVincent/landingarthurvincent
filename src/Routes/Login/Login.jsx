@@ -140,15 +140,6 @@ export function Login() {
             </Button>
           </div>
         </form>
-        <img
-          style={{
-            marginTop: "2rem",
-            maxWidth: "5rem",
-            margin: "auto",
-          }}
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/arvinarvin.png?updatedAt=1703700008978"
-          alt=""
-        />
       </div>
       {/* <Button
         style={{
