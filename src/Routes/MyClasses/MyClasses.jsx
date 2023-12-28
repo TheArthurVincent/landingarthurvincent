@@ -13,38 +13,37 @@ import {
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
 import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
-import { Link } from "react-router-dom";
 import {
   alwaysBlack,
   lightGreyColor,
   primaryColor,
-  secondaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, Skeleton } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
 
 export function MyClasses() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
   const [classes, setClasses] = useState([]);
 
   const { UniversalTexts } = useUserContext();
   async function fetchMonthYear() {
+    setLoading(true);
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/tutoring/${getLoggedUser.id}`
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
+      setLoading(false);
     } catch (error) {}
   }
 
   useEffect(() => {
     fetchMonthYear();
-    setLoading(false);
   }, []);
 
   const handleNextPage = () => {
@@ -219,20 +218,7 @@ export function MyClasses() {
               {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
             </>
           ) : (
-            <>
-              <div style={{ display: "grid", gap: "0.5rem" }}>
-                <Skeleton variant="rectangular" width={1685} height={100} />
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <Skeleton variant="rectangular" width={1300} height={500} />
-                  <Skeleton variant="rectangular" width={370} height={500} />
-                </div>
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <Skeleton variant="rectangular" width={500} height={30} />
-                  <Skeleton variant="rectangular" width={500} height={30} />
-                  <Skeleton variant="rectangular" width={650} height={30} />
-                </div>
-              </div>
-            </>
+            <CircularProgress />
           )}
         </RouteDiv>
       </RouteSizeControlBox>

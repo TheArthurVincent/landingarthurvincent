@@ -77,14 +77,14 @@ export function NewTutoring({ headers }) {
         newTutoring
       );
       alert("Aula criada com sucesso!");
-      fetchStudents();
       reset();
       setButton("Criar");
+      fetchStudents();
     } catch (error) {
       alert("Erro ao salvar aula");
-      fetchStudents();
       reset();
       setButton("Criar");
+      fetchStudents();
     }
   };
 
