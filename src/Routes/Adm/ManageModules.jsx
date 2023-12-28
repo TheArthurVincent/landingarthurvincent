@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
-import { backDomain, SpinLoading } from "../../Resources/UniversalComponents";
+import { backDomain } from "../../Resources/UniversalComponents";
+import { CircularProgress } from "@mui/material";
 
 
 export function ManageModules() {
@@ -31,7 +32,7 @@ export function ManageModules() {
       <HOne>Gerenciar Módulos</HOne>
       <HTwo>Inserir novo módulo</HTwo>
       {loading ? (
-        <SpinLoading />
+        <CircularProgress />
       ) : (
         <select name="courses" id="courses">
           {coursesList.map((course, index) => (

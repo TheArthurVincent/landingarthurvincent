@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  HThree,
-  HTwo,
-  RouteDiv,
-} from "../../Resources/Components/RouteBox";
+import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   InputField,
@@ -12,7 +7,6 @@ import {
   backDomain,
   InputFieldNotRequired,
   Xp,
-  SpinLoading,
 } from "../../Resources/UniversalComponents";
 import { FormList2 } from "./Adm.Styled";
 import Box from "@mui/material/Box";
@@ -21,6 +15,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { alwaysWhite } from "../../Styles/Styles";
+import { CircularProgress } from "@mui/material";
 
 export function ManageCourses({ headers }) {
   const [title, setTitle] = useState("");
@@ -288,7 +283,7 @@ export function ManageCourses({ headers }) {
             }}
           >
             {loading ? (
-              <SpinLoading />
+              <CircularProgress />
             ) : (
               <div
                 style={{

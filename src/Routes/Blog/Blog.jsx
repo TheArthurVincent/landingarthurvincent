@@ -15,7 +15,6 @@ import {
   getVideoEmbedUrl,
   ImgBlog,
   Xp,
-  SpinLoading,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -25,7 +24,7 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, Skeleton } from "@mui/material";
+import { Button, CircularProgress, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
@@ -62,7 +61,11 @@ export function Blog() {
     setSeeConfirmDelete(!seeConfirmDelete);
   };
 
-  const [posts, setPosts] = useState([{ text: <SpinLoading /> }]);
+  const [posts, setPosts] = useState([
+    {
+      text: <CircularProgress />,
+    },
+  ]);
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
