@@ -44,11 +44,10 @@ body {
   background-color: #00132b;
 }
 body {
-  background-image: url('https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514');
+  background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-
 }
 /*https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514
  https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387
@@ -65,4 +64,15 @@ li {
 }
 .hidden {
   display: none;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-1%);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

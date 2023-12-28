@@ -172,7 +172,7 @@ export function Blog() {
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
-      <RouteSizeControlBox>
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <div
             style={{

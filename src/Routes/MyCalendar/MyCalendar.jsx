@@ -27,7 +27,7 @@ export function MyCalendar() {
   };
 
   return (
-    <RouteSizeControlBox>
+    <RouteSizeControlBox className="smooth">
       <RouteDiv>
         <HOne>{UniversalTexts.calendar}</HOne>
         <div

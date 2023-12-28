@@ -158,7 +158,7 @@ export function MyClasses() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox>
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           {!loading ? (
             <>

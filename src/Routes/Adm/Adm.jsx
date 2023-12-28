@@ -163,7 +163,7 @@ export function Adm() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox
+      <RouteSizeControlBox className="smooth"
         style={{
           maxWidth: "1000px",
         }}

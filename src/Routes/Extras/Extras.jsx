@@ -199,7 +199,7 @@ export function Extras() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox
+      <RouteSizeControlBox className="smooth"
         style={{
           maxWidth: "78rem",
         }}

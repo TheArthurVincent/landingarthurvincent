@@ -35,6 +35,11 @@ export const RouteSizeControlBox = styled.div`
   @media (max-width: 600px) {
     max-width: 450px;
   }
+  &.smooth {
+    animation-name: slideInLeft;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+  }
 `;
 
 export const HOne = styled.h1`
@@ -103,6 +108,7 @@ export const RouteDiv = styled.div`
   color: ${alwaysBlack()};
   padding: 0.5rem;
   margin: 0.5rem 0;
+
   @media (max-width: 750px) {
     padding: 5px;
     max-width: 600px;

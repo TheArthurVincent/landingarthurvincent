@@ -23,7 +23,7 @@ export function MyProfile() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox style={{ maxWidth: "fit-content" }}>
+      <RouteSizeControlBox className="smooth" style={{ maxWidth: "fit-content" }}>
         <RouteDiv>
           <HOne>{UniversalTexts.myProfile}</HOne>
           <BackToHomePage />
