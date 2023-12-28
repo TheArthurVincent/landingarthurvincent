@@ -5,7 +5,6 @@ import { Button, backDomain } from "../../Resources/UniversalComponents";
 import { Input } from "@mui/material";
 import {
   alwaysBlack,
-  darkGreyColor,
   primaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
@@ -23,22 +22,21 @@ export function NextTutoring({ headers }) {
 
   const [formState, setFormState] = useState({ ...initialFormState });
 
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/students/`,
+        headers
+      );
+      setFormState((prev) => ({
+        ...prev,
+        student: response.data.listOfStudents,
+      }));
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
   useEffect(() => {
-    const fetchStudents = async () => {
-      try {
-        const response = await axios.get(
-          `${backDomain}/api/v1/students/`,
-          headers
-        );
-        setFormState((prev) => ({
-          ...prev,
-          student: response.data.listOfStudents,
-        }));
-      } catch (error) {
-        alert("Erro ao encontrar alunos");
-      }
-    };
-
     fetchStudents();
   }, []);
 
@@ -80,11 +78,12 @@ export function NextTutoring({ headers }) {
         newScheduledTutoring
       );
       alert("Aula marcada com sucesso!");
-      resetForm();
       fetchStudents();
+      resetForm();
     } catch (error) {
       alert("Erro ao marcar aula");
       fetchStudents();
+      resetForm();
     }
   };
 
