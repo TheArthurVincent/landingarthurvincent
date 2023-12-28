@@ -81,8 +81,10 @@ export function NextTutoring({ headers }) {
       );
       alert("Aula marcada com sucesso!");
       resetForm();
+      fetchStudents();
     } catch (error) {
       alert("Erro ao marcar aula");
+      fetchStudents();
     }
   };
 
