@@ -2,15 +2,27 @@ import React, { useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
 
 export function NewPost({ headers }) {
+  const [conteudo, setConteudo] = useState("");
+
+  const handleChange = (value) => {
+    setConteudo(value);
+  };
+
   const [newTitle, setNewTitle] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
+  const [newImg, setNewImg] = useState("");
   const [newText, setNewText] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Nenhum");
 
+  const handleChooseOption = (event) => {
+    setSelectedOption(event.target.value);
+  };
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-
+    event.preventDefault(); 
     let newPost = {
       title: newTitle,
       videoUrl: newVideoUrl,
@@ -24,7 +36,7 @@ export function NewPost({ headers }) {
       alert("Post criado com sucesso!");
       window.location.href = "/";
     } catch (error) {
-      alert("Erro ao cadastrar usuário");
+      alert("Erro ao fazer post");
     }
   };
 
@@ -47,8 +59,35 @@ export function NewPost({ headers }) {
           onChange={(e) => setNewTitle(e.target.value)}
           required
         />{" "}
+        <p>Quer adicionar uma imagem/vídeo?</p>
+        <select
+          name="Selecione se quer postar uma imagem ou um vídeo"
+          onChange={handleChooseOption}
+          value={selectedOption}
+          id=""
+        >
+          <option value="Vídeo">Vídeo</option>
+          <option value="Imagem">Imagem</option>
+          <option value="Nenhum">Nenhum</option>
+        </select>
         <input
           style={{
+            display: selectedOption == "Imagem" ? "block" : "none",
+            alignItems: "center",
+            justifyContent: "space-around",
+            padding: "0.5rem",
+            margin: "0",
+            fontSize: "1.1rem",
+            fontWeight: 500,
+          }}
+          type="text"
+          placeholder="Nova Imagem (OPCIONAL)"
+          value={newImg}
+          onChange={(e) => setNewImg(e.target.value)}
+        />
+        <input
+          style={{
+            display: selectedOption == "Vídeo" ? "block" : "none",
             alignItems: "center",
             justifyContent: "space-around",
             padding: "0.5rem",
@@ -61,7 +100,7 @@ export function NewPost({ headers }) {
           value={newVideoUrl}
           onChange={(e) => setNewVideoUrl(e.target.value)}
         />
-        <textarea
+        {/* <textarea
           style={{
             alignItems: "center",
             justifyContent: "space-around",
@@ -78,7 +117,25 @@ export function NewPost({ headers }) {
           cols="30"
           rows="10"
           required
-        ></textarea>
+        /> */}
+          <div>
+          <ReactQuill
+            theme="snow"
+            value={newText}
+            onChange={(value) => setNewText(value)}
+            placeholder="Texto"
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.5rem",
+              margin: "0",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+            }}
+          />
+          {/* Use dangerouslySetInnerHTML apenas para exibição, se necessário */}
+          <div dangerouslySetInnerHTML={{ __html: newText }} />
+        </div>
         <Button style={{ marginLeft: "auto" }} type="submit">
           Criar
         </Button>

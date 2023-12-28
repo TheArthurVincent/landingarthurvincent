@@ -1,3 +1,5 @@
+import ReactHtmlParser from "react-html-parser";
+
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
@@ -24,7 +26,7 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, CircularProgress, Skeleton } from "@mui/material";
+import { Button, CircularProgress, Skeleton, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
@@ -34,6 +36,7 @@ export function Blog() {
   const [_id, setID] = useState("");
   const [_StudentId, setStudentId] = useState("");
   const [newText, setNewText] = useState("");
+  const [newImg, setNewImg] = useState("");
   const [newUrlVideo, setNewUrlVideo] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
@@ -43,6 +46,7 @@ export function Blog() {
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [permissions, setPermissions] = useState("");
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [nextTutoring, setNextTutoring] = useState({
     nextTutoring: {
@@ -63,7 +67,7 @@ export function Blog() {
 
   const [posts, setPosts] = useState([
     {
-      text: <CircularProgress />,
+      title: <CircularProgress />,
     },
   ]);
 
@@ -94,14 +98,17 @@ export function Blog() {
   };
 
   async function fetchData() {
+    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/blogposts`);
 
       setTimeout(() => {
         setPosts(response.data.listOfPosts || posts);
+        setLoading(false);
       }, 500);
     } catch (error) {
       alert("Erro ao importar posts");
+      setLoading(false);
     }
   }
   useEffect(() => {
@@ -116,6 +123,7 @@ export function Blog() {
       setNewTitle(response.data.formattedBlogPost.title);
       setNewUrlVideo(response.data.formattedBlogPost.videoUrl);
       setNewText(response.data.formattedBlogPost.text);
+      setNewImg(response.data.formattedBlogPost.img);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -128,6 +136,7 @@ export function Blog() {
         title: newTitle,
         videoUrl: newUrlVideo,
         text: newText,
+        img: newImg,
       };
       const response = await axios.put(
         `${backDomain}/api/v1/blogposts/${id}`,
@@ -172,7 +181,7 @@ export function Blog() {
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
-      <RouteSizeControlBox>
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <div
             style={{
@@ -184,12 +193,13 @@ export function Blog() {
           >
             <div
               style={{
-                display: "grid",
-                margin: "1rem",
-                gap: "0.1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "1rem",
+                gap: "1rem",
               }}
             >
-              {" "}
               <HTwo
                 style={{
                   margin: 0,
@@ -205,50 +215,55 @@ export function Blog() {
                   display: "flex",
                 }}
               >
-                <Link
-                  style={{
-                    marginRight: "1.2rem",
-                    marginLeft: "auto",
-                    maxWidth: "fit-content",
-                    color: primaryColor(),
-                    padding: "0.5rem",
-                    fontSize: "1rem",
-                    backgroundColor: textPrimaryColorContrast(),
-                    borderRadius: "5px",
-                  }}
-                  target="_blank"
-                  to="https://ankiweb.net/decks"
-                >
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    Anki
-                  </span>
-                </Link>{" "}
-                <Link
-                  style={{
-                    marginRight: "1.2rem",
-                    marginLeft: "auto",
-                    maxWidth: "fit-content",
-                    color: primaryColor(),
-                    padding: "0.5rem",
-                    fontSize: "1rem",
-                    backgroundColor: textPrimaryColorContrast(),
-                    borderRadius: "5px",
-                  }}
-                  target="_blank"
-                  to={googleDriveLink}
-                >
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    {UniversalTexts.googleDriveLink}
-                  </span>
-                </Link>{" "}
+                {[
+                  {
+                    link: "https://ankiweb.net/decks",
+                    title: <i class="fa fa-mobile" aria-hidden="true"></i>,
+                    tooltip: "Anki",
+                    color: "navy",
+                  },
+                  {
+                    link: googleDriveLink,
+                    title: <i class="fa fa-folder" aria-hidden="true"></i>,
+                    tooltip: UniversalTexts.personalFolder,
+                    color: "brown",
+                  },
+                  {
+                    link: "https://wa.me/5511915857807",
+                    title: <i class="fa fa-whatsapp" aria-hidden="true"></i>,
+                    tooltip: UniversalTexts.talkToTheTeacher,
+                    color: "green",
+                  },
+                ].map((item) => {
+                  return (
+                    <Tooltip title={item.tooltip}>
+                      <Link
+                        style={{
+                          marginRight: "0.5rem",
+                          color: primaryColor(),
+                          padding: "0.3rem",
+                          fontSize: "1.5rem",
+                          width: "1.5rem",
+                          height: "1.5rem",
+                          textAlign: "center",
+                          color: item.color,
+                          // backgroundColor: textPrimaryColorContrast(),
+                          // borderRadius: "5px",
+                        }}
+                        target="_blank"
+                        to={item.link}
+                      >
+                        <span
+                          style={{
+                            textDecoration: "underline",
+                          }}
+                        >
+                          {item.title}
+                        </span>
+                      </Link>
+                    </Tooltip>
+                  );
+                })}
               </div>
             </div>
             {!isNextClassVisible ? (
@@ -280,7 +295,7 @@ export function Blog() {
                       padding: "0.5rem",
                     }}
                   >
-                    {UniversalTexts.loading}
+                    <CircularProgress />
                   </div>
                 ) : (
                   <>
@@ -341,31 +356,37 @@ export function Blog() {
                     }}
                   >
                     <TitleChangeSize>{post.title} </TitleChangeSize>
-                    <Button
-                      style={{
-                        display: permissions == "superadmin" ? "flex" : "none",
-                        alignItems: "center",
-                        backgroundColor: secondaryColor(),
-                        color: textSecondaryColorContrast(),
-                        fontSize: "0.7rem",
-                        maxHeight: "1.2rem",
-                        maxWidth: "1.2rem",
-                      }}
-                      onClick={() => seeEdition(post._id)}
-                    >
-                      {UniversalTexts.editPost}
-                    </Button>
+                    {!loading && (
+                      <Button
+                        style={{
+                          display:
+                            permissions == "superadmin" ? "flex" : "none",
+                          alignItems: "center",
+                          backgroundColor: secondaryColor(),
+                          color: textSecondaryColorContrast(),
+                          fontSize: "0.7rem",
+                          maxHeight: "1.2rem",
+                          maxWidth: "1.2rem",
+                        }}
+                        onClick={() => seeEdition(post._id)}
+                      >
+                        {UniversalTexts.editPost}
+                      </Button>
+                    )}
                   </span>
                   {post.createdAt && (
                     <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
                   )}
                 </BlogPostTitle>
               )}
-              {post.img && <ImgBlog src={post.img} alt="logo" />}
               <DivPost>
-                {post.videoUrl && (
-                  <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
-                )}
+                <>
+                  {post.videoUrl ? (
+                    <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
+                  ) : post.img ? (
+                    <ImgBlog src={post.img} alt="logo" />
+                  ) : null}
+                </>
                 <div
                   style={{
                     margin: "1rem",
@@ -377,7 +398,7 @@ export function Blog() {
                     color: alwaysBlack(),
                   }}
                 >
-                  {post.text}
+                  {ReactHtmlParser(post.text)}
                 </div>
               </DivPost>
             </div>
@@ -430,6 +451,24 @@ export function Blog() {
               onChange={(event) => setNewUrlVideo(event.target.value)}
               id="VideoUrl"
               placeholder="VideoUrl (Youtube/Vimeo)"
+              type="text"
+              style={{
+                alignItems: "center",
+                justifyContent: "space-around",
+                padding: "0.4rem",
+                marginBottom: "0.3rem",
+                fontSize: "1.1rem",
+                fontWeight: 500,
+                backgroundColor: "white",
+                width: "95%",
+                border: "#555 1px solid",
+              }}
+            />
+            <input
+              value={newImg}
+              onChange={(event) => setNewImg(event.target.value)}
+              id="VideoUrl"
+              placeholder="Imagem URL"
               type="text"
               style={{
                 alignItems: "center",

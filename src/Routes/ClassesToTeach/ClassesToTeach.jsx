@@ -64,7 +64,7 @@ export default function ClassesToTeach() {
   return (
     <>
       <TopBar />{" "}
-      <RouteSizeControlBox style={{ maxWidth: "70rem" }}>
+      <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
         <RouteDiv>
           <HOne>{UniversalTexts.englishMaterial}</HOne>
           <BackToHomePage />

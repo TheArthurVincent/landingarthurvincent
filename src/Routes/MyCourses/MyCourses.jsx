@@ -16,7 +16,7 @@ export default function MyCourses({ courses }) {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox>
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <HOne>{UniversalTexts.myCourses}</HOne>
           <BackToHomePage />
