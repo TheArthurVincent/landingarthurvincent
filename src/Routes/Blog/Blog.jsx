@@ -1,3 +1,5 @@
+import ReactHtmlParser from "react-html-parser";
+
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
@@ -44,6 +46,7 @@ export function Blog() {
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [permissions, setPermissions] = useState("");
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [nextTutoring, setNextTutoring] = useState({
     nextTutoring: {
@@ -64,7 +67,7 @@ export function Blog() {
 
   const [posts, setPosts] = useState([
     {
-      text: <CircularProgress />,
+      title: <CircularProgress />,
     },
   ]);
 
@@ -95,14 +98,17 @@ export function Blog() {
   };
 
   async function fetchData() {
+    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/blogposts`);
 
       setTimeout(() => {
         setPosts(response.data.listOfPosts || posts);
+        setLoading(false);
       }, 500);
     } catch (error) {
       alert("Erro ao importar posts");
+      setLoading(false);
     }
   }
   useEffect(() => {
@@ -350,20 +356,23 @@ export function Blog() {
                     }}
                   >
                     <TitleChangeSize>{post.title} </TitleChangeSize>
-                    <Button
-                      style={{
-                        display: permissions == "superadmin" ? "flex" : "none",
-                        alignItems: "center",
-                        backgroundColor: secondaryColor(),
-                        color: textSecondaryColorContrast(),
-                        fontSize: "0.7rem",
-                        maxHeight: "1.2rem",
-                        maxWidth: "1.2rem",
-                      }}
-                      onClick={() => seeEdition(post._id)}
-                    >
-                      {UniversalTexts.editPost}
-                    </Button>
+                    {!loading && (
+                      <Button
+                        style={{
+                          display:
+                            permissions == "superadmin" ? "flex" : "none",
+                          alignItems: "center",
+                          backgroundColor: secondaryColor(),
+                          color: textSecondaryColorContrast(),
+                          fontSize: "0.7rem",
+                          maxHeight: "1.2rem",
+                          maxWidth: "1.2rem",
+                        }}
+                        onClick={() => seeEdition(post._id)}
+                      >
+                        {UniversalTexts.editPost}
+                      </Button>
+                    )}
                   </span>
                   {post.createdAt && (
                     <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
@@ -389,7 +398,7 @@ export function Blog() {
                     color: alwaysBlack(),
                   }}
                 >
-                  {post.text}
+                  {ReactHtmlParser(post.text)}
                 </div>
               </DivPost>
             </div>

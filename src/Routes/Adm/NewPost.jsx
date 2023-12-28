@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
-import { Select } from "@mui/material";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
 
 export function NewPost({ headers }) {
+  const [conteudo, setConteudo] = useState("");
+
+  const handleChange = (value) => {
+    setConteudo(value);
+  };
+
   const [newTitle, setNewTitle] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newImg, setNewImg] = useState("");
@@ -15,8 +22,7 @@ export function NewPost({ headers }) {
     setSelectedOption(event.target.value);
   };
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-
+    event.preventDefault(); 
     let newPost = {
       title: newTitle,
       videoUrl: newVideoUrl,
@@ -30,7 +36,7 @@ export function NewPost({ headers }) {
       alert("Post criado com sucesso!");
       window.location.href = "/";
     } catch (error) {
-      alert("Erro ao cadastrar usuário");
+      alert("Erro ao fazer post");
     }
   };
 
@@ -94,7 +100,7 @@ export function NewPost({ headers }) {
           value={newVideoUrl}
           onChange={(e) => setNewVideoUrl(e.target.value)}
         />
-        <textarea
+        {/* <textarea
           style={{
             alignItems: "center",
             justifyContent: "space-around",
@@ -111,7 +117,25 @@ export function NewPost({ headers }) {
           cols="30"
           rows="10"
           required
-        ></textarea>
+        /> */}
+          <div>
+          <ReactQuill
+            theme="snow"
+            value={newText}
+            onChange={(value) => setNewText(value)}
+            placeholder="Texto"
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.5rem",
+              margin: "0",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+            }}
+          />
+          {/* Use dangerouslySetInnerHTML apenas para exibição, se necessário */}
+          <div dangerouslySetInnerHTML={{ __html: newText }} />
+        </div>
         <Button style={{ marginLeft: "auto" }} type="submit">
           Criar
         </Button>
