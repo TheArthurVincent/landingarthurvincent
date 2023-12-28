@@ -24,7 +24,7 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, CircularProgress, Skeleton } from "@mui/material";
+import { Button, CircularProgress, Skeleton, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
@@ -184,12 +184,13 @@ export function Blog() {
           >
             <div
               style={{
-                display: "grid",
-                margin: "1rem",
-                gap: "0.1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "1rem",
+                gap: "1rem",
               }}
             >
-              {" "}
               <HTwo
                 style={{
                   margin: 0,
@@ -205,14 +206,63 @@ export function Blog() {
                   display: "flex",
                 }}
               >
-                <Link
+                {[
+                  {
+                    link: "https://ankiweb.net/decks",
+                    title: <i class="fa fa-mobile" aria-hidden="true"></i>,
+                    tooltip: "Anki",
+                    color: "navy",
+                  },
+                  {
+                    link: googleDriveLink,
+                    title: <i class="fa fa-folder" aria-hidden="true"></i>,
+                    tooltip: UniversalTexts.personalFolder,
+                    color: "brown",
+                  },
+                  {
+                    link: "https://wa.me/5511915857807",
+                    title: <i class="fa fa-whatsapp" aria-hidden="true"></i>,
+                    tooltip: UniversalTexts.talkToTheTeacher,
+                    color: "green",
+                  },
+                ].map((item) => {
+                  return (
+                    <Tooltip title={item.tooltip}>
+                      <Link
+                        style={{
+                          marginRight: "0.5rem",
+                          color: primaryColor(),
+                          padding: "0.3rem",
+                          fontSize: "1.5rem",
+                          width: "1.5rem",
+                          height: "1.5rem",
+                          textAlign: "center",
+                          color: item.color,
+                          // backgroundColor: textPrimaryColorContrast(),
+                          // borderRadius: "5px",
+                        }}
+                        target="_blank"
+                        to={item.link}
+                      >
+                        <span
+                          style={{
+                            textDecoration: "underline",
+                          }}
+                        >
+                          {item.title}
+                        </span>
+                      </Link>
+                    </Tooltip>
+                  );
+                })}
+                {/* <Link
                   style={{
                     marginRight: "1.2rem",
                     marginLeft: "auto",
                     maxWidth: "fit-content",
                     color: primaryColor(),
                     padding: "0.5rem",
-                    fontSize: "1rem",
+                    fontSize: "0.8rem",
                     backgroundColor: textPrimaryColorContrast(),
                     borderRadius: "5px",
                   }}
@@ -226,7 +276,7 @@ export function Blog() {
                   >
                     Anki
                   </span>
-                </Link>{" "}
+                </Link>
                 <Link
                   style={{
                     marginRight: "1.2rem",
@@ -246,9 +296,31 @@ export function Blog() {
                       textDecoration: "underline",
                     }}
                   >
-                    {UniversalTexts.googleDriveLink}
+                    {UniversalTexts.personalFolder}
                   </span>
-                </Link>{" "}
+                </Link>
+                <Link
+                  style={{
+                    marginRight: "1.2rem",
+                    marginLeft: "auto",
+                    maxWidth: "fit-content",
+                    color: primaryColor(),
+                    padding: "0.5rem",
+                    fontSize: "1rem",
+                    backgroundColor: textPrimaryColorContrast(),
+                    borderRadius: "5px",
+                  }}
+                  target="_blank"
+                  to="https://wa.me/5511915857807"
+                >
+                  <span
+                    style={{
+                      textDecoration: "underline",
+                    }}
+                  >
+                    {UniversalTexts.talkToTheTeacher}
+                  </span>
+                </Link> */}
               </div>
             </div>
             {!isNextClassVisible ? (

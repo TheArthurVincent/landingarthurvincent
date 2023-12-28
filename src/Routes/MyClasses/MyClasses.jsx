@@ -135,10 +135,9 @@ export function MyClasses() {
                 cursor: "pointer",
               }}
               value={itemsPerPage}
-              defaultValue={"4"}
               onChange={handleItemsPerPageChange}
             >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((option, index) => {
+              {[1, 5, 10].map((option, index) => {
                 return (
                   <option
                     style={{ cursor: "pointer" }}
@@ -199,17 +198,22 @@ export function MyClasses() {
                             {item.comments}
                           </p>
                         </div>
-                        {/* <HTwo>{UniversalTexts.attachments}</HTwo>
-                        <Link
-                          to={item.attachments}
-                          target="_blank"
-                          style={{
-                            textAlign: "center",
-                            color: secondaryColor(),
-                          }}
-                        >
-                          {UniversalTexts.attachments}
-                        </Link> */}
+                        {item.attachments && (
+                          <>
+                            {" "}
+                            <HTwo>{UniversalTexts.attachments}</HTwo>
+                            <Link
+                              to={item.attachments}
+                              target="_blank"
+                              style={{
+                                textAlign: "center",
+                                color: secondaryColor(),
+                              }}
+                            >
+                              {UniversalTexts.attachments}
+                            </Link>
+                          </>
+                        )}{" "}
                       </div>
                     </div>
                   </ClassBox>

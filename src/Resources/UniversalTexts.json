@@ -30,6 +30,8 @@
   "username": "Nome de usuário",
   "ankiInfo": "Dados do Anki",
   "googleDriveLink": "Google Drive",
+  "talkToTheTeacher": "Fale com o professor",
+  "personalFolder": "Pasta pessoal",
   "ankiEmail": "E-mail de acesso do Anki",
   "ankiPassword": "Senha de acesso do Anki",
   "delete": "Excluir",
