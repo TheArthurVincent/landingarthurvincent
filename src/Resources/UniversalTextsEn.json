@@ -44,6 +44,7 @@
   "deleteConfirm": "Delete post? (This action cannot be undone)",
   "id": "ID",
   "myStudents": "My students",
+  "nextClasses": "Next Classes",
   "courses": [
     { "name": "English Rise" },
     { "name": "English Plus" },

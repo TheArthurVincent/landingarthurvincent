@@ -31,7 +31,6 @@ export function NextTutorings({ headers }) {
     setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/nexttutoring`);
-      console.log("Aqui", response.data.pastTutorings);
       if (response.data.pastTutorings && response.data.futureTutorings) {
         setPast(response.data.pastTutorings);
         setFuture(response.data.futureTutorings);
@@ -135,7 +134,7 @@ export function NextTutorings({ headers }) {
   ];
   return (
     <RouteDiv style={{ margin: "1rem auto" }}>
-      <HOne>{UniversalTexts.myStudents} |</HOne>
+      <HOne>{UniversalTexts.nextClasses}</HOne>
       <TabContext value={value}>
         <Box
           style={{
