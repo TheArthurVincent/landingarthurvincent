@@ -18,6 +18,7 @@ import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses from "./ManageCourses";
 import { Link } from "react-router-dom";
 import { NextTutorings } from "./NextTutorings";
+import AllClasses from "./AllClasses";
 
 export function Adm() {
   const [value, setValue] = useState("0");
@@ -75,8 +76,14 @@ export function Adm() {
       component: <NewPost headers={headers} />,
     },
     {
-      title: "Links úteis",
+      title: "Aulas",
       value: "5",
+      tooltip: "Todas as aulas.",
+      component: <AllClasses />,
+    },
+    {
+      title: "Links úteis",
+      value: "6",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: (
