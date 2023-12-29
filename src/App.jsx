@@ -127,6 +127,13 @@ function App() {
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/arvintranmsp?updatedAt=1703788108765"
           alt="logo arvin"
         />
+        {/* <img
+          style={{
+            maxWidth: "3rem",
+          }}
+          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Thumbs%20de%20aulas%20(6)_PJkQj0b60.png?updatedAt=1703812468521"
+          alt="logo arvin"
+        /> */}
         <span
           style={{
             marginBottom: "1rem",

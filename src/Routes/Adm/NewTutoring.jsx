@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
-import {
-  Button,
-  backDomain,
-} from "../../Resources/UniversalComponents";
+import { Button, backDomain } from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
 
 export function NewTutoring({ headers }) {
@@ -77,14 +74,14 @@ export function NewTutoring({ headers }) {
         newTutoring
       );
       alert("Aula criada com sucesso!");
-      reset();
       setButton("Criar");
       fetchStudents();
+      reset();
     } catch (error) {
       alert("Erro ao salvar aula");
-      reset();
       setButton("Criar");
       fetchStudents();
+      reset();
     }
   };
 
