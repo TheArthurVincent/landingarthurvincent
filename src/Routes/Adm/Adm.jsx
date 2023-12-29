@@ -17,6 +17,7 @@ import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses from "./ManageCourses";
 import { Link } from "react-router-dom";
+import { NextTutorings } from "./NextTutorings";
 
 export function Adm() {
   const [value, setValue] = useState("0");
@@ -29,8 +30,14 @@ export function Adm() {
 
   const componentsToRender = [
     {
-      title: "Aulas particulares",
+      title: "Proximas aulas",
       value: "0",
+      tooltip: "Próximas aulas.",
+      component: <NextTutorings />,
+    },
+    {
+      title: "Aulas particulares",
+      value: "1",
       tooltip: "Marque uma aula particular.",
       component: (
         <div>
@@ -41,7 +48,7 @@ export function Adm() {
     },
     {
       title: "Alunos",
-      value: "1",
+      value: "2",
       tooltip:
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
       component: (
@@ -52,7 +59,7 @@ export function Adm() {
     },
     {
       title: "Cursos",
-      value: "2",
+      value: "3",
       tooltip: "Adicione um novo curso.",
       component: (
         <div>
@@ -62,14 +69,14 @@ export function Adm() {
     },
     {
       title: "Postagens",
-      value: "3",
+      value: "4",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost headers={headers} />,
     },
     {
       title: "Links úteis",
-      value: "4",
+      value: "5",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: (
@@ -163,7 +170,8 @@ export function Adm() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox className="smooth"
+      <RouteSizeControlBox
+        className="smooth"
         style={{
           maxWidth: "1000px",
         }}
