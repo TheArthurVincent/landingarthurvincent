@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
-import { Xp, backDomain, linkReset } from "../../Resources/UniversalComponents";
+import {
+  Xp,
+  backDomain,
+  formatDate,
+  linkReset,
+} from "../../Resources/UniversalComponents";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
@@ -50,7 +55,7 @@ export function NextTutorings({ uploadStatus, headers }) {
   return (
     <RouteDiv style={{ margin: "1rem auto" }}>
       <HOne>
-        {UniversalTexts.myStudents} |{" "}
+        {UniversalTexts.myStudents} |
         <Button onClick={() => seeAllTutorings()}>
           <i class="fa fa-refresh" aria-hidden="true"></i>
         </Button>
@@ -71,13 +76,18 @@ export function NextTutorings({ uploadStatus, headers }) {
             }}
             key={index}
           >
-            <HThree>Student: {item.student}</HThree>
-            <ul>
-              <li>Date Time: {item.dateTime}</li>
-              <li>
-                Meeting URL: <Link to={item.meetingUrl}>{item.meetingUrl}</Link>
-              </li>
-            </ul>
+            <HThree
+              style={{
+                margin: 0,
+                color: textPrimaryColorContrast(),
+                margin: 0,
+              }}
+            >
+              {item.student} |{" "}
+              <Link style={{ color: "white" }} to={item.meetingUrl}>
+                {formatDate(item.dateTime)}
+              </Link>
+            </HThree>
           </div>
         ))
       )}
@@ -97,17 +107,14 @@ export function NextTutorings({ uploadStatus, headers }) {
               style={{
                 backgroundColor: secondaryColor(),
                 color: textSecondaryColorContrast(),
+                margin: 0,
               }}
             >
-              Aluno: {item.student}
+              {item.student} |{" "}
+              <Link style={{ color: "white", margin: 0 }} to={item.meetingUrl}>
+                {formatDate(item.dateTime)}
+              </Link>
             </HThree>
-            <ul>
-              {" "}
-              <li>Data: {item.dateTime}</li>
-              <li>
-                Meeting URL: <Link to={item.meetingUrl}>{item.meetingUrl}</Link>
-              </li>
-            </ul>{" "}
           </div>
         ))
       )}
