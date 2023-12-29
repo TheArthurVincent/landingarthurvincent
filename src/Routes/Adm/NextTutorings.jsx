@@ -95,7 +95,7 @@ export function NextTutorings({ headers }) {
       ),
     },
     {
-      title: "Postagens",
+      title: "Passadas",
       value: 1,
       component: (
         <>
