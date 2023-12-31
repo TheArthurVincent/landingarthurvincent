@@ -10,8 +10,24 @@ import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
-export default function LiveClasses({ courses }) {
+export default function LiveClasses() {
   const { UniversalTexts } = useUserContext();
+
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(`${backDomain}/api/v1/courses`);
+        setCourses(response.data.courses);
+      } catch (error) {
+        alert("Erro ao importar posts");
+      }
+    }
+
+    fetchData();
+  }, []);
+
 
   return (
     <>
@@ -20,6 +36,13 @@ export default function LiveClasses({ courses }) {
         <RouteDiv>
           <HOne>{UniversalTexts.liveClasses}</HOne>
           <BackToHomePage />
+
+        </RouteDiv>
+      </RouteSizeControlBox>
+    </>
+  );
+}
+/*
           <div
             style={{
               display: "flex",
@@ -33,33 +56,29 @@ export default function LiveClasses({ courses }) {
           >
             {courses.map((course, index) => {
               return (
-                <Link key={index} to={course.link} /*target="_blank"*/>
-                  <CourseCard style={{ backgroundColor: course.courseColor }}>
-                    <h3
-                      style={{
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      {course.courseTitle}
-                    </h3>
-                    <img
-                      style={{
-                        height: "240px",
-                        width: "240px",
-                        objectFit: "cover",
-                        objectPosition: "left",
-                      }}
-                      src={course.img}
-                      alt=""
-                    />
-                  </CourseCard>
-                </Link>
-              );
-            })}
-          </div>
-          <BackToHomePage />
-        </RouteDiv>
-      </RouteSizeControlBox>
-    </>
-  );
-}
+                <Link key={index} to={course.link} />
+                <CourseCard style={{ backgroundColor: course.courseColor }}>
+                <h3
+                  style={{
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {course.courseTitle}
+                </h3>
+                <img
+                  style={{
+                    height: "240px",
+                    width: "240px",
+                    objectFit: "cover",
+                    objectPosition: "left",
+                  }}
+                  src={course.img}
+                  alt=""
+                />
+              </CourseCard>
+            </Link>
+          );
+        })}
+      </div>
+      <BackToHomePage />
+*/
