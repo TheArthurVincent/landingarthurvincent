@@ -13,13 +13,14 @@ import {
 } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
-import { Button, CircularProgress } from "@mui/material";
+import { Alert, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [fail, setFail] = useState(false);
   const [button, setButton] = useState("Entrar");
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -30,6 +31,8 @@ export function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFail(false);
+
     setButton(<CircularProgress />);
     setLoading(true);
     try {
@@ -44,10 +47,10 @@ export function Login() {
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       setLoading(false);
       setButton("Sucesso");
-
       window.location.reload("/");
     } catch (error) {
-      alert("Credenciais inválidas. Tente novamente.");
+      setFail(true);
+      // alert("Credenciais inválidas. Tente novamente.");
       setButton("Entrar");
     }
   };
@@ -140,6 +143,16 @@ export function Login() {
             </Button>
           </div>
         </form>
+        <Alert
+          style={{
+            maxWidth: "20rem",
+            margin: "auto",
+            display: fail ? "block" : "none",
+          }}
+          severity="error"
+        >
+          Credenciais inválidas!
+        </Alert>
       </div>
       {/* <Button
         style={{
