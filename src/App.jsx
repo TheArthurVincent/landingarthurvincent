@@ -10,9 +10,9 @@ import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { All, backDomain } from "./Resources/UniversalComponents";
 import SignUp from "./Routes/SignUp/SignUp";
-import MyCourses from "./Routes/MyCourses/MyCourses";
-import MyCoursesTemplate from "./Routes/MyCourses/MyCoursesTemplate";
 import axios from "axios";
+import LiveClasses from "./Routes/MyCourses/LiveClasses";
+import LiveClassesTemplate from "./Routes/MyCourses/LiveClassesTemplate";
 
 function App() {
   const verifyToken = () => {
@@ -59,9 +59,9 @@ function App() {
                 element={verifyToken() ? <Extras /> : <Login />}
               />
               <Route
-                path="/my-courses"
+                path="/live-classes"
                 element={
-                  verifyToken() ? <MyCourses courses={courses} /> : <Login />
+                  verifyToken() ? <LiveClasses courses={courses} /> : <Login />
                 }
               />
               <Route path="/signup" element={<SignUp />} />
@@ -88,7 +88,7 @@ function App() {
                   element={
                     verifyToken() ? (
                       <>
-                        <MyCoursesTemplate
+                        <LiveClassesTemplate
                           courseColor={course.courseColor}
                           title={course.courseTitle}
                           key={index}

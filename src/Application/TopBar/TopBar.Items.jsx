@@ -14,8 +14,8 @@ export const TopBarItems = [
     url: "/calendar",
   },
   {
-    text: UniversalTexts.myCourses,
-    url: "/courses",
+    text: UniversalTexts.liveClasses,
+    url: "/live-classes",
   },
   {
     text: UniversalTexts.myProfile,

@@ -44,8 +44,8 @@ export default function TopBar() {
       endpoint: "/my-classes",
     },
     {
-      title: UniversalTexts.myCourses,
-      endpoint: "/my-courses",
+      title: UniversalTexts.liveClasses,
+      endpoint: "/live-classes",
     },
     {
       title: UniversalTexts.englishMaterial,

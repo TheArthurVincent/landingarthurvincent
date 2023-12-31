@@ -5,12 +5,12 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
-import { CourseCard } from "./MyCourses.Styled";
+import { CourseCard } from "./LiveClasses.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
-export default function MyCourses({ courses }) {
+export default function LiveClasses({ courses }) {
   const { UniversalTexts } = useUserContext();
 
   return (
@@ -18,7 +18,7 @@ export default function MyCourses({ courses }) {
       <TopBar />
       <RouteSizeControlBox className="smooth">
         <RouteDiv>
-          <HOne>{UniversalTexts.myCourses}</HOne>
+          <HOne>{UniversalTexts.liveClasses}</HOne>
           <BackToHomePage />
           <div
             style={{
