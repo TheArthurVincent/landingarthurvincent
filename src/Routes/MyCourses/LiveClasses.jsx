@@ -133,7 +133,12 @@ export default function MyCourses() {
       >
         <RouteDiv>
           <HOne>{UniversalTexts.liveClasses}</HOne>
-          <BackToHomePage />
+          <span style={{ display: "flex", justifyContent: "space-between" }}>
+            <Button onClick={() => fetchCoursesTitles()}>
+              <i className="fa fa-refresh" aria-hidden="true"></i>
+            </Button>
+            <BackToHomePage />
+          </span>{" "}
           {loading ? (
             <CircularProgress />
           ) : (
