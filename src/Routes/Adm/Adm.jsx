@@ -58,16 +58,16 @@ export function Adm() {
         </div>
       ),
     },
-    {
-      title: "Cursos",
-      value: "3",
-      tooltip: "Adicione um novo curso.",
-      component: (
-        <div>
-          <ManageCourses headers={headers} />
-        </div>
-      ),
-    },
+    // {
+    //   title: "Cursos",
+    //   value: "3",
+    //   tooltip: "Adicione um novo curso.",
+    //   component: (
+    //     <div>
+    //       <ManageCourses headers={headers} />
+    //     </div>
+    //   ),
+    // },
     {
       title: "Postagens",
       value: "4",

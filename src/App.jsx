@@ -81,7 +81,7 @@ function App() {
                 path="/classes-to-teach"
                 element={verifyToken() ? <ClassesToTeach /> : <Login />}
               />
-              {courses.map((course, index) => (
+              {/* {courses.map((course, index) => (
                 <Route
                   key={index}
                   path={course.link}
@@ -101,7 +101,7 @@ function App() {
                     )
                   }
                 />
-              ))}
+              ))} */}
             </Routes>
           </Router>
         </UserProvider>
