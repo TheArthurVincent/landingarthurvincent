@@ -41,40 +41,6 @@ export default function MyCourses() {
     setIsClassVisible(true);
   };
 
-  const navigateToNextClass = () => {
-    if (currentClassIndex < allModulesFromTheCourse.length - 1) {
-      setCurrentClassIndex(currentClassIndex + 1);
-    } else {
-      // Se chegou à última aula do módulo, avance para o próximo módulo (se existir)
-      const nextModuleIndex =
-        allModulesFromTheCourse.findIndex(
-          (module) => module.moduleName === moduleTitle
-        ) + 1;
-
-      if (nextModuleIndex < allModulesFromTheCourse.length) {
-        setCurrentClassIndex(0);
-        setModuleTitle(allModulesFromTheCourse[nextModuleIndex].moduleName);
-      }
-    }
-  };
-
-  const navigateToPreviousClass = () => {
-    if (currentClassIndex > 0) {
-      setCurrentClassIndex(currentClassIndex - 1);
-    } else {
-      // Se estiver na primeira aula do módulo, volte para a última aula do módulo anterior (se existir)
-      const prevModuleIndex =
-        allModulesFromTheCourse.findIndex(
-          (module) => module.moduleName === moduleTitle
-        ) - 1;
-
-      if (prevModuleIndex >= 0) {
-        const prevModule = allModulesFromTheCourse[prevModuleIndex];
-        setCurrentClassIndex(prevModule.classes.length - 1);
-        setModuleTitle(prevModule.moduleName);
-      }
-    }
-  };
   const fetchCoursesTitles = async () => {
     setLoading(true);
     try {
