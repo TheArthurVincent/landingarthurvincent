@@ -23,7 +23,7 @@ export default function MyCourses() {
   const { UniversalTexts } = useUserContext();
   const [courses, setCourses] = useState([]);
   const [moduleTitle, setModuleTitle] = useState("");
-  const [courseTitle, setCourseTitle] = useState("Select a course");
+  const [courseTitle, setCourseTitle] = useState("Select the type of classes");
   const [loading, setLoading] = useState(false);
   const [allModulesFromTheCourse, setAllModulesFromTheCourse] = useState([]);
   const [videoUrl, setVideoUrl] = useState("");
@@ -153,12 +153,11 @@ export default function MyCourses() {
               }}
             >
               <Select
-                default={123}
                 value={courseTitle}
                 onChange={(e) => fetchCourse(e.target.value)}
               >
-                <MenuItem disabled key={123} value="Select a course">
-                  Select a course
+                <MenuItem disabled value="Select the type of classes">
+                  Select the type of classes
                 </MenuItem>
 
                 {courses.map((course, index) => (
