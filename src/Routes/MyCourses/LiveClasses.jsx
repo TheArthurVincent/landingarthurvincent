@@ -79,7 +79,7 @@ export default function MyCourses() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/courses?partner=${1}`
+        `${backDomain}/api/v1/courses?partner=${0}`
       );
       console.log(response.data);
       setCourses(response.data);
