@@ -22,7 +22,6 @@ import { lightGreyColor } from "../../Styles/Styles";
 export default function MyCourses() {
   const { UniversalTexts } = useUserContext();
   const [courses, setCourses] = useState([]);
-  const [moduleTitle, setModuleTitle] = useState("");
   const [courseTitle, setCourseTitle] = useState("Select the type of classes");
   const [loading, setLoading] = useState(false);
   const [allModulesFromTheCourse, setAllModulesFromTheCourse] = useState([]);
@@ -31,7 +30,6 @@ export default function MyCourses() {
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [isClassVisible, setIsClassVisible] = useState(false);
   const [title, setTitle] = useState("");
-  const [currentClassIndex, setCurrentClassIndex] = useState(0);
   const [seeModules, setSeeModules] = useState(false);
 
   const back = () => {
@@ -66,7 +64,6 @@ export default function MyCourses() {
     setDescription(thedescription);
     setGoogleDriveLink(thegoogleDriveLink);
     setTitle(thetitle);
-    setModuleTitle(moduleName);
     selectClass();
   };
 
