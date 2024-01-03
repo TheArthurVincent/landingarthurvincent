@@ -62,7 +62,7 @@ export function Adm() {
       title: "Cursos",
       value: "3",
       tooltip: "Cursos",
-      component: (<ManageModules/>,<ManageCourses />),
+      component: ((<ManageModules />), (<ManageCourses />)),
     },
     {
       title: "Postagens",
