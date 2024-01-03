@@ -279,14 +279,3 @@ export default function MyCourses() {
     </>
   );
 }
-
-// const fetchData = async () => {
-//   try {
-//     const response = await axios.get(
-//       `${backDomain}/api/v1/courseclass?moduleTitle=${moduleTitle}&courseTitle=${courseTitle}`
-//     );
-//     console.log(response.data);
-//   } catch (error) {
-//     console.error(error, "Erro ao importar posts");
-//   }
-// };
