@@ -20,20 +20,20 @@ function App() {
     return token;
   };
 
-  const [courses, setCourses] = useState([]);
+  // const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(`${backDomain}/api/v1/courses`);
-        setCourses(response.data.courses);
-      } catch (error) {
-        alert("Erro ao importar posts");
-      }
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await axios.get(`${backDomain}/api/v1/courses`);
+  //       setCourses(response.data.courses);
+  //     } catch (error) {
+  //       alert("Erro ao importar posts");
+  //     }
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <All>
@@ -61,7 +61,7 @@ function App() {
               <Route
                 path="/live-classes"
                 element={
-                  verifyToken() ? <LiveClasses courses={courses} /> : <Login />
+                  verifyToken() ? <LiveClasses /> : <Login />
                 }
               />
               <Route path="/signup" element={<SignUp />} />
@@ -81,7 +81,7 @@ function App() {
                 path="/classes-to-teach"
                 element={verifyToken() ? <ClassesToTeach /> : <Login />}
               />
-              {courses.map((course, index) => (
+              {/* {courses.map((course, index) => (
                 <Route
                   key={index}
                   path={course.link}
@@ -101,7 +101,7 @@ function App() {
                     )
                   }
                 />
-              ))}
+              ))} */}
             </Routes>
           </Router>
         </UserProvider>

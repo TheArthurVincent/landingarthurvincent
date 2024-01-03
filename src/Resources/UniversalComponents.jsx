@@ -622,6 +622,30 @@ export function LogoSVG(primaryColor, secondaryColor, size) {
     </svg>
   );
 }
+export const ButtonButton = (text) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        padding: "1rem",
+        justifyContent: "right",
+      }}
+    >
+      <Link
+        style={{
+          ...linkReset,
+          backgroundColor: primaryColor(),
+          color: textPrimaryColorContrast(),
+          padding: "0.5rem",
+        }}
+      >
+        {text}
+      </Link>
+    </div>
+  );
+};
+
 export function isDev() {
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";

@@ -15,7 +15,7 @@ import NewTutoring from "./NewTutoring";
 import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
-import ManageCourses from "./ManageCourses";
+import ManageCourses, { ManageModules } from "./ManageCourses";
 import { Link } from "react-router-dom";
 import { NextTutorings } from "./NextTutorings";
 import AllClasses from "./AllClasses";
@@ -61,12 +61,8 @@ export function Adm() {
     {
       title: "Cursos",
       value: "3",
-      tooltip: "Adicione um novo curso.",
-      component: (
-        <div>
-          <ManageCourses headers={headers} />
-        </div>
-      ),
+      tooltip: "Cursos",
+      component: (<ManageModules/>,<ManageCourses />),
     },
     {
       title: "Postagens",
