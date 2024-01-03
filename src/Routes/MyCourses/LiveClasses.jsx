@@ -58,7 +58,6 @@ export default function MyCourses() {
     thevideoUrl,
     thedescription,
     thegoogleDriveLink,
-    moduleName
   ) => {
     setVideoUrl(thevideoUrl);
     setDescription(thedescription);
