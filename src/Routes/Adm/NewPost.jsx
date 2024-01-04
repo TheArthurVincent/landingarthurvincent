@@ -3,7 +3,7 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; 
+import "react-quill/dist/quill.snow.css";
 
 export function NewPost({ headers }) {
   const [conteudo, setConteudo] = useState("");
@@ -22,7 +22,7 @@ export function NewPost({ headers }) {
     setSelectedOption(event.target.value);
   };
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     let newPost = {
       title: newTitle,
       videoUrl: newVideoUrl,
@@ -31,7 +31,8 @@ export function NewPost({ headers }) {
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/blogposts/`,
-        newPost
+        newPost,
+        { headers }
       );
       alert("Post criado com sucesso!");
       window.location.href = "/";
@@ -118,7 +119,7 @@ export function NewPost({ headers }) {
           rows="10"
           required
         /> */}
-          <div>
+        <div>
           <ReactQuill
             theme="snow"
             value={newText}

@@ -24,10 +24,9 @@ export function NextTutoring({ headers }) {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/students/`,
-        headers
-      );
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers,
+      });
       setFormState((prev) => ({
         ...prev,
         student: response.data.listOfStudents,
@@ -75,7 +74,10 @@ export function NextTutoring({ headers }) {
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/nexttutoring/`,
-        newScheduledTutoring
+        newScheduledTutoring,
+        {
+          headers,
+        }
       );
       alert("Aula marcada com sucesso!");
       fetchStudents();

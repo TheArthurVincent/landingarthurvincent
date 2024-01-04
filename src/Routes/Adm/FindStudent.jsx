@@ -52,7 +52,9 @@ export function FindStudent({ uploadStatus, headers }) {
   const seeEdition = async (id) => {
     handleSeeModal();
     try {
-      const response = await axios.get(`${backDomain}/api/v1/student/${id}`);
+      const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+        headers,
+      });
       setNewName(response.data.formattedStudentData.name);
       setNewLastName(response.data.formattedStudentData.lastname);
       setNewUsername(response.data.formattedStudentData.username);
@@ -88,7 +90,8 @@ export function FindStudent({ uploadStatus, headers }) {
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/students/${id}`,
-        editedStudent
+        editedStudent,
+        { headers }
       );
       alert("Usuário editado com sucesso!");
       handleSeeModal();
@@ -106,7 +109,8 @@ export function FindStudent({ uploadStatus, headers }) {
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/studentpermissions/${id}`,
-        editedStudent
+        editedStudent,
+        { headers }
       );
       handleSeeModal();
       fetchStudents();
@@ -130,7 +134,7 @@ export function FindStudent({ uploadStatus, headers }) {
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/studentpassword/${id}`,
-        studentWhosePasswordYouWantToChange
+        { headers }
       );
       alert("Senha editada com sucesso!");
       fetchStudents();
@@ -143,10 +147,9 @@ export function FindStudent({ uploadStatus, headers }) {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/students/`,
-        headers
-      );
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers,
+      });
       setStudents(response.data.listOfStudents);
       setLoading(false);
     } catch (error) {
@@ -160,7 +163,8 @@ export function FindStudent({ uploadStatus, headers }) {
   const deleteStudent = async (id) => {
     try {
       const response = await axios.delete(
-        `${backDomain}/api/v1/students/${id}`
+        `${backDomain}/api/v1/students/${id}`,
+        { headers }
       );
       alert("Aluno excluído");
       fetchStudents();
@@ -175,7 +179,9 @@ export function FindStudent({ uploadStatus, headers }) {
 
   const seeAllClasses = async (id) => {
     try {
-      const response = await axios.get(`${backDomain}/api/v1/tutoring/${id}`);
+      const response = await axios.get(`${backDomain}/api/v1/tutoring/${id}`, {
+        headers,
+      });
 
       setClasses(response.data.formattedTutoringFromParticularStudent);
     } catch (error) {

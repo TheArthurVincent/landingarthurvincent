@@ -47,7 +47,7 @@ const thematicClasses = [
   },
 ];
 
-export default function ClassesToTeach() {
+export default function ClassesToTeach({ headers }) {
   const { UniversalTexts } = useUserContext();
 
   const cardStyle = {
@@ -63,114 +63,118 @@ export default function ClassesToTeach() {
 
   return (
     <>
-      <TopBar />{" "}
-      <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
-        <RouteDiv>
-          <HOne>{UniversalTexts.englishMaterial}</HOne>
-          <BackToHomePage />
-          <div>
-            {" "}
-            <HThree>{UniversalTexts.basicClasses}</HThree>
-            <div style={cardStyle}>
-              {basicClasses.map((course, index) => {
-                return (
-                  <Link key={index} to={course.link} target="_blank">
-                    <CourseCard>
-                      <h3>{course.title}</h3>
-                      <img
-                        style={{
-                          height: "240px",
-                          width: "240px",
-                          objectFit: "cover",
-                          objectPosition: "left",
-                        }}
-                        src={course.img}
-                        alt=""
-                      />
-                    </CourseCard>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            {" "}
-            <HThree>{UniversalTexts.intermediaryClasses}</HThree>
-            <div style={cardStyle}>
-              {intermediaryClasses.map((course, index) => {
-                return (
-                  <NavLink key={index} to={course.link} target="_blank">
-                    <CourseCard>
-                      <h3>{course.title}</h3>
-                      <img
-                        style={{
-                          height: "240px",
-                          width: "240px",
-                          objectFit: "cover",
-                          objectPosition: "left",
-                        }}
-                        src={course.img}
-                        alt=""
-                      />
-                    </CourseCard>
-                  </NavLink>
-                );
-              })}
-            </div>
-          </div>
-          <div>
-            <HThree>{UniversalTexts.advancedClasses}</HThree>
-            <div style={cardStyle}>
-              {advancedClasses.map((course, index) => {
-                return (
-                  <NavLink key={index} to={course.link} target="_blank">
-                    <CourseCard>
-                      <h3>{course.title}</h3>
-                      <img
-                        style={{
-                          height: "240px",
-                          width: "240px",
-                          objectFit: "cover",
-                          objectPosition: "left",
-                        }}
-                        src={course.img}
-                        alt=""
-                      />
-                    </CourseCard>
-                  </NavLink>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            <HThree>{UniversalTexts.thematicClasses}</HThree>
-            <div style={cardStyle}>
-              {thematicClasses.map((course, index) => {
-                return (
-                  <NavLink key={index} to={course.link} target="_blank">
-                    <CourseCard>
-                      <h3>{course.title}</h3>
-                      <img
-                        style={{
-                          height: "240px",
-                          width: "240px",
-                          objectFit: "cover",
-                          objectPosition: "left",
-                        }}
-                        src={course.img}
-                        alt=""
-                      />
-                    </CourseCard>
-                  </NavLink>
-                );
-              })}
-            </div>
+      <TopBar />
+      {headers ? (
+        <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
+          <RouteDiv>
+            <HOne>{UniversalTexts.englishMaterial}</HOne>
             <BackToHomePage />
-          </div>
-        </RouteDiv>
-      </RouteSizeControlBox>
+            <div>
+              {" "}
+              <HThree>{UniversalTexts.basicClasses}</HThree>
+              <div style={cardStyle}>
+                {basicClasses.map((course, index) => {
+                  return (
+                    <Link key={index} to={course.link} target="_blank">
+                      <CourseCard>
+                        <h3>{course.title}</h3>
+                        <img
+                          style={{
+                            height: "240px",
+                            width: "240px",
+                            objectFit: "cover",
+                            objectPosition: "left",
+                          }}
+                          src={course.img}
+                          alt=""
+                        />
+                      </CourseCard>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              {" "}
+              <HThree>{UniversalTexts.intermediaryClasses}</HThree>
+              <div style={cardStyle}>
+                {intermediaryClasses.map((course, index) => {
+                  return (
+                    <NavLink key={index} to={course.link} target="_blank">
+                      <CourseCard>
+                        <h3>{course.title}</h3>
+                        <img
+                          style={{
+                            height: "240px",
+                            width: "240px",
+                            objectFit: "cover",
+                            objectPosition: "left",
+                          }}
+                          src={course.img}
+                          alt=""
+                        />
+                      </CourseCard>
+                    </NavLink>
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <HThree>{UniversalTexts.advancedClasses}</HThree>
+              <div style={cardStyle}>
+                {advancedClasses.map((course, index) => {
+                  return (
+                    <NavLink key={index} to={course.link} target="_blank">
+                      <CourseCard>
+                        <h3>{course.title}</h3>
+                        <img
+                          style={{
+                            height: "240px",
+                            width: "240px",
+                            objectFit: "cover",
+                            objectPosition: "left",
+                          }}
+                          src={course.img}
+                          alt=""
+                        />
+                      </CourseCard>
+                    </NavLink>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <HThree>{UniversalTexts.thematicClasses}</HThree>
+              <div style={cardStyle}>
+                {thematicClasses.map((course, index) => {
+                  return (
+                    <NavLink key={index} to={course.link} target="_blank">
+                      <CourseCard>
+                        <h3>{course.title}</h3>
+                        <img
+                          style={{
+                            height: "240px",
+                            width: "240px",
+                            objectFit: "cover",
+                            objectPosition: "left",
+                          }}
+                          src={course.img}
+                          alt=""
+                        />
+                      </CourseCard>
+                    </NavLink>
+                  );
+                })}
+              </div>
+              <BackToHomePage />
+            </div>
+          </RouteDiv>
+        </RouteSizeControlBox>
+      ) : (
+        <RouteSizeControlBox>Nenhum usuário logado</RouteSizeControlBox>
+      )}
     </>
   );
 }

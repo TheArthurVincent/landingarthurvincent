@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
@@ -9,10 +9,20 @@ import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { All, authorizationToken } from "./Resources/UniversalComponents";
-import SignUp from "./Routes/SignUp/SignUp";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 
 function App() {
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+   if (user){ const { permissions } = JSON.parse(user);
+    setAdmin(permissions === "superadmin" ? true : false);
+    }else{
+    return
+    }
+  }, []);
+
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
     return token;
@@ -65,15 +75,25 @@ function App() {
               />
               <Route
                 path="/my-profile"
-                element={verifyToken() ? <MyProfile /> : <Login />}
+                element={
+                  verifyToken() ? <MyProfile headers={headers} /> : <Login />
+                }
               />
               <Route
                 path="/classes-to-teach"
-                element={verifyToken() ? <ClassesToTeach /> : <Login />}
+                element={
+                  verifyToken() ? (
+                    <ClassesToTeach headers={headers} />
+                  ) : (
+                    <Login />
+                  )
+                }
               />
               <Route
                 path="/adm"
-                element={verifyToken() ? <Adm /> : <Login />}
+                element={
+                  verifyToken() && admin ? <Adm headers={headers} /> : <Login />
+                }
               />
             </Routes>
           </Router>

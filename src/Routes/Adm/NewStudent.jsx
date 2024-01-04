@@ -70,8 +70,11 @@ export function NewStudent({ headers }) {
     }
     try {
       const response = await axios.post(
-        `${backDomain}/api/v1/students/`,
-        newStudent
+        `${backDomain}/api/v1/students`,
+        newStudent,
+        {
+          headers,
+        }
       );
       reset();
     } catch (error) {

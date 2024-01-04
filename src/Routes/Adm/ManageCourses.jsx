@@ -14,7 +14,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 
-export function ManageModules() {
+export function ManageModules({ headers }) {
   const [coursesList, setCoursesList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingModal, setLoadingModal] = useState(false);
@@ -33,7 +33,7 @@ export function ManageModules() {
   const [newCourseTitle, setNewCourseTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
   const [partner, setPartner] = useState("");
-  const [tabValue, setTabValue] = React.useState("1");
+  const [tabValue, setTabValue] = useState("1");
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -42,7 +42,10 @@ export function ManageModules() {
   const getCourses = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/allcourseobjects`);
+      const response = await axios.get(
+        `${backDomain}/api/v1/allcourseobjects`,
+        { headers }
+      );
       setCoursesList(response.data);
       setLoading(false);
     } catch (error) {
@@ -56,7 +59,9 @@ export function ManageModules() {
 
   const deleteClass = async (classId) => {
     try {
-      await axios.delete(`${backDomain}/api/v1/courseclass/${classId}`);
+      await axios.delete(`${backDomain}/api/v1/courseclass/${classId}`, {
+        headers,
+      });
       getCourses();
       closeModal();
     } catch (error) {
@@ -74,7 +79,8 @@ export function ManageModules() {
     setLoadingModal(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/courseclass/${classId}`
+        `${backDomain}/api/v1/courseclass/${classId}`,
+        { headers }
       );
       setClassTitle(response.data.classTitle);
       setDescription(response.data.description);
@@ -91,14 +97,18 @@ export function ManageModules() {
   const editClass = async (classId) => {
     setLoadingModal(true);
     try {
-      await axios.put(`${backDomain}/api/v1/courseclass/${classId}`, {
-        classTitle,
-        description,
-        videoUrl,
-        googleDriveLink,
-        courseTitle: classCourse,
-        moduleTitle,
-      });
+      await axios.put(
+        `${backDomain}/api/v1/courseclass/${classId}`,
+        {
+          classTitle,
+          description,
+          videoUrl,
+          googleDriveLink,
+          courseTitle: classCourse,
+          moduleTitle,
+        },
+        { headers }
+      );
       getCourses();
       setModalVisible(false);
     } catch (error) {
@@ -109,15 +119,19 @@ export function ManageModules() {
   };
   const postNewClass = async () => {
     try {
-      await axios.post(`${backDomain}/api/v1/courseclass`, {
-        classTitle: newClassName,
-        videoUrl: newVideoUrl,
-        googleDriveLink: newGoogleDriveLink,
-        moduleTitle: newModuleTitle,
-        courseTitle: newCourseTitle,
-        description: newDescription,
-        partner: partner,
-      });
+      await axios.post(
+        `${backDomain}/api/v1/courseclass`,
+        {
+          classTitle: newClassName,
+          videoUrl: newVideoUrl,
+          googleDriveLink: newGoogleDriveLink,
+          moduleTitle: newModuleTitle,
+          courseTitle: newCourseTitle,
+          description: newDescription,
+          partner: partner,
+        },
+        { headers }
+      );
 
       setNewClassName("");
       setNewVideoUrl("");
@@ -133,9 +147,7 @@ export function ManageModules() {
   };
 
   return (
-    <RouteDiv
-    style={{maxWidth:"50rem", margin:"auto"}}
-    >
+    <RouteDiv style={{ maxWidth: "50rem", margin: "auto" }}>
       <HOne>Gerenciar Cursos</HOne>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabValue}>

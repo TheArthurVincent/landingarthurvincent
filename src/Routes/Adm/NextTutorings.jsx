@@ -30,7 +30,13 @@ export function NextTutorings({ headers }) {
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`);
+      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`
+      
+      , {
+        headers,
+      }
+      
+      );
       if (response.data.pastTutorings && response.data.futureTutorings) {
         setPast(response.data.pastTutorings);
         setFuture(response.data.futureTutorings);

@@ -39,10 +39,9 @@ export function NewTutoring({ headers }) {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/students/`,
-        headers
-      );
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers,
+      });
       setStudent(response.data.listOfStudents);
     } catch (error) {
       alert("Erro ao encontrar alunos");
@@ -71,17 +70,21 @@ export function NewTutoring({ headers }) {
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/tutoring/`,
-        newTutoring
+        newTutoring,
+        {
+          headers,
+        }
       );
+      console.log(response);
       alert("Aula criada com sucesso!");
       setButton("Criar");
       fetchStudents();
       reset();
     } catch (error) {
-      alert("Erro ao salvar aula");
+      reset();
       setButton("Criar");
       fetchStudents();
-      reset();
+      alert("Erro ao salvar aula");
     }
   };
 

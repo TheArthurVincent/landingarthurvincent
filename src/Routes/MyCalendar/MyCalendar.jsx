@@ -18,7 +18,7 @@ import {
 } from "../../Styles/Styles";
 import { Button } from "@mui/material";
 
-export function MyCalendar() {
+export function MyCalendar({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [selectedOption, setSelectedOption] = useState("private");
 

@@ -20,21 +20,15 @@ import { Link } from "react-router-dom";
 import { NextTutorings } from "./NextTutorings";
 import AllClasses from "./AllClasses";
 
-export function Adm() {
+export function Adm({ headers }) {
   const [value, setValue] = useState("0");
-
-  const headers = {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem("authorization")}`,
-    },
-  };
 
   const componentsToRender = [
     {
       title: "Proximas aulas",
       value: "0",
       tooltip: "Próximas aulas.",
-      component: <NextTutorings />,
+      component: <NextTutorings headers={headers} />,
     },
     {
       title: "Aulas particulares",
@@ -62,7 +56,9 @@ export function Adm() {
       title: "Cursos",
       value: "3",
       tooltip: "Cursos",
-      component: ((<ManageModules />), (<ManageCourses />)),
+      component:
+        ((<ManageModules headers={headers} />),
+        (<ManageCourses headers={headers} />)),
     },
     {
       title: "Postagens",
@@ -75,7 +71,7 @@ export function Adm() {
       title: "Aulas",
       value: "5",
       tooltip: "Todas as aulas.",
-      component: <AllClasses />,
+      component: <AllClasses headers={headers} />,
     },
     {
       title: "Links úteis",
@@ -162,9 +158,7 @@ export function Adm() {
       ),
     },
   ];
-  /*
 
-*/
   const handleChange = (event, newValue) => {
     event.preventDefault();
     setValue(newValue);
@@ -206,7 +200,6 @@ export function Adm() {
                     key={index + component.value}
                     style={{
                       fontWeight: 500,
-                      // color: textPrimaryColorContrast(),
                     }}
                     label={component.title}
                     value={component.value}

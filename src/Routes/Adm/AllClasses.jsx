@@ -26,7 +26,9 @@ export function AllClasses({ headers }) {
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/tutoring`);
+      const response = await axios.get(`${backDomain}/api/v1/tutoring`, {
+        headers,
+      });
       if (response) {
         console.log(response.data.formattedTutoringsByStudent);
         setTutorings(response.data.formattedTutoringsByStudent);
@@ -50,7 +52,8 @@ export function AllClasses({ headers }) {
   async function deleteTutoring(tutoringID) {
     try {
       const response = await axios.delete(
-        `${backDomain}/api/v1/tutoring/${tutoringID}`
+        `${backDomain}/api/v1/tutoring/${tutoringID}`,
+        { headers }
       );
       alert(`Aula com ID ${tutoringID} excluída`);
       seeAllTutorings();
