@@ -23,7 +23,7 @@ import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
 
-export function MyClasses() {
+export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
@@ -35,7 +35,8 @@ export function MyClasses() {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/tutoring/${getLoggedUser.id}`
+        `${backDomain}/api/v1/tutoring/${getLoggedUser.id}`,
+        { headers }
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
       setLoading(false);

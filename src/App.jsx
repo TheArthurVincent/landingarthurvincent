@@ -59,7 +59,9 @@ function App() {
               />
               <Route
                 path="/my-classes"
-                element={verifyToken() ? <MyClasses /> : <Login />}
+                element={
+                  verifyToken() ? <MyClasses headers={headers} /> : <Login />
+                }
               />
               <Route
                 path="/my-profile"
