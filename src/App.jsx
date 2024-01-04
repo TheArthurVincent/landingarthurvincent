@@ -10,16 +10,18 @@ import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { All, authorizationToken } from "./Resources/UniversalComponents";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
+import Footer from "./Application/Footer/Footer";
 
 function App() {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
-   if (user){ const { permissions } = JSON.parse(user);
-    setAdmin(permissions === "superadmin" ? true : false);
-    }else{
-    return
+    if (user) {
+      const { permissions } = JSON.parse(user);
+      setAdmin(permissions === "superadmin" ? true : false);
+    } else {
+      return;
     }
   }, []);
 
@@ -32,6 +34,45 @@ function App() {
     Authorization: authorization,
   };
 
+  const routes = [
+    {
+      path: "/",
+      element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
+    },
+    {
+      path: "/homepage",
+      element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
+    },
+    {
+      path: "/extras",
+      element: verifyToken() ? <Extras headers={headers} /> : <Login />,
+    },
+    {
+      path: "/live-classes",
+      element: verifyToken() ? <LiveClasses headers={headers} /> : <Login />,
+    },
+    {
+      path: "/my-classes",
+      element: verifyToken() ? <MyClasses headers={headers} /> : <Login />,
+    },
+    {
+      path: "/my-profile",
+      element: verifyToken() ? <MyProfile headers={headers} /> : <Login />,
+    },
+    {
+      path: "/classes-to-teach",
+      element: verifyToken() ? <ClassesToTeach headers={headers} /> : <Login />,
+    },
+    {
+      path: "/adm",
+      element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+  ];
+
   return (
     <All>
       <div
@@ -42,95 +83,14 @@ function App() {
         <UserProvider>
           <Router>
             <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route
-                path="/"
-                element={
-                  verifyToken() ? <HomePage headers={headers} /> : <Login />
-                }
-              />
-              <Route
-                path="/homepage"
-                element={
-                  verifyToken() ? <HomePage headers={headers} /> : <Login />
-                }
-              />
-              <Route
-                path="/extras"
-                element={
-                  verifyToken() ? <Extras headers={headers} /> : <Login />
-                }
-              />
-              <Route
-                path="/live-classes"
-                element={
-                  verifyToken() ? <LiveClasses headers={headers} /> : <Login />
-                }
-              />
-              <Route
-                path="/my-classes"
-                element={
-                  verifyToken() ? <MyClasses headers={headers} /> : <Login />
-                }
-              />
-              <Route
-                path="/my-profile"
-                element={
-                  verifyToken() ? <MyProfile headers={headers} /> : <Login />
-                }
-              />
-              <Route
-                path="/classes-to-teach"
-                element={
-                  verifyToken() ? (
-                    <ClassesToTeach headers={headers} />
-                  ) : (
-                    <Login />
-                  )
-                }
-              />
-              <Route
-                path="/adm"
-                element={
-                  verifyToken() && admin ? <Adm headers={headers} /> : <Login />
-                }
-              />
+              {routes.map((route, index) => (
+                <Route key={index} path={route.path} element={route.element} />
+              ))}
             </Routes>
           </Router>
         </UserProvider>
       </div>
-      <footer
-        style={{
-          bottom: "0vh",
-          fontSize: "12px",
-          alignItems: "center",
-          backgroundColor: "#111",
-          color: "#eee",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          width: "100vw",
-        }}
-      >
-        <img
-          style={{
-            maxWidth: "6rem",
-          }}
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/arvintranmsp?updatedAt=1703788108765"
-          alt="logo arvin"
-        />
-        <span
-          style={{
-            marginBottom: "1rem",
-          }}
-        >
-          This platform is powered by ARVIN ENGLISH SCHOOL © Some rights
-          reserved <br />
-          Arthur Vincent
-          <br />
-          +55 11 91585-7807
-        </span>
-      </footer>
+      <Footer />
     </All>
   );
 }
