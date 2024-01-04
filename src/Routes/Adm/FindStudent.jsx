@@ -122,9 +122,6 @@ export function FindStudent({ uploadStatus, headers }) {
   };
 
   const editStudentPassword = async (id) => {
-    let studentWhosePasswordYouWantToChange = {
-      password: newPassword,
-    };
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
     } else {
@@ -134,6 +131,7 @@ export function FindStudent({ uploadStatus, headers }) {
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/studentpassword/${id}`,
+        { newPassword },
         { headers }
       );
       alert("Senha editada com sucesso!");
