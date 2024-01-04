@@ -7,8 +7,8 @@ import {
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
-import { alwaysBlack, primaryColor } from "../../Styles/Styles";
-import { Link } from "react-router-dom";
+import { alwaysBlack } from "../../Styles/Styles";
+import { NavLink } from "react-router-dom";
 
 export function MyProfile({ headers }) {
   const [user, setUser] = useState({});
@@ -49,19 +49,15 @@ export function MyProfile({ headers }) {
                 {UniversalTexts.username}: {user.username}
               </li>
               <li style={{ marginBottom: "0.3rem" }}>
-                <Link
-                  style={{ backgroundColor: primaryColor(), padding: "2px" }}
+                <NavLink
+                  style={{
+                    textDecoration: "none",
+                  }}
                   target="_blank"
                   to={user.googleDriveLink}
                 >
-                  <span
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    {UniversalTexts.googleDriveLink}
-                  </span>
-                </Link>
+                  <span>{UniversalTexts.googleDriveLink}</span>
+                </NavLink>
               </li>
               <li style={{ marginBottom: "0.3rem" }}>
                 {UniversalTexts.ankiEmail}: {user.ankiEmail}

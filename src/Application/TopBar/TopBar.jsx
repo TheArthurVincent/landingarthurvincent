@@ -6,18 +6,14 @@ import {
   TopBarNavigationBurger,
   BackgroundClick,
 } from "./TopBar.Styled";
-import { Button, LogoSVG } from "../../Resources/UniversalComponents";
+import { Button, LogoSVG, SpanHover } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
 import { styled } from "styled-components";
 import { FormControl, MenuItem, Select } from "@mui/material";
-const SpanHover = styled.span`
-  &:hover {
-    color: ${secondaryColor()};
-  }
-`;
+
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
@@ -99,7 +95,13 @@ export default function TopBar() {
                 }}
                 to={link.endpoint}
               >
-                <SpanHover>{link.title}</SpanHover>
+                <SpanHover
+                  style={{
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.title}
+                </SpanHover>
               </NavLink>
             );
           })}

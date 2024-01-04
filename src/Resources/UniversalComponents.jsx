@@ -30,6 +30,11 @@ export const All = styled.div`
   }
 `;
 
+export const SpanHover = styled.span`
+  &:hover {
+    color: ${secondaryColor()};
+  }
+`;
 export const Button = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};
