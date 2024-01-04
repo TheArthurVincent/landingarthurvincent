@@ -19,7 +19,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   HOne,
-  HThree,
   HTwo,
   RouteDiv,
   RouteSizeControlBox,
@@ -120,8 +119,7 @@ export default function LiveClassesTemplate({
     <div>
       <CoursesSideBar courses={courses} />
       <TopBar />
-      <RouteSizeControlBox
-      >
+      <RouteSizeControlBox>
         <RouteDiv>
           <div>
             <HOne>{title}</HOne>

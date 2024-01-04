@@ -4,7 +4,6 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
-  textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import {
   InputField,
@@ -14,7 +13,6 @@ import {
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import { Alert, Button, CircularProgress } from "@mui/material";
-import { Link } from "react-router-dom";
 
 export function Login() {
   const [email, setEmail] = useState("");

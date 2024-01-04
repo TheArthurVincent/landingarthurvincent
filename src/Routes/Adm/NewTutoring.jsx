@@ -13,7 +13,6 @@ export function NewTutoring({ headers }) {
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
   const [standardValue, setStandardValue] = useState("Aluno");
-  const [verify, setVerify] = useState(true);
   const [button, setButton] = useState("Criar");
 
   const reset = () => {
@@ -23,7 +22,6 @@ export function NewTutoring({ headers }) {
     setNewText("");
     setNewAttachment("");
     setSelectedStudentID("");
-    setVerify(true);
   };
 
   function formatDate(inputDate) {
@@ -51,7 +49,6 @@ export function NewTutoring({ headers }) {
   }, []);
 
   const handleSelectChange = (event) => {
-    setVerify(false);
     setSelectedStudentID(event.target.value);
   };
 
