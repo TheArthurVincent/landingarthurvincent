@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Blog from "./Blog/Blog";
 import TopBar from "../Application/TopBar/TopBar";
 
-export function HomePage() {
-
+export function HomePage({ headers }) {
   return (
     <>
       <TopBar />
-      <Blog />
+      <Blog headers={headers} />
     </>
   );
 }

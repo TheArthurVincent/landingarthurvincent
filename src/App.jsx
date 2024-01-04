@@ -8,7 +8,7 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
-import { All } from "./Resources/UniversalComponents";
+import { All, authorizationToken } from "./Resources/UniversalComponents";
 import SignUp from "./Routes/SignUp/SignUp";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 
@@ -16,6 +16,10 @@ function App() {
   const verifyToken = () => {
     const token = localStorage.getItem("authorization");
     return token;
+  };
+  const authorization = authorizationToken();
+  const headers = {
+    Authorization: authorization,
   };
 
   return (
@@ -31,24 +35,27 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route
                 path="/"
-                element={verifyToken() ? <HomePage /> : <Login />}
+                element={
+                  verifyToken() ? <HomePage headers={headers} /> : <Login />
+                }
               />
               <Route
                 path="/homepage"
-                element={verifyToken() ? <HomePage /> : <Login />}
+                element={
+                  verifyToken() ? <HomePage headers={headers} /> : <Login />
+                }
               />
               <Route
                 path="/extras"
-                element={verifyToken() ? <Extras /> : <Login />}
+                element={
+                  verifyToken() ? <Extras headers={headers} /> : <Login />
+                }
               />
               <Route
                 path="/live-classes"
-                element={verifyToken() ? <LiveClasses /> : <Login />}
-              />
-              <Route path="/signup" element={<SignUp />} />
-              <Route
-                path="/adm"
-                element={verifyToken() ? <Adm /> : <Login />}
+                element={
+                  verifyToken() ? <LiveClasses headers={headers} /> : <Login />
+                }
               />
               <Route
                 path="/my-classes"
@@ -61,6 +68,10 @@ function App() {
               <Route
                 path="/classes-to-teach"
                 element={verifyToken() ? <ClassesToTeach /> : <Login />}
+              />
+              <Route
+                path="/adm"
+                element={verifyToken() ? <Adm /> : <Login />}
               />
             </Routes>
           </Router>

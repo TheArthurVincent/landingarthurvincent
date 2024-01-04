@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   RouteDiv,
   HOne,
@@ -18,8 +18,7 @@ import TopBar from "../../Application/TopBar/TopBar";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { Link } from "react-router-dom";
 
-export function Extras() {
-
+export function Extras({ headers }) {
   const { UniversalTexts } = useUserContext();
 
   const contentExtras = [
@@ -199,7 +198,8 @@ export function Extras() {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox className="smooth"
+      <RouteSizeControlBox
+        className="smooth"
         style={{
           maxWidth: "78rem",
         }}

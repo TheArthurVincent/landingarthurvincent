@@ -15,7 +15,6 @@ import {
   getVideoEmbedUrl,
   ImgBlog,
   Xp,
-  authorizationToken,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -25,17 +24,11 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import {
-  Button,
-  CircularProgress,
-  Skeleton,
-  Tooltip,
-  autocompleteClasses,
-} from "@mui/material";
+import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
-export function Blog() {
+export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [newTitle, setNewTitle] = useState("");
   const [_id, setID] = useState("");
@@ -90,7 +83,8 @@ export function Blog() {
     const fetchNextClass = async () => {
       try {
         const response = await axios.get(
-          `${backDomain}/api/v1/nexttutoring/${_StudentId}`
+          `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
+          { headers }
         );
         setNextTutoring(response.data);
       } catch (error) {
@@ -104,12 +98,7 @@ export function Blog() {
 
   async function fetchData() {
     setLoading(true);
-    const authorization = authorizationToken();
     try {
-      const headers = {
-        Authorization: authorization,
-      };
-
       const response = await axios.get(`${backDomain}/api/v1/blogposts`, {
         headers,
       });
@@ -117,9 +106,10 @@ export function Blog() {
       setTimeout(() => {
         setPosts(response.data.listOfPosts || posts);
         setLoading(false);
-      }, 100);
+      }, 300);
     } catch (error) {
       alert(e, "Erro ao importar posts");
+      window.location.reload();
       setLoading(false);
     }
   }
@@ -131,7 +121,9 @@ export function Blog() {
   const seeEdition = async (id) => {
     handleSeeModal();
     try {
-      const response = await axios.get(`${backDomain}/api/v1/blogpost/${id}`);
+      const response = await axios.get(`${backDomain}/api/v1/blogpost/${id}`, {
+        headers,
+      });
       setID(response.data.formattedBlogPost.id);
       setNewTitle(response.data.formattedBlogPost.title);
       setNewUrlVideo(response.data.formattedBlogPost.videoUrl);
@@ -153,7 +145,8 @@ export function Blog() {
       };
       const response = await axios.put(
         `${backDomain}/api/v1/blogposts/${id}`,
-        editedPost
+        editedPost,
+        { headers }
       );
       fetchData();
       handleSeeModal();
@@ -168,7 +161,8 @@ export function Blog() {
   const deletePost = async (id) => {
     try {
       const response = await axios.delete(
-        `${backDomain}/api/v1/blogposts/${id}`
+        `${backDomain}/api/v1/blogposts/${id}`,
+        { headers }
       );
       alert("Post definitivamente excluído");
       handleSeeModal();
@@ -260,8 +254,6 @@ export function Blog() {
                           height: "1.5rem",
                           textAlign: "center",
                           color: item.color,
-                          // backgroundColor: textPrimaryColorContrast(),
-                          // borderRadius: "5px",
                         }}
                         target="_blank"
                         to={item.link}
