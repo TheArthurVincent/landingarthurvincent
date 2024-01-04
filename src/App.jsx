@@ -36,6 +36,10 @@ function App() {
 
   const routes = [
     {
+      path: "/login",
+      element: <Login />,
+    },
+    {
       path: "/",
       element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
     },
@@ -44,16 +48,12 @@ function App() {
       element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
     },
     {
-      path: "/extras",
-      element: verifyToken() ? <Extras headers={headers} /> : <Login />,
+      path: "/my-classes",
+      element: verifyToken() ? <MyClasses headers={headers} /> : <Login />,
     },
     {
       path: "/live-classes",
       element: verifyToken() ? <LiveClasses headers={headers} /> : <Login />,
-    },
-    {
-      path: "/my-classes",
-      element: verifyToken() ? <MyClasses headers={headers} /> : <Login />,
     },
     {
       path: "/my-profile",
@@ -64,12 +64,12 @@ function App() {
       element: verifyToken() ? <ClassesToTeach headers={headers} /> : <Login />,
     },
     {
-      path: "/adm",
-      element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
+      path: "/extras",
+      element: verifyToken() ? <Extras headers={headers} /> : <Login />,
     },
     {
-      path: "/login",
-      element: <Login />,
+      path: "/adm",
+      element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
     },
   ];
 
