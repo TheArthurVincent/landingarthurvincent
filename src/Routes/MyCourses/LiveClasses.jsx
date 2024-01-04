@@ -19,7 +19,7 @@ import { Button, CircularProgress, MenuItem, Select } from "@mui/material";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { lightGreyColor } from "../../Styles/Styles";
 
-export default function MyCourses() {
+export default function MyCourses({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [courses, setCourses] = useState([]);
   const [courseTitle, setCourseTitle] = useState("Select the type of classes");
@@ -43,9 +43,9 @@ export default function MyCourses() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/courses?partner=${0}`
+        `${backDomain}/api/v1/courses?partner=${0}`,
+        { headers }
       );
-      console.log(response.data);
       setCourses(response.data);
       setLoading(false);
     } catch (error) {
@@ -57,7 +57,7 @@ export default function MyCourses() {
     thetitle,
     thevideoUrl,
     thedescription,
-    thegoogleDriveLink,
+    thegoogleDriveLink
   ) => {
     setVideoUrl(thevideoUrl);
     setDescription(thedescription);
@@ -71,7 +71,8 @@ export default function MyCourses() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/course?courseName=${selectedCourse}`
+        `${backDomain}/api/v1/course?courseName=${selectedCourse}`,
+        { headers }
       );
       console.log(response.data);
       setCourseTitle(selectedCourse);
