@@ -60,11 +60,6 @@ export function NextTutoring({ headers }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(
-      formState.selectedStudentID,
-      formState.newDate,
-      formState.newTutoringMeetingURL
-    );
     let newScheduledTutoring = {
       studentID: formState.selectedStudentID,
       meetingUrl: formState.newTutoringMeetingURL,

@@ -33,7 +33,6 @@ export function NewTutoring({ headers }) {
     }
     const [year, month, day] = parts;
     const formattedDate = `${day}/${month}/${year}`;
-    console.log(formattedDate);
     return formattedDate;
   }
 
@@ -75,7 +74,6 @@ export function NewTutoring({ headers }) {
           headers,
         }
       );
-      console.log(response);
       alert("Aula criada com sucesso!");
       setButton("Criar");
       fetchStudents();

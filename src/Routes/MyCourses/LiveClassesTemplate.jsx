@@ -42,9 +42,7 @@ export default function LiveClassesTemplate({
         const response = await axios.get(
           `${backDomain}/api/v1/moduleforcourse/${_id}`
         );
-        console.log(response.data.modules);
         setCourseModules(response.data.modules);
-        console.log(courseModules);
       } catch (error) {
         alert("Erro ao importar módulos");
       }

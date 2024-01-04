@@ -30,7 +30,6 @@ export function AllClasses({ headers }) {
         headers,
       });
       if (response) {
-        console.log(response.data.formattedTutoringsByStudent);
         setTutorings(response.data.formattedTutoringsByStudent);
       } else {
         console.error(

@@ -32,7 +32,7 @@ h4 {
 
 .modal {
   animation-name: slideIn;
-  animation-duration: 0.1s;
+  animation-duration: 0.2s;
   animation-timing-function: ease;
 }
 .maxwidth {
@@ -49,9 +49,11 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
+
 /*https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514
  https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387
 https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/5.jpg?updatedAt=1692919220514 */
+
 .comment {
   color: var(--white);
   margin-right: 0.5rem;

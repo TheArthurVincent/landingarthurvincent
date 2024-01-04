@@ -74,7 +74,6 @@ export default function MyCourses({ headers }) {
         `${backDomain}/api/v1/course?courseName=${selectedCourse}`,
         { headers }
       );
-      console.log(response.data);
       setCourseTitle(selectedCourse);
       setAllModulesFromTheCourse(response.data);
       setLoading(false);

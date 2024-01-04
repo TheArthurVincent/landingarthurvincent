@@ -41,7 +41,6 @@ export function Login() {
         password,
       });
       const { token, loggedIn } = response.data;
-      console.log("Token:", token);
       localStorage.removeItem("authorization");
       localStorage.removeItem("loggedIn");
 
