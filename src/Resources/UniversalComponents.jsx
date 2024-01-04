@@ -646,6 +646,15 @@ export const ButtonButton = (text) => {
   );
 };
 
+export function authorizationToken() {
+  const headers = {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("authorization")}`,
+    },
+  };
+  return headers.headers.authorization.split(" ")[1];
+}
+
 export function isDev() {
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";

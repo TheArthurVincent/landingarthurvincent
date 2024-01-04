@@ -15,6 +15,7 @@ import {
   getVideoEmbedUrl,
   ImgBlog,
   Xp,
+  authorizationToken,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -24,7 +25,13 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, CircularProgress, Skeleton, Tooltip } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  Skeleton,
+  Tooltip,
+  autocompleteClasses,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 
@@ -97,18 +104,26 @@ export function Blog() {
 
   async function fetchData() {
     setLoading(true);
+    const authorization = authorizationToken();
     try {
-      const response = await axios.get(`${backDomain}/api/v1/blogposts`);
+      const headers = {
+        Authorization: authorization,
+      };
+
+      const response = await axios.get(`${backDomain}/api/v1/blogposts`, {
+        headers,
+      });
 
       setTimeout(() => {
         setPosts(response.data.listOfPosts || posts);
         setLoading(false);
-      }, 500);
+      }, 100);
     } catch (error) {
-      alert("Erro ao importar posts");
+      alert(e, "Erro ao importar posts");
       setLoading(false);
     }
   }
+
   useEffect(() => {
     fetchData();
   }, []);

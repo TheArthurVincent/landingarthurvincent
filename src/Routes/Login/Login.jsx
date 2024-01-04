@@ -42,6 +42,16 @@ export function Login() {
       });
       const { token, loggedIn } = response.data;
       console.log("Token:", token);
+      localStorage.removeItem("authorization");
+      localStorage.removeItem("loggedIn");
+
+      if (localStorage.getItem("authorization")) {
+        localStorage.removeItem("authorization");
+      }
+
+      if (localStorage.getItem("loggedIn")) {
+        localStorage.removeItem("loggedIn");
+      }
 
       localStorage.setItem("authorization", `${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
