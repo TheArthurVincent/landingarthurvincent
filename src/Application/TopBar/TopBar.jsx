@@ -12,6 +12,7 @@ import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
 import { styled } from "styled-components";
+import { FormControl, MenuItem, Select } from "@mui/material";
 const SpanHover = styled.span`
   &:hover {
     color: ${secondaryColor()};
@@ -177,14 +178,18 @@ export default function TopBar() {
       </TopBarNavigation>
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
-        <select
-          name="language"
-          onChange={(e) => handleLanguageChange(e.target.value)}
-          defaultValue={"pt"}
-        >
-          <option value="pt">PT-BR</option>
-          <option value="en">EN-US</option>
-        </select>
+        <FormControl>
+          <Select
+            labelId="language-label"
+            id="language"
+            name="language"
+            onChange={(e) => handleLanguageChange(e.target.value)}
+            defaultValue="pt"
+          >
+            <MenuItem value="pt">PT-BR</MenuItem>
+            <MenuItem value="en">EN-US</MenuItem>
+          </Select>
+        </FormControl>
         <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
       </div>
     </TopBarContainer>
