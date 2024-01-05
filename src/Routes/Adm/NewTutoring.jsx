@@ -3,6 +3,7 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
+import emailjs from "emailjs-com";
 
 export function NewTutoring({ headers }) {
   const [newTitle, setNewTitle] = useState("");
@@ -22,6 +23,7 @@ export function NewTutoring({ headers }) {
     setNewText("");
     setNewAttachment("");
     setSelectedStudentID("");
+    setStandardValue("Aluno");
   };
 
   function formatDate(inputDate) {
@@ -52,6 +54,25 @@ export function NewTutoring({ headers }) {
     setSelectedStudentID(event.target.value);
   };
 
+  const sendEmail = async () => {
+    try {
+      await emailjs.send(
+        "service_nclr58t",
+        "template_sqtzkz8",
+        {
+          to_name: "arthurcardosocorp@gmail.com",
+          from_name: "arthurcardosocorp@gmail.com",
+          message: "message",
+        },
+        "6wagjIYRZpgGApc4x"
+      );
+      console.log("E-mail enviado com sucesso!");
+      // alert("E-mail enviado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao enviar e-mail:", error);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setButton(<CircularProgress />);
@@ -71,6 +92,7 @@ export function NewTutoring({ headers }) {
           headers,
         }
       );
+      sendEmail();
       alert("Aula criada com sucesso!");
       setButton("Criar");
       fetchStudents();

@@ -17,6 +17,8 @@
     "@mui/lab": "^5.0.0-alpha.145",
     "@mui/material": "^5.14.11",
     "axios": "^1.5.0",
+    "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
     "font-awesome": "^4.7.0",
     "mui": "^0.0.1",
     "react": "^18.2.0",
