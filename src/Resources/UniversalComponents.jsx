@@ -8,6 +8,7 @@ import {
   textPrimaryColorContrast,
 } from "../Styles/Styles";
 import { Link } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 export const All = styled.div`
   display: flex;
@@ -649,6 +650,42 @@ export const ButtonButton = (text) => {
       </Link>
     </div>
   );
+};
+
+export const sendEmailTemplateLinkPosted = async (to, message) => {
+  try {
+    await emailjs.send(
+      "service_oja9wsi",
+      "template_sqtzkz8",
+      {
+        to_name: to,
+        from_name: "arvinenglishschool@gmail.com",
+        message: message,
+      },
+      "6wagjIYRZpgGApc4x"
+    );
+    console.log("E-mail enviado com sucesso!");
+  } catch (error) {
+    console.error("Erro ao enviar e-mail:", error);
+  }
+};
+
+export const sendEmailTemplateVideoPosted = async (to, message) => {
+  try {
+    await emailjs.send(
+      "service_oja9wsi",
+      "template_6gu2nig",
+      {
+        to_name: to,
+        from_name: "arvinenglishschool@gmail.com",
+        message: message,
+      },
+      "6wagjIYRZpgGApc4x"
+    );
+    console.log("E-mail enviado com sucesso!");
+  } catch (error) {
+    console.error("Erro ao enviar e-mail:", error);
+  }
 };
 
 export function authorizationToken() {

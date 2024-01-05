@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import axios from "axios";
-import { Button, backDomain } from "../../Resources/UniversalComponents";
+import {
+  Button,
+  backDomain,
+  sendEmailTemplateLinkPosted,
+} from "../../Resources/UniversalComponents";
 import { Input } from "@mui/material";
 import {
   alwaysBlack,
   primaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
-
 export function NextTutoring({ headers }) {
   const initialFormState = {
     newTutoringMeetingURL: "",
@@ -21,6 +24,10 @@ export function NextTutoring({ headers }) {
   };
 
   const [formState, setFormState] = useState({ ...initialFormState });
+  const [selectedEmail, setSelectedEmail] = useState("");
+  const [message, setMessage] = useState(
+    "Você tem aula hoje! O link da sua próxima aula foi postado no portal! Confira lá!"
+  );
 
   const fetchStudents = async () => {
     try {
@@ -35,6 +42,7 @@ export function NextTutoring({ headers }) {
       alert("Erro ao encontrar alunos");
     }
   };
+
   useEffect(() => {
     fetchStudents();
   }, []);
@@ -52,6 +60,9 @@ export function NextTutoring({ headers }) {
         ...prev,
         studentName: formState.student[studentIndex].fullname,
       }));
+      setSelectedEmail(formState.student[studentIndex].email);
+      setSelectedEmail(formState.student[studentIndex].email);
+      console.log(formState.student[studentIndex].email);
     } else {
       setFormState((prev) => ({ ...prev, studentName: "" }));
     }
@@ -75,6 +86,7 @@ export function NextTutoring({ headers }) {
         }
       );
       alert("Aula marcada com sucesso!");
+      sendEmailTemplateLinkPosted(selectedEmail, message);
       fetchStudents();
       resetForm();
     } catch (error) {
@@ -129,6 +141,7 @@ export function NextTutoring({ headers }) {
                   value={option.id}
                 >
                   {option.fullname}
+                  {/* {setSelectedEmail(option.email)} */}
                 </option>
               );
             })}
