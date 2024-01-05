@@ -26,7 +26,7 @@ export function NextTutoring({ headers }) {
   const [formState, setFormState] = useState({ ...initialFormState });
   const [selectedEmail, setSelectedEmail] = useState("");
   const [message, setMessage] = useState(
-    "Você tem aula hoje! O link da sua próxima aula foi postado no portal! Confira lá!"
+    "Sua aula de inglês está chegando! O link da foi postado no portal! Confira lá!"
   );
 
   const fetchStudents = async () => {
