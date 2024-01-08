@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
-import Adm from "./Routes/Adm/Adm";
 import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
@@ -67,10 +66,10 @@ function App() {
       path: "/extras",
       element: verifyToken() ? <Extras headers={headers} /> : <Login />,
     },
-    {
-      path: "/adm",
-      element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
-    },
+    // {
+    //   path: "/adm",
+    //   element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
+    // },
   ];
 
   return (
