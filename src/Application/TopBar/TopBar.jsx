@@ -15,7 +15,6 @@ import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
-import { styled } from "styled-components";
 import { FormControl, MenuItem, Select } from "@mui/material";
 
 export default function TopBar() {
@@ -110,7 +109,7 @@ export default function TopBar() {
             );
           })}
         </div>
-        {/* <div
+        <div
           style={{
             display: permissions == "superadmin" ? "grid" : "none",
             alignItems: "center",
@@ -132,7 +131,7 @@ export default function TopBar() {
               </NavLink>
             );
           })}
-        </div> */}
+        </div>
       </TopBarNavigationBurger>
       <BackgroundClick onClick={handleVisible} style={{ display: visible }} />
       <TopBarNavigation>
@@ -158,7 +157,7 @@ export default function TopBar() {
             );
           })}
         </div>
-        {/* <div
+        <div
           style={{
             display: permissions == "superadmin" ? "flex" : "none",
             alignItems: "center",
@@ -180,7 +179,7 @@ export default function TopBar() {
               </NavLink>
             );
           })}
-        </div> */}
+        </div>
       </TopBarNavigation>
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
