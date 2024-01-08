@@ -66,10 +66,10 @@ function App() {
       path: "/extras",
       element: verifyToken() ? <Extras headers={headers} /> : <Login />,
     },
-    // {
-    //   path: "/adm",
-    //   element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
-    // },
+    {
+      path: "/adm",
+      element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
+    },
   ];
 
   return (
