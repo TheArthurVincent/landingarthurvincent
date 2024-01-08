@@ -10,6 +10,7 @@ import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
 import { All, authorizationToken } from "./Resources/UniversalComponents";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 import Footer from "./Application/Footer/Footer";
+import { Adm } from "./Routes/Adm/Adm";
 
 function App() {
   const [admin, setAdmin] = useState(false);
