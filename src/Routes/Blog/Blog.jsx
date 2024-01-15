@@ -27,6 +27,7 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
+import Notification from "../../Resources/Components/Notification";
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -45,6 +46,7 @@ export function Blog({ headers }) {
   const [permissions, setPermissions] = useState("");
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [loading, setLoading] = useState(true);
+
 
   const [nextTutoring, setNextTutoring] = useState({
     nextTutoring: {
@@ -88,7 +90,10 @@ export function Blog({ headers }) {
         );
         setNextTutoring(response.data);
       } catch (error) {
+        showNotification("Erro ao importar próximas aulas", 3, true)
         alert("Erro ao importar próximas aulas");
+        window.location.reload();
+
       }
     };
 
@@ -178,7 +183,6 @@ export function Blog({ headers }) {
   const formatData = (theDate) => {
     const parts = theDate.split("-");
     const formatted = parts[2] + "/" + parts[1] + "/" + parts[0];
-
     return formatted;
   };
 
@@ -188,6 +192,9 @@ export function Blog({ headers }) {
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
+      {/* <Notification
+        text='Operation successful' color={1} reload={false}
+      /> */}
       <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <div
@@ -207,6 +214,7 @@ export function Blog({ headers }) {
                 gap: "1rem",
               }}
             >
+
               <HTwo
                 style={{
                   margin: 0,

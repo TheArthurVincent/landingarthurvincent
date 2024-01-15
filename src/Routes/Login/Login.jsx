@@ -161,18 +161,6 @@ export function Login() {
           Credenciais inválidas!
         </Alert>
       </div>
-      {/* <Button
-        style={{
-          marginTop: "1rem",
-          display: "block",
-          marginLeft: "auto",
-          marginRight: "auto",
-          backgroundColor: primaryColor(),
-          color: textPrimaryColorContrast(),
-        }}
-      >
-        <Link to="/signup">Cadastro</Link>{" "}
-      </Button> */}
     </>
   );
 }

@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Athiti:wght@200;300;400;500;600;700&family=Electrolize&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,900&family=PT+Sans+Narrow:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Athiti:wght@200;300;400;500;600;700&family=Electrolize&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gotu&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,900&family=PT+Sans+Narrow:wght@400;700&display=swap");
+
 :root {
   --text: "Lato", sans-serif;
   --title: "Athiti", sans-serif;
   --black-arvin: #101010;
   --white: #fefefe;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -25,6 +27,7 @@ h4 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -35,14 +38,17 @@ h4 {
   animation-duration: 0.2s;
   animation-timing-function: ease;
 }
+
 .maxwidth {
   max-width: 1800px;
   margin-left: auto;
   margin-right: auto;
 }
+
 body {
   background-color: #00132b;
 }
+
 body {
   background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/4.jpg?updatedAt=1692919220514");
   background-size: cover;
@@ -54,23 +60,50 @@ body {
   color: var(--white);
   margin-right: 0.5rem;
 }
+
 select {
   min-height: 1.6rem;
 }
+
 li {
   list-style: inside;
 }
+
 .hidden {
   display: none;
 }
+
 
 @keyframes slideInLeft {
   from {
     transform: translateX(-1%);
     opacity: 0.7;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+
+
+@keyframes notif {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideInOut {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
   }
 }
