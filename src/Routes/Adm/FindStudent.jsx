@@ -172,6 +172,7 @@ export function FindStudent({ uploadStatus, headers }) {
 
       handleSeeModal();
       console.error(error);
+      
     }
   };
 
@@ -184,6 +185,8 @@ export function FindStudent({ uploadStatus, headers }) {
       setClasses(response.data.formattedTutoringFromParticularStudent);
     } catch (error) {
       alert("Erro ao listar aulas do mês");
+      window.location.reload();
+
     }
   };
 
