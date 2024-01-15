@@ -9,8 +9,8 @@ import {
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
-  min-width: 1200px;
-  max-width: 1800px;
+  min-width: 1000px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
