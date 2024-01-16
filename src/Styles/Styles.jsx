@@ -69,3 +69,14 @@ export const alwaysBlack = () => "#1a1a1a";
 // export const secondaryColor = () => "#556600";
 // export const textPrimaryColorContrast = () => "#fff";
 // export const textSecondaryColorContrast = () => "#fff";
+
+
+//////////////////////////////////
+// Stellar
+// Lunar
+// Planetary
+// Interplanetary
+// Nebulous
+// Galactic
+// Cosmic
+// Universal
