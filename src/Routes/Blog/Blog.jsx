@@ -49,6 +49,9 @@ export function Blog({ headers }) {
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [loading, setLoading] = useState(true);
 
+
+
+
   const items = [
     {
       level: 1,
@@ -713,6 +716,29 @@ export function Blog({ headers }) {
             </RouteDiv>
           })} */}
       </RouteSizeControlBox>
+      {/*
+      Faltas Aula: -50 [-400]
+      Anki 7/7: 500 [2000]
+      Anki 4/7: 200
+      Anki 0: -100
+      Homework: 400 [1600]
+      Live class: 250 [2000]
+      Live class homework: 500  [4000]
+      Test: 0 - 3.000 []
+      
+      2: 10.000
+      3: 20.000
+      4: 35.000
+      5: 50.000
+      6: 70.000
+      7: 150.000
+
+      Level upgrade: 30% cashback next month > 1000;
+      1st place monthly score: 20% cashback;
+      2nd place monthly score: 10% cashback;
+      3rd place monthly score: 5% cashback;
+
+      */}
     </>
   );
 }
