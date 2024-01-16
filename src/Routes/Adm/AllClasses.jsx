@@ -114,7 +114,7 @@ export function AllClasses({ headers }) {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />{" "}
-          <i class="fa fa-search" aria-hidden="true"></i>
+          <i className="fa fa-search" aria-hidden="true"></i>
         </span>
         <BackToHomePage />
       </span>

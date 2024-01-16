@@ -176,7 +176,7 @@ export function NextTutorings({ headers }) {
             })}
           </TabList>{" "}
           <Button onClick={() => seeAllTutorings()}>
-            <i class="fa fa-refresh" aria-hidden="true"></i>
+            <i className="fa fa-refresh" aria-hidden="true"></i>
           </Button>
           <BackToHomePage />
         </Box>

@@ -237,25 +237,27 @@ export function Blog({ headers }) {
                 {[
                   {
                     link: "https://ankiweb.net/decks",
-                    title: <i class="fa fa-mobile" aria-hidden="true"></i>,
+                    title: <i className="fa fa-mobile" aria-hidden="true"></i>,
                     tooltip: "Anki",
                     color: "navy",
                   },
                   {
                     link: googleDriveLink,
-                    title: <i class="fa fa-folder" aria-hidden="true"></i>,
+                    title: <i className="fa fa-folder" aria-hidden="true"></i>,
                     tooltip: UniversalTexts.personalFolder,
                     color: "brown",
                   },
                   {
                     link: "https://wa.me/5511915857807",
-                    title: <i class="fa fa-whatsapp" aria-hidden="true"></i>,
+                    title: <i className="fa fa-whatsapp" aria-hidden="true"></i>,
                     tooltip: UniversalTexts.talkToTheTeacher,
                     color: "green",
                   },
-                ].map((item) => {
+                ].map((item, index) => {
                   return (
-                    <Tooltip title={item.tooltip}>
+                    <Tooltip
+                      key={index}
+                      title={item.tooltip}>
                       <Link
                         style={{
                           marginRight: "0.5rem",
