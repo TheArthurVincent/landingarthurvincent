@@ -206,14 +206,14 @@ export default function MyCourses({ headers }) {
                 <IFrameVideo src={getVideoEmbedUrl(videoUrl)} frameBorder="0" />
               )}
               {description && (
-                <p
+                <div
                   style={{
-                    padding: "1rem",
-                    maxWidth: "110ch"
+                    maxWidth: "100ch",
+                    padding: "0.5rem 1rem",
                   }}
                 >
                   {description}
-                </p>
+                </div>
               )}
               {googleDriveLink && (
                 <Button>
