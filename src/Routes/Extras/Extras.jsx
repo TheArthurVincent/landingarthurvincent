@@ -22,51 +22,51 @@ export function Extras({ headers }) {
   const { UniversalTexts } = useUserContext();
 
   const contentExtras = [
-    {
-      instruction: "Como usar a plataforma",
-      url: "https://www.youtube.com/embed/lcMh5s2iR-M",
-      explanation: (
-        <>
-          <h2>Página Inicial:</h2>
-          <ul>
-            <li>Acesse facilmente sua próxima aula.</li>
-            <li>Encontre seus cartões Anki prontos para revisão.</li>
-            <li>
-              Navegue até sua pasta no Google Drive para acessar materiais
-              importantes.
-            </li>
-          </ul>
+    // {
+    //   instruction: "Como usar a plataforma",
+    //   url: "https://www.youtube.com/embed/lcMh5s2iR-M",
+    //   explanation: (
+    //     <>
+    //       <h2>Página Inicial:</h2>
+    //       <ul>
+    //         <li>Acesse facilmente sua próxima aula.</li>
+    //         <li>Encontre seus cartões Anki prontos para revisão.</li>
+    //         <li>
+    //           Navegue até sua pasta no Google Drive para acessar materiais
+    //           importantes.
+    //         </li>
+    //       </ul>
 
-          <h2>Minhas Aulas:</h2>
-          <ul>
-            <li>
-              Acesse rapidamente suas últimas aulas particulares para revisão ou
-              referência.
-            </li>
-          </ul>
+    //       <h2>Minhas Aulas:</h2>
+    //       <ul>
+    //         <li>
+    //           Acesse rapidamente suas últimas aulas particulares para revisão ou
+    //           referência.
+    //         </li>
+    //       </ul>
 
-          <h2>Meu Perfil:</h2>
-          <ul>
-            <li>Encontre todas as informações importantes sobre você.</li>
-            <li>
-              Incluindo detalhes da sua conta e senha do Anki para uma
-              experiência personalizada.
-            </li>
-          </ul>
+    //       <h2>Meu Perfil:</h2>
+    //       <ul>
+    //         <li>Encontre todas as informações importantes sobre você.</li>
+    //         <li>
+    //           Incluindo detalhes da sua conta e senha do Anki para uma
+    //           experiência personalizada.
+    //         </li>
+    //       </ul>
 
-          <h2>Extras:</h2>
-          <ul>
-            <li>
-              Descubra informações adicionais relacionadas às nossas aulas.
-            </li>
-            <li>
-              Explore recursos extras que podem enriquecer sua experiência de
-              aprendizado.
-            </li>
-          </ul>
-        </>
-      ),
-    },
+    //       <h2>Extras:</h2>
+    //       <ul>
+    //         <li>
+    //           Descubra informações adicionais relacionadas às nossas aulas.
+    //         </li>
+    //         <li>
+    //           Explore recursos extras que podem enriquecer sua experiência de
+    //           aprendizado.
+    //         </li>
+    //       </ul>
+    //     </>
+    //   ),
+    // },
     {
       instruction: "Como Estudar Eficientemente",
       url: "https://www.youtube.com/embed/ctr7VV-GRY8",
@@ -198,12 +198,7 @@ export function Extras({ headers }) {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox
-        className="smooth"
-        style={{
-          maxWidth: "78rem",
-        }}
-      >
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <HOne>{UniversalTexts.extras}</HOne> <BackToHomePage />
           {contentExtras.map((item, index) => (
