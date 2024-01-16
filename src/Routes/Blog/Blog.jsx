@@ -193,14 +193,14 @@ export function Blog({ headers }) {
         style={{ display: !isVisible ? "none" : "flex" }}
       />
       <RouteSizeControlBox className="smooth">
-        <RouteDiv
+        {/* <RouteDiv
           style={{
             backgroundColor: "white",
             padding: "2rem"
           }}
         >
           oi
-        </RouteDiv>
+        </RouteDiv> */}
         <RouteDiv>
           <div
             style={{
