@@ -28,6 +28,7 @@ import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import Notification from "../../Resources/Components/Notification";
+import { LineAxisTwoTone } from "@mui/icons-material";
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -40,6 +41,7 @@ export function Blog({ headers }) {
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [ankiEmail, setAnkiEmail] = useState("");
   const [ankiPassword, setAnkiPassword] = useState("");
   const [googleDriveLink, setGoogleDriveLink] = useState("");
@@ -47,6 +49,57 @@ export function Blog({ headers }) {
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const items = [
+    {
+      level: 1,
+      icon: "fa fa-star",
+      color: "#808080",
+      textcolor: "white",
+      text: "Grey Star"
+    },
+    {
+      level: 2,
+      icon: "fa fa-moon-o",
+      color: "#C0C0C0",
+      textcolor: "black",
+      text: "Silver Moon"
+    },
+    {
+      level: 3,
+      icon: "fa fa-globe",
+      color: "#51B8FC",
+      textcolor: "black",
+      text: "Blue Planet"
+    },
+    {
+      level: 4,
+      icon: "fa fa-sun-o",
+      color: "#FFF200",
+      textcolor: "black",
+      text: "Golden Sun"
+    },
+    {
+      level: 5,
+      icon: "fa fa-bolt",
+      color: "#FFFFFF",
+      textcolor: "black",
+      text: "White Thunder"
+    },
+    {
+      level: 6,
+      icon: "fa fa-skyatlas",
+      color: "#04015E",
+      textcolor: "white",
+      text: "Navy Galaxy"
+    },
+    {
+      level: 7,
+      icon: "fa fa-superpowers",
+      color: "#000000",
+      textcolor: "white",
+      text: "Black Universe"
+    }
+  ];
 
   const [nextTutoring, setNextTutoring] = useState({
     nextTutoring: {
@@ -79,6 +132,7 @@ export function Blog({ headers }) {
     setAnkiEmail(getLoggedUser.ankiEmail);
     setAnkiPassword(getLoggedUser.setAnkiPassword);
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
+    setLastName(getLoggedUser.lastname)
   }, []);
 
   const handleSeeIsNextClassVisibleModal = () => {
@@ -192,15 +246,15 @@ export function Blog({ headers }) {
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
-      <RouteSizeControlBox className="smooth">
-        {/* <RouteDiv
-          style={{
-            backgroundColor: "white",
-            padding: "1rem"
-          }}
-        >
-          oi
-        </RouteDiv> */}
+      <RouteSizeControlBox
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          // alignItems: "center"
+          gap: "1rem"
+        }}
+        className="smooth">
+
         <RouteDiv>
           <div
             style={{
@@ -284,6 +338,7 @@ export function Blog({ headers }) {
                   );
                 })}
               </div>
+
             </div>
             {!isNextClassVisible ? (
               <Button
@@ -607,6 +662,58 @@ export function Blog({ headers }) {
             </div>
           </div>
         </div>
+        {/* {
+          items.map((item, index) => {
+            return <RouteDiv
+              key={index}
+              style={{
+                display: item.level === 1 ? "block" : "none",
+                backgroundColor: "white",
+                padding: "0.5rem",
+                justifyContent: "space-between",
+                alignItems: "center",
+                maxHeight: "12rem",
+                minWidth: "9rem",
+                fontSize: "13px",
+                fontWeight: 500,
+                border: `1px ${item.textcolor} solid`,
+                textAlign: "center",
+                backgroundColor: item.color,
+                color: item.textcolor,
+                boxShadow: `2px 2px 5px ${item.color}`,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                  alignItems: "center",
+                }}
+              >
+                <i className={item.icon} aria-hidden="true" />
+                <h2>
+                  {item.text}
+                </h2>
+              </div>
+              <img
+                style={{
+                  width: "5rem",
+                  height: "5rem",
+                  objectFit: "cover",
+                  border: "solid 0.2rem #555",
+                  borderRadius: "50%",
+                  margin: "0.9rem"
+                }}
+                src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D"
+              />
+              <p>
+                Score: 1520
+              </p>
+              <p>
+                Monthly Score: 520
+              </p>
+            </RouteDiv>
+          })} */}
       </RouteSizeControlBox>
     </>
   );

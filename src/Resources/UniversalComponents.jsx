@@ -233,17 +233,12 @@ export const linkReset2 = {
 };
 
 export const IFrameVideo = styled.iframe`
-  margin: 0 1rem;
-  min-width: 1200px;
-  min-height: 650px;
+  margin-top: 0;
+  min-width: 810px;
+  min-height: 450px;
   border-radius: 0.75rem;
   border: 1px #222 solid;
   display: inline-block;
-  @media (max-width: 1550px) {
-    margin-top: 0;
-    min-width: 810px;
-    min-height: 450px;
-  }
   @media (max-width: 1100px) {
     margin-top: 0;
     min-width: 648px;
