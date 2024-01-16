@@ -37,7 +37,6 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
         minWidth: "10rem",
         fontWeight: 500,
         border: "white solid 2px",
-        borderRadius: "1rem",
         boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
         position: "fixed",
         top: 50,

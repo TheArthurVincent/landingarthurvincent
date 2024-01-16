@@ -41,7 +41,6 @@ export const CourseCard = styled.div`
   width: 15rem;
   padding: 1rem 0.2rem;
   flex-direction: column;
-  border-radius: 0.5rem;
   transition: 0.1s;
   border: solid 2px ${lightGreyColor()};
   img {
@@ -50,7 +49,6 @@ export const CourseCard = styled.div`
   }
   &:hover {
     border: solid 2px ${secondaryColor()};
-    border-radius: 0;
     img {
       filter: grayscale(0%);
     }

@@ -10,7 +10,7 @@ import {
 
 export const RouteSizeControlBox = styled.div`
   min-width: 1000px;
-  max-width: 1000px;
+  max-width: 1250px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
@@ -104,11 +104,10 @@ export const HThree = styled.h3`
 export const RouteDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
-  border-radius: 0.5rem;
   background-color: ${alwaysWhite()};
   color: ${alwaysBlack()};
   padding: 0.5rem;
-  margin: 0.5rem 0;
+  margin:  0;
 
   @media (max-width: 750px) {
     padding: 5px;

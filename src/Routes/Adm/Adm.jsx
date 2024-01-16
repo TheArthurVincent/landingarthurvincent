@@ -177,7 +177,6 @@ export function Adm({ headers }) {
           <Box
             style={{
               display: "flex",
-              borderRadius: "1rem",
               alignItems: "center",
               backgroundColor: alwaysWhite(),
               justifyContent: "space-between",
@@ -187,7 +186,6 @@ export function Adm({ headers }) {
             <TabList
               style={{
                 margin: "0.3rem",
-                borderRadius: "1rem",
               }}
               onChange={handleChange}
               variant="scrollable"

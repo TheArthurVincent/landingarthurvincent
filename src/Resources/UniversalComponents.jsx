@@ -27,7 +27,6 @@ export const All = styled.div`
 
   & *::-webkit-scrollbar-thumb {
     background-color: ${secondaryColor()};
-    border-radius: 10px;
   }
 `;
 
@@ -43,7 +42,6 @@ export const Button = styled.button`
   color: ${textPrimaryColorContrast()};
   padding: 0.4rem;
   width: 5.5rem;
-  border-radius: 8px;
   max-height: 2rem;
   &:hover {
     border: 1px solid ${darkGreyColor()};
@@ -66,7 +64,6 @@ export const Spin = styled.div`
   width: 80px;
   height: 80px;
   display: grid;
-  border-radius: 50%;
   padding: 1rem;
   justify-content: center;
   align-items: center;
@@ -229,14 +226,12 @@ export const linkReset2 = {
   display: "inline",
   backgroundColor: alwaysBlack(),
   padding: "1px",
-  borderRadius: "5px",
 };
 
 export const IFrameVideo = styled.iframe`
   margin-top: 0;
   min-width: 810px;
   min-height: 450px;
-  border-radius: 0.75rem;
   border: 1px #222 solid;
   display: inline-block;
   @media (max-width: 1100px) {

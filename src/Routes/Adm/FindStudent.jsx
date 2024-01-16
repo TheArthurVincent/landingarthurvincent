@@ -214,7 +214,6 @@ export function FindStudent({ uploadStatus, headers }) {
                 style={{
                   display: "flex",
                   gap: "1rem",
-                  borderRadius: "0.5rem",
                   padding: "0.2rem 1rem",
                   border: "1px solid",
                   justifyContent: "space-between",
@@ -581,7 +580,6 @@ export function FindStudent({ uploadStatus, headers }) {
                   padding: "1rem",
                   backgroundColor: "#dd6e6e",
                   textAlign: "center",
-                  borderRadius: "1rem",
                 }}
               >
                 <h3>
@@ -590,7 +588,6 @@ export function FindStudent({ uploadStatus, headers }) {
                   <br />
                   <span
                     style={{
-                      borderRadius: "1rem",
                       backgroundColor: "#111",
                       color: "#fff",
                       padding: "0.5rem",
