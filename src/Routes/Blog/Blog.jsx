@@ -74,7 +74,7 @@ export function Blog({ headers }) {
     {
       level: 4,
       icon: "fa fa-sun-o",
-      color: "#FFD700",
+      color: "#FFF200",
       textcolor: "black",
       text: "Golden Sun"
     },
@@ -88,7 +88,7 @@ export function Blog({ headers }) {
     {
       level: 6,
       icon: "fa fa-skyatlas",
-      color: "#000080",
+      color: "#04015E",
       textcolor: "white",
       text: "Navy Galaxy"
     },
@@ -662,7 +662,7 @@ export function Blog({ headers }) {
             </div>
           </div>
         </div>
-        {
+        {/* {
           items.map((item, index) => {
             return <RouteDiv
               key={index}
@@ -673,13 +673,14 @@ export function Blog({ headers }) {
                 justifyContent: "space-between",
                 alignItems: "center",
                 maxHeight: "12rem",
-                minWidth: "8rem",
-                fontSize: "0.7rem",
-                fontWeight: 700,
+                minWidth: "9rem",
+                fontSize: "13px",
+                fontWeight: 500,
+                border: `1px ${item.textcolor} solid`,
                 textAlign: "center",
                 backgroundColor: item.color,
                 color: item.textcolor,
-                boxShadow: "2px 2px 10px #eee",
+                boxShadow: `2px 2px 5px ${item.color}`,
               }}
             >
               <div
@@ -699,9 +700,9 @@ export function Blog({ headers }) {
                   width: "5rem",
                   height: "5rem",
                   objectFit: "cover",
-                  border: "solid 0.2rem white",
-                  borderRadius: "0.5rem",
-                  margin: "1rem"
+                  border: "solid 0.2rem #555",
+                  borderRadius: "50%",
+                  margin: "0.9rem"
                 }}
                 src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D"
               />
@@ -712,7 +713,7 @@ export function Blog({ headers }) {
                 Monthly Score: 520
               </p>
             </RouteDiv>
-          })}
+          })} */}
       </RouteSizeControlBox>
     </>
   );
