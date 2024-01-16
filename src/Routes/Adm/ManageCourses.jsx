@@ -223,7 +223,6 @@ export function ManageModules({ headers }) {
                   zIndex: 1000,
                   backgroundColor: "white",
                   padding: "1rem",
-                  borderRadius: "8px",
                   boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
                   position: "fixed",
                   display: modalVisible ? "grid" : "none",

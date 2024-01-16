@@ -383,7 +383,6 @@ export function Blog({ headers }) {
                         padding: "0.5rem",
                         fontSize: "1rem",
                         backgroundColor: textPrimaryColorContrast(),
-                        borderRadius: "5px",
                       }}
                       target="_blank"
                       to={nextTutoring.nextTutoring.meetingUrl}
@@ -466,7 +465,6 @@ export function Blog({ headers }) {
                     fontSize: "1.1rem",
                     display: "block",
                     padding: "1rem",
-                    borderRadius: "1rem",
                     backgroundColor: alwaysWhite(),
                     color: alwaysBlack(),
                   }}
@@ -701,7 +699,6 @@ export function Blog({ headers }) {
                   height: "5rem",
                   objectFit: "cover",
                   border: "solid 0.2rem #555",
-                  borderRadius: "50%",
                   margin: "0.9rem"
                 }}
                 src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D"

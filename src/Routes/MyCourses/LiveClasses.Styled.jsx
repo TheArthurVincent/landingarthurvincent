@@ -37,14 +37,12 @@ export const CourseCard = styled.div`
   width: 15rem;
   padding: 1rem 0.2rem;
   flex-direction: column;
-  border-radius: 0.5rem;
   transition: 0.1s;
   img {
     filter: grayscale(100%);
     transition: filter 0.1s;
   }
   &:hover {
-    border-radius: 0;
     box-shadow: 1px 1px 10px 1px #aaa;
     img {
       filter: grayscale(0%);

@@ -31,11 +31,11 @@ export function NextTutorings({ headers }) {
     setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/nexttutoring`
-      
-      , {
-        headers,
-      }
-      
+
+        , {
+          headers,
+        }
+
       );
       if (response.data.pastTutorings && response.data.futureTutorings) {
         setPast(response.data.pastTutorings);
@@ -145,7 +145,6 @@ export function NextTutorings({ headers }) {
         <Box
           style={{
             display: "flex",
-            borderRadius: "1rem",
             alignItems: "center",
             backgroundColor: alwaysWhite(),
             justifyContent: "space-between",
@@ -155,7 +154,6 @@ export function NextTutorings({ headers }) {
           <TabList
             style={{
               margin: "0.3rem",
-              borderRadius: "1rem",
             }}
             onChange={handleChange}
             variant="scrollable"

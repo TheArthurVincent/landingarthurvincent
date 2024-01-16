@@ -129,7 +129,6 @@ export function Extras({ headers }) {
               color: primaryColor(),
               fontSize: "1rem",
               backgroundColor: textPrimaryColorContrast(),
-              borderRadius: "5px",
             }}
             to="http://ankiweb.net/decks"
             target="_blank"
@@ -146,7 +145,6 @@ export function Extras({ headers }) {
               color: primaryColor(),
               fontSize: "1rem",
               backgroundColor: textPrimaryColorContrast(),
-              borderRadius: "5px",
             }}
             to="https://ankiweb.net/account/signup"
             target="_blank"

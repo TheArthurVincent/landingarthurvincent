@@ -152,7 +152,6 @@ export default function LiveClassesTemplate({
                           <IFrameVideoCourses
                             style={{
                               border: "solid 1px black",
-                              borderRadius: "1rem",
                             }}
                             src={getVideoEmbedUrl(videoItem.url)}
                           />
@@ -188,7 +187,6 @@ export default function LiveClassesTemplate({
                         justifyContent: "space-evenly",
                         maxWidth: "30rem",
                         margin: "5px auto",
-                        borderRadius: "0.5rem",
                         backgroundColor: alwaysBlack(),
                       }}
                     >

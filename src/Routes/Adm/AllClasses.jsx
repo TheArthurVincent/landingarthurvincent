@@ -86,7 +86,6 @@ export function AllClasses({ headers }) {
             textAlign: "center",
             maxWidth: "20rem", // Ajuste conforme necessário
             padding: "2rem",
-            borderRadius: "8px",
           }}
         >
           <p>Are you sure you want to delete this class?</p>
@@ -126,7 +125,6 @@ export function AllClasses({ headers }) {
           filteredTutorings.map((group, index) => (
             <div
               style={{
-                borderRadius: "1rem",
                 padding: "0.5rem",
                 margin: "0.5rem",
                 backgroundColor: "#e6e6e6",

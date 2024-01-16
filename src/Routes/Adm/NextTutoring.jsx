@@ -208,7 +208,6 @@ export function NextTutoring({ headers }) {
               style={{
                 backgroundColor: primaryColor(),
                 padding: "0.5rem",
-                borderRadius: "0.5rem",
                 marginLeft: "auto",
                 color: textPrimaryColorContrast(),
                 cursor: "not-allowed",
