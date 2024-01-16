@@ -196,7 +196,7 @@ export function Blog({ headers }) {
         {/* <RouteDiv
           style={{
             backgroundColor: "white",
-            padding: "2rem"
+            padding: "1rem"
           }}
         >
           oi

@@ -209,7 +209,7 @@ export default function MyCourses({ headers }) {
                 <p
                   style={{
                     padding: "1rem",
-                    maxWidth: "100ch"
+                    maxWidth: "110ch"
                   }}
                 >
                   {description}
