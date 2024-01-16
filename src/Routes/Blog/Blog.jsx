@@ -192,10 +192,15 @@ export function Blog({ headers }) {
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
-      {/* <Notification
-        text='Operation successful' color={1} reload={false}
-      /> */}
       <RouteSizeControlBox className="smooth">
+        {/* <RouteDiv
+          style={{
+            backgroundColor: "white",
+            padding: "2rem"
+          }}
+        >
+          oi
+        </RouteDiv> */}
         <RouteDiv>
           <div
             style={{
@@ -214,7 +219,6 @@ export function Blog({ headers }) {
                 gap: "1rem",
               }}
             >
-
               <HTwo
                 style={{
                   margin: 0,
@@ -349,7 +353,6 @@ export function Blog({ headers }) {
               </span>
             )}
           </div>
-
           {posts.map((post, index) => (
             <div
               key={index}
