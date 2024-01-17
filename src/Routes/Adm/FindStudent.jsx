@@ -34,6 +34,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pic, setPic] = useState("");
+  const [photo, setPhoto] = useState("");
 
   const seePic = async (id) => {
     try {
@@ -80,6 +81,7 @@ export function FindStudent({ uploadStatus, headers }) {
       setAnkiEmail(response.data.formattedStudentData.ankiEmail);
       setAnkiPassword(response.data.formattedStudentData.ankiPassword);
       setGoogleDriveLink(response.data.formattedStudentData.googleDriveLink);
+      setPhoto(response.data.formattedStudentData.ankiPassword);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -236,6 +238,16 @@ export function FindStudent({ uploadStatus, headers }) {
                   marginBottom: "1rem",
                 }}
               >
+                <img
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                    objectFit: "cover",
+                    border: "solid 2px #555",
+                    margin: "5px",
+                    borderRadius: "50%"
+                  }}
+                  src={student.picture} alt="" />
                 <h1
                   style={{
                     fontSize: "1.2rem",
