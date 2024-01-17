@@ -231,11 +231,12 @@ export function FindStudent({ uploadStatus, headers }) {
                 style={{
                   display: "flex",
                   gap: "1rem",
-                  padding: "0.2rem 1rem",
+                  padding: "0.2rem 0.5rem",
                   border: "1px solid",
                   justifyContent: "space-between",
                   alignItems: "center",
                   marginBottom: "1rem",
+                  minWidth:"26rem"
                 }}
               >
                 <img
@@ -243,7 +244,6 @@ export function FindStudent({ uploadStatus, headers }) {
                     width: "3rem",
                     height: "3rem",
                     objectFit: "cover",
-                    border: "solid 2px #555",
                     margin: "5px",
                     borderRadius: "50%"
                   }}
