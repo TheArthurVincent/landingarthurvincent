@@ -29,10 +29,24 @@ export function FindStudent({ uploadStatus, headers }) {
   const [ankiPassword, setAnkiPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
-  const [ID, setID] = useState(false);
+  const [ID, setID] = useState("");
   const [value, setValue] = useState("1");
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pic, setPic] = useState("");
+
+  const seePic = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/studentpicture/${id}`, {
+        headers,
+      });
+      console.log(response.data);
+      setPic(response.data);
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -51,6 +65,7 @@ export function FindStudent({ uploadStatus, headers }) {
 
   const seeEdition = async (id) => {
     handleSeeModal();
+    seePic(id);
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
         headers,
@@ -172,7 +187,7 @@ export function FindStudent({ uploadStatus, headers }) {
 
       handleSeeModal();
       console.error(error);
-      
+
     }
   };
 
@@ -403,6 +418,7 @@ export function FindStudent({ uploadStatus, headers }) {
           >
             Editar aluno
           </h1>
+          <img src={pic} alt="profilepic" />
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <TabList

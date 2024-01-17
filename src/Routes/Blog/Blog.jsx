@@ -660,12 +660,12 @@ export function Blog({ headers }) {
             </div>
           </div>
         </div>
-        {/* {
+        {
           items.map((item, index) => {
             return <RouteDiv
               key={index}
               style={{
-                display: item.level === 7 ? "block" : "none",
+                display: item.level === 0 ? "block" : "none",
                 backgroundColor: "white",
                 padding: "0.5rem",
                 justifyContent: "space-between",
@@ -705,38 +705,39 @@ export function Blog({ headers }) {
                 src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D"
               />
               <p>
-                Score: 1520
+                Total Score: 1100
               </p>
               <p>
-                Monthly Score: 520
+                Monthly Score: 0
               </p>
             </RouteDiv>
-          })} */}
+          })}
       </RouteSizeControlBox>
       {/*
-          Faltas Aula: -50 [-400]
-          Anki 6/7: 500 [2000]
-          Anki 3/7: 200
+        - Anki 6/7: 500 [2000 in a month]
+        - Anki 3/7: 200
+        - Homework: 500 [2000 in a month]
+        - Live class: 250 [2000]
+        - Live class homework: 300 [2400]
+        
           Anki 0: -100
-          Homework: 400 [1600]
-          Live class: 250 [2000]
-          Live class homework: 500 [4000]
+          Faltas Aula: -100 [-400]
           Test: 0 - 3.000 []
-          
+      
           ////
           2: 10.000
-          3: 20.000
-          4: 35.000
-          5: 50.000
-          6: 75.000
-          7: 150.000
+          3: 25.000
+          4: 40.000
+          5: 60.000
+          6: 80.000
+          7: 120.000
           ////
+          
+          Level upgrade: 50% cashback/discount next month > 3000;
 
-          Level upgrade: 30% cashback/discount next month > 3000;
-
-          1st place monthly score: 20% cashback/discount > 1000;
-          2nd place monthly score: 10% cashback/discount > 1000;
-          3rd place monthly score: 5% cashback/discount > 1000;
+          1st place monthly score: 20% cashback/discount > 1500;
+          2nd place monthly score: 10% cashback/discount > 1500;
+          3rd place monthly score: 5% cashback/discount > 1500;
       */}
     </>
   );

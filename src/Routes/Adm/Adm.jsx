@@ -58,7 +58,7 @@ export function Adm({ headers }) {
       tooltip: "Cursos",
       component:
         ((<ManageModules headers={headers} />),
-        (<ManageCourses headers={headers} />)),
+          (<ManageCourses headers={headers} />)),
     },
     {
       title: "Postagens",
@@ -184,9 +184,6 @@ export function Adm({ headers }) {
             sx={{ borderBottom: 1, borderColor: "divider" }}
           >
             <TabList
-              style={{
-                margin: "0.3rem",
-              }}
               onChange={handleChange}
               variant="scrollable"
               scrollButtons="auto"

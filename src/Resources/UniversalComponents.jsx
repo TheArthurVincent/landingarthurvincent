@@ -697,13 +697,13 @@ export function isDev() {
   }
 }
 
-export function logout24h() {
-  setTimeout(() => {
-    alert("Token expirado: Faça login novamente");
-    localStorage.removeItem("authorization");
-    localStorage.removeItem("loggedIn");
-    window.location.assign("/");
-  }, 43200000); // login expirar o login em 12h de inatividade
-}
+// export function logout24h() {
+//   setTimeout(() => {
+//     alert("Token expirado: Faça login novamente");
+//     localStorage.removeItem("authorization");
+//     localStorage.removeItem("loggedIn");
+//     window.location.assign("/");
+//   }, 43200000); // login expirar o login em 12h de inatividade
+// }
 
 export const backDomain = isDev();
