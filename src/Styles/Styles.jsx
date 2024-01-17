@@ -5,11 +5,11 @@ export const textPrimaryColorContrast = () => "#fff";
 export const textSecondaryColorContrast = () => "#fff";
 // Fixed
 export const darkGreyColor = () => "#222";
-export const lightGreyColor = () => "#e5e5e5";
+export const lightGreyColor = () => "#e6e6e6";
 export const transparentWhite = () => "rgba(255, 255, 255, 0.7)";
 export const transparentBlack = () => "rgba(1, 1, 1, 0.7)";
 export const alwaysWhite = () => "#fff";
-export const alwaysBlack = () => "#1a1a1a";
+export const alwaysBlack = () => "#111";
 
 /*
     Stellar: Refere-se a tudo relacionado a estrelas, incluindo seu brilho, características e propriedades.
