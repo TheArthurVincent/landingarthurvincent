@@ -27,7 +27,7 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
-import Notification from "../../Resources/Components/Notification";
+import Notification, { showNotification } from "../../Resources/Components/Notification";
 import { LineAxisTwoTone } from "@mui/icons-material";
 
 export function Blog({ headers }) {
@@ -49,6 +49,9 @@ export function Blog({ headers }) {
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
+  const [totalScore, setTotalScore] = useState(0);
+  const [monthlyScore, setMonthlyScore] = useState(0);
+  const [level, setLevel] = useState(0);
 
 
   const items = [
@@ -157,6 +160,7 @@ export function Blog({ headers }) {
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
     setLastName(getLoggedUser.lastname)
     setPicture(getLoggedUser.picture)
+    setMonthlyScore(getLoggedUser.score)
   }, []);
 
   const handleSeeIsNextClassVisibleModal = () => {
@@ -168,7 +172,7 @@ export function Blog({ headers }) {
         );
         setNextTutoring(response.data);
       } catch (error) {
-        showNotification("Erro ao importar próximas aulas", 3, true)
+        // showNotification("Erro ao importar próximas aulas", 3, true)
         alert("Erro ao importar próximas aulas");
         window.location.reload();
 
@@ -217,6 +221,27 @@ export function Blog({ headers }) {
       console.error(error);
     }
   };
+
+  const seeScore = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.totalScore);
+      setMonthlyScore(response.data.monthlyScore);
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    setInterval(() => {
+      seeScore(_StudentId)
+      // console.log(totalScore, monthlyScore)
+    }, 1000);
+
+  }, [])
 
   const editPost = async (id) => {
     try {
@@ -278,74 +303,64 @@ export function Blog({ headers }) {
           gap: "1rem"
         }}
         className="smooth">
-        {
-          items.map((item, index) => {
-            return <RouteDiv
-              key={index}
-              style={{
-                display: item.level === 5 ? "block" : "none",
-                backgroundColor: "white",
-                padding: "0.5rem",
-                justifyContent: "space-between",
-                alignItems: "center",
-                maxHeight: "15rem",
-                minWidth: "9rem",
-                fontSize: "13px",
-                borderRadius: "0rem 2.5rem",
-                fontWeight: 500,
-                border: `3px ${item.textcolor} solid`,
-                textAlign: "center",
-                background: `linear-gradient(to bottom, black 0%, ${item.color} 50%)`,
-                color: item.textcolor,
-                boxShadow: `6px 6px 10px ${item.textcolor}`,
-              }}
-            >
-              <div
-                style={{
-                  display: item.level === 0 ? "flex" : "none",
-                  justifyContent: "space-evenly",
-                  alignItems: "center",
-                  color: "white",
-                }}
-              >
-                <i className={item.icon} aria-hidden="true" />
-                <h2>
-                  {item.text}
-                </h2>
-              </div>
-              <img
-                style={{
-                  width: "5rem",
-                  height: "5rem",
-                  objectFit: "cover",
-                  border: "solid 0.2rem #555",
-                  margin: "0.9rem",
-                  borderRadius: "50%"
-                }}
-                src={picture}
-              />
-              <p
-                style={{
-                  fontWeight: 800,
-                  marginBottom: "9px"
-                }}
-              >
-                {name} {lastName}
-              </p>
-              <span
-                style={{
-                  display: item.level === 0 ? "block" : "none",
-                }}
-              >
-                <p>
-                  Total Score: 0
-                </p>
-                <p>
-                  Monthly Score: 0
-                </p>
-              </span>
-            </RouteDiv>
-          })}
+        <RouteDiv
+          style={{
+            backgroundColor: "white",
+            position: "sticky",
+            padding: "0.5rem",
+            justifyContent: "space-between",
+            alignItems: "center",
+            maxHeight: "15rem",
+            minWidth: "9rem",
+            fontSize: "13px",
+            borderRadius: "0rem 2.5rem",
+            fontWeight: 500,
+            textAlign: "center",
+            background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
+            color: items[level].textcolor,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              color: "white",
+            }}
+          >
+            <i className={items[level].icon} aria-hidden="true" />
+            <h2>
+              {items[level].text}
+            </h2>
+          </div>
+          <img
+            style={{
+              width: "5rem",
+              height: "5rem",
+              objectFit: "cover",
+              border: "solid 0.2rem #555",
+              margin: "0.9rem",
+              borderRadius: "50%"
+            }}
+            src={picture}
+          />
+          <p
+            style={{
+              fontWeight: 800,
+              marginBottom: "9px"
+            }}
+          >
+            {name} {lastName}
+          </p>
+          <span>
+            <p>
+              Total Score: {totalScore}
+            </p>
+            <p>
+              Monthly Score: {monthlyScore}
+            </p>
+          </span>
+        </RouteDiv>
         <RouteDiv>
           <div
             style={{
