@@ -114,6 +114,13 @@ export function Blog({ headers }) {
       color: "#000000",
       textcolor: "white",
       text: "Black Belt | 1 Stripe"
+    },
+    {
+      level: 20,
+      icon: "fa fa-superpowers",
+      color: "#789",
+      textcolor: "white",
+      text: "SUPREME"
     }
   ];
 
@@ -266,12 +273,79 @@ export function Blog({ headers }) {
       <RouteSizeControlBox
         style={{
           display: "flex",
-          maxWidth: "1000px",
+          maxWidth: "800px",
           justifyContent: "space-between",
           gap: "1rem"
         }}
         className="smooth">
-
+        {
+          items.map((item, index) => {
+            return <RouteDiv
+              key={index}
+              style={{
+                display: item.level === 5 ? "block" : "none",
+                backgroundColor: "white",
+                padding: "0.5rem",
+                justifyContent: "space-between",
+                alignItems: "center",
+                maxHeight: "15rem",
+                minWidth: "9rem",
+                fontSize: "13px",
+                borderRadius: "0rem 2.5rem",
+                fontWeight: 500,
+                border: `3px ${item.textcolor} solid`,
+                textAlign: "center",
+                background: `linear-gradient(to bottom, black 0%, ${item.color} 50%)`,
+                color: item.textcolor,
+                boxShadow: `6px 6px 10px ${item.textcolor}`,
+              }}
+            >
+              <div
+                style={{
+                  display: item.level === 0 ? "flex" : "none",
+                  justifyContent: "space-evenly",
+                  alignItems: "center",
+                  color: "white",
+                }}
+              >
+                <i className={item.icon} aria-hidden="true" />
+                <h2>
+                  {item.text}
+                </h2>
+              </div>
+              <img
+                style={{
+                  width: "5rem",
+                  height: "5rem",
+                  objectFit: "cover",
+                  border: "solid 0.2rem #555",
+                  margin: "0.9rem",
+                  borderRadius: "50%"
+                }}
+                src={picture}
+              />
+              <p
+                style={{
+                  fontWeight: 800,
+                  marginBottom: "9px"
+                }}
+              >
+                {name} {lastName}
+              </p>
+              <span
+                style={{
+                  display: item.level === 0 ? "block" : "none",
+                }}
+              >
+                <p>
+                  Total Score: 0
+                </p>
+                <p>
+                  Monthly Score: 0
+                </p>
+              </span>
+            </RouteDiv>
+          })}
         <RouteDiv>
           <div
             style={{
@@ -677,60 +751,7 @@ export function Blog({ headers }) {
             </div>
           </div>
         </div>
-        {
-          items.map((item, index) => {
-            return <RouteDiv
-              key={index}
-              style={{
-                display: item.level === 18 ? "block" : "none",
-                backgroundColor: "white",
-                padding: "0.5rem",
-                justifyContent: "space-between",
-                alignItems: "center",
-                maxHeight: "12rem",
-                minWidth: "9rem",
-                fontSize: "13px",
-                borderRadius: "0rem 2.5rem",
-                fontWeight: 500,
-                border: `3px ${item.textcolor} solid`,
-                textAlign: "center",
-                background: `linear-gradient(to bottom, black 0%, ${item.color} 50%)`,
-                color: item.textcolor,
-                boxShadow: `6px 6px 10px ${item.textcolor}`,
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-evenly",
-                  alignItems: "center",
-                  color: "white",
-                }}
-              >
-                <i className={item.icon} aria-hidden="true" />
-                <h2>
-                  {item.text}
-                </h2>
-              </div>
-              <img
-                style={{
-                  width: "5rem",
-                  height: "5rem",
-                  objectFit: "cover",
-                  border: "solid 0.2rem #555",
-                  margin: "0.9rem",
-                  borderRadius: "50%"
-                }}
-                src={picture}
-              />
-              <p>
-                Total Score: 110000
-              </p>
-              <p>
-                Monthly Score: 0
-              </p>
-            </RouteDiv>
-          })}
+
       </RouteSizeControlBox>
       {/*
         - Anki 6/7: 500 [2000 in a month]
