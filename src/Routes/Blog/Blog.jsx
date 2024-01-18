@@ -47,57 +47,73 @@ export function Blog({ headers }) {
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [permissions, setPermissions] = useState("");
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
+  const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
+
 
   const items = [
     {
       level: 1,
       icon: "fa fa-star",
-      color: "#808080",
-      textcolor: "white",
-      text: "Grey Star"
+      color: "#eee",
+      textcolor: "black",
+      text: "White Belt"
     },
     {
       level: 2,
       icon: "fa fa-moon-o",
-      color: "#C0C0C0",
+      color: "#FAF477",
       textcolor: "black",
-      text: "Silver Moon"
+      text: "Yellow Belt"
     },
     {
       level: 3,
       icon: "fa fa-globe",
-      color: "#51B8FC",
-      textcolor: "black",
-      text: "Blue Planet"
+      color: "#2F0092",
+      textcolor: "white",
+      text: "Blue Belt"
     },
     {
       level: 4,
       icon: "fa fa-sun-o",
-      color: "#FFF200",
-      textcolor: "black",
-      text: "Golden Sun"
+      color: "#FA1000",
+      textcolor: "white",
+      text: "Red Belt"
     },
     {
       level: 5,
       icon: "fa fa-bolt",
-      color: "#FFFFFF",
-      textcolor: "black",
-      text: "White Thunder"
+      color: "#58B000",
+      textcolor: "white",
+      text: "Green Belt"
     },
     {
       level: 6,
       icon: "fa fa-skyatlas",
-      color: "#04015E",
+      color: "#FA6001",
       textcolor: "white",
-      text: "Navy Galaxy"
+      text: "Orange Belt"
     },
     {
       level: 7,
+      icon: "fa fa-moon-o",
+      color: "#8A4C9E",
+      textcolor: "white",
+      text: "Purple Belt"
+    },
+    {
+      level: 8,
+      icon: "fa fa-superpowers",
+      color: "#555",
+      textcolor: "white",
+      text: "Black Belt"
+    },
+    {
+      level: 9,
       icon: "fa fa-superpowers",
       color: "#000000",
       textcolor: "white",
-      text: "Dark Universe"
+      text: "Black Belt | 1 Stripe"
     }
   ];
 
@@ -133,6 +149,7 @@ export function Blog({ headers }) {
     setAnkiPassword(getLoggedUser.setAnkiPassword);
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
     setLastName(getLoggedUser.lastname)
+    setPicture(getLoggedUser.picture)
   }, []);
 
   const handleSeeIsNextClassVisibleModal = () => {
@@ -249,8 +266,8 @@ export function Blog({ headers }) {
       <RouteSizeControlBox
         style={{
           display: "flex",
+          maxWidth: "1000px",
           justifyContent: "space-between",
-          // alignItems: "center"
           gap: "1rem"
         }}
         className="smooth">
@@ -665,7 +682,7 @@ export function Blog({ headers }) {
             return <RouteDiv
               key={index}
               style={{
-                display: item.level === 0 ? "block" : "none",
+                display: item.level === 18 ? "block" : "none",
                 backgroundColor: "white",
                 padding: "0.5rem",
                 justifyContent: "space-between",
@@ -673,12 +690,13 @@ export function Blog({ headers }) {
                 maxHeight: "12rem",
                 minWidth: "9rem",
                 fontSize: "13px",
+                borderRadius: "0rem 2.5rem",
                 fontWeight: 500,
-                border: `1px ${item.textcolor} solid`,
+                border: `3px ${item.textcolor} solid`,
                 textAlign: "center",
-                backgroundColor: item.color,
+                background: `linear-gradient(to bottom, black 0%, ${item.color} 50%)`,
                 color: item.textcolor,
-                boxShadow: `2px 2px 5px ${item.color}`,
+                boxShadow: `6px 6px 10px ${item.textcolor}`,
               }}
             >
               <div
@@ -686,6 +704,7 @@ export function Blog({ headers }) {
                   display: "flex",
                   justifyContent: "space-evenly",
                   alignItems: "center",
+                  color: "white",
                 }}
               >
                 <i className={item.icon} aria-hidden="true" />
@@ -702,10 +721,10 @@ export function Blog({ headers }) {
                   margin: "0.9rem",
                   borderRadius: "50%"
                 }}
-                src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D"
+                src={picture}
               />
               <p>
-                Total Score: 1100
+                Total Score: 110000
               </p>
               <p>
                 Monthly Score: 0
@@ -719,18 +738,23 @@ export function Blog({ headers }) {
         - Homework: 500 [2000 in a month]
         - Live class: 250 [2000]
         - Live class homework: 300 [2400]
-        
+
           Anki 0: -100
           Faltas Aula: -100 [-400]
           Test: 0 - 3.000 []
       
           ////
+
           2: 10.000
           3: 25.000
           4: 40.000
           5: 60.000
           6: 80.000
           7: 120.000
+          8: 240.000 - 1 stripe 20% definite 
+          9: 480.000 - 2 stripes 35% definite
+          10: 960.000 - 3 stripes 50% definite
+
           ////
           
           Level upgrade: 50% cashback/discount next month > 3000;
