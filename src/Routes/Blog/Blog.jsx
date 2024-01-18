@@ -112,7 +112,7 @@ export function Blog({ headers }) {
 
     {
       level: 9,
-      icon: "fa fa-superpowers",
+      icon: "fa fa-edit",
       color: "#789",
       textcolor: "white",
       text: "SUPREME"
@@ -156,7 +156,8 @@ export function Blog({ headers }) {
               response.data.totalScore < 60000 ? 3 :
                 response.data.totalScore < 80000 ? 4 :
                   response.data.totalScore < 120000 ? 5 :
-                    response.data.totalScore < 240000 ? 6 : 7
+                    response.data.totalScore < 240000 ? 6 :
+                      response.data.totalScore < 1000000 ? 7 : 8
       );
 
     } catch (error) {
