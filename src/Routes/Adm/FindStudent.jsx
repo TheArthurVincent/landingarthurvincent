@@ -30,12 +30,13 @@ export function FindStudent({ uploadStatus, headers }) {
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [ID, setID] = useState("");
-  const [value, setValue] = useState("1");
+  const [value, setValue] = useState("0");
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pic, setPic] = useState("");
   const [photo, setPhoto] = useState("");
-
+  const [totalScore, setTotalScore] = useState(0);
+  const [monthlyScore, setMonthlyScore] = useState(0);
   const seePic = async (id) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/studentpicture/${id}`, {
@@ -82,11 +83,28 @@ export function FindStudent({ uploadStatus, headers }) {
       setAnkiPassword(response.data.formattedStudentData.ankiPassword);
       setGoogleDriveLink(response.data.formattedStudentData.googleDriveLink);
       setPhoto(response.data.formattedStudentData.ankiPassword);
+      setTotalScore(response.data.formattedStudentData.totalScore);
+      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
     } catch (error) {
       alert(error);
       console.error(error);
     }
   };
+
+
+  const updateScoreNow = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.formattedStudentData.totalScore);
+      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+
 
   const editStudent = async (id) => {
     let editedStudent = {
@@ -207,187 +225,238 @@ export function FindStudent({ uploadStatus, headers }) {
     }
   };
 
+  const [plusScore, setPlusScore] = useState(0)
+
+  const changePlusScore = (score) => {
+    setPlusScore(score)
+  }
+
+
+  const submitPlusScore = async (id, score) => {
+    try {
+      const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
+        headers, score
+      });
+
+      updateScoreNow(id)
+    } catch (error) {
+      alert("Erro ao somar pontuação");
+    }
+  };
+
+  const [resetVisible, setResetVisible] = useState(false)
+  const handleResetMonth = async () => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/resetmonth`,
+        { headers }
+      );
+
+      setResetVisible(true)
+
+      setTimeout(() => {
+        setResetVisible(true)
+      }, 2000);
+    } catch (error) {
+      alert("Erro ao resetar");
+    };
+
+  };
+
+
   return (
     <RouteDiv style={{ margin: "1rem auto" }}>
       <HOne>{UniversalTexts.myStudents}</HOne>
 
-      {!loading ? (
-        students.map((student, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "4rem",
-            }}
-          >
+      <Button
+        onClick={() => handleResetMonth()}
+      >Resetar pontuações do mês</Button>
+      <p
+        style={{
+          display: resetVisible ? "block" : "none"
+        }}
+      >
+        Pontuações do mês resetadas
+      </p>
+      {
+        !loading ? (
+          students.map((student, index) => (
             <div
+              key={index}
               style={{
-                padding: "0.6rem",
-                color: alwaysBlack(),
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "4rem",
               }}
             >
               <div
                 style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "0.2rem 0.5rem",
-                  border: "1px solid",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "1rem",
-                  minWidth:"26rem"
+                  padding: "0.6rem",
+                  color: alwaysBlack(),
                 }}
               >
-                <img
+                <div
                   style={{
-                    width: "3rem",
-                    height: "3rem",
-                    objectFit: "cover",
-                    margin: "5px",
-                    borderRadius: "50%"
-                  }}
-                  src={student.picture} alt="" />
-                <h1
-                  style={{
-                    fontSize: "1.2rem",
-                    textAlign: "left",
+                    display: "flex",
+                    gap: "1rem",
+                    padding: "0.2rem 0.5rem",
+                    border: "1px solid",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "1rem",
+                    minWidth: "26rem"
                   }}
                 >
-                  {student.fullname}
-                </h1>
-                <Button
-                  style={{
-                    color: secondaryColor(),
-                  }}
-                  onClick={() => seeEdition(student.id)}
-                >
-                  Editar
-                </Button>
+                  <img
+                    style={{
+                      width: "3rem",
+                      height: "3rem",
+                      objectFit: "cover",
+                      margin: "5px",
+                      borderRadius: "50%"
+                    }}
+                    src={student.picture} alt="" />
+                  <h1
+                    style={{
+                      fontSize: "1.2rem",
+                      textAlign: "left",
+                    }}
+                  >
+                    {student.fullname}
+                  </h1>
+                  <Button
+                    style={{
+                      color: secondaryColor(),
+                    }}
+                    onClick={() => seeEdition(student.id)}
+                  >
+                    Editar
+                  </Button>
+                </div>
+                <ul>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.username}
+                    </span>
+                    : {student.username}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.document}
+                    </span>
+                    : {student.doc}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.dateOfBirth}
+                    </span>
+                    : {student.dateOfBirth}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.email}
+                    </span>
+                    : {student.email}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.phoneNumber}
+                    </span>
+                    : {student.phoneNumber}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.permissions}
+                    </span>
+                    : {student.permissions}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.ankiEmail}
+                    </span>
+                    : {student.ankiEmail}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.ankiPassword}
+                    </span>
+                    : {student.ankiPassword}
+                  </li>
+                  <li>
+                    <span
+                      style={{
+                        fontWeight: 600,
+                      }}
+                    >
+                      {UniversalTexts.googleDriveLink}
+                    </span>
+                    :
+                    <Link
+                      style={{
+                        color: primaryColor(),
+                        padding: "0.5rem",
+                      }}
+                      to={
+                        student.googleDriveLink
+                          ? student.googleDriveLink
+                          : "http://www.google.com/"
+                      }
+                      target="_blank"
+                    >
+                      {UniversalTexts.clickHere}
+                    </Link>
+                  </li>
+                </ul>
               </div>
-              <ul>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.username}
-                  </span>
-                  : {student.username}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.document}
-                  </span>
-                  : {student.doc}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.dateOfBirth}
-                  </span>
-                  : {student.dateOfBirth}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.email}
-                  </span>
-                  : {student.email}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.phoneNumber}
-                  </span>
-                  : {student.phoneNumber}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.permissions}
-                  </span>
-                  : {student.permissions}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.ankiEmail}
-                  </span>
-                  : {student.ankiEmail}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.ankiPassword}
-                  </span>
-                  : {student.ankiPassword}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.googleDriveLink}
-                  </span>
-                  :
-                  <Link
-                    style={{
-                      color: primaryColor(),
-                      padding: "0.5rem",
-                    }}
-                    to={
-                      student.googleDriveLink
-                        ? student.googleDriveLink
-                        : "http://www.google.com/"
-                    }
-                    target="_blank"
-                  >
-                    {UniversalTexts.clickHere}
-                  </Link>
-                </li>
-              </ul>
             </div>
+          ))
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <p>Carregando dados</p>
+            <CircularProgress />
           </div>
-        ))
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "2rem",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p>Carregando dados</p>
-          <CircularProgress />
-        </div>
-      )}
+        )
+      }
 
       <div
         className="modal"
@@ -439,12 +508,31 @@ export function FindStudent({ uploadStatus, headers }) {
                 scrollButtons="auto"
                 aria-label="scrollable auto tabs example"
               >
+                <Tab label="Pontuação" value="0" />
                 <Tab label="Dados gerais" value="1" />
                 <Tab label="Permissões" value="2" />
                 <Tab label="Senha" value="3" />
                 <Tab label="Aulas" value="4" />
               </TabList>
             </Box>
+            <TabPanel value="0">
+              <div
+                style={{
+                  marginTop: "1rem",
+                  padding: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                <p>Monthly Score: {monthlyScore}</p>
+                <p>Total Score: {totalScore}</p>
+                <input
+                  onChange={(e) => changePlusScore(e.target.value)}
+                  type="number" />
+                <Button
+                  onClick={() => submitPlusScore(ID, plusScore)}
+                >Adicionar pontos</Button>
+              </div>
+            </TabPanel>
             <TabPanel value="1">
               <form
                 style={{
@@ -796,7 +884,7 @@ export function FindStudent({ uploadStatus, headers }) {
           </TabContext>
         </div>
       </div>
-    </RouteDiv>
+    </RouteDiv >
   );
 }
 

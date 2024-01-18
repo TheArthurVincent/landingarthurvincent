@@ -27,8 +27,6 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
-import Notification, { showNotification } from "../../Resources/Components/Notification";
-import { LineAxisTwoTone } from "@mui/icons-material";
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -111,15 +109,9 @@ export function Blog({ headers }) {
       textcolor: "white",
       text: "Black Belt"
     },
+
     {
       level: 9,
-      icon: "fa fa-superpowers",
-      color: "#000000",
-      textcolor: "white",
-      text: "Black Belt | 1 Stripe"
-    },
-    {
-      level: 20,
       icon: "fa fa-superpowers",
       color: "#789",
       textcolor: "white",
@@ -150,6 +142,30 @@ export function Blog({ headers }) {
     },
   ]);
 
+  const seeScore = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.totalScore);
+      setMonthlyScore(response.data.monthlyScore);
+      setLevel(
+        response.data.totalScore < 10000 ? 0 :
+          response.data.totalScore < 25000 ? 1 :
+            response.data.totalScore < 40000 ? 2 :
+              response.data.totalScore < 60000 ? 3 :
+                response.data.totalScore < 80000 ? 4 :
+                  response.data.totalScore < 120000 ? 5 :
+                    response.data.totalScore < 240000 ? 6 : 7
+      );
+
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+
+
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setName(getLoggedUser.name);
@@ -160,8 +176,19 @@ export function Blog({ headers }) {
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
     setLastName(getLoggedUser.lastname)
     setPicture(getLoggedUser.picture)
-    setMonthlyScore(getLoggedUser.score)
+    setTimeout(() => {
+      seeScore(getLoggedUser.id)
+
+      console.log(level)
+    }, 300);
+
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(level)
+    }, 3000);
+  }, [])
 
   const handleSeeIsNextClassVisibleModal = () => {
     const fetchNextClass = async () => {
@@ -222,26 +249,6 @@ export function Blog({ headers }) {
     }
   };
 
-  const seeScore = async (id) => {
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
-        headers,
-      });
-      setTotalScore(response.data.totalScore);
-      setMonthlyScore(response.data.monthlyScore);
-    } catch (error) {
-      alert(error);
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    setInterval(() => {
-      seeScore(_StudentId)
-      // console.log(totalScore, monthlyScore)
-    }, 1000);
-
-  }, [])
 
   const editPost = async (id) => {
     try {
@@ -303,13 +310,13 @@ export function Blog({ headers }) {
           gap: "1rem"
         }}
         className="smooth">
+
         <RouteDiv
           style={{
+            // display: level === 0 ? "none" : "block",
             backgroundColor: "white",
             position: "sticky",
             padding: "0.5rem",
-            justifyContent: "space-between",
-            alignItems: "center",
             maxHeight: "15rem",
             minWidth: "9rem",
             fontSize: "13px",
@@ -320,6 +327,7 @@ export function Blog({ headers }) {
             color: items[level].textcolor,
           }}
         >
+
           <div
             style={{
               display: "flex",
@@ -359,6 +367,16 @@ export function Blog({ headers }) {
             <p>
               Monthly Score: {monthlyScore}
             </p>
+            <Button
+              onClick={() => seeScore(_StudentId)}
+              style={{
+                color:
+                  items[level].textcolor
+              }}
+            >
+              <i
+                className="fa fa-refresh" aria-hidden="true"></i>
+            </Button>
           </span>
         </RouteDiv>
         <RouteDiv>
