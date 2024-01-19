@@ -49,7 +49,7 @@ export function Blog({ headers }) {
   const [loading, setLoading] = useState(true);
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
-  const [level, setLevel] = useState(0);
+  const [level, setLevel] = useState(9);
 
 
   const items = [
@@ -116,7 +116,14 @@ export function Blog({ headers }) {
       color: "#789",
       textcolor: "white",
       text: "SUPREME"
-    }
+    },
+    {
+      level: 10,
+      icon: <CircularProgress />,
+      color: "#000",
+      textcolor: "black",
+      text: <CircularProgress />
+    },
   ];
 
   const [nextTutoring, setNextTutoring] = useState({
