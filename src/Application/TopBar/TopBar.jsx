@@ -51,6 +51,10 @@ export default function TopBar() {
       title: UniversalTexts.englishMaterial,
       endpoint: "/classes-to-teach",
     },
+    // {
+    //   title: "Ranking",
+    //   endpoint: "/ranking",
+    // },
     {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",

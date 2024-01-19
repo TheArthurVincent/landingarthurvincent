@@ -11,6 +11,7 @@ import { All, authorizationToken } from "./Resources/UniversalComponents";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 import Footer from "./Application/Footer/Footer";
 import { Adm } from "./Routes/Adm/Adm";
+import Ranking from "./Routes/Ranking/Ranking";
 
 function App() {
   const [admin, setAdmin] = useState(false);
@@ -58,6 +59,10 @@ function App() {
     {
       path: "/my-profile",
       element: verifyToken() ? <MyProfile headers={headers} /> : <Login />,
+    },
+    {
+      path: "/ranking",
+      element: verifyToken() ? <Ranking headers={headers} /> : <Login />,
     },
     {
       path: "/classes-to-teach",
