@@ -311,10 +311,10 @@ export function Blog({ headers }) {
           gap: "1rem"
         }}
         className="smooth">
-
+{/* 
         <RouteDiv
           style={{
-            // display: level === 0 ? "none" : "block",
+            // display: level === 9 ? "none" : "block",
             backgroundColor: "white",
             position: "sticky",
             padding: "0.5rem",
@@ -379,7 +379,7 @@ export function Blog({ headers }) {
                 className="fa fa-refresh" aria-hidden="true"></i>
             </Button>
           </span>
-        </RouteDiv>
+        </RouteDiv> */}
         <RouteDiv>
           <div
             style={{
@@ -790,13 +790,14 @@ export function Blog({ headers }) {
       {/*
         - Anki 6/7: 500 [2000 in a month]
         - Anki 3/7: 200
+        - Anki 0: -100
         - Homework: 500 [2000 in a month]
         - Live class: 250 [2000]
         - Live class homework: 300 [2400]
+        - Anki 100% no mês: 2000 [2400]
 
-          Anki 0: -100
           Faltas Aula: -100 [-400]
-          Test: 0 - 3.000 []
+          Test: 3.000 []
       
           ////
 
@@ -812,11 +813,11 @@ export function Blog({ headers }) {
 
           ////
           
-          Level upgrade: 50% cashback/discount next month > 3000;
+          Level upgrade: 50% cashback/discount next month > 3500;
 
-          1st place monthly score: 20% cashback/discount > 1500;
-          2nd place monthly score: 10% cashback/discount > 1500;
-          3rd place monthly score: 5% cashback/discount > 1500;
+          1st place monthly score: 20% cashback/discount > 3000;
+          2nd place monthly score: 10% cashback/discount > 3000;
+          3rd place monthly score: 5% cashback/discount > 3000;
       */}
     </>
   );
