@@ -251,6 +251,7 @@ export function FindStudent({ uploadStatus, headers }) {
       );
 
       setResetVisible(true)
+      
 
       setTimeout(() => {
         setResetVisible(true)
@@ -497,7 +498,6 @@ export function FindStudent({ uploadStatus, headers }) {
           >
             Editar aluno
           </h1>
-          <img src={pic} alt="profilepic" />
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <TabList
@@ -521,6 +521,7 @@ export function FindStudent({ uploadStatus, headers }) {
                   textAlign: "center",
                 }}
               >
+                {/* <img src={student.picture} alt="profilepic" /> */}
                 <p>Monthly Score: {monthlyScore}</p>
                 <p>Total Score: {totalScore}</p>
                 <input
