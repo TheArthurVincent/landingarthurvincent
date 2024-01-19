@@ -66,7 +66,6 @@ export function FindStudent({ uploadStatus, headers }) {
 
   const seeEdition = async (id) => {
     handleSeeModal();
-    seePic(id);
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
         headers,
