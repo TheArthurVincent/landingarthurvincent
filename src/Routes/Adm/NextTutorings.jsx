@@ -11,7 +11,6 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
-  alwaysBlack,
   alwaysWhite,
   primaryColor,
   secondaryColor,
@@ -26,6 +25,14 @@ export function NextTutorings({ headers }) {
   const [future, setFuture] = useState([]);
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState(0);
+
+  const isWithinOneHour = (dateTime) => {
+    const oneHour = 60 * 60 * 1000;
+    const currentTime = new Date().getTime();
+    const eventTime = new Date(dateTime).getTime();
+
+    return Math.abs(currentTime - eventTime) <= oneHour;
+  };
 
   const seeAllTutorings = async () => {
     setLoading(true);
@@ -85,6 +92,7 @@ export function NextTutorings({ headers }) {
                 <HThree
                   style={{
                     margin: 0,
+                    backgroundColor: isWithinOneHour(item.dateTime) ? secondaryColor() : primaryColor(),
                     color: textPrimaryColorContrast(),
                     margin: 0,
                   }}
