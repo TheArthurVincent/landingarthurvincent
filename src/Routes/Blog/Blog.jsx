@@ -721,9 +721,9 @@ export function Blog({ headers }) {
         <RouteDiv
           style={{
             backgroundColor: "white",
-            // position: "absolute",
             padding: "0.5rem",
             maxHeight: "16rem",
+            minWidth: "9rem",
             fontSize: "13px",
             textAlign: "center",
             background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
