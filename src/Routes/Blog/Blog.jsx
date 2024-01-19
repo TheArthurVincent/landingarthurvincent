@@ -311,75 +311,8 @@ export function Blog({ headers }) {
           gap: "1rem"
         }}
         className="smooth">
-        {/* 
-        <RouteDiv
-          style={{
-            // display: level === 9 ? "none" : "block",
-            backgroundColor: "white",
-            position: "sticky",
-            padding: "0.5rem",
-            maxHeight: "15rem",
-            minWidth: "9rem",
-            fontSize: "13px",
-            borderRadius: "0rem 2.5rem",
-            fontWeight: 500,
-            textAlign: "center",
-            background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
-            color: items[level].textcolor,
-          }}
-        >
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              color: "white",
-            }}
-          >
-            <i className={items[level].icon} aria-hidden="true" />
-            <h2>
-              {items[level].text}
-            </h2>
-          </div>
-          <img
-            style={{
-              width: "5rem",
-              height: "5rem",
-              objectFit: "cover",
-              border: "solid 0.2rem #555",
-              margin: "0.9rem",
-              borderRadius: "50%"
-            }}
-            src={picture}
-          />
-          <p
-            style={{
-              fontWeight: 800,
-              marginBottom: "9px"
-            }}
-          >
-            {name} {lastName}
-          </p>
-          <span>
-            <p>
-              Total Score: {totalScore}
-            </p>
-            <p>
-              Monthly Score: {monthlyScore}
-            </p>
-            <Button
-              onClick={() => seeScore(_StudentId)}
-              style={{
-                color:
-                  items[level].textcolor
-              }}
-            >
-              <i
-                className="fa fa-refresh" aria-hidden="true"></i>
-            </Button>
-          </span>
-        </RouteDiv> */}
+
         <RouteDiv>
           <div
             style={{
@@ -785,6 +718,70 @@ export function Blog({ headers }) {
             </div>
           </div>
         </div>
+        <RouteDiv
+          style={{
+            backgroundColor: "white",
+            // position: "absolute",
+            padding: "0.5rem",
+            maxHeight: "16rem",
+            fontSize: "13px",
+            textAlign: "center",
+            background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
+            color: items[level].textcolor,
+          }}
+        >
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              color: "white",
+            }}
+          >
+            <i className={items[level].icon} aria-hidden="true" />
+            <h2>
+              {items[level].text}
+            </h2>
+          </div>
+          <img
+            style={{
+              width: "5rem",
+              height: "5rem",
+              objectFit: "cover",
+              border: "solid 0.2rem #555",
+              margin: "0.9rem",
+              borderRadius: "50%"
+            }}
+            src={picture}
+          />
+          <p
+            style={{
+              fontWeight: 800,
+              marginBottom: "9px"
+            }}
+          >
+            {name} {lastName}
+          </p>
+          <span>
+            <p>
+              Total Score: {totalScore}
+            </p>
+            <p>
+              Monthly Score: {monthlyScore}
+            </p>
+            <Button
+              onClick={() => seeScore(_StudentId)}
+              style={{
+                color:
+                  items[level].textcolor
+              }}
+            >
+              <i
+                className="fa fa-refresh" aria-hidden="true"></i>
+            </Button>
+          </span>
+        </RouteDiv>
 
       </RouteSizeControlBox>
       {/*
