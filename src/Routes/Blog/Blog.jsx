@@ -27,8 +27,6 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
-import Notification from "../../Resources/Components/Notification";
-import { LineAxisTwoTone } from "@mui/icons-material";
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -49,6 +47,9 @@ export function Blog({ headers }) {
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
+  const [totalScore, setTotalScore] = useState(0);
+  const [monthlyScore, setMonthlyScore] = useState(0);
+  const [level, setLevel] = useState(0);
 
 
   const items = [
@@ -108,16 +109,10 @@ export function Blog({ headers }) {
       textcolor: "white",
       text: "Black Belt"
     },
+
     {
       level: 9,
-      icon: "fa fa-superpowers",
-      color: "#000000",
-      textcolor: "white",
-      text: "Black Belt | 1 Stripe"
-    },
-    {
-      level: 20,
-      icon: "fa fa-superpowers",
+      icon: "fa fa-edit",
       color: "#789",
       textcolor: "white",
       text: "SUPREME"
@@ -147,6 +142,31 @@ export function Blog({ headers }) {
     },
   ]);
 
+  const seeScore = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.totalScore);
+      setMonthlyScore(response.data.monthlyScore);
+      setLevel(
+        response.data.totalScore < 10000 ? 0 :
+          response.data.totalScore < 25000 ? 1 :
+            response.data.totalScore < 40000 ? 2 :
+              response.data.totalScore < 60000 ? 3 :
+                response.data.totalScore < 80000 ? 4 :
+                  response.data.totalScore < 120000 ? 5 :
+                    response.data.totalScore < 240000 ? 6 :
+                      response.data.totalScore < 1000000 ? 7 : 8
+      );
+
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+
+
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setName(getLoggedUser.name);
@@ -157,7 +177,19 @@ export function Blog({ headers }) {
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
     setLastName(getLoggedUser.lastname)
     setPicture(getLoggedUser.picture)
+    setTimeout(() => {
+      seeScore(getLoggedUser.id)
+
+      console.log(level)
+    }, 300);
+
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(level)
+    }, 3000);
+  }, [])
 
   const handleSeeIsNextClassVisibleModal = () => {
     const fetchNextClass = async () => {
@@ -168,7 +200,7 @@ export function Blog({ headers }) {
         );
         setNextTutoring(response.data);
       } catch (error) {
-        showNotification("Erro ao importar próximas aulas", 3, true)
+        // showNotification("Erro ao importar próximas aulas", 3, true)
         alert("Erro ao importar próximas aulas");
         window.location.reload();
 
@@ -217,6 +249,7 @@ export function Blog({ headers }) {
       console.error(error);
     }
   };
+
 
   const editPost = async (id) => {
     try {
@@ -278,74 +311,75 @@ export function Blog({ headers }) {
           gap: "1rem"
         }}
         className="smooth">
-        {
-          items.map((item, index) => {
-            return <RouteDiv
-              key={index}
+{/* 
+        <RouteDiv
+          style={{
+            // display: level === 9 ? "none" : "block",
+            backgroundColor: "white",
+            position: "sticky",
+            padding: "0.5rem",
+            maxHeight: "15rem",
+            minWidth: "9rem",
+            fontSize: "13px",
+            borderRadius: "0rem 2.5rem",
+            fontWeight: 500,
+            textAlign: "center",
+            background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
+            color: items[level].textcolor,
+          }}
+        >
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              color: "white",
+            }}
+          >
+            <i className={items[level].icon} aria-hidden="true" />
+            <h2>
+              {items[level].text}
+            </h2>
+          </div>
+          <img
+            style={{
+              width: "5rem",
+              height: "5rem",
+              objectFit: "cover",
+              border: "solid 0.2rem #555",
+              margin: "0.9rem",
+              borderRadius: "50%"
+            }}
+            src={picture}
+          />
+          <p
+            style={{
+              fontWeight: 800,
+              marginBottom: "9px"
+            }}
+          >
+            {name} {lastName}
+          </p>
+          <span>
+            <p>
+              Total Score: {totalScore}
+            </p>
+            <p>
+              Monthly Score: {monthlyScore}
+            </p>
+            <Button
+              onClick={() => seeScore(_StudentId)}
               style={{
-                display: item.level === 5 ? "block" : "none",
-                backgroundColor: "white",
-                padding: "0.5rem",
-                justifyContent: "space-between",
-                alignItems: "center",
-                maxHeight: "15rem",
-                minWidth: "9rem",
-                fontSize: "13px",
-                borderRadius: "0rem 2.5rem",
-                fontWeight: 500,
-                border: `3px ${item.textcolor} solid`,
-                textAlign: "center",
-                background: `linear-gradient(to bottom, black 0%, ${item.color} 50%)`,
-                color: item.textcolor,
-                boxShadow: `6px 6px 10px ${item.textcolor}`,
+                color:
+                  items[level].textcolor
               }}
             >
-              <div
-                style={{
-                  display: item.level === 0 ? "flex" : "none",
-                  justifyContent: "space-evenly",
-                  alignItems: "center",
-                  color: "white",
-                }}
-              >
-                <i className={item.icon} aria-hidden="true" />
-                <h2>
-                  {item.text}
-                </h2>
-              </div>
-              <img
-                style={{
-                  width: "5rem",
-                  height: "5rem",
-                  objectFit: "cover",
-                  border: "solid 0.2rem #555",
-                  margin: "0.9rem",
-                  borderRadius: "50%"
-                }}
-                src={picture}
-              />
-              <p
-                style={{
-                  fontWeight: 800,
-                  marginBottom: "9px"
-                }}
-              >
-                {name} {lastName}
-              </p>
-              <span
-                style={{
-                  display: item.level === 0 ? "block" : "none",
-                }}
-              >
-                <p>
-                  Total Score: 0
-                </p>
-                <p>
-                  Monthly Score: 0
-                </p>
-              </span>
-            </RouteDiv>
-          })}
+              <i
+                className="fa fa-refresh" aria-hidden="true"></i>
+            </Button>
+          </span>
+        </RouteDiv> */}
         <RouteDiv>
           <div
             style={{
@@ -756,13 +790,14 @@ export function Blog({ headers }) {
       {/*
         - Anki 6/7: 500 [2000 in a month]
         - Anki 3/7: 200
+        - Anki 0: -100
         - Homework: 500 [2000 in a month]
         - Live class: 250 [2000]
         - Live class homework: 300 [2400]
+        - Anki 100% no mês: 2000 [2400]
 
-          Anki 0: -100
           Faltas Aula: -100 [-400]
-          Test: 0 - 3.000 []
+          Test: 3.000 []
       
           ////
 
@@ -778,11 +813,11 @@ export function Blog({ headers }) {
 
           ////
           
-          Level upgrade: 50% cashback/discount next month > 3000;
+          Level upgrade: 50% cashback/discount next month > 3500;
 
-          1st place monthly score: 20% cashback/discount > 1500;
-          2nd place monthly score: 10% cashback/discount > 1500;
-          3rd place monthly score: 5% cashback/discount > 1500;
+          1st place monthly score: 20% cashback/discount > 3000;
+          2nd place monthly score: 10% cashback/discount > 3000;
+          3rd place monthly score: 5% cashback/discount > 3000;
       */}
     </>
   );

@@ -26,7 +26,7 @@ export function AllClasses({ headers }) {
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/tutoring`, {
+      var response = await axios.get(`${backDomain}/api/v1/tutoring`, {
         headers,
       });
       if (response) {
@@ -36,6 +36,7 @@ export function AllClasses({ headers }) {
           "Invalid response structure: pastTutorings or futureTutorings is undefined"
         );
       }
+      console.log(response);
       setLoading(false);
     } catch (error) {
       console.log(error);
