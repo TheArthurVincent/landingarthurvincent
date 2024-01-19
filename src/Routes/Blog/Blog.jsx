@@ -723,7 +723,7 @@ export function Blog({ headers }) {
             backgroundColor: "white",
             padding: "0.5rem",
             maxHeight: "16rem",
-            minWidth: "9rem",
+            minWidth: "9.5rem",
             fontSize: "13px",
             textAlign: "center",
             background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
