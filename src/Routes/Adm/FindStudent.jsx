@@ -15,7 +15,6 @@ import {
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
-  const [students, setStudents] = useState([]);
   const [newName, setNewName] = useState("");
   const [newLastName, setNewLastName] = useState("");
   const [newUsername, setNewUsername] = useState("");
@@ -32,6 +31,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [ID, setID] = useState("");
   const [value, setValue] = useState("0");
   const [classes, setClasses] = useState([]);
+  const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pic, setPic] = useState("");
   const [totalScore, setTotalScore] = useState(0);
