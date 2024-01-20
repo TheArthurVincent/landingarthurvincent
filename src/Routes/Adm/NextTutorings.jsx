@@ -27,13 +27,23 @@ export function NextTutorings({ headers }) {
   const [value, setValue] = useState(0);
 
   const isWithinOneHour = (dateTime) => {
+    /*
+    7
+    8
+    9
+    10
 
+    7:10 -- 7
+
+
+
+    */
     const oneHour = 60 * 60 * 1000;
     const lessThanOneHour = 0;
     const currentTime = new Date().getTime();
     const eventTime = new Date(dateTime).getTime();
 
-    return Math.abs(currentTime - eventTime) = 0;
+    return ((currentTime - eventTime) === lessThanOneHour ? true : false);
   };
 
   const seeAllTutorings = async () => {
