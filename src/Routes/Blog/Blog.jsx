@@ -314,7 +314,7 @@ export function Blog({ headers }) {
       <RouteSizeControlBox
         style={{
           display: "flex",
-          maxWidth: "superadmin" ? null : "800px",
+          maxWidth: "650px",
           justifyContent: "space-between",
           gap: "1rem",
           alignContent: "top"
