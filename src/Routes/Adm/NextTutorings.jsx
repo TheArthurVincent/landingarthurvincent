@@ -28,10 +28,11 @@ export function NextTutorings({ headers }) {
 
   const isWithinOneHour = (dateTime) => {
     const oneHour = 60 * 60 * 1000;
+    const lessThanOneHour = 0;
     const currentTime = new Date().getTime();
     const eventTime = new Date(dateTime).getTime();
 
-    return Math.abs(currentTime - eventTime) <= oneHour;
+    return Math.abs(currentTime - eventTime) <= oneHour >= lessThanOneHour;
   };
 
   const seeAllTutorings = async () => {
