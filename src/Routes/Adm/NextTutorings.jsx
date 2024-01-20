@@ -155,7 +155,7 @@ export function NextTutorings({ headers, back }) {
     },
   ];
   return (
-    <RouteDiv style={{ margin: "1rem auto" }}>
+    <RouteDiv style={{ margin: "0 auto" }}>
       <HOne>{UniversalTexts.nextClasses}</HOne>
       <TabContext value={value}>
         <Box

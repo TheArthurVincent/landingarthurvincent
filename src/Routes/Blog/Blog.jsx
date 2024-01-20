@@ -327,10 +327,7 @@ export function Blog({ headers }) {
             maxHeight: "32rem"
           }}>
           <NextTutorings
-            style={{
-              height: "100px",
-              margin: 0,
-            }}
+            style={{ height: "100px" }}
             headers={headers} />
         </span>
         <RouteDiv>
