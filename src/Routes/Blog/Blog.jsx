@@ -27,6 +27,7 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
+import NextTutorings from "../Adm/NextTutorings";
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -313,13 +314,25 @@ export function Blog({ headers }) {
       <RouteSizeControlBox
         style={{
           display: "flex",
-          maxWidth: "800px",
+          maxWidth: "superadmin" ? null : "800px",
           justifyContent: "space-between",
-          gap: "1rem"
+          gap: "1rem",
+          alignContent: "top"
         }}
         className="smooth">
-
-
+        <span
+          style={{
+            display:
+              permissions == "superadmin" ? "flex" : "none",
+            maxHeight: "32rem"
+          }}>
+          <NextTutorings
+            style={{
+              height: "100px",
+              margin: 0,
+            }}
+            headers={headers} />
+        </span>
         <RouteDiv>
           <div
             style={{
@@ -790,7 +803,7 @@ export function Blog({ headers }) {
           </span>
         </RouteDiv>
 
-      </RouteSizeControlBox>
+      </RouteSizeControlBox >
       {/*
         - Anki 6/7: 500 [2000 in a month]
         - Anki 3/7: 200

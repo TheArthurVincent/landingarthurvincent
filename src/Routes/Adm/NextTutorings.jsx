@@ -8,7 +8,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab, Button, CircularProgress } from "@mui/material";
+import { Box, Tab, Button, CircularProgress, LinearProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysWhite,
@@ -19,7 +19,7 @@ import {
 } from "../../Styles/Styles";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 
-export function NextTutorings({ headers }) {
+export function NextTutorings({ headers, back }) {
   const { UniversalTexts } = useUserContext();
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);
@@ -27,35 +27,19 @@ export function NextTutorings({ headers }) {
   const [value, setValue] = useState(0);
 
   const isWithinOneHour = (dateTime) => {
-    /*
-    7
-    8
-    9
-    10
+    const currentTime = (new Date().getHours());
+    const currentDay = (new Date().getDate());
+    const eventTime = (new Date(dateTime).getHours());
+    const eventDay = (new Date(dateTime).getDate());
 
-    7:10 -- 7
-
-
-
-    */
-    const oneHour = 60 * 60 * 1000;
-    const lessThanOneHour = 0;
-    const currentTime = new Date().getTime();
-    const eventTime = new Date(dateTime).getTime();
-
-    return ((currentTime - eventTime) === lessThanOneHour ? true : false);
+    console.log(currentTime, eventTime, eventDay, currentDay, "currentTime, eventTime,")
+    return ((currentTime - eventTime) === 0 && (currentDay - eventDay) === 0 ? true : false);
   };
 
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`
-
-        , {
-          headers,
-        }
-
-      );
+      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`, { headers });
       if (response.data.pastTutorings && response.data.futureTutorings) {
         setPast(response.data.pastTutorings);
         setFuture(response.data.futureTutorings);
@@ -83,11 +67,16 @@ export function NextTutorings({ headers }) {
 
   const componentsToRender = [
     {
-      title: "Por vir",
+      title: "Futuro",
       value: 0,
       component: (
-        <>
-          <HTwo>Por vir</HTwo>
+        <div
+          style={{
+            maxHeight: "20rem",
+            overflow: "auto",
+          }}
+        >
+          <HTwo>Futuro</HTwo>
           {loading ? (
             <CircularProgress />
           ) : (
@@ -95,37 +84,46 @@ export function NextTutorings({ headers }) {
               <div
                 style={{
                   margin: "1rem",
-                  padding: "0.5rem",
-                  backgroundColor: alwaysWhite(),
-                  color: primaryColor(),
+                  backgroundColor: isWithinOneHour(item.dateTime) ? secondaryColor() : primaryColor(),
+                  color: textPrimaryColorContrast(),
+                  margin: "1px",
+                  padding: "8px"
                 }}
                 key={index}
               >
-                <HThree
+                {isWithinOneHour(item.dateTime) ? <p
                   style={{
-                    margin: 0,
-                    backgroundColor: isWithinOneHour(item.dateTime) ? secondaryColor() : primaryColor(),
-                    color: textPrimaryColorContrast(),
-                    margin: 0,
+                    backgroundColor: secondaryColor(),
+                    color: textSecondaryColorContrast(),
+                    padding: "5px"
                   }}
                 >
-                  {item.student} |{" "}
+                  <LinearProgress />
+                </p> : null}
+                <p>
+
+                  {item.student} <br />
                   <Link style={{ color: "white" }} to={item.meetingUrl}>
                     {formatDate(item.dateTime)}
                   </Link>
-                </HThree>
+                </p>
               </div>
             ))
           )}
-        </>
+        </div>
       ),
     },
     {
-      title: "Passadas",
+      title: "Passado",
       value: 1,
       component: (
-        <>
-          <HTwo>Passadas</HTwo>
+        <div
+          style={{
+            maxHeight: "20rem",
+            overflow: "auto",
+          }}
+        >
+          <HTwo>Passado</HTwo>
           {loading ? (
             <CircularProgress />
           ) : (
@@ -133,28 +131,26 @@ export function NextTutorings({ headers }) {
               <div
                 style={{
                   margin: "1rem",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  margin: "1px",
+                  padding: "8px"
                 }}
                 key={index}
               >
-                <HThree
-                  style={{
-                    backgroundColor: secondaryColor(),
-                    color: textSecondaryColorContrast(),
-                    margin: 0,
-                  }}
+                <p>
+                  {item.student}
+                </p>
+                <Link
+                  style={{ color: "white", marginTop: "5px" }}
+                  to={item.meetingUrl}
                 >
-                  {item.student} |{" "}
-                  <Link
-                    style={{ color: "white", margin: 0 }}
-                    to={item.meetingUrl}
-                  >
-                    {formatDate(item.dateTime)}
-                  </Link>
-                </HThree>
+                  {formatDate(item.dateTime)}
+                </Link>
               </div>
             ))
           )}
-        </>
+        </div>
       ),
     },
   ];
@@ -196,7 +192,6 @@ export function NextTutorings({ headers }) {
           <Button onClick={() => seeAllTutorings()}>
             <i className="fa fa-refresh" aria-hidden="true"></i>
           </Button>
-          <BackToHomePage />
         </Box>
         {componentsToRender.map((component, index) => {
           return (
