@@ -12,25 +12,27 @@ import {
 } from "../../Resources/Components/RouteBox";
 import NewPost from "./NewPost";
 import NewTutoring from "./NewTutoring";
-import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses, { ManageModules } from "./ManageCourses";
 import { Link } from "react-router-dom";
-import { NextTutorings } from "./NextTutorings";
 import AllClasses from "./AllClasses";
+import NextLiveClass from "./NextLiveClass";
 
 export function Adm({ headers }) {
   const [value, setValue] = useState("1");
 
+
   const componentsToRender = [
     {
-      title: "Aulas particulares",
+      title: "Aulas",
       value: "1",
       tooltip: "Marque uma aula particular.",
       component: (
         <div>
           <NextTutoring headers={headers} />
+          <NextLiveClass headers={headers} />
           <NewTutoring headers={headers} />
         </div>
       ),

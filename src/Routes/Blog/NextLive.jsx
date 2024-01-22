@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import {
-  BackToHomePage,
   backDomain,
   formatDate,
 } from "../../Resources/UniversalComponents";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress, LinearProgress } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -17,8 +15,10 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
-export function NextTutorings({ headers }) {
+
+export function NextLiveClasses({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);
@@ -38,13 +38,13 @@ export function NextTutorings({ headers }) {
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`, { headers });
-      if (response.data.pastTutorings && response.data.futureTutorings) {
-        setPast(response.data.pastTutorings);
-        setFuture(response.data.futureTutorings);
+      const response = await axios.get(`${backDomain}/api/v1/liveclasses`, { headers });
+      if (response.data.pastLiveClasses && response.data.futureLiveClasses) {
+        setPast(response.data.pastLiveClasses);
+        setFuture(response.data.futureLiveClasses);
       } else {
         console.error(
-          "Invalid response structure: pastTutorings or futureTutorings is undefined"
+          "Invalid response structure: pastLiveClasses or futureLiveClasses is undefined"
         );
       }
       setLoading(false);
@@ -66,7 +66,7 @@ export function NextTutorings({ headers }) {
 
   const componentsToRender = [
     {
-      title: "Futuro",
+      title: <>{UniversalTexts.future}</>,
       value: 0,
       component: (
         <div
@@ -75,7 +75,6 @@ export function NextTutorings({ headers }) {
             overflow: "auto",
           }}
         >
-          <HTwo>Futuro</HTwo>
           {loading ? (
             <CircularProgress />
           ) : (
@@ -101,7 +100,7 @@ export function NextTutorings({ headers }) {
                 </p> : null}
                 <p>
 
-                  {item.student} <br />
+                  {item.title} <br />
                   <Link style={{ color: "white" }} to={item.meetingUrl}>
                     {formatDate(item.dateTime)}
                   </Link>
@@ -113,7 +112,7 @@ export function NextTutorings({ headers }) {
       ),
     },
     {
-      title: "Passado",
+      title: <>{UniversalTexts.past}</>,
       value: 1,
       component: (
         <div
@@ -122,7 +121,6 @@ export function NextTutorings({ headers }) {
             overflow: "auto",
           }}
         >
-          <HTwo>Passado</HTwo>
           {loading ? (
             <CircularProgress />
           ) : (
@@ -138,7 +136,7 @@ export function NextTutorings({ headers }) {
                 key={index}
               >
                 <p>
-                  {item.student}
+                  {item.title}
                 </p>
                 <Link
                   style={{ color: "white", marginTop: "5px" }}
@@ -155,7 +153,7 @@ export function NextTutorings({ headers }) {
   ];
   return (
     <RouteDiv style={{ margin: "0 auto" }}>
-      <HOne>{UniversalTexts.nextClasses}</HOne>
+      <HOne>{UniversalTexts.groupClasses}</HOne>
       <TabContext value={value}>
         <Box
           style={{
@@ -187,7 +185,7 @@ export function NextTutorings({ headers }) {
                 />
               );
             })}
-          </TabList>{" "}
+          </TabList>
           <Button onClick={() => seeAllTutorings()}>
             <i className="fa fa-refresh" aria-hidden="true"></i>
           </Button>
@@ -208,4 +206,4 @@ export function NextTutorings({ headers }) {
   );
 }
 
-export default NextTutorings;
+export default NextLiveClasses;

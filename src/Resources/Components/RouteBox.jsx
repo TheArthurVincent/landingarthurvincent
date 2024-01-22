@@ -44,7 +44,7 @@ export const RouteSizeControlBox = styled.div`
 
 export const HOne = styled.h1`
   background-color: ${primaryColor()};
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding: 0rem 1rem;
   margin: 0;
   margin-bottom: 0.5rem;

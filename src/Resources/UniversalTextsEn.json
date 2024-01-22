@@ -12,6 +12,9 @@
   "extra": "Extra information",
   "myProfile": "My Profile",
   "myClasses": "My Classes",
+  "future": "Future",
+  "past": "Past",
+  "groupClasses": "Group Classes",
   "calendar": "Calendar",
   "myCourses": "My Courses",
   "personalInfo": "Personal Information",
@@ -47,11 +50,21 @@
   "myStudents": "My students",
   "nextClasses": "Next Classes",
   "courses": [
-    { "name": "English Rise" },
-    { "name": "English Plus" },
-    { "name": "English Master" },
-    { "name": "Native Accent" },
-    { "name": "Talking Business" }
+    {
+      "name": "English Rise"
+    },
+    {
+      "name": "English Plus"
+    },
+    {
+      "name": "English Master"
+    },
+    {
+      "name": "Native Accent"
+    },
+    {
+      "name": "Talking Business"
+    }
   ],
   "contentExtras": [
     "What is Anki and how to use it?",
@@ -74,5 +87,9 @@
   "time": "Time",
   "accessClassLink": "Click here to join the class",
   "itemsPerPage": "Items per page",
-  "specialCharacters": { "rightArrow": "🞂", "leftArrow": "🞀", "circle": "●" }
+  "specialCharacters": {
+    "rightArrow": "🞂",
+    "leftArrow": "🞀",
+    "circle": "●"
+  }
 }

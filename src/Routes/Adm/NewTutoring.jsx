@@ -95,7 +95,7 @@ export function NewTutoring({ headers }) {
 
   return (
     <RouteDiv>
-      <HOne>Postar aula dada</HOne>
+      <HOne>Postar aula particular dada</HOne>
       <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
         <select
           style={{

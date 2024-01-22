@@ -47,11 +47,21 @@
   "myStudents": "Meus alunos",
   "nextClasses": "Próximas aulas",
   "courses": [
-    { "name": "English Rise" },
-    { "name": "English Plus" },
-    { "name": "English Master" },
-    { "name": "Native Accent" },
-    { "name": "Talking Business" }
+    {
+      "name": "English Rise"
+    },
+    {
+      "name": "English Plus"
+    },
+    {
+      "name": "English Master"
+    },
+    {
+      "name": "Native Accent"
+    },
+    {
+      "name": "Talking Business"
+    }
   ],
   "contentExtras": [
     {
@@ -64,8 +74,11 @@
     }
   ],
   "comments": "Comentários",
+  "groupClasses": "Aulas em grupo",
   "attachments": "Anexos",
   "download": "Clique aqui para baixar",
+  "future": "Futuro",
+  "past": "Passado",
   "date": "Data",
   "previousButton": "Anterior",
   "nextButton": "Próximo",
@@ -77,5 +90,9 @@
   "time": "Horário",
   "accessClassLink": "Clique aqui para entrar na aula",
   "itemsPerPage": "Ítens por página",
-  "specialCharacters": { "rightArrow": ">", "leftArrow": "<", "circle": "●" }
+  "specialCharacters": {
+    "rightArrow": ">",
+    "leftArrow": "<",
+    "circle": "●"
+  }
 }

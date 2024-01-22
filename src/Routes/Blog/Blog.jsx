@@ -27,7 +27,8 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
-import NextTutorings from "../Adm/NextTutorings";
+import NextTutorings from "./NextTutorings";
+import NextLiveClasses from "./NextLive";
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -41,8 +42,6 @@ export function Blog({ headers }) {
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [ankiEmail, setAnkiEmail] = useState("");
-  const [ankiPassword, setAnkiPassword] = useState("");
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [permissions, setPermissions] = useState("");
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
@@ -51,6 +50,8 @@ export function Blog({ headers }) {
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
+  const [isNextLiveClassVisible, setIsNextLiveClassVisible] = useState(false);
+  const [nextLiveClassesList, setnextLiveClassesList] = useState([]);
 
 
   const items = [
@@ -180,8 +181,6 @@ export function Blog({ headers }) {
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
-    setAnkiEmail(getLoggedUser.ankiEmail);
-    setAnkiPassword(getLoggedUser.setAnkiPassword);
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
     setLastName(getLoggedUser.lastname)
     setPicture(getLoggedUser.picture)
@@ -303,6 +302,32 @@ export function Blog({ headers }) {
     const formatted = parts[2] + "/" + parts[1] + "/" + parts[0];
     return formatted;
   };
+
+
+
+
+  const handleSeeIsNextLiveClassesVisibleModal = () => {
+    setIsNextLiveClassVisible(false)
+    setTimeout(() => {
+      const fetchNextLive = async () => {
+        try {
+          const response = await axios.get(
+            `${backDomain}/api/v1/liveclasses/`,
+            { headers }
+          );
+          setnextLiveClassesList(response.data.nxtLive);
+          console.log(response.data.nxtLive);
+        } catch (error) {
+          alert("Erro ao importar próximas aulas");
+        }
+      };
+      fetchNextLive();
+      setIsNextLiveClassVisible(true);
+    }, 500);
+  };
+  useEffect(() => {
+    handleSeeIsNextLiveClassesVisibleModal()
+  }, [])
 
   return (
     <>
@@ -792,15 +817,14 @@ export function Blog({ headers }) {
               </Button>
             </span>
           </span>
+          <NextLiveClasses headers={headers} />
           <span
             style={{
               display:
                 permissions == "superadmin" ? "flex" : "none",
               maxHeight: "32rem"
             }}>
-            <NextTutorings
-              style={{ marginTop: "8rem" }}
-              headers={headers} />
+            <NextTutorings headers={headers} />
           </span>
         </div>
       </RouteSizeControlBox >
