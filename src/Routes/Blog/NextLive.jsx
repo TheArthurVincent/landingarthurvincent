@@ -138,12 +138,6 @@ export function NextLiveClasses({ headers }) {
                 <p>
                   {item.title}
                 </p>
-                <Link
-                  style={{ color: "white", marginTop: "5px" }}
-                  to={item.meetingUrl}
-                >
-                  {formatDate(item.dateTime)}
-                </Link>
               </div>
             ))
           )}
