@@ -47,14 +47,10 @@ export default function TopBar() {
       title: UniversalTexts.liveClasses,
       endpoint: "/live-classes",
     },
-    // {
-    //   title: UniversalTexts.englishMaterial,
-    //   endpoint: "/classes-to-teach",
-    // },
-    // {
-    //   title: "Ranking",
-    //   endpoint: "/ranking",
-    // },
+    {
+      title: "Ranking",
+      endpoint: "/ranking",
+    },
     {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",
@@ -69,6 +65,10 @@ export default function TopBar() {
     {
       title: "Adm",
       endpoint: "/adm",
+    },
+    {
+      title: UniversalTexts.englishMaterial,
+      endpoint: "/classes-to-teach",
     },
   ];
 
@@ -89,7 +89,7 @@ export default function TopBar() {
             display: "grid",
             alignItems: "center",
             justifyContent: "space-evenly",
-            gap: "2rem",
+            gap: "1rem",
           }}
         >
           {topLinks.map((link, index) => {
@@ -97,8 +97,10 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  display: link.display,
                   color: alwaysBlack(),
+                  display: link.display,
+                  textDecoration: "none"
+
                 }}
                 to={link.endpoint}
               >
@@ -118,7 +120,7 @@ export default function TopBar() {
             display: permissions == "superadmin" ? "grid" : "none",
             alignItems: "center",
             justifyContent: "space-evenly",
-            gap: "2rem",
+            gap: "1rem",
           }}
         >
           {toAdm.map((link, index) => {
@@ -127,6 +129,7 @@ export default function TopBar() {
                 style={{
                   display: link.display,
                   color: alwaysBlack(),
+                  textDecoration: "none"
                 }}
                 key={index}
                 to={link.endpoint}
@@ -144,7 +147,7 @@ export default function TopBar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-evenly",
-            gap: "2rem",
+            gap: "1rem",
           }}
         >
           {topLinks.map((link, index) => {
@@ -153,6 +156,7 @@ export default function TopBar() {
                 key={index}
                 style={{
                   color: alwaysBlack(),
+                  textDecoration: "none"
                 }}
                 to={link.endpoint}
               >
@@ -166,7 +170,7 @@ export default function TopBar() {
             display: permissions == "superadmin" ? "flex" : "none",
             alignItems: "center",
             justifyContent: "space-evenly",
-            gap: "2rem",
+            gap: "1rem",
           }}
         >
           <span style={{ color: secondaryColor(), fontWeight: 600 }}>|</span>
@@ -176,6 +180,8 @@ export default function TopBar() {
                 key={index}
                 style={{
                   color: alwaysBlack(),
+                  textDecoration: "none"
+
                 }}
                 to={link.endpoint}
               >

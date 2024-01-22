@@ -31,8 +31,12 @@ export const All = styled.div`
 `;
 
 export const SpanHover = styled.span`
+  padding-left: 10px;
   &:hover {
     color: ${secondaryColor()};
+    border-left: solid ${secondaryColor()} 1px;
+    padding-left: 9px;
+    transition: 0.2s
   }
 `;
 export const Button = styled.button`
