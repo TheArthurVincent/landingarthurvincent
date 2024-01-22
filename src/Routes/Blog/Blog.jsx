@@ -208,7 +208,6 @@ export function Blog({ headers }) {
         );
         setNextTutoring(response.data);
       } catch (error) {
-        // showNotification("Erro ao importar próximas aulas", 3, true)
         alert("Erro ao importar próximas aulas");
         window.location.reload();
 
@@ -314,13 +313,10 @@ export function Blog({ headers }) {
       <RouteSizeControlBox
         style={{
           display: "flex",
-          maxWidth: "650px",
-          justifyContent: "space-between",
-          gap: "1rem",
-          alignContent: "top"
+          justifyContent: "center",
+          gap: "0.5rem",
         }}
         className="smooth">
-
         <RouteDiv>
           <div
             style={{
@@ -342,7 +338,6 @@ export function Blog({ headers }) {
               <HTwo
                 style={{
                   margin: 0,
-
                   textAlign: "left",
                 }}
               >
@@ -732,6 +727,7 @@ export function Blog({ headers }) {
             flexDirection: "column",
             gap: "1rem",
             minWidth: "9.5rem",
+            maxWidth: "9.5rem",
           }}
         >
           <span
@@ -803,48 +799,11 @@ export function Blog({ headers }) {
               maxHeight: "32rem"
             }}>
             <NextTutorings
-              style={{
-                height: "100px",
-
-                marginTop: "10rem"
-              }}
+              style={{ marginTop: "8rem" }}
               headers={headers} />
           </span>
         </div>
-
       </RouteSizeControlBox >
-      {/*
-        - Anki 6/7: 500 [2000 in a month]
-        - Anki 3/7: 200
-        - Anki 0: -100
-        - Homework: 500 [2000 in a month]
-        - Live class: 250 [2000]
-        - Live class homework: 300 [2400]
-        - Anki 100% no mês: 2000 [2400]
-
-          Faltas Aula: -100 [-400]
-          Test: 3.000 []
-      
-          ////
-
-          2: 10.000
-          3: 25.000
-          4: 40.000
-          5: 60.000
-          6: 80.000
-          7: 120.000
-          8: 240.000 - 1 stripe 20% definite 
-          9: 480.000 - 2 stripes 35% definite
-          10: 960.000 - 3 stripes 50% definite
-
-          ////
-          
-          Level upgrade: 50% cashback/discount next month > 3500;
-
-          1st place monthly score: 20% cashback/discount > 3000;
-          2nd place monthly score: 10% cashback/discount > 3000;
-          3rd place monthly score: 5% cashback/discount > 3000;
-      */}
     </>
   );
 }

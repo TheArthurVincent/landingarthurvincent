@@ -17,9 +17,8 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { HThree } from "../MyClasses/MyClasses.Styled";
 
-export function NextTutorings({ headers, back }) {
+export function NextTutorings({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);

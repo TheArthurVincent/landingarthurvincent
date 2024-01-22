@@ -21,15 +21,9 @@ import { NextTutorings } from "./NextTutorings";
 import AllClasses from "./AllClasses";
 
 export function Adm({ headers }) {
-  const [value, setValue] = useState("0");
+  const [value, setValue] = useState("1");
 
   const componentsToRender = [
-    {
-      title: "Proximas aulas",
-      value: "0",
-      tooltip: "Próximas aulas.",
-      component: <NextTutorings headers={headers} />,
-    },
     {
       title: "Aulas particulares",
       value: "1",

@@ -33,21 +33,8 @@ export function FindStudent({ uploadStatus, headers }) {
   const [classes, setClasses] = useState([]);
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [pic, setPic] = useState("");
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
-  // const seePic = async (id) => {
-  //   try {
-  //     const response = await axios.get(`${backDomain}/api/v1/studentpicture/${id}`, {
-  //       headers,
-  //     });
-  //     console.log(response.data);
-  //     setPic(response.data);
-  //   } catch (error) {
-  //     alert(error);
-  //     console.error(error);
-  //   }
-  // };
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);

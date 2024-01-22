@@ -229,21 +229,11 @@ export const linkReset2 = {
 };
 
 export const IFrameVideo = styled.iframe`
-margin-top: 0;
-min-width: 630px;
-min-height: 330px;
+  margin-top: 0;
+  min-width: 636px;
+  min-height: 356px;
   border: 1px #222 solid;
   display: inline-block;
-  @media (max-width: 930px) {
-    margin-top: 0;
-    min-width: 580px;
-    min-height: 330px;
-  }
-  @media (max-width: 700px) {
-    margin-top: 0;
-    min-width: 380px;
-    min-height: 210px;
-  }
   @media (max-width: 380px) {
     margin-top: 0;
     min-width: 265px;

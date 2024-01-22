@@ -196,7 +196,9 @@ export function Extras({ headers }) {
   return (
     <>
       <TopBar />
-      <RouteSizeControlBox className="smooth">
+      <RouteSizeControlBox
+        style={{ maxWidth: "700px" }}
+        className="smooth">
         <RouteDiv>
           <HOne>{UniversalTexts.extras}</HOne> <BackToHomePage />
           {contentExtras.map((item, index) => (
