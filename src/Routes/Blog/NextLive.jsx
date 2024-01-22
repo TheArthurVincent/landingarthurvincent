@@ -138,6 +138,9 @@ export function NextLiveClasses({ headers }) {
                 <p>
                   {item.title}
                 </p>
+                <p>
+                  {formatDate(item.dateTime)}
+                </p>
               </div>
             ))
           )}

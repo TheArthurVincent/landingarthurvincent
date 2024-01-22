@@ -98,7 +98,8 @@ export function NextLiveClass({ headers }) {
           />
           <Button type="submit">Marcar</Button>
         </form>
-      }    </RouteDiv>
+      }
+    </RouteDiv>
   );
 }
 
