@@ -47,10 +47,10 @@ export default function TopBar() {
       title: UniversalTexts.liveClasses,
       endpoint: "/live-classes",
     },
-    {
-      title: UniversalTexts.englishMaterial,
-      endpoint: "/classes-to-teach",
-    },
+    // {
+    //   title: UniversalTexts.englishMaterial,
+    //   endpoint: "/classes-to-teach",
+    // },
     // {
     //   title: "Ranking",
     //   endpoint: "/ranking",
