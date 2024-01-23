@@ -1,7 +1,7 @@
 import React from "react";
 import RankingList from "./RankingList";
 import { primaryColor } from "../../Styles/Styles";
-import { IFrameVideoCourses, getVideoEmbedUrl } from "../../Resources/UniversalComponents";
+import { IFrameVideo, getVideoEmbedUrl } from "../../Resources/UniversalComponents";
 
 export default function RankingExplanation() {
   const h3 = { textAlign: "center", color: primaryColor(), fontWeight: 600, margin: "1rem 0" }
@@ -9,7 +9,7 @@ export default function RankingExplanation() {
 
   return (
     <div>
-      <IFrameVideoCourses
+      <IFrameVideo
         style={{
           border: "solid 1px black",
         }}
