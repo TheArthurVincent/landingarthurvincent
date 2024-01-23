@@ -123,14 +123,13 @@ export function Blog({ headers }) {
 
 
   const handleSeeIsNextClassVisibleModal = () => {
-    setIsNextClassVisible(false);
     const fetchNextClass = async () => {
       try {
         const response = await axios.get(
           `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
           { headers }
         );
-        setNextTutoring(response.data);
+        setNextTutoring(response.data.nextTutoring);
         console.log(response.data, nextTutoring);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
@@ -140,12 +139,6 @@ export function Blog({ headers }) {
     fetchNextClass();
     setIsNextClassVisible(!isNextClassVisible);
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      handleSeeIsNextClassVisibleModal()
-    }, 3000);
-  }, [])
 
 
   async function fetchData() {
@@ -356,7 +349,7 @@ export function Blog({ headers }) {
                 })}
               </div>
             </div>
-            {/* {!isNextClassVisible ? (
+            {!isNextClassVisible ? (
               <Button
                 style={{
                   backgroundColor: secondaryColor(),
@@ -375,7 +368,7 @@ export function Blog({ headers }) {
                 >
                   {UniversalTexts.nextClass}
                 </span>
-                {nextTutoring.date == undefined ? (
+                {nextTutoring.date == "" ? (
                   <div
                     style={{
                       display: isNextClassVisible ? "block" : "none",
@@ -395,10 +388,10 @@ export function Blog({ headers }) {
                         marginRight: "1.2rem",
                         marginLeft: "auto",
                         maxWidth: "fit-content",
-                        color: primaryColor(),
+                        backgroundColor: secondaryColor(),
+                        color: textSecondaryColorContrast(),
                         padding: "0.5rem",
                         fontSize: "1rem",
-                        backgroundColor: textPrimaryColorContrast(),
                       }}
                       target="_blank"
                       to={nextTutoring.meetingUrl}
@@ -423,50 +416,7 @@ export function Blog({ headers }) {
                   </>
                 )}
               </span>
-            )} */}
-            {nextTutoring.meetingUrl && nextTutoring.date && nextTutoring.time &&
-              <Link
-                style={{
-                  display: isNextClassVisible ? "block" : "none",
-                  marginRight: "1.2rem",
-                  marginLeft: "auto",
-                  maxWidth: "fit-content",
-                  color: textSecondaryColorContrast(),
-                  padding: "0.5rem",
-                  fontSize: "1rem",
-                  backgroundColor: secondaryColor(),
-                }}
-                target="_blank"
-                to={nextTutoring.meetingUrl}
-              >
-                <span
-                  style={{
-                    textDecoration: "underline",
-                  }}
-                >
-                  {formatData(nextTutoring.date)
-                    ? formatData(nextTutoring.date)
-                    : "http://google.com"}
-                </span>
-                <span
-                  style={{
-                    fontWeight: 600,
-                  }}
-                >
-                  - {nextTutoring.time}
-                </span>
-              </Link>
-
-
-
-
-            }
-
-
-
-
-
-
+            )}
           </div>
           {posts.map((post, index) => (
             <div

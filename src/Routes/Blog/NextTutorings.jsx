@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import {
   backDomain,
   formatDate,
@@ -29,8 +29,6 @@ export function NextTutorings({ headers }) {
     const currentDay = (new Date().getDate());
     const eventTime = (new Date(dateTime).getHours());
     const eventDay = (new Date(dateTime).getDate());
-
-    console.log(currentTime, eventTime, eventDay, currentDay, "currentTime, eventTime,")
     return ((currentTime - eventTime) === 0 && (currentDay - eventDay) === 0 ? true : false);
   };
 
