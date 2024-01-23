@@ -1,6 +1,7 @@
 import React from "react";
 import RankingList from "./RankingList";
 import { primaryColor } from "../../Styles/Styles";
+import { IFrameVideoCourses, getVideoEmbedUrl } from "../../Resources/UniversalComponents";
 
 export default function RankingExplanation() {
   const h3 = { textAlign: "center", color: primaryColor(), fontWeight: 600, margin: "1rem 0" }
@@ -8,6 +9,12 @@ export default function RankingExplanation() {
 
   return (
     <div>
+      <IFrameVideoCourses
+        style={{
+          border: "solid 1px black",
+        }}
+        src={getVideoEmbedUrl("https://vimeo.com/905749262?share=copy")}
+      />
       <p>
         Os rankings são oportunidades de ganhar descontos ou cashbacks na mensalidade por disciplina!
       </p>
@@ -16,7 +23,7 @@ export default function RankingExplanation() {
       <ul>
         <li>Revisados pelo menos 15 cards em pelo menos 6 dias em 7? = + 500 pontos</li>
         <li>Revisados pelo menos 15 cards em pelo menos 3 dias em 7? = + 200 pontos</li>
-        <li>Chegou na aula com o Anki vazio? = + 250 pontos</li>
+        <li>Chegou na aula com o Anki vazio? = + 200 pontos</li>
         <li>Nenhuma revisão em 7? = - 100 pontos</li>
       </ul>
       <h4 style={h4}>Homework</h4>
@@ -27,12 +34,13 @@ export default function RankingExplanation() {
       <ul>
         <li>Participou da aula em grupo = + 300</li>
         <li>Fez a Homework da aula em grupo = + 500</li>
+        <li>Fez a apresentação = + 1,000</li>
       </ul>
       <h4 style={h4}>Outros</h4>
       <ul>
         <li>Test - Pode ser marcado a cada 3 meses = + (0 - 3000)</li>
         <li>Extra activities - [[Em breve será criado]]</li>
-        <li>AWOL (absent without leave)/Não comparecer à aula sem aviso = -100</li>
+        <li>AWOL (absent without leave)/Não comparecer à aula sem aviso = -200</li>
       </ul>
 
       <h3 style={h3}>Quem ganha o cashback?</h3>

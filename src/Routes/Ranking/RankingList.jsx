@@ -20,7 +20,6 @@ export default function RankingList() {
         marginBottom: "1px",
         borderRadius: "1rem",
         display: index > 7 ? "none" : "block",
-        // background: `linear-gradient(to left, black 0%, ${theitems.items[levelNumber].color} 50%)`,
         background: theitems.items[levelNumber].color,
         color: theitems.items[levelNumber].textcolor,
       }}>
@@ -49,7 +48,7 @@ export default function RankingList() {
             </h2>
             <p>Score: {item.totalScore}
             </p>
-            <p>  Chegou neste nível? Ganhe {item.discount} de desconto/cashback no mês seguinte à qualificação.
+            <p>  Chegou neste nível? Ganhe {item.discount} de desconto/cashback no mês seguinte à <strong>PRIMEIRA QUALIFICAÇÃO</strong>.
             </p>
           </span>
         </span>
