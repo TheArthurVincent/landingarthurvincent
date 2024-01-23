@@ -58,8 +58,8 @@ export function Blog({ headers }) {
   const [nextTutoring, setNextTutoring] = useState({
     _id: '651c13e019e72fbdef2abd76',
     studentID: '651311fac3d58753aa9281c5',
-    date: '2024-01-09',
-    time: '19:42',
+    date: '2000-01-01',
+    time: '00:00',
     meetingUrl: 'https://portal.arthurvincent.com.br/',
   });
 
@@ -121,30 +121,32 @@ export function Blog({ headers }) {
 
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(level)
-    }, 3000);
-  }, [])
 
   const handleSeeIsNextClassVisibleModal = () => {
+    setIsNextClassVisible(false);
     const fetchNextClass = async () => {
       try {
         const response = await axios.get(
           `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
           { headers }
         );
-        setNextTutoring(response.data.nextTutoring);
-        console.log(response.data.nextTutoring, nextTutoring);
+        setNextTutoring(response.data);
+        console.log(response.data, nextTutoring);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
         window.location.reload();
-
       }
     };
     fetchNextClass();
     setIsNextClassVisible(!isNextClassVisible);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleSeeIsNextClassVisibleModal()
+    }, 3000);
+  }, [])
+
 
   async function fetchData() {
     setLoading(true);
@@ -354,7 +356,7 @@ export function Blog({ headers }) {
                 })}
               </div>
             </div>
-            {!isNextClassVisible ? (
+            {/* {!isNextClassVisible ? (
               <Button
                 style={{
                   backgroundColor: secondaryColor(),
@@ -421,7 +423,50 @@ export function Blog({ headers }) {
                   </>
                 )}
               </span>
-            )}
+            )} */}
+            {nextTutoring.meetingUrl && nextTutoring.date && nextTutoring.time &&
+              <Link
+                style={{
+                  display: isNextClassVisible ? "block" : "none",
+                  marginRight: "1.2rem",
+                  marginLeft: "auto",
+                  maxWidth: "fit-content",
+                  color: textSecondaryColorContrast(),
+                  padding: "0.5rem",
+                  fontSize: "1rem",
+                  backgroundColor: secondaryColor(),
+                }}
+                target="_blank"
+                to={nextTutoring.meetingUrl}
+              >
+                <span
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
+                  {formatData(nextTutoring.date)
+                    ? formatData(nextTutoring.date)
+                    : "http://google.com"}
+                </span>
+                <span
+                  style={{
+                    fontWeight: 600,
+                  }}
+                >
+                  - {nextTutoring.time}
+                </span>
+              </Link>
+
+
+
+
+            }
+
+
+
+
+
+
           </div>
           {posts.map((post, index) => (
             <div
