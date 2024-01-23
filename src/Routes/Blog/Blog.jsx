@@ -55,7 +55,13 @@ export function Blog({ headers }) {
   const [level, setLevel] = useState(9);
   const [isNextLiveClassVisible, setIsNextLiveClassVisible] = useState(false);
   const [nextLiveClassesList, setnextLiveClassesList] = useState([]);
-  const [nextTutoring, setNextTutoring] = useState("");
+  const [nextTutoring, setNextTutoring] = useState({
+    _id: '651c13e019e72fbdef2abd76',
+    studentID: '651311fac3d58753aa9281c5',
+    date: '2024-01-09',
+    time: '19:42',
+    meetingUrl: 'https://portal.arthurvincent.com.br/',
+  });
 
   const items = theitems.items;
 
@@ -128,8 +134,8 @@ export function Blog({ headers }) {
           `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
           { headers }
         );
-        setNextTutoring(response.data);
-        console.log(response.data);
+        setNextTutoring(response.data.nextTutoring);
+        console.log(response.data.nextTutoring, nextTutoring);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
         window.location.reload();
@@ -347,9 +353,8 @@ export function Blog({ headers }) {
                   );
                 })}
               </div>
-
             </div>
-            {/* {!isNextClassVisible ? (
+            {!isNextClassVisible ? (
               <Button
                 style={{
                   backgroundColor: secondaryColor(),
@@ -368,7 +373,7 @@ export function Blog({ headers }) {
                 >
                   {UniversalTexts.nextClass}
                 </span>
-                {nextTutoring.nextTutoring.date == "" ? (
+                {nextTutoring.date == undefined ? (
                   <div
                     style={{
                       display: isNextClassVisible ? "block" : "none",
@@ -394,15 +399,15 @@ export function Blog({ headers }) {
                         backgroundColor: textPrimaryColorContrast(),
                       }}
                       target="_blank"
-                      to={nextTutoring.nextTutoring.meetingUrl}
+                      to={nextTutoring.meetingUrl}
                     >
                       <span
                         style={{
                           textDecoration: "underline",
                         }}
                       >
-                        {formatData(nextTutoring.nextTutoring.date)
-                          ? formatData(nextTutoring.nextTutoring.date)
+                        {formatData(nextTutoring.date)
+                          ? formatData(nextTutoring.date)
                           : "http://google.com"}
                       </span>
                       <span
@@ -410,14 +415,13 @@ export function Blog({ headers }) {
                           fontWeight: 600,
                         }}
                       >
-                        - {nextTutoring.nextTutoring.time}
+                        - {nextTutoring.time}
                       </span>
                     </Link>
                   </>
                 )}
-
               </span>
-            )} */}
+            )}
           </div>
           {posts.map((post, index) => (
             <div
