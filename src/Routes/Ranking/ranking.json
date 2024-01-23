@@ -1,27 +1,21 @@
 {
-    "items": [
-        {
-            "level": 1,
-            "icon": "fa fa-star",
-            "color": "#eee",
-            "textcolor": "black",
-            "text": "White Belt",
-            "totalScore": 0
-        },
+    "levels": [
         {
             "level": 2,
             "icon": "fa fa-moon-o",
             "color": "#FAF477",
             "textcolor": "black",
             "text": "Yellow Belt",
+            "discount": "5%",
             "totalScore": 12000
         },
         {
             "level": 3,
-            "icon": "fa fa-globe",
+            "icon": "fa fa-diamond",
             "color": "#2F0092",
             "textcolor": "white",
             "text": "Blue Belt",
+            "discount": "7%",
             "totalScore": 25000
         },
         {
@@ -30,6 +24,7 @@
             "color": "#FA1000",
             "textcolor": "white",
             "text": "Red Belt",
+            "discount": "10%",
             "totalScore": 40000
         },
         {
@@ -38,12 +33,14 @@
             "color": "#58B000",
             "textcolor": "white",
             "text": "Green Belt",
+            "discount": "12%",
             "totalScore": 60000
         },
         {
             "level": 6,
             "icon": "fa fa-skyatlas",
             "color": "#FA6001",
+            "discount": "15%",
             "textcolor": "white",
             "text": "Orange Belt",
             "totalScore": 80000
@@ -52,6 +49,7 @@
             "level": 7,
             "icon": "fa fa-moon-o",
             "color": "#8A4C9E",
+            "discount": "20%",
             "textcolor": "white",
             "text": "Purple Belt",
             "totalScore": 120000
@@ -59,9 +57,84 @@
         {
             "level": 8,
             "icon": "fa fa-superpowers",
-            "color": "#555",
+            "color": "#333",
             "textcolor": "white",
             "text": "Black Belt",
+            "discount": "25%",
+            "totalScore": 240000
+        }
+    ],
+    "items": [
+        {
+            "level": 1,
+            "icon": "fa fa-star",
+            "color": "#eee",
+            "textcolor": "black",
+            "text": "White Belt",
+            "discount": "0%",
+            "totalScore": 0
+        },
+        {
+            "level": 2,
+            "icon": "fa fa-moon-o",
+            "color": "#FAF477",
+            "textcolor": "black",
+            "text": "Yellow Belt",
+            "discount": "5%",
+            "totalScore": 12000
+        },
+        {
+            "level": 3,
+            "icon": "fa fa-diamond",
+            "color": "#2F0092",
+            "textcolor": "white",
+            "text": "Blue Belt",
+            "discount": "7%",
+            "totalScore": 25000
+        },
+        {
+            "level": 4,
+            "icon": "fa fa-sun-o",
+            "color": "#FA1000",
+            "textcolor": "white",
+            "text": "Red Belt",
+            "discount": "10%",
+            "totalScore": 40000
+        },
+        {
+            "level": 5,
+            "icon": "fa fa-bolt",
+            "color": "#58B000",
+            "textcolor": "white",
+            "text": "Green Belt",
+            "discount": "12%",
+            "totalScore": 60000
+        },
+        {
+            "level": 6,
+            "icon": "fa fa-skyatlas",
+            "color": "#FA6001",
+            "discount": "15%",
+            "textcolor": "white",
+            "text": "Orange Belt",
+            "totalScore": 80000
+        },
+        {
+            "level": 7,
+            "icon": "fa fa-moon-o",
+            "color": "#8A4C9E",
+            "discount": "20%",
+            "textcolor": "white",
+            "text": "Purple Belt",
+            "totalScore": 120000
+        },
+        {
+            "level": 8,
+            "icon": "fa fa-superpowers",
+            "color": "#333",
+            "textcolor": "white",
+            "text": "Black Belt",
+            "discount": "25%",
             "totalScore": 240000
         },
         {
@@ -70,6 +143,7 @@
             "color": "#789",
             "textcolor": "white",
             "text": "SUPREME",
+            "discount": "%",
             "totalScore": 1200000
         },
         {
