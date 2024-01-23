@@ -30,6 +30,7 @@ import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./NextTutorings";
 import NextLiveClasses from "./NextLive";
 
+
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [newTitle, setNewTitle] = useState("");
@@ -53,7 +54,7 @@ export function Blog({ headers }) {
   const [isNextLiveClassVisible, setIsNextLiveClassVisible] = useState(false);
   const [nextLiveClassesList, setnextLiveClassesList] = useState([]);
 
-
+  
   const items = [
     {
       level: 1,
@@ -128,14 +129,6 @@ export function Blog({ headers }) {
     },
   ];
 
-  const [nextTutoring, setNextTutoring] = useState({
-    nextTutoring: {
-      studentID: "",
-      date: "",
-      time: "",
-      meetingUrl: "/",
-    },
-  });
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -159,14 +152,14 @@ export function Blog({ headers }) {
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       setLevel(
-        response.data.totalScore < 10000 ? 0 :
+        response.data.totalScore < 12000 ? 0 :
           response.data.totalScore < 25000 ? 1 :
             response.data.totalScore < 40000 ? 2 :
               response.data.totalScore < 60000 ? 3 :
                 response.data.totalScore < 80000 ? 4 :
                   response.data.totalScore < 120000 ? 5 :
                     response.data.totalScore < 240000 ? 6 :
-                      response.data.totalScore < 1000000 ? 7 : 8
+                      response.data.totalScore < 1200000 ? 7 : 8
       );
 
     } catch (error) {
@@ -492,6 +485,7 @@ export function Blog({ headers }) {
                     </Link>
                   </>
                 )}
+                
               </span>
             )}
           </div>

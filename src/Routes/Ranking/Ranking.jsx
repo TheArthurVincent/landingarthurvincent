@@ -9,6 +9,7 @@ import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
+import RankingList from "./RankingList";
 
 
 
@@ -24,56 +25,64 @@ export default function Ranking({ headers }) {
       icon: "fa fa-star",
       color: "#eee",
       textcolor: "black",
-      text: "White Belt"
+      text: "White Belt",
+      totalScore: 0
     },
     {
       level: 2,
       icon: "fa fa-moon-o",
       color: "#FAF477",
       textcolor: "black",
-      text: "Yellow Belt"
+      text: "Yellow Belt",
+      totalScore: 12000
     },
     {
       level: 3,
       icon: "fa fa-globe",
       color: "#2F0092",
       textcolor: "white",
-      text: "Blue Belt"
+      text: "Blue Belt",
+      totalScore: 25000,
     },
     {
       level: 4,
       icon: "fa fa-sun-o",
       color: "#FA1000",
       textcolor: "white",
-      text: "Red Belt"
+      text: "Red Belt",
+      totalScore: 40000,
     },
     {
       level: 5,
       icon: "fa fa-bolt",
       color: "#58B000",
       textcolor: "white",
-      text: "Green Belt"
+      text: "Green Belt",
+      totalScore: 60000,
     },
     {
       level: 6,
       icon: "fa fa-skyatlas",
       color: "#FA6001",
       textcolor: "white",
-      text: "Orange Belt"
+      text: "Orange Belt",
+      totalScore: 80000,
     },
     {
       level: 7,
       icon: "fa fa-moon-o",
       color: "#8A4C9E",
       textcolor: "white",
-      text: "Purple Belt"
+      text: "Purple Belt",
+      totalScore: 120000,
     },
     {
       level: 8,
       icon: "fa fa-superpowers",
       color: "#555",
       textcolor: "white",
-      text: "Black Belt"
+      text: "Black Belt",
+      totalScore: 240000,
     },
 
     {
@@ -81,7 +90,8 @@ export default function Ranking({ headers }) {
       icon: "fa fa-edit",
       color: "#789",
       textcolor: "white",
-      text: "SUPREME"
+      text: "SUPREME",
+      totalScore: 1200000
     },
     {
       level: 10,
@@ -114,6 +124,10 @@ export default function Ranking({ headers }) {
   return (
     <>
       <TopBar />
+
+
+
+
       <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
         <RouteDiv>
           <HOne>MONTHLY RANKING</HOne>
@@ -123,88 +137,94 @@ export default function Ranking({ headers }) {
             <i
               className="fa fa-refresh" aria-hidden="true"></i>
           </Button>
-
-          {
-            loading ? <CircularProgress /> :
-              students.map((item, index) => {
-                const levelNumber = (
-                  item.totalScore < 10000 ? 0 :
-                    item.totalScore < 25000 ? 1 :
-                      item.totalScore < 40000 ? 2 :
-                        item.totalScore < 60000 ? 3 :
-                          item.totalScore < 80000 ? 4 :
-                            item.totalScore < 120000 ? 5 :
-                              item.totalScore < 240000 ? 6 :
-                                item.totalScore < 1000000 ? 7 : 8)
-                return <RouteDiv key={index}
-                  style={{
-                    backgroundColor: "white",
-                    padding: "0.5rem",
-                    maxHeight: "16rem",
-                    marginBottom: "0.5rem",
-                    fontSize: "13px",
-                    textAlign: "center",
-                    alignItems: "center",
-                    justifyContent: "space-evenly",
-                    display: "flex",
-                    background: `linear-gradient(to bottom, black 0%, ${items[levelNumber].color} 50%)`,
-                    color: items[levelNumber].textcolor,
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "grid",
-                      justifyContent: "space-evenly",
-                      alignItems: "center",
-                      color: "white",
-                    }}
-                  >
-
-                    <h1
+          <div
+            style={{ display: "flex" ,justifyContent:"space-between"}}
+          >
+            <span>
+              {
+                loading ? <CircularProgress /> :
+                  students.map((item, index) => {
+                    const levelNumber = (
+                      item.totalScore < 12000 ? 0 :
+                        item.totalScore < 25000 ? 1 :
+                          item.totalScore < 40000 ? 2 :
+                            item.totalScore < 60000 ? 3 :
+                              item.totalScore < 80000 ? 4 :
+                                item.totalScore < 120000 ? 5 :
+                                  item.totalScore < 240000 ? 6 :
+                                    item.totalScore < 1200000 ? 7 : 8)
+                    return <RouteDiv key={index}
                       style={{
-                        fontWeight: 800,
-                        marginBottom: "9px"
+                        backgroundColor: "white",
+                        padding: "0.5rem",
+                        maxHeight: "16rem",
+                        minWidth: "50rem",
+                        marginBottom: "0.5rem",
+                        fontSize: "13px",
+                        textAlign: "center",
+                        alignItems: "center",
+                        justifyContent: "space-evenly",
+                        display: "flex",
+                        background: `linear-gradient(to bottom, black 0%, ${items[levelNumber].color} 50%)`,
+                        color: items[levelNumber].textcolor,
                       }}
                     >
-                      {index + 1}
-                      {" "}|{" "}
-                      {item.name}
-                    </h1>
-                    <img
-                      style={{
-                        width: "5rem",
-                        height: "5rem",
-                        objectFit: "cover",
-                        border: "solid 0.2rem #555",
-                        margin: "0.9rem",
-                        borderRadius: "50%"
-                      }}
-                      src={item.picture}
-                    />
+                      <div
+                        style={{
+                          display: "grid",
+                          justifyContent: "space-evenly",
+                          alignItems: "center",
+                          color: "white",
+                        }}
+                      >
 
-                  </div>
+                        <h1
+                          style={{
+                            fontWeight: 800,
+                            marginBottom: "9px"
+                          }}
+                        >
+                          {index + 1}
+                          {" "}|{" "}
+                          {item.name}
+                        </h1>
+                        <img
+                          style={{
+                            width: "5rem",
+                            height: "5rem",
+                            objectFit: "cover",
+                            border: "solid 0.2rem #555",
+                            margin: "0.9rem",
+                            borderRadius: "50%"
+                          }}
+                          src={item.picture}
+                        />
 
-                  <span
-                    style={{ fontSize: "1rem" }}
-                  >
-                    {item.monthlyScore >= 2500 && <h2
-                      style={{ backgroundColor: "green", color: "white", padding: "0.5rem", marginBottom: "0.5rem", fontSize: "1rem" }}
-                    >Running for prize!</h2>}
-                    <h2>
-                      <i className={items[levelNumber].icon} aria-hidden="true" />
-                      {" "}{" "}{" "}{" "}{items[levelNumber].text}
-                    </h2>
-                    <p>
-                      Total Score: {item.totalScore}
-                    </p>
-                    <p>
-                      Monthly Score: {item.monthlyScore}
-                    </p>
+                      </div>
 
+                      <span
+                        style={{ fontSize: "1rem" }}
+                      >
+                        {item.monthlyScore >= 3000 && <h2
+                          style={{ backgroundColor: "green", color: "white", padding: "0.5rem", marginBottom: "0.5rem", fontSize: "1rem" }}
+                        >Running for prize!</h2>}
+                        <h2>
+                          <i className={items[levelNumber].icon} aria-hidden="true" />
+                          {" "}{" "}{" "}{" "}{items[levelNumber].text}
+                        </h2>
+                        <p>
+                          Total Score: {item.totalScore}
+                        </p>
+                        <p>
+                          Monthly Score: {item.monthlyScore}
+                        </p>
 
-                  </span>
-                </RouteDiv>
-              })}
+                      </span>
+                    </RouteDiv>
+                  })}
+            </span>
+            <RankingList />
+          </div>
 
         </RouteDiv>
       </RouteSizeControlBox>
@@ -212,3 +232,5 @@ export default function Ranking({ headers }) {
     </>
   );
 }
+
+
