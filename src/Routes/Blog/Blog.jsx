@@ -55,7 +55,7 @@ export function Blog({ headers }) {
   const [level, setLevel] = useState(9);
   const [isNextLiveClassVisible, setIsNextLiveClassVisible] = useState(false);
   const [nextLiveClassesList, setnextLiveClassesList] = useState([]);
-
+  const [nextTutoring, setNextTutoring] = useState("");
 
   const items = theitems.items;
 
@@ -129,13 +129,13 @@ export function Blog({ headers }) {
           { headers }
         );
         setNextTutoring(response.data);
+        console.log(response.data);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
         window.location.reload();
 
       }
     };
-
     fetchNextClass();
     setIsNextClassVisible(!isNextClassVisible);
   };
@@ -349,7 +349,7 @@ export function Blog({ headers }) {
               </div>
 
             </div>
-            {!isNextClassVisible ? (
+            {/* {!isNextClassVisible ? (
               <Button
                 style={{
                   backgroundColor: secondaryColor(),
@@ -417,7 +417,7 @@ export function Blog({ headers }) {
                 )}
 
               </span>
-            )}
+            )} */}
           </div>
           {posts.map((post, index) => (
             <div
