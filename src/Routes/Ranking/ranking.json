@@ -1,0 +1,83 @@
+{
+    "items": [
+        {
+            "level": 1,
+            "icon": "fa fa-star",
+            "color": "#eee",
+            "textcolor": "black",
+            "text": "White Belt",
+            "totalScore": 0
+        },
+        {
+            "level": 2,
+            "icon": "fa fa-moon-o",
+            "color": "#FAF477",
+            "textcolor": "black",
+            "text": "Yellow Belt",
+            "totalScore": 12000
+        },
+        {
+            "level": 3,
+            "icon": "fa fa-globe",
+            "color": "#2F0092",
+            "textcolor": "white",
+            "text": "Blue Belt",
+            "totalScore": 25000
+        },
+        {
+            "level": 4,
+            "icon": "fa fa-sun-o",
+            "color": "#FA1000",
+            "textcolor": "white",
+            "text": "Red Belt",
+            "totalScore": 40000
+        },
+        {
+            "level": 5,
+            "icon": "fa fa-bolt",
+            "color": "#58B000",
+            "textcolor": "white",
+            "text": "Green Belt",
+            "totalScore": 60000
+        },
+        {
+            "level": 6,
+            "icon": "fa fa-skyatlas",
+            "color": "#FA6001",
+            "textcolor": "white",
+            "text": "Orange Belt",
+            "totalScore": 80000
+        },
+        {
+            "level": 7,
+            "icon": "fa fa-moon-o",
+            "color": "#8A4C9E",
+            "textcolor": "white",
+            "text": "Purple Belt",
+            "totalScore": 120000
+        },
+        {
+            "level": 8,
+            "icon": "fa fa-superpowers",
+            "color": "#555",
+            "textcolor": "white",
+            "text": "Black Belt",
+            "totalScore": 240000
+        },
+        {
+            "level": 9,
+            "icon": "fa fa-edit",
+            "color": "#789",
+            "textcolor": "white",
+            "text": "SUPREME",
+            "totalScore": 1200000
+        },
+        {
+            "level": 10,
+            "icon": "fa fa-edit",
+            "color": "#000",
+            "textcolor": "black",
+            "text": "loading"
+        }
+    ]
+}

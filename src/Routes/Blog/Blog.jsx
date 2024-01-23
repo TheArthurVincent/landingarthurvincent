@@ -29,6 +29,8 @@ import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./NextTutorings";
 import NextLiveClasses from "./NextLive";
+import theitems from "../Ranking/ranking.json"
+
 
 
 export function Blog({ headers }) {
@@ -54,80 +56,8 @@ export function Blog({ headers }) {
   const [isNextLiveClassVisible, setIsNextLiveClassVisible] = useState(false);
   const [nextLiveClassesList, setnextLiveClassesList] = useState([]);
 
-  
-  const items = [
-    {
-      level: 1,
-      icon: "fa fa-star",
-      color: "#eee",
-      textcolor: "black",
-      text: "White Belt"
-    },
-    {
-      level: 2,
-      icon: "fa fa-moon-o",
-      color: "#FAF477",
-      textcolor: "black",
-      text: "Yellow Belt"
-    },
-    {
-      level: 3,
-      icon: "fa fa-globe",
-      color: "#2F0092",
-      textcolor: "white",
-      text: "Blue Belt"
-    },
-    {
-      level: 4,
-      icon: "fa fa-sun-o",
-      color: "#FA1000",
-      textcolor: "white",
-      text: "Red Belt"
-    },
-    {
-      level: 5,
-      icon: "fa fa-bolt",
-      color: "#58B000",
-      textcolor: "white",
-      text: "Green Belt"
-    },
-    {
-      level: 6,
-      icon: "fa fa-skyatlas",
-      color: "#FA6001",
-      textcolor: "white",
-      text: "Orange Belt"
-    },
-    {
-      level: 7,
-      icon: "fa fa-moon-o",
-      color: "#8A4C9E",
-      textcolor: "white",
-      text: "Purple Belt"
-    },
-    {
-      level: 8,
-      icon: "fa fa-superpowers",
-      color: "#555",
-      textcolor: "white",
-      text: "Black Belt"
-    },
 
-    {
-      level: 9,
-      icon: "fa fa-edit",
-      color: "#789",
-      textcolor: "white",
-      text: "SUPREME"
-    },
-    {
-      level: 10,
-      icon: <CircularProgress />,
-      color: "#000",
-      textcolor: "black",
-      text: <CircularProgress />
-    },
-  ];
+  const items = theitems.items;
 
 
   const handleSeeModal = () => {
@@ -485,7 +415,7 @@ export function Blog({ headers }) {
                     </Link>
                   </>
                 )}
-                
+
               </span>
             )}
           </div>
