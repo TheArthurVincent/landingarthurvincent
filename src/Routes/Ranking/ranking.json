@@ -2,7 +2,7 @@
     "levels": [
         {
             "level": 2,
-            "icon": "fa fa-moon-o",
+            "icon": "fa fa-sun-o",
             "color": "#FAF477",
             "textcolor": "black",
             "text": "Yellow Belt",
@@ -20,7 +20,7 @@
         },
         {
             "level": 4,
-            "icon": "fa fa-sun-o",
+            "icon": "fa fa-fire",
             "color": "#FA1000",
             "textcolor": "white",
             "text": "Red Belt",
@@ -76,7 +76,7 @@
         },
         {
             "level": 2,
-            "icon": "fa fa-moon-o",
+            "icon": "fa fa-sun-o",
             "color": "#FAF477",
             "textcolor": "black",
             "text": "Yellow Belt",
@@ -94,7 +94,7 @@
         },
         {
             "level": 4,
-            "icon": "fa fa-sun-o",
+            "icon": "fa fa-fire",
             "color": "#FA1000",
             "textcolor": "white",
             "text": "Red Belt",
