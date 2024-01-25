@@ -44,13 +44,21 @@ export const RouteSizeControlBox = styled.div`
 export const BlogSideBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.51rem;
   min-width: 9.5rem;
   max-width: 9.5rem;
   @media (max-width: 900px) {
   flex-direction: row;
-
   }
+  `
+export const OverFlow = styled.div`
+  max-height: 15rem,
+  overflow: auto,
+  @media (max-width: 500px) {
+    max-height: 2rem,
+    font-size: 0.6rem;
+    max-width:10ch;
+}
   `
 export const BlogRouteSizeControlBox = styled.div`
   display: flex;

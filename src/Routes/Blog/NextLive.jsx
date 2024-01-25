@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, NextLive, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, HTwo, NextLive, OverFlow, RouteDiv } from "../../Resources/Components/RouteBox";
 import {
   backDomain,
   formatDate,
@@ -69,12 +69,7 @@ export function NextLiveClasses({ headers }) {
       title: <>{UniversalTexts.future}</>,
       value: 0,
       component: (
-        <div
-          style={{
-            maxHeight: "20rem",
-            overflow: "auto",
-          }}
-        >
+        <OverFlow>
           {loading ? (
             <CircularProgress />
           ) : (
@@ -108,19 +103,14 @@ export function NextLiveClasses({ headers }) {
               </div>
             ))
           )}
-        </div>
+        </OverFlow>
       ),
     },
     {
       title: <>{UniversalTexts.past}</>,
       value: 1,
       component: (
-        <div
-          style={{
-            maxHeight: "20rem",
-            overflow: "auto",
-          }}
-        >
+        <OverFlow>
           {loading ? (
             <CircularProgress />
           ) : (
@@ -144,7 +134,7 @@ export function NextLiveClasses({ headers }) {
               </div>
             ))
           )}
-        </div>
+        </OverFlow>
       ),
     },
   ];
