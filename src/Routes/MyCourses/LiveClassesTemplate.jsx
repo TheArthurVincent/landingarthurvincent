@@ -74,11 +74,9 @@ export default function LiveClassesTemplate({
     &::-webkit-scrollbar {
       width: 5px;
     }
-
     &::-webkit-scrollbar-thumb {
       background-color: ${courseColor};
     }
-
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
@@ -91,15 +89,12 @@ export default function LiveClassesTemplate({
     color: ${darkGreyColor()};
     text-transform: capitalize;
     border-left: 1px solid lightGreyColor();
-
     &::-webkit-scrollbar {
       width: 5px;
     }
-
     &::-webkit-scrollbar-thumb {
       background-color: ${courseColor};
     }
-
     &::-webkit-scrollbar-track {
       background-color: ${alwaysWhite()};
     }
@@ -108,9 +103,9 @@ export default function LiveClassesTemplate({
     }
   `;
   const FullDisplay = styled.div`
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 20rem;
-    @media (max-width: 800px) {
+    @media (max-width: 500px) {
       grid-template-columns: 1fr;
     }
   `;

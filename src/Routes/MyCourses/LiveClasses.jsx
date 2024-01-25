@@ -9,6 +9,7 @@ import {
   BackToHomePage,
   ButtonButton,
   IFrameVideo,
+  SpanCourseResponsive,
   backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
@@ -224,7 +225,7 @@ export default function MyCourses({ headers }) {
                 </Button>
               )}
             </span>
-            <span>
+            <SpanCourseResponsive>
               {" "}
               {loading ? (
                 <CircularProgress />
@@ -273,7 +274,7 @@ export default function MyCourses({ headers }) {
                   ))}
                 </div>
               )}
-            </span>
+            </SpanCourseResponsive>
           </div>
         </RouteDiv>
       </RouteSizeControlBox>

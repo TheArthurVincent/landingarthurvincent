@@ -259,6 +259,12 @@ export const IFrameVideo = styled.iframe`
     min-height: 38px;
   }
 `;
+export const SpanCourseResponsive = styled.span`
+@media (max-width: 500px) {
+  display: none;
+}
+
+`
 
 export const IFrameVideoCourses = styled.iframe`
   border: none;
