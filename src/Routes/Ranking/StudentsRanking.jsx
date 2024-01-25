@@ -53,7 +53,6 @@ export default function StudentsRanking({ headers }) {
               backgroundColor: "white",
               padding: "0.5rem",
               maxHeight: "16rem",
-              minWidth: "50rem",
               marginBottom: "0.5rem",
               fontSize: "13px",
               textAlign: "center",
