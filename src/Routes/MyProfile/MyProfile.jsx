@@ -26,7 +26,11 @@ export function MyProfile({ headers }) {
           className="smooth"
           style={{ maxWidth: "fit-content" }}
         >
-          <RouteDiv>
+          <RouteDiv
+            style={{
+              padding: "0.5rem"
+            }}
+          >
             <HOne>{UniversalTexts.myProfile}</HOne>
             <BackToHomePage />
             <ul style={{ color: alwaysBlack(), padding: "0.2rem" }}>
