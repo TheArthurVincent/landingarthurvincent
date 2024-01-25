@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, HTwo, NextLive, RouteDiv } from "../../Resources/Components/RouteBox";
 import {
   backDomain,
   formatDate,
@@ -149,7 +149,7 @@ export function NextLiveClasses({ headers }) {
     },
   ];
   return (
-    <RouteDiv style={{ margin: "0 auto" }}>
+    <NextLive style={{ margin: "0 auto" }}>
       <HOne>{UniversalTexts.groupClasses}</HOne>
       <TabContext value={value}>
         <Box
@@ -199,7 +199,7 @@ export function NextLiveClasses({ headers }) {
           );
         })}
       </TabContext>
-    </RouteDiv>
+    </NextLive>
   );
 }
 

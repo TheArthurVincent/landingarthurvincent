@@ -17,7 +17,7 @@ import {
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
-export function NextTutorings({ headers }) {
+export function NextTutorings({ headers, display }) {
   const { UniversalTexts } = useUserContext();
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);
@@ -149,7 +149,10 @@ export function NextTutorings({ headers }) {
     },
   ];
   return (
-    <RouteDiv style={{ margin: "0 auto" }}>
+    <RouteDiv style={{
+      display: display,
+      margin: "0 auto"
+    }}>
       <HOne>{UniversalTexts.nextClasses}</HOne>
       <TabContext value={value}>
         <Box

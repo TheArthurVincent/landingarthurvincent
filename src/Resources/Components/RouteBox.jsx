@@ -41,6 +41,52 @@ export const RouteSizeControlBox = styled.div`
     animation-timing-function: ease-out;
   }
 `;
+export const BlogSideBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 9.5rem;
+  max-width: 9.5rem;
+  @media (max-width: 900px) {
+  flex-direction: row;
+
+  }
+  `
+export const BlogRouteSizeControlBox = styled.div`
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  max-width: 1000px;
+  gap: 0.5rem;
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    max-width: 500px;
+  }
+  @media (max-width: 800px) {
+    max-width: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    li {
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: 600px) {
+    max-width: 450px;
+  }
+  &.smooth {
+    animation-name: slideInLeft;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+  }
+`;
+
 
 export const HOne = styled.h1`
   background-color: ${primaryColor()};
@@ -128,6 +174,31 @@ export const RouteDiv = styled.div`
     max-width: 250px;
   }
 `;
+
+export const NextLive = styled.div`
+  background-color: ${alwaysWhite()};
+  padding: 0.5rem;
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
+`;
+
+export const LevelCardComponent = styled.div`
+  padding: 8px;
+  display: grid;
+  text-align: center;
+  background-color: white;
+  max-height: 16rem;
+  font-size: 12px;
+  justify-content: center;
+  text-align: center;
+  @media (max-width: 500px) {
+    font-size: 12px;
+    min-width: 155px;
+  
+  }
+`
+
 
 export const BackgroundClickBlog = styled.div`
   position: fixed;

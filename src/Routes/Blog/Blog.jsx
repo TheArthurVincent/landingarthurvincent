@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
-  RouteSizeControlBox,
+  BlogRouteSizeControlBox,
   BlogPostTitle,
   HTwo,
   BackgroundClickBlog,
+  BlogSideBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -21,7 +22,6 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
-  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
@@ -30,6 +30,7 @@ import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./NextTutorings";
 import NextLiveClasses from "./NextLive";
 import theitems from "../Ranking/ranking.json"
+import LevelCard from "./LevelCard";
 
 
 
@@ -50,11 +51,6 @@ export function Blog({ headers }) {
   const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
-  const [totalScore, setTotalScore] = useState(0);
-  const [monthlyScore, setMonthlyScore] = useState(0);
-  const [level, setLevel] = useState(9);
-  const [isNextLiveClassVisible, setIsNextLiveClassVisible] = useState(false);
-  const [nextLiveClassesList, setnextLiveClassesList] = useState([]);
   const [nextTutoring, setNextTutoring] = useState({
     _id: '651c13e019e72fbdef2abd76',
     studentID: '651311fac3d58753aa9281c5',
@@ -80,31 +76,6 @@ export function Blog({ headers }) {
     },
   ]);
 
-  const seeScore = async (id) => {
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
-        headers,
-      });
-      setTotalScore(response.data.totalScore);
-      setMonthlyScore(response.data.monthlyScore);
-      setLevel(
-        response.data.totalScore < 12000 ? 0 :
-          response.data.totalScore < 25000 ? 1 :
-            response.data.totalScore < 40000 ? 2 :
-              response.data.totalScore < 60000 ? 3 :
-                response.data.totalScore < 80000 ? 4 :
-                  response.data.totalScore < 120000 ? 5 :
-                    response.data.totalScore < 240000 ? 6 :
-                      response.data.totalScore < 1200000 ? 7 : 8
-      );
-
-    } catch (error) {
-      alert(error);
-      console.error(error);
-    }
-  };
-
-
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setName(getLoggedUser.name);
@@ -113,12 +84,6 @@ export function Blog({ headers }) {
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
     setLastName(getLoggedUser.lastname)
     setPicture(getLoggedUser.picture)
-    setTimeout(() => {
-      seeScore(getLoggedUser.id)
-
-      console.log(level)
-    }, 300);
-
   }, []);
 
 
@@ -158,7 +123,6 @@ export function Blog({ headers }) {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -227,45 +191,13 @@ export function Blog({ headers }) {
     return formatted;
   };
 
-
-
-
-  const handleSeeIsNextLiveClassesVisibleModal = () => {
-    setIsNextLiveClassVisible(false)
-    setTimeout(() => {
-      const fetchNextLive = async () => {
-        try {
-          const response = await axios.get(
-            `${backDomain}/api/v1/liveclasses/`,
-            { headers }
-          );
-          setnextLiveClassesList(response.data.nxtLive);
-          console.log(response.data.nxtLive);
-        } catch (error) {
-          alert("Erro ao importar próximas aulas");
-        }
-      };
-      fetchNextLive();
-      setIsNextLiveClassVisible(true);
-    }, 500);
-  };
-  useEffect(() => {
-    handleSeeIsNextLiveClassesVisibleModal()
-  }, [])
-
   return (
     <>
       <BackgroundClickBlog
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
-      <RouteSizeControlBox
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "0.5rem",
-        }}
-        className="smooth">
+      <BlogRouteSizeControlBox className="smooth">
         <RouteDiv>
           <div
             style={{
@@ -669,88 +601,12 @@ export function Blog({ headers }) {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            minWidth: "9.5rem",
-            maxWidth: "9.5rem",
-          }}
-        >
-          <span
-            style={{
-              backgroundColor: "white",
-              padding: "0.5rem",
-              maxHeight: "16rem",
-              fontSize: "13px",
-              textAlign: "center",
-              background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
-              color: items[level].textcolor,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-                color: "white",
-              }}
-            >
-              <i className={items[level].icon} aria-hidden="true" />
-              <h2>
-                {items[level].text}
-              </h2>
-            </div>
-            <img
-              style={{
-                width: "5rem",
-                height: "5rem",
-                objectFit: "cover",
-                border: "solid 0.2rem #555",
-                margin: "0.9rem",
-                borderRadius: "50%"
-              }}
-              src={picture}
-            />
-            <p
-              style={{
-                fontWeight: 800,
-                marginBottom: "9px"
-              }}
-            >
-              {name} {lastName}
-            </p>
-            <span>
-              <p>
-                Total Score: {totalScore}
-              </p>
-              <p>
-                Monthly Score: {monthlyScore}
-              </p>
-              <Button
-                onClick={() => seeScore(_StudentId)}
-                style={{
-                  color:
-                    items[level].textcolor
-                }}
-              >
-                <i
-                  className="fa fa-refresh" aria-hidden="true"></i>
-              </Button>
-            </span>
-          </span>
+        <BlogSideBox>
+          <LevelCard name={name} headers={headers} _StudentId={_StudentId} picture={picture} lastName={lastName} />
           <NextLiveClasses headers={headers} />
-          <span
-            style={{
-              display:
-                permissions == "superadmin" ? "flex" : "none",
-              maxHeight: "32rem"
-            }}>
-            <NextTutorings headers={headers} />
-          </span>
-        </div>
-      </RouteSizeControlBox >
+          <NextTutorings display={permissions == "superadmin" ? "block" : "none"} headers={headers} />
+        </BlogSideBox>
+      </BlogRouteSizeControlBox >
     </>
   );
 }
