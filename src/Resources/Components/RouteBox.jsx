@@ -188,17 +188,11 @@ export const LevelCardComponent = styled.div`
   display: grid;
   text-align: center;
   background-color: white;
-  max-height: 16rem;
+  min-width: 155px;
   font-size: 12px;
   justify-content: center;
   text-align: center;
-  @media (max-width: 500px) {
-    font-size: 12px;
-    min-width: 155px;
-  
-  }
 `
-
 
 export const BackgroundClickBlog = styled.div`
   position: fixed;
