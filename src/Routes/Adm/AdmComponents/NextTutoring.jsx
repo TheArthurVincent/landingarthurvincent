@@ -62,7 +62,6 @@ export function NextTutoring({ headers }) {
       }));
       setSelectedEmail(formState.student[studentIndex].email);
       setSelectedEmail(formState.student[studentIndex].email);
-      console.log(formState.student[studentIndex].email);
     } else {
       setFormState((prev) => ({ ...prev, studentName: "" }));
     }

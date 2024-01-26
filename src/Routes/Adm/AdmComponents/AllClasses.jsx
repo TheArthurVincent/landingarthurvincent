@@ -36,7 +36,6 @@ export function AllClasses({ headers }) {
           "Invalid response structure: pastTutorings or futureTutorings is undefined"
         );
       }
-      console.log(response);
       setLoading(false);
     } catch (error) {
       console.log(error);

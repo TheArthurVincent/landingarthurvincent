@@ -33,7 +33,6 @@ export function NextLiveClass({ headers }) {
     setDate("");
     setTitle("");
     setUrl("");
-    console.log(title, time, date, url)
   }
   return (
     <RouteDiv>

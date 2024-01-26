@@ -633,17 +633,17 @@ export const ButtonButton = (text) => {
 
 export const sendEmailTemplateLinkPosted = async (to, message) => {
   try {
-    await emailjs.send(
-      "service_oja9wsi",
-      "template_sqtzkz8",
-      {
-        to_name: to,
-        from_name: "arvinenglishschool@gmail.com",
-        message: message,
-      },
-      "6wagjIYRZpgGApc4x"
-    );
-    console.log("E-mail enviado com sucesso!");
+    // await emailjs.send(
+    //   "service_oja9wsi",
+    //   "template_sqtzkz8",
+    //   {
+    //     to_name: to,
+    //     from_name: "arvinenglishschool@gmail.com",
+    //     message: message,
+    //   },
+    //   "6wagjIYRZpgGApc4x"
+    // );
+    // console.log("E-mail enviado com sucesso!");
   } catch (error) {
     console.error("Erro ao enviar e-mail:", error);
   }
@@ -651,17 +651,17 @@ export const sendEmailTemplateLinkPosted = async (to, message) => {
 
 export const sendEmailTemplateVideoPosted = async (to, message) => {
   try {
-    await emailjs.send(
-      "service_oja9wsi",
-      "template_6gu2nig",
-      {
-        to_name: to,
-        from_name: "arvinenglishschool@gmail.com",
-        message: message,
-      },
-      "6wagjIYRZpgGApc4x"
-    );
-    console.log("E-mail enviado com sucesso!");
+    // await emailjs.send(
+    //   "service_oja9wsi",
+    //   "template_6gu2nig",
+    //   {
+    //     to_name: to,
+    //     from_name: "arvinenglishschool@gmail.com",
+    //     message: message,
+    //   },
+    //   "6wagjIYRZpgGApc4x"
+    // );
+    // console.log("E-mail enviado com sucesso!");
   } catch (error) {
     console.error("Erro ao enviar e-mail:", error);
   }

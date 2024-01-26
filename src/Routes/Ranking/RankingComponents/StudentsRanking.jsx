@@ -17,7 +17,6 @@ export default function StudentsRanking({ headers }) {
       const response = await axios.get(`${backDomain}/api/v1/scoresranking/`, {
         headers,
       });
-      console.log(response.data.listOfStudents)
       setStudents(response.data.listOfStudents);
       setLoading(false);
     } catch (error) {
