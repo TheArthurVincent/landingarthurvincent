@@ -213,7 +213,7 @@ export function Extras({ headers }) {
                   padding: "1rem",
                 }}
               >
-                <p>{item.explanation}</p>
+                <div>{item.explanation}</div>
               </div>
             </div>
           ))}
