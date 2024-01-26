@@ -13,7 +13,7 @@ export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newText, setNewText] = useState("");
-  const [newAttachment, setNewAttachment] = useState("");
+  const [newAttachments, setNewAttachments] = useState("");
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
   const [standardValue, setStandardValue] = useState("Aluno");
@@ -28,7 +28,7 @@ export function NewTutoring({ headers }) {
     setNewDate("");
     setNewVideoUrl("");
     setNewText("");
-    setNewAttachment("");
+    setNewAttachments("");
     setSelectedStudentID("");
     setStandardValue("Aluno");
   };
@@ -69,7 +69,7 @@ export function NewTutoring({ headers }) {
       date: newDate,
       videoUrl: newVideoUrl,
       comments: newText,
-      attachment: newAttachment,
+      attachments: newAttachments,
       studentID: selectedStudentID,
     };
     try {
@@ -169,8 +169,8 @@ export function NewTutoring({ headers }) {
             }}
             type="text"
             placeholder="Link do documento no Drive"
-            value={newAttachment}
-            onChange={(e) => setNewAttachment(e.target.value)}
+            value={newAttachments}
+            onChange={(e) => setNewAttachments(e.target.value)}
             required
           />
           <input

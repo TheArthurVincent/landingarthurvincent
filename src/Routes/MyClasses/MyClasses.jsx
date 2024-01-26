@@ -17,11 +17,13 @@ import {
   alwaysBlack,
   lightGreyColor,
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
+import { Link } from "react-router-dom";
 
 export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
@@ -196,7 +198,7 @@ export function MyClasses({ headers }) {
                             margin: "0 auto",
                           }}
                         >
-                          <p style={{ maxWidth: "80ch", color: "black" }}>
+                          <p style={{ maxWidth: "30ch", color: "black", overflowWrap: "break-word" }}>
                             {item.comments}
                           </p>
                         </div>
