@@ -184,8 +184,8 @@ export const RouteDiv = styled.div`
 `;
 
 export const NextTutoringsDiv = styled.div`
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   background-color: ${alwaysWhite()};
   color: ${alwaysBlack()};
   padding: 0.5rem;
