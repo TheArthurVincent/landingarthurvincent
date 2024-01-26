@@ -39,8 +39,9 @@ export function MyClasses({ headers }) {
         { headers }
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
+      console.log(response.data.formattedTutoringFromParticularStudent);
       setLoading(false);
-    } catch (error) {}
+    } catch (error) { }
   }
 
   useEffect(() => {

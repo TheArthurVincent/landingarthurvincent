@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import theitems from "../../Ranking/ranking.json"
+import theitems from "../../Ranking/RankingComponents/ranking.json"
 import { backDomain } from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
 import axios from "axios";
