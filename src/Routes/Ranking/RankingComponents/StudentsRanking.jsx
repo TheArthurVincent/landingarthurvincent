@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { RouteDiv, } from "../../Resources/Components/RouteBox";
-import { backDomain } from "../../Resources/UniversalComponents";
+import { RouteDiv, } from "../../../Resources/Components/RouteBox";
+import { backDomain } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json"

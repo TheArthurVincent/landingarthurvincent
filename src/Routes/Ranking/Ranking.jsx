@@ -5,11 +5,11 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import TopBar from "../../Application/TopBar/TopBar";
-import StudentsRanking from "./StudentsRanking";
+import StudentsRanking from "./RankingComponents/StudentsRanking";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import { alwaysWhite } from "../../Styles/Styles";
-import RankingExplanation from "./RankingExplanation";
+import RankingExplanation from "./RankingComponents/RankingExplanation";
 
 export default function Ranking({ headers }) {
 
