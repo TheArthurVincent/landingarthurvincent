@@ -233,9 +233,9 @@ export function Blog({ headers }) {
                 {[
                   {
                     link: "https://ankiweb.net/decks",
-                    title: <i className="fa fa-star-o" aria-hidden="true"></i>,
+                    title: <i style={{ transform: "rotate(-25deg)" }} className="fa fa-star-o" aria-hidden="true"></i>,
                     tooltip: "Anki",
-                    color: "navy",
+                    color: "#01BCFF",
                   },
                   {
                     link: googleDriveLink,
