@@ -183,11 +183,21 @@ export const RouteDiv = styled.div`
   }
 `;
 
+export const NextTutoringsDiv = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  background-color: ${alwaysWhite()};
+  color: ${alwaysBlack()};
+  padding: 0.5rem;
+  margin:  0 auto;
+  min-width: 260px;
+`;
 export const NextLive = styled.div`
   background-color: ${alwaysWhite()};
   padding: 0.5rem;
+  min-width: 260px;
   @media (max-width: 500px) {
-    max-width: 100%;
+    min-width: 160px;
   }
 `;
 

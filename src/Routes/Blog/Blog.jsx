@@ -27,10 +27,10 @@ import {
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
-import NextTutorings from "./NextTutorings";
-import NextLiveClasses from "./NextLive";
+import NextTutorings from "./BlogComponents/NextTutorings";
+import NextLiveClasses from "./BlogComponents/NextLive";
 import theitems from "../Ranking/ranking.json"
-import LevelCard from "./LevelCard";
+import LevelCard from "./BlogComponents/LevelCard";
 
 
 

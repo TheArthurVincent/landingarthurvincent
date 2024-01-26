@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import theitems from "../Ranking/ranking.json"
-import { backDomain } from "../../Resources/UniversalComponents";
+import theitems from "../../Ranking/ranking.json"
+import { backDomain } from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
 import axios from "axios";
-import { LevelCardComponent } from "../../Resources/Components/RouteBox";
+import { LevelCardComponent } from "../../../Resources/Components/RouteBox";
 
 
 export function LevelCard({ headers, _StudentId, picture, name, lastName }) {

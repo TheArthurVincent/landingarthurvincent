@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, NextLive, OverFlow, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, NextTutoringsDiv, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
   backDomain,
   formatDate,
-} from "../../Resources/UniversalComponents";
+} from "../../../Resources/UniversalComponents";
+import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress, LinearProgress } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -14,37 +15,33 @@ import {
   secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
-} from "../../Styles/Styles";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+} from "../../../Styles/Styles";
 
-
-export function NextLiveClasses({ headers }) {
+export function NextTutorings({ headers, display }) {
   const { UniversalTexts } = useUserContext();
   const [past, setPast] = useState([]);
   const [future, setFuture] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState("0");
 
   const isWithinOneHour = (dateTime) => {
     const currentTime = (new Date().getHours());
     const currentDay = (new Date().getDate());
     const eventTime = (new Date(dateTime).getHours());
     const eventDay = (new Date(dateTime).getDate());
-
-    console.log(currentTime, eventTime, eventDay, currentDay, "currentTime, eventTime,")
     return ((currentTime - eventTime) === 0 && (currentDay - eventDay) === 0 ? true : false);
   };
 
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/liveclasses`, { headers });
-      if (response.data.pastLiveClasses && response.data.futureLiveClasses) {
-        setPast(response.data.pastLiveClasses);
-        setFuture(response.data.futureLiveClasses);
+      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`, { headers });
+      if (response.data.pastTutorings && response.data.futureTutorings) {
+        setPast(response.data.pastTutorings);
+        setFuture(response.data.futureTutorings);
       } else {
         console.error(
-          "Invalid response structure: pastLiveClasses or futureLiveClasses is undefined"
+          "Invalid response structure: pastTutorings or futureTutorings is undefined"
         );
       }
       setLoading(false);
@@ -67,9 +64,14 @@ export function NextLiveClasses({ headers }) {
   const componentsToRender = [
     {
       title: <>{UniversalTexts.future}</>,
-      value: 0,
+      value: "0",
       component: (
-        <OverFlow>
+        <div
+          style={{
+            maxHeight: "20rem",
+            overflow: "auto",
+          }}
+        >
           {loading ? (
             <CircularProgress />
           ) : (
@@ -95,7 +97,7 @@ export function NextLiveClasses({ headers }) {
                 </p> : null}
                 <p>
 
-                  {item.title} <br />
+                  {item.student} <br />
                   <Link style={{ color: "white" }} to={item.meetingUrl}>
                     {formatDate(item.dateTime)}
                   </Link>
@@ -103,14 +105,19 @@ export function NextLiveClasses({ headers }) {
               </div>
             ))
           )}
-        </OverFlow>
+        </div>
       ),
     },
     {
       title: <>{UniversalTexts.past}</>,
-      value: 1,
+      value: "1",
       component: (
-        <OverFlow>
+        <div
+          style={{
+            maxHeight: "20rem",
+            overflow: "auto",
+          }}
+        >
           {loading ? (
             <CircularProgress />
           ) : (
@@ -121,26 +128,27 @@ export function NextLiveClasses({ headers }) {
                   backgroundColor: secondaryColor(),
                   color: textSecondaryColorContrast(),
                   margin: "1px",
-                  padding: "8px"
+                  padding: "8px",
                 }}
                 key={index}
               >
                 <p>
-                  {item.title}
+                  {item.student}
                 </p>
-                <p>
-                  {formatDate(item.dateTime)}
-                </p>
+                {formatDate(item.dateTime)}
               </div>
             ))
           )}
-        </OverFlow>
+        </div>
       ),
     },
   ];
   return (
-    <NextLive style={{ margin: "0 auto" }}>
-      <HOne>{UniversalTexts.groupClasses}</HOne>
+    <NextTutoringsDiv
+      style={{
+        display: display,
+      }}>
+      <HOne>{UniversalTexts.nextClasses}</HOne>
       <TabContext value={value}>
         <Box
           style={{
@@ -172,7 +180,7 @@ export function NextLiveClasses({ headers }) {
                 />
               );
             })}
-          </TabList>
+          </TabList>{" "}
           <Button onClick={() => seeAllTutorings()}>
             <i className="fa fa-refresh" aria-hidden="true"></i>
           </Button>
@@ -189,8 +197,8 @@ export function NextLiveClasses({ headers }) {
           );
         })}
       </TabContext>
-    </NextLive>
+    </NextTutoringsDiv>
   );
 }
 
-export default NextLiveClasses;
+export default NextTutorings;
