@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NewStudent from "./NewStudent";
+import NewStudent from "./AdmComponents/NewStudent";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -10,15 +10,15 @@ import {
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
-import NewPost from "./NewPost";
-import NewTutoring from "./NewTutoring";
+import NewPost from "./AdmComponents/NewPost";
+import NewTutoring from "./AdmComponents/NewTutoring";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
-import NextTutoring from "./NextTutoring";
+import NextTutoring from "./AdmComponents/NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
-import ManageCourses, { ManageModules } from "./ManageCourses";
+import ManageCourses, { ManageModules } from "./AdmComponents/ManageCourses";
 import { Link } from "react-router-dom";
-import AllClasses from "./AllClasses";
-import NextLiveClass from "./NextLiveClass";
+import AllClasses from "./AdmComponents/AllClasses";
+import NextLiveClass from "./AdmComponents/NextLiveClass";
 
 export function Adm({ headers }) {
   const [value, setValue] = useState("1");

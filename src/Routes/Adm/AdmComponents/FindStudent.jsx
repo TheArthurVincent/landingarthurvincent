@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
-import { Xp, backDomain, linkReset } from "../../Resources/UniversalComponents";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
+import { Xp, backDomain, linkReset } from "../../../Resources/UniversalComponents";
+import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-} from "../../Styles/Styles";
+} from "../../../Styles/Styles";
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();

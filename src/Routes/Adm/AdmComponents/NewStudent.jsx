@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   InputField,
   Button,
   backDomain,
-} from "../../Resources/UniversalComponents";
-import { FormList } from "./Adm.Styled";
+} from "../../../Resources/UniversalComponents";
+import { FormList } from "../Adm.Styled";
 import FindStudent from "./FindStudent";
 import { CircularProgress } from "@mui/material";
 

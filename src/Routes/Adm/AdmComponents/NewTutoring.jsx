@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   Button,
   backDomain,
   sendEmailTemplateVideoPosted,
-} from "../../Resources/UniversalComponents";
+} from "../../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
 
 export function NewTutoring({ headers }) {
