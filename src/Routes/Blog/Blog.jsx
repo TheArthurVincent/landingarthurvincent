@@ -233,19 +233,19 @@ export function Blog({ headers }) {
                 {[
                   {
                     link: "https://ankiweb.net/decks",
-                    title: <i style={{ transform: "rotate(-25deg)" }} className="fa fa-star-o" aria-hidden="true"></i>,
+                    title: <i style={{ transform: "rotate(-25deg)" }} className="fa fa-star-o" aria-hidden="true" />,
                     tooltip: "Anki",
                     color: "#01BCFF",
                   },
                   {
                     link: googleDriveLink,
-                    title: <i className="fa fa-folder" aria-hidden="true"></i>,
+                    title: <i className="fa fa-folder" aria-hidden="true" />,
                     tooltip: UniversalTexts.personalFolder,
                     color: "brown",
                   },
                   {
                     link: "https://wa.me/5511915857807",
-                    title: <i className="fa fa-whatsapp" aria-hidden="true"></i>,
+                    title: <i className="fa fa-whatsapp" aria-hidden="true" />,
                     tooltip: UniversalTexts.talkToTheTeacher,
                     color: "green",
                   },
