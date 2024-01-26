@@ -29,7 +29,7 @@ import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./BlogComponents/NextTutorings";
 import NextLiveClasses from "./BlogComponents/NextLive";
-import theitems from "../Ranking/ranking.json"
+import theitems from "../Ranking/RankingComponents/ranking.json"
 import LevelCard from "./BlogComponents/LevelCard";
 
 
@@ -54,7 +54,7 @@ export function Blog({ headers }) {
   const [nextTutoring, setNextTutoring] = useState({
     _id: '651c13e019e72fbdef2abd76',
     studentID: '651311fac3d58753aa9281c5',
-    date: '2000-01-01',
+    date: '2000-00-00',
     time: '00:00',
     meetingUrl: 'https://portal.arthurvincent.com.br/',
   });
