@@ -65,7 +65,7 @@ export default function StudentsRanking({ headers }) {
                 item.totalScore < 2000000 &&
                 item.monthlyScore >= 3000
               ? 7
-              : response.data.totalScore >= 2000000
+              : item.totalScore >= 2000000
               ? 8
               : 0;
           return (
