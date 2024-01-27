@@ -32,7 +32,7 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
             response.data.totalScore < 60000 &&
             response.data.monthlyScore >= 3000
           ? 3
-          : response.data.totalScore >= 60000 &&*
+          : response.data.totalScore >= 60000 &&
             response.data.totalScore < 80000 &&
             response.data.monthlyScore >= 3000
           ? 4
