@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, NextLive, OverFlow, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
-  backDomain,
-  formatDate,
-} from "../../../Resources/UniversalComponents";
+  HOne,
+  HTwo,
+  NextLive,
+  OverFlow,
+  RouteDiv,
+} from "../../../Resources/Components/RouteBox";
+import { backDomain, formatDate } from "../../../Resources/UniversalComponents";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab, Button, CircularProgress, LinearProgress } from "@mui/material";
+import {
+  Box,
+  Tab,
+  Button,
+  CircularProgress,
+  LinearProgress,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysWhite,
@@ -17,7 +26,6 @@ import {
 } from "../../../Styles/Styles";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 
-
 export function NextLiveClasses({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [past, setPast] = useState([]);
@@ -26,18 +34,22 @@ export function NextLiveClasses({ headers }) {
   const [value, setValue] = useState("0");
 
   const isWithinOneHour = (dateTime) => {
-    const currentTime = (new Date().getHours());
-    const currentDay = (new Date().getDate());
-    const eventTime = (new Date(dateTime).getHours());
-    const eventDay = (new Date(dateTime).getDate());
+    const currentTime = new Date().getHours();
+    const currentDay = new Date().getDate();
+    const eventTime = new Date(dateTime).getHours();
+    const eventDay = new Date(dateTime).getDate();
 
-    return ((currentTime - eventTime) === 0 && (currentDay - eventDay) === 0 ? true : false);
+    return currentTime - eventTime === 0 && currentDay - eventDay === 0
+      ? true
+      : false;
   };
 
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/liveclasses`, { headers });
+      const response = await axios.get(`${backDomain}/api/v1/liveclasses`, {
+        headers,
+      });
       if (response.data.pastLiveClasses && response.data.futureLiveClasses) {
         setPast(response.data.pastLiveClasses);
         setFuture(response.data.futureLiveClasses);
@@ -63,7 +75,6 @@ export function NextLiveClasses({ headers }) {
     setValue(newValue);
   };
 
-
   return (
     <NextLive style={{ margin: "0 auto" }}>
       <HOne>{UniversalTexts.groupClasses}</HOne>
@@ -75,24 +86,27 @@ export function NextLiveClasses({ headers }) {
             <div
               style={{
                 margin: "1rem",
-                backgroundColor: isWithinOneHour(item.dateTime) ? secondaryColor() : primaryColor(),
+                backgroundColor: isWithinOneHour(item.dateTime)
+                  ? secondaryColor()
+                  : primaryColor(),
                 color: textPrimaryColorContrast(),
                 margin: "1px",
-                padding: "8px"
+                padding: "8px",
               }}
               key={index}
             >
-              {isWithinOneHour(item.dateTime) ? <p
-                style={{
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "5px"
-                }}
-              >
-                <LinearProgress />
-              </p> : null}
+              {isWithinOneHour(item.dateTime) ? (
+                <p
+                  style={{
+                    backgroundColor: secondaryColor(),
+                    color: textSecondaryColorContrast(),
+                    padding: "5px",
+                  }}
+                >
+                  <LinearProgress />
+                </p>
+              ) : null}
               <p>
-
                 {item.title} <br />
                 <Link style={{ color: "white" }} to={item.meetingUrl}>
                   {formatDate(item.dateTime)}

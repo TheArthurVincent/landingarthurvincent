@@ -99,8 +99,7 @@ export default function TopBar() {
                 style={{
                   color: alwaysBlack(),
                   display: link.display,
-                  textDecoration: "none"
-
+                  textDecoration: "none",
                 }}
                 to={link.endpoint}
               >
@@ -129,7 +128,7 @@ export default function TopBar() {
                 style={{
                   display: link.display,
                   color: alwaysBlack(),
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
                 key={index}
                 to={link.endpoint}
@@ -156,7 +155,7 @@ export default function TopBar() {
                 key={index}
                 style={{
                   color: alwaysBlack(),
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
                 to={link.endpoint}
               >
@@ -180,8 +179,7 @@ export default function TopBar() {
                 key={index}
                 style={{
                   color: alwaysBlack(),
-                  textDecoration: "none"
-
+                  textDecoration: "none",
                 }}
                 to={link.endpoint}
               >

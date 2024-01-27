@@ -36,7 +36,7 @@ export const SpanHover = styled.span`
     color: ${secondaryColor()};
     border-left: solid ${secondaryColor()} 1px;
     padding-left: 9px;
-    transition: 0.2s
+    transition: 0.2s;
   }
 `;
 export const Button = styled.button`
@@ -264,18 +264,17 @@ export const IFrameVideo = styled.iframe`
   }
 `;
 export const SpanCourseResponsive = styled.span`
-@media (max-width: 500px) {
-  display: none;
-}
-
-`
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
 
 export const IFrameVideoCourses = styled.iframe`
   border: none;
   margin-top: 0;
   min-width: 1200px;
   min-height: 750px;
- @media (max-width: 950px) {
+  @media (max-width: 950px) {
     margin-top: 0;
     min-width: 430px;
     min-height: 230px;

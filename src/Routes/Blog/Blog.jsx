@@ -29,10 +29,8 @@ import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./BlogComponents/NextTutorings";
 import NextLiveClasses from "./BlogComponents/NextLive";
-import theitems from "../Ranking/RankingComponents/ranking.json"
+import theitems from "../Ranking/RankingComponents/ranking.json";
 import LevelCard from "./BlogComponents/LevelCard";
-
-
 
 export function Blog({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -52,15 +50,14 @@ export function Blog({ headers }) {
   const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
   const [nextTutoring, setNextTutoring] = useState({
-    _id: '651c13e019e72fbdef2abd76',
-    studentID: '651311fac3d58753aa9281c5',
-    date: '2000-00-00',
-    time: '00:00',
-    meetingUrl: 'https://portal.arthurvincent.com.br/',
+    _id: "651c13e019e72fbdef2abd76",
+    studentID: "651311fac3d58753aa9281c5",
+    date: "2000-00-00",
+    time: "00:00",
+    meetingUrl: "https://portal.arthurvincent.com.br/",
   });
 
   const items = theitems.items;
-
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -82,10 +79,9 @@ export function Blog({ headers }) {
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
-    setLastName(getLoggedUser.lastname)
-    setPicture(getLoggedUser.picture)
+    setLastName(getLoggedUser.lastname);
+    setPicture(getLoggedUser.picture);
   }, []);
-
 
   const handleSeeIsNextClassVisibleModal = () => {
     const fetchNextClass = async () => {
@@ -104,7 +100,6 @@ export function Blog({ headers }) {
     fetchNextClass();
     setIsNextClassVisible(!isNextClassVisible);
   };
-
 
   async function fetchData() {
     setLoading(true);
@@ -143,7 +138,6 @@ export function Blog({ headers }) {
       console.error(error);
     }
   };
-
 
   const editPost = async (id) => {
     try {
@@ -233,7 +227,13 @@ export function Blog({ headers }) {
                 {[
                   {
                     link: "https://ankiweb.net/decks",
-                    title: <i style={{ transform: "rotate(-25deg)" }} className="fa fa-star-o" aria-hidden="true" />,
+                    title: (
+                      <i
+                        style={{ transform: "rotate(-25deg)" }}
+                        className="fa fa-star-o"
+                        aria-hidden="true"
+                      />
+                    ),
                     tooltip: "Anki",
                     color: "#01BCFF",
                   },
@@ -251,9 +251,7 @@ export function Blog({ headers }) {
                   },
                 ].map((item, index) => {
                   return (
-                    <Tooltip
-                      key={index}
-                      title={item.tooltip}>
+                    <Tooltip key={index} title={item.tooltip}>
                       <Link
                         style={{
                           marginRight: "0.5rem",
@@ -602,11 +600,20 @@ export function Blog({ headers }) {
           </div>
         </div>
         <BlogSideBox>
-          <LevelCard name={name} headers={headers} _StudentId={_StudentId} picture={picture} lastName={lastName} />
+          <LevelCard
+            name={name}
+            headers={headers}
+            _StudentId={_StudentId}
+            picture={picture}
+            lastName={lastName}
+          />
           <NextLiveClasses headers={headers} />
-          <NextTutorings display={permissions == "superadmin" ? "block" : "none"} headers={headers} />
+          <NextTutorings
+            display={permissions == "superadmin" ? "block" : "none"}
+            headers={headers}
+          />
         </BlogSideBox>
-      </BlogRouteSizeControlBox >
+      </BlogRouteSizeControlBox>
     </>
   );
 }

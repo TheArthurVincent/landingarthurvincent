@@ -42,7 +42,7 @@ export function MyClasses({ headers }) {
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
       setLoading(false);
-    } catch (error) { }
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -197,7 +197,13 @@ export function MyClasses({ headers }) {
                             margin: "0 auto",
                           }}
                         >
-                          <p style={{ maxWidth: "30ch", color: "black", overflowWrap: "break-word" }}>
+                          <p
+                            style={{
+                              maxWidth: "30ch",
+                              color: "black",
+                              overflowWrap: "break-word",
+                            }}
+                          >
                             {item.comments}
                           </p>
                         </div>

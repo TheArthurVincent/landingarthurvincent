@@ -78,7 +78,7 @@ export default function StudentsRanking({ headers }) {
                   marginBottom: "9px"
                 }}
               >
-                Level {index + 1}
+                #{index + 1}
                 {" "}|{" "}
                 {item.name}
               </h1>

@@ -28,7 +28,7 @@ export function MyProfile({ headers }) {
         >
           <RouteDiv
             style={{
-              padding: "0.5rem"
+              padding: "0.5rem",
             }}
           >
             <HOne>{UniversalTexts.myProfile}</HOne>

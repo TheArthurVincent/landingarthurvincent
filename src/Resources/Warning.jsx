@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Warning({ text }) {
-
   return (
     <div
       style={{
@@ -13,8 +12,7 @@ export default function Warning({ text }) {
         display: "grid",
         boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)",
         maxWidth: "15rem",
-        gap: "1rem"
-
+        gap: "1rem",
       }}
     >
       <span
@@ -22,16 +20,21 @@ export default function Warning({ text }) {
           fontSize: "2rem",
           borderRadius: "1rem",
           backgroundColor: "#FF2214",
-          color: "#FFF"
+          color: "#FFF",
         }}
-      > ⚠</span>
+      >
+        {" "}
+        ⚠
+      </span>
       <span
         style={{
           fontSize: "1.1rem",
           borderRadius: "1rem",
-          color: "#FF2214"
+          color: "#FF2214",
         }}
-      > {text}
+      >
+        {" "}
+        {text}
       </span>
     </div>
   );

@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, NextTutoringsDiv, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
-  backDomain,
-  formatDate,
-} from "../../../Resources/UniversalComponents";
+  HOne,
+  NextTutoringsDiv,
+  RouteDiv,
+} from "../../../Resources/Components/RouteBox";
+import { backDomain, formatDate } from "../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab, Button, CircularProgress, LinearProgress } from "@mui/material";
+import {
+  Box,
+  Tab,
+  Button,
+  CircularProgress,
+  LinearProgress,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysWhite,
@@ -25,17 +32,21 @@ export function NextTutorings({ headers, display }) {
   const [value, setValue] = useState("0");
 
   const isWithinOneHour = (dateTime) => {
-    const currentTime = (new Date().getHours());
-    const currentDay = (new Date().getDate());
-    const eventTime = (new Date(dateTime).getHours());
-    const eventDay = (new Date(dateTime).getDate());
-    return ((currentTime - eventTime) === 0 && (currentDay - eventDay) === 0 ? true : false);
+    const currentTime = new Date().getHours();
+    const currentDay = new Date().getDate();
+    const eventTime = new Date(dateTime).getHours();
+    const eventDay = new Date(dateTime).getDate();
+    return currentTime - eventTime === 0 && currentDay - eventDay === 0
+      ? true
+      : false;
   };
 
   const seeAllTutorings = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`, { headers });
+      const response = await axios.get(`${backDomain}/api/v1/nexttutoring`, {
+        headers,
+      });
       if (response.data.pastTutorings && response.data.futureTutorings) {
         setPast(response.data.pastTutorings);
         setFuture(response.data.futureTutorings);
@@ -79,24 +90,27 @@ export function NextTutorings({ headers, display }) {
               <div
                 style={{
                   margin: "1rem",
-                  backgroundColor: isWithinOneHour(item.dateTime) ? secondaryColor() : primaryColor(),
+                  backgroundColor: isWithinOneHour(item.dateTime)
+                    ? secondaryColor()
+                    : primaryColor(),
                   color: textPrimaryColorContrast(),
                   margin: "1px",
-                  padding: "8px"
+                  padding: "8px",
                 }}
                 key={index}
               >
-                {isWithinOneHour(item.dateTime) ? <p
-                  style={{
-                    backgroundColor: secondaryColor(),
-                    color: textSecondaryColorContrast(),
-                    padding: "5px"
-                  }}
-                >
-                  <LinearProgress />
-                </p> : null}
+                {isWithinOneHour(item.dateTime) ? (
+                  <p
+                    style={{
+                      backgroundColor: secondaryColor(),
+                      color: textSecondaryColorContrast(),
+                      padding: "5px",
+                    }}
+                  >
+                    <LinearProgress />
+                  </p>
+                ) : null}
                 <p>
-
                   {item.student} <br />
                   <Link style={{ color: "white" }} to={item.meetingUrl}>
                     {formatDate(item.dateTime)}
@@ -132,9 +146,7 @@ export function NextTutorings({ headers, display }) {
                 }}
                 key={index}
               >
-                <p>
-                  {item.student}
-                </p>
+                <p>{item.student}</p>
                 {formatDate(item.dateTime)}
               </div>
             ))
@@ -147,7 +159,8 @@ export function NextTutorings({ headers, display }) {
     <NextTutoringsDiv
       style={{
         display: display,
-      }}>
+      }}
+    >
       <HOne>{UniversalTexts.nextClasses}</HOne>
       <TabContext value={value}>
         <Box
