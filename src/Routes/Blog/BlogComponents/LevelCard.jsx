@@ -21,31 +21,31 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
       setMonthlyScore(response.data.monthlyScore);
       setLevel(
         response.data.totalScore >= 12000 &&
-          response.data.totalScore < 24999 &&
+          response.data.totalScore < 25000 &&
           response.data.monthlyScore >= 3000
           ? 1
           : response.data.totalScore >= 25000 &&
-            response.data.totalScore < 39999 &&
+            response.data.totalScore < 40000 &&
             response.data.monthlyScore >= 3000
           ? 2
           : response.data.totalScore >= 40000 &&
-            response.data.totalScore < 59999 &&
+            response.data.totalScore < 60000 &&
             response.data.monthlyScore >= 3000
           ? 3
-          : response.data.totalScore >= 60000 &&
-            response.data.totalScore < 79999 &&
+          : response.data.totalScore >= 60000 &&*
+            response.data.totalScore < 80000 &&
             response.data.monthlyScore >= 3000
           ? 4
           : response.data.totalScore >= 80000 &&
-            response.data.totalScore < 119999 &&
+            response.data.totalScore < 120000 &&
             response.data.monthlyScore >= 3000
           ? 5
           : response.data.totalScore >= 120000 &&
-            response.data.totalScore < 239999 &&
+            response.data.totalScore < 240000 &&
             response.data.monthlyScore >= 3000
           ? 6
           : response.data.totalScore >= 240000 &&
-            response.data.totalScore < 1999999 &&
+            response.data.totalScore < 2000000 &&
             response.data.monthlyScore >= 3000
           ? 7
           : response.data.totalScore >= 2000000
