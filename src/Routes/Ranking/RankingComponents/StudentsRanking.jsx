@@ -39,14 +39,15 @@ export default function StudentsRanking({ headers }) {
       loading ? <CircularProgress /> :
         students.map((item, index) => {
           const levelNumber = (
-            item.totalScore < 12000 ? 0 :
-              item.totalScore < 25000 ? 1 :
-                item.totalScore < 40000 ? 2 :
-                  item.totalScore < 60000 ? 3 :
-                    item.totalScore < 80000 ? 4 :
-                      item.totalScore < 120000 ? 5 :
-                        item.totalScore < 240000 ? 6 :
-                          item.totalScore < 1200000 ? 7 : 8)
+            item.totalScore >= 12000 && item.monthlyScore >= 3000 ? 1 :
+              item.totalScore >= 25000 && item.monthlyScore >= 3000 ? 2 :
+                item.totalScore >= 40000 && item.monthlyScore >= 3000 ? 3 :
+                  item.totalScore >= 60000 && item.monthlyScore >= 3000 ? 4 :
+                    item.totalScore >= 80000 && item.monthlyScore >= 3000 ? 5 :
+                      item.totalScore >= 120000 && item.monthlyScore >= 3000 ? 6 :
+                        item.totalScore >= 240000 && item.monthlyScore >= 3000 ? 7 :
+                          item.totalScore >= 1200000 ? 8 : 0
+          )
           return <RouteDiv key={index}
             style={{
               backgroundColor: "white",

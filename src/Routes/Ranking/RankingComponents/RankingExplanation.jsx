@@ -2,6 +2,7 @@ import React from "react";
 import RankingList from "./RankingList";
 import { primaryColor } from "../../../Styles/Styles";
 import { IFrameVideo, getVideoEmbedUrl } from "../../../Resources/UniversalComponents";
+import Warning from "../../../Resources/Warning";
 
 export default function RankingExplanation() {
   const h3 = { textAlign: "center", color: primaryColor(), fontWeight: 600, margin: "1rem 0" }
@@ -45,6 +46,7 @@ export default function RankingExplanation() {
 
       <h3 style={h3}>Quem ganha o cashback?</h3>
       <p>Qualificação mensal:</p>
+      <Warning text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`} />
       <ul>
         <li>1st place = 15% discount/cashback (no mês seguinte à qualificação)</li>
         <li>2nd place = 10% discount/cashback (no mês seguinte à qualificação)</li>
@@ -52,6 +54,6 @@ export default function RankingExplanation() {
       </ul>
       <h3 style={h3}>Passando de Nível</h3>
       <RankingList />
-    </div>
+    </div >
   );
 }
