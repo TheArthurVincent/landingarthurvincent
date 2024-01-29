@@ -59,6 +59,7 @@ export default function RankingExplanation() {
       </ul>
       <h4 style={h4}>Outros</h4>
       <ul>
+        <li>Bônus por recomendar alguém para estudar comigo = +300 pontos.</li>
         <li>Test - Pode ser marcado a cada 3 meses = + (0 - 3000)</li>
         <li>Extra activities - [[Em breve será criado]]</li>
         <li>
