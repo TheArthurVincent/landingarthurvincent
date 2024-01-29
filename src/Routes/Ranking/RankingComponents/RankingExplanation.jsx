@@ -23,12 +23,12 @@ export default function RankingExplanation() {
 
   return (
     <div>
-      <IFrameVideo
+      {/* <IFrameVideo
         style={{
           border: "solid 1px black",
         }}
         src={getVideoEmbedUrl("https://vimeo.com/905749262?share=copy")}
-      />
+      /> */}
       <p>
         Os rankings são oportunidades de ganhar descontos ou cashbacks na
         mensalidade por disciplina!
