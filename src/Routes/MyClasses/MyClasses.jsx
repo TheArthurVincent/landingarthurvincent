@@ -204,7 +204,11 @@ export function MyClasses({ headers }) {
                               overflowWrap: "break-word",
                             }}
                           >
-                            {item.comments}
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: item.comments,
+                              }}
+                            />
                           </p>
                         </div>
                         {item.attachments && (

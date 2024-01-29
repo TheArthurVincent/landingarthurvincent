@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../../Resources/UniversalComponents";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
 
 export function NewPost({ headers }) {
   const [conteudo, setConteudo] = useState("");
@@ -101,7 +101,7 @@ export function NewPost({ headers }) {
           value={newVideoUrl}
           onChange={(e) => setNewVideoUrl(e.target.value)}
         />
-        {/* <textarea
+        <textarea
           style={{
             alignItems: "center",
             justifyContent: "space-around",
@@ -118,9 +118,9 @@ export function NewPost({ headers }) {
           cols="30"
           rows="10"
           required
-        /> */}
+        />
         <div>
-          <ReactQuill
+          {/* <ReactQuill
             theme="snow"
             value={newText}
             onChange={(value) => setNewText(value)}
@@ -133,9 +133,8 @@ export function NewPost({ headers }) {
               fontSize: "1.1rem",
               fontWeight: 500,
             }}
-          />
+          /> */}
           {/* Use dangerouslySetInnerHTML apenas para exibição, se necessário */}
-          <div dangerouslySetInnerHTML={{ __html: newText }} />
         </div>
         <Button style={{ marginLeft: "auto" }} type="submit">
           Criar
