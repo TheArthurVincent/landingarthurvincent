@@ -37,33 +37,57 @@ export default function RankingExplanation() {
       <h4 style={h4}>Revisões do Anki</h4>
       <ul>
         <li>
-          Revisados pelo menos 15 cards em pelo menos 6 dias em 7? = + 500
-          pontos
+          Revisados pelo menos 15 cards em pelo menos 6 dias em 7? ={" "}
+          <span style={{ color: "green" }}>+ 500 pontos</span>
         </li>
         <li>
-          Revisados pelo menos 15 cards em pelo menos 3 dias em 7? = + 200
-          pontos
+          Revisados pelo menos 15 cards em pelo menos 3 dias em 7? ={" "}
+          <span style={{ color: "green" }}>+ 200 pontos</span>
         </li>
-        <li>Chegou na aula com o Anki vazio? = + 200 pontos</li>
-        <li>Nenhuma revisão em 7? = - 100 pontos</li>
+        <li>
+          Chegou na aula com o Anki vazio (nenhuma revisão pendente)? ={" "}
+          <span style={{ color: "green" }}>+ 200 pontos</span>
+        </li>
+        <li>
+          Nenhuma revisão nos últimos 7 dias? ={" "}
+          <span style={{ color: "red" }}> - 100 pontos</span>
+        </li>
       </ul>
       <h4 style={h4}>Homework</h4>
       <ul>
-        <li>Homework feita = + 500 pontos</li>
+        <li>
+          Homework feita = <span style={{ color: "green" }}>+ 500 pontos</span>
+        </li>
       </ul>
       <h4 style={h4}>Group classes</h4>
       <ul>
-        <li>Participou da aula em grupo = + 300</li>
-        <li>Fez a Homework da aula em grupo = + 500</li>
-        <li>Fez a apresentação = + 1,000</li>
+        <li>
+          Participou da aula em grupo ={" "}
+          <span style={{ color: "green" }}>+ 300 pontos</span>
+        </li>
+        <li>
+          Fez a Homework da aula em grupo ={" "}
+          <span style={{ color: "green" }}>+ 500 pontos</span>
+        </li>
+        <li>
+          Fez a apresentação ={" "}
+          <span style={{ color: "green" }}>+ 1,000 pontos</span>
+        </li>
       </ul>
       <h4 style={h4}>Outros</h4>
       <ul>
-        <li>Bônus por recomendar alguém para estudar comigo = +300 pontos.</li>
-        <li>Test - Pode ser marcado a cada 3 meses = + (0 - 3000)</li>
+        <li>
+          Bônus por recomendar alguém para estudar comigo (caso feche) ={" "}
+          <span style={{ color: "green" }}>+ 300 pontos</span>.
+        </li>
+        <li>
+          Test - Pode ser marcado a cada 3 meses ={" "}
+          <span style={{ color: "green" }}>+ até 3,000 pontos</span>
+        </li>
         <li>Extra activities - [[Em breve será criado]]</li>
         <li>
-          AWOL (absent without leave)/Não comparecer à aula sem aviso = -200
+          AWOL (absent without leave)/Não comparecer à aula sem aviso ={" "}
+          <span style={{ color: "red" }}>- 200 pontos</span>
         </li>
       </ul>
 
