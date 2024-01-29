@@ -34,14 +34,14 @@ export default function RankingExplanation() {
         mensalidade por disciplina!
       </p>
       <h3 style={h3}>O altera a pontuação? (Score)</h3>
-      <h4 style={h4}>Revisões do Anki</h4>
+      <h4 style={h4}>Revisões do Anki (pelo menos 15 cards)</h4>
       <ul>
         <li>
-          Revisados pelo menos 15 cards em pelo menos 6 dias em 7? ={" "}
+          Revisados pelo menos 6 dias em 7? ={" "}
           <span style={{ color: "green" }}>+ 500 pontos</span>
         </li>
         <li>
-          Revisados pelo menos 15 cards em pelo menos 3 dias em 7? ={" "}
+          Revisados pelo menos 3 dias em 7? ={" "}
           <span style={{ color: "green" }}>+ 200 pontos</span>
         </li>
         <li>

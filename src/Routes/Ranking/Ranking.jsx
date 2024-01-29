@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   HOne,
   RouteDiv,
@@ -10,9 +10,46 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import { alwaysWhite } from "../../Styles/Styles";
 import RankingExplanation from "./RankingComponents/RankingExplanation";
+import RankingTimeline from "./RankingComponents/RankingTimeline";
+import { backDomain } from "../../Resources/UniversalComponents";
+import axios from "axios";
 
-export default function Ranking({ headers }) {
+export default function Ranking({ headers, logged }) {
   const [value, setValue] = useState("1");
+
+  const [user, setUser] = useState(false);
+
+  const t1imeline = [
+    {
+      type: "Anki",
+      date: "01/01/2020",
+      description: "Revisou 6/7 dias",
+      score: "Ganhou 300 pontos",
+    },
+    {
+      type: "Homework",
+      date: "01/01/2020",
+      description: "Revisou 6/7 dias",
+      score: "Ganhou 300 pontos",
+    },
+    {
+      type: "Live Class",
+      date: "01/01/2020",
+      description: "Revisou 6/7 dias",
+      score: "Ganhou 300 pontos",
+    },
+    {
+      type: "Others",
+      date: "01/01/2020",
+      description: "Fez uma recomendação",
+      score: "Ganhou 300 pontos",
+    },
+  ];
+
+  useEffect(() => {
+    const theuser = JSON.parse(localStorage.getItem("loggedIn"));
+    setUser(theuser);
+  }, []);
 
   const componentsToRender = [
     {
@@ -25,11 +62,25 @@ export default function Ranking({ headers }) {
       value: "2",
       component: <RankingExplanation />,
     },
+    {
+      title: "Minha timeline",
+      value: "3",
+      component: (
+        <RankingTimeline
+          position="static"
+          id={user.id}
+          name={user.name}
+          headers={headers}
+          display="block"
+        />
+      ),
+    },
   ];
   const handleChange = (event, newValue) => {
     event.preventDefault();
     setValue(newValue);
   };
+
   return (
     <>
       <TopBar />
@@ -83,6 +134,14 @@ export default function Ranking({ headers }) {
             })}
           </TabContext>
         </RouteDiv>
+        {/* <RankingTimeline
+          position="fixed"
+          timeline={timeline}
+          name={user.name}
+          headers={headers}
+          display="block"
+        />        
+        */}
       </RouteSizeControlBox>
     </>
   );

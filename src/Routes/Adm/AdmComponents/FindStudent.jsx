@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
-import { Xp, backDomain, linkReset } from "../../../Resources/UniversalComponents";
+import {
+  Xp,
+  backDomain,
+  linkReset,
+} from "../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   alwaysBlack,
+  alwaysWhite,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -75,7 +80,6 @@ export function FindStudent({ uploadStatus, headers }) {
     }
   };
 
-
   const updateScoreNow = async (id) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
@@ -88,7 +92,6 @@ export function FindStudent({ uploadStatus, headers }) {
       console.error(error);
     }
   };
-
 
   const editStudent = async (id) => {
     let editedStudent = {
@@ -191,7 +194,6 @@ export function FindStudent({ uploadStatus, headers }) {
 
       handleSeeModal();
       console.error(error);
-
     }
   };
 
@@ -205,243 +207,241 @@ export function FindStudent({ uploadStatus, headers }) {
     } catch (error) {
       alert("Erro ao listar aulas do mês");
       window.location.reload();
-
     }
   };
 
-  const [plusScore, setPlusScore] = useState(0)
+  const [plusScore, setPlusScore] = useState(0);
 
   const changePlusScore = (score) => {
-    setPlusScore(score)
-  }
+    setPlusScore(score);
+  };
+  const [descSpecial, setDescSpecial] = useState("");
 
-
-  const submitPlusScore = async (id, score) => {
+  const submitPlusScore = async (id, score, description, type) => {
     try {
       const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
-        headers, score
+        headers,
+        score,
+        description,
+        type,
       });
 
-      updateScoreNow(id)
+      updateScoreNow(id);
     } catch (error) {
       alert("Erro ao somar pontuação");
     }
   };
 
-  const [resetVisible, setResetVisible] = useState(false)
+  const [resetVisible, setResetVisible] = useState(false);
   const handleResetMonth = async () => {
     try {
-      const response = await axios.put(
-        `${backDomain}/api/v1/resetmonth`,
-        { headers }
-      );
+      const response = await axios.put(`${backDomain}/api/v1/resetmonth`, {
+        headers,
+      });
 
-      setResetVisible(true)
-      
+      setResetVisible(true);
 
       setTimeout(() => {
-        setResetVisible(true)
+        setResetVisible(true);
       }, 2000);
     } catch (error) {
       alert("Erro ao resetar");
-    };
-
+    }
   };
-
 
   return (
     <RouteDiv style={{ margin: "1rem auto" }}>
       <HOne>{UniversalTexts.myStudents}</HOne>
 
-      <Button
-        onClick={() => handleResetMonth()}
-      >Resetar pontuações do mês</Button>
+      <Button onClick={() => handleResetMonth()}>
+        Resetar pontuações do mês
+      </Button>
       <p
         style={{
-          display: resetVisible ? "block" : "none"
+          display: resetVisible ? "block" : "none",
         }}
       >
         Pontuações do mês resetadas
       </p>
-      {
-        !loading ? (
-          students.map((student, index) => (
+      {!loading ? (
+        students.map((student, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "4rem",
+            }}
+          >
             <div
-              key={index}
               style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: "4rem",
+                padding: "0.6rem",
+                color: alwaysBlack(),
               }}
             >
               <div
                 style={{
-                  padding: "0.6rem",
-                  color: alwaysBlack(),
+                  display: "flex",
+                  gap: "1rem",
+                  padding: "0.2rem 0.5rem",
+                  border: "1px solid",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                  minWidth: "26rem",
                 }}
               >
-                <div
+                <img
                   style={{
-                    display: "flex",
-                    gap: "1rem",
-                    padding: "0.2rem 0.5rem",
-                    border: "1px solid",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "1rem",
-                    minWidth: "26rem"
+                    width: "3rem",
+                    height: "3rem",
+                    objectFit: "cover",
+                    margin: "5px",
+                    borderRadius: "50%",
+                  }}
+                  src={student.picture}
+                  alt=""
+                />
+                <h1
+                  style={{
+                    fontSize: "1.2rem",
+                    textAlign: "left",
                   }}
                 >
-                  <img
-                    style={{
-                      width: "3rem",
-                      height: "3rem",
-                      objectFit: "cover",
-                      margin: "5px",
-                      borderRadius: "50%"
-                    }}
-                    src={student.picture} alt="" />
-                  <h1
-                    style={{
-                      fontSize: "1.2rem",
-                      textAlign: "left",
-                    }}
-                  >
-                    {student.fullname}
-                  </h1>
-                  <Button
-                    style={{
-                      color: secondaryColor(),
-                    }}
-                    onClick={() => seeEdition(student.id)}
-                  >
-                    Editar
-                  </Button>
-                </div>
-                <ul>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.username}
-                    </span>
-                    : {student.username}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.document}
-                    </span>
-                    : {student.doc}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.dateOfBirth}
-                    </span>
-                    : {student.dateOfBirth}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.email}
-                    </span>
-                    : {student.email}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.phoneNumber}
-                    </span>
-                    : {student.phoneNumber}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.permissions}
-                    </span>
-                    : {student.permissions}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.ankiEmail}
-                    </span>
-                    : {student.ankiEmail}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.ankiPassword}
-                    </span>
-                    : {student.ankiPassword}
-                  </li>
-                  <li>
-                    <span
-                      style={{
-                        fontWeight: 600,
-                      }}
-                    >
-                      {UniversalTexts.googleDriveLink}
-                    </span>
-                    :
-                    <Link
-                      style={{
-                        color: primaryColor(),
-                        padding: "0.5rem",
-                      }}
-                      to={
-                        student.googleDriveLink
-                          ? student.googleDriveLink
-                          : "http://www.google.com/"
-                      }
-                      target="_blank"
-                    >
-                      {UniversalTexts.clickHere}
-                    </Link>
-                  </li>
-                </ul>
+                  {student.fullname}
+                </h1>
+                <Button
+                  style={{
+                    color: secondaryColor(),
+                  }}
+                  onClick={() => seeEdition(student.id)}
+                >
+                  Editar
+                </Button>
               </div>
+              <ul>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.username}
+                  </span>
+                  : {student.username}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.document}
+                  </span>
+                  : {student.doc}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.dateOfBirth}
+                  </span>
+                  : {student.dateOfBirth}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.email}
+                  </span>
+                  : {student.email}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.phoneNumber}
+                  </span>
+                  : {student.phoneNumber}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.permissions}
+                  </span>
+                  : {student.permissions}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.ankiEmail}
+                  </span>
+                  : {student.ankiEmail}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.ankiPassword}
+                  </span>
+                  : {student.ankiPassword}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.googleDriveLink}
+                  </span>
+                  :
+                  <Link
+                    style={{
+                      color: primaryColor(),
+                      padding: "0.5rem",
+                    }}
+                    to={
+                      student.googleDriveLink
+                        ? student.googleDriveLink
+                        : "http://www.google.com/"
+                    }
+                    target="_blank"
+                  >
+                    {UniversalTexts.clickHere}
+                  </Link>
+                </li>
+              </ul>
             </div>
-          ))
-        ) : (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "2rem",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <p>Carregando dados</p>
-            <CircularProgress />
           </div>
-        )
-      }
+        ))
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p>Carregando dados</p>
+          <CircularProgress />
+        </div>
+      )}
 
       <div
         className="modal"
@@ -502,20 +502,147 @@ export function FindStudent({ uploadStatus, headers }) {
             <TabPanel value="0">
               <div
                 style={{
-                  marginTop: "1rem",
-                  padding: "1rem",
-                  textAlign: "center",
+                  display: "grid",
+                  gap: "0.5rem",
                 }}
               >
-                {/* <img src={student.picture} alt="profilepic" /> */}
-                <p>Monthly Score: {monthlyScore}</p>
-                <p>Total Score: {totalScore}</p>
-                <input
-                  onChange={(e) => changePlusScore(e.target.value)}
-                  type="number" />
-                <Button
-                  onClick={() => submitPlusScore(ID, plusScore)}
-                >Adicionar pontos</Button>
+                <h3>
+                  Monthly Score: <strong>{monthlyScore} </strong>{" "}
+                </h3>
+                <h3>
+                  Total Score: <strong>{totalScore} </strong>
+                </h3>
+              </div>
+              <div
+                style={{
+                  textAlign: "center",
+                  display: "grid",
+                  gap: "1rem",
+                  maxHeight: "15rem",
+                  overflow: "auto",
+                }}
+              >
+                <div
+                  style={{
+                    display: "grid",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        500,
+                        "Revisou o Anki 6 dias em 7",
+                        "Anki"
+                      )
+                    }
+                  >
+                    Anki 6/7
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        200,
+                        "Revisou o Anki 3 dias em 7",
+                        "Anki"
+                      )
+                    }
+                  >
+                    Anki 3/7
+                  </Button>{" "}
+                  <Button
+                    style={{ backgroundColor: "red", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        -100,
+                        "Não revisou o Anki em 7",
+                        "Anki"
+                      )
+                    }
+                  >
+                    Nenhum Anki Review na semana
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(ID, 500, "Fez homework", "Homework")
+                    }
+                  >
+                    Homework
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(ID, 300, "Recomendação fechada", "Others")
+                    }
+                  >
+                    Recomendação fechada
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        300,
+                        "Participou da aula ao vivo",
+                        "Live Class"
+                      )
+                    }
+                  >
+                    Live Class Attendance
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        500,
+                        "Fez o Homework da aula ao vivo",
+                        "Live Class"
+                      )
+                    }
+                  >
+                    Live Class Homework
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "red", color: alwaysWhite() }}
+                    onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        -200,
+                        "Não apareceu para a aula e não avisou",
+                        "Awol"
+                      )
+                    }
+                  >
+                    AWOL
+                  </Button>
+                  <div>
+                    <p>Personalizado</p>
+                    <input
+                      placeholder="Special Score"
+                      onChange={(e) => changePlusScore(e.target.value)}
+                      type="number"
+                    />
+                    <input
+                      placeholder="Description"
+                      onChange={(e) => setDescSpecial(e.target.value)}
+                      type="text"
+                    />
+                    <Button
+                      onClick={() =>
+                        submitPlusScore(ID, plusScore, descSpecial, "Others")
+                      }
+                    >
+                      Atualizar
+                    </Button>
+                  </div>
+                </div>
               </div>
             </TabPanel>
             <TabPanel value="1">
@@ -869,7 +996,7 @@ export function FindStudent({ uploadStatus, headers }) {
           </TabContext>
         </div>
       </div>
-    </RouteDiv >
+    </RouteDiv>
   );
 }
 
