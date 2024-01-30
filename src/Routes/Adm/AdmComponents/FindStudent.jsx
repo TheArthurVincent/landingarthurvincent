@@ -560,7 +560,7 @@ export function FindStudent({ uploadStatus, headers }) {
                       submitPlusScore(
                         ID,
                         -100,
-                        "Não revisou o Anki em 7",
+                        "Não revisou o Anki em 7 dias",
                         "Anki"
                       )
                     }
