@@ -154,11 +154,11 @@ export function AllClasses({ headers }) {
                     }}
                   >
                     <HTwo>
-                      <IFrameVideo src={getVideoEmbedUrl(tutoring.videoUrl)} />
-                      <br />
                       <Link to={tutoring.videoUrl}>
                         {tutoring.title} | {tutoring.date}
                       </Link>
+                      <br />
+                      <IFrameVideo src={getVideoEmbedUrl(tutoring.videoUrl)} />
                     </HTwo>
                     <Button onClick={() => setSeeDelete(tutoring.id)}>
                       Apagar aula
