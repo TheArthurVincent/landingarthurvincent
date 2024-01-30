@@ -3,7 +3,9 @@ import axios from "axios";
 import { HOne, HTwo, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
   BackToHomePage,
+  IFrameVideo,
   backDomain,
+  getVideoEmbedUrl,
 } from "../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
@@ -117,8 +119,7 @@ export function AllClasses({ headers }) {
         </span>
         <BackToHomePage />
       </span>
-
-      <div>
+      <div style={{ maxHeight: "15rem", overflow: "auto" }}>
         {loading ? (
           <CircularProgress />
         ) : (
@@ -153,6 +154,7 @@ export function AllClasses({ headers }) {
                     }}
                   >
                     <HTwo>
+                      <IFrameVideo src={getVideoEmbedUrl(tutoring.videoUrl)} />
                       <Link to={tutoring.videoUrl}>
                         {tutoring.title} | {tutoring.date}
                       </Link>
