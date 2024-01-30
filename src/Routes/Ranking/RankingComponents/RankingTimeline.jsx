@@ -71,6 +71,7 @@ export default function RankingTimeline({
           overflow: "auto",
           padding: "1rem",
           fontWeight: 600,
+          border: "solid 1px grey",
         }}
       >
         {localTimeline.map((item, index) => {
