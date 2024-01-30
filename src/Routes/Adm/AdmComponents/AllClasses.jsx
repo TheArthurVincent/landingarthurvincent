@@ -155,6 +155,7 @@ export function AllClasses({ headers }) {
                   >
                     <HTwo>
                       <IFrameVideo src={getVideoEmbedUrl(tutoring.videoUrl)} />
+                      <br />
                       <Link to={tutoring.videoUrl}>
                         {tutoring.title} | {tutoring.date}
                       </Link>
