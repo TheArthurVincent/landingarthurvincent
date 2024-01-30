@@ -29,7 +29,6 @@ export default function RankingTimeline({
         headers,
       });
       setLocalTimeline(response.data.scoreTimeline);
-      console.log(response.data, localTimeline);
     } catch (error) {
       alert(error);
       console.error(error);
