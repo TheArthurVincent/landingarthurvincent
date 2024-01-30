@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
 import axios from "axios";
-import { backDomain, formatDate } from "../../../Resources/UniversalComponents";
+import {
+  DivHover,
+  backDomain,
+  formatDate,
+} from "../../../Resources/UniversalComponents";
 import { Button } from "@mui/material";
 
 export default function RankingTimeline({
@@ -68,6 +72,8 @@ export default function RankingTimeline({
       <div
         style={{
           maxHeight: "25rem",
+          margin: "auto",
+          maxWidth: "50rem",
           overflow: "auto",
           padding: "1rem",
           fontWeight: 600,
@@ -99,57 +105,59 @@ export default function RankingTimeline({
           };
 
           return (
-            <div
-              key={index}
-              style={{
-                display: "grid",
-                color: variables.color,
-              }}
-            >
+            <DivHover key={index}>
               <div
                 style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  display: "flex",
-                  gap: "10px",
-                  fontFamily: "Athiti",
+                  color: variables.color,
                 }}
               >
-                <span>{item.type}</span>
-                <i
-                  color=""
+                <div
                   style={{
-                    color: variables.color,
-                    fontWeight: 700,
-                    transform: "rotate(-25deg)",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    display: "flex",
+                    gap: "10px",
+                    fontFamily: "Athiti",
+                    padding: "0.5rem 0",
+                    borderBottom: "solid 1px black",
                   }}
-                  className={variables.type}
-                  aria-hidden="true"
-                />{" "}
-                |{" "}
-                <span>
-                  {formatDate(item.date)} | {item.description} |{" "}
-                  <span style={{ color: item.score < 0 ? "red" : "green" }}>
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "1rem",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
                     {" "}
-                    {item.score}{" "}
+                    <i
+                      color=""
+                      style={{
+                        backgroundColor: variables.color,
+                        color: "white",
+                        padding: "0.5rem",
+                        borderRadius: "50%",
+                        fontWeight: 700,
+                        transform: "rotate(-25deg)",
+                      }}
+                      className={variables.type}
+                      aria-hidden="true"
+                    />{" "}
+                    <span>{item.type}</span>
+                  </div>
+                  <span style={{ color: item.score < 0 ? "red" : "green" }}>
+                    {formatDate(item.date)} | {item.description} |{" "}
+                    <span> {item.score} </span>
                   </span>
-                </span>
-              </div>
-              <div
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                <i
-                  color=""
+                </div>
+                <div
                   style={{
-                    fontWeight: 700,
+                    textAlign: "center",
                   }}
-                  className="fa fa-arrows-v"
-                  aria-hidden="true"
-                />{" "}
+                ></div>
               </div>
-            </div>
+            </DivHover>
           );
         })}
       </div>

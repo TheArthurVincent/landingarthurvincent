@@ -39,6 +39,16 @@ export const SpanHover = styled.span`
     transition: 0.2s;
   }
 `;
+
+export const DivHover = styled.span`
+  margin: 0;
+  display: grid;
+  &:hover {
+    background-color: #eee;
+    transition: 0.3s;
+  }
+`;
+
 export const Button = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};
