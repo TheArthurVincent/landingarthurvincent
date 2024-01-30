@@ -92,13 +92,16 @@ export default function RankingExplanation() {
       />
       <ul>
         <li>
-          1st place = 15% discount/cashback (no mês seguinte à qualificação)
+          1st place = 15% discount/cashback (no mês seguinte à qualificação){" "}
+          <strong>ou</strong> 2 aulas extras (particulares);
         </li>
         <li>
-          2nd place = 10% discount/cashback (no mês seguinte à qualificação)
+          2nd place = 10% discount/cashback (no mês seguinte à qualificação){" "}
+          <strong>ou</strong> 1 aula extra (particular);
         </li>
         <li>
-          3rd place = 5% discount/cashback (no mês seguinte à qualificação)
+          3rd place = 5% discount/cashback (no mês seguinte à qualificação){" "}
+          <strong>ou</strong> 1 aula extra (particular);
         </li>
       </ul>
       <h3 style={h3}>Passando de Nível</h3>
