@@ -42,10 +42,15 @@ export const SpanHover = styled.span`
 
 export const DivHover = styled.span`
   margin: 0;
+  padding: 0 1rem;
   display: grid;
+  border-bottom: solid 1px black;
   &:hover {
-    background-color: #eee;
-    transition: 0.3s;
+    background-color: ${primaryColor()};
+    color: ${textPrimaryColorContrast()};
+    border-bottom: none;
+    border-radius: 0.5rem;
+    transition: 0.2s;
   }
 `;
 

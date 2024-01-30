@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
+import {
+  alwaysWhite,
+  primaryColor,
+  textPrimaryColorContrast,
+} from "../../../Styles/Styles";
 import axios from "axios";
 import {
   DivHover,
@@ -106,11 +110,7 @@ export default function RankingTimeline({
 
           return (
             <DivHover key={index}>
-              <div
-                style={{
-                  color: variables.color,
-                }}
-              >
+              <div>
                 <div
                   style={{
                     justifyContent: "space-between",
@@ -119,7 +119,6 @@ export default function RankingTimeline({
                     gap: "10px",
                     fontFamily: "Athiti",
                     padding: "0.5rem 0",
-                    borderBottom: "solid 1px black",
                   }}
                 >
                   <div
@@ -146,9 +145,19 @@ export default function RankingTimeline({
                     />{" "}
                     <span>{item.type}</span>
                   </div>
-                  <span style={{ color: item.score < 0 ? "red" : "green" }}>
+                  <span>
                     {formatDate(item.date)} | {item.description} |{" "}
-                    <span> {item.score} </span>
+                    <span
+                      style={{
+                        color: alwaysWhite(),
+                        padding: "0.5rem",
+                        borderRadius: "0.5rem",
+                        backgroundColor: item.score < 0 ? "red" : "green",
+                      }}
+                    >
+                      {" "}
+                      {item.score}{" "}
+                    </span>
                   </span>
                 </div>
                 <div
