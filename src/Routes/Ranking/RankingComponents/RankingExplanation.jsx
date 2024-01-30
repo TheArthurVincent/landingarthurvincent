@@ -22,7 +22,11 @@ export default function RankingExplanation() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: "1rem",
+      }}
+    >
       <p>
         Os rankings são oportunidades de ganhar descontos ou cashbacks na
         mensalidade por disciplina!
