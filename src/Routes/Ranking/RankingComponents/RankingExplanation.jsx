@@ -2,7 +2,7 @@ import React from "react";
 import RankingList from "./RankingList";
 import { primaryColor } from "../../../Styles/Styles";
 import {
-  IFrameVideo,
+  IFrameVideoInstructions,
   getVideoEmbedUrl,
 } from "../../../Resources/UniversalComponents";
 import Warning from "../../../Resources/Warning";
@@ -23,12 +23,6 @@ export default function RankingExplanation() {
 
   return (
     <div>
-      {/* <IFrameVideo
-        style={{
-          border: "solid 1px black",
-        }}
-        src={getVideoEmbedUrl("https://vimeo.com/905749262?share=copy")}
-      /> */}
       <p>
         Os rankings são oportunidades de ganhar descontos ou cashbacks na
         mensalidade por disciplina!
@@ -108,6 +102,12 @@ export default function RankingExplanation() {
         </li>
       </ul>
       <h3 style={h3}>Passando de Nível</h3>
+      <IFrameVideoInstructions
+        style={{
+          border: "solid 1px black",
+        }}
+        src={getVideoEmbedUrl("https://vimeo.com/907855016?share=copy")}
+      />
       <RankingList />
     </div>
   );
