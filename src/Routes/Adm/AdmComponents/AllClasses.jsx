@@ -119,7 +119,7 @@ export function AllClasses({ headers }) {
         </span>
         <BackToHomePage />
       </span>
-      <div style={{ maxHeight: "15rem", overflow: "auto" }}>
+      <div style={{ maxHeight: "40rem", overflow: "auto" }}>
         {loading ? (
           <CircularProgress />
         ) : (
