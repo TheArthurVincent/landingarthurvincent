@@ -194,6 +194,12 @@ export function InputFieldNotRequired({
   );
 }
 
+export const Disapear = styled.span`
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
 export const ButtonDisapear = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};

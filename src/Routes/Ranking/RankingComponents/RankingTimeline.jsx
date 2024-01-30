@@ -6,6 +6,7 @@ import {
 } from "../../../Styles/Styles";
 import axios from "axios";
 import {
+  Disapear,
   DivHover,
   backDomain,
   formatDate,
@@ -146,7 +147,9 @@ export default function RankingTimeline({
                     <span>{item.type}</span>
                   </div>
                   <span>
-                    {formatDate(item.date)} | {item.description} |{" "}
+                    <Disapear>
+                      {formatDate(item.date)} | {item.description} |{" "}
+                    </Disapear>
                     <span
                       style={{
                         color: alwaysWhite(),
