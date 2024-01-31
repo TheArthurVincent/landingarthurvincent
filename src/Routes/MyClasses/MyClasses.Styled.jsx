@@ -4,6 +4,7 @@ import {
   alwaysWhite,
   lightGreyColor,
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
@@ -54,7 +55,7 @@ export const H3FAQ = styled.h3`
   }
   &:hover {
     background-color: ${alwaysBlack()};
-    color: ${alwaysWhite()};
+    color: ${secondaryColor()};
     transition: 0.2s;
   }
 `;
