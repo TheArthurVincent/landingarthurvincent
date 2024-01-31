@@ -213,7 +213,11 @@ export default function MyCourses({ headers }) {
                     padding: "0.5rem 1rem",
                   }}
                 >
-                  {description}
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: description,
+                    }}
+                  />
                 </div>
               )}
               {googleDriveLink && (
