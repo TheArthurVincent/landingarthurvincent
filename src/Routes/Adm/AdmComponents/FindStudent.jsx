@@ -570,6 +570,19 @@ export function FindStudent({ uploadStatus, headers }) {
                   <Button
                     style={{ backgroundColor: "green", color: alwaysWhite() }}
                     onClick={() =>
+                      submitPlusScore(
+                        ID,
+                        200,
+                        "Chegou com o Anki totalmente revisado",
+                        "Anki"
+                      )
+                    }
+                  >
+                    Chegou com o Anki totalmente revisado
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "green", color: alwaysWhite() }}
+                    onClick={() =>
                       submitPlusScore(ID, 500, "Fez homework", "Homework")
                     }
                   >
