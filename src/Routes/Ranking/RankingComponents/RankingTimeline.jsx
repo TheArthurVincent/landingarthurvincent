@@ -41,6 +41,7 @@ export default function RankingTimeline({
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }
+    } else {
     }
   };
 
@@ -55,7 +56,7 @@ export default function RankingTimeline({
       });
       setLocalTimeline(response.data.scoreTimeline);
       setLoading(false);
-      fetchStudents();
+      // fetchStudents();
     } catch (error) {
       alert(error);
       console.error(error);
@@ -63,7 +64,7 @@ export default function RankingTimeline({
   };
   useEffect(() => {
     seeScore(newID);
-    fetchStudents();
+    // fetchStudents();
   }, [newID, id]);
 
   const handleStudentChange = (event) => {
