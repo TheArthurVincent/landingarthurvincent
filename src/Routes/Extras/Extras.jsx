@@ -8,6 +8,7 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import {
   BackToHomePage,
   IFrameVideo,
+  getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
 import { transparentWhite } from "../../Styles/Styles";
 import TopBar from "../../Application/TopBar/TopBar";
@@ -76,7 +77,7 @@ export function Extras({ headers }) {
                   <DivAppear>
                     {item.url && (
                       <div style={{ textAlign: "center" }}>
-                        <IFrameVideo src={item.url} frameBorder="0" />
+                        <IFrameVideo src={getVideoEmbedUrl(item.url)} frameBorder="0" />
                       </div>
                     )}
                     {item.explanation && (

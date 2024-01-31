@@ -6,7 +6,7 @@ import RankingExplanation from "../Ranking/RankingComponents/RankingExplanation"
 export const contentExtras = [
   {
     instruction: "Primeiros passos no portal",
-    url: "https://vimeo.com/908256149?share=copy",
+    url: "https://vimeo.com/908265449?share=copy",
     tags: ["portal", "login", "próxima", "next", "ao vivo"],
     explanation: (
       <>
