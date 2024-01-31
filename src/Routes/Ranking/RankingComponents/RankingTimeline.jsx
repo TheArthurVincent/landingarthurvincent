@@ -13,25 +13,18 @@ import {
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 
-export default function RankingTimeline({
-  timeline,
-  headers,
-  display,
-  position,
-  id,
-  name,
-}) {
+export default function RankingTimeline({ headers, display, id, name }) {
   const [localTimeline, setLocalTimeline] = useState([]);
   const [studentsList, setStudentsList] = useState([]);
   const [IDMASTER, setIDMASTER] = useState("");
   const [loadingList, setLoadingList] = useState(true);
+  const [actualName, setActualName] = useState(name);
 
   const fetchStudents = async () => {
     setLoadingList(true);
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setIDMASTER(getLoggedUser.id);
-    if (IDMASTER === id) {
-      console.log("true");
+    if (IDMASTER === "651311fac3d58753aa9281c5") {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`, {
           headers,
@@ -56,7 +49,25 @@ export default function RankingTimeline({
       });
       setLocalTimeline(response.data.scoreTimeline);
       setLoading(false);
-      // fetchStudents();
+      setNewID(id);
+      seeName(id);
+      fetchStudents();
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
+  const seeName = async (id) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/studentname/${id}`,
+        {
+          headers,
+        }
+      );
+      setActualName(response.data.name);
+      setLoading(false);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -64,18 +75,18 @@ export default function RankingTimeline({
   };
   useEffect(() => {
     seeScore(newID);
-    // fetchStudents();
+    fetchStudents();
   }, [newID, id]);
 
   const handleStudentChange = (event) => {
     setNewID(event.target.value);
+    seeName(event.target.value);
   };
 
   return (
     <div
       style={{
         display: display,
-        position: position,
         top: "10%",
         borderRadius: "1rem",
         left: "30%",
@@ -92,25 +103,22 @@ export default function RankingTimeline({
             <i className="fa fa-refresh" aria-hidden="true" />
           </Button>
         )}{" "}
-        {IDMASTER == "651311fac3d58753aa9281c5" &&
-          (loadingList ? (
-            <CircularProgress />
-          ) : (
-            <select
-              onChange={handleStudentChange}
-              name="students"
-              id=""
-              value={newID}
-            >
-              {studentsList.map((student, index) => {
-                return (
-                  <option key={index} value={student.id}>
-                    {student.name + " " + student.lastname}
-                  </option>
-                );
-              })}
-            </select>
-          ))}
+        {IDMASTER == "651311fac3d58753aa9281c5" && (
+          <select
+            onChange={handleStudentChange}
+            name="students"
+            id=""
+            value={newID}
+          >
+            {studentsList.map((student, index) => {
+              return (
+                <option key={index} value={student.id}>
+                  {student.name + " " + student.lastname}
+                </option>
+              );
+            })}
+          </select>
+        )}
       </span>
       <span
         style={{
@@ -119,17 +127,7 @@ export default function RankingTimeline({
           justifyContent: "space-between",
         }}
       >
-        <h1 style={{ textAlign: "center", margin: "0.5rem" }}>{name}</h1>
-        <p
-          style={{
-            fontSize: "1.5rem",
-            cursor: "pointer",
-            fontWeight: 900,
-            display: position === "fixed" ? "block" : "none",
-          }}
-        >
-          x
-        </p>
+        <h1 style={{ textAlign: "center", margin: "0.5rem" }}>{actualName}</h1>
       </span>
       <div
         style={{

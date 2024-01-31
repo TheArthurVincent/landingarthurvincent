@@ -37,11 +37,9 @@ export default function Ranking({ headers, logged }) {
       value: "3",
       component: (
         <RankingTimeline
-          position="static"
           id={user.id}
-          name={user.name}
+          name={user.name + " " + user.lastname}
           headers={headers}
-          display="block"
         />
       ),
     },
