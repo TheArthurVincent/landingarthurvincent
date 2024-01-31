@@ -79,7 +79,7 @@ export const contentExtras = [
     ),
   },
   {
-    instruction: "Como Estudar Eficientemente",
+    instruction: "Como Estudar Eficientemente?",
     url: "https://www.youtube.com/embed/ctr7VV-GRY8",
     tags: [
       "estudar",
@@ -135,7 +135,7 @@ export const contentExtras = [
     ),
   },
   {
-    instruction: "Como usar o Anki",
+    instruction: "Como usar o Anki?",
     url: "https://www.youtube.com/embed/o7jJeDzv7z4",
     tags: [
       "Anki",
