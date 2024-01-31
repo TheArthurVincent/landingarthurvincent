@@ -17,11 +17,9 @@ export default function RankingTimeline({ headers, display, id, name }) {
   const [localTimeline, setLocalTimeline] = useState([]);
   const [studentsList, setStudentsList] = useState([]);
   const [IDMASTER, setIDMASTER] = useState("");
-  const [loadingList, setLoadingList] = useState(true);
   const [actualName, setActualName] = useState(name);
 
   const fetchStudents = async () => {
-    setLoadingList(true);
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setIDMASTER(getLoggedUser.id);
     if (IDMASTER === "651311fac3d58753aa9281c5") {
@@ -30,7 +28,6 @@ export default function RankingTimeline({ headers, display, id, name }) {
           headers,
         });
         setStudentsList(response.data.listOfStudents);
-        setLoadingList(false);
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }

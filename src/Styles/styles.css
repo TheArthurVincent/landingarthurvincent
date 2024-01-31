@@ -20,6 +20,7 @@ h2,
 h3,
 h4 {
   font-family: var(--title);
+  margin-top: 0.6rem;
   font-weight: 500;
 }
 
@@ -73,7 +74,6 @@ li {
   display: none;
 }
 
-
 @keyframes slideInLeft {
   from {
     transform: translateX(-1%);
@@ -85,8 +85,6 @@ li {
     opacity: 1;
   }
 }
-
-
 
 @keyframes notif {
   from {
@@ -105,5 +103,17 @@ li {
 
   to {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes slideUpDown {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 1;
   }
 }

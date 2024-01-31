@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 import {
+  alwaysBlack,
+  alwaysWhite,
   lightGreyColor,
   primaryColor,
   textPrimaryColorContrast,
@@ -36,6 +38,31 @@ export const HThree = styled.h3`
   }
   @media (max-width: 500px) {
     max-width: 22rem;
+  }
+`;
+
+export const H3FAQ = styled.h3`
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: ${primaryColor()};
+  color: ${textPrimaryColorContrast()};
+  @media (max-width: 900px) {
+    margin: 10px auto;
+  }
+  @media (max-width: 500px) {
+    max-width: 22rem;
+  }
+  &:hover {
+    background-color: ${alwaysBlack()};
+    color: ${alwaysWhite()};
+    transition: 0.2s;
+  }
+`;
+export const DivAppear = styled.div`
+  &.smooth {
+    animation-name: slideUpDown;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
   }
 `;
 
