@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, RouteDiv } from "../../../Resources/Components/RouteBox";
+import { HOne, HTwo, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import {
   BackToHomePage,
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
-} from "../../../Resources/UniversalComponents";
-import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
+} from "../../../../Resources/UniversalComponents";
+import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
-import { alwaysBlack, alwaysWhite, primaryColor } from "../../../Styles/Styles";
-import { HThree } from "../../MyClasses/MyClasses.Styled";
+import { alwaysBlack, alwaysWhite, primaryColor } from "../../../../Styles/Styles";
+import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllClasses({ headers }) {
   const { UniversalTexts } = useUserContext();

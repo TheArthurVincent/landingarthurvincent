@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
   Xp,
   backDomain,
   linkReset,
-} from "../../../Resources/UniversalComponents";
-import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
+} from "../../../../Resources/UniversalComponents";
+import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -16,7 +15,9 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-} from "../../../Styles/Styles";
+} from "../../../../Styles/Styles";
+import { buttons } from "./AssetsFindStudent/ButtonsList";
+import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
@@ -232,37 +233,52 @@ export function FindStudent({ uploadStatus, headers }) {
     }
   };
 
+  const [hasReset, setHasReset] = useState(false);
   const [resetVisible, setResetVisible] = useState(false);
+  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const handleResetMonth = async () => {
     try {
       const response = await axios.put(`${backDomain}/api/v1/resetmonth`, {
         headers,
       });
-
       setResetVisible(true);
-
       setTimeout(() => {
-        setResetVisible(true);
+        setHasReset(true);
       }, 2000);
     } catch (error) {
       alert("Erro ao resetar");
     }
   };
 
+  const handleShowResetMonth = () => {
+    setIsConfirmVisible(!isConfirmVisible);
+  };
+
   return (
     <RouteDiv style={{ margin: "1rem auto" }}>
       <HOne>{UniversalTexts.myStudents}</HOne>
-
-      <Button onClick={() => handleResetMonth()}>
-        Resetar pontuações do mês
-      </Button>
-      <p
-        style={{
-          display: resetVisible ? "block" : "none",
-        }}
-      >
-        Pontuações do mês resetadas
-      </p>
+      <div style={{ display: hasReset ? "none" : "block" }}>
+        {" "}
+        <Button
+          style={{ display: isConfirmVisible ? "none" : "block" }}
+          onDoubleClick={() => handleShowResetMonth()}
+        >
+          {" "}
+          Resetar pontuações do mês
+        </Button>
+        <div style={{ display: isConfirmVisible ? "block" : "none" }}>
+          <p> Tem certeza que deseja resetar pontuações do mês?</p>
+          <Button onClick={() => handleResetMonth()}>Sim</Button>
+          <Button onClick={() => handleShowResetMonth()}>Não</Button>
+          <p
+            style={{
+              display: resetVisible ? "block" : "none",
+            }}
+          >
+            Pontuações do mês resetadas
+          </p>
+        </div>
+      </div>
       {!loading ? (
         students.map((student, index) => (
           <div
@@ -442,7 +458,6 @@ export function FindStudent({ uploadStatus, headers }) {
           <CircularProgress />
         </div>
       )}
-
       <div
         className="modal"
         style={{
@@ -528,113 +543,28 @@ export function FindStudent({ uploadStatus, headers }) {
                     gap: "0.5rem",
                   }}
                 >
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        500,
-                        "Revisou o Anki 6 dias em 7",
-                        "Anki"
-                      )
-                    }
-                  >
-                    Anki 6/7
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        200,
-                        "Revisou o Anki 3 dias em 7",
-                        "Anki"
-                      )
-                    }
-                  >
-                    Anki 3/7
-                  </Button>{" "}
-                  <Button
-                    style={{ backgroundColor: "red", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        -100,
-                        "Não revisou o Anki em 7 dias",
-                        "Anki"
-                      )
-                    }
-                  >
-                    Nenhum Anki Review na semana
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        200,
-                        "Chegou com o Anki totalmente revisado",
-                        "Anki"
-                      )
-                    }
-                  >
-                    Chegou com o Anki totalmente revisado
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(ID, 500, "Fez homework", "Homework")
-                    }
-                  >
-                    Homework
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(ID, 300, "Recomendação fechada", "Others")
-                    }
-                  >
-                    Recomendação fechada
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        300,
-                        "Participou da aula ao vivo",
-                        "Live Class"
-                      )
-                    }
-                  >
-                    Live Class Attendance
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "green", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        500,
-                        "Fez o Homework da aula ao vivo",
-                        "Live Class"
-                      )
-                    }
-                  >
-                    Live Class Homework
-                  </Button>
-                  <Button
-                    style={{ backgroundColor: "red", color: alwaysWhite() }}
-                    onClick={() =>
-                      submitPlusScore(
-                        ID,
-                        -200,
-                        "Não apareceu para a aula e não avisou",
-                        "Awol"
-                      )
-                    }
-                  >
-                    AWOL
-                  </Button>
+                  {buttons.map((item, index) => {
+                    return (
+                      <Button
+                        key={index}
+                        style={{
+                          backgroundColor: item.color,
+                          color: alwaysWhite(),
+                        }}
+                        onClick={() =>
+                          submitPlusScore(
+                            ID,
+                            item.score,
+                            item.description,
+                            item.category
+                          )
+                        }
+                      >
+                        {item.text}
+                      </Button>
+                    );
+                  })}
+
                   <div>
                     <p>Personalizado</p>
                     <input

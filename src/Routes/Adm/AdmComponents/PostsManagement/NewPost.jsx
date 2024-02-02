@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
-import { Button, backDomain } from "../../../Resources/UniversalComponents";
+import { Button, backDomain } from "../../../../Resources/UniversalComponents";
 // import ReactQuill from "react-quill";
 // import "react-quill/dist/quill.snow.css";
 

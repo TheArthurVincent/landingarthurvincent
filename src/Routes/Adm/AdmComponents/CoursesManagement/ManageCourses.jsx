@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { HOne, HTwo, RouteDiv } from "../../../Resources/Components/RouteBox";
+import {
+  HOne,
+  HTwo,
+  RouteDiv,
+} from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   BackToHomePage,
   backDomain,
-} from "../../../Resources/UniversalComponents";
+} from "../../../../Resources/UniversalComponents";
 import { CircularProgress, Button, TextField } from "@mui/material";
-import { alwaysWhite, lightGreyColor } from "../../../Styles/Styles";
+import { alwaysWhite, lightGreyColor } from "../../../../Styles/Styles";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
@@ -172,9 +176,10 @@ export function ManageModules({ headers }) {
                 <CircularProgress />
               ) : (
                 <div>
-                  {coursesList.map((course) => {
+                  {coursesList.map((course, index) => {
                     return (
                       <div
+                        key={index}
                         style={{
                           display: "flex",
                           margin: "2rem 0.5rem",

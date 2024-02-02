@@ -73,7 +73,7 @@ function App() {
       element: verifyToken() ? <Extras headers={headers} /> : <Login />,
     },
     {
-      path: "/adm",
+      path: "/adm-businessmanagement",
       element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
     },
   ];

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   Button,
   backDomain,
   sendEmailTemplateLinkPosted,
-} from "../../../Resources/UniversalComponents";
+} from "../../../../Resources/UniversalComponents";
 import { Input } from "@mui/material";
 import {
   alwaysBlack,
   primaryColor,
   textPrimaryColorContrast,
-} from "../../../Styles/Styles";
+} from "../../../../Styles/Styles";
+import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 export function NextTutoring({ headers }) {
   const initialFormState = {
     newTutoringMeetingURL: "",

@@ -64,7 +64,7 @@ export default function TopBar() {
   const toAdm = [
     {
       title: "Adm",
-      endpoint: "/adm",
+      endpoint: "/adm-businessmanagement",
     },
     {
       title: UniversalTexts.englishMaterial,

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   Button, backDomain,
-} from "../../../Resources/UniversalComponents";
+} from "../../../../Resources/UniversalComponents";
 import { CircularProgress, Input } from "@mui/material";
 import {
   alwaysBlack,
-} from "../../../Styles/Styles";
+} from "../../../../Styles/Styles";
 export function NextLiveClass({ headers }) {
 
   const [time, setTime] = useState("");

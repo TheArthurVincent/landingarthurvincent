@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { HOne, RouteDiv } from "../../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   InputField,
   Button,
   backDomain,
-} from "../../../Resources/UniversalComponents";
-import { FormList } from "../Adm.Styled";
-import FindStudent from "./FindStudent";
+} from "../../../../Resources/UniversalComponents";
+import { FormList } from "../../Adm.Styled";
 import { CircularProgress } from "@mui/material";
+import FindStudent from "./FindStudent";
 
 export function NewStudent({ headers }) {
   const [newName, setNewName] = useState("");
