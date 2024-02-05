@@ -12,7 +12,9 @@ export function NewTutoring({ headers }) {
   const [newTitle, setNewTitle] = useState("");
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
-  const [newText, setNewText] = useState("");
+  const [newText, setNewText] = useState(
+    "<div><h3>Summary of the class</h3><p></p><h3>Homework</h3><p></p></div>"
+  );
   const [newAttachments, setNewAttachments] = useState("");
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
