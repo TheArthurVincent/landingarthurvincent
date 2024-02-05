@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, RouteDiv } from "../../../../Resources/Components/RouteBox";
+import {
+  HOne,
+  HTwo,
+  RouteDiv,
+} from "../../../../Resources/Components/RouteBox";
 import {
   BackToHomePage,
   IFrameVideo,
@@ -10,7 +14,11 @@ import {
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
-import { alwaysBlack, alwaysWhite, primaryColor } from "../../../../Styles/Styles";
+import {
+  alwaysBlack,
+  alwaysWhite,
+  primaryColor,
+} from "../../../../Styles/Styles";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllClasses({ headers }) {
@@ -164,13 +172,14 @@ export function AllClasses({ headers }) {
                       Apagar aula
                     </Button>
                   </div>
-
                   <div
                     style={{
                       padding: "1rem",
                     }}
                   >
-                    <strong>Comments:</strong> {tutoring.comments}
+                    <div
+                      dangerouslySetInnerHTML={{ __html: tutoring.comments }}
+                    />
                   </div>
                 </div>
               ))}
