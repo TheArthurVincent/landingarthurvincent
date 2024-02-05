@@ -183,6 +183,25 @@ export const contentExtras = [
     ),
   },
   {
+    instruction: "Como fazer mineração de sentenças?",
+    url: "https://vimeo.com/910008170?share=copy",
+    tags: ["Vocabulário", "vocabulary", "study", "estudar"],
+    explanation: (
+      <>
+        <h3> Mineração de sentenças.</h3> Este é, a meu ver, o melhor método
+        para reforçar o uso das palavras. Minerar sentenças é o ato de
+        encontrar, em contextos reais, a palavra aprendida. Usamos 3 sites para
+        isso:
+        <br />
+        <a href="https://www.linguee.com/">Linguee</a>
+        <br />
+        <a href="https://youglish.com/">YouGlish</a>
+        <br />
+        <a href="https://context.reverso.net/traducao/">Reverso</a>
+      </>
+    ),
+  },
+  {
     instruction: "Posso remarcar minha aula se eu faltar?",
     tags: ["aula", "perdida", "missed", "reschedule", "remarcar"],
     explanation: (
