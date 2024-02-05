@@ -284,6 +284,37 @@ export const IFrameVideo = styled.iframe`
     min-height: 38px;
   }
 `;
+export const IFrameVideoClass = styled.iframe`
+  margin-top: 0;
+  min-width: 636px;
+  min-height: 356px;
+  border: 1px #222 solid;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  @media (max-width: 850px) {
+    margin-top: 0;
+    min-width: 430px;
+    min-height: 230px;
+  }
+  @media (max-width: 450px) {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 265px;
+    min-height: 150px;
+  }
+  @media (max-width: 280px) {
+    margin-top: 0;
+    min-width: 140px;
+    min-height: 64px;
+  }
+  @media (max-width: 210px) {
+    margin-top: 0;
+    min-width: 80px;
+    min-height: 38px;
+  }
+`;
 
 export const IFrameVideoInstructions = styled.iframe`
   margin-top: 0;
@@ -326,6 +357,13 @@ export const IFrameVideoCourses = styled.iframe`
     min-height: 38px;
   }
 `;
+
+export const pathGenerator = (text) => {
+  const spacelessText = text.replace(/\s+/g, "-");
+  const lowerCase = spacelessText.toLowerCase();
+
+  return lowerCase;
+};
 
 export const ImgBlog = styled.img`
   margin-top: 0;

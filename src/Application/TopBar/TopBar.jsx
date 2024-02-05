@@ -56,8 +56,12 @@ export default function TopBar() {
       endpoint: "/extras",
     },
   ];
-  
+
   const toAdm = [
+    {
+      title: UniversalTexts.activities,
+      endpoint: "/english-activities",
+    },
     {
       title: UniversalTexts.englishMaterial,
       endpoint: "/english-material",
