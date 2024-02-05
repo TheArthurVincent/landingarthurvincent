@@ -6,7 +6,7 @@ import HomePage from "./Routes/HomePage";
 import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
-import ClassesToTeach from "./Routes/ClassesToTeach/ClassesToTeach";
+import EnglishMaterial from "./Routes/EnglishMaterial/EnglishMaterial";
 import { All, authorizationToken } from "./Resources/UniversalComponents";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 import Footer from "./Application/Footer/Footer";
@@ -65,8 +65,8 @@ function App() {
       element: verifyToken() ? <Ranking headers={headers} /> : <Login />,
     },
     {
-      path: "/classes-to-teach",
-      element: verifyToken() ? <ClassesToTeach headers={headers} /> : <Login />,
+      path: "/english-material",
+      element: verifyToken() ? <EnglishMaterial headers={headers} /> : <Login />,
     },
     {
       path: "/extras",

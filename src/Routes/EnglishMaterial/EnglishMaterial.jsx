@@ -5,7 +5,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { Link, NavLink } from "react-router-dom";
-import { CourseCard } from "./ClassesToTeach.Styled";
+import { CourseCard } from "./EnglishMaterial.Styled";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import TopBar from "../../Application/TopBar/TopBar";
@@ -47,7 +47,7 @@ const thematicClasses = [
   },
 ];
 
-export default function ClassesToTeach({ headers }) {
+export default function EnglishMaterial({ headers }) {
   const { UniversalTexts } = useUserContext();
 
   const cardStyle = {
@@ -70,7 +70,6 @@ export default function ClassesToTeach({ headers }) {
             <HOne>{UniversalTexts.englishMaterial}</HOne>
             <BackToHomePage />
             <div>
-              {" "}
               <HThree>{UniversalTexts.basicClasses}</HThree>
               <div style={cardStyle}>
                 {basicClasses.map((course, index) => {
@@ -96,7 +95,6 @@ export default function ClassesToTeach({ headers }) {
             </div>
 
             <div>
-              {" "}
               <HThree>{UniversalTexts.intermediaryClasses}</HThree>
               <div style={cardStyle}>
                 {intermediaryClasses.map((course, index) => {

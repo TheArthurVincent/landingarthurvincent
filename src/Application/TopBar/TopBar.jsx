@@ -56,15 +56,15 @@ export default function TopBar() {
       endpoint: "/extras",
     },
   ];
-
+  
   const toAdm = [
+    {
+      title: UniversalTexts.englishMaterial,
+      endpoint: "/english-material",
+    },
     {
       title: "Adm",
       endpoint: "/adm-businessmanagement",
-    },
-    {
-      title: UniversalTexts.englishMaterial,
-      endpoint: "/classes-to-teach",
     },
   ];
 
