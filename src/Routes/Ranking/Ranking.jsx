@@ -11,6 +11,7 @@ import { Box, Tab } from "@mui/material";
 import { alwaysWhite } from "../../Styles/Styles";
 import RankingExplanation from "./RankingComponents/RankingExplanation";
 import RankingTimeline from "./RankingComponents/RankingTimeline";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 
 export default function Ranking({ headers, logged }) {
   const [value, setValue] = useState("1");
@@ -84,6 +85,7 @@ export default function Ranking({ headers, logged }) {
                   );
                 })}
               </TabList>
+              <BackToHomePage />
             </Box>
             {componentsToRender.map((component, index) => {
               return (
