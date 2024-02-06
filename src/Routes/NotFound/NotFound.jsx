@@ -1,15 +1,9 @@
-import {
-  HThree,
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import { HTwo, RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 
-export default function NotFound({ headers, oi }) {
+export default function NotFound() {
   return (
     <RouteSizeControlBox>
-      <RouteDiv>
-        <HThree>Not Found!</HThree>
-      </RouteDiv>
+      <HTwo>Not Found!</HTwo>
     </RouteSizeControlBox>
   );
 }
