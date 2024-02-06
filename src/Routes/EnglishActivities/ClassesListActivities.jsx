@@ -17,6 +17,7 @@ export const activityRoutes = [
       "Where is the speaker from?",
       "How did he describe his country to make it relatable to Americans?",
       "What is his approach to learning?",
+      "Why did he choose to start by teaching languages?",
     ],
   },
 ];
