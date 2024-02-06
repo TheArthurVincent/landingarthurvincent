@@ -12,7 +12,7 @@ export const activityRoutes = [
   {
     title: "How to Make Learning as Addictive as Social Media",
     url: "https://www.youtube.com/watch?v=P6FORpg0KVo",
-    img: "https://blog.cenatcursos.com.br/wp-content/uploads/2018/08/ted-logo-fb.png",
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/ee/85/3b/ee853b2d-0cb8-4b2c-52df-c17ebceaabf3/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/1200x630wa.png",
     questions: [
       "Where is the speaker from?",
       "How did he describe his country to make it relatable to Americans?",
