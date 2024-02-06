@@ -1,7 +1,15 @@
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { RouteDiv } from "../../Resources/Components/RouteBox";
+import {
+  HThree,
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
 
 export default function NotFound({ headers, oi }) {
-  const { UniversalTexts } = useUserContext();
-  return <RouteDiv>Not Found!</RouteDiv>;
+  return (
+    <RouteSizeControlBox>
+      <RouteDiv>
+        <HThree>Not Found!</HThree>
+      </RouteDiv>
+    </RouteSizeControlBox>
+  );
 }
