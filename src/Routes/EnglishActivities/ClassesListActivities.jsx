@@ -31,6 +31,12 @@ export const activityRoutes = [
       "What is the book he cites and what is it about?",
     ],
   },
+  {
+    title: "3 tips on how to study effectively",
+    url: "https://www.youtube.com/watch?v=TjPFZaMe2yw",
+    img: "https://i.ytimg.com/vi/TjPFZaMe2yw/maxresdefault.jpg",
+    questions: ["?"],
+  },
 ];
 
 export const cardStyle = {
