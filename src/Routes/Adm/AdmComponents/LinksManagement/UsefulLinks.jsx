@@ -4,7 +4,6 @@ import { RouteDiv } from "../../../../Resources/Components/RouteBox";
 import { linksInfo } from "./LinksManagementAssets/UsefulLinksList";
 
 export function UsefulLinks() {
-
   return (
     <RouteDiv>
       <ul

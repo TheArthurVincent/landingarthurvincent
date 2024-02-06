@@ -49,5 +49,5 @@ export const DivPost = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  max-width: 650px
+  max-width: 650px;
 `;

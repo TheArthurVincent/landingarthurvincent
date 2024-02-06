@@ -57,7 +57,6 @@ export function Login() {
       window.location.reload("/");
     } catch (error) {
       setFail(true);
-      // alert("Credenciais inválidas. Tente novamente.");
       setButton("Entrar");
     }
   };

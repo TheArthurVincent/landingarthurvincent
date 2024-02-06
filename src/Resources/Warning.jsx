@@ -23,7 +23,6 @@ export default function Warning({ text }) {
           color: "#FFF",
         }}
       >
-        {" "}
         ⚠
       </span>
       <span

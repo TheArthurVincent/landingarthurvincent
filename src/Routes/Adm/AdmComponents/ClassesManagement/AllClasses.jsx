@@ -14,11 +14,7 @@ import {
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
-import {
-  alwaysBlack,
-  alwaysWhite,
-  primaryColor,
-} from "../../../../Styles/Styles";
+import { alwaysWhite, primaryColor } from "../../../../Styles/Styles";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllClasses({ headers }) {
@@ -80,7 +76,7 @@ export function AllClasses({ headers }) {
 
   return (
     <RouteDiv style={{ margin: "1rem auto" }}>
-      <HOne>{UniversalTexts.nextClasses}</HOne>
+      <HOne>Aulas gravadas</HOne>
       <Modal
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -94,7 +90,7 @@ export function AllClasses({ headers }) {
             left: "50%",
             transform: "translate(-50%, -50%)",
             textAlign: "center",
-            maxWidth: "20rem", // Ajuste conforme necessário
+            maxWidth: "20rem",
             padding: "2rem",
           }}
         >
