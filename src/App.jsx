@@ -107,11 +107,7 @@ function App() {
           <Router>
             <Routes>
               {routes.map((route, index) => (
-                <Route
-                  key={index}
-                  path={route.path}
-                  element={route.element}
-                ></Route>
+                <Route key={index} path={route.path} element={route.element} />
               ))}
             </Routes>
           </Router>

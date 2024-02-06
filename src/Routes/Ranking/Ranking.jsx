@@ -104,14 +104,6 @@ export default function Ranking({ headers, logged }) {
             })}
           </TabContext>
         </RouteDiv>
-        {/* <RankingTimeline
-          position="fixed"
-          timeline={timeline}
-          name={user.name}
-          headers={headers}
-          display="block"
-        />        
-        */}
       </RouteSizeControlBox>
     </>
   );

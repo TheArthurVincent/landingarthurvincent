@@ -18,7 +18,7 @@ export const All = styled.div`
   justify-content: space-between;
 
   & *::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
   }
 
   & *::-webkit-scrollbar-track {

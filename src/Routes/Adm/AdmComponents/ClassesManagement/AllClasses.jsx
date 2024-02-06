@@ -11,14 +11,12 @@ import {
   backDomain,
   getVideoEmbedUrl,
 } from "../../../../Resources/UniversalComponents";
-import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
 import { alwaysWhite, primaryColor } from "../../../../Styles/Styles";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllClasses({ headers }) {
-  const { UniversalTexts } = useUserContext();
   const [tutorings, setTutorings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");

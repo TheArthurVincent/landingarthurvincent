@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Notification = ({ text, color, reload /*, showNotification */ }) => {
   const Not = styled.div`
     animation-name: notif;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
-`;
+  `;
 
   const [isVisible, setIsVisible] = useState(false);
 
   const view = async () => {
-    setIsVisible(true)
+    setIsVisible(true);
     await new Promise((resolve) => {
       setTimeout(() => {
         resolve(false);
@@ -23,13 +23,20 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
 
   useEffect(() => {
     view();
-  }, [])
+  }, []);
 
   return (
     <Not
-      className='notification'
+      className="notification"
       style={{
-        backgroundColor: color === 1 ? "green" : color === 2 ? "#FA7800" : color === 3 ? "red" : "white",
+        backgroundColor:
+          color === 1
+            ? "green"
+            : color === 2
+            ? "#FA7800"
+            : color === 3
+            ? "red"
+            : "white",
         display: isVisible ? "block" : "none",
         padding: "0.5rem 1.5rem",
         color: "white",
@@ -47,10 +54,17 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
       <p
         style={{
           fontWeight: 800,
-          marginBottom: "0.3rem"
+          marginBottom: "0.3rem",
         }}
       >
-        <p>{color === 1 ? "Success!" : color === 2 ? "Alert!" : color === 3 ? "Error" : null}
+        <p>
+          {color === 1
+            ? "Success!"
+            : color === 2
+            ? "Alert!"
+            : color === 3
+            ? "Error"
+            : null}
         </p>
       </p>
       {text}
@@ -60,6 +74,16 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
 
 export default Notification;
 
-export const showNotification = (text, color, reload /*, showNotification*/) => {
-  return <Notification text={text} color={color} reload={reload} /*showNotification={showNotification} */ />
-}
+export const showNotification = (
+  text,
+  color,
+  reload /*, showNotification*/
+) => {
+  return (
+    <Notification
+      text={text}
+      color={color}
+      reload={reload} /*showNotification={showNotification} */
+    />
+  );
+};

@@ -48,9 +48,9 @@ export const BlogSideBox = styled.div`
   min-width: 9.5rem;
   max-width: 9.5rem;
   @media (max-width: 900px) {
-  flex-direction: row;
+    flex-direction: row;
   }
-  `
+`;
 export const OverFlow = styled.div`
   max-height: 15rem,
   overflow: auto,
@@ -59,7 +59,7 @@ export const OverFlow = styled.div`
     font-size: 0.6rem;
     max-width:10ch;
 }
-  `
+  `;
 export const BlogRouteSizeControlBox = styled.div`
   display: flex;
   margin-left: auto;
@@ -94,7 +94,6 @@ export const BlogRouteSizeControlBox = styled.div`
     animation-timing-function: ease-out;
   }
 `;
-
 
 export const HOne = styled.h1`
   background-color: ${primaryColor()};
@@ -160,7 +159,7 @@ export const RouteDiv = styled.div`
   background-color: ${alwaysWhite()};
   color: ${alwaysBlack()};
   padding: 0.5rem;
-  margin:  0;
+  margin: 0;
 
   @media (max-width: 750px) {
     padding: 5px;
@@ -189,7 +188,7 @@ export const NextTutoringsDiv = styled.div`
   background-color: ${alwaysWhite()};
   color: ${alwaysBlack()};
   padding: 0.5rem;
-  margin:  0 auto;
+  margin: 0 auto;
   min-width: 260px;
 `;
 export const NextLive = styled.div`
@@ -210,7 +209,7 @@ export const LevelCardComponent = styled.div`
   font-size: 12px;
   justify-content: center;
   text-align: center;
-`
+`;
 
 export const BackgroundClickBlog = styled.div`
   position: fixed;
