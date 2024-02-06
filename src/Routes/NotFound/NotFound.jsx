@@ -1,9 +1,17 @@
-import { HTwo, RouteSizeControlBox } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 
 export default function NotFound() {
   return (
     <RouteSizeControlBox>
-      <HTwo>Not Found!</HTwo>
+      <RouteDiv>
+        <BackToHomePage />
+        <HOne>Page Not Found!</HOne>
+      </RouteDiv>
     </RouteSizeControlBox>
   );
 }
