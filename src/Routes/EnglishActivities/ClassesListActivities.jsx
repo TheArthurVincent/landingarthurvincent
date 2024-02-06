@@ -12,12 +12,23 @@ export const activityRoutes = [
   {
     title: "How to Make Learning as Addictive as Social Media",
     url: "https://www.youtube.com/watch?v=P6FORpg0KVo",
-    img: "https://i.scdn.co/image/ab6765630000ba8a493fd31008ad087cd3dadab4",
+    img: "https://talkstar-photos.s3.amazonaws.com/uploads/11696866-399b-4993-a7ca-58d6639598cb/LuisvonAhn_2023-stageshot.jpg",
     questions: [
       "Where is the speaker from?",
       "How did he describe his country to make it relatable to Americans?",
       "What is his approach to learning?",
       "Why did he choose to start by teaching languages?",
+    ],
+  },
+  {
+    title: "The First 20 Hours",
+    url: "https://www.youtube.com/watch?v=5MgBikgcWnY",
+    img: "https://i.ytimg.com/vi/5MgBikgcWnY/maxresdefault.jpg",
+    questions: [
+      "What did the speaker decide to learn to test his theory?",
+      "What does the graph at 7:20 describe?",
+      "What does the graph at 8:40 describe?",
+      "What is the book he cites and what is it about?",
     ],
   },
 ];
