@@ -29,6 +29,7 @@ export const activityRoutes = [
       "What does the graph at 7:20 describe?",
       "What does the graph at 8:40 describe?",
       "What is the book he cites and what is it about?",
+      "How to use his method effectively?",
     ],
   },
   {
