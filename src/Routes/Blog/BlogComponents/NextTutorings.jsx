@@ -112,7 +112,11 @@ export function NextTutorings({ headers, display }) {
                 ) : null}
                 <p>
                   {item.student} <br />
-                  <Link style={{ color: "white" }} to={item.meetingUrl}>
+                  <Link
+                    style={{ color: "white" }}
+                    target="_blank"
+                    to={item.meetingUrl}
+                  >
                     {formatDate(item.dateTime)}
                   </Link>
                 </p>

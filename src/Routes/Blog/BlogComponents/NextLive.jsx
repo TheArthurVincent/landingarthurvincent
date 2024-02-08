@@ -108,7 +108,11 @@ export function NextLiveClasses({ headers }) {
               ) : null}
               <p>
                 {item.title} <br />
-                <Link style={{ color: "white" }} to={item.meetingUrl}>
+                <Link
+                  target="_blank"
+                  style={{ color: "white" }}
+                  to={item.meetingUrl}
+                >
                   {formatDate(item.dateTime)}
                 </Link>
               </p>
