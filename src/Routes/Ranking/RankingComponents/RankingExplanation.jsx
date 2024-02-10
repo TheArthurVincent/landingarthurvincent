@@ -6,6 +6,7 @@ import {
   getVideoEmbedUrl,
 } from "../../../Resources/UniversalComponents";
 import Warning from "../../../Resources/Warning";
+import { Link } from "react-router-dom";
 
 export default function RankingExplanation() {
   const h3 = {
@@ -48,8 +49,8 @@ export default function RankingExplanation() {
         </li>
         <li>
           Mandou print/foto para o professor com o{" "}
-          <strong>ANKI ZERADO DE REVISÕES NO DIA</strong> (Pode fazer isso todos
-          os dias)? = <span style={{ color: "green" }}>+ 100 pontos</span>
+          <strong>ANKI ZERADO DE REVISÕES NO DIA</strong>? (Pode fazer isso
+          todos os dias) = <span style={{ color: "green" }}>+ 100 pontos</span>
         </li>
         <li>
           Nenhuma revisão nos últimos 7 dias? ={" "}
@@ -84,7 +85,14 @@ export default function RankingExplanation() {
           <span style={{ color: "green" }}>+ 300 pontos</span>.
         </li>
         <li>
-          Stories no instagram marcando o perfil @thearthurvincent_{" "}
+          Stories no instagram marcando o perfil{" "}
+          <Link
+            to="https://www.instagram.com/thearthurvincent_/"
+            target="_blank"
+          >
+            {" "}
+            @thearthurvincent_
+          </Link>
           <strong> fazendo homework </strong>ou
           <strong> revisando o Anki</strong>
           <span style={{ color: "green" }}>+ 100 pontos</span>.
