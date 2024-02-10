@@ -47,6 +47,11 @@ export default function RankingExplanation() {
           <span style={{ color: "green" }}>+ 200 pontos</span>
         </li>
         <li>
+          Mandou print/foto para o professor com o{" "}
+          <strong>ANKI ZERADO DE REVISÕES NO DIA</strong> (Pode fazer isso todos
+          os dias)? = <span style={{ color: "green" }}>+ 100 pontos</span>
+        </li>
+        <li>
           Nenhuma revisão nos últimos 7 dias? ={" "}
           <span style={{ color: "red" }}> - 100 pontos</span>
         </li>
@@ -77,6 +82,12 @@ export default function RankingExplanation() {
         <li>
           Bônus por recomendar alguém para estudar comigo (caso feche) ={" "}
           <span style={{ color: "green" }}>+ 300 pontos</span>.
+        </li>
+        <li>
+          Stories no instagram marcando o perfil @thearthurvincent_{" "}
+          <strong> fazendo homework </strong>ou
+          <strong> revisando o Anki</strong>
+          <span style={{ color: "green" }}>+ 100 pontos</span>.
         </li>
         <li>
           Test - Pode ser marcado a cada 3 meses ={" "}

@@ -14,6 +14,27 @@ export const buttons = [
     text: "Anki 3/7",
   },
   {
+    color: "green",
+    score: 100,
+    description: "Zerou o Anki e mandou foto",
+    category: "Anki",
+    text: "Zerou o Anki e mandou foto",
+  },
+  {
+    color: "green",
+    score: 100,
+    description: "Fez Stories fazendo o Anki",
+    category: "Anki",
+    text: "Fez Stories fazendo o Anki",
+  },
+  {
+    color: "green",
+    score: 100,
+    description: "Fez Stories fazendo Homework",
+    category: "Anki",
+    text: "Fez Stories fazendo Homework",
+  },
+  {
     color: "red",
     score: -100,
     description: "Não revisou o Anki em 7 dias",
