@@ -26,6 +26,7 @@ export function NewPost({ headers }) {
     let newPost = {
       title: newTitle,
       videoUrl: newVideoUrl,
+      img: newImg,
       text: newText,
     };
     try {

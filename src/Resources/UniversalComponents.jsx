@@ -367,8 +367,7 @@ export const pathGenerator = (text) => {
 
 export const ImgBlog = styled.img`
   margin-top: 0;
-  width: 900px;
-  height: 500px;
+  max-width: 700px;
   @media (max-width: 1350px) {
     margin-top: 0;
     width: 700px;
