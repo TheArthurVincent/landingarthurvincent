@@ -5,6 +5,7 @@ import {
   textSecondaryColorContrast,
   transparentWhite,
   alwaysWhite,
+  transparentBlack,
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
@@ -32,10 +33,10 @@ export const TopBarNavigation = styled.div`
 export const TopBarNavigationBurger = styled.div`
   position: fixed;
   flex-direction: column;
-  top: 4rem;
+  top: 0.5rem;
+  left: 0.5rem;
   z-index: 3;
   list-style: none;
-  left: 1rem;
   gap: 1rem;
   text-align: left;
   background-color: ${textPrimaryColorContrast()};
@@ -48,7 +49,7 @@ export const BackgroundClick = styled.div`
   display: none;
   left: -30rem;
   z-index: 2;
-  background-color: ${transparentWhite()};
+  background-color: ${transparentBlack()};
   min-height: 10000vh;
   min-width: 10000vw;
 `;
