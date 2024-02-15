@@ -22,6 +22,7 @@ export const TopBarNavigation = styled.div`
   text-align: center;
   gap: 2rem;
   display: flex;
+  z-index: 4;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
@@ -35,7 +36,7 @@ export const TopBarNavigationBurger = styled.div`
   flex-direction: column;
   top: 0.5rem;
   left: 0.5rem;
-  z-index: 3;
+  z-index: 6;
   list-style: none;
   gap: 1rem;
   text-align: left;
@@ -48,7 +49,7 @@ export const BackgroundClick = styled.div`
   position: fixed;
   display: none;
   left: -30rem;
-  z-index: 2;
+  z-index: 5;
   background-color: ${transparentBlack()};
   min-height: 10000vh;
   min-width: 10000vw;
