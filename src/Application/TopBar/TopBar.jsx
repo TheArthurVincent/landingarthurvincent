@@ -92,6 +92,22 @@ export default function TopBar() {
             gap: "1rem",
           }}
         >
+          <NavLink
+            key={index}
+            style={{
+              color: alwaysBlack(),
+              textDecoration: "none",
+            }}
+            to="/"
+          >
+            <SpanHover
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              {UniversalTexts.homePage}
+            </SpanHover>
+          </NavLink>
           {topLinks.map((link, index) => {
             return (
               <NavLink
