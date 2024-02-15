@@ -165,7 +165,7 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
             top: "50%",
             position: "absolute",
             left: "50%",
-            zIndex: 10000,
+            zIndex: 100,
             transform: "translate(-50%, -40%)",
           }}
           src={
