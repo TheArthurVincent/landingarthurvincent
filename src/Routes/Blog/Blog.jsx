@@ -218,6 +218,7 @@ export function Blog({ headers }) {
                 {UniversalTexts.hello}
                 {name}!
               </HTwo>
+
               <div
                 style={{
                   display: "flex",
@@ -347,6 +348,11 @@ export function Blog({ headers }) {
               </span>
             )}
           </div>
+          <NextTutorings
+            display={permissions == "superadmin" ? "block" : "none"}
+            headers={headers}
+          />
+
           {posts.map((post, index) => (
             <div
               key={index}
@@ -605,10 +611,6 @@ export function Blog({ headers }) {
             _StudentId={_StudentId}
             picture={picture}
             lastName={lastName}
-          />
-          <NextTutorings
-            display={permissions == "superadmin" ? "block" : "none"}
-            headers={headers}
           />
         </BlogSideBox>
       </BlogRouteSizeControlBox>
