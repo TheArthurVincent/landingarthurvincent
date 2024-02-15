@@ -37,33 +37,19 @@ export default function StudentsRanking({ headers }) {
       ) : (
         students.map((item, index) => {
           const levelNumber =
-            item.totalScore >= 12000 &&
-            item.totalScore < 25000 &&
-            item.monthlyScore >= 3000
+            item.totalScore >= 10000 && item.totalScore < 20000
               ? 1
-              : item.totalScore >= 25000 &&
-                item.totalScore < 40000 &&
-                item.monthlyScore >= 3000
+              : item.totalScore >= 20000 && item.totalScore < 30000
               ? 2
-              : item.totalScore >= 40000 &&
-                item.totalScore < 60000 &&
-                item.monthlyScore >= 3000
+              : item.totalScore >= 30000 && item.totalScore < 40000
               ? 3
-              : item.totalScore >= 60000 &&
-                item.totalScore < 80000 &&
-                item.monthlyScore >= 3000
+              : item.totalScore >= 40000 && item.totalScore < 50000
               ? 4
-              : item.totalScore >= 80000 &&
-                item.totalScore < 120000 &&
-                item.monthlyScore >= 3000
+              : item.totalScore >= 50000 && item.totalScore < 65000
               ? 5
-              : item.totalScore >= 120000 &&
-                item.totalScore < 240000 &&
-                item.monthlyScore >= 3000
+              : item.totalScore >= 65000 && item.totalScore < 80000
               ? 6
-              : item.totalScore >= 240000 &&
-                item.totalScore < 2000000 &&
-                item.monthlyScore >= 3000
+              : item.totalScore >= 80000 && item.totalScore < 2000000
               ? 7
               : item.totalScore >= 2000000
               ? 8

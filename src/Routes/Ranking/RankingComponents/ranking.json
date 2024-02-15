@@ -7,7 +7,7 @@
       "textcolor": "black",
       "text": "Yellow Belt",
       "discount": "5%",
-      "totalScore": 12000
+      "totalScore": 10000
     },
     {
       "level": 3,
@@ -16,7 +16,7 @@
       "textcolor": "white",
       "text": "Blue Belt",
       "discount": "7%",
-      "totalScore": 25000
+      "totalScore": 20000
     },
     {
       "level": 4,
@@ -25,7 +25,7 @@
       "textcolor": "white",
       "text": "Red Belt",
       "discount": "10%",
-      "totalScore": 40000
+      "totalScore": 30000
     },
     {
       "level": 5,
@@ -34,7 +34,7 @@
       "textcolor": "white",
       "text": "Green Belt",
       "discount": "12%",
-      "totalScore": 60000
+      "totalScore": 40000
     },
     {
       "level": 6,
@@ -43,7 +43,7 @@
       "discount": "15%",
       "textcolor": "white",
       "text": "Orange Belt",
-      "totalScore": 80000
+      "totalScore": 50000
     },
     {
       "level": 7,
@@ -52,7 +52,7 @@
       "discount": "20%",
       "textcolor": "white",
       "text": "Purple Belt",
-      "totalScore": 120000
+      "totalScore": 65000
     },
     {
       "level": 8,
@@ -61,7 +61,7 @@
       "textcolor": "white",
       "text": "Black Belt",
       "discount": "25%",
-      "totalScore": 240000
+      "totalScore": 80000
     }
   ],
   "items": [
@@ -81,7 +81,7 @@
       "textcolor": "black",
       "text": "Yellow Belt",
       "discount": "5%",
-      "totalScore": 12000
+      "totalScore": 10000
     },
     {
       "level": 3,
@@ -90,7 +90,7 @@
       "textcolor": "white",
       "text": "Blue Belt",
       "discount": "7%",
-      "totalScore": 25000
+      "totalScore": 20000
     },
     {
       "level": 4,
@@ -99,7 +99,7 @@
       "textcolor": "white",
       "text": "Red Belt",
       "discount": "10%",
-      "totalScore": 40000
+      "totalScore": 30000
     },
     {
       "level": 5,
@@ -108,7 +108,7 @@
       "textcolor": "white",
       "text": "Green Belt",
       "discount": "12%",
-      "totalScore": 60000
+      "totalScore": 40000
     },
     {
       "level": 6,
@@ -117,7 +117,7 @@
       "discount": "15%",
       "textcolor": "white",
       "text": "Orange Belt",
-      "totalScore": 80000
+      "totalScore": 50000
     },
     {
       "level": 7,
@@ -126,7 +126,7 @@
       "discount": "20%",
       "textcolor": "white",
       "text": "Purple Belt",
-      "totalScore": 120000
+      "totalScore": 65000
     },
     {
       "level": 8,
@@ -135,7 +135,7 @@
       "textcolor": "white",
       "text": "Black Belt",
       "discount": "25%",
-      "totalScore": 240000
+      "totalScore": 80000
     },
     {
       "level": 9,
