@@ -19,6 +19,7 @@ import axios from "axios";
 import { Button, CircularProgress, MenuItem, Select } from "@mui/material";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { lightGreyColor } from "../../Styles/Styles";
+import NextLiveClasses from "./MyCoursesAssets/NextLive";
 
 export default function MyCourses({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -94,6 +95,7 @@ export default function MyCourses({ headers }) {
         style={{ display: !isClassVisible ? "block" : "none" }}
         className="smooth"
       >
+        <NextLiveClasses headers={headers} />
         <RouteDiv>
           <HOne>{UniversalTexts.liveClasses}</HOne>
           <span style={{ display: "flex", justifyContent: "space-between" }}>

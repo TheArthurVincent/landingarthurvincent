@@ -32,9 +32,6 @@ export const RouteSizeControlBox = styled.div`
   @media (max-width: 700px) {
     max-width: 550px;
   }
-  @media (max-width: 600px) {
-    max-width: 450px;
-  }
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;
@@ -45,8 +42,6 @@ export const BlogSideBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.51rem;
-  min-width: 9.5rem;
-  max-width: 9.5rem;
   @media (max-width: 900px) {
     flex-direction: row;
   }
@@ -66,7 +61,7 @@ export const BlogRouteSizeControlBox = styled.div`
   margin-right: auto;
   margin-top: 1rem;
   max-width: 1000px;
-  gap: 0.5rem;
+  gap: 0.2rem;
   @media (max-width: 900px) {
     flex-direction: column-reverse;
     justify-content: center;
@@ -86,7 +81,7 @@ export const BlogRouteSizeControlBox = styled.div`
     }
   }
   @media (max-width: 600px) {
-    max-width: 450px;
+    align-items: center;
   }
   &.smooth {
     animation-name: slideInLeft;
@@ -190,6 +185,9 @@ export const NextTutoringsDiv = styled.div`
   padding: 0.5rem;
   margin: 0 auto;
   min-width: 260px;
+  @media (max-width: 700px) {
+    max-width: 200px;
+  }
 `;
 export const NextLive = styled.div`
   background-color: ${alwaysWhite()};
@@ -209,6 +207,23 @@ export const LevelCardComponent = styled.div`
   font-size: 12px;
   justify-content: center;
   text-align: center;
+`;
+
+export const NewLevelCardComponent = styled.div`
+  padding: 12px 8px;
+  display: grid;
+  border-radius: 1rem;
+  text-align: center;
+  background: linear-gradient(to bottom, black 0%, #444 50%);
+  color: white;
+  min-width: 200px;
+  height: 300px;
+  font-size: 12px;
+  justify-content: center;
+  text-align: center;
+  @media (max-width: 400px) {
+    min-width: 50vw;
+  }
 `;
 
 export const BackgroundClickBlog = styled.div`

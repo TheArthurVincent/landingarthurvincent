@@ -28,7 +28,6 @@ import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./BlogComponents/NextTutorings";
-import NextLiveClasses from "./BlogComponents/NextLive";
 import theitems from "../Ranking/RankingComponents/ranking.json";
 import LevelCard from "./BlogComponents/LevelCard";
 
@@ -607,7 +606,6 @@ export function Blog({ headers }) {
             picture={picture}
             lastName={lastName}
           />
-          <NextLiveClasses headers={headers} />
           <NextTutorings
             display={permissions == "superadmin" ? "block" : "none"}
             headers={headers}
