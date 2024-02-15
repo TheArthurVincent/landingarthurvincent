@@ -93,7 +93,6 @@ export default function TopBar() {
           }}
         >
           <NavLink
-            key={index}
             style={{
               color: alwaysBlack(),
               textDecoration: "none",
