@@ -10,15 +10,15 @@ export default function RankingList() {
             ? 0
             : item.totalScore < 20000
             ? 1
-            : item.totalScore < 30000
+            : item.totalScore < 35000
             ? 2
-            : item.totalScore < 40000
-            ? 3
             : item.totalScore < 50000
-            ? 4
+            ? 3
             : item.totalScore < 65000
-            ? 5
+            ? 4
             : item.totalScore < 80000
+            ? 5
+            : item.totalScore < 100000
             ? 6
             : item.totalScore < 1200000
             ? 7

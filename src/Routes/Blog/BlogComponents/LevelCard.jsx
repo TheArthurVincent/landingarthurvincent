@@ -33,21 +33,21 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
         response.data.totalScore >= 10000 && response.data.totalScore < 20000
           ? 1
           : response.data.totalScore >= 20000 &&
-            response.data.totalScore < 30000
+            response.data.totalScore < 35000
           ? 2
-          : response.data.totalScore >= 30000 &&
-            response.data.totalScore < 40000
-          ? 3
-          : response.data.totalScore >= 40000 &&
+          : response.data.totalScore >= 35000 &&
             response.data.totalScore < 50000
-          ? 4
+          ? 3
           : response.data.totalScore >= 50000 &&
             response.data.totalScore < 65000
-          ? 5
+          ? 4
           : response.data.totalScore >= 65000 &&
             response.data.totalScore < 80000
-          ? 6
+          ? 5
           : response.data.totalScore >= 80000 &&
+            response.data.totalScore < 100000
+          ? 6
+          : response.data.totalScore >= 100000 &&
             response.data.totalScore < 2000000
           ? 7
           : response.data.totalScore >= 2000000
@@ -73,17 +73,17 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
         borderTop: `solid 4px ${
           totalScore >= 10000 && totalScore < 20000
             ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 30000
+            : totalScore >= 20000 && totalScore < 35000
             ? "#0C55A5"
-            : totalScore >= 30000 && totalScore < 40000
+            : totalScore >= 35000 && totalScore < 50000
             ? "#B7050B"
-            : totalScore >= 40000 && totalScore < 50000
-            ? "#ADB762"
             : totalScore >= 50000 && totalScore < 65000
-            ? "#FB6E02"
+            ? "#ADB762"
             : totalScore >= 65000 && totalScore < 80000
+            ? "#FB6E02"
+            : totalScore >= 80000 && totalScore < 100000
             ? "#703A74"
-            : totalScore >= 80000 && totalScore < 2000000
+            : totalScore >= 100000 && totalScore < 2000000
             ? "#000"
             : totalScore >= 2000000
             ? secondaryColor()
@@ -92,17 +92,17 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
         borderBottom: `solid 4px ${
           totalScore >= 10000 && totalScore < 20000
             ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 30000
+            : totalScore >= 20000 && totalScore < 35000
             ? "#0C55A5"
-            : totalScore >= 30000 && totalScore < 40000
+            : totalScore >= 35000 && totalScore < 50000
             ? "#B7050B"
-            : totalScore >= 40000 && totalScore < 50000
-            ? "#ADB762"
             : totalScore >= 50000 && totalScore < 65000
-            ? "#FB6E02"
+            ? "#ADB762"
             : totalScore >= 65000 && totalScore < 80000
+            ? "#FB6E02"
+            : totalScore >= 80000 && totalScore < 100000
             ? "#703A74"
-            : totalScore >= 80000 && totalScore < 2000000
+            : totalScore >= 100000 && totalScore < 2000000
             ? "#000"
             : totalScore >= 2000000
             ? secondaryColor()
@@ -112,17 +112,17 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
         borderLeft: `groove 2px ${
           totalScore >= 10000 && totalScore < 20000
             ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 30000
+            : totalScore >= 20000 && totalScore < 35000
             ? "#0C55A5"
-            : totalScore >= 30000 && totalScore < 40000
+            : totalScore >= 35000 && totalScore < 50000
             ? "#B7050B"
-            : totalScore >= 40000 && totalScore < 50000
-            ? "#ADB762"
             : totalScore >= 50000 && totalScore < 65000
-            ? "#FB6E02"
+            ? "#ADB762"
             : totalScore >= 65000 && totalScore < 80000
+            ? "#FB6E02"
+            : totalScore >= 80000 && totalScore < 100000
             ? "#703A74"
-            : totalScore >= 80000 && totalScore < 2000000
+            : totalScore >= 100000 && totalScore < 2000000
             ? "#000"
             : totalScore >= 2000000
             ? secondaryColor()
@@ -131,17 +131,17 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
         borderRight: `groove 2px ${
           totalScore >= 10000 && totalScore < 20000
             ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 30000
+            : totalScore >= 20000 && totalScore < 35000
             ? "#0C55A5"
-            : totalScore >= 30000 && totalScore < 40000
+            : totalScore >= 35000 && totalScore < 50000
             ? "#B7050B"
-            : totalScore >= 40000 && totalScore < 50000
-            ? "#ADB762"
             : totalScore >= 50000 && totalScore < 65000
-            ? "#FB6E02"
+            ? "#ADB762"
             : totalScore >= 65000 && totalScore < 80000
+            ? "#FB6E02"
+            : totalScore >= 80000 && totalScore < 100000
             ? "#703A74"
-            : totalScore >= 80000 && totalScore < 2000000
+            : totalScore >= 100000 && totalScore < 2000000
             ? "#000"
             : totalScore >= 2000000
             ? secondaryColor()
@@ -171,17 +171,17 @@ export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
           src={
             totalScore >= 10000 && totalScore < 20000
               ? yellow
-              : totalScore >= 20000 && totalScore < 30000
+              : totalScore >= 20000 && totalScore < 35000
               ? blue
-              : totalScore >= 30000 && totalScore < 40000
+              : totalScore >= 35000 && totalScore < 50000
               ? red
-              : totalScore >= 40000 && totalScore < 50000
-              ? green
               : totalScore >= 50000 && totalScore < 65000
-              ? orange
+              ? green
               : totalScore >= 65000 && totalScore < 80000
+              ? orange
+              : totalScore >= 80000 && totalScore < 100000
               ? purple
-              : totalScore >= 80000 && totalScore < 2000000
+              : totalScore >= 100000 && totalScore < 2000000
               ? black
               : totalScore >= 2000000
               ? supreme

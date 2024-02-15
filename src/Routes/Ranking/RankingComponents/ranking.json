@@ -25,7 +25,7 @@
       "textcolor": "white",
       "text": "Red Belt",
       "discount": "10%",
-      "totalScore": 30000
+      "totalScore": 35000
     },
     {
       "level": 5,
@@ -34,7 +34,7 @@
       "textcolor": "white",
       "text": "Green Belt",
       "discount": "12%",
-      "totalScore": 40000
+      "totalScore": 50000
     },
     {
       "level": 6,
@@ -43,7 +43,7 @@
       "discount": "15%",
       "textcolor": "white",
       "text": "Orange Belt",
-      "totalScore": 50000
+      "totalScore": 65000
     },
     {
       "level": 7,
@@ -52,7 +52,7 @@
       "discount": "20%",
       "textcolor": "white",
       "text": "Purple Belt",
-      "totalScore": 65000
+      "totalScore": 80000
     },
     {
       "level": 8,
@@ -61,7 +61,7 @@
       "textcolor": "white",
       "text": "Black Belt",
       "discount": "25%",
-      "totalScore": 80000
+      "totalScore": 100000
     }
   ],
   "items": [
@@ -99,7 +99,7 @@
       "textcolor": "white",
       "text": "Red Belt",
       "discount": "10%",
-      "totalScore": 30000
+      "totalScore": 35000
     },
     {
       "level": 5,
@@ -108,7 +108,7 @@
       "textcolor": "white",
       "text": "Green Belt",
       "discount": "12%",
-      "totalScore": 40000
+      "totalScore": 50000
     },
     {
       "level": 6,
@@ -117,7 +117,7 @@
       "discount": "15%",
       "textcolor": "white",
       "text": "Orange Belt",
-      "totalScore": 50000
+      "totalScore": 65000
     },
     {
       "level": 7,
@@ -126,7 +126,7 @@
       "discount": "20%",
       "textcolor": "white",
       "text": "Purple Belt",
-      "totalScore": 65000
+      "totalScore": 80000
     },
     {
       "level": 8,
@@ -135,7 +135,7 @@
       "textcolor": "white",
       "text": "Black Belt",
       "discount": "25%",
-      "totalScore": 80000
+      "totalScore": 100000
     },
     {
       "level": 9,
