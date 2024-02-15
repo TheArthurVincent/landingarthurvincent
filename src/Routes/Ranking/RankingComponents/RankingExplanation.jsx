@@ -132,7 +132,7 @@ export default function RankingExplanation() {
         style={{
           border: "solid 1px black",
         }}
-        src={getVideoEmbedUrl("https://vimeo.com/907855016?share=copy")}
+        src={getVideoEmbedUrl("https://vimeo.com/913288314?share=copy")}
       />
       <RankingList />
     </div>
