@@ -594,7 +594,6 @@ export function Blog({ headers }) {
               <Button
                 style={{
                   color: alwaysWhite(),
-
                   backgroundColor: "#ba3c3c",
                 }}
                 onClick={() => deletePost(_id)}

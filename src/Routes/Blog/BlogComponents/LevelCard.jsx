@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@mui/material";
 import theitems from "../../Ranking/RankingComponents/ranking.json";
 import { backDomain } from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
@@ -16,7 +15,7 @@ import yellow from "../../../../public/assets/yellow.png";
 import supreme from "../../../../public/assets/supreme.png";
 import { secondaryColor } from "../../../Styles/Styles";
 
-export function LevelCard({ headers, _StudentId, picture, name, lastName }) {
+export function LevelCard({ headers, _StudentId, picture }) {
   const items = theitems.items;
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
