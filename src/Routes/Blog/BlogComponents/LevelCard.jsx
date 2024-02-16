@@ -14,45 +14,34 @@ import green from "../../../../public/assets/green.png";
 import yellow from "../../../../public/assets/yellow.png";
 import supreme from "../../../../public/assets/supreme.png";
 import { secondaryColor } from "../../../Styles/Styles";
-
+import ranking from "../../Ranking/RankingComponents/ranking.json";
 export function LevelCard({ headers, _StudentId, picture }) {
   const items = theitems.items;
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
 
+  useEffect(() => {
+    console.log(ranking);
+  }, []);
+
   const seeScore = async (id) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers,
       });
+
+      let level = 0;
+      for (let i = 0; i < items.length; i++) {
+        if (response.data.totalScore >= items[i].totalScore) {
+          level = items[i].level;
+        } else {
+          break;
+        }
+      }
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
-      setLevel(
-        response.data.totalScore >= 10000 && response.data.totalScore < 20000
-          ? 1
-          : response.data.totalScore >= 20000 &&
-            response.data.totalScore < 35000
-          ? 2
-          : response.data.totalScore >= 35000 &&
-            response.data.totalScore < 50000
-          ? 3
-          : response.data.totalScore >= 50000 &&
-            response.data.totalScore < 65000
-          ? 4
-          : response.data.totalScore >= 65000 &&
-            response.data.totalScore < 80000
-          ? 5
-          : response.data.totalScore >= 80000 &&
-            response.data.totalScore < 100000
-          ? 6
-          : response.data.totalScore >= 100000 &&
-            response.data.totalScore < 2000000
-          ? 7
-          : response.data.totalScore >= 2000000
-          ? 8
-          : 0
-      );
+      setLevel(level);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -69,65 +58,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
   return (
     <NewLevelCardComponent
       style={{
-        borderTop: `solid 4px ${
-          totalScore >= 10000 && totalScore < 20000
-            ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 35000
-            ? "#0C55A5"
-            : totalScore >= 35000 && totalScore < 50000
-            ? "#B7050B"
-            : totalScore >= 50000 && totalScore < 65000
-            ? "#ADB762"
-            : totalScore >= 65000 && totalScore < 80000
-            ? "#FB6E02"
-            : totalScore >= 80000 && totalScore < 100000
-            ? "#703A74"
-            : totalScore >= 100000 && totalScore < 2000000
-            ? "#000"
-            : totalScore >= 2000000
-            ? secondaryColor()
-            : "white"
-        } `,
-        borderBottom: `solid 4px ${
-          totalScore >= 10000 && totalScore < 20000
-            ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 35000
-            ? "#0C55A5"
-            : totalScore >= 35000 && totalScore < 50000
-            ? "#B7050B"
-            : totalScore >= 50000 && totalScore < 65000
-            ? "#ADB762"
-            : totalScore >= 65000 && totalScore < 80000
-            ? "#FB6E02"
-            : totalScore >= 80000 && totalScore < 100000
-            ? "#703A74"
-            : totalScore >= 100000 && totalScore < 2000000
-            ? "#000"
-            : totalScore >= 2000000
-            ? secondaryColor()
-            : "white"
-        } `,
-
-        borderLeft: `groove 2px ${
-          totalScore >= 10000 && totalScore < 20000
-            ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 35000
-            ? "#0C55A5"
-            : totalScore >= 35000 && totalScore < 50000
-            ? "#B7050B"
-            : totalScore >= 50000 && totalScore < 65000
-            ? "#ADB762"
-            : totalScore >= 65000 && totalScore < 80000
-            ? "#FB6E02"
-            : totalScore >= 80000 && totalScore < 100000
-            ? "#703A74"
-            : totalScore >= 100000 && totalScore < 2000000
-            ? "#000"
-            : totalScore >= 2000000
-            ? secondaryColor()
-            : "white"
-        } `,
-        borderRight: `groove 2px ${
+        border: `groove 3px ${
           totalScore >= 10000 && totalScore < 20000
             ? "#F5BD33"
             : totalScore >= 20000 && totalScore < 35000
@@ -255,54 +186,3 @@ export function LevelCard({ headers, _StudentId, picture }) {
 }
 
 export default LevelCard;
-{
-  /* <LevelCardComponent
-        style={{
-          background: `linear-gradient(to bottom, black 0%, ${items[level].color} 50%)`,
-          color: items[level].textcolor,
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            color: "white",
-          }}
-        >
-          <i className={items[level].icon} aria-hidden="true" />
-          <h2>{items[level].text}</h2>
-        </div>
-        <img
-          style={{
-            width: "5rem",
-            height: "5rem",
-            objectFit: "cover",
-            border: "solid 0.2rem #555",
-            margin: "auto",
-            borderRadius: "50%",
-          }}
-          src={picture}
-        />
-        <p
-          style={{
-            fontWeight: 800,
-            marginBottom: "9px",
-          }}
-        >
-          {name} {lastName}
-        </p>
-        <div>
-          <p>Total Score: {totalScore}</p>
-          <p>Monthly Score: {monthlyScore}</p>
-          <Button
-            onClick={() => seeScore(_StudentId)}
-            style={{
-              color: items[level].textcolor,
-            }}
-          >
-            <i className="fa fa-refresh" aria-hidden="true"></i>
-          </Button>
-        </div>
-      </LevelCardComponent> */
-}

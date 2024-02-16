@@ -185,9 +185,6 @@ export const NextTutoringsDiv = styled.div`
   padding: 0.5rem;
   margin: 0 auto;
   min-width: 260px;
-  @media (max-width: 700px) {
-    max-width: 200px;
-  }
 `;
 export const NextLive = styled.div`
   background-color: ${alwaysWhite()};

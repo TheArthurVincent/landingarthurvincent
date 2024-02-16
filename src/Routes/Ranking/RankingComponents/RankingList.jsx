@@ -1,83 +1,69 @@
 import React from "react";
-import theitems from "./ranking.json";
-
+import { levels } from "./RankingLevelsList";
 export default function RankingList() {
+  const theItems = levels();
+
   return (
-    <>
-      {theitems.items.map((item, index) => {
-        const levelNumber =
-          item.totalScore < 10000
-            ? 0
-            : item.totalScore < 20000
-            ? 1
-            : item.totalScore < 35000
-            ? 2
-            : item.totalScore < 50000
-            ? 3
-            : item.totalScore < 65000
-            ? 4
-            : item.totalScore < 80000
-            ? 5
-            : item.totalScore < 100000
-            ? 6
-            : item.totalScore < 1200000
-            ? 7
-            : 8;
+    <div style={{ display: "grid" }}>
+      {theItems.map((item, index) => {
+        const levelNumber = index;
         return (
           <div
             key={index}
             style={{
               padding: "0.5rem 1rem",
-              marginBottom: "1px",
-              borderRadius: "1rem",
-              display: index > 7 ? "none" : "block",
-              background: theitems.items[levelNumber].color,
-              color: theitems.items[levelNumber].textcolor,
+              marginBottom: "5px",
+              display: index > 7 ? "none" : "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              borderRadius: "0rem 3rem",
+              background: theItems[levelNumber].color,
+              border: `groove 5px ${theItems[levelNumber].color}`,
+              color: theItems[levelNumber].textcolor,
             }}
           >
             <span
               style={{
                 display: "flex",
-                justifyContent: "left",
                 alignItems: "center",
                 gap: "2rem",
               }}
             >
-              <i
-                style={{
-                  fontSize: "1.5rem",
-                  width: "1.5rem",
-                  padding: "0.5rem",
-                  borderRadius: "50%",
-                  textAlign: "center",
-                  backgroundColor: theitems.items[levelNumber].textcolor,
-                  color: theitems.items[levelNumber].color,
-                }}
-                className={theitems.items[levelNumber].icon}
-                aria-hidden="true"
+              <img
+                src={theItems[levelNumber].image2}
+                alt={theItems[levelNumber].text}
+                style={{ maxWidth: "20rem" }}
               />
+
               <span
                 style={{
                   fontSize: "0.8rem",
                   alignItems: "center",
                   justifyContent: "space-between",
                   gap: "1rem",
+                  fontSize: "1.1rem",
                 }}
               >
-                <h2>
-                  Level {index + 1} | {theitems.items[levelNumber].text}
+                <h2 style={{ fontSize: "1.5rem" }}>
+                  <i
+                    className={theItems[levelNumber].icon}
+                    aria-hidden="true"
+                  />{" "}
+                  Level {index + 1} | {theItems[levelNumber].text}
                 </h2>
-                <p>Score: {item.totalScore}</p>
+                <p>Total Score: {item.totalScore}</p>
+
                 <p>
-                  {" "}
-                  Chegou neste nível? Ganhe {item.discount} de desconto/cashback
-                  no mês seguinte à <strong>PRIMEIRA QUALIFICAÇÃO</strong>.
+                  {index == 0
+                    ? "Esforce-se para passar de nível pela PRIMEIRA VEZ"
+                    : `${item.discount} de desconto/cashback no mês seguinte à{" "}
+                    <strong>PRIMEIRA QUALIFICAÇÃO</strong>.`}
                 </p>
               </span>
             </span>
           </div>
         );
       })}
-    </>
+    </div>
   );
 }

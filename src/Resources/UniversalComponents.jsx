@@ -261,7 +261,7 @@ export const IFrameVideo = styled.iframe`
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-  @media (max-width: 850px) {
+  @media (max-width: 900px) {
     margin-top: 0;
     min-width: 430px;
     min-height: 230px;
@@ -292,7 +292,7 @@ export const IFrameVideoClass = styled.iframe`
   margin-left: auto;
   margin-right: auto;
   display: block;
-  @media (max-width: 850px) {
+  @media (max-width: 900px) {
     margin-top: 0;
     min-width: 430px;
     min-height: 230px;
