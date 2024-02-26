@@ -154,9 +154,8 @@ export default function StudentsRanking({ headers }) {
                     fontSize: "1rem",
                     padding: "0.5rem",
                     borderRadius: "1rem 0",
-                    color: theitems.items[levelNumber].color,
-                    backgroundColor:
-                      theitems.items[levelNumber].backgroundColor,
+                    color: theitems.items[levelNumber].textcolor,
+                    backgroundColor: theitems.items[levelNumber].color,
                   }}
                 >
                   <h2>
