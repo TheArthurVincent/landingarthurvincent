@@ -63,25 +63,25 @@ export default function StudentsRanking({ headers }) {
               ? 8
               : 0;
           return (
-            <>
-              <Tooltip title="A pontuação mensal mínima para concorrer é 3000.">
-                <h2
-                  style={{
-                    backgroundColor:
-                      item.monthlyScore >= 3000 ? "green" : "orange",
-                    color: "white",
-                    padding: "0.5rem",
-                    margin: 0,
-                    fontSize: "0.8rem",
-                  }}
-                >
-                  {item.monthlyScore >= 3000
-                    ? "Running for prize!"
-                    : "Not running for prize yet!"}
-                </h2>
-              </Tooltip>
+            <Tooltip
+              key={index}
+              title="A pontuação mensal mínima para concorrer é 3000."
+            >
+              <h2
+                style={{
+                  backgroundColor:
+                    item.monthlyScore >= 3000 ? "green" : "orange",
+                  color: "white",
+                  padding: "0.5rem",
+                  margin: 0,
+                  fontSize: "0.8rem",
+                }}
+              >
+                {item.monthlyScore >= 3000
+                  ? "Running for prize!"
+                  : "Not running for prize yet!"}
+              </h2>
               <RouteDiv
-                key={index}
                 style={{
                   backgroundColor: "white",
                   padding: "0.5rem",
@@ -160,7 +160,7 @@ export default function StudentsRanking({ headers }) {
                   <p>Monthly Score: {item.monthlyScore}</p>
                 </div>
               </RouteDiv>
-            </>
+            </Tooltip>
           );
         })
       )}
