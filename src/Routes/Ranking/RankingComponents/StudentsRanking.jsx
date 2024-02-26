@@ -145,6 +145,7 @@ export default function StudentsRanking({ headers }) {
                       border: "solid 0.2rem #555",
                       margin: "0.9rem",
                       borderRadius: "50%",
+                      border: `groove 5px ${theitems.items[levelNumber].color}`,
                     }}
                     src={item.picture}
                   />
