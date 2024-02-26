@@ -132,6 +132,7 @@ export default function StudentsRanking({ headers }) {
                       padding: "5px",
                       fontSize: "1.1rem",
                       backgroundColor: "white",
+                      color: "black",
                     }}
                   >
                     #{index + 1} | {item.name}
@@ -148,7 +149,16 @@ export default function StudentsRanking({ headers }) {
                     src={item.picture}
                   />
                 </div>
-                <div style={{ fontSize: "1rem" }}>
+                <div
+                  style={{
+                    fontSize: "1rem",
+                    padding: "0.5rem",
+                    borderRadius: "1rem 0",
+                    color: theitems.items[levelNumber].color,
+                    backgroundColor:
+                      theitems.items[levelNumber].backgroundColor,
+                  }}
+                >
                   <h2>
                     <i
                       className={theitems.items[levelNumber].icon}
