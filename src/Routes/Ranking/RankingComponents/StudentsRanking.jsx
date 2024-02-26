@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RouteDiv } from "../../../Resources/Components/RouteBox";
 import { backDomain } from "../../../Resources/UniversalComponents";
-import { Button, CircularProgress } from "@mui/material";
+import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
 import blue from "../../../../public/assets/bl.jpg";
@@ -64,20 +64,22 @@ export default function StudentsRanking({ headers }) {
               : 0;
           return (
             <>
-              <h2
-                style={{
-                  backgroundColor:
-                    item.monthlyScore >= 3000 ? "green" : "orange",
-                  color: "white",
-                  padding: "0.5rem",
-                  margin: 0,
-                  fontSize: "0.8rem",
-                }}
-              >
-                {item.monthlyScore >= 3000
-                  ? "Running for prize!"
-                  : "Not running for prize yet!"}
-              </h2>
+              <Tooltip title="A pontuação mensal mínima para concorrer é 3000.">
+                <h2
+                  style={{
+                    backgroundColor:
+                      item.monthlyScore >= 3000 ? "green" : "orange",
+                    color: "white",
+                    padding: "0.5rem",
+                    margin: 0,
+                    fontSize: "0.8rem",
+                  }}
+                >
+                  {item.monthlyScore >= 3000
+                    ? "Running for prize!"
+                    : "Not running for prize yet!"}
+                </h2>
+              </Tooltip>
               <RouteDiv
                 key={index}
                 style={{
