@@ -22,6 +22,13 @@ export const buttons = [
   },
   {
     color: "green",
+    score: 1000,
+    description: "Apresentação na aula ao vivo",
+    category: "Live Class",
+    text: "Apresentação na aula ao vivo",
+  },
+  {
+    color: "green",
     score: 100,
     description: "Fez Stories fazendo o Anki",
     category: "Anki",
