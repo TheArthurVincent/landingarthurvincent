@@ -88,6 +88,7 @@ export function NewStudent({ headers }) {
   return (
     <>
       <RouteDiv>
+        <FindStudent uploadStatus={upload} headers={headers} />
         <HOne>Novo Aluno</HOne>
         <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
           <FormList>
@@ -171,7 +172,6 @@ export function NewStudent({ headers }) {
           </Button>
         </form>
       </RouteDiv>
-      <FindStudent uploadStatus={upload} headers={headers} />
     </>
   );
 }
