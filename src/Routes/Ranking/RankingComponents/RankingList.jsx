@@ -56,8 +56,7 @@ export default function RankingList() {
                 <p>
                   {index == 0
                     ? "Esforce-se para passar de nível pela PRIMEIRA VEZ"
-                    : `${item.discount} de desconto/cashback no mês seguinte à{" "}
-                    <strong>PRIMEIRA QUALIFICAÇÃO</strong>.`}
+                    : `${item.discount} de desconto/cashback no mês seguinte à PRIMEIRA QUALIFICAÇÃO.`}
                 </p>
               </span>
             </span>
