@@ -89,7 +89,7 @@
       "color": "#0C55A5",
       "textcolor": "white",
       "text": "Blue Belt",
-      "discount": "7%",
+      "discount": "5%",
       "totalScore": 20000
     },
     {
@@ -98,7 +98,7 @@
       "color": "#B7050B",
       "textcolor": "white",
       "text": "Red Belt",
-      "discount": "10%",
+      "discount": "7%",
       "totalScore": 35000
     },
     {
@@ -107,14 +107,14 @@
       "color": "#ADB762",
       "textcolor": "white",
       "text": "Green Belt",
-      "discount": "12%",
+      "discount": "7%",
       "totalScore": 50000
     },
     {
       "level": 6,
       "icon": "fa fa-sun-o",
       "color": "#FB6E02",
-      "discount": "15%",
+      "discount": "10%",
       "textcolor": "white",
       "text": "Orange Belt",
       "totalScore": 65000
@@ -123,7 +123,7 @@
       "level": 7,
       "icon": "fa fa-moon-o",
       "color": "#703A74",
-      "discount": "20%",
+      "discount": "10%",
       "textcolor": "white",
       "text": "Purple Belt",
       "totalScore": 80000
