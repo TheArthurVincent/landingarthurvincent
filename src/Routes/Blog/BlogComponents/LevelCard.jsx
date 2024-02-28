@@ -31,17 +31,33 @@ export function LevelCard({ headers, _StudentId, picture }) {
         headers,
       });
 
-      let level = 0;
-      for (let i = 0; i < items.length; i++) {
-        if (response.data.totalScore >= items[i].totalScore) {
-          level = items[i].level;
-        } else {
-          break;
-        }
-      }
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
-      setLevel(level);
+      setLevel(
+        response.data.totalScore >= 10000 && response.data.totalScore < 20000
+          ? 1
+          : response.data.totalScore >= 20000 &&
+            response.data.totalScore < 35000
+          ? 2
+          : response.data.totalScore >= 35000 &&
+            response.data.totalScore < 50000
+          ? 3
+          : response.data.totalScore >= 50000 &&
+            response.data.totalScore < 65000
+          ? 4
+          : response.data.totalScore >= 65000 &&
+            response.data.totalScore < 80000
+          ? 5
+          : response.data.totalScore >= 80000 &&
+            response.data.totalScore < 100000
+          ? 6
+          : response.data.totalScore >= 100000 &&
+            response.data.totalScore < 2000000
+          ? 7
+          : response.data.totalScore >= 2000000
+          ? 9
+          : 0
+      );
     } catch (error) {
       alert(error);
       console.error(error);

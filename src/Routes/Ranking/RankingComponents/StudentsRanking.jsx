@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { RouteDiv } from "../../../Resources/Components/RouteBox";
-import { backDomain } from "../../../Resources/UniversalComponents";
+import { Disapear, backDomain } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
-import blue from "../../../../public/assets/bl.jpg";
-import black from "../../../../public/assets/b.jpg";
-import orange from "../../../../public/assets/o.jpg";
-import white from "../../../../public/assets/w.jpg";
-import purple from "../../../../public/assets/p.jpg";
-import red from "../../../../public/assets/r.jpg";
-import green from "../../../../public/assets/g.jpg";
-import yellow from "../../../../public/assets/y.jpg";
 
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setUser(getLoggedUser);
+  }, []);
 
   const fetchStudents = async () => {
     setLoading(true);
@@ -36,85 +33,51 @@ export default function StudentsRanking({ headers }) {
 
   return (
     <div>
-      <Button onClick={() => fetchStudents()}>
-        <i className="fa fa-refresh" aria-hidden="true"></i>
-      </Button>
-
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-around",
+        }}
+      >
+        <Button onClick={() => fetchStudents()}>
+          <i className="fa fa-refresh" aria-hidden="true"></i>
+        </Button>
+        <h2>Apenas os primeiros 5 colocados são mostrados na lista!</h2>
+      </div>
       {loading ? (
         <CircularProgress />
       ) : (
-        students.map((item, index) => {
-          const levelNumber =
-            item.totalScore >= 10000 && item.totalScore < 20000
-              ? 1
-              : item.totalScore >= 20000 && item.totalScore < 35000
-              ? 2
-              : item.totalScore >= 35000 && item.totalScore < 50000
-              ? 3
-              : item.totalScore >= 50000 && item.totalScore < 65000
-              ? 4
-              : item.totalScore >= 65000 && item.totalScore < 80000
-              ? 5
-              : item.totalScore >= 80000 && item.totalScore < 100000
-              ? 6
-              : item.totalScore >= 100000 && item.totalScore < 2000000
-              ? 7
-              : item.totalScore >= 2000000
-              ? 8
-              : 0;
-          return (
-            <Tooltip
-              key={index}
-              title="A pontuação mensal mínima para concorrer é 3000."
-            >
-              <h2
-                style={{
-                  backgroundColor:
-                    item.monthlyScore >= 3000 ? "green" : "orange",
-                  color: "white",
-                  padding: "0.5rem",
-                  margin: 0,
-                  fontSize: "0.8rem",
-                }}
-              >
-                {item.monthlyScore >= 3000
-                  ? "Running for prize!"
-                  : "Not running for prize yet!"}
-              </h2>
+        <div>
+          {students.map((item, index) => {
+            const levelNumber =
+              item.totalScore >= 10000 && item.totalScore < 20000
+                ? 1
+                : item.totalScore >= 20000 && item.totalScore < 35000
+                ? 2
+                : item.totalScore >= 35000 && item.totalScore < 50000
+                ? 3
+                : item.totalScore >= 50000 && item.totalScore < 65000
+                ? 4
+                : item.totalScore >= 65000 && item.totalScore < 80000
+                ? 5
+                : item.totalScore >= 80000 && item.totalScore < 100000
+                ? 6
+                : item.totalScore >= 100000 && item.totalScore < 2000000
+                ? 7
+                : item.totalScore >= 2000000
+                ? 8
+                : 0;
+            return (
               <RouteDiv
                 style={{
-                  backgroundColor: "white",
-                  padding: "0.5rem",
-                  maxHeight: "16rem",
-                  marginBottom: "0.5rem",
-                  fontSize: "13px",
-                  textAlign: "center",
+                  padding: "0.5rem 1rem",
+                  fontFamily: "Athiti",
+                  margin: "1rem 0",
+                  display: item.id === user.id ? "flex" : "none",
+                  justifyContent: "space-between",
                   alignItems: "center",
-                  justifyContent: "space-evenly",
-                  display: "flex",
-                  border: `solid 3px ${
-                    item.monthlyScore >= 3000 ? "green" : "orange"
-                  }`,
-                  backgroundImage: `
-                ${
-                  item.totalScore >= 10000 && item.totalScore < 20000
-                    ? `url(${yellow})`
-                    : item.totalScore >= 20000 && item.totalScore < 35000
-                    ? `url(${blue})`
-                    : item.totalScore >= 35000 && item.totalScore < 50000
-                    ? `url(${red})`
-                    : item.totalScore >= 50000 && item.totalScore < 65000
-                    ? `url(${green})`
-                    : item.totalScore >= 65000 && item.totalScore < 80000
-                    ? `url(${orange})`
-                    : item.totalScore >= 80000 && item.totalScore < 100000
-                    ? `url(${purple})`
-                    : item.totalScore >= 100000 && item.totalScore < 2000000
-                    ? `url(${black})`
-                    : item.totalScore >= 2000000
-                    ? `url(${black})`
-                    : `url(${white})`
-                }`,
+                  background: theitems.items[levelNumber].color,
                   color: theitems.items[levelNumber].textcolor,
                 }}
               >
@@ -131,12 +94,101 @@ export default function StudentsRanking({ headers }) {
                       margin: 0,
                       padding: "5px",
                       fontSize: "1.1rem",
-                      backgroundColor: "white",
-                      color: "black",
+                      background: theitems.items[levelNumber].color,
+                      color: theitems.items[levelNumber].textcolor,
                     }}
                   >
                     #{index + 1} | {item.name}
                   </h1>
+                </div>
+                <p>
+                  <Disapear>
+                    {" "}
+                    <i
+                      className={theitems.items[levelNumber].icon}
+                      aria-hidden="true"
+                    />{" "}
+                    {theitems.items[levelNumber].text}
+                  </Disapear>
+                </p>
+                <div>
+                  <p>
+                    Monthly Score:{" "}
+                    <span
+                      style={{
+                        fontWeight: "600",
+                      }}
+                    >
+                      {item.monthlyScore}
+                    </span>
+                  </p>
+                  <p>
+                    Total Score:{" "}
+                    <span
+                      style={{
+                        fontWeight: "600",
+                      }}
+                    >
+                      {item.totalScore}
+                    </span>
+                  </p>
+                </div>
+              </RouteDiv>
+            );
+          })}
+
+          {students.map((item, index) => {
+            const levelNumber =
+              item.totalScore >= 10000 && item.totalScore < 20000
+                ? 1
+                : item.totalScore >= 20000 && item.totalScore < 35000
+                ? 2
+                : item.totalScore >= 35000 && item.totalScore < 50000
+                ? 3
+                : item.totalScore >= 50000 && item.totalScore < 65000
+                ? 4
+                : item.totalScore >= 65000 && item.totalScore < 80000
+                ? 5
+                : item.totalScore >= 80000 && item.totalScore < 100000
+                ? 6
+                : item.totalScore >= 100000 && item.totalScore < 2000000
+                ? 7
+                : item.totalScore >= 2000000
+                ? 8
+                : 0;
+            return (
+              <RouteDiv
+                style={{
+                  padding: "0.5rem 1rem",
+                  marginBottom: "5px",
+                  display: index < 5 && item.monthlyScore > 0 ? "flex" : "none",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  borderRadius: "0rem 3rem",
+                  background: theitems.items[levelNumber].color,
+                  border: `groove 5px ${theitems.items[levelNumber].color}`,
+                  color: theitems.items[levelNumber].textcolor,
+                }}
+              >
+                <div
+                  style={{
+                    display: "grid",
+                    justifyContent: "space-evenly",
+                    alignItems: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontWeight: 600,
+                      margin: 0,
+                      padding: "5px",
+                      fontSize: "1.1rem",
+                      background: theitems.items[levelNumber].color,
+                      color: theitems.items[levelNumber].textcolor,
+                    }}
+                  >
+                    #{index + 1} | {item.name}
+                  </p>
                   <img
                     style={{
                       width: "5rem",
@@ -153,11 +205,7 @@ export default function StudentsRanking({ headers }) {
                 <div
                   style={{
                     fontSize: "1rem",
-                    padding: "0.5rem",
-                    borderRadius: "1rem 0",
-                    backgroundColor: theitems.items[levelNumber].textcolor,
-                    color: theitems.items[levelNumber].color,
-                    border: `groove 5px ${theitems.items[levelNumber].color}`,
+                    color: theitems.items[levelNumber].textcolor,
                   }}
                 >
                   <h2>
@@ -167,13 +215,54 @@ export default function StudentsRanking({ headers }) {
                     />{" "}
                     {theitems.items[levelNumber].text}
                   </h2>
-                  <p>Total Score: {item.totalScore}</p>
-                  <p>Monthly Score: {item.monthlyScore}</p>
+
+                  <p>
+                    Monthly Score:{" "}
+                    <span
+                      style={{
+                        fontFamily: "Athiti",
+                        fontWeight: "600",
+                      }}
+                    >
+                      {item.monthlyScore}
+                    </span>
+                  </p>
+                  <p>
+                    Total Score:{" "}
+                    <span
+                      style={{
+                        fontFamily: "Athiti",
+                        fontWeight: "600",
+                      }}
+                    >
+                      {item.totalScore}
+                    </span>
+                  </p>
+                  <Tooltip
+                    key={index}
+                    title="A pontuação mensal mínima para concorrer é 3000."
+                  >
+                    <div
+                      style={{
+                        backgroundColor:
+                          item.monthlyScore >= 3000 ? "green" : "orange",
+                        color: "white",
+                        padding: "0.5rem",
+                        textAlign: "center",
+                        marginTop: "5px",
+                        fontSize: "0.8rem",
+                      }}
+                    >
+                      {item.monthlyScore >= 3000
+                        ? "Running for prize!"
+                        : "Not running for prize yet!"}
+                    </div>
+                  </Tooltip>
                 </div>
               </RouteDiv>
-            </Tooltip>
-          );
-        })
+            );
+          })}
+        </div>
       )}
     </div>
   );
