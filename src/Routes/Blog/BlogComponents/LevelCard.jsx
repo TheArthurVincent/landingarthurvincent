@@ -151,7 +151,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
               fontSize: "1.8rem",
               marginBottom: "5px",
             }}
-            className={items[level - 1].icon}
+            className={items[level].icon}
             aria-hidden="true"
           />
           <div
