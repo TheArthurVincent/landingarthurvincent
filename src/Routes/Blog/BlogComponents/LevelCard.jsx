@@ -26,6 +26,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
+  const [showCard, setShowCard] = useState("none");
 
   useEffect(() => {
     console.log(ranking);
@@ -64,6 +65,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
           ? 9
           : 0
       );
+      setShowCard("block")
     } catch (error) {
       alert(error);
       console.error(error);
@@ -103,6 +105,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
     >
       <DivCardLevel>
         <LevelCardLevel
+          style={{ display: showCard }}
           src={
             totalScore >= 10000 && totalScore < 20000
               ? yellow
