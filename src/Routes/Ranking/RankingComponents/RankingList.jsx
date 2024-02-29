@@ -9,7 +9,7 @@ export default function RankingList() {
       {theItems.map((item, index) => {
         const levelNumber = index;
         return (
-          <div
+          <ul
             key={index}
             style={{
               padding: "0.5rem 1rem",
@@ -23,7 +23,7 @@ export default function RankingList() {
               color: theItems[levelNumber].textcolor,
             }}
           >
-            <span
+            <li
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -59,8 +59,8 @@ export default function RankingList() {
                     : `${item.discount} de desconto/cashback no mês seguinte à PRIMEIRA QUALIFICAÇÃO.`}
                 </p>
               </span>
-            </span>
-          </div>
+            </li>
+          </ul>
         );
       })}
     </div>

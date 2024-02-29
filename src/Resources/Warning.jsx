@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Warning({ text }) {
+export default function WarningText({ text }) {
   return (
     <div
       style={{
@@ -9,6 +9,8 @@ export default function Warning({ text }) {
         padding: "1rem",
         textAlign: "center",
         margin: "1rem",
+        marginRight: "auto",
+        marginLeft: "auto",
         display: "grid",
         boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)",
         maxWidth: "15rem",

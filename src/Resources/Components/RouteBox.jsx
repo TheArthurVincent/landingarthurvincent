@@ -238,6 +238,26 @@ const spinAnimation = keyframes`
 }
 `;
 
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+export const AnimatedLi = styled.li`
+  padding: 0.5rem 1rem;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0rem 3rem;
+  animation: ${fadeIn} ${({ index }) => index * 0.8}s forwards;
+`;
+
+
 export const LevelCardLevel = styled.img`
   width: 12rem;
   height: 12rem;
@@ -249,7 +269,6 @@ export const LevelCardLevel = styled.img`
   transform: translate(-50%, -40%);
   // animation: ${spinAnimation} 0.8s linear forwards;
   animation: ${spinAnimation} 1s ease-in-out forwards;
-
 
   @media (max-width: 900px) {
     top: 36%;

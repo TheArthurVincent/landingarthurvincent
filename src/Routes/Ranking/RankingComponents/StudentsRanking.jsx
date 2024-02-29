@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { RouteDiv } from "../../../Resources/Components/RouteBox";
-import { Disapear, backDomain } from "../../../Resources/UniversalComponents";
+import {
+  AnimatedLi,
+  RouteDiv,
+} from "../../../Resources/Components/RouteBox";
+import {
+  ImgResponsive0,
+  backDomain,
+} from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
+import { levels } from "./RankingLevelsList";
 
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+
+  const theItems = levels();
+
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
@@ -28,7 +38,8 @@ export default function StudentsRanking({ headers }) {
     }
   };
   useEffect(() => {
-    fetchStudents();
+    fetchStudents(theItems);
+    console.log();
   }, []);
 
   return (
@@ -69,68 +80,61 @@ export default function StudentsRanking({ headers }) {
                 ? 8
                 : 0;
             return (
-              <RouteDiv
-                style={{
-                  padding: "0.5rem 1rem",
-                  margin: "1rem 0",
-                  display: item.id === user.id ? "flex" : "none",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  background: theitems.items[levelNumber].color,
-                  color: theitems.items[levelNumber].textcolor,
-                }}
-              >
-                <div
+              <>
+                <RouteDiv
                   style={{
-                    display: "grid",
-                    justifyContent: "space-evenly",
+                    padding: "0.5rem 1rem",
+                    margin: "1rem 0",
+                    display: item.id === user.id ? "flex" : "none",
+                    justifyContent: "space-between",
                     alignItems: "center",
+                    background: theitems.items[levelNumber].color,
+                    color: theitems.items[levelNumber].textcolor,
                   }}
                 >
-                  <h1
+                  <div
                     style={{
-                      fontWeight: 600,
-                      margin: 0,
-                      padding: "5px",
-                      background: theitems.items[levelNumber].color,
-                      color: theitems.items[levelNumber].textcolor,
+                      display: "grid",
+                      justifyContent: "space-evenly",
+                      alignItems: "center",
                     }}
                   >
-                    #{index + 1} | {item.name}
-                  </h1>
-                </div>
-                <p>
-                  <Disapear>
-                    <i
-                      className={theitems.items[levelNumber].icon}
-                      aria-hidden="true"
-                    />{" "}
-                    {theitems.items[levelNumber].text}
-                  </Disapear>
-                </p>
-                <div>
-                  <p>
-                    Monthly Score:{" "}
-                    <span
+                    <h1
                       style={{
-                        fontWeight: "600",
+                        fontWeight: 600,
+                        margin: 0,
+                        padding: "5px",
+                        background: theitems.items[levelNumber].color,
+                        color: theitems.items[levelNumber].textcolor,
                       }}
                     >
-                      {item.monthlyScore}
-                    </span>
-                  </p>
-                  <p>
-                    Total Score:{" "}
-                    <span
-                      style={{
-                        fontWeight: "600",
-                      }}
-                    >
-                      {item.totalScore}
-                    </span>
-                  </p>
-                </div>
-              </RouteDiv>
+                      #{index + 1} | {item.name}
+                    </h1>
+                  </div>
+                  <div>
+                    <p>
+                      Monthly Score:{" "}
+                      <span
+                        style={{
+                          fontWeight: "600",
+                        }}
+                      >
+                        {item.monthlyScore}
+                      </span>
+                    </p>
+                    <p>
+                      Total Score:{" "}
+                      <span
+                        style={{
+                          fontWeight: "600",
+                        }}
+                      >
+                        {item.totalScore}
+                      </span>
+                    </p>
+                  </div>
+                </RouteDiv>
+              </>
             );
           })}
 
@@ -154,110 +158,115 @@ export default function StudentsRanking({ headers }) {
                 ? 8
                 : 0;
             return (
-              <RouteDiv
-                style={{
-                  padding: "0.5rem 1rem",
-                  marginBottom: "5px",
-                  display: index < 5 && item.monthlyScore > 0 ? "flex" : "none",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  borderRadius: "0rem 3rem",
-                  background: theitems.items[levelNumber].color,
-                  border: `groove 5px ${theitems.items[levelNumber].color}`,
-                  color: theitems.items[levelNumber].textcolor,
-                }}
-              >
-                <div
+              <ul>
+                <AnimatedLi
+                  key={index}
+                  index={index}
                   style={{
-                    display: "grid",
-                    justifyContent: "space-evenly",
-                    alignItems: "center",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontWeight: 600,
-                      fontFamily: "Athiti",
-                      margin: 0,
-                      padding: "5px",
-                      fontSize: "1.1rem",
-                      background: theitems.items[levelNumber].color,
-                      color: theitems.items[levelNumber].textcolor,
-                    }}
-                  >
-                    #{index + 1} | {item.name}
-                  </p>
-                  <img
-                    style={{
-                      width: "5rem",
-                      height: "5rem",
-                      objectFit: "cover",
-                      border: "solid 0.2rem #555",
-                      margin: "0.9rem",
-                      borderRadius: "50%",
-                      border: `groove 5px ${theitems.items[levelNumber].color}`,
-                    }}
-                    src={item.picture}
-                  />
-                </div>
-                <div
-                  style={{
-                    fontSize: "1rem",
+                    display:
+                      index < 5 && item.monthlyScore > 0 ? "flex" : "none",
+                    background: theitems.items[levelNumber].color,
+                    border: `solid 2px ${theitems.items[levelNumber].textcolor}`,
                     color: theitems.items[levelNumber].textcolor,
                   }}
                 >
-                  <h2>
-                    <i
-                      className={theitems.items[levelNumber].icon}
-                      aria-hidden="true"
-                    />{" "}
-                    {theitems.items[levelNumber].text}
-                  </h2>
-
-                  <p>
-                    Monthly Score:{" "}
-                    <span
-                      style={{
-                        fontFamily: "Athiti",
-                        fontWeight: "600",
-                      }}
-                    >
-                      {item.monthlyScore}
-                    </span>
-                  </p>
-                  <p>
-                    Total Score:{" "}
-                    <span
-                      style={{
-                        fontFamily: "Athiti",
-                        fontWeight: "600",
-                      }}
-                    >
-                      {item.totalScore}
-                    </span>
-                  </p>
-                  <Tooltip
-                    key={index}
-                    title="A pontuação mensal mínima para concorrer é 3000."
+                  <ImgResponsive0
+                    src={theItems[levelNumber].image2}
+                    alt="level"
+                  />
+                  <div
+                    style={{
+                      display: "grid",
+                      justifyContent: "space-evenly",
+                      alignItems: "center",
+                    }}
                   >
-                    <div
+                    <p
                       style={{
-                        backgroundColor:
-                          item.monthlyScore >= 3000 ? "green" : "orange",
-                        color: "white",
-                        padding: "0.5rem",
-                        textAlign: "center",
-                        marginTop: "5px",
-                        fontSize: "0.8rem",
+                        fontWeight: 600,
+                        fontFamily: "Athiti",
+                        margin: 0,
+                        padding: "5px",
+                        fontSize: "1.1rem",
+                        background: theitems.items[levelNumber].color,
+                        color: theitems.items[levelNumber].textcolor,
                       }}
                     >
-                      {item.monthlyScore >= 3000
-                        ? "Running for prize!"
-                        : "Not running for prize yet!"}
-                    </div>
-                  </Tooltip>
-                </div>
-              </RouteDiv>
+                      #{index + 1} | {item.name}
+                    </p>
+                    <img
+                      style={{
+                        width: "5rem",
+                        height: "5rem",
+                        objectFit: "cover",
+                        border: "solid 0.2rem #555",
+                        margin: "0.9rem",
+                        borderRadius: "50%",
+                        border: `solid 2px ${theitems.items[levelNumber].textcolor}`,
+                      }}
+                      src={item.picture}
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      fontSize: "1rem",
+                      color: theitems.items[levelNumber].textcolor,
+                    }}
+                  >
+                    <h2>
+                      <i
+                        className={theitems.items[levelNumber].icon}
+                        aria-hidden="true"
+                      />{" "}
+                      {theitems.items[levelNumber].text}
+                    </h2>
+
+                    <p>
+                      Monthly Score:{" "}
+                      <span
+                        style={{
+                          fontFamily: "Athiti",
+                          fontWeight: "600",
+                        }}
+                      >
+                        {item.monthlyScore}
+                      </span>
+                    </p>
+                    <p>
+                      Total Score:{" "}
+                      <span
+                        style={{
+                          fontFamily: "Athiti",
+                          fontWeight: "600",
+                        }}
+                      >
+                        {item.totalScore}
+                      </span>
+                    </p>
+                    <Tooltip
+                      key={index}
+                      title="A pontuação mensal mínima para concorrer é 3000."
+                    >
+                      <div
+                        style={{
+                          backgroundColor:
+                            item.monthlyScore >= 3000 ? "green" : "orange",
+                          color: "white",
+                          padding: "0.5rem",
+                          textAlign: "center",
+                          marginTop: "5px",
+                          fontSize: "0.8rem",
+                        }}
+                      >
+                        {item.monthlyScore >= 3000
+                          ? "Running for prize!"
+                          : "Not running for prize yet!"}
+                      </div>
+                    </Tooltip>
+                  </div>
+                </AnimatedLi>
+              </ul>
             );
           })}
         </div>

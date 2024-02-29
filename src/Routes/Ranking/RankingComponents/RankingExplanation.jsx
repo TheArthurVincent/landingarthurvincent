@@ -6,6 +6,7 @@ import {
   ImgResponsive2,
   getVideoEmbedUrl,
 } from "../../../Resources/UniversalComponents";
+import WarningText from "../../../Resources/Warning";
 
 export default function RankingExplanation() {
   const h3 = {
@@ -24,6 +25,7 @@ export default function RankingExplanation() {
   return (
     <>
       <h3 style={h3}>Como pontuar</h3>
+
       <div>
         <ImgResponsive2
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/classscore.png?updatedAt=1709216354806"
@@ -41,12 +43,16 @@ export default function RankingExplanation() {
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/othersscore.png?updatedAt=1709216354890"
           alt="others"
         />
+          <WarningText
+          text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`}
+        />
       </div>
       <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
         <h3 style={h3}>Passando de Nível</h3>
         <IFrameVideoInstructions
           src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
         />
+      
         <RankingList />
       </div>
     </>
