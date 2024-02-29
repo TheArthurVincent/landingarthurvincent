@@ -72,7 +72,6 @@ export default function StudentsRanking({ headers }) {
               <RouteDiv
                 style={{
                   padding: "0.5rem 1rem",
-                  fontFamily: "Athiti",
                   margin: "1rem 0",
                   display: item.id === user.id ? "flex" : "none",
                   justifyContent: "space-between",
@@ -93,7 +92,6 @@ export default function StudentsRanking({ headers }) {
                       fontWeight: 600,
                       margin: 0,
                       padding: "5px",
-                      fontSize: "1.1rem",
                       background: theitems.items[levelNumber].color,
                       color: theitems.items[levelNumber].textcolor,
                     }}
@@ -103,7 +101,6 @@ export default function StudentsRanking({ headers }) {
                 </div>
                 <p>
                   <Disapear>
-                    {" "}
                     <i
                       className={theitems.items[levelNumber].icon}
                       aria-hidden="true"
@@ -180,6 +177,7 @@ export default function StudentsRanking({ headers }) {
                   <p
                     style={{
                       fontWeight: 600,
+                      fontFamily: "Athiti",
                       margin: 0,
                       padding: "5px",
                       fontSize: "1.1rem",

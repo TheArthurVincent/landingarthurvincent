@@ -48,7 +48,6 @@ export const DivHover = styled.span`
   &:hover {
     background-color: ${primaryColor()};
     color: ${textPrimaryColorContrast()};
-    border-bottom: none;
     border-radius: 0.5rem;
     transition: 0.2s;
   }
@@ -195,11 +194,23 @@ export function InputFieldNotRequired({
 }
 
 export const Disapear = styled.span`
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `;
 
+export const ImgResponsive = styled.img`
+  max-width: 20rem;
+  @media (max-width: 600px) {
+    max-width: 7rem;
+  }
+`;
+export const ImgResponsive2 = styled.img`
+  max-width: 30rem;
+  @media (max-width: 600px) {
+    max-width: 20rem;
+  }
+`;
 export const ButtonDisapear = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};
@@ -322,8 +333,16 @@ export const IFrameVideoInstructions = styled.iframe`
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-  min-width: 430px;
-  min-height: 230px;
+  min-width: 600px;
+  min-height: 350px;
+  @media (max-width: 740px) {
+    min-width: 500px;
+    min-height: 250px;
+  }
+  @media (max-width: 500px) {
+    min-width: 300px;
+    min-height: 170px;
+  }
 `;
 export const SpanCourseResponsive = styled.span`
   @media (max-width: 500px) {

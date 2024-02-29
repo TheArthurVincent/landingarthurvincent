@@ -1,5 +1,6 @@
 import React from "react";
 import { levels } from "./RankingLevelsList";
+import { ImgResponsive } from "../../../Resources/UniversalComponents";
 export default function RankingList() {
   const theItems = levels();
 
@@ -29,10 +30,9 @@ export default function RankingList() {
                 gap: "2rem",
               }}
             >
-              <img
+              <ImgResponsive
                 src={theItems[levelNumber].image2}
                 alt={theItems[levelNumber].text}
-                style={{ maxWidth: "20rem" }}
               />
 
               <span
@@ -44,13 +44,13 @@ export default function RankingList() {
                   fontSize: "1.1rem",
                 }}
               >
-                <h2 style={{ fontSize: "1.5rem" }}>
+                <p style={{ fontSize: "1.2rem" }}>
                   <i
                     className={theItems[levelNumber].icon}
                     aria-hidden="true"
                   />{" "}
                   Level {index + 1} | {theItems[levelNumber].text}
-                </h2>
+                </p>
                 <p>Total Score: {item.totalScore}</p>
 
                 <p>

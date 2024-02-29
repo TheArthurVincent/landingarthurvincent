@@ -67,7 +67,7 @@ export function NextLiveClasses({ headers }) {
 
   return (
     <NextLive style={{ margin: "0 auto" }}>
-      <HOne>{UniversalTexts.groupClasses}</HOne>
+      <HOne>{UniversalTexts.nextLiveClass}</HOne>
       <OverFlow>
         {loading ? (
           <CircularProgress />

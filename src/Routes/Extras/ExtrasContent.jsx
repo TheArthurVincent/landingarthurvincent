@@ -24,7 +24,7 @@ export const contentExtras = [
     ),
   },
   {
-    instruction: "Aba Minhas aulas e Aulas ao vivo",
+    instruction: "Aba Minhas aulas e Aulas em grupo",
     url: "https://vimeo.com/908255425?share=copy",
     tags: [
       "estudar",
@@ -65,9 +65,9 @@ export const contentExtras = [
           </li>
         </ul>
 
-        <h2>Aulas ao vivo:</h2>
+        <h2>Aulas em grupo:</h2>
         <ul>
-          <li>Encontre todas as aulas ao vivo.</li>
+          <li>Encontre todas as Aulas em grupo.</li>
           <li>Pesquise por tema.</li>
           <li>
             <Link to="https://portal.arthurvincent.com.br/live-classes">
@@ -103,7 +103,7 @@ export const contentExtras = [
           <li>
             Participar de aulas particulares, seja 1 ou 2 vezes por semana.
           </li>
-          <li>Participar de aulas ao vivo, também 1 ou 2 vezes por semana.</li>
+          <li>Participar de Aulas em grupo, também 1 ou 2 vezes por semana.</li>
           <li>Realizar homeworks particulares e ao vivo.</li>
         </ul>
 

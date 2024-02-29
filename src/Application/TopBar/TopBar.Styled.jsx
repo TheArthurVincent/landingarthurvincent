@@ -26,7 +26,7 @@ export const TopBarNavigation = styled.div`
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
-  @media (max-width: 1030px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -66,7 +66,7 @@ export const LinkItem = styled.li`
 
 export const LogoStyle = styled.div`
   display: block;
-  @media (max-width: 1030px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -80,7 +80,7 @@ export const Hamburguer = styled.div`
   &:hover {
     color: ${textSecondaryColorContrast()};
   }
-  @media (max-width: 1030px) {
+  @media (max-width: 1200px) {
     display: block;
   }
 `;

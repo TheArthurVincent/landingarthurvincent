@@ -3,7 +3,13 @@ import theitems from "../../Ranking/RankingComponents/ranking.json";
 import { backDomain } from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
 import axios from "axios";
-import { NewLevelCardComponent } from "../../../Resources/Components/RouteBox";
+import {
+  DivCardLevel,
+  LevelCardLevel,
+  LevelCardPhotoLevel,
+  NewLevelCardComponent,
+  TextLevelCard,
+} from "../../../Resources/Components/RouteBox";
 import blue from "../../../../public/assets/blue.png";
 import black from "../../../../public/assets/black.png";
 import orange from "../../../../public/assets/orange.png";
@@ -95,25 +101,8 @@ export function LevelCard({ headers, _StudentId, picture }) {
         } `,
       }}
     >
-      <div
-        style={{
-          position: "relative",
-          width: "7rem",
-          height: "7rem",
-          margin: "auto",
-        }}
-      >
-        <img
-          style={{
-            width: "12rem",
-            height: "12rem",
-            objectFit: "cover",
-            top: "50%",
-            position: "absolute",
-            left: "50%",
-            zIndex: 3,
-            transform: "translate(-50%, -40%)",
-          }}
+      <DivCardLevel>
+        <LevelCardLevel
           src={
             totalScore >= 10000 && totalScore < 20000
               ? yellow
@@ -133,39 +122,15 @@ export function LevelCard({ headers, _StudentId, picture }) {
               ? supreme
               : white
           }
-          alt="Yellow Image"
+          alt="card"
         />
-        <img
-          style={{
-            width: "7rem",
-            height: "7rem",
-            borderRadius: "50%",
-            objectFit: "cover",
-            position: "absolute",
-            top: "17%",
-            left: "0%",
-          }}
-          src={picture}
-          alt="Profile Picture"
-        />
-      </div>
-      <div
-        style={{
-          top: "30%",
-          left: "0%",
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            alignItems: "center",
-          }}
-        >
+        <LevelCardPhotoLevel src={picture} alt="Profile Picture" />
+      </DivCardLevel>
+      <TextLevelCard>
+        <div>
           <i
             style={{
-              fontSize: "1.8rem",
-              marginBottom: "5px",
+              fontSize: "1.5rem",
             }}
             className={items[level].icon}
             aria-hidden="true"
@@ -174,7 +139,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             style={{
               marginBottom: "1rem",
               display: "flex",
-              gap: "1rem",
+              gap: "10px",
               alignItems: "center",
               marginTop: "0.5rem",
             }}
@@ -196,7 +161,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             </div>
           </div>
         </div>
-      </div>
+      </TextLevelCard>
     </NewLevelCardComponent>
   );
 }
