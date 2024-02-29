@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  AnimatedLi,
-  RouteDiv,
-} from "../../../Resources/Components/RouteBox";
+import { AnimatedLi, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
   backDomain,
@@ -26,7 +23,6 @@ export default function StudentsRanking({ headers }) {
 
   const fetchStudents = async () => {
     setLoading(true);
-
     try {
       const response = await axios.get(`${backDomain}/api/v1/scoresranking/`, {
         headers,
@@ -39,7 +35,6 @@ export default function StudentsRanking({ headers }) {
   };
   useEffect(() => {
     fetchStudents(theItems);
-    console.log();
   }, []);
 
   return (

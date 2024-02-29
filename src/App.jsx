@@ -14,6 +14,7 @@ import { Adm } from "./Routes/Adm/Adm";
 import Ranking from "./Routes/Ranking/Ranking";
 import EnglishActivities from "./Routes/EnglishActivities/EnglishActivities";
 import NotFound from "./Routes/NotFound/NotFound";
+import theitems from "../src/Routes/Ranking/RankingComponents/ranking.json";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -26,16 +27,45 @@ const headers = {
 
 function App() {
   const [admin, setAdmin] = useState(false);
+  const [id, setId] = useState("");
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
       const { permissions } = JSON.parse(user);
+      const { totalScore } = JSON.parse(user);
+      setScore(totalScore);
       setAdmin(permissions === "superadmin" ? true : false);
     } else {
       return;
     }
   }, []);
+
+  useEffect(() => {
+    const levelNumber =
+      score >= 10000 && score < 20000
+        ? 1
+        : score >= 20000 && score < 35000
+        ? 2
+        : score >= 35000 && score < 50000
+        ? 3
+        : score >= 50000 && score < 65000
+        ? 4
+        : score >= 65000 && score < 80000
+        ? 5
+        : score >= 80000 && score < 100000
+        ? 6
+        : score >= 100000 && score < 2000000
+        ? 7
+        : score >= 2000000
+        ? 8
+        : 0;
+    console.log(theitems.items[levelNumber].color);
+    setTimeout(() => {
+      document.body.style.backgroundColor = theitems.items[levelNumber].color;
+    }, 50);
+  }, [score]);
 
   const routes = [
     {
