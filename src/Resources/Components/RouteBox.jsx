@@ -247,7 +247,9 @@ export const LevelCardLevel = styled.img`
   left: 50%;
   z-index: 3;
   transform: translate(-50%, -40%);
-  animation: ${spinAnimation} 0.8s linear forwards;
+  // animation: ${spinAnimation} 0.8s linear forwards;
+  animation: ${spinAnimation} 1s ease-in-out forwards;
+
 
   @media (max-width: 900px) {
     top: 36%;

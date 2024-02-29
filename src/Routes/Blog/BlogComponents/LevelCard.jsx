@@ -65,7 +65,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
           ? 9
           : 0
       );
-      setShowCard("block")
+      setShowCard("block");
     } catch (error) {
       alert(error);
       console.error(error);
@@ -150,6 +150,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             <i
               onClick={() => seeScore(_StudentId)}
               style={{
+                display: showCard,
                 cursor: "pointer",
                 color: "#fff",
                 fontSize: "0.8rem",
