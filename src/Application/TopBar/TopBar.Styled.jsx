@@ -4,13 +4,12 @@ import {
   textSecondaryColorContrast,
   transparentBlack,
   primaryColor,
-  darkGreyColor,
-  lightGreyColor,
+  alwaysWhite,
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
   top: 0;
-  background-color: ${lightGreyColor()};
+  background-color: ${alwaysWhite()};
   justify-content: space-evenly;
   align-items: center;
   z-index: 6;

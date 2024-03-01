@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import {
   alwaysBlack,
   alwaysWhite,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -286,12 +287,10 @@ export function FindStudent({ uploadStatus, headers }) {
                   display: "flex",
                   gap: "1rem",
                   padding: "0.2rem 0.5rem",
-                  border: "1px solid",
                   justifyContent: "space-between",
                   alignItems: "center",
                   marginBottom: "1rem",
-                  backgroundColor: primaryColor(),
-                  color: textPrimaryColorContrast(),
+                  backgroundColor: lightGreyColor(),
                 }}
               >
                 <img

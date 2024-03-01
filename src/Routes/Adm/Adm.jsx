@@ -119,7 +119,6 @@ export function Adm({ headers }) {
                 );
               })}
             </TabList>
-            <BackToHomePage />
           </Box>
           {componentsToRender.map((component, index) => {
             return (

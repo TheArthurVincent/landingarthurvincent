@@ -33,7 +33,7 @@ export const All = styled.div`
 
 export const SpanHover = styled.span`
   padding-left: 10px;
-  border-left: solid ${lightGreyColor()} 2px;
+  border-left: solid ${alwaysWhite()} 2px;
   &:hover {
     color: ${secondaryColor()};
     border-left: solid ${secondaryColor()} 2px;
@@ -52,9 +52,8 @@ export const FormFlex = styled.form`
 export const FormGrid = styled.form`
   display: grid;
   gap: 1rem;
-  grid-template-columns:
-    1fr 1fr
-    @media (max-width: 500px) {
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 500px) {
     grid-template-columns: 1fr;
   }
 `;

@@ -1,9 +1,14 @@
 import React from "react";
 import { LogoSVG } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "../TopBar/TopBar.Styled";
-import { alwaysBlack, alwaysWhite, primaryColor, secondaryColor } from "../../Styles/Styles";
+import {
+  alwaysBlack,
+  alwaysWhite,
+  darkGreyColor,
+  mediumGreyColor,
+} from "../../Styles/Styles";
 export default function Footer() {
-  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.3);
+  const myLogo = LogoSVG(darkGreyColor(), mediumGreyColor(), 1.3);
 
   return (
     <footer
@@ -16,17 +21,12 @@ export default function Footer() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
-        width: "100vw",
-        marginTop:"1rem",
-        padding:"0.5rem",
+        marginTop: "1rem",
+        padding: "0.5rem",
       }}
     >
       <LogoStyle>{myLogo}</LogoStyle>
-      <span
-        style={{
-          marginBottom: "1rem",
-        }}
-      >
+      <span>
         This platform is powered by ARVIN ENGLISH SCHOOL © Some rights reserved{" "}
         <br />
         Arthur Vincent
