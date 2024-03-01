@@ -40,6 +40,32 @@ export const SpanHover = styled.span`
     // transition: 0.2s;
   }
 `;
+export const FormFlex = styled.form`
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-around;
+  gap: 2rem;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+export const FormGrid = styled.form`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns:
+    1fr 1fr
+    @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+`;
+export const DivFlex = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
 
 export const DivHover = styled.span`
   margin: 0;
@@ -398,7 +424,7 @@ const fadeIn = keyframes`
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transfor: translateX(0);
   }
 `;
 

@@ -36,7 +36,6 @@ export function FindStudent({ uploadStatus, headers }) {
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [ID, setID] = useState("");
   const [value, setValue] = useState("0");
-  const [classes, setClasses] = useState([]);
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalScore, setTotalScore] = useState(0);
@@ -198,19 +197,6 @@ export function FindStudent({ uploadStatus, headers }) {
     }
   };
 
-  const seeAllClasses = async (id) => {
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/tutoring/${id}`, {
-        headers,
-      });
-
-      setClasses(response.data.formattedTutoringFromParticularStudent);
-    } catch (error) {
-      alert("Erro ao listar aulas do mês");
-      window.location.reload();
-    }
-  };
-
   const [plusScore, setPlusScore] = useState(0);
 
   const changePlusScore = (score) => {
@@ -304,7 +290,8 @@ export function FindStudent({ uploadStatus, headers }) {
                   justifyContent: "space-between",
                   alignItems: "center",
                   marginBottom: "1rem",
-                  minWidth: "26rem",
+                  backgroundColor: primaryColor(),
+                  color: textPrimaryColorContrast(),
                 }}
               >
                 <img
@@ -511,7 +498,6 @@ export function FindStudent({ uploadStatus, headers }) {
                 <Tab label="Dados gerais" value="1" />
                 <Tab label="Permissões" value="2" />
                 <Tab label="Senha" value="3" />
-                <Tab label="Aulas" value="4" />
               </TabList>
             </Box>
             <TabPanel value="0">
@@ -921,20 +907,6 @@ export function FindStudent({ uploadStatus, headers }) {
                   </Button>
                 </div>
               </div>
-            </TabPanel>
-            <TabPanel value="4">
-              <button onClick={() => seeAllClasses(ID)}>ver aulas</button>
-              {classes.map((item, index) => (
-                <div key={index}>
-                  <p>{item.videoUrl}</p>
-                  <p>{item.title}</p>
-                  <p>{item.date}</p>
-                  <p>{item.comments}</p>
-                  <Link to={item.attachments} style={linkReset} target="_blank">
-                    {UniversalTexts.attachments}
-                  </Link>
-                </div>
-              ))}
             </TabPanel>
           </TabContext>
         </div>

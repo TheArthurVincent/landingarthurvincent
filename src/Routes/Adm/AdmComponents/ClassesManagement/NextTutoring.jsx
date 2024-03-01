@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Button,
+  DivFlex,
+  FormFlex,
   backDomain,
   sendEmailTemplateLinkPosted,
 } from "../../../../Resources/UniversalComponents";
@@ -112,13 +114,7 @@ export function NextTutoring({ headers }) {
         }}
         onSubmit={handleSubmit}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            gap: "2rem",
-          }}
-        >
+        <FormFlex>
           <select
             style={{
               minWidth: "4.5rem",
@@ -180,13 +176,8 @@ export function NextTutoring({ headers }) {
             type="time"
             required
           />
-        </div>
-        <div
-          style={{
-            alignItems: "center",
-            display: "flex",
-          }}
-        >
+        </FormFlex>
+        <DivFlex>
           <span style={{ color: alwaysBlack() }}>
             Aula de {formState.studentName} no dia {formState.newDate} às{" "}
             {formState.newTime}
@@ -215,7 +206,7 @@ export function NextTutoring({ headers }) {
               Selecione um aluno
             </div>
           )}
-        </div>
+        </DivFlex>
       </form>
     </RouteDiv>
   );

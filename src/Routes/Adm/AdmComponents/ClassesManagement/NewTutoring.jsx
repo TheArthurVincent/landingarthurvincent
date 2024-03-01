@@ -3,6 +3,7 @@ import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import {
   Button,
+  FormGrid,
   backDomain,
   sendEmailTemplateVideoPosted,
 } from "../../../../Resources/UniversalComponents";
@@ -123,13 +124,7 @@ export function NewTutoring({ headers }) {
             );
           })}
         </select>
-        <div
-          style={{
-            display: "grid",
-            gap: "1rem",
-            gridTemplateColumns: "1fr 1fr",
-          }}
-        >
+        <FormGrid>
           <input
             style={{
               alignItems: "center",
@@ -191,7 +186,7 @@ export function NewTutoring({ headers }) {
             }}
             required
           />
-        </div>
+        </FormGrid>
         <textarea
           style={{
             alignItems: "center",

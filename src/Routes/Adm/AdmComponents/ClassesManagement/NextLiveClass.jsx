@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
-import { Button, backDomain } from "../../../../Resources/UniversalComponents";
+import { Button, FormFlex, backDomain } from "../../../../Resources/UniversalComponents";
 import { CircularProgress, Input } from "@mui/material";
 import { alwaysBlack } from "../../../../Styles/Styles";
 export function NextLiveClass({ headers }) {
@@ -41,17 +41,7 @@ export function NextLiveClass({ headers }) {
       {loading ? (
         <CircularProgress />
       ) : (
-        <form
-          style={{
-            display: "grid",
-            gap: "2rem",
-            padding: "1rem",
-            maxWidth: "700px",
-            margin: "2rem auto",
-            display: "flex",
-            justifyContent: "space-around",
-            gap: "2rem",
-          }}
+        <FormFlex
           onSubmit={handleSubmit}
         >
           <Input
@@ -93,7 +83,7 @@ export function NextLiveClass({ headers }) {
             required
           />
           <Button type="submit">Marcar</Button>
-        </form>
+        </FormFlex>
       )}
     </RouteDiv>
   );
