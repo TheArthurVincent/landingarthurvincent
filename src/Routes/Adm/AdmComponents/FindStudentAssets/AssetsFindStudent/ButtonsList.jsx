@@ -1,17 +1,24 @@
 export const buttons = [
   {
     color: "green",
-    score: 550,
+    score: 650,
     description: "Revisou o Anki 6 dias em 7",
     category: "Anki",
     text: "Anki 6/7",
   },
   {
     color: "green",
-    score: 215,
+    score: 255,
     description: "Revisou o Anki 3 dias em 7",
     category: "Anki",
     text: "Anki 3/7",
+  },
+  {
+    color: "green",
+    score: 120,
+    description: "Chegou com o Anki totalmente revisado",
+    category: "Anki",
+    text: "Chegou com o Anki totalmente revisado",
   },
   {
     color: "green",
@@ -29,31 +36,10 @@ export const buttons = [
   },
   {
     color: "green",
-    score: 35,
-    description: "Fez Stories fazendo o Anki",
-    category: "Anki",
-    text: "Fez Stories fazendo o Anki",
-  },
-  {
-    color: "green",
-    score: 120,
-    description: "Chegou com o Anki totalmente revisado",
-    category: "Anki",
-    text: "Chegou com o Anki totalmente revisado",
-  },
-  {
-    color: "green",
-    score: 575,
+    score: 625,
     description: "Fez homework",
     category: "Homework",
     text: "Fez homework",
-  },
-  {
-    color: "green",
-    score: 85,
-    description: "Recomendação fechada",
-    category: "Others",
-    text: "Recomendação fechada",
   },
   {
     color: "green",
@@ -70,10 +56,24 @@ export const buttons = [
     text: "Live Class Homework",
   },
   {
+    color: "green",
+    score: 35,
+    description: "Fez Stories estudando",
+    category: "Others",
+    text: "Fez Stories estudando",
+  },
+  {
+    color: "green",
+    score: 85,
+    description: "Recomendação fechada",
+    category: "Others",
+    text: "Recomendação fechada",
+  },
+  {
     color: "red",
     score: -75,
     description: "Não apareceu para a aula e não avisou",
-    category: "Awol",
+    category: "Others",
     text: "AWOL",
   },
 ];

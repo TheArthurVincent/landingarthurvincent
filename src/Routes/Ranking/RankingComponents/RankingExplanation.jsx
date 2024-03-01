@@ -28,11 +28,11 @@ export default function RankingExplanation() {
 
       <div>
         <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/classscore.png?updatedAt=1709216354806"
+          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(1).png?updatedAt=1709316937391"
           alt="class"
         />
         <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/ankiscore.png?updatedAt=1709216354853"
+          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(2).png?updatedAt=1709317439924"
           alt="anki"
         />
         <ImgResponsive2
@@ -43,16 +43,52 @@ export default function RankingExplanation() {
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/othersscore.png?updatedAt=1709216354890"
           alt="others"
         />
-          <WarningText
+        <WarningText
           text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`}
         />
       </div>
+      <h3 style={h3}>Qualificação mensal</h3>
+      <ul>
+        <li
+          style={{
+            padding: "0.5rem",
+            background: "linear-gradient(to right, #333 0%, #FFD51E 50%)",
+            marginBottom: "5px",
+            color: "#fff",
+          }}
+        >
+          1st place = 15% discount/cashback (no mês seguinte à qualificação){" "}
+          <strong>ou</strong> 2 aulas extras (particulares);
+        </li>
+        <li
+          style={{
+            padding: "0.5rem",
+            background: "linear-gradient(to right, #333 0%, #B2B2B2 50%)",
+            marginBottom: "5px",
+            color: "#fff",
+          }}
+        >
+          2nd place = 10% discount/cashback (no mês seguinte à qualificação){" "}
+          <strong>ou</strong> 1 aula extra (particular);
+        </li>
+        <li
+          style={{
+            padding: "0.5rem",
+            background: "linear-gradient(to right, #333 0%, #693D2B 50%)",
+            marginBottom: "5px",
+            color: "#fff",
+          }}
+        >
+          3rd place = 5% discount/cashback (no mês seguinte à qualificação){" "}
+          <strong>ou</strong> 1 aula extra (particular);
+        </li>
+      </ul>
       <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
         <h3 style={h3}>Passando de Nível</h3>
         <IFrameVideoInstructions
           src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
         />
-      
+
         <RankingList />
       </div>
     </>
@@ -141,25 +177,6 @@ export default function RankingExplanation() {
     //     </li>
     //   </ul>
 
-    //   <h3 style={h3}>Quem ganha o cashback?</h3>
-    //   <p>Qualificação mensal:</p>
-    //   <Warning
-    //     text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`}
-    //   />
-    //   <ul>
-    //     <li>
-    //       1st place = 15% discount/cashback (no mês seguinte à qualificação){" "}
-    //       <strong>ou</strong> 2 aulas extras (particulares);
-    //     </li>
-    //     <li>
-    //       2nd place = 10% discount/cashback (no mês seguinte à qualificação){" "}
-    //       <strong>ou</strong> 1 aula extra (particular);
-    //     </li>
-    //     <li>
-    //       3rd place = 5% discount/cashback (no mês seguinte à qualificação){" "}
-    //       <strong>ou</strong> 1 aula extra (particular);
-    //     </li>
-    //   </ul>
     //   <h3 style={h3}>Passando de Nível</h3>
     //   <IFrameVideoInstructions
     //     style={{
