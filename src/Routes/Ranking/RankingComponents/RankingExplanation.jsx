@@ -32,7 +32,7 @@ export default function RankingExplanation() {
           alt="class"
         />
         <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(2).png?updatedAt=1709317439924"
+          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(3).png?updatedAt=1709318003761"
           alt="anki"
         />
         <ImgResponsive2
@@ -51,36 +51,45 @@ export default function RankingExplanation() {
       <ul>
         <li
           style={{
+            fontFamily: "Athiti",
             padding: "0.5rem",
-            background: "linear-gradient(to right, #333 0%, #FFD51E 50%)",
+            borderRadius: "0 1.05rem ",
+            border: "2px groove #FFD51E",
+            background: "linear-gradient(to right, #A68B12 0%, #FFD51E 80%)",
             marginBottom: "5px",
             color: "#fff",
           }}
         >
-          1st place = 15% discount/cashback (no mês seguinte à qualificação){" "}
-          <strong>ou</strong> 2 aulas extras (particulares);
+          <strong> 1st place</strong> = 15% discount/cashback (no mês seguinte à
+          qualificação) <strong>ou</strong> 2 aulas extras (particulares);
         </li>
         <li
           style={{
+            fontFamily: "Athiti",
             padding: "0.5rem",
-            background: "linear-gradient(to right, #333 0%, #B2B2B2 50%)",
+            borderRadius: "0 1.05rem ",
+            border: "2px groove #B2B2B2",
+            background: "linear-gradient(to right, #555 0%, #999 80%)",
             marginBottom: "5px",
             color: "#fff",
           }}
         >
-          2nd place = 10% discount/cashback (no mês seguinte à qualificação){" "}
-          <strong>ou</strong> 1 aula extra (particular);
+          <strong> 2nd place</strong> = 10% discount/cashback (no mês seguinte à
+          qualificação) <strong>ou</strong> 1 aula extra (particular);
         </li>
         <li
           style={{
+            fontFamily: "Athiti",
             padding: "0.5rem",
-            background: "linear-gradient(to right, #333 0%, #693D2B 50%)",
+            borderRadius: "0 1.05rem ",
+            border: "2px groove #693D2B",
+            background: "linear-gradient(to right, #693D2B 0%, #B47755 80%)",
             marginBottom: "5px",
             color: "#fff",
           }}
         >
-          3rd place = 5% discount/cashback (no mês seguinte à qualificação){" "}
-          <strong>ou</strong> 1 aula extra (particular);
+          <strong> 3rd place</strong> = 5% discount/cashback (no mês seguinte à
+          qualificação) <strong>ou</strong> 1 aula extra (particular);
         </li>
       </ul>
       <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
