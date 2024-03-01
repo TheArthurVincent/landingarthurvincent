@@ -5,10 +5,15 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { BackToHomePage } from "../../Resources/UniversalComponents";
+import {
+  BackToHomePage,
+  backDomain,
+} from "../../Resources/UniversalComponents";
 import TopBar from "../../Application/TopBar/TopBar";
 import { alwaysBlack } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
+import { Button } from "@mui/material";
+import axios from "axios";
 
 export function MyProfile({ headers }) {
   const [user, setUser] = useState({});
@@ -16,6 +21,31 @@ export function MyProfile({ headers }) {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
   }, []);
+
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const editStudentPassword = async () => {
+    if (newPassword === confirmPassword) {
+      setNewPassword(newPassword);
+    } else {
+      alert("As senhas são diferentes");
+      return;
+    }
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/studentperspassword/${user.id}`,
+        { newPassword },
+        { headers }
+      );
+      console.log(backDomain, newPassword, headers, user.id);
+      setConfirmPassword("");
+      setNewPassword("");
+      alert("Senha editada com sucesso!");
+    } catch (error) {
+      alert("Erro ao editar senha");
+    }
+  };
 
   const { UniversalTexts } = useUserContext();
   return (
@@ -70,6 +100,60 @@ export function MyProfile({ headers }) {
                 {UniversalTexts.ankiPassword}: {user.ankiPassword}
               </li>
             </ul>
+            <HOne>{UniversalTexts.newPassword}</HOne>
+            <form
+              style={{
+                display: "grid",
+                alignContent: "center",
+                justifyItems: "center",
+              }}
+            >
+              <input
+                value={newPassword}
+                onChange={(event) => setNewPassword(event.target.value)}
+                placeholder="Escolha uma nova senha"
+                type="password"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={confirmPassword}
+                onChange={(event) => setConfirmPassword(event.target.value)}
+                placeholder="Confirme a Senha"
+                type="password"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  gap: "1rem",
+                  marginTop: "2rem",
+                }}
+              >
+                <Button
+                  style={{
+                    color: "#fff",
+                    width: "8rem",
+                    backgroundColor: "#138017",
+                  }}
+                  onClick={() => editStudentPassword()}
+                >
+                  Salvar
+                </Button>
+              </div>
+            </form>
           </RouteDiv>
         </RouteSizeControlBox>
       ) : (
