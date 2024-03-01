@@ -14,7 +14,7 @@ import {
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import { alwaysBlack, primaryColor, secondaryColor } from "../../Styles/Styles";
+import { textPrimaryColorContrast,primaryColor, secondaryColor, lightGreyColor, alwaysWhite } from "../../Styles/Styles";
 import { FormControl, MenuItem, Select } from "@mui/material";
 
 export default function TopBar() {
@@ -76,7 +76,7 @@ export default function TopBar() {
     visible === "flex" ? setVisible("none") : setVisible("flex");
   };
 
-  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.5);
+  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.3);
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
@@ -94,7 +94,8 @@ export default function TopBar() {
         >
           <NavLink
             style={{
-              color: alwaysBlack(),
+              color: textPrimaryColorContrast(),
+
               textDecoration: "none",
             }}
             to="/"
@@ -112,7 +113,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: alwaysBlack(),
+                  color: textPrimaryColorContrast(),
                   display: link.display,
                   textDecoration: "none",
                 }}
@@ -142,7 +143,7 @@ export default function TopBar() {
               <NavLink
                 style={{
                   display: link.display,
-                  color: alwaysBlack(),
+                  color: textPrimaryColorContrast(),
                   textDecoration: "none",
                 }}
                 key={index}
@@ -169,7 +170,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: alwaysBlack(),
+                  color: primaryColor(),
                   textDecoration: "none",
                 }}
                 to={link.endpoint}
@@ -193,7 +194,7 @@ export default function TopBar() {
               <NavLink
                 key={index}
                 style={{
-                  color: alwaysBlack(),
+                  color: primaryColor(),
                   textDecoration: "none",
                 }}
                 to={link.endpoint}

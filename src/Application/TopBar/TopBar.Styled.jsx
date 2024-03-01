@@ -1,16 +1,16 @@
 import { styled } from "styled-components";
 import {
-  textPrimaryColorContrast,
   secondaryColor,
   textSecondaryColorContrast,
-  transparentWhite,
-  alwaysWhite,
   transparentBlack,
+  primaryColor,
+  darkGreyColor,
+  lightGreyColor,
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
   top: 0;
-  background-color: ${alwaysWhite()};
+  background-color: ${lightGreyColor()};
   justify-content: space-evenly;
   align-items: center;
   z-index: 6;
@@ -40,7 +40,7 @@ export const TopBarNavigationBurger = styled.div`
   list-style: none;
   gap: 1rem;
   text-align: left;
-  background-color: ${textPrimaryColorContrast()};
+  background-color: ${primaryColor()};
   padding: 1rem;
   display: none;
 `;
