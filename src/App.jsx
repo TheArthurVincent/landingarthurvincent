@@ -61,7 +61,6 @@ function App() {
         : score >= 2000000
         ? 8
         : 0;
-    console.log(theitems.items[levelNumber].color);
     setTimeout(() => {
       document.body.style.backgroundColor = theitems.items[levelNumber].color;
     }, 50);

@@ -75,7 +75,7 @@ export default function StudentsRanking({ headers }) {
                 ? 8
                 : 0;
             return (
-              <>
+              <div key={index}>
                 <RouteDiv
                   style={{
                     padding: "0.5rem 1rem",
@@ -129,31 +129,31 @@ export default function StudentsRanking({ headers }) {
                     </p>
                   </div>
                 </RouteDiv>
-              </>
+              </div>
             );
           })}
 
-          {students.map((item, index) => {
-            const levelNumber =
-              item.totalScore >= 10000 && item.totalScore < 20000
-                ? 1
-                : item.totalScore >= 20000 && item.totalScore < 35000
-                ? 2
-                : item.totalScore >= 35000 && item.totalScore < 50000
-                ? 3
-                : item.totalScore >= 50000 && item.totalScore < 65000
-                ? 4
-                : item.totalScore >= 65000 && item.totalScore < 80000
-                ? 5
-                : item.totalScore >= 80000 && item.totalScore < 100000
-                ? 6
-                : item.totalScore >= 100000 && item.totalScore < 2000000
-                ? 7
-                : item.totalScore >= 2000000
-                ? 8
-                : 0;
-            return (
-              <ul>
+          <ul>
+            {students.map((item, index) => {
+              const levelNumber =
+                item.totalScore >= 10000 && item.totalScore < 20000
+                  ? 1
+                  : item.totalScore >= 20000 && item.totalScore < 35000
+                  ? 2
+                  : item.totalScore >= 35000 && item.totalScore < 50000
+                  ? 3
+                  : item.totalScore >= 50000 && item.totalScore < 65000
+                  ? 4
+                  : item.totalScore >= 65000 && item.totalScore < 80000
+                  ? 5
+                  : item.totalScore >= 80000 && item.totalScore < 100000
+                  ? 6
+                  : item.totalScore >= 100000 && item.totalScore < 2000000
+                  ? 7
+                  : item.totalScore >= 2000000
+                  ? 8
+                  : 0;
+              return (
                 <AnimatedLi
                   key={index}
                   index={index}
@@ -261,9 +261,9 @@ export default function StudentsRanking({ headers }) {
                     </Tooltip>
                   </div>
                 </AnimatedLi>
-              </ul>
-            );
-          })}
+              );
+            })}
+          </ul>
         </div>
       )}
     </div>

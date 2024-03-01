@@ -85,8 +85,8 @@ export default function Ranking({ headers, logged }) {
                   );
                 })}
               </TabList>
-              <BackToHomePage />
             </Box>
+              <BackToHomePage />
             {componentsToRender.map((component, index) => {
               return (
                 <TabPanel
