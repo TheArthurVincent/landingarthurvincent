@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Xp, backDomain } from "../../../../Resources/UniversalComponents";
+import { DivModal, Xp, backDomain } from "../../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
@@ -445,6 +445,7 @@ export function FindStudent({ uploadStatus, headers }) {
         </div>
       )}
       <div
+        onClick={() => handleSeeModal()}
         className="modal"
         style={{
           display: isVisible ? "block" : "none",
@@ -457,19 +458,10 @@ export function FindStudent({ uploadStatus, headers }) {
           left: 0,
         }}
       >
-        <div
+        <DivModal
           className="modal"
           style={{
-            position: "fixed",
             display: isVisible ? "block" : "none",
-            zIndex: 100,
-            backgroundColor: "#fff",
-            padding: "1rem",
-            width: "25rem",
-            height: "32rem",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
           }}
         >
           <Xp onClick={() => handleSeeModal()}>X</Xp>
@@ -909,7 +901,7 @@ export function FindStudent({ uploadStatus, headers }) {
               </div>
             </TabPanel>
           </TabContext>
-        </div>
+        </DivModal>
       </div>
     </RouteDiv>
   );

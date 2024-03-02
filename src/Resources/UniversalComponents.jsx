@@ -431,7 +431,7 @@ export const ImgBlog = styled.img`
   margin-top: 0;
   object-position: center;
   max-height: auto;
-  
+
   @media (max-width: 1350px) {
     width: 100%;
   }
@@ -440,6 +440,22 @@ export const ImgBlog = styled.img`
   }
   @media (max-width: 700px) {
     width: 100%;
+  }
+`;
+export const DivModal = styled.div`
+  position: fixed;
+  z-index: 100;
+  background-color: #fff;
+  padding: 1rem;
+  width: 25rem;
+  height: 32rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media (max-width: 700px) {
+    width: 100%;
+    width: 20rem;
+    height: 32rem;
   }
 `;
 
