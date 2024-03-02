@@ -130,11 +130,14 @@ export function LevelCard({ headers, _StudentId, picture }) {
         <LevelCardPhotoLevel src={picture} alt="Profile Picture" />
       </DivCardLevel>
       <TextLevelCard>
-        <div>
+        <div
+          style={{
+            display: showCard,
+          }}
+        >
           <i
             style={{
               fontSize: "1.5rem",
-              display: showCard,
             }}
             className={items[level].icon}
             aria-hidden="true"
