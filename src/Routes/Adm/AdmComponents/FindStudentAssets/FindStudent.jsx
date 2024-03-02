@@ -37,6 +37,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [loading, setLoading] = useState(true);
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
+  const [disabled, setDisabled] = useState(false);
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -202,6 +203,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [descSpecial, setDescSpecial] = useState("");
 
   const submitPlusScore = async (id, score, description, type) => {
+    setDisabled(true);
     try {
       const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
         headers,
@@ -211,6 +213,7 @@ export function FindStudent({ uploadStatus, headers }) {
       });
 
       updateScoreNow(id);
+      setDisabled(false);
     } catch (error) {
       alert("Erro ao somar pontuação");
     }
@@ -528,6 +531,7 @@ export function FindStudent({ uploadStatus, headers }) {
                     return (
                       <Button
                         key={index}
+                        disabled={disabled}
                         style={{
                           backgroundColor: item.color,
                           color: alwaysWhite(),
