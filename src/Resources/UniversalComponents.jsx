@@ -238,9 +238,9 @@ export const ImgResponsive = styled.img`
   }
 `;
 export const ImgResponsive2 = styled.img`
-  max-width: 30rem;
+  max-width: 25rem;
   @media (max-width: 600px) {
-    max-width: 20rem;
+    max-width: 15rem;
   }
 `;
 export const ButtonDisapear = styled.button`

@@ -24,7 +24,7 @@ export default function RankingExplanation() {
 
   return (
     <>
-      <h3 style={h3}>Propósito</h3>
+      <h3 style={h3}>O Propósito</h3>
       <p>
         Nosso sistema de classificação é uma verdadeira celebração de sua
         dedicação! Cada tarefa realizada, cada meta alcançada e cada passo dado

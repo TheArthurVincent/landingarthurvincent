@@ -29,12 +29,12 @@ export default function Ranking({ headers, logged }) {
       component: <StudentsRanking headers={headers} />,
     },
     {
-      title: "Como funciona o Ranking?",
+      title: "O que é?",
       value: "2",
       component: <RankingExplanation />,
     },
     {
-      title: "Minha timeline",
+      title: "Timeline",
       value: "3",
       component: (
         <RankingTimeline
