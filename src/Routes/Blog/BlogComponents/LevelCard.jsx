@@ -134,6 +134,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
           <i
             style={{
               fontSize: "1.5rem",
+              display: showCard,
             }}
             className={items[level].icon}
             aria-hidden="true"
