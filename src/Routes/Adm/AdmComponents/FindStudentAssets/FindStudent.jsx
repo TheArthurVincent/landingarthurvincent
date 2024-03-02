@@ -216,6 +216,7 @@ export function FindStudent({ uploadStatus, headers }) {
       setDisabled(false);
     } catch (error) {
       alert("Erro ao somar pontuação");
+      setDisabled(false);
     }
   };
 
