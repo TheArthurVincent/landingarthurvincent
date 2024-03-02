@@ -254,7 +254,7 @@ export const AnimatedLi = styled.li`
   justify-content: space-between;
   align-items: center;
   border-radius: 0rem 3rem;
-  animation: ${fadeIn} ${({ index }) => index * 0.8}s forwards;
+  animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;
 `;
 
 

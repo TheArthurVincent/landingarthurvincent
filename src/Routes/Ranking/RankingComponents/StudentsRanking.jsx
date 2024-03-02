@@ -13,12 +13,14 @@ export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
+  const [isAdm, setIsAdm] = useState(false);
 
   const theItems = levels();
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
+    getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
   }, []);
 
   const fetchStudents = async () => {
@@ -158,8 +160,11 @@ export default function StudentsRanking({ headers }) {
                   key={index}
                   index={index}
                   style={{
-                    display:
-                      index < 5 && item.monthlyScore > 0 ? "flex" : "none",
+                    display: isAdm
+                      ? "flex"
+                      : index < 5 && item.monthlyScore > 0
+                      ? "flex"
+                      : "none",
                     background: theitems.items[levelNumber].color,
                     border: `solid 2px ${theitems.items[levelNumber].textcolor}`,
                     color: theitems.items[levelNumber].textcolor,
