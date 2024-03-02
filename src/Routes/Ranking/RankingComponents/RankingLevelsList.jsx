@@ -109,7 +109,7 @@ export const levels = () => {
     },
     {
       level: 9,
-      icon: "fa fa-edit",
+      icon: "fa fa-eercast",
       color: "#789",
       textcolor: "white",
       text: "SUPREME",
@@ -119,7 +119,7 @@ export const levels = () => {
     },
     {
       level: 10,
-      icon: "fa fa-edit",
+      icon: "fa fa-eercast",
       color: "#000",
       textcolor: "black",
       text: "loading",
