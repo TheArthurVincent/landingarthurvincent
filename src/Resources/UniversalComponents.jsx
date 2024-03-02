@@ -45,7 +45,7 @@ export const FormFlex = styled.form`
   padding: 0.5rem;
   justify-content: space-around;
   gap: 2rem;
-  @media (max-width: 500px) {
+  @media (max-width: 750px) {
     flex-direction: column;
   }
 `;
@@ -53,7 +53,7 @@ export const FormGrid = styled.form`
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
-  @media (max-width: 500px) {
+  @media (max-width: 675px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -61,7 +61,7 @@ export const DivFlex = styled.div`
   display: flex;
   justify-content: space-around;
   gap: 2rem;
-  @media (max-width: 500px) {
+  @media (max-width: 750px) {
     flex-direction: column;
   }
 `;
