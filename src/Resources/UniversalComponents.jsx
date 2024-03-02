@@ -427,35 +427,19 @@ const fadeIn = keyframes`
   }
 `;
 
-const AnimatedLi = styled.li`
-  padding: 0.5rem 1rem;
-  margin-bottom: 5px;
-  display: ${({ visible }) => (visible ? "flex" : "none")};
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0rem 3rem;
-  background: ${({ color }) => color};
-  border: solid 2px ${({ textColor }) => textColor};
-  color: ${({ textColor }) => textColor};
-  animation: ${fadeIn} 0.5s ease-in-out;
-`;
 export const ImgBlog = styled.img`
   margin-top: 0;
-  max-width: 600px;
+  object-position: center;
+  max-height: auto;
+  
   @media (max-width: 1350px) {
-    margin-top: 0;
-    width: 700px;
-    height: 400px;
+    width: 100%;
   }
   @media (max-width: 800px) {
-    margin-top: 0;
-    width: 600px;
-    height: 300px;
+    width: 100%;
   }
   @media (max-width: 700px) {
-    margin-top: 0;
-    width: 300px;
-    height: 200px;
+    width: 100%;
   }
 `;
 
