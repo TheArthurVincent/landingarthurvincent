@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { DivModal, Xp, backDomain } from "../../../../Resources/UniversalComponents";
+import {
+  DivModal,
+  Xp,
+  backDomain,
+} from "../../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab, Button, CircularProgress } from "@mui/material";
@@ -445,7 +449,7 @@ export function FindStudent({ uploadStatus, headers }) {
         </div>
       )}
       <div
-        onClick={() => handleSeeModal()}
+       onClick={() => handleSeeModal()}
         className="modal"
         style={{
           display: isVisible ? "block" : "none",
@@ -457,254 +461,365 @@ export function FindStudent({ uploadStatus, headers }) {
           top: 0,
           left: 0,
         }}
+      />
+      <DivModal
+        className="modal"
+        style={{
+          display: isVisible ? "block" : "none",
+        }}
       >
-        <DivModal
-          className="modal"
+        <Xp onClick={() => handleSeeModal()}>X</Xp>
+        <h1
           style={{
-            display: isVisible ? "block" : "none",
+            fontSize: "1.5rem",
+            marginBottom: 0,
+            margin: "1rem 0",
+            color: primaryColor(),
+            padding: "0.5rem",
+            backgroundColor: textPrimaryColorContrast(),
           }}
         >
-          <Xp onClick={() => handleSeeModal()}>X</Xp>
-          <h1
-            style={{
-              fontSize: "1.5rem",
-              marginBottom: 0,
-              margin: "1rem 0",
-              color: primaryColor(),
-              padding: "0.5rem",
-              backgroundColor: textPrimaryColorContrast(),
-            }}
-          >
-            Editar aluno
-          </h1>
-          <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <TabList
-                onChange={handleChangeEdit}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-              >
-                <Tab label="Pontuação" value="0" />
-                <Tab label="Dados gerais" value="1" />
-                <Tab label="Permissões" value="2" />
-                <Tab label="Senha" value="3" />
-              </TabList>
-            </Box>
-            <TabPanel value="0">
+          Editar aluno
+        </h1>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <TabList
+              onChange={handleChangeEdit}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
+            >
+              <Tab label="Pontuação" value="0" />
+              <Tab label="Dados gerais" value="1" />
+              <Tab label="Permissões" value="2" />
+              <Tab label="Senha" value="3" />
+            </TabList>
+          </Box>
+          <TabPanel value="0">
+            <div
+              style={{
+                display: "grid",
+                gap: "0.5rem",
+              }}
+            >
+              <h3>
+                Monthly Score: <strong>{monthlyScore} </strong>{" "}
+              </h3>
+              <h3>
+                Total Score: <strong>{totalScore} </strong>
+              </h3>
+            </div>
+            <div
+              style={{
+                textAlign: "center",
+                display: "grid",
+                gap: "1rem",
+                maxHeight: "15rem",
+                overflow: "auto",
+              }}
+            >
               <div
                 style={{
                   display: "grid",
                   gap: "0.5rem",
                 }}
               >
-                <h3>
-                  Monthly Score: <strong>{monthlyScore} </strong>{" "}
-                </h3>
-                <h3>
-                  Total Score: <strong>{totalScore} </strong>
-                </h3>
-              </div>
-              <div
-                style={{
-                  textAlign: "center",
-                  display: "grid",
-                  gap: "1rem",
-                  maxHeight: "15rem",
-                  overflow: "auto",
-                }}
-              >
-                <div
-                  style={{
-                    display: "grid",
-                    gap: "0.5rem",
-                  }}
-                >
-                  {buttons.map((item, index) => {
-                    return (
-                      <Button
-                        key={index}
-                        disabled={disabled}
-                        style={{
-                          backgroundColor: item.color,
-                          color: alwaysWhite(),
-                        }}
-                        onClick={() =>
-                          submitPlusScore(
-                            ID,
-                            item.score,
-                            item.description,
-                            item.category
-                          )
-                        }
-                      >
-                        {item.text}
-                      </Button>
-                    );
-                  })}
-
-                  <div>
-                    <p>Personalizado</p>
-                    <input
-                      placeholder="Special Score"
-                      onChange={(e) => changePlusScore(e.target.value)}
-                      type="number"
-                    />
-                    <input
-                      placeholder="Description"
-                      onChange={(e) => setDescSpecial(e.target.value)}
-                      type="text"
-                    />
+                {buttons.map((item, index) => {
+                  return (
                     <Button
+                      key={index}
+                      disabled={disabled}
+                      style={{
+                        backgroundColor: item.color,
+                        color: alwaysWhite(),
+                      }}
                       onClick={() =>
-                        submitPlusScore(ID, plusScore, descSpecial, "Others")
+                        submitPlusScore(
+                          ID,
+                          item.score,
+                          item.description,
+                          item.category
+                        )
                       }
                     >
-                      Atualizar
+                      {item.text}
                     </Button>
-                  </div>
+                  );
+                })}
+
+                <div>
+                  <p>Personalizado</p>
+                  <input
+                    placeholder="Special Score"
+                    onChange={(e) => changePlusScore(e.target.value)}
+                    type="number"
+                  />
+                  <input
+                    placeholder="Description"
+                    onChange={(e) => setDescSpecial(e.target.value)}
+                    type="text"
+                  />
+                  <Button
+                    onClick={() =>
+                      submitPlusScore(ID, plusScore, descSpecial, "Others")
+                    }
+                  >
+                    Atualizar
+                  </Button>
                 </div>
               </div>
-            </TabPanel>
-            <TabPanel value="1">
-              <form
+            </div>
+          </TabPanel>
+          <TabPanel value="1">
+            <form
+              style={{
+                display: !seeConfirmDelete ? "block" : "none",
+                maxHeight: "10rem",
+                padding: "5px",
+                overflow: "auto",
+                height: "22rem",
+                backgroundColor: "#eee",
+              }}
+            >
+              <input
+                value={newName}
+                onChange={(event) => setNewName(event.target.value)}
+                id="name"
+                placeholder="Nome"
+                type="text"
                 style={{
-                  display: !seeConfirmDelete ? "block" : "none",
-                  maxHeight: "10rem",
-                  padding: "5px",
-                  overflow: "auto",
-                  height: "22rem",
-                  backgroundColor: "#eee",
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
                 }}
+              />
+              <input
+                value={newLastName}
+                onChange={(event) => setNewLastName(event.target.value)}
+                id="lastname"
+                placeholder="Sobrenome"
+                type="text"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={newUsername}
+                onChange={(event) => setNewUsername(event.target.value)}
+                placeholder="Username"
+                type="text"
+                disabled={true}
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={newPhone}
+                onChange={(event) => setNewPhone(event.target.value)}
+                placeholder="Número de celular"
+                type="number"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={newEmail}
+                onChange={(event) => setNewEmail(event.target.value)}
+                placeholder="E-mail"
+                type="email"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={googleDriveLink}
+                onChange={(event) => setGoogleDriveLink(event.target.value)}
+                placeholder="Link do Google Drive"
+                type="email"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={ankiEmail}
+                onChange={(event) => setAnkiEmail(event.target.value)}
+                placeholder="E-mail do Anki"
+                type="email"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={ankiPassword}
+                onChange={(event) => setAnkiPassword(event.target.value)}
+                placeholder="Senha do Anki"
+                type="email"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+            </form>
+            <div
+              style={{
+                marginTop: "2rem",
+                display: !seeConfirmDelete ? "flex" : "none",
+                justifyContent: "space-evenly",
+                gap: "0.5rem",
+              }}
+            >
+              <Button
+                style={{
+                  color: "#fff",
+                  backgroundColor: "#ba3c3c",
+                }}
+                onClick={() => handleConfirmDelete()}
               >
-                <input
-                  value={newName}
-                  onChange={(event) => setNewName(event.target.value)}
-                  id="name"
-                  placeholder="Nome"
-                  type="text"
+                Excluir
+              </Button>
+              <Button
+                style={{
+                  color: "#fff",
+                  backgroundColor: "#194169",
+                }}
+                onClick={() => handleSeeModal()}
+              >
+                Cancelar
+              </Button>
+              <Button
+                style={{
+                  color: "#fff",
+                  backgroundColor: "#138017",
+                }}
+                onClick={() => editStudent(ID)}
+              >
+                Salvar
+              </Button>
+            </div>
+            <div
+              style={{
+                marginTop: "1rem",
+                display: seeConfirmDelete ? "grid" : "none",
+                justifyContent: "space-evenly",
+                padding: "1rem",
+                backgroundColor: "#dd6e6e",
+                textAlign: "center",
+              }}
+            >
+              <h3>
+                Esta ação não pode ser desfeita! Tem certeza que deseja excluir
+                o(a) aluno(a) <br />
+                <br />
+                <span
                   style={{
+                    backgroundColor: "#111",
+                    color: "#fff",
                     padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
                     margin: "0.5rem",
                   }}
-                />
-                <input
-                  value={newLastName}
-                  onChange={(event) => setNewLastName(event.target.value)}
-                  id="lastname"
-                  placeholder="Sobrenome"
-                  type="text"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={newUsername}
-                  onChange={(event) => setNewUsername(event.target.value)}
-                  placeholder="Username"
-                  type="text"
-                  disabled={true}
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={newPhone}
-                  onChange={(event) => setNewPhone(event.target.value)}
-                  placeholder="Número de celular"
-                  type="number"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={newEmail}
-                  onChange={(event) => setNewEmail(event.target.value)}
-                  placeholder="E-mail"
-                  type="email"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={googleDriveLink}
-                  onChange={(event) => setGoogleDriveLink(event.target.value)}
-                  placeholder="Link do Google Drive"
-                  type="email"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={ankiEmail}
-                  onChange={(event) => setAnkiEmail(event.target.value)}
-                  placeholder="E-mail do Anki"
-                  type="email"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={ankiPassword}
-                  onChange={(event) => setAnkiPassword(event.target.value)}
-                  placeholder="Senha do Anki"
-                  type="email"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-              </form>
+                >
+                  {newName} {newLastName}
+                </span>
+                <br />
+                <br />?
+              </h3>
               <div
                 style={{
-                  marginTop: "2rem",
-                  display: !seeConfirmDelete ? "flex" : "none",
+                  marginTop: "1rem",
+                  display: "flex",
                   justifyContent: "space-evenly",
-                  gap: "0.5rem",
                 }}
               >
                 <Button
                   style={{
                     color: "#fff",
-                    backgroundColor: "#ba3c3c",
+                    backgroundColor: "#194169",
                   }}
                   onClick={() => handleConfirmDelete()}
                 >
-                  Excluir
+                  Não!!
                 </Button>
                 <Button
                   style={{
                     color: "#fff",
+
+                    backgroundColor: "#ba3c3c",
+                  }}
+                  onClick={() => deleteStudent(ID)}
+                >
+                  Sim...
+                </Button>
+              </div>
+            </div>
+          </TabPanel>
+          <TabPanel value="2">
+            <div
+              style={{
+                display: "grid",
+                alignContent: "center",
+                justifyItems: "center",
+              }}
+            >
+              <select
+                id="permissions"
+                value={permissions}
+                onChange={handleChange}
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  minWidth: "15rem",
+                }}
+              >
+                <option value="permissions" hidden>
+                  Permissions
+                </option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="superadmin">Superadmin</option>
+              </select>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  gap: "1rem",
+                  marginTop: "2rem",
+                }}
+              >
+                <Button
+                  style={{
+                    color: "#fff",
+                    width: "8rem",
                     backgroundColor: "#194169",
                   }}
                   onClick={() => handleSeeModal()}
@@ -714,195 +829,83 @@ export function FindStudent({ uploadStatus, headers }) {
                 <Button
                   style={{
                     color: "#fff",
+                    width: "8rem",
                     backgroundColor: "#138017",
                   }}
-                  onClick={() => editStudent(ID)}
+                  onClick={() => editStudentPermissions(ID)}
                 >
                   Salvar
                 </Button>
               </div>
+            </div>
+          </TabPanel>
+          <TabPanel value="3">
+            <div
+              style={{
+                display: "grid",
+                alignContent: "center",
+                justifyItems: "center",
+              }}
+            >
+              <input
+                value={newPassword}
+                onChange={(event) => setNewPassword(event.target.value)}
+                placeholder="Escolha uma nova senha"
+                type="password"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={confirmPassword}
+                onChange={(event) => setConfirmPassword(event.target.value)}
+                placeholder="Confirme a Senha"
+                type="password"
+                style={{
+                  padding: "0.5rem",
+                  marginBottom: "0.3rem",
+                  fontSize: "1.1rem",
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
               <div
                 style={{
-                  marginTop: "1rem",
-                  display: seeConfirmDelete ? "grid" : "none",
-                  justifyContent: "space-evenly",
-                  padding: "1rem",
-                  backgroundColor: "#dd6e6e",
-                  textAlign: "center",
+                  display: "flex",
+                  justifyContent: "space-around",
+                  gap: "1rem",
+                  marginTop: "2rem",
                 }}
               >
-                <h3>
-                  Esta ação não pode ser desfeita! Tem certeza que deseja
-                  excluir o(a) aluno(a) <br />
-                  <br />
-                  <span
-                    style={{
-                      backgroundColor: "#111",
-                      color: "#fff",
-                      padding: "0.5rem",
-                      margin: "0.5rem",
-                    }}
-                  >
-                    {newName} {newLastName}
-                  </span>
-                  <br />
-                  <br />?
-                </h3>
-                <div
+                <Button
                   style={{
-                    marginTop: "1rem",
-                    display: "flex",
-                    justifyContent: "space-evenly",
+                    color: "#fff",
+                    width: "8rem",
+                    backgroundColor: "#194169",
                   }}
+                  onClick={() => handleSeeModal()}
                 >
-                  <Button
-                    style={{
-                      color: "#fff",
-                      backgroundColor: "#194169",
-                    }}
-                    onClick={() => handleConfirmDelete()}
-                  >
-                    Não!!
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#fff",
-
-                      backgroundColor: "#ba3c3c",
-                    }}
-                    onClick={() => deleteStudent(ID)}
-                  >
-                    Sim...
-                  </Button>
-                </div>
+                  Cancelar
+                </Button>
+                <Button
+                  style={{
+                    color: "#fff",
+                    width: "8rem",
+                    backgroundColor: "#138017",
+                  }}
+                  onClick={() => editStudentPassword(ID)}
+                >
+                  Salvar
+                </Button>
               </div>
-            </TabPanel>
-            <TabPanel value="2">
-              <div
-                style={{
-                  display: "grid",
-                  alignContent: "center",
-                  justifyItems: "center",
-                }}
-              >
-                <select
-                  id="permissions"
-                  value={permissions}
-                  onChange={handleChange}
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    minWidth: "15rem",
-                  }}
-                >
-                  <option value="permissions" hidden>
-                    Permissions
-                  </option>
-                  <option value="student">Student</option>
-                  <option value="teacher">Teacher</option>
-                  <option value="superadmin">Superadmin</option>
-                </select>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    gap: "1rem",
-                    marginTop: "2rem",
-                  }}
-                >
-                  <Button
-                    style={{
-                      color: "#fff",
-                      width: "8rem",
-                      backgroundColor: "#194169",
-                    }}
-                    onClick={() => handleSeeModal()}
-                  >
-                    Cancelar
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#fff",
-                      width: "8rem",
-                      backgroundColor: "#138017",
-                    }}
-                    onClick={() => editStudentPermissions(ID)}
-                  >
-                    Salvar
-                  </Button>
-                </div>
-              </div>
-            </TabPanel>
-            <TabPanel value="3">
-              <div
-                style={{
-                  display: "grid",
-                  alignContent: "center",
-                  justifyItems: "center",
-                }}
-              >
-                <input
-                  value={newPassword}
-                  onChange={(event) => setNewPassword(event.target.value)}
-                  placeholder="Escolha uma nova senha"
-                  type="password"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <input
-                  value={confirmPassword}
-                  onChange={(event) => setConfirmPassword(event.target.value)}
-                  placeholder="Confirme a Senha"
-                  type="password"
-                  style={{
-                    padding: "0.5rem",
-                    marginBottom: "0.3rem",
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    margin: "0.5rem",
-                  }}
-                />
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    gap: "1rem",
-                    marginTop: "2rem",
-                  }}
-                >
-                  <Button
-                    style={{
-                      color: "#fff",
-                      width: "8rem",
-                      backgroundColor: "#194169",
-                    }}
-                    onClick={() => handleSeeModal()}
-                  >
-                    Cancelar
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#fff",
-                      width: "8rem",
-                      backgroundColor: "#138017",
-                    }}
-                    onClick={() => editStudentPassword(ID)}
-                  >
-                    Salvar
-                  </Button>
-                </div>
-              </div>
-            </TabPanel>
-          </TabContext>
-        </DivModal>
-      </div>
+            </div>
+          </TabPanel>
+        </TabContext>
+      </DivModal>
     </RouteDiv>
   );
 }
