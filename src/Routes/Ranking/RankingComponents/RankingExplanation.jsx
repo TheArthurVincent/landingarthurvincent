@@ -24,8 +24,20 @@ export default function RankingExplanation() {
 
   return (
     <>
+      <h3 style={h3}>Propósito</h3>
+      <p>
+        Nosso sistema de classificação é uma verdadeira celebração de sua
+        dedicação! Cada tarefa realizada, cada meta alcançada e cada passo dado
+        em direção à fluência é uma oportunidade de ganhar pontos e brilhar!
+        Temos dois tipos de pontuação: o <strong>MONTHLY SCORE</strong>, que é
+        zerado a cada novo mês, e o <strong>TOTAL SCORE</strong>, que acumula ao
+        longo do tempo. A cada mês, destacamos os líderes da pontuação mensal(
+        <strong>MONTHLY SCORE</strong>), oferecendo descontos exclusivos ou
+        aulas extras como recompensa, e monitoramos o progresso total de cada
+        aluno, impulsionando-os para novos patamares de fluência. Não é só uma
+        competição; é uma jornada emocionante rumo à excelência linguística!
+      </p>
       <h3 style={h3}>Como pontuar</h3>
-
       <div>
         <ImgResponsive2
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(1).png?updatedAt=1709316937391"
