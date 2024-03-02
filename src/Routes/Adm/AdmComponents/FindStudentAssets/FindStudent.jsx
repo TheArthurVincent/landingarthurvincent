@@ -532,7 +532,7 @@ export function FindStudent({ uploadStatus, headers }) {
                           backgroundColor: item.color,
                           color: alwaysWhite(),
                         }}
-                        onClick={() =>
+                        onDoubleClick={() =>
                           submitPlusScore(
                             ID,
                             item.score,
