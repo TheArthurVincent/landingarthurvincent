@@ -42,6 +42,11 @@ export const TopBarNavigationBurger = styled.div`
   background-color: ${primaryColor()};
   padding: 1rem;
   display: none;
+    &.smooth {
+    animation-name: slideInLeft;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+  }
 `;
 
 export const BackgroundClick = styled.div`
