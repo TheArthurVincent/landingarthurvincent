@@ -10,29 +10,17 @@ import {
 import { CircularProgress } from "@mui/material";
 
 export function NewTutoring({ headers }) {
-  const [newTitle, setNewTitle] = useState("");
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
-  const [newText, setNewText] = useState(
-    "<div><h3>Summary of the class</h3><p></p><h3>Homework</h3><p></p></div>"
-  );
-  const [newAttachments, setNewAttachments] = useState("");
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
   const [standardValue, setStandardValue] = useState("Aluno");
   const [button, setButton] = useState("Criar");
-  const [selectedEmail, setSelectedEmail] = useState("");
-  const [message, setMessage] = useState(
-    "O vídeo da sua última aula particular foi postado! Confira no portal!"
-  );
 
   const reset = () => {
-    setNewTitle("");
     setNewDate("");
-    setNewVideoUrl("");
-    setNewText("");
-    setNewAttachments("");
     setSelectedStudentID("");
+    setNewVideoUrl("");
     setStandardValue("Aluno");
   };
 
@@ -68,12 +56,9 @@ export function NewTutoring({ headers }) {
     event.preventDefault();
     setButton(<CircularProgress />);
     let newTutoring = {
-      title: newTitle,
       date: newDate,
-      videoUrl: newVideoUrl,
-      comments: newText,
-      attachments: newAttachments,
       studentID: selectedStudentID,
+      videoUrl: newVideoUrl,
     };
     try {
       const response = await axios.post(
@@ -83,16 +68,15 @@ export function NewTutoring({ headers }) {
           headers,
         }
       );
-      sendEmailTemplateVideoPosted(selectedEmail, message);
       alert("Aula criada com sucesso!");
+      reset();
       setButton("Criar");
       fetchStudents();
-      reset();
     } catch (error) {
       reset();
       setButton("Criar");
-      fetchStudents();
       alert("Erro ao salvar aula");
+      fetchStudents();
     }
   };
 
@@ -135,39 +119,9 @@ export function NewTutoring({ headers }) {
               fontWeight: 500,
             }}
             type="text"
-            placeholder="Título da Aula"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-            required
-          />
-          <input
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.5rem",
-              margin: "0",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-            }}
-            type="text"
             placeholder="Vídeo da Aula (YouTube ou Vimeo)"
             value={newVideoUrl}
             onChange={(e) => setNewVideoUrl(e.target.value)}
-            required
-          />
-          <input
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.5rem",
-              margin: "0",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-            }}
-            type="text"
-            placeholder="Link do documento no Drive"
-            value={newAttachments}
-            onChange={(e) => setNewAttachments(e.target.value)}
             required
           />
           <input
@@ -187,24 +141,7 @@ export function NewTutoring({ headers }) {
             required
           />
         </FormGrid>
-        <textarea
-          style={{
-            alignItems: "center",
-            justifyContent: "space-around",
-            padding: "0.5rem",
-            margin: "0",
-            fontSize: "1.1rem",
-            fontWeight: 500,
-          }}
-          placeholder="Comentários"
-          value={newText}
-          onChange={(e) => setNewText(e.target.value)}
-          name="Text"
-          id=""
-          cols="30"
-          rows="10"
-          required
-        />
+
         <Button style={{ marginLeft: "auto" }} type="submit">
           {button}
         </Button>

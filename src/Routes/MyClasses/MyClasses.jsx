@@ -172,62 +172,8 @@ export function MyClasses({ headers }) {
                 <div key={index}>
                   <ClassBox>
                     <div style={{ textAlign: "center" }}>
+                      <HTwo>{item.date}</HTwo>
                       <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
-                    </div>
-                    <div style={{ marginLeft: "1rem" }}>
-                      <HThree style={{}}>{item.title}</HThree>
-                      <div>
-                        <HTwo>{UniversalTexts.date}</HTwo>
-                        <p
-                          style={{
-                            color: alwaysBlack(),
-                            textAlign: "center",
-                          }}
-                        >
-                          {item.date}
-                        </p>
-                        <HTwo>{UniversalTexts.comments}</HTwo>
-                        <div
-                          style={{
-                            backgroundColor: lightGreyColor(),
-                            padding: "10px",
-                            overflow: "auto",
-                            height: "13rem",
-                            maxWidth: "22rem",
-                            margin: "0 auto",
-                          }}
-                        >
-                          <p
-                            style={{
-                              maxWidth: "30ch",
-                              color: "black",
-                              overflowWrap: "break-word",
-                            }}
-                          >
-                            <div
-                              dangerouslySetInnerHTML={{
-                                __html: item.comments,
-                              }}
-                            />
-                          </p>
-                        </div>
-                        {item.attachments && (
-                          <>
-                            {" "}
-                            <HTwo>{UniversalTexts.attachments}</HTwo>
-                            <Link
-                              to={item.attachments}
-                              target="_blank"
-                              style={{
-                                textAlign: "center",
-                                color: secondaryColor(),
-                              }}
-                            >
-                              {UniversalTexts.attachments}
-                            </Link>
-                          </>
-                        )}{" "}
-                      </div>
                     </div>
                   </ClassBox>
                 </div>

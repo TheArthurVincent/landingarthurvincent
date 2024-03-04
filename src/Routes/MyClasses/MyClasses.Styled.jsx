@@ -69,7 +69,7 @@ export const DivAppear = styled.div`
 
 export const ClassBox = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   justify-content: space-evenly;
   padding-bottom: 4rem;
