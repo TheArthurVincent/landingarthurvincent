@@ -12,18 +12,15 @@ import {
   backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
-import { ClassBox, HThree, TransectionMenu } from "./MyClasses.Styled";
+import { ClassBox, TransectionMenu } from "./MyClasses.Styled";
 import {
   alwaysBlack,
-  lightGreyColor,
   primaryColor,
-  secondaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
-import { Link } from "react-router-dom";
 
 export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);

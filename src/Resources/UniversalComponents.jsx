@@ -68,6 +68,7 @@ export const DivGrid = styled.div`
 export const DivFlex = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: 2rem;
   @media (max-width: 750px) {
     flex-direction: column;
