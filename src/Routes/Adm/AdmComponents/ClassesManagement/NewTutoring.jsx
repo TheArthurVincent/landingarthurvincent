@@ -72,6 +72,12 @@ export function NewTutoring({ headers }) {
     handleAddTutoring();
   }, []);
 
+  const setStudentList = (e) => {
+    console.log(e);
+    setSelectedStudentID(e);
+    setDisabled(false);
+  };
+
   return (
     <RouteDiv>
       <HOne>Postar aula particular dada</HOne>
@@ -91,10 +97,7 @@ export function NewTutoring({ headers }) {
               fontSize: "1rem",
               cursor: "pointer",
             }}
-            onChange={(e) => {
-              setSelectedStudentID(e.target.value);
-              setDisabled(false);
-            }}
+            onChange={(e) => setStudentList(e.target.value)}
           >
             <option style={{ cursor: "pointer" }} value={standardValue} hidden>
               Escolha o aluno
