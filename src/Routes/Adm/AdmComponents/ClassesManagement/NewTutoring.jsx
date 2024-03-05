@@ -68,10 +68,6 @@ export function NewTutoring({ headers }) {
     }
   };
 
-  useEffect(() => {
-    handleAddTutoring();
-  }, []);
-
   const setStudentList = (e) => {
     console.log(e);
     setSelectedStudentID(e);
