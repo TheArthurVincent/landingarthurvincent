@@ -57,6 +57,14 @@ export const FormGrid = styled.form`
     grid-template-columns: 1fr;
   }
 `;
+export const DivGrid = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 675px) {
+    grid-template-columns: 1fr;
+  }
+`;
 export const DivFlex = styled.div`
   display: flex;
   justify-content: space-around;
