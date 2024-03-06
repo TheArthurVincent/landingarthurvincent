@@ -500,6 +500,10 @@ export const BackToHomePage = () => {
   );
 };
 
+export function formatNumber(number) {
+  return number.toLocaleString("pt-BR");
+}
+
 export function formatDate(dateString) {
   const options = {
     year: "numeric",

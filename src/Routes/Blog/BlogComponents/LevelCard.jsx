@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import theitems from "../../Ranking/RankingComponents/ranking.json";
-import { backDomain } from "../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  formatNumber,
+} from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
 import axios from "axios";
 import {
@@ -164,8 +167,8 @@ export function LevelCard({ headers, _StudentId, picture }) {
               aria-hidden="true"
             />
             <div>
-              <p>Total Score: {totalScore}</p>
-              <p>Monthly Score: {monthlyScore}</p>
+              <p>Total Score: {formatNumber(totalScore)}</p>
+              <p>Monthly Score: {formatNumber(monthlyScore)}</p>
             </div>
           </div>
         </div>

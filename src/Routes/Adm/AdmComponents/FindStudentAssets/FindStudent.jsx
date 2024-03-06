@@ -4,6 +4,7 @@ import {
   DivModal,
   Xp,
   backDomain,
+  formatNumber,
 } from "../../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
@@ -503,10 +504,10 @@ export function FindStudent({ uploadStatus, headers }) {
               }}
             >
               <h3>
-                Monthly Score: <strong>{monthlyScore} </strong>{" "}
+                Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
               </h3>
               <h3>
-                Total Score: <strong>{totalScore} </strong>
+                Total Score: <strong>{formatNumber(totalScore)} </strong>
               </h3>
             </div>
             <div

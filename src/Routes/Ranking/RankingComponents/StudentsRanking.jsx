@@ -3,11 +3,13 @@ import { AnimatedLi, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
   backDomain,
+  formatNumber,
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
+import { primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
 
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
@@ -46,12 +48,16 @@ export default function StudentsRanking({ headers }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-around",
+          marginBottom: "0.5rem",
         }}
       >
         <Button onClick={() => fetchStudents()}>
           <i className="fa fa-refresh" aria-hidden="true"></i>
         </Button>
-        <h2>Apenas os primeiros 5 colocados são mostrados na lista!</h2>
+        <p>
+          Apenas os primeiros 5 colocados no Monthly Score são mostrados na
+          lista!
+        </p>
       </div>
       {loading ? (
         <CircularProgress />
@@ -116,7 +122,7 @@ export default function StudentsRanking({ headers }) {
                           fontWeight: "600",
                         }}
                       >
-                        {item.monthlyScore}
+                        {formatNumber(item.monthlyScore)}
                       </span>
                     </p>
                     <p>
@@ -126,7 +132,7 @@ export default function StudentsRanking({ headers }) {
                           fontWeight: "600",
                         }}
                       >
-                        {item.totalScore}
+                        {formatNumber(item.totalScore)}
                       </span>
                     </p>
                   </div>
@@ -177,7 +183,7 @@ export default function StudentsRanking({ headers }) {
                   <div
                     style={{
                       display: "grid",
-                      justifyContent: "space-evenly",
+                      justifyContent: "center",
                       alignItems: "center",
                     }}
                   >
@@ -185,27 +191,77 @@ export default function StudentsRanking({ headers }) {
                       style={{
                         fontWeight: 600,
                         fontFamily: "Athiti",
-                        margin: 0,
                         padding: "5px",
-                        fontSize: "1.1rem",
+                        textAlign: "center",
                         background: theitems.items[levelNumber].color,
                         color: theitems.items[levelNumber].textcolor,
                       }}
                     >
-                      #{index + 1} | {item.name}
+                      #{index + 1} | {item.name} <br />
                     </p>
+                    <p
+                      style={{
+                        borderRadius: "0.5rem",
+                        marginBottom: "0.2rem",
+                        padding: "5px",
+                        backgroundColor: primaryColor(),
+                        color: textPrimaryColorContrast(),
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Athiti",
+                        }}
+                      >
+                        Monthly Score:{" "}
+                        <span
+                          style={{
+                            fontWeight: 600,
+                            fontSize: "1.2rem",
+                            fontFamily: "Athiti",
+                          }}
+                        >
+                          {formatNumber(item.monthlyScore)}
+                        </span>
+                      </span>
+                    </p>
+
                     <img
                       style={{
                         width: "5rem",
                         height: "5rem",
                         objectFit: "cover",
                         border: "solid 0.2rem #555",
-                        margin: "0.9rem",
+                        margin: "auto",
                         borderRadius: "50%",
                         border: `solid 2px ${theitems.items[levelNumber].textcolor}`,
                       }}
                       src={item.picture}
                     />
+                    <Tooltip
+                      key={index}
+                      title="A pontuação mensal mínima para concorrer é 3000."
+                    >
+                      <div
+                        style={{
+                          fontWeight: 600,
+                          backgroundColor:
+                            item.monthlyScore >= 3000 ? "green" : "orange",
+                          color: "white",
+                          padding: "0.3rem",
+                          textAlign: "center",
+                          margin: "auto",
+                          marginTop: "5px",
+                          fontSize: "0.6rem",
+                          maxWidth: "fit-content",
+                          textAlign: "center",
+                        }}
+                      >
+                        {item.monthlyScore >= 3000
+                          ? "Running for prize!"
+                          : "Not running for prize yet!"}
+                      </div>
+                    </Tooltip>
                   </div>
 
                   <div
@@ -214,7 +270,7 @@ export default function StudentsRanking({ headers }) {
                       color: theitems.items[levelNumber].textcolor,
                     }}
                   >
-                    <h2>
+                    <h2 style={{ fontSize: "1.2rem" }}>
                       <i
                         className={theitems.items[levelNumber].icon}
                         aria-hidden="true"
@@ -222,48 +278,15 @@ export default function StudentsRanking({ headers }) {
                       {theitems.items[levelNumber].text}
                     </h2>
 
-                    <p>
-                      Monthly Score:{" "}
-                      <span
-                        style={{
-                          fontFamily: "Athiti",
-                          fontWeight: "600",
-                        }}
-                      >
-                        {item.monthlyScore}
-                      </span>
-                    </p>
-                    <p>
-                      Total Score:{" "}
-                      <span
-                        style={{
-                          fontFamily: "Athiti",
-                          fontWeight: "600",
-                        }}
-                      >
-                        {item.totalScore}
-                      </span>
-                    </p>
-                    <Tooltip
-                      key={index}
-                      title="A pontuação mensal mínima para concorrer é 3000."
+                    <p
+                      style={{
+                        fontFamily: "Athiti",
+                        fontWeight: "600",
+                        fontSize: "0.8rem",
+                      }}
                     >
-                      <div
-                        style={{
-                          backgroundColor:
-                            item.monthlyScore >= 3000 ? "green" : "orange",
-                          color: "white",
-                          padding: "0.5rem",
-                          textAlign: "center",
-                          marginTop: "5px",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        {item.monthlyScore >= 3000
-                          ? "Running for prize!"
-                          : "Not running for prize yet!"}
-                      </div>
-                    </Tooltip>
+                      Total Score: {formatNumber(item.totalScore)}
+                    </p>
                   </div>
                 </AnimatedLi>
               );

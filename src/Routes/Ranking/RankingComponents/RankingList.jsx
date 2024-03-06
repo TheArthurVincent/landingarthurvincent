@@ -1,6 +1,6 @@
 import React from "react";
 import { levels } from "./RankingLevelsList";
-import { ImgResponsive } from "../../../Resources/UniversalComponents";
+import { ImgResponsive, formatNumber } from "../../../Resources/UniversalComponents";
 export default function RankingList() {
   const theItems = levels();
 
