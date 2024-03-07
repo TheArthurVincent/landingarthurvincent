@@ -16,7 +16,7 @@ import {
 import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 export function NextTutoring({ headers }) {
   const initialFormState = {
-    newTutoringMeetingURL: "",
+    newTutoringMeetingURL: null,
     newDate: "__/__/__",
     newTime: "__:__",
     selectedStudentID: "",
@@ -136,26 +136,10 @@ export function NextTutoring({ headers }) {
                   value={option.id}
                 >
                   {option.fullname}
-                  {/* {setSelectedEmail(option.email)} */}
                 </option>
               );
             })}
           </select>
-          <Input
-            value={formState.newTutoringMeetingURL}
-            onChange={(event) =>
-              setFormState((prev) => ({
-                ...prev,
-                newTutoringMeetingURL: event.target.value,
-              }))
-            }
-            placeholder="Link da aula"
-            type="text"
-            style={{
-              color: alwaysBlack(),
-            }}
-            required
-          />
           <Input
             onChange={(event) =>
               setFormState((prev) => ({ ...prev, newDate: event.target.value }))
@@ -174,7 +158,20 @@ export function NextTutoring({ headers }) {
               color: alwaysBlack(),
             }}
             type="time"
-            required
+          />
+          <Input
+            value={formState.newTutoringMeetingURL}
+            onChange={(event) =>
+              setFormState((prev) => ({
+                ...prev,
+                newTutoringMeetingURL: event.target.value,
+              }))
+            }
+            placeholder="Link da aula"
+            type="text"
+            style={{
+              color: alwaysBlack(),
+            }}
           />
         </FormFlex>
         <DivFlex>
