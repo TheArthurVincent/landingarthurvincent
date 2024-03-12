@@ -61,6 +61,7 @@ export function FindStudent({ uploadStatus, headers }) {
   };
 
   const seeEdition = async (id) => {
+    setDisabled(true);
     setLoadingScore(true);
     handleSeeModal();
     try {
@@ -80,6 +81,7 @@ export function FindStudent({ uploadStatus, headers }) {
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
       setLoadingScore(false);
+      setDisabled(false);
     } catch (error) {
       alert(error);
       console.error(error);
