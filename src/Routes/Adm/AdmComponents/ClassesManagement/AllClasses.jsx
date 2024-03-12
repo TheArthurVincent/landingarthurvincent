@@ -17,6 +17,7 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
+  textSecondaryColorContrast,
 } from "../../../../Styles/Styles";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
@@ -108,8 +109,14 @@ export function AllClasses({ headers }) {
           justifyContent: "space-between",
         }}
       >
-        <Button onClick={() => seeAllTutorings()}>
-          <i className="fa fa-refresh" aria-hidden="true"></i>
+        <Button
+          onClick={() => seeAllTutorings()}
+          style={{
+            backgroundColor: secondaryColor(),
+            color: textSecondaryColorContrast(),
+          }}
+        >
+          <i className="fa fa-refresh" aria-hidden="true" />
         </Button>
         <span>
           <Input

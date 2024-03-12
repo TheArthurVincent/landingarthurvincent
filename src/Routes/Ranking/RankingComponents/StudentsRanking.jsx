@@ -9,7 +9,12 @@ import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
-import { primaryColor, secondaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
+import {
+  primaryColor,
+  secondaryColor,
+  textPrimaryColorContrast,
+  textSecondaryColorContrast,
+} from "../../../Styles/Styles";
 
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
@@ -51,7 +56,13 @@ export default function StudentsRanking({ headers }) {
           marginBottom: "0.5rem",
         }}
       >
-        <Button onClick={() => fetchStudents()}>
+        <Button
+          onClick={() => fetchStudents()}
+          style={{
+            backgroundColor: secondaryColor(),
+            color: textSecondaryColorContrast(),
+          }}
+        >
           <i className="fa fa-refresh" aria-hidden="true"></i>
         </Button>
         <p>

@@ -8,10 +8,15 @@ import TopBar from "../../Application/TopBar/TopBar";
 import StudentsRanking from "./RankingComponents/StudentsRanking";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
-import { alwaysWhite } from "../../Styles/Styles";
+import {
+  alwaysWhite,
+  primaryColor,
+  textPrimaryColorContrast,
+} from "../../Styles/Styles";
 import RankingExplanation from "./RankingComponents/RankingExplanation";
 import RankingTimeline from "./RankingComponents/RankingTimeline";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
+import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 
 export default function Ranking({ headers, logged }) {
   const [value, setValue] = useState("1");
@@ -24,7 +29,7 @@ export default function Ranking({ headers, logged }) {
 
   const componentsToRender = [
     {
-      title: "Ranking",
+      title: "Monthly Ranking",
       value: "1",
       component: <StudentsRanking headers={headers} />,
     },
@@ -38,6 +43,17 @@ export default function Ranking({ headers, logged }) {
       value: "3",
       component: (
         <RankingTimeline
+          id={user.id}
+          name={user.name + " " + user.lastname}
+          headers={headers}
+        />
+      ),
+    },
+    {
+      title: "Totais",
+      value: "4",
+      component: (
+        <StudentsRankingTotal
           id={user.id}
           name={user.name + " " + user.lastname}
           headers={headers}
@@ -78,6 +94,8 @@ export default function Ranking({ headers, logged }) {
                       key={index + component.value}
                       style={{
                         fontWeight: 500,
+                        backgroundColor: textPrimaryColorContrast(),
+                        color: primaryColor(),
                       }}
                       label={component.title}
                       value={component.value}
@@ -86,7 +104,7 @@ export default function Ranking({ headers, logged }) {
                 })}
               </TabList>
             </Box>
-              <BackToHomePage />
+            <BackToHomePage />
             {componentsToRender.map((component, index) => {
               return (
                 <TabPanel

@@ -248,6 +248,15 @@ export const fadeIn = keyframes`
     transform: translateX(0);
   }
 `;
+export const DivFont = styled.div`
+  font-weight: 700;
+  font-size: 2rem;
+  font-family: Athiti;
+  margin: 0;
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+  }
+`;
 export const AnimatedLi = styled.li`
   padding: 0.5rem 1rem;
   margin-bottom: 5px;
@@ -256,7 +265,18 @@ export const AnimatedLi = styled.li`
   border-radius: 0rem 3rem;
   animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;
 `;
+export const AnimatedLi2 = styled.li`
+  padding: 0.5rem 1rem;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;
 
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
+`;
 
 export const LevelCardLevel = styled.img`
   width: 12rem;

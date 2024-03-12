@@ -10,7 +10,12 @@ import {
   backDomain,
 } from "../../../../Resources/UniversalComponents";
 import { CircularProgress, Button, TextField } from "@mui/material";
-import { alwaysWhite, lightGreyColor, secondaryColor } from "../../../../Styles/Styles";
+import {
+  alwaysWhite,
+  lightGreyColor,
+  secondaryColor,
+  textSecondaryColorContrast,
+} from "../../../../Styles/Styles";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
@@ -167,7 +172,13 @@ export function ManageModules({ headers }) {
               <span
                 style={{ display: "flex", justifyContent: "space-between" }}
               >
-                <Button onClick={() => getCourses()}>
+                <Button
+                  onClick={() => getCourses()}
+                  style={{
+                    backgroundColor: secondaryColor(),
+                    color: textSecondaryColorContrast(),
+                  }}
+                >
                   <i className="fa fa-refresh" aria-hidden="true" />
                 </Button>
                 <BackToHomePage />

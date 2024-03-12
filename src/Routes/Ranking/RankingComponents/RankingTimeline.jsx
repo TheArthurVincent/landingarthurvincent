@@ -4,6 +4,7 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
 } from "../../../Styles/Styles";
 import axios from "axios";
 import {
@@ -97,7 +98,13 @@ export default function RankingTimeline({ headers, display, id, name }) {
         {loading ? (
           <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
-          <Button onClick={() => seeScore(id)}>
+          <Button
+            onClick={() => seeScore(id)}
+            style={{
+              backgroundColor: secondaryColor(),
+              color: textSecondaryColorContrast(),
+            }}
+          >
             <i className="fa fa-refresh" aria-hidden="true" />
           </Button>
         )}{" "}

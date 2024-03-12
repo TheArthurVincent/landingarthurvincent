@@ -240,6 +240,12 @@ export const ImgResponsive0 = styled.img`
     display: none;
   }
 `;
+export const ImgResponsive3 = styled.img`
+  max-width: 8rem;
+  @media (max-width: 755px) {
+    display: none;
+  }
+`;
 export const ImgResponsive = styled.img`
   max-width: 20rem;
   @media (max-width: 600px) {

@@ -198,7 +198,14 @@ export function NextTutorings({ headers, display }) {
               );
             })}
           </TabList>{" "}
-          <Button onClick={() => seeAllTutorings()}>
+          <Button onClick={() => seeAllTutorings()}
+          
+          style={{
+            backgroundColor: secondaryColor(),
+            color: textSecondaryColorContrast(),
+          }}
+          
+          >
             <i className="fa fa-refresh" aria-hidden="true"></i>
           </Button>
         </Box>
