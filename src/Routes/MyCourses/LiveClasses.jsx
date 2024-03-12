@@ -194,7 +194,7 @@ export default function MyCourses({ headers }) {
                 )}
               </>
             ) : (
-              <CircularProgress />
+              <CircularProgress style={{ color: secondaryColor() }} />
             )}
           </>
         </RouteDiv>
@@ -214,7 +214,7 @@ export default function MyCourses({ headers }) {
     <BackToHomePage />
   </span>{" "}
   {loading ? (
-    <CircularProgress />
+    <CircularProgress style={{ color: secondaryColor() }} />
   ) : (
     <div
       style={{
@@ -244,7 +244,7 @@ export default function MyCourses({ headers }) {
   )}
   <span style={{ display: seeModules ? "block" : "none" }}>
     {loading ? (
-      <CircularProgress />
+      <CircularProgress style={{ color: secondaryColor() }} />
     ) : (
       <div
         style={{
@@ -345,7 +345,7 @@ export default function MyCourses({ headers }) {
         </span>
         <SpanCourseResponsive>
           {loading ? (
-            <CircularProgress />
+            <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             <div
               style={{

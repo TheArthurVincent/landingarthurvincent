@@ -451,7 +451,7 @@ export function FindStudent({ uploadStatus, headers }) {
           }}
         >
           <p>Carregando dados</p>
-          <CircularProgress />
+          <CircularProgress style={{ color: secondaryColor() }} />
         </div>
       )}
       <div
@@ -503,7 +503,7 @@ export function FindStudent({ uploadStatus, headers }) {
           </Box>
           <TabPanel value="0">
             {loadingScore ? (
-              <CircularProgress />
+              <CircularProgress style={{ color: secondaryColor() }} />
             ) : (
               <div
                 style={{

@@ -47,7 +47,7 @@ export function NewTutoring({ headers }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setButton(<CircularProgress />);
+    setButton(<CircularProgress style={{ color: secondaryColor() }} />);
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/tutoring/`,

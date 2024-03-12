@@ -173,7 +173,7 @@ export function ManageModules({ headers }) {
                 <BackToHomePage />
               </span>
               {loading ? (
-                <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
               ) : (
                 <div>
                   {coursesList.map((course, index) => {
@@ -237,7 +237,7 @@ export function ManageModules({ headers }) {
               >
                 <h2>Editar</h2>
                 {loadingModal ? (
-                  <CircularProgress />
+                  <CircularProgress style={{ color: secondaryColor() }} />
                 ) : (
                   <>
                     <input

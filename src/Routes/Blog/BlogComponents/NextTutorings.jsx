@@ -84,7 +84,7 @@ export function NextTutorings({ headers, display }) {
           }}
         >
           {loading ? (
-            <CircularProgress />
+            <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             future.map((item, index) => (
               <div
@@ -137,7 +137,7 @@ export function NextTutorings({ headers, display }) {
           }}
         >
           {loading ? (
-            <CircularProgress />
+            <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             past.map((item, index) => (
               <div

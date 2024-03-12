@@ -70,7 +70,7 @@ export function NextLiveClasses({ headers }) {
       <HOne>{UniversalTexts.nextLiveClass}</HOne>
       <OverFlow>
         {loading ? (
-          <CircularProgress />
+          <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
           future.map((item, index) => (
             <div

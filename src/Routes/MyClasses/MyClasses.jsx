@@ -178,7 +178,7 @@ export function MyClasses({ headers }) {
               {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
             </>
           ) : (
-            <CircularProgress />
+            <CircularProgress style={{ color: secondaryColor() }} />
           )}
         </RouteDiv>
       </RouteSizeControlBox>

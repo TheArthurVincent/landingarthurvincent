@@ -833,12 +833,11 @@ export function authorizationToken() {
 export function isDev() {
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";
-  } else if (window.location.hostname.includes("onrender")) {
-    return "https://arvin-server-node.onrender.com";
   } else {
     return "https://apiprod.arthurvincent.com.br";
   }
 }
+
 
 // export function logout24h() {
 //   setTimeout(() => {

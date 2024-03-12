@@ -173,7 +173,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
               aria-hidden="true"
             />
             {loading ? (
-              <CircularProgress />
+              <CircularProgress style={{ color: secondaryColor() }} />
             ) : (
               <div>
                 <p>Total Score: {formatNumber(totalScore)}</p>

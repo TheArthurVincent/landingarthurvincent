@@ -94,7 +94,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
     >
       <span>
         {loading ? (
-          <CircularProgress />
+          <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
           <Button onClick={() => seeScore(id)}>
             <i className="fa fa-refresh" aria-hidden="true" />
@@ -138,7 +138,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
         }}
       >
         {loading ? (
-          <CircularProgress />
+          <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
           <>
             {localTimeline.map((item, index) => {

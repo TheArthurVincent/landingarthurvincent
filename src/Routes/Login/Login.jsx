@@ -31,7 +31,7 @@ export function Login() {
     e.preventDefault();
     setFail(false);
 
-    setButton(<CircularProgress />);
+    setButton(<CircularProgress style={{ color: secondaryColor() }} />);
     setLoading(true);
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {

@@ -46,7 +46,7 @@ export function NewStudent({ headers }) {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setButton(<CircularProgress />);
+    setButton(<CircularProgress style={{ color: secondaryColor() }} />);
     let newStudent = {
       username: newUsername,
       password: newPassword,

@@ -60,7 +60,7 @@ export default function StudentsRanking({ headers }) {
         </p>
       </div>
       {loading ? (
-        <CircularProgress />
+        <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
         <div>
           {students.map((item, index) => {

@@ -39,7 +39,7 @@ export function NextLiveClass({ headers }) {
     <RouteDiv>
       <HOne>Marcar aula ao vivo</HOne>
       {loading ? (
-        <CircularProgress />
+        <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
         <FormFlex
           onSubmit={handleSubmit}

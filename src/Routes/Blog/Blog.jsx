@@ -68,7 +68,7 @@ export function Blog({ headers }) {
 
   const [posts, setPosts] = useState([
     {
-      title: <CircularProgress />,
+      title: <CircularProgress style={{ color: secondaryColor() }} />,
     },
   ]);
 
@@ -93,7 +93,6 @@ export function Blog({ headers }) {
         console.log(response.data, nextTutoring);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
-        window.location.reload();
       }
     };
     fetchNextClass();
@@ -112,8 +111,7 @@ export function Blog({ headers }) {
         setLoading(false);
       }, 300);
     } catch (error) {
-      alert(e, "Erro ao importar posts");
-      window.location.reload();
+      alert(error, "Erro ao importar posts");
       setLoading(false);
     }
   }
@@ -308,7 +306,7 @@ export function Blog({ headers }) {
                       padding: "0.5rem",
                     }}
                   >
-                    <CircularProgress />
+                    <CircularProgress style={{ color: secondaryColor() }} />
                   </div>
                 ) : (
                   <>
