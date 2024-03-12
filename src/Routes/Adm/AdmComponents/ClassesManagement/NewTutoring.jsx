@@ -9,6 +9,7 @@ import {
 import { CircularProgress } from "@mui/material";
 import {
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../../../Styles/Styles";
 

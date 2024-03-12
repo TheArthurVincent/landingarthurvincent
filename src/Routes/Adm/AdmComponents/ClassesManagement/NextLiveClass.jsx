@@ -3,7 +3,7 @@ import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, FormFlex, backDomain } from "../../../../Resources/UniversalComponents";
 import { CircularProgress, Input } from "@mui/material";
-import { alwaysBlack } from "../../../../Styles/Styles";
+import { alwaysBlack, secondaryColor } from "../../../../Styles/Styles";
 export function NextLiveClass({ headers }) {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");

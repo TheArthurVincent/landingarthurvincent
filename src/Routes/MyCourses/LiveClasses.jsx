@@ -21,6 +21,7 @@ import { ClassBox, TransectionMenu } from "../MyClasses/MyClasses.Styled";
 import {
   alwaysBlack,
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import NextLiveClasses from "./MyCoursesAssets/NextLive";

@@ -9,7 +9,7 @@ import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
-import { primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
+import { primaryColor, secondaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
 
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);

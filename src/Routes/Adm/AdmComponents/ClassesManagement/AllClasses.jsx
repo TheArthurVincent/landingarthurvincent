@@ -13,7 +13,11 @@ import {
 } from "../../../../Resources/UniversalComponents";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
-import { alwaysWhite, primaryColor } from "../../../../Styles/Styles";
+import {
+  alwaysWhite,
+  primaryColor,
+  secondaryColor,
+} from "../../../../Styles/Styles";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllClasses({ headers }) {
@@ -123,7 +127,7 @@ export function AllClasses({ headers }) {
       </span>
       <div style={{ maxHeight: "40rem", overflow: "auto" }}>
         {loading ? (
-          <CircularProgress />
+          <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
           filteredTutorings.map((group, index) => (
             <div

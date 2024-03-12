@@ -9,6 +9,7 @@ import {
 import { FormList } from "../../Adm.Styled";
 import { CircularProgress } from "@mui/material";
 import FindStudent from "./FindStudent";
+import { secondaryColor } from "../../../../Styles/Styles";
 
 export function NewStudent({ headers }) {
   const [newName, setNewName] = useState("");

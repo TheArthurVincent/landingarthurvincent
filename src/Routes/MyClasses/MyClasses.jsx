@@ -16,6 +16,7 @@ import { ClassBox, TransectionMenu } from "./MyClasses.Styled";
 import {
   alwaysBlack,
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";

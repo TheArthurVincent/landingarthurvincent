@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   alwaysWhite,
   primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../../Styles/Styles";
 import axios from "axios";
