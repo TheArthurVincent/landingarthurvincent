@@ -24,11 +24,13 @@ import yellow from "../../../../public/assets/yellow.png";
 import supreme from "../../../../public/assets/supreme.png";
 import { secondaryColor } from "../../../Styles/Styles";
 import ranking from "../../Ranking/RankingComponents/ranking.json";
+import { CircularProgress } from "@mui/material";
 export function LevelCard({ headers, _StudentId, picture }) {
   const items = theitems.items;
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
+  const [loading, setLoading] = useState(true);
   const [showCard, setShowCard] = useState("none");
 
   useEffect(() => {
@@ -36,6 +38,8 @@ export function LevelCard({ headers, _StudentId, picture }) {
   }, []);
 
   const seeScore = async (id) => {
+    setLoading(true);
+
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers,
@@ -68,7 +72,9 @@ export function LevelCard({ headers, _StudentId, picture }) {
           ? 9
           : 0
       );
+
       setShowCard("block");
+      setLoading(false);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -166,10 +172,14 @@ export function LevelCard({ headers, _StudentId, picture }) {
               className="fa fa-refresh"
               aria-hidden="true"
             />
-            <div>
-              <p>Total Score: {formatNumber(totalScore)}</p>
-              <p>Monthly Score: {formatNumber(monthlyScore)}</p>
-            </div>
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <div>
+                <p>Total Score: {formatNumber(totalScore)}</p>
+                <p>Monthly Score: {formatNumber(monthlyScore)}</p>
+              </div>
+            )}
           </div>
         </div>
       </TextLevelCard>

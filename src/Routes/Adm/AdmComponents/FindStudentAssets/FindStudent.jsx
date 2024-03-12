@@ -43,6 +43,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [disabled, setDisabled] = useState(false);
+  const [loadingScore, setLoadingScore] = useState(false);
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -60,6 +61,7 @@ export function FindStudent({ uploadStatus, headers }) {
   };
 
   const seeEdition = async (id) => {
+    setLoadingScore(true);
     handleSeeModal();
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
@@ -77,6 +79,7 @@ export function FindStudent({ uploadStatus, headers }) {
       setGoogleDriveLink(response.data.formattedStudentData.googleDriveLink);
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+      setLoadingScore(false);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -450,7 +453,7 @@ export function FindStudent({ uploadStatus, headers }) {
         </div>
       )}
       <div
-       onClick={() => handleSeeModal()}
+        onClick={() => handleSeeModal()}
         className="modal"
         style={{
           display: isVisible ? "block" : "none",
@@ -497,19 +500,23 @@ export function FindStudent({ uploadStatus, headers }) {
             </TabList>
           </Box>
           <TabPanel value="0">
-            <div
-              style={{
-                display: "grid",
-                gap: "0.5rem",
-              }}
-            >
-              <h3>
-                Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
-              </h3>
-              <h3>
-                Total Score: <strong>{formatNumber(totalScore)} </strong>
-              </h3>
-            </div>
+            {loadingScore ? (
+              <CircularProgress />
+            ) : (
+              <div
+                style={{
+                  display: "grid",
+                  gap: "0.5rem",
+                }}
+              >
+                <h3>
+                  Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
+                </h3>
+                <h3>
+                  Total Score: <strong>{formatNumber(totalScore)} </strong>
+                </h3>
+              </div>
+            )}
             <div
               style={{
                 textAlign: "center",

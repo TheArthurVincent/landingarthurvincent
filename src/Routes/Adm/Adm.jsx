@@ -9,7 +9,6 @@ import { alwaysWhite } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
-import { BackToHomePage } from "../../Resources/UniversalComponents";
 import NextTutoring from "./AdmComponents/ClassesManagement/NextTutoring";
 import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses, {
