@@ -33,7 +33,6 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [loading, setLoading] = useState(true);
   const [showCard, setShowCard] = useState("none");
 
-
   const seeScore = async (id) => {
     setLoading(true);
 
@@ -170,7 +169,28 @@ export function LevelCard({ headers, _StudentId, picture }) {
               aria-hidden="true"
             />
             {loading ? (
-              <CircularProgress style={{ color: secondaryColor() }} />
+              <CircularProgress
+                style={{
+                  color:
+                    totalScore >= 10000 && totalScore < 20000
+                      ? "#F5BD33"
+                      : totalScore >= 20000 && totalScore < 35000
+                      ? "#0C55A5"
+                      : totalScore >= 35000 && totalScore < 50000
+                      ? "#B7050B"
+                      : totalScore >= 50000 && totalScore < 65000
+                      ? "#ADB762"
+                      : totalScore >= 65000 && totalScore < 80000
+                      ? "#FB6E02"
+                      : totalScore >= 80000 && totalScore < 100000
+                      ? "#703A74"
+                      : totalScore >= 100000 && totalScore < 2000000
+                      ? "#000"
+                      : totalScore >= 2000000
+                      ? secondaryColor()
+                      : "white",
+                }}
+              />
             ) : (
               <div>
                 <p>Total Score: {formatNumber(totalScore)}</p>
