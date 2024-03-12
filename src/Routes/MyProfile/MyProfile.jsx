@@ -38,7 +38,6 @@ export function MyProfile({ headers }) {
         { newPassword },
         { headers }
       );
-      console.log(backDomain, newPassword, headers, user.id);
       setConfirmPassword("");
       setNewPassword("");
       alert("Senha editada com sucesso!");

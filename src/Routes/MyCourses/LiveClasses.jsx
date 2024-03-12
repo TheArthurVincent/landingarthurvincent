@@ -41,7 +41,6 @@ export default function MyCourses({ headers }) {
         { headers }
       );
       setClasses(response.data);
-      console.log(response.data);
       setLoading(false);
     } catch (error) {}
   }

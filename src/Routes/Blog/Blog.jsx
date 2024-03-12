@@ -90,7 +90,6 @@ export function Blog({ headers }) {
           { headers }
         );
         setNextTutoring(response.data.nextTutoring);
-        console.log(response.data, nextTutoring);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
       }

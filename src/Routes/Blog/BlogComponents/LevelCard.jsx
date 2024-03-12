@@ -33,9 +33,6 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [loading, setLoading] = useState(true);
   const [showCard, setShowCard] = useState("none");
 
-  useEffect(() => {
-    console.log(ranking);
-  }, []);
 
   const seeScore = async (id) => {
     setLoading(true);
