@@ -474,8 +474,8 @@ export default function StudentsRanking({ headers }) {
                     <Button
                       onClick={() => seeEdition(item.id)}
                       style={{
-                        color: secondaryColor(),
-                        backgroundColor: textSecondaryColorContrast(),
+                        color: theitems.items[levelNumber].textcolor,
+                        backgroundColor: theitems.items[levelNumber].color,
                         display: isAdm ? "block" : "none",
                       }}
                     >
