@@ -15,6 +15,7 @@ import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
+  alwaysBlack,
   alwaysWhite,
   primaryColor,
   secondaryColor,
@@ -421,7 +422,7 @@ export default function StudentsRanking({ headers }) {
                           style={{
                             textAlign: "center",
                             color: alwaysWhite(),
-                            textShadow: `2px 0 ${theitems.items[levelNumber].textcolor}, -2px 0 ${theitems.items[levelNumber].textcolor}, 0 2px ${theitems.items[levelNumber].textcolor}, 0 -2px ${theitems.items[levelNumber].textcolor}, 1px 1px ${theitems.items[levelNumber].textcolor}, -1px -1px ${theitems.items[levelNumber].textcolor}, 1px -1px ${theitems.items[levelNumber].textcolor}, -1px 1px ${theitems.items[levelNumber].textcolor}`,
+                            textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
                           }}
                         >
                           {formatNumber(item.monthlyScore)}{" "}
