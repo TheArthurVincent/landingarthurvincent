@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi, RouteDiv } from "../../../Resources/Components/RouteBox";
+import {
+  AnimatedLi,
+  DivFont,
+  RouteDiv,
+} from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
   Xp,
@@ -146,7 +150,6 @@ export default function StudentsRanking({ headers }) {
           left: "50%",
           width: "18rem",
           display: isVisible ? "block" : "none",
-
           transform: "translate(-50%, -50%)",
         }}
       >
@@ -249,8 +252,8 @@ export default function StudentsRanking({ headers }) {
         <Button
           onClick={() => fetchStudents()}
           style={{
-            backgroundColor: secondaryColor(),
-            color: textSecondaryColorContrast(),
+            backgroundColor: textSecondaryColorContrast(),
+            color: secondaryColor(),
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>
@@ -391,6 +394,7 @@ export default function StudentsRanking({ headers }) {
                     <p
                       style={{
                         fontWeight: 600,
+                        fontSize: "1.2rem",
                         fontFamily: "Athiti",
                         padding: "5px",
                         textAlign: "center",
@@ -400,23 +404,11 @@ export default function StudentsRanking({ headers }) {
                     >
                       #{index + 1} | {item.name} <br />
                     </p>
-                    <Button
-                      onClick={() => seeEdition(item.id)}
-                      style={{
-                        color: secondaryColor(),
-                        backgroundColor: textSecondaryColorContrast(),
-                        display: isAdm ? "block" : "none",
-                      }}
-                    >
-                      pontuar
-                    </Button>
                     <p
                       style={{
                         borderRadius: "0.5rem",
                         marginBottom: "0.2rem",
                         padding: "5px",
-                        backgroundColor: primaryColor(),
-                        color: textPrimaryColorContrast(),
                       }}
                     >
                       <span
@@ -425,15 +417,37 @@ export default function StudentsRanking({ headers }) {
                         }}
                       >
                         Monthly Score:{" "}
-                        <span
+                        <DivFont
                           style={{
-                            fontWeight: 600,
-                            fontSize: "1.2rem",
-                            fontFamily: "Athiti",
+                            textAlign: "center",
+                            color: alwaysWhite(),
+                            textShadow: `2px 0 ${theitems.items[levelNumber].textcolor}, -2px 0 ${theitems.items[levelNumber].textcolor}, 0 2px ${theitems.items[levelNumber].textcolor}, 0 -2px ${theitems.items[levelNumber].textcolor}, 1px 1px ${theitems.items[levelNumber].textcolor}, -1px -1px ${theitems.items[levelNumber].textcolor}, 1px -1px ${theitems.items[levelNumber].textcolor}, -1px 1px ${theitems.items[levelNumber].textcolor}`,
                           }}
                         >
-                          {formatNumber(item.monthlyScore)}
-                        </span>
+                          {formatNumber(item.monthlyScore)}{" "}
+                          <Tooltip
+                            key={index}
+                            title={
+                              item.monthlyScore >= 3000
+                                ? "Monthly Score acima de 3000! Concorrendo ao prêmio do mês!"
+                                : "Monthly Score abaixo de 3000! Ainda não concorrendo ao prêmio do mês"
+                            }
+                          >
+                            <i
+                              style={{
+                                fontWeight: 100,
+                                textShadow:
+                                  item.monthlyScore >= 3000
+                                    ? `1px 1px 10px yellow`
+                                    : "none",
+                                color:
+                                  item.monthlyScore >= 3000 ? "yellow" : "grey",
+                              }}
+                              className="fa fa-lightbulb-o"
+                              aria-hidden="true"
+                            />
+                          </Tooltip>
+                        </DivFont>
                       </span>
                     </p>
 
@@ -449,30 +463,6 @@ export default function StudentsRanking({ headers }) {
                       }}
                       src={item.picture}
                     />
-                    <Tooltip
-                      key={index}
-                      title="A pontuação mensal mínima para concorrer é 3000."
-                    >
-                      <div
-                        style={{
-                          fontWeight: 600,
-                          backgroundColor:
-                            item.monthlyScore >= 3000 ? "green" : "orange",
-                          color: "white",
-                          padding: "0.3rem",
-                          textAlign: "center",
-                          margin: "auto",
-                          marginTop: "5px",
-                          fontSize: "0.6rem",
-                          maxWidth: "fit-content",
-                          textAlign: "center",
-                        }}
-                      >
-                        {item.monthlyScore >= 3000
-                          ? "Running for prize!"
-                          : "Not running for prize yet!"}
-                      </div>
-                    </Tooltip>
                   </div>
 
                   <div
@@ -481,6 +471,16 @@ export default function StudentsRanking({ headers }) {
                       color: theitems.items[levelNumber].textcolor,
                     }}
                   >
+                    <Button
+                      onClick={() => seeEdition(item.id)}
+                      style={{
+                        color: secondaryColor(),
+                        backgroundColor: textSecondaryColorContrast(),
+                        display: isAdm ? "block" : "none",
+                      }}
+                    >
+                      Pontuar
+                    </Button>
                     <h2 style={{ fontSize: "1.2rem" }}>
                       <i
                         className={theitems.items[levelNumber].icon}

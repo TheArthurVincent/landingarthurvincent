@@ -201,8 +201,8 @@ export function NextTutorings({ headers, display }) {
           <Button onClick={() => seeAllTutorings()}
           
           style={{
-            backgroundColor: secondaryColor(),
-            color: textSecondaryColorContrast(),
+            backgroundColor: textSecondaryColorContrast(),
+            color: secondaryColor(),
           }}
           
           >

@@ -112,8 +112,8 @@ export function AllClasses({ headers }) {
         <Button
           onClick={() => seeAllTutorings()}
           style={{
-            backgroundColor: secondaryColor(),
-            color: textSecondaryColorContrast(),
+            backgroundColor: textSecondaryColorContrast(),
+            color: secondaryColor(),
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true" />

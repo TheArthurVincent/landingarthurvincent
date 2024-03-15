@@ -18,13 +18,12 @@ import { Button, CircularProgress } from "@mui/material";
 export default function RankingTimeline({ headers, display, id, name }) {
   const [localTimeline, setLocalTimeline] = useState([]);
   const [studentsList, setStudentsList] = useState([]);
-  const [IDMASTER, setIDMASTER] = useState("");
   const [actualName, setActualName] = useState(name);
+  const [newID, setNewID] = useState(id);
+  const [loading, setLoading] = useState(true);
 
   const fetchStudents = async () => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setIDMASTER(getLoggedUser.id);
-    if (IDMASTER === "651311fac3d58753aa9281c5") {
+    if (id == "651311fac3d58753aa9281c5") {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`, {
           headers,
@@ -37,11 +36,9 @@ export default function RankingTimeline({ headers, display, id, name }) {
     }
   };
 
-  const [newID, setNewID] = useState(id);
-  const [loading, setLoading] = useState(true);
-
   const seeScore = async (id) => {
     setLoading(true);
+    fetchStudents();
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers,
@@ -50,7 +47,6 @@ export default function RankingTimeline({ headers, display, id, name }) {
       setLoading(false);
       setNewID(id);
       seeName(id);
-      fetchStudents();
     } catch (error) {
       alert(error);
       console.error(error);
@@ -101,14 +97,14 @@ export default function RankingTimeline({ headers, display, id, name }) {
           <Button
             onClick={() => seeScore(id)}
             style={{
-              backgroundColor: secondaryColor(),
-              color: textSecondaryColorContrast(),
+              backgroundColor: textSecondaryColorContrast(),
+              color: secondaryColor(),
             }}
           >
             <i className="fa fa-refresh" aria-hidden="true" />
           </Button>
         )}{" "}
-        {IDMASTER == "651311fac3d58753aa9281c5" && (
+        {id == "651311fac3d58753aa9281c5" && (
           <select
             onChange={handleStudentChange}
             name="students"

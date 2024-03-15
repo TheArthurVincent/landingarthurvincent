@@ -60,8 +60,8 @@ export default function StudentsRankingTotal({ headers }) {
         <Button
           onClick={() => fetchStudents()}
           style={{
-            backgroundColor: secondaryColor(),
-            color: textSecondaryColorContrast(),
+            backgroundColor: textSecondaryColorContrast(),
+            color: secondaryColor(),
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>
