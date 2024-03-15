@@ -40,6 +40,15 @@ export const SpanHover = styled.span`
     // transition: 0.2s;
   }
 `;
+export const SpanHover2 = styled.span`
+  padding-left: 10px;
+  border-left: solid ${secondaryColor()} 2px;
+  &:hover {
+    color: ${secondaryColor()};
+    border-left: solid ${alwaysWhite()} 2px;
+    // transition: 0.2s;
+  }
+`;
 export const FormFlex = styled.form`
   display: flex;
   padding: 0.5rem;
@@ -843,7 +852,6 @@ export function isDev() {
     return "https://apiprod.arthurvincent.com.br";
   }
 }
-
 
 // export function logout24h() {
 //   setTimeout(() => {

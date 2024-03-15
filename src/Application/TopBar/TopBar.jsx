@@ -10,11 +10,18 @@ import {
   Button,
   LogoSVG,
   SpanHover,
+  SpanHover2,
 } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import { textPrimaryColorContrast,primaryColor, secondaryColor, lightGreyColor, alwaysWhite } from "../../Styles/Styles";
+import {
+  textPrimaryColorContrast,
+  primaryColor,
+  secondaryColor,
+  lightGreyColor,
+  alwaysWhite,
+} from "../../Styles/Styles";
 import { FormControl, MenuItem, Select } from "@mui/material";
 
 export default function TopBar() {
@@ -95,18 +102,17 @@ export default function TopBar() {
           <NavLink
             style={{
               color: textPrimaryColorContrast(),
-
               textDecoration: "none",
             }}
             to="/"
           >
-            <SpanHover
+            <SpanHover2
               style={{
                 textDecoration: "none",
               }}
             >
               {UniversalTexts.homePage}
-            </SpanHover>
+            </SpanHover2>
           </NavLink>
           {topLinks.map((link, index) => {
             return (
