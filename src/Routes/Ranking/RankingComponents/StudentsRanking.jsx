@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatedLi, RouteDiv } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
+  Xp,
   backDomain,
   formatNumber,
 } from "../../../Resources/UniversalComponents";
@@ -10,17 +11,85 @@ import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
+  alwaysWhite,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
+  transparentBlack,
 } from "../../../Styles/Styles";
 
+import { buttons } from "../../Adm/AdmComponents/FindStudentAssets/AssetsFindStudent/ButtonsList";
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [isAdm, setIsAdm] = useState(false);
+  const [loadingScore, setLoadingScore] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [descSpecial, setDescSpecial] = useState("");
+  const [plusScore, setPlusScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
+  const [monthlyScore, setMonthlyScore] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [ID, setId] = useState("");
+
+  const seeEdition = async (id) => {
+    console.log(id, "idddddddd");
+    setDisabled(true);
+    setLoadingScore(true);
+    setIsVisible(!isVisible);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.formattedStudentData.totalScore);
+      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+      setId(response.data.formattedStudentData.id);
+      setDisabled(false);
+      setLoadingScore(false);
+    } catch (error) {
+      // alert(error);
+      console.error(error);
+    }
+  };
+
+  const changePlusScore = (score) => {
+    setPlusScore(score);
+  };
+
+  const updateScoreNow = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.formattedStudentData.totalScore);
+      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+    } catch (error) {
+      // alert(error);
+      console.error(error);
+    }
+  };
+
+  const submitPlusScore = async (id, score, description, type) => {
+    setLoadingScore(true);
+    setDisabled(true);
+    try {
+      const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
+        headers,
+        score,
+        description,
+        type,
+      });
+
+      updateScoreNow(id);
+      setDisabled(false);
+      setLoadingScore(false);
+    } catch (error) {
+      // alert("Erro ao somar pontuação");
+      setDisabled(false);
+    }
+  };
 
   const theItems = levels();
 
@@ -29,6 +98,11 @@ export default function StudentsRanking({ headers }) {
     setUser(getLoggedUser);
     getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
   }, []);
+
+  const handleSeeModal = () => {
+    setIsVisible(!isVisible);
+    fetchStudents(theItems);
+  };
 
   const fetchStudents = async () => {
     setLoading(true);
@@ -39,7 +113,7 @@ export default function StudentsRanking({ headers }) {
       setStudents(response.data.listOfStudents);
       setLoading(false);
     } catch (error) {
-      alert("Erro ao encontrar alunos");
+      // alert("Erro ao encontrar alunos");
     }
   };
   useEffect(() => {
@@ -48,6 +122,122 @@ export default function StudentsRanking({ headers }) {
 
   return (
     <div>
+      <div
+        style={{
+          backgroundColor: transparentBlack(),
+          width: "10000px",
+          height: "10000px",
+          top: "0",
+          left: "0",
+          position: "fixed",
+          zIndex: 95,
+          display: isVisible ? "block" : "none",
+          padding: "1rem",
+        }}
+        onClick={() => handleSeeModal()}
+      />
+      <div
+        style={{
+          position: "fixed",
+          zIndex: 100,
+          padding: "1rem",
+          backgroundColor: alwaysWhite(),
+          top: "50%",
+          left: "50%",
+          width: "18rem",
+          display: isVisible ? "block" : "none",
+
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        {loadingScore ? (
+          <CircularProgress style={{ color: secondaryColor() }} />
+        ) : (
+          <div
+            style={{
+              display: "grid",
+              gap: "0.5rem",
+            }}
+          >
+            <Xp
+              onClick={() => handleSeeModal()}
+              style={{
+                fontSize: "1.5rem",
+              }}
+            >
+              x
+            </Xp>
+            <h3>
+              Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
+            </h3>
+            <h3>
+              Total Score: <strong>{formatNumber(totalScore)} </strong>
+            </h3>
+          </div>
+        )}
+        <div
+          style={{
+            textAlign: "center",
+            display: "grid",
+            gap: "1rem",
+            overflow: "auto",
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gap: "0.5rem",
+            }}
+          >
+            {buttons.map((item, index) => {
+              return (
+                <Button
+                  key={index}
+                  disabled={disabled}
+                  style={{
+                    backgroundColor: disabled ? "grey" : item.color,
+                    color: alwaysWhite(),
+                    fontSize: "0.8rem",
+                  }}
+                  onClick={() =>
+                    submitPlusScore(
+                      ID,
+                      item.score,
+                      item.description,
+                      item.category
+                    )
+                  }
+                >
+                  {item.text}
+                </Button>
+              );
+            })}
+
+            <div>
+              <p>Personalizado</p>
+              <input
+                style={{ maxWidth: "5rem", marginRight: "5px" }}
+                placeholder="Special Score"
+                onChange={(e) => changePlusScore(e.target.value)}
+                type="number"
+              />
+              <input
+                style={{ maxWidth: "5rem", marginRight: "5px" }}
+                placeholder="Description"
+                onChange={(e) => setDescSpecial(e.target.value)}
+                type="text"
+              />
+              <Button
+                onClick={() =>
+                  submitPlusScore(ID, plusScore, descSpecial, "Others")
+                }
+              >
+                +
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         style={{
           display: "flex",
@@ -210,6 +400,16 @@ export default function StudentsRanking({ headers }) {
                     >
                       #{index + 1} | {item.name} <br />
                     </p>
+                    <Button
+                      onClick={() => seeEdition(item.id)}
+                      style={{
+                        color: secondaryColor(),
+                        backgroundColor: textSecondaryColorContrast(),
+                        display: isAdm ? "block" : "none",
+                      }}
+                    >
+                      pontuar
+                    </Button>
                     <p
                       style={{
                         borderRadius: "0.5rem",

@@ -18,8 +18,8 @@ import {
   secondaryColor,
   textPrimaryColorContrast,
 } from "../../../../Styles/Styles";
-import { buttons } from "./AssetsFindStudent/ButtonsList";
 import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
+import { buttons } from "../FindStudentAssets/AssetsFindStudent/ButtonsList";
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
@@ -44,6 +44,8 @@ export function FindStudent({ uploadStatus, headers }) {
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [disabled, setDisabled] = useState(false);
   const [loadingScore, setLoadingScore] = useState(false);
+  const [plusScore, setPlusScore] = useState(0);
+  const [descSpecial, setDescSpecial] = useState("");
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -205,12 +207,9 @@ export function FindStudent({ uploadStatus, headers }) {
     }
   };
 
-  const [plusScore, setPlusScore] = useState(0);
-
   const changePlusScore = (score) => {
     setPlusScore(score);
   };
-  const [descSpecial, setDescSpecial] = useState("");
 
   const submitPlusScore = async (id, score, description, type) => {
     setLoadingScore(true);
@@ -543,6 +542,7 @@ export function FindStudent({ uploadStatus, headers }) {
                       disabled={disabled}
                       style={{
                         backgroundColor: disabled ? "grey" : item.color,
+                        fontSize: "0.8rem",
                         color: alwaysWhite(),
                       }}
                       onClick={() =>
@@ -562,11 +562,13 @@ export function FindStudent({ uploadStatus, headers }) {
                 <div>
                   <p>Personalizado</p>
                   <input
+                    style={{ maxWidth: "5rem", marginRight: "5px" }}
                     placeholder="Special Score"
                     onChange={(e) => changePlusScore(e.target.value)}
                     type="number"
                   />
                   <input
+                    style={{ maxWidth: "5rem", marginRight: "5px" }}
                     placeholder="Description"
                     onChange={(e) => setDescSpecial(e.target.value)}
                     type="text"
@@ -576,7 +578,7 @@ export function FindStudent({ uploadStatus, headers }) {
                       submitPlusScore(ID, plusScore, descSpecial, "Others")
                     }
                   >
-                    Atualizar
+                    +
                   </Button>
                 </div>
               </div>
