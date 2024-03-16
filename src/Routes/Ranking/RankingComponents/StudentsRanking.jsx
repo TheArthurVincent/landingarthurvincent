@@ -40,7 +40,6 @@ export default function StudentsRanking({ headers }) {
   const [ID, setId] = useState("");
 
   const seeEdition = async (id) => {
-    console.log(id, "idddddddd");
     setDisabled(true);
     setLoadingScore(true);
     setIsVisible(!isVisible);
