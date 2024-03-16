@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi, RouteDiv } from "../../../Resources/Components/RouteBox";
+import {
+  AnimatedLi,
+  DivFont,
+  RouteDiv,
+} from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
+  Xp,
   backDomain,
   formatNumber,
 } from "../../../Resources/UniversalComponents";
@@ -10,17 +15,86 @@ import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
+  alwaysBlack,
+  alwaysWhite,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
+  transparentBlack,
 } from "../../../Styles/Styles";
 
+import { buttons } from "../../Adm/AdmComponents/FindStudentAssets/AssetsFindStudent/ButtonsList";
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [isAdm, setIsAdm] = useState(false);
+  const [loadingScore, setLoadingScore] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [descSpecial, setDescSpecial] = useState("");
+  const [plusScore, setPlusScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
+  const [monthlyScore, setMonthlyScore] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [ID, setId] = useState("");
+
+  const seeEdition = async (id) => {
+    console.log(id, "idddddddd");
+    setDisabled(true);
+    setLoadingScore(true);
+    setIsVisible(!isVisible);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.formattedStudentData.totalScore);
+      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+      setId(response.data.formattedStudentData.id);
+      setDisabled(false);
+      setLoadingScore(false);
+    } catch (error) {
+      // alert(error);
+      console.error(error);
+    }
+  };
+
+  const changePlusScore = (score) => {
+    setPlusScore(score);
+  };
+
+  const updateScoreNow = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+        headers,
+      });
+      setTotalScore(response.data.formattedStudentData.totalScore);
+      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+    } catch (error) {
+      // alert(error);
+      console.error(error);
+    }
+  };
+
+  const submitPlusScore = async (id, score, description, type) => {
+    setLoadingScore(true);
+    setDisabled(true);
+    try {
+      const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
+        headers,
+        score,
+        description,
+        type,
+      });
+
+      updateScoreNow(id);
+      setDisabled(false);
+      setLoadingScore(false);
+    } catch (error) {
+      // alert("Erro ao somar pontuação");
+      setDisabled(false);
+    }
+  };
 
   const theItems = levels();
 
@@ -29,6 +103,11 @@ export default function StudentsRanking({ headers }) {
     setUser(getLoggedUser);
     getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
   }, []);
+
+  const handleSeeModal = () => {
+    setIsVisible(!isVisible);
+    fetchStudents(theItems);
+  };
 
   const fetchStudents = async () => {
     setLoading(true);
@@ -39,7 +118,7 @@ export default function StudentsRanking({ headers }) {
       setStudents(response.data.listOfStudents);
       setLoading(false);
     } catch (error) {
-      alert("Erro ao encontrar alunos");
+      // alert("Erro ao encontrar alunos");
     }
   };
   useEffect(() => {
@@ -48,6 +127,121 @@ export default function StudentsRanking({ headers }) {
 
   return (
     <div>
+      <div
+        style={{
+          backgroundColor: transparentBlack(),
+          width: "10000px",
+          height: "10000px",
+          top: "0",
+          left: "0",
+          position: "fixed",
+          zIndex: 95,
+          display: isVisible ? "block" : "none",
+          padding: "1rem",
+        }}
+        onClick={() => handleSeeModal()}
+      />
+      <div
+        style={{
+          position: "fixed",
+          zIndex: 100,
+          padding: "1rem",
+          backgroundColor: alwaysWhite(),
+          top: "50%",
+          left: "50%",
+          width: "18rem",
+          display: isVisible ? "block" : "none",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        {loadingScore ? (
+          <CircularProgress style={{ color: secondaryColor() }} />
+        ) : (
+          <div
+            style={{
+              display: "grid",
+              gap: "0.5rem",
+            }}
+          >
+            <Xp
+              onClick={() => handleSeeModal()}
+              style={{
+                fontSize: "1.5rem",
+              }}
+            >
+              x
+            </Xp>
+            <h3>
+              Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
+            </h3>
+            <h3>
+              Total Score: <strong>{formatNumber(totalScore)} </strong>
+            </h3>
+          </div>
+        )}
+        <div
+          style={{
+            textAlign: "center",
+            display: "grid",
+            gap: "1rem",
+            overflow: "auto",
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gap: "0.5rem",
+            }}
+          >
+            {buttons.map((item, index) => {
+              return (
+                <Button
+                  key={index}
+                  disabled={disabled}
+                  style={{
+                    backgroundColor: disabled ? "grey" : item.color,
+                    color: alwaysWhite(),
+                    fontSize: "0.8rem",
+                  }}
+                  onClick={() =>
+                    submitPlusScore(
+                      ID,
+                      item.score,
+                      item.description,
+                      item.category
+                    )
+                  }
+                >
+                  {item.text}
+                </Button>
+              );
+            })}
+
+            <div>
+              <p>Personalizado</p>
+              <input
+                style={{ maxWidth: "5rem", marginRight: "5px" }}
+                placeholder="Special Score"
+                onChange={(e) => changePlusScore(e.target.value)}
+                type="number"
+              />
+              <input
+                style={{ maxWidth: "5rem", marginRight: "5px" }}
+                placeholder="Description"
+                onChange={(e) => setDescSpecial(e.target.value)}
+                type="text"
+              />
+              <Button
+                onClick={() =>
+                  submitPlusScore(ID, plusScore, descSpecial, "Others")
+                }
+              >
+                +
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         style={{
           display: "flex",
@@ -59,8 +253,8 @@ export default function StudentsRanking({ headers }) {
         <Button
           onClick={() => fetchStudents()}
           style={{
-            backgroundColor: secondaryColor(),
-            color: textSecondaryColorContrast(),
+            backgroundColor: textSecondaryColorContrast(),
+            color: secondaryColor(),
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>
@@ -201,6 +395,7 @@ export default function StudentsRanking({ headers }) {
                     <p
                       style={{
                         fontWeight: 600,
+                        fontSize: "1.2rem",
                         fontFamily: "Athiti",
                         padding: "5px",
                         textAlign: "center",
@@ -215,8 +410,6 @@ export default function StudentsRanking({ headers }) {
                         borderRadius: "0.5rem",
                         marginBottom: "0.2rem",
                         padding: "5px",
-                        backgroundColor: primaryColor(),
-                        color: textPrimaryColorContrast(),
                       }}
                     >
                       <span
@@ -225,15 +418,37 @@ export default function StudentsRanking({ headers }) {
                         }}
                       >
                         Monthly Score:{" "}
-                        <span
+                        <DivFont
                           style={{
-                            fontWeight: 600,
-                            fontSize: "1.2rem",
-                            fontFamily: "Athiti",
+                            textAlign: "center",
+                            color: alwaysWhite(),
+                            textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
                           }}
                         >
-                          {formatNumber(item.monthlyScore)}
-                        </span>
+                          {formatNumber(item.monthlyScore)}{" "}
+                          <Tooltip
+                            key={index}
+                            title={
+                              item.monthlyScore >= 3000
+                                ? "Monthly Score acima de 3000! Concorrendo ao prêmio do mês!"
+                                : "Monthly Score abaixo de 3000! Ainda não concorrendo ao prêmio do mês"
+                            }
+                          >
+                            <i
+                              style={{
+                                fontWeight: 100,
+                                textShadow:
+                                  item.monthlyScore >= 3000
+                                    ? `1px 1px 10px yellow`
+                                    : "none",
+                                color:
+                                  item.monthlyScore >= 3000 ? "yellow" : "grey",
+                              }}
+                              className="fa fa-lightbulb-o"
+                              aria-hidden="true"
+                            />
+                          </Tooltip>
+                        </DivFont>
                       </span>
                     </p>
 
@@ -249,30 +464,6 @@ export default function StudentsRanking({ headers }) {
                       }}
                       src={item.picture}
                     />
-                    <Tooltip
-                      key={index}
-                      title="A pontuação mensal mínima para concorrer é 3000."
-                    >
-                      <div
-                        style={{
-                          fontWeight: 600,
-                          backgroundColor:
-                            item.monthlyScore >= 3000 ? "green" : "orange",
-                          color: "white",
-                          padding: "0.3rem",
-                          textAlign: "center",
-                          margin: "auto",
-                          marginTop: "5px",
-                          fontSize: "0.6rem",
-                          maxWidth: "fit-content",
-                          textAlign: "center",
-                        }}
-                      >
-                        {item.monthlyScore >= 3000
-                          ? "Running for prize!"
-                          : "Not running for prize yet!"}
-                      </div>
-                    </Tooltip>
                   </div>
 
                   <div
@@ -281,6 +472,16 @@ export default function StudentsRanking({ headers }) {
                       color: theitems.items[levelNumber].textcolor,
                     }}
                   >
+                    <Button
+                      onClick={() => seeEdition(item.id)}
+                      style={{
+                        backgroundColor: theitems.items[levelNumber].textcolor,
+                        color: theitems.items[levelNumber].color,
+                        display: isAdm ? "block" : "none",
+                      }}
+                    >
+                      Pontuar
+                    </Button>
                     <h2 style={{ fontSize: "1.2rem" }}>
                       <i
                         className={theitems.items[levelNumber].icon}
