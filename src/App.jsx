@@ -16,6 +16,7 @@ import EnglishActivities from "./Routes/EnglishActivities/EnglishActivities";
 import NotFound from "./Routes/NotFound/NotFound";
 import theitems from "../src/Routes/Ranking/RankingComponents/ranking.json";
 import { SignUp } from "./Routes/SignUp/SignUp";
+import { MessageDrive } from "./Routes/Message/Message";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -95,6 +96,10 @@ function App() {
     {
       path: "/ranking",
       element: verifyToken() ? <Ranking headers={headers} /> : <Login />,
+    },
+    {
+      path: "/message",
+      element: verifyToken() ? <MessageDrive /> : <Login />,
     },
     {
       path: "/english-material",
