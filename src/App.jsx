@@ -15,6 +15,7 @@ import Ranking from "./Routes/Ranking/Ranking";
 import EnglishActivities from "./Routes/EnglishActivities/EnglishActivities";
 import NotFound from "./Routes/NotFound/NotFound";
 import theitems from "../src/Routes/Ranking/RankingComponents/ranking.json";
+import { SignUp } from "./Routes/SignUp/SignUp";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -122,6 +123,10 @@ function App() {
     {
       path: "/adm-businessmanagement",
       element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
     },
   ];
 
