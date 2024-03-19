@@ -7,6 +7,7 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
 } from "../Styles/Styles";
 import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
@@ -178,6 +179,55 @@ export function InputField({ value, onChange, id, placeholder, type }) {
           backgroundColor: "white",
           minWidth: "15rem",
           border: "#555 1px solid",
+        }}
+        value={value}
+        onChange={onChange}
+        id={id}
+        placeholder={placeholder}
+        type={type}
+        required
+      />
+    </div>
+  );
+}
+
+export function InputFieldSignUp({ value, onChange, id, placeholder, type }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        fontFamily: "Athiti",
+        justifyContent: "center",
+      }}
+    >
+      <p
+        style={{
+          margin: 0,
+          color: "white",
+          textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
+          marginBottom: "3px",
+          fontWeight: 800,
+          fontSize: "2rem",
+          fontFamily: "Athiti",
+          textAlign: "center",
+        }}
+      >
+        {placeholder}
+      </p>
+      <input
+        style={{
+          padding: "0.5rem",
+          marginBottom: "0.3rem",
+          fontFamily: "Athiti",
+          fontSize: "1.5rem",
+          fontWeight: 500,
+          backgroundColor: secondaryColor(),
+          color: textSecondaryColorContrast(),
+          border: "#555 3px solid",
+          borderRadius: "10px 0",
+          width: "50%",
         }}
         value={value}
         onChange={onChange}
