@@ -177,7 +177,7 @@ export function SignUp() {
               }}
             >
               Clique aqui para criar uma conta no
-              <a href="https://ankiweb.net/account/signup">
+              <a target="_blank" href="https://ankiweb.net/account/signup">
                 {" "}
                 https://ankiweb.net/account/signup
               </a>{" "}
