@@ -32,6 +32,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [googleDriveLink, setGoogleDriveLink] = useState("");
+  const [picture, setPicture] = useState("");
   const [ankiEmail, setAnkiEmail] = useState("");
   const [ankiPassword, setAnkiPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
@@ -112,6 +113,10 @@ export function FindStudent({ uploadStatus, headers }) {
       lastname: newLastName,
       phoneNumber: newPhone,
       permissions: permissions,
+      googleDriveLink: googleDriveLink,
+      ankiPassword: ankiPassword,
+      ankiEmail: ankiEmail,
+      picture: picture,
     };
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -425,7 +430,7 @@ export function FindStudent({ uploadStatus, headers }) {
                   <Link
                     style={{
                       color: primaryColor(),
-                      padding: "0.5rem",
+                      padding: "0.3rem",
                     }}
                     to={
                       student.googleDriveLink
@@ -482,11 +487,11 @@ export function FindStudent({ uploadStatus, headers }) {
             marginBottom: 0,
             margin: "1rem 0",
             color: primaryColor(),
-            padding: "0.5rem",
+            padding: "0.3rem",
             backgroundColor: textPrimaryColorContrast(),
           }}
         >
-          Editar aluno
+          Editar aluno - {newName}
         </h1>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -588,7 +593,7 @@ export function FindStudent({ uploadStatus, headers }) {
             <form
               style={{
                 display: !seeConfirmDelete ? "block" : "none",
-                maxHeight: "10rem",
+                maxHeight: "18rem",
                 padding: "5px",
                 overflow: "auto",
                 height: "22rem",
@@ -602,9 +607,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Nome"
                 type="text"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -616,9 +621,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Sobrenome"
                 type="text"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -630,9 +635,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 type="text"
                 disabled={true}
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -643,9 +648,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Número de celular"
                 type="number"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -656,9 +661,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="E-mail"
                 type="email"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -669,9 +674,22 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Link do Google Drive"
                 type="email"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
+                  color: "#111",
+                  margin: "0.5rem",
+                }}
+              />
+              <input
+                value={picture}
+                onChange={(event) => setPicture(event.target.value)}
+                placeholder="Foto"
+                type="email"
+                style={{
+                  padding: "0.3rem",
+                  marginBottom: "0.3rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -682,9 +700,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="E-mail do Anki"
                 type="email"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -695,9 +713,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Senha do Anki"
                 type="email"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -757,7 +775,7 @@ export function FindStudent({ uploadStatus, headers }) {
                   style={{
                     backgroundColor: "#111",
                     color: "#fff",
-                    padding: "0.5rem",
+                    padding: "0.3rem",
                     margin: "0.5rem",
                   }}
                 >
@@ -808,9 +826,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 value={permissions}
                 onChange={handleChange}
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   minWidth: "15rem",
                 }}
@@ -867,9 +885,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Escolha uma nova senha"
                 type="password"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
@@ -880,9 +898,9 @@ export function FindStudent({ uploadStatus, headers }) {
                 placeholder="Confirme a Senha"
                 type="password"
                 style={{
-                  padding: "0.5rem",
+                  padding: "0.3rem",
                   marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
+
                   color: "#111",
                   margin: "0.5rem",
                 }}
