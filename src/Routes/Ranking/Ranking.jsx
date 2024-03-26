@@ -71,7 +71,7 @@ export default function Ranking({ headers, logged }) {
       <TopBar />
       <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
         <RouteDiv>
-          <HOne>MONTHLY RANKING</HOne>
+          <HOne>Ranking</HOne>
           <TabContext value={value}>
             <Box
               style={{

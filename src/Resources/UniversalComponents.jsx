@@ -34,11 +34,13 @@ export const All = styled.div`
 
 export const SpanHover = styled.span`
   padding-left: 10px;
+  font-family: Athiti;
+  font-weight: 500;
   border-left: solid ${alwaysWhite()} 2px;
   &:hover {
     color: ${secondaryColor()};
     border-left: solid ${secondaryColor()} 2px;
-    // transition: 0.2s;
+    transition: 0.2s;
   }
 `;
 export const SpanHover2 = styled.span`
@@ -555,7 +557,10 @@ export const BackToHomePage = () => {
           ...linkReset,
           backgroundColor: primaryColor(),
           color: textPrimaryColorContrast(),
-          padding: "0.5rem",
+          padding: "0.4rem",
+          borderRadius: "10px",
+          fontSize: "12px",
+          textDecoration: "none",
         }}
         to="/"
       >
@@ -574,8 +579,6 @@ export function formatDate(dateString) {
     year: "numeric",
     month: "short",
     day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
   };
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", options);
