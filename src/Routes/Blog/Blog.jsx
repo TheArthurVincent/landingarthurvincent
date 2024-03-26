@@ -6,6 +6,8 @@ import {
   HTwo,
   BackgroundClickBlog,
   BlogSideBox,
+  HOne,
+  SpanIcon,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -22,6 +24,7 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
@@ -191,7 +194,7 @@ export function Blog({ headers }) {
         <RouteDiv>
           <div
             style={{
-              margin: "1rem 0",
+              margin: "1rem 0.5rem 0 0",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -209,7 +212,6 @@ export function Blog({ headers }) {
               <HTwo
                 style={{
                   margin: 0,
-                  textAlign: "left",
                 }}
               >
                 {UniversalTexts.hello}
@@ -248,30 +250,41 @@ export function Blog({ headers }) {
                   },
                 ].map((item, index) => {
                   return (
-                    <Tooltip key={index} title={item.tooltip}>
-                      <Link
-                        style={{
-                          marginRight: "0.5rem",
-                          color: primaryColor(),
-                          padding: "0.3rem",
-                          fontSize: "1.5rem",
-                          width: "1.5rem",
-                          height: "1.5rem",
-                          textAlign: "center",
-                          color: item.color,
-                        }}
-                        target="_blank"
-                        to={item.link}
-                      >
+                    <Link
+                      key={index}
+                      style={{
+                        marginRight: "0.5rem",
+                        padding: "0.3rem",
+                        fontSize: "1.5rem",
+                        height: "1.5rem",
+                        textAlign: "center",
+                        color: item.color,
+                        gap: "0.2rem",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                      target="_blank"
+                      to={item.link}
+                    >
+                      <SpanIcon>
                         <span
                           style={{
-                            textDecoration: "underline",
+                            display: "block",
+                            color: item.color,
+                            fontSize: "1.4rem",
                           }}
                         >
                           {item.title}
                         </span>
-                      </Link>
-                    </Tooltip>
+                        <span
+                          style={{
+                            fontWeight: 600,
+                          }}
+                        >
+                          {item.tooltip}
+                        </span>
+                      </SpanIcon>
+                    </Link>
                   );
                 })}
               </div>
@@ -349,7 +362,7 @@ export function Blog({ headers }) {
             display={permissions == "superadmin" ? "block" : "none"}
             headers={headers}
           />
-
+          <HOne>{UniversalTexts.mural}</HOne>
           {posts.map((post, index) => (
             <div
               key={index}
@@ -368,22 +381,19 @@ export function Blog({ headers }) {
                       gap: "2rem",
                     }}
                   >
-                    <TitleChangeSize>{post.title} </TitleChangeSize>
+                    <TitleChangeSize>{post.title}</TitleChangeSize>
                     {!loading && (
                       <Button
                         style={{
                           display:
-                            permissions == "superadmin" ? "flex" : "none",
-                          alignItems: "center",
-                          backgroundColor: secondaryColor(),
-                          color: textSecondaryColorContrast(),
-                          fontSize: "0.7rem",
-                          maxHeight: "1.2rem",
-                          maxWidth: "1.2rem",
+                            permissions == "superadmin" ? "grid" : "none",
+                          backgroundColor: textPrimaryColorContrast(),
+                          color: primaryColor(),
+                          fontSize: "0.6rem",
                         }}
                         onClick={() => seeEdition(post._id)}
                       >
-                        {UniversalTexts.editPost}
+                        <i className="fa fa-edit" aria-hidden="true" />
                       </Button>
                     )}
                   </span>

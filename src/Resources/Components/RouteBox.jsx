@@ -6,6 +6,7 @@ import {
   alwaysWhite,
   alwaysBlack,
   transparentWhite,
+  secondaryColor,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
@@ -79,18 +80,40 @@ export const BlogRouteSizeControlBox = styled.div`
 `;
 
 export const HOne = styled.h1`
-  background-color: ${primaryColor()};
-  font-size: 1.2rem;
-  padding: 0rem 1rem;
-  margin: 0;
-  margin-bottom: 0.5rem;
+  font-weight: 800;
+  font-size: 1.3rem;
+  background-color: ${secondaryColor()};
   display: flex;
+  max-width: fit-content;
+  padding: 0 1rem;
+  border-radius: 1rem;
   align-items: center;
-  justify-content: center;
-  min-height: 3rem;
+  margin: 1rem auto;
+  font-family: Athiti;
+  box-shadow: 1px 1px 10px 1px #aaa;
+  text-align: center;
   color: ${textPrimaryColorContrast()};
-  @media (max-width: 650px) {
-    margin: 3px;
+  text-shadow: 2px 0 ${primaryColor()}, -2px 0 ${primaryColor()},
+    0 2px ${primaryColor()}, 0 -2px ${primaryColor()}, 1px 1px ${primaryColor()},
+    -1px -1px ${primaryColor()}, 1px -1px ${primaryColor()},
+    -1px 1px ${primaryColor()};
+`;
+export const SpanIcon = styled.span`
+  font-size: 1px;
+  text-decoration: underline;
+  color: ${alwaysWhite()};
+  opacity: 0.8;
+  transition: 0.3s;
+  display: flex;
+  font-family: Athiti;
+  align-items: center;
+  &:hover {
+    opacity: 1;
+    gap: 0.2rem;
+    font-size: 0.8rem;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: ${alwaysBlack()};
   }
 `;
 export const BlogPostTitle = styled.div`
@@ -98,7 +121,9 @@ export const BlogPostTitle = styled.div`
   background-color: ${primaryColor()};
   padding: 0rem 0.5rem;
   margin: 0.5rem;
+  box-shadow: 1px 1px 10px 1px #aaa;
   font-size: 1.3rem;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
