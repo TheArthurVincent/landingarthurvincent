@@ -96,7 +96,7 @@ export default function StudentsRankingTotal({ headers }) {
                 key={index}
                 index={index}
                 style={{
-                  display: item.totalScore >= 5000 ? "flex" : "null",
+                  display: item.totalScore >= 5000 ? "flex" : "none",
                   background: theitems.items[levelNumber].color,
                   color: theitems.items[levelNumber].textcolor,
                 }}
