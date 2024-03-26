@@ -425,28 +425,6 @@ export default function StudentsRanking({ headers }) {
                           }}
                         >
                           {formatNumber(item.monthlyScore)}{" "}
-                          <Tooltip
-                            key={index}
-                            title={
-                              item.monthlyScore >= 3000
-                                ? "Monthly Score acima de 3000! Concorrendo ao prêmio do mês!"
-                                : "Monthly Score abaixo de 3000! Ainda não concorrendo ao prêmio do mês"
-                            }
-                          >
-                            <i
-                              style={{
-                                fontWeight: 100,
-                                textShadow:
-                                  item.monthlyScore >= 3000
-                                    ? `1px 1px 10px yellow`
-                                    : "none",
-                                color:
-                                  item.monthlyScore >= 3000 ? "yellow" : "grey",
-                              }}
-                              className="fa fa-lightbulb-o"
-                              aria-hidden="true"
-                            />
-                          </Tooltip>
                         </DivFont>
                       </span>
                     </p>
