@@ -163,9 +163,6 @@ export default function MyCourses({ headers }) {
       <TopBar />
       <RouteSizeControlBox className="smooth">
         <RouteDiv>
-          <NextLiveClasses headers={headers} />
-        </RouteDiv>
-        <RouteDiv>
           <>
             {!loading ? (
               <>
@@ -197,6 +194,9 @@ export default function MyCourses({ headers }) {
               <CircularProgress style={{ color: secondaryColor() }} />
             )}
           </>
+        </RouteDiv>
+        <RouteDiv>
+          <NextLiveClasses headers={headers} />
         </RouteDiv>
       </RouteSizeControlBox>
     </>

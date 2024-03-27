@@ -579,6 +579,8 @@ export function formatDate(dateString) {
     year: "numeric",
     month: "short",
     day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
   };
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", options);

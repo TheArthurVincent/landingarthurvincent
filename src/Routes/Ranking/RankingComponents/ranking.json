@@ -72,7 +72,8 @@
       "textcolor": "black",
       "text": "White Belt",
       "discount": "0%",
-      "totalScore": 0
+      "totalScore": 0,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512"
     },
     {
       "level": 2,
@@ -81,7 +82,8 @@
       "textcolor": "black",
       "text": "Yellow Belt",
       "discount": "5%",
-      "totalScore": 10000
+      "totalScore": 10000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002"
     },
     {
       "level": 3,
@@ -90,7 +92,8 @@
       "textcolor": "white",
       "text": "Blue Belt",
       "discount": "5%",
-      "totalScore": 20000
+      "totalScore": 20000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480"
     },
     {
       "level": 4,
@@ -99,7 +102,8 @@
       "textcolor": "white",
       "text": "Red Belt",
       "discount": "7%",
-      "totalScore": 35000
+      "totalScore": 35000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/red.png?updatedAt=1711540460356"
     },
     {
       "level": 5,
@@ -108,7 +112,8 @@
       "textcolor": "white",
       "text": "Green Belt",
       "discount": "7%",
-      "totalScore": 50000
+      "totalScore": 50000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/green.png?updatedAt=1711540460421"
     },
     {
       "level": 6,
@@ -117,7 +122,8 @@
       "discount": "10%",
       "textcolor": "white",
       "text": "Orange Belt",
-      "totalScore": 65000
+      "totalScore": 65000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559"
     },
     {
       "level": 7,
@@ -126,7 +132,8 @@
       "discount": "10%",
       "textcolor": "white",
       "text": "Purple Belt",
-      "totalScore": 80000
+      "totalScore": 80000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/purple.png?updatedAt=1711540461792"
     },
     {
       "level": 8,
@@ -135,7 +142,8 @@
       "textcolor": "white",
       "text": "Black Belt",
       "discount": "25%",
-      "totalScore": 100000
+      "totalScore": 100000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
     },
     {
       "level": 9,
@@ -144,6 +152,7 @@
       "textcolor": "white",
       "text": "SUPREME",
       "discount": "%",
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/bg3.png?updatedAt=1687564349109",
       "totalScore": 1200000
     },
     {

@@ -19,6 +19,8 @@ import {
   ImgBlog,
   Xp,
 } from "../../Resources/UniversalComponents";
+import NextLiveClasses from "../MyCourses/MyCoursesAssets/NextLive";
+
 import {
   alwaysBlack,
   alwaysWhite,
@@ -362,6 +364,7 @@ export function Blog({ headers }) {
             display={permissions == "superadmin" ? "block" : "none"}
             headers={headers}
           />
+          <NextLiveClasses headers={headers} />
           <HOne>{UniversalTexts.mural}</HOne>
           {posts.map((post, index) => (
             <div

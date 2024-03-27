@@ -65,6 +65,7 @@ function App() {
         : 0;
     setTimeout(() => {
       document.body.style.backgroundColor = theitems.items[levelNumber].color;
+      document.body.style.backgroundImage = `url(${theitems.items[levelNumber].background})`;
     }, 50);
   }, [score]);
 

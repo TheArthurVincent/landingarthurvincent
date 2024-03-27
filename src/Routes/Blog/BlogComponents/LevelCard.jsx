@@ -35,7 +35,6 @@ export function LevelCard({ headers, _StudentId, picture }) {
 
   const seeScore = async (id) => {
     setLoading(true);
-
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers,
@@ -43,7 +42,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
 
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
-      setLevel(
+      const newValue =
         response.data.totalScore >= 10000 && response.data.totalScore < 20000
           ? 1
           : response.data.totalScore >= 20000 &&
@@ -66,9 +65,9 @@ export function LevelCard({ headers, _StudentId, picture }) {
           ? 7
           : response.data.totalScore >= 2000000
           ? 9
-          : 0
-      );
-
+          : 0;
+      document.body.style.backgroundImage = `url(${items[newValue].background})`;
+      setLevel(newValue);
       setShowCard("block");
       setLoading(false);
     } catch (error) {
