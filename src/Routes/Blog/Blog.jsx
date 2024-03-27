@@ -362,6 +362,7 @@ export function Blog({ headers }) {
             display={permissions == "superadmin" ? "block" : "none"}
             headers={headers}
           />
+          <NextLiveClasses headers={headers} />
           <HOne>{UniversalTexts.mural}</HOne>
           {posts.map((post, index) => (
             <div
