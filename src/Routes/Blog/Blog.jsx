@@ -19,6 +19,8 @@ import {
   ImgBlog,
   Xp,
 } from "../../Resources/UniversalComponents";
+import NextLiveClasses from "../MyCourses/MyCoursesAssets/NextLive";
+
 import {
   alwaysBlack,
   alwaysWhite,
