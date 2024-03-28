@@ -64,9 +64,8 @@ function App() {
         ? 8
         : 0;
     setTimeout(() => {
-      document.body.style.backgroundColor = theitems.items[levelNumber].color;
       document.body.style.backgroundImage = `url(${theitems.items[levelNumber].background})`;
-    }, 50);
+    }, 100);
   }, [score]);
 
   const routes = [

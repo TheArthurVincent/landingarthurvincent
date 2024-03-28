@@ -152,7 +152,7 @@
       "textcolor": "white",
       "text": "SUPREME",
       "discount": "%",
-      "background": "https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/bg3.png?updatedAt=1687564349109",
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       "totalScore": 1200000
     },
     {
@@ -160,6 +160,7 @@
       "icon": "fa fa-eercast",
       "color": "#000",
       "textcolor": "black",
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       "text": "loading"
     }
   ]
