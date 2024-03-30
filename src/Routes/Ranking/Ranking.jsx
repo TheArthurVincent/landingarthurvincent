@@ -34,9 +34,15 @@ export default function Ranking({ headers, logged }) {
       component: <StudentsRanking headers={headers} />,
     },
     {
-      title: "O que é?",
+      title: "Totais",
       value: "2",
-      component: <RankingExplanation />,
+      component: (
+        <StudentsRankingTotal
+          id={user.id}
+          name={user.name + " " + user.lastname}
+          headers={headers}
+        />
+      ),
     },
     {
       title: "Timeline",
@@ -50,15 +56,9 @@ export default function Ranking({ headers, logged }) {
       ),
     },
     {
-      title: "Totais",
+      title: "O que é?",
       value: "4",
-      component: (
-        <StudentsRankingTotal
-          id={user.id}
-          name={user.name + " " + user.lastname}
-          headers={headers}
-        />
-      ),
+      component: <RankingExplanation />,
     },
   ];
   const handleChange = (event, newValue) => {

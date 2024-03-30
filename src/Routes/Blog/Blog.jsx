@@ -18,6 +18,7 @@ import {
   getVideoEmbedUrl,
   ImgBlog,
   Xp,
+  IFrameVideoClass,
 } from "../../Resources/UniversalComponents";
 import NextLiveClasses from "../MyCourses/MyCoursesAssets/NextLive";
 
@@ -408,7 +409,7 @@ export function Blog({ headers }) {
               <DivPost>
                 <>
                   {post.videoUrl ? (
-                    <IFrameVideo src={getVideoEmbedUrl(post.videoUrl)} />
+                    <IFrameVideoClass src={getVideoEmbedUrl(post.videoUrl)} />
                   ) : post.img ? (
                     <ImgBlog src={post.img} alt="logo" />
                   ) : null}

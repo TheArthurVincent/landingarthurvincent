@@ -296,7 +296,7 @@ export const Disapear = styled.span`
 `;
 
 export const ImgResponsive0 = styled.img`
-  max-width: 12rem;
+  max-width: 8rem;
   @media (max-width: 755px) {
     display: none;
   }
@@ -308,9 +308,9 @@ export const ImgResponsive3 = styled.img`
   }
 `;
 export const ImgResponsive = styled.img`
-  max-width: 20rem;
+  max-width: 40rem;
   @media (max-width: 600px) {
-    max-width: 7rem;
+    max-width: 5rem;
   }
 `;
 export const ImgResponsive2 = styled.img`
@@ -374,8 +374,8 @@ export const linkReset2 = {
 
 export const IFrameVideo = styled.iframe`
   margin-top: 0;
-  min-width: 636px;
-  min-height: 356px;
+  min-width: 950px;
+  min-height: 500px;
   border: 1px #222 solid;
   margin-left: auto;
   margin-right: auto;
@@ -441,8 +441,8 @@ export const IFrameVideoInstructions = styled.iframe`
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-  min-width: 600px;
-  min-height: 350px;
+  min-width: 1000px;
+  min-height: 600px;
   @media (max-width: 740px) {
     min-width: 500px;
     min-height: 250px;

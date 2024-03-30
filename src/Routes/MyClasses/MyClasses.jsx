@@ -22,6 +22,7 @@ import {
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import TopBar from "../../Application/TopBar/TopBar";
+import { Link } from "react-router-dom";
 
 export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
@@ -170,7 +171,20 @@ export function MyClasses({ headers }) {
                 <div key={index}>
                   <ClassBox>
                     <div style={{ textAlign: "center" }}>
-                      <HTwo>{item.date}</HTwo>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <HTwo>{item.date}</HTwo>{" "}
+                        {item.url && (
+                          <Link target="_blank" to={item.url}>
+                            Arquivos da aula
+                          </Link>
+                        )}
+                      </div>
                       <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
                     </div>
                   </ClassBox>
