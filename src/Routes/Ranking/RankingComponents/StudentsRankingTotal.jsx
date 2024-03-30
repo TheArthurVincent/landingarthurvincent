@@ -10,6 +10,8 @@ import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
+  alwaysBlack,
+  alwaysWhite,
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
@@ -111,15 +113,15 @@ export default function StudentsRankingTotal({ headers }) {
                 </p>
                 <DivFont
                   style={{
-                    color: theitems.items[levelNumber].color,
-                    textShadow: `2px 0 ${theitems.items[levelNumber].textcolor}, -2px 0 ${theitems.items[levelNumber].textcolor}, 0 2px ${theitems.items[levelNumber].textcolor}, 0 -2px ${theitems.items[levelNumber].textcolor}, 1px 1px ${theitems.items[levelNumber].textcolor}, -1px -1px ${theitems.items[levelNumber].textcolor}, 1px -1px ${theitems.items[levelNumber].textcolor}, -1px 1px ${theitems.items[levelNumber].textcolor}`,
+                    color: alwaysWhite(),
+                    textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
                   }}
                 >
                   {formatNumber(item.totalScore)}{" "}
                   <i
                     style={{
-                      color: theitems.items[levelNumber].textcolor,
-                      textShadow: "none",
+                      color: alwaysBlack(),
+                      textShadow: `1px 0 ${alwaysWhite()}, -1px 0 ${alwaysWhite()}, 0 1px ${alwaysWhite()}, 0 -1px ${alwaysWhite()}, 1px 1px ${alwaysWhite()}, -1px -1px ${alwaysWhite()}, 1px -1px ${alwaysWhite()}, -1px 1px ${alwaysWhite()}`,
                     }}
                     className={theitems.items[levelNumber].icon}
                     aria-hidden="true"

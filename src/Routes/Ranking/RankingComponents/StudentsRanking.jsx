@@ -376,14 +376,32 @@ export default function StudentsRanking({ headers }) {
                       ? "flex"
                       : "none",
                     background: theitems.items[levelNumber].color,
-                    border: `solid 2px ${theitems.items[levelNumber].textcolor}`,
                     color: theitems.items[levelNumber].textcolor,
                   }}
                 >
-                  <ImgResponsive0
-                    src={theItems[levelNumber].image2}
-                    alt="level"
-                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <ImgResponsive0
+                      src={theItems[levelNumber].image2}
+                      alt="level"
+                    />
+                    <img
+                      style={{
+                        width: "4.5rem",
+                        height: "4.5rem",
+                        objectFit: "cover",
+                        margin: "auto",
+                        borderRadius: "50%",
+                        border: `solid ${alwaysWhite()} 3px`,
+                      }}
+                      src={item.picture}
+                    />
+                  </div>
                   <div
                     style={{
                       display: "grid",
@@ -428,24 +446,14 @@ export default function StudentsRanking({ headers }) {
                         </DivFont>
                       </span>
                     </p>
-
-                    <img
-                      style={{
-                        width: "5rem",
-                        height: "5rem",
-                        objectFit: "cover",
-                        border: "solid 0.2rem #555",
-                        margin: "auto",
-                        borderRadius: "50%",
-                        border: `solid 2px ${theitems.items[levelNumber].textcolor}`,
-                      }}
-                      src={item.picture}
-                    />
                   </div>
-
                   <div
                     style={{
                       fontSize: "1rem",
+                      display: "grid",
+                      textAlign: "center",
+                      justifyContent: "center",
+                      alignItems: "center",
                       color: theitems.items[levelNumber].textcolor,
                     }}
                   >
@@ -466,7 +474,6 @@ export default function StudentsRanking({ headers }) {
                       />{" "}
                       {theitems.items[levelNumber].text}
                     </h2>
-
                     <p
                       style={{
                         fontFamily: "Athiti",

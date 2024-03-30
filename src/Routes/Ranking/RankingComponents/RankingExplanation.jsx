@@ -38,7 +38,17 @@ export default function RankingExplanation() {
         competição; é uma jornada emocionante rumo à excelência linguística!
       </p>
       <h3 style={h3}>Como pontuar</h3>
-      <div>
+      <div
+        style={{
+          margin: "auto",
+          display:"grid",
+          justifyContent: "center",
+          justifyItems: "center",
+          alignItems: "center",
+          alignContent: "center",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
         <ImgResponsive2
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(1).png?updatedAt=1709316937391"
           alt="class"
@@ -55,10 +65,10 @@ export default function RankingExplanation() {
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/othersscore.png?updatedAt=1709216354890"
           alt="others"
         />
-        <WarningText
-          text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`}
-        />
       </div>
+      <WarningText
+        text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`}
+      />
       <h3 style={h3}>Qualificação mensal</h3>
       <ul>
         <li
@@ -113,99 +123,5 @@ export default function RankingExplanation() {
         <RankingList />
       </div>
     </>
-    // <div
-    //   style={{
-    //     padding: "1rem",
-    //   }}
-    // >
-    //   <p>
-    //     Os rankings são oportunidades de ganhar descontos ou cashbacks na
-    //     mensalidade por disciplina!
-    //   </p>
-    //   <h3 style={h3}>O altera a pontuação? (Score)</h3>
-    //   <h4 style={h4}>Revisões do Anki (pelo menos 15 cards)</h4>
-    //   <ul>
-    //     <li>
-    //       Revisados pelo menos 6 dias em 7? ={" "}
-    //       <span style={{ color: "green" }}>+ 500 pontos</span>
-    //     </li>
-    //     <li>
-    //       Revisados pelo menos 3 dias em 7? ={" "}
-    //       <span style={{ color: "green" }}>+ 200 pontos</span>
-    //     </li>
-    //     <li>
-    //       Chegou na aula com o Anki vazio (nenhuma revisão pendente)? ={" "}
-    //       <span style={{ color: "green" }}>+ 200 pontos</span>
-    //     </li>
-    //     <li>
-    //       Mandou print/foto para o professor com o{" "}
-    //       <strong>ANKI ZERADO DE REVISÕES NO DIA</strong>? (Pode fazer isso
-    //       todos os dias) = <span style={{ color: "green" }}>+ 100 pontos</span>
-    //     </li>
-    //     <li>
-    //       Nenhuma revisão nos últimos 7 dias? ={" "}
-    //       <span style={{ color: "red" }}> - 100 pontos</span>
-    //     </li>
-    //   </ul>
-    //   <h4 style={h4}>Homework</h4>
-    //   <ul>
-    //     <li>
-    //       Homework feita = <span style={{ color: "green" }}>+ 500 pontos</span>
-    //     </li>
-    //   </ul>
-    //   <h4 style={h4}>Group classes</h4>
-    //   <ul>
-    //     <li>
-    //       Participou da aula em grupo ={" "}
-    //       <span style={{ color: "green" }}>+ 300 pontos</span>
-    //     </li>
-    //     <li>
-    //       Fez a Homework da aula em grupo ={" "}
-    //       <span style={{ color: "green" }}>+ 500 pontos</span>
-    //     </li>
-    //     <li>
-    //       Fez a apresentação ={" "}
-    //       <span style={{ color: "green" }}>+ 1,000 pontos</span>
-    //     </li>
-    //   </ul>
-    //   <h4 style={h4}>Outros</h4>
-    //   <ul>
-    //     <li>
-    //       Bônus por recomendar alguém para estudar comigo (caso feche) ={" "}
-    //       <span style={{ color: "green" }}>+ 300 pontos</span>.
-    //     </li>
-    //     <li>
-    //       Stories no instagram marcando o perfil{" "}
-    //       <Link
-    //         to="https://www.instagram.com/thearthurvincent_/"
-    //         target="_blank"
-    //       >
-    //         {" "}
-    //         @thearthurvincent_
-    //       </Link>
-    //       <strong> fazendo homework </strong>ou
-    //       <strong> revisando o Anki</strong>
-    //       <span style={{ color: "green" }}>+ 100 pontos</span>.
-    //     </li>
-    //     <li>
-    //       Test - Pode ser marcado a cada 3 meses ={" "}
-    //       <span style={{ color: "green" }}>+ até 3,000 pontos</span>
-    //     </li>
-    //     <li>Extra activities - [[Em breve será criado]]</li>
-    //     <li>
-    //       AWOL (absent without leave)/Não comparecer à aula sem aviso ={" "}
-    //       <span style={{ color: "red" }}>- 200 pontos</span>
-    //     </li>
-    //   </ul>
-
-    //   <h3 style={h3}>Passando de Nível</h3>
-    //   <IFrameVideoInstructions
-    //     style={{
-    //       border: "solid 1px black",
-    //     }}
-    //     src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
-    //   />
-    //   <RankingList />
-    // </div>
   );
 }

@@ -283,11 +283,10 @@ export const DivFont = styled.div`
   }
 `;
 export const AnimatedLi = styled.li`
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 1rem;
   margin-bottom: 5px;
   justify-content: space-between;
   align-items: center;
-  border-radius: 0rem 3rem;
   animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;
 `;
 export const AnimatedLi2 = styled.li`
