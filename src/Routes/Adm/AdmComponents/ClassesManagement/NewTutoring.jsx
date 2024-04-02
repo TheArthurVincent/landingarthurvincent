@@ -16,6 +16,8 @@ import {
 export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
+  const [newAttachments, setAttachments] = useState("");
+  
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
   const [standardValue, setStandardValue] = useState("Aluno");
@@ -42,6 +44,7 @@ export function NewTutoring({ headers }) {
       date: newDate,
       studentID: selectedStudentID,
       videoUrl: newVideoUrl,
+      attachments: newAttachments,
     };
     setTutorings([...tutorings, newTutoring]);
   };
@@ -143,6 +146,25 @@ export function NewTutoring({ headers }) {
               onChange={(e) => {
                 const newTutorings = [...tutorings];
                 newTutorings[index].videoUrl = e.target.value;
+                setTutorings(newTutorings);
+              }}
+            />
+            <input
+              style={{
+                alignItems: "center",
+                justifyContent: "space-around",
+                padding: "0.5rem",
+                margin: "0",
+                fontSize: "1.1rem",
+                fontWeight: 500,
+              }}
+              required
+              type="text"
+              placeholder="Pasta da Aula"
+              value={tutoring.attachments}
+              onChange={(e) => {
+                const newTutorings = [...tutorings];
+                newTutorings[index].attachments = e.target.value;
                 setTutorings(newTutorings);
               }}
             />
