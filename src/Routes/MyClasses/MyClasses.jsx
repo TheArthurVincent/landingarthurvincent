@@ -179,8 +179,8 @@ export function MyClasses({ headers }) {
                         }}
                       >
                         <HTwo>{item.date}</HTwo>{" "}
-                        {item.url && (
-                          <Link target="_blank" to={item.url}>
+                        {item.attachments && (
+                          <Link target="_blank" to={item.attachments}>
                             Arquivos da aula
                           </Link>
                         )}

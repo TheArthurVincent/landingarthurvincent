@@ -72,7 +72,7 @@ export const FormGrid = styled.form`
 export const DivGrid = styled.div`
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   @media (max-width: 675px) {
     grid-template-columns: 1fr;
   }
