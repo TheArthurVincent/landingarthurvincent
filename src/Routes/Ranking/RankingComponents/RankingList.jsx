@@ -27,7 +27,7 @@ export default function RankingList() {
                 display: index > 7 ? "none" : "flex",
                 justifyContent: "space-around",
                 gap: "2rem",
-                marginBottom:"1px"
+                marginBottom: "1px",
               }}
             >
               <ImgResponsive
@@ -53,11 +53,11 @@ export default function RankingList() {
                 </p>
                 <p>Total Score: {item.totalScore}</p>
 
-                <p>
+                {/* <p>
                   {index == 0
                     ? "Esforce-se para passar de nível pela PRIMEIRA VEZ"
                     : `${item.discount} de desconto/cashback no mês seguinte à PRIMEIRA QUALIFICAÇÃO.`}
-                </p>
+                </p> */}
               </div>
             </li>
           );
