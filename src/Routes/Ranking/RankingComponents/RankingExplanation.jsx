@@ -115,7 +115,7 @@ export default function RankingExplanation() {
         </li>
       </ul>
       <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
-        <h3 style={h3}>Passando de Nível</h3>
+        <h3 style={h3}>Passando de Nível (5% de desconto no mês seguinte à qualificação)</h3>
         <IFrameVideoInstructions
           src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
         />
