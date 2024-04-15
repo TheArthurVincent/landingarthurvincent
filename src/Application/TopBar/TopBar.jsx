@@ -19,8 +19,6 @@ import {
   textPrimaryColorContrast,
   primaryColor,
   secondaryColor,
-  lightGreyColor,
-  alwaysWhite,
 } from "../../Styles/Styles";
 import { FormControl, MenuItem, Select } from "@mui/material";
 
@@ -62,16 +60,17 @@ export default function TopBar() {
       title: UniversalTexts.extras,
       endpoint: "/extras",
     },
+
+    {
+      title: UniversalTexts.englishMaterial,
+      endpoint: "/english-material",
+    },
   ];
 
   const toAdm = [
     {
       title: UniversalTexts.activities,
       endpoint: "/english-activities",
-    },
-    {
-      title: UniversalTexts.englishMaterial,
-      endpoint: "/english-material",
     },
     {
       title: "Adm",
