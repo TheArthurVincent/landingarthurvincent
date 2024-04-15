@@ -87,18 +87,31 @@ const basicClasses = [
   },
 ];
 
-const advancedClasses = [
-  {
-    title: "Phrasal verbs",
-    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704",
-    link: "https://arvin-phrasal-verbs.netlify.app/",
-  },
-];
+
 const intermediaryClasses = [
   {
     title: "Worth",
     img: "https://smartasset.com/wp-content/uploads/sites/2/2021/01/counting-money-picture-id1211981322-2.jpg",
     link: "https://is-it-worth-it.netlify.app/",
+  },
+  {
+    title: "#6 Measurements of Size and Dimension",
+    img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px)%20(3).jpg?updatedAt=1713200415910",
+    link: "https://drive.google.com/drive/folders/1kVT9vOG_EP5wqg5PsRGY-j1EWI0iRCuh?usp=drive_link",
+  },
+  {
+    title: "#15 US Astronaut is First to Visit Space and Deepest Ocean",
+    img: "https://ik.imagekit.io/vjz75qw96/assets/capas/12.jpg?updatedAt=1713193320762",
+    link: "https://drive.google.com/drive/folders/1yNmovyApc2RZZli79-dq66t7NfwF7aWQ",
+  },
+  
+];
+
+const advancedClasses = [
+  {
+    title: "Advanced Phrasal verbs",
+    img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704",
+    link: "https://arvin-phrasal-verbs.netlify.app/",
   },
 ];
 
