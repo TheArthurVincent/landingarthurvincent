@@ -72,7 +72,8 @@ export default function LiveClassesTemplate({
     text-transform: capitalize;
 
     &::-webkit-scrollbar {
-      width: 5px;
+      width: 8px;
+      border-radius: 5px;
     }
     &::-webkit-scrollbar-thumb {
       background-color: ${courseColor};

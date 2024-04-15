@@ -20,7 +20,8 @@ export const All = styled.div`
   justify-content: space-between;
 
   & *::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
+    border-radius: 5px;
   }
 
   & *::-webkit-scrollbar-track {
