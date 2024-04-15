@@ -126,6 +126,13 @@ const thematicClasses = [
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/malinoisbg.jpg?updatedAt=1687867713745",
     link: "https://smartest-dog-breed.netlify.app/",
   },
+  {
+    title: "Payment Terms",
+    img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px).png?updatedAt=1713216418484",
+    link: "https://drive.google.com/drive/folders/1jc7uAaZBj3GUXSAeCND4pTPsT03m_kDx",
+  },
+
+  
 ];
 
 export default function EnglishMaterial({ headers }) {
