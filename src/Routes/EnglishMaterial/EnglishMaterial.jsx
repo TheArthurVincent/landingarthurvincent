@@ -18,18 +18,18 @@ const basicClasses = [
     link: "https://drive.google.com/drive/folders/1zry_CNaxivh_UMLOfJahVfm-ancdgTW3",
   },
   {
-    title: "#2 Vocabulary #1 (Animals, Fruits) + Prepositions #1",
+    title: "#2 Animals, Fruits + Prepositions #1",
     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px)%20(1).jpg?updatedAt=1713197455034",
     link: "https://drive.google.com/drive/folders/1y1pPJFANcnxEo1h933f48S3SYWMHi2cY",
   },
   {
-    title: "#3 Vocabulary #2 (Family Members) + Possessions and Possessives #1",
+    title: "#3 Family Members + Possessions and Possessives #1",
     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/10.jpg?updatedAt=1713193320313",
     link: "https://drive.google.com/drive/folders/1pFGbSrAdBtD_puUiLgJLR6gnzTBtwox1",
   },
   {
     title:
-      "#4 Question words - Demonstrative pronouns - Random Vocabulary - Colors - Numbers",
+      "#4 Question words - Demonstrative pronouns -  Colors - Numbers",
     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/9.jpg?updatedAt=1713193320382",
     link: "https://drive.google.com/drive/folders/1SOikRcwChCyFM7feeNT7pmkWddGhcdg8",
   },
@@ -44,7 +44,7 @@ const basicClasses = [
     link: "https://drive.google.com/drive/folders/10sZgn91DY8MdM1nqGDBVNEXJF-Q9cRgi",
   },
   {
-    title: "#7 Vocabulary #3 (Professions, Days of the week, Months, Dates)",
+    title: "#7 Professions, Days of the week, Months, Dates",
     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/11.jpg?updatedAt=1713193320404",
     link: "https://drive.google.com/drive/folders/1rGl3D0OnrGXFMda9RPXZQhlRR-Ci0XyI",
   },
@@ -55,7 +55,7 @@ const basicClasses = [
   },
   {
     title:
-      "#9 Vocabulary #4 (Weather) + Empty it, Adjectives + There is + There are",
+      "#9 Weather + Empty it, Adjectives + There is + There are",
     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/3.jpg?updatedAt=1713193320661",
     link: "https://drive.google.com/drive/folders/1juK9t2EJ2jXVks9assXQyLeu_cC4b9Eh?usp=drive_link",
   },

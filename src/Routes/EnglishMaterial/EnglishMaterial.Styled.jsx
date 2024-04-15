@@ -38,7 +38,8 @@ export const CourseCard = styled.div`
   color: black;
   text-align: center;
   gap: 0.5rem;
-  font-size: 10px;
+  font-size: 9px;
+  font-weight: 800;
   display: flex;
   background-color: ${lightGreyColor()};
   height: 16rem;
