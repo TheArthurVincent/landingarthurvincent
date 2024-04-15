@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 import {
   alwaysWhite,
+  darkGreyColor,
   lightGreyColor,
   primaryColor,
   secondaryColor,
   textSecondaryColorContrast,
+  transparentBlack,
 } from "../../Styles/Styles";
 
 export const CoursesList = styled.div`
@@ -35,20 +37,22 @@ export const CourseItem = styled.div`
 export const CourseCard = styled.div`
   color: black;
   text-align: center;
+  gap: 0.5rem;
+  font-size: 9px;
+  font-weight: 800;
   display: flex;
   background-color: ${lightGreyColor()};
-  height: 20rem;
-  width: 15rem;
+  height: 16rem;
+  width: 14rem;
   padding: 1rem 0.2rem;
   flex-direction: column;
-  transition: 0.1s;
-  border: solid 2px ${lightGreyColor()};
+  transition: 0.3s;
   img {
+    transition: 0.3s;
     filter: grayscale(100%);
-    transition: filter 0.1s;
   }
   &:hover {
-    border: solid 2px ${secondaryColor()};
+    box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
     img {
       filter: grayscale(0%);
     }
