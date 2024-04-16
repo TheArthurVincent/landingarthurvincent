@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   HOne,
   RouteDiv,
@@ -6,12 +6,15 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
 import { CourseCard } from "./EnglishMaterial.Styled";
-import { BackToHomePage } from "../../Resources/UniversalComponents";
+import { BackToHomePage, Xp, backDomain } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import axios from "axios";
+import { Button } from "@mui/material";
+import { alwaysWhite, transparentWhite } from "../../Styles/Styles";
 
-const basicClasses = [
+const baslasses = [
   {
     title: "#1 Introduce yourself and other people + To be",
     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/13.jpg?updatedAt=1713193320347",
@@ -99,7 +102,7 @@ const basicClasses = [
   },
 ];
 
-const intermediaryClasses = [
+const intermedialasses = [
   {
     title: "Worth",
     img: "https://smartasset.com/wp-content/uploads/sites/2/2021/01/counting-money-picture-id1211981322-2.jpg",
@@ -120,7 +123,7 @@ const intermediaryClasses = [
   },
 ];
 
-const advancedClasses = [
+const advanclasses = [
   {
     title: "Advanced Phrasal verbs",
     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704",
@@ -129,7 +132,7 @@ const advancedClasses = [
   },
 ];
 
-const thematicClasses = [
+const themcClasses = [
   {
     title: "The Beauty of Complexity",
     img: "https://www.usnews.com/object/image/00000186-7a58-d975-aff7-fffbc8910000/iguazu-falls-stock.jpg?update-time=1677089883729&size=responsive970",
@@ -153,6 +156,45 @@ const thematicClasses = [
 export default function EnglishMaterial({ headers }) {
   const { UniversalTexts } = useUserContext();
 
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [basicClasses, setBasicClasses] = useState([]);
+  const [intermediaryClasses, setIntermediaryClasses] = useState([]);
+  const [advancedClasses, setAdvancedClasses] = useState([]);
+  const [thematicClasses, setThematicClasses] = useState([]);
+  const [permissions, setPermissions] = useState("")
+
+  const handleSeeModal = () => {
+    setIsVisible(!isVisible)
+  }
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+  }, []);
+
+
+  const fetchMaterial = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/material/`, { headers })
+      const basic = response.data.basicClasses;
+      const intermediate = response.data.intermediateClasses;
+      const advanced = response.data.advancedClasses;
+      const thematic = response.data.thematicClasses;
+      setBasicClasses(basic);
+      setIntermediaryClasses(intermediate);
+      setAdvancedClasses(advanced);
+      setThematicClasses(thematic);
+    } catch (error) {
+      alert("Erro")
+    }
+  }
+
+  useEffect(() => {
+    fetchMaterial();
+  }, []);
+
+
   const cardStyle = {
     display: "flex",
     alignItems: "center",
@@ -165,6 +207,16 @@ export default function EnglishMaterial({ headers }) {
     padding: "1rem",
   };
 
+
+  const lists = [
+    { title: UniversalTexts.basicClasses, list: basicClasses },
+    {
+      title: UniversalTexts.intermediaryClasses,
+      list: intermediaryClasses,
+    },
+    { title: UniversalTexts.advancedClasses, list: advancedClasses },
+    { title: UniversalTexts.thematicClasses, list: thematicClasses },
+  ]
   return (
     <>
       <TopBar />
@@ -173,27 +225,27 @@ export default function EnglishMaterial({ headers }) {
           <RouteDiv>
             <HOne>{UniversalTexts.englishMaterial}</HOne>
             <BackToHomePage />
-            {[
-              { title: UniversalTexts.basicClasses, list: basicClasses },
-              {
-                title: UniversalTexts.intermediaryClasses,
-                list: intermediaryClasses,
-              },
-              { title: UniversalTexts.advancedClasses, list: advancedClasses },
-              { title: UniversalTexts.thematicClasses, list: thematicClasses },
-            ].map((item, index) => {
+            {lists.map((item, index) => {
               return (
                 <div key={index}>
                   <HThree>{item.title}</HThree>
                   <div style={cardStyle}>
                     {item.list.map((course, index) => {
                       return (
-                        <Link key={index} to={course.link} target="_blank">
-                          <CourseCard>
-                            <p>{course.title}</p>
-                            <img src={course.img} alt="" />
-                          </CourseCard>
-                        </Link>
+                        <div key={index}>
+                          <Button
+                           onClick={() => handleSeeModal()}
+                            style={{ display: permissions == "superadmin" ? "block" : "none" }}
+                          >
+                            <i className="fa fa-edit" aria-hidden="true" />
+                          </Button>
+                          <Link to={course.link} target="_blank">
+                            <CourseCard>
+                              <p>{course.title}</p>
+                              <img src={course.img} alt="" />
+                            </CourseCard>
+                          </Link>
+                        </div>
                       );
                     })}
                   </div>
@@ -201,10 +253,51 @@ export default function EnglishMaterial({ headers }) {
               );
             })}
           </RouteDiv>
-        </RouteSizeControlBox>
+          <div
+            style={{
+              backgroundColor: transparentWhite(),
+              width: "10000px",
+              height: "10000px",
+              top: "0",
+              left: "0",
+              position: "fixed",
+              zIndex: 99,
+              display: isVisible ? "block" : "none",
+              padding: "1rem",
+            }}
+            onClick={() => handleSeeModal()}
+          />
+          <div
+            className="modal"
+            style={{
+              position: "fixed",
+              display: isVisible ? "block" : "none",
+              zIndex: 100,
+              backgroundColor: alwaysWhite(),
+              boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+              padding: "1rem",
+              width: "20rem",
+              height: "30rem",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Xp onClick={() => handleSeeModal()}>X</Xp>
+            <h2
+              style={{
+                margin: "0.5rem 0",
+              }}
+            >
+              {UniversalTexts.editPost}
+            </h2>
+
+          </div>
+        </RouteSizeControlBox >
       ) : (
         <RouteSizeControlBox>Nenhum usuário logado</RouteSizeControlBox>
-      )}
+      )
+      }
     </>
   );
 }
