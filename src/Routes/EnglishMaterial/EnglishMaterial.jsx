@@ -73,6 +73,7 @@ export default function EnglishMaterial({ headers }) {
     setLink("");
     setImg("");
     setCategory("");
+    setIsVisible(!isVisible);
   };
   const postNewMaterial = async () => {
     setLoadingInfo(false);
