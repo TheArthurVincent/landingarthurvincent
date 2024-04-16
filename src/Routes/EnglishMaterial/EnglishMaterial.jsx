@@ -22,6 +22,7 @@ export default function EnglishMaterial({ headers }) {
   const { UniversalTexts } = useUserContext();
 
   const [isVisible, setIsVisible] = useState(false);
+  const [deleteVisible, setDeleteVisible] = useState(false);
   const [basicClasses, setBasicClasses] = useState([]);
   const [intermediaryClasses, setIntermediaryClasses] = useState([]);
   const [advancedClasses, setAdvancedClasses] = useState([]);
@@ -39,6 +40,10 @@ export default function EnglishMaterial({ headers }) {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setPermissions(getLoggedUser.permissions);
   }, []);
+
+  const seeDelete = () => {
+    setDeleteVisible(!deleteVisible);
+  };
 
   const fetchMaterial = async () => {
     setLoading(true);
@@ -107,6 +112,22 @@ export default function EnglishMaterial({ headers }) {
     }
   };
 
+  const deleteOneMaterial = async () => {
+    const id = ID;
+
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/material/${id}`,
+        headers
+      );
+      handleSeeModal();
+      fetchMaterial();
+    } catch (error) {
+      console.error("Erro ao editar material:", error);
+    } finally {
+      setLoadingInfo(false);
+    }
+  };
   useEffect(() => {
     fetchMaterial();
   }, []);
@@ -287,46 +308,86 @@ export default function EnglishMaterial({ headers }) {
               </div>
             )}
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                width: "100%",
-                justifyContent: "space-evenly",
-              }}
-            >
-              {[
-                {
-                  text: "Delete",
-                  backgroundColor: "red",
-                  onClick: editOneMaterial,
-                },
-                {
-                  text: "Cancel",
-                  backgroundColor: "navy",
-                  onClick: handleSeeModal,
-                },
-                {
-                  text: "Save",
-                  backgroundColor: "green",
-                  onClick: editOneMaterial,
-                },
-              ].map((item, index) => {
-                return (
-                  <Button
-                    key={index}
-                    onClick={item.onClick}
-                    style={{
-                      marginTop: "1rem",
-                      color: "white",
-                      backgroundColor: item.backgroundColor,
-                    }}
-                  >
-                    {item.text}
-                  </Button>
-                );
-              })}
-            </div>
+            {!deleteVisible ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "100%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                {[
+                  {
+                    text: "Delete",
+                    backgroundColor: "red",
+                    onClick: seeDelete,
+                  },
+                  {
+                    text: "Cancel",
+                    backgroundColor: "navy",
+                    onClick: handleSeeModal,
+                  },
+                  {
+                    text: "Save",
+                    backgroundColor: "green",
+                    onClick: editOneMaterial,
+                  },
+                ].map((item, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      onClick={item.onClick}
+                      style={{
+                        marginTop: "1rem",
+                        color: "white",
+                        backgroundColor: item.backgroundColor,
+                      }}
+                    >
+                      {item.text}
+                    </Button>
+                  );
+                })}
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "100%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                <p>Are you Sure??</p>
+                {[
+                  {
+                    text: "No!",
+                    backgroundColor: "navy",
+                    onClick: seeDelete,
+                  },
+
+                  {
+                    text: "Yes!",
+                    backgroundColor: "red",
+                    onClick: deleteOneMaterial,
+                  },
+                ].map((item, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      onClick={item.onClick}
+                      style={{
+                        marginTop: "1rem",
+                        color: "white",
+                        backgroundColor: item.backgroundColor,
+                      }}
+                    >
+                      {item.text}
+                    </Button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </RouteSizeControlBox>
       ) : (
