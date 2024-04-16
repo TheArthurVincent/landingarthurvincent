@@ -67,7 +67,6 @@ export default function EnglishMaterial({ headers }) {
       const response = await axios.get(`${backDomain}/api/v1/material/${id}`, {
         headers,
       });
-      console.log(response.data);
       const newTitle = response.data.title;
       const newLink = response.data.link;
       const newImg = response.data.img;
@@ -95,12 +94,11 @@ export default function EnglishMaterial({ headers }) {
         title,
         category,
       });
+      handleSeeModal();
+      fetchMaterial();
     } catch (error) {
       console.log(error);
-      return;
     }
-    handleSeeModal();
-    fetchMaterial();
   };
 
   useEffect(() => {
