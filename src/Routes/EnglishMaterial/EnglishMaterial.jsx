@@ -234,7 +234,7 @@ export default function EnglishMaterial({ headers }) {
                       return (
                         <div key={index}>
                           <Button
-                           onClick={() => handleSeeModal()}
+                            onClick={() => handleSeeModal()}
                             style={{ display: permissions == "superadmin" ? "block" : "none" }}
                           >
                             <i className="fa fa-edit" aria-hidden="true" />
