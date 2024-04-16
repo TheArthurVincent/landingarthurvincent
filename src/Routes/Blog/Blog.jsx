@@ -430,7 +430,7 @@ export function Blog({ headers }) {
             </div>
           ))}
         </RouteDiv>
-  
+
         <div
           className="modal"
           style={{

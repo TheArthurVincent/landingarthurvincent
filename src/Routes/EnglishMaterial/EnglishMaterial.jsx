@@ -6,15 +6,17 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
 import { CourseCard } from "./EnglishMaterial.Styled";
-import { BackToHomePage, Xp, backDomain } from "../../Resources/UniversalComponents";
+import {
+  BackToHomePage,
+  Xp,
+  backDomain,
+} from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
 import { Button, CircularProgress } from "@mui/material";
 import { alwaysWhite, transparentWhite } from "../../Styles/Styles";
-
-
 
 export default function EnglishMaterial({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -24,23 +26,26 @@ export default function EnglishMaterial({ headers }) {
   const [intermediaryClasses, setIntermediaryClasses] = useState([]);
   const [advancedClasses, setAdvancedClasses] = useState([]);
   const [thematicClasses, setThematicClasses] = useState([]);
-  const [permissions, setPermissions] = useState("")
-  const [loading, setLoading] = useState(true)
-
-  const handleSeeModal = () => {
-    setIsVisible(!isVisible)
-  }
+  const [permissions, setPermissions] = useState("");
+  const [title, setTitle] = useState("");
+  const [link, setLink] = useState("");
+  const [ID, setID] = useState("");
+  const [img, setImg] = useState("");
+  const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [loadingInfo, setLoadingInfo] = useState(true);
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setPermissions(getLoggedUser.permissions);
   }, []);
 
-
   const fetchMaterial = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/material/`, { headers })
+      const response = await axios.get(`${backDomain}/api/v1/material/`, {
+        headers,
+      });
       const basic = response.data.basicClasses;
       const intermediate = response.data.intermediateClasses;
       const advanced = response.data.advancedClasses;
@@ -50,16 +55,62 @@ export default function EnglishMaterial({ headers }) {
       setAdvancedClasses(advanced);
       setThematicClasses(thematic);
       setLoading(false);
-
     } catch (error) {
-      alert("Erro")
+      console.log(error);
     }
-  }
+  };
+
+  const getOneMaterial = async (id) => {
+    handleSeeModal(true);
+    setLoadingInfo(true);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/material/${id}`, {
+        headers,
+      });
+      console.log(response.data);
+      const newTitle = response.data.title;
+      const newLink = response.data.link;
+      const newImg = response.data.img;
+      const newID = response.data._id;
+      const newCategory = response.data.category;
+      setTitle(newTitle);
+      setLink(newLink);
+      setImg(newImg);
+      setID(newID);
+      setCategory(newCategory);
+      setLoadingInfo(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const editOneMaterial = async () => {
+    setLoadingInfo(true);
+    const id = ID;
+    try {
+      const response = await axios.put(`${backDomain}/api/v1/material/${id}`, {
+        headers,
+        img,
+        link,
+        title,
+        category,
+      });
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+    handleSeeModal();
+    fetchMaterial();
+  };
 
   useEffect(() => {
     fetchMaterial();
   }, []);
 
+  const handleSeeModal = () => {
+    setIsVisible(!isVisible);
+    isVisible && fetchMaterial();
+  };
 
   const cardStyle = {
     display: "flex",
@@ -73,7 +124,6 @@ export default function EnglishMaterial({ headers }) {
     padding: "1rem",
   };
 
-
   const lists = [
     { title: UniversalTexts.basicClasses, list: basicClasses },
     {
@@ -82,7 +132,7 @@ export default function EnglishMaterial({ headers }) {
     },
     { title: UniversalTexts.advancedClasses, list: advancedClasses },
     { title: UniversalTexts.thematicClasses, list: thematicClasses },
-  ]
+  ];
   return (
     <>
       <TopBar />
@@ -90,30 +140,51 @@ export default function EnglishMaterial({ headers }) {
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
           <RouteDiv>
             <HOne>{UniversalTexts.englishMaterial}</HOne>
-            <BackToHomePage />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Button onClick={() => fetchMaterial()}>
+                <i className="fa fa-refresh" aria-hidden="true" />
+              </Button>{" "}
+              <BackToHomePage />{" "}
+            </div>
             {lists.map((item, index) => {
               return (
                 <div key={index}>
                   <HThree>{item.title}</HThree>
-                  {!loading ? <div style={cardStyle}>
-                    {item.list.map((course, index) => {
-                      return <div key={index}>
-                        <Button
-                          onClick={() => handleSeeModal()}
-                          style={{ display: permissions == "superadmin" ? "block" : "none" }}
-                        >
-                          <i className="fa fa-edit" aria-hidden="true" />
-                        </Button>
-                        <Link to={course.link} target="_blank">
-                          <CourseCard>
-                            <p>{course.title}</p>
-                            <img src={course.img} alt="" />
-                          </CourseCard>
-                        </Link>
-                      </div>
-
-                    })}
-                  </div> : <CircularProgress />}
+                  {!loading ? (
+                    <div style={cardStyle}>
+                      {item.list.map((course, index) => {
+                        return (
+                          <div key={index}>
+                            <Button
+                              onClick={() => getOneMaterial(course.id)}
+                              style={{
+                                display:
+                                  permissions == "superadmin"
+                                    ? "block"
+                                    : "none",
+                              }}
+                            >
+                              <i className="fa fa-edit" aria-hidden="true" />
+                            </Button>
+                            <Link to={course.link} target="_blank">
+                              <CourseCard>
+                                <p>{course.title}</p>
+                                <img src={course.img} alt="" />
+                              </CourseCard>
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <CircularProgress />
+                  )}
                 </div>
               );
             })}
@@ -156,144 +227,107 @@ export default function EnglishMaterial({ headers }) {
             >
               {UniversalTexts.editPost}
             </h2>
+            {loadingInfo ? (
+              <CircularProgress />
+            ) : (
+              <div
+                style={{
+                  display: "grid",
+                  justifyItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <input
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Title"
+                  type="text"
+                  required
+                />
+                <input
+                  value={img}
+                  onChange={(e) => setImg(e.target.value)}
+                  placeholder="Image"
+                  type="text"
+                  required
+                />{" "}
+                <img style={{ maxWidth: "12rem" }} src={img} />
+                <input
+                  value={link}
+                  onChange={(e) => setLink(e.target.value)}
+                  placeholder="Link"
+                  type="text"
+                  required
+                />{" "}
+                <select required onChange={(e) => setCategory(e.target.value)}>
+                  <option style={{ cursor: "pointer" }} value={category} hidden>
+                    {category}
+                  </option>
+                  {[
+                    "basicClasses",
+                    "intermediateClasses",
+                    "advancedClasses",
+                    "thematicClasses",
+                  ].map((option, index) => {
+                    return (
+                      <option
+                        style={{ cursor: "pointer" }}
+                        key={index}
+                        value={option}
+                      >
+                        {option}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            )}
 
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                justifyContent: "space-evenly",
+              }}
+            >
+              {[
+                {
+                  text: "Delete",
+                  backgroundColor: "red",
+                  onClick: editOneMaterial,
+                },
+                {
+                  text: "Cancel",
+                  backgroundColor: "navy",
+                  onClick: handleSeeModal,
+                },
+                {
+                  text: "Save",
+                  backgroundColor: "green",
+                  onClick: editOneMaterial,
+                },
+              ].map((item, index) => {
+                return (
+                  <Button
+                    key={index}
+                    onClick={item.onClick}
+                    style={{
+                      marginTop: "1rem",
+                      color: "white",
+                      backgroundColor: item.backgroundColor,
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                );
+              })}
+            </div>
           </div>
-        </RouteSizeControlBox >
+        </RouteSizeControlBox>
       ) : (
         <RouteSizeControlBox>Nenhum usuário logado</RouteSizeControlBox>
-      )
-      }
+      )}
     </>
   );
 }
-
-
-// const baslasses = [
-//   {
-//     title: "#1 Introduce yourself and other people + To be",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/13.jpg?updatedAt=1713193320347",
-//     link: "https://drive.google.com/drive/folders/1zry_CNaxivh_UMLOfJahVfm-ancdgTW3",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#2 Animals, Fruits + Prepositions #1",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px)%20(1).jpg?updatedAt=1713197455034",
-//     link: "https://drive.google.com/drive/folders/1y1pPJFANcnxEo1h933f48S3SYWMHi2cY",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#3 Family Members + Possessions and Possessives #1",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/10.jpg?updatedAt=1713193320313",
-//     link: "https://drive.google.com/drive/folders/1pFGbSrAdBtD_puUiLgJLR6gnzTBtwox1",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#4 Question words - Demonstrative pronouns -  Colors - Numbers",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/9.jpg?updatedAt=1713193320382",
-//     link: "https://drive.google.com/drive/folders/1SOikRcwChCyFM7feeNT7pmkWddGhcdg8",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#5 Verbs in General + Here, There",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px)%20(2).jpg?updatedAt=1713198854655",
-//     link: "https://drive.google.com/drive/folders/1FcM_9kbv6Zq5dWon2PobEfOBOwjOizk2",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#6 Practice #1",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px).jpg?updatedAt=1713193340332",
-//     link: "https://drive.google.com/drive/folders/10sZgn91DY8MdM1nqGDBVNEXJF-Q9cRgi",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#7 Professions, Days of the week, Months, Dates",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/11.jpg?updatedAt=1713193320404",
-//     link: "https://drive.google.com/drive/folders/1rGl3D0OnrGXFMda9RPXZQhlRR-Ci0XyI",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#8 ING, To be Past tente, Prepositions #2, Do does don't doesn't",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/8.jpg?updatedAt=1713193320262",
-//     link: "https://drive.google.com/drive/folders/1snIRmMiCHHzrIOHaIp2CSi9mOGd46M-X?usp=drive_link",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#9 Weather + Empty it, Adjectives + There is + There are",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/3.jpg?updatedAt=1713193320661",
-//     link: "https://drive.google.com/drive/folders/1juK9t2EJ2jXVks9assXQyLeu_cC4b9Eh?usp=drive_link",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#10 Past Tense - Ed, Didn't Did, There was there were [to, for]",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/7.jpg?updatedAt=1713193320464",
-//     link: "https://drive.google.com/drive/folders/14tWI47jBecr3ziVom2-JCVswbPyLRR-3?usp=drive_link",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#11 Modal Verbs #1 + Possessions #2 + Adjectives",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/4.jpg?updatedAt=1713193320782",
-//     link: "https://drive.google.com/drive/folders/1aAwxSL8LCP1O_Cb--AG4ZL-T_IEEyhLG?usp=drive_link",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#12 Modal Verbs #2 + Pronouns #2 - Frequency",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/6.jpg?updatedAt=1713193320183",
-//     link: "https://drive.google.com/drive/folders/17WnsecpVlxpP8zxxrqqWz80qyLZr9GrQ?usp=drive_link",
-//     category: "basicClasses",
-//   },
-
-//   {
-//     title: "#13 Any some no every + Intensity",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/5.jpg?updatedAt=1713193320076",
-//     link: "https://drive.google.com/drive/folders/1u3rQKeT6z7OWHZFmiouR-A9_R3SszwnH?usp=drive_link",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "#14 Practice #2",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px).jpg?updatedAt=1713193340332",
-//     link: "https://drive.google.com/drive/folders/1r6g30ttrD19e4GKNulYsxopYOzahdB8J?usp=drive_link",
-//     category: "basicClasses",
-//   },
-//   {
-//     title: "Worth",
-//     img: "https://smartasset.com/wp-content/uploads/sites/2/2021/01/counting-money-picture-id1211981322-2.jpg",
-//     link: "https://is-it-worth-it.netlify.app/",
-//     category: "intermediaryClasses",
-//   },
-//   {
-//     title: "#6 Measurements of Size and Dimension",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px)%20(3).jpg?updatedAt=1713200415910",
-//     link: "https://drive.google.com/drive/folders/1kVT9vOG_EP5wqg5PsRGY-j1EWI0iRCuh?usp=drive_link",
-//     category: "intermediaryClasses",
-//   },
-//   {
-//     title: "#15 US Astronaut is First to Visit Space and Deepest Ocean",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/12.jpg?updatedAt=1713193320762",
-//     link: "https://drive.google.com/drive/folders/1yNmovyApc2RZZli79-dq66t7NfwF7aWQ",
-//     category: "intermediaryClasses",
-//   },
-//   {
-//     title: "Advanced Phrasal verbs",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/weekend.jpg?updatedAt=1688471773704",
-//     link: "https://arvin-phrasal-verbs.netlify.app/",
-//     category: "advancedClasses",
-//   },
-//   {
-//     title: "The Beauty of Complexity",
-//     img: "https://www.usnews.com/object/image/00000186-7a58-d975-aff7-fffbc8910000/iguazu-falls-stock.jpg?update-time=1677089883729&size=responsive970",
-//     link: "https://the-beauty-of-complexity.netlify.app/",
-//     category: "thematicClasses",
-//   },
-//   {
-//     title: "The Smartest Dog Breed",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/malinoisbg.jpg?updatedAt=1687867713745",
-//     link: "https://smartest-dog-breed.netlify.app/",
-//     category: "thematicClasses",
-//   },
-//   {
-//     title: "Payment Terms",
-//     img: "https://ik.imagekit.io/vjz75qw96/assets/capas/Arvin%20Resources%20(300%20x%20300%20px).png?updatedAt=1713216418484",
-//     link: "https://drive.google.com/drive/folders/1jc7uAaZBj3GUXSAeCND4pTPsT03m_kDx",
-//     category: "thematicClasses",
-//   },
-// ];
