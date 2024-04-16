@@ -19,7 +19,6 @@ import { alwaysWhite, transparentWhite } from "../../Styles/Styles";
 export default function EnglishMaterial({ headers }) {
   const { UniversalTexts } = useUserContext();
 
-
   const [isVisible, setIsVisible] = useState(false);
   const [basicClasses, setBasicClasses] = useState([]);
   const [intermediaryClasses, setIntermediaryClasses] = useState([]);
