@@ -86,18 +86,24 @@ export default function EnglishMaterial({ headers }) {
   const editOneMaterial = async () => {
     setLoadingInfo(true);
     const id = ID;
+    const requestData = {
+      headers,
+      img,
+      link,
+      title,
+      category,
+    };
     try {
-      const response = await axios.put(`${backDomain}/api/v1/material/${id}`, {
-        headers,
-        img,
-        link,
-        title,
-        category,
-      });
+      const response = await axios.put(
+        `${backDomain}/api/v1/material/${id}`,
+        requestData
+      );
       handleSeeModal();
       fetchMaterial();
     } catch (error) {
-      console.log(error);
+      console.error("Erro ao editar material:", error);
+    } finally {
+      setLoadingInfo(false);
     }
   };
 
