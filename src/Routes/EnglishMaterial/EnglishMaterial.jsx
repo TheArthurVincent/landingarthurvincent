@@ -11,7 +11,7 @@ import { HThree } from "../MyClasses/MyClasses.Styled";
 import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { alwaysWhite, transparentWhite } from "../../Styles/Styles";
 
 
@@ -25,6 +25,7 @@ export default function EnglishMaterial({ headers }) {
   const [advancedClasses, setAdvancedClasses] = useState([]);
   const [thematicClasses, setThematicClasses] = useState([]);
   const [permissions, setPermissions] = useState("")
+  const [loading, setLoading] = useState(true)
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible)
@@ -37,6 +38,7 @@ export default function EnglishMaterial({ headers }) {
 
 
   const fetchMaterial = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/material/`, { headers })
       const basic = response.data.basicClasses;
@@ -47,6 +49,8 @@ export default function EnglishMaterial({ headers }) {
       setIntermediaryClasses(intermediate);
       setAdvancedClasses(advanced);
       setThematicClasses(thematic);
+      setLoading(false);
+
     } catch (error) {
       alert("Erro")
     }
@@ -91,26 +95,25 @@ export default function EnglishMaterial({ headers }) {
               return (
                 <div key={index}>
                   <HThree>{item.title}</HThree>
-                  <div style={cardStyle}>
+                  {!loading ? <div style={cardStyle}>
                     {item.list.map((course, index) => {
-                      return (
-                        <div key={index}>
-                          <Button
-                            onClick={() => handleSeeModal()}
-                            style={{ display: permissions == "superadmin" ? "block" : "none" }}
-                          >
-                            <i className="fa fa-edit" aria-hidden="true" />
-                          </Button>
-                          <Link to={course.link} target="_blank">
-                            <CourseCard>
-                              <p>{course.title}</p>
-                              <img src={course.img} alt="" />
-                            </CourseCard>
-                          </Link>
-                        </div>
-                      );
+                      return <div key={index}>
+                        <Button
+                          onClick={() => handleSeeModal()}
+                          style={{ display: permissions == "superadmin" ? "block" : "none" }}
+                        >
+                          <i className="fa fa-edit" aria-hidden="true" />
+                        </Button>
+                        <Link to={course.link} target="_blank">
+                          <CourseCard>
+                            <p>{course.title}</p>
+                            <img src={course.img} alt="" />
+                          </CourseCard>
+                        </Link>
+                      </div>
+
                     })}
-                  </div>
+                  </div> : <CircularProgress />}
                 </div>
               );
             })}
