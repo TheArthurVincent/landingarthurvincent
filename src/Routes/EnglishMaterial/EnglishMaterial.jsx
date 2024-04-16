@@ -68,12 +68,16 @@ export default function EnglishMaterial({ headers }) {
 
   const handleSeeModalNew = () => {
     setPostNew(true);
+    setLoading(true);
     handleSeeModal(true);
     setTitle("");
     setLink("");
     setImg("");
     setCategory("");
-    setIsVisible(!isVisible);
+    setLoading(false);
+
+
+
   };
   const postNewMaterial = async () => {
     setLoadingInfo(false);
