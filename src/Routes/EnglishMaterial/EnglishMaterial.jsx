@@ -35,6 +35,7 @@ export default function EnglishMaterial({ headers }) {
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadingInfo, setLoadingInfo] = useState(true);
+  const [postNew, setPostNew] = useState(false);
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
@@ -65,7 +66,33 @@ export default function EnglishMaterial({ headers }) {
     }
   };
 
+  const handleSeeModalNew = () => {
+    setPostNew(true);
+    handleSeeModal(true);
+    setTitle("");
+    setLink("");
+    setImg("");
+    setCategory("");
+  };
+  const postNewMaterial = async () => {
+    setLoadingInfo(false);
+    try {
+      const response = await axios.post(`${backDomain}/api/v1/material/`, {
+        headers,
+        img,
+        link,
+        title,
+        category,
+      });
+      setLoadingInfo(false);
+      handleSeeModal(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getOneMaterial = async (id) => {
+    setPostNew(false);
     handleSeeModal(true);
     setLoadingInfo(true);
     try {
@@ -80,8 +107,8 @@ export default function EnglishMaterial({ headers }) {
       setTitle(newTitle);
       setLink(newLink);
       setImg(newImg);
-      setID(newID);
       setCategory(newCategory);
+      setID(newID);
       setLoadingInfo(false);
     } catch (error) {
       console.log(error);
@@ -134,6 +161,7 @@ export default function EnglishMaterial({ headers }) {
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
+    setDeleteVisible(false);
     isVisible && fetchMaterial();
   };
 
@@ -175,6 +203,14 @@ export default function EnglishMaterial({ headers }) {
               <Button onClick={() => fetchMaterial()}>
                 <i className="fa fa-refresh" aria-hidden="true" />
               </Button>{" "}
+              <Button
+                onClick={() => handleSeeModalNew()}
+                style={{
+                  display: permissions == "superadmin" ? "block" : "none",
+                }}
+              >
+                <i className="fa fa-star" aria-hidden="true" />
+              </Button>
               <BackToHomePage />{" "}
             </div>
             {lists.map((item, index) => {
@@ -250,7 +286,7 @@ export default function EnglishMaterial({ headers }) {
                 margin: "0.5rem 0",
               }}
             >
-              {UniversalTexts.editPost}
+              {postNew ? "New" : UniversalTexts.editPost}
             </h2>
             {loadingInfo ? (
               <CircularProgress />
@@ -322,16 +358,19 @@ export default function EnglishMaterial({ headers }) {
                     text: "Delete",
                     backgroundColor: "red",
                     onClick: seeDelete,
+                    visible: postNew ? false : true,
                   },
                   {
                     text: "Cancel",
                     backgroundColor: "navy",
                     onClick: handleSeeModal,
+                    visible: true,
                   },
                   {
                     text: "Save",
                     backgroundColor: "green",
-                    onClick: editOneMaterial,
+                    onClick: !postNew ? editOneMaterial : postNewMaterial,
+                    visible: true,
                   },
                 ].map((item, index) => {
                   return (
@@ -339,6 +378,7 @@ export default function EnglishMaterial({ headers }) {
                       key={index}
                       onClick={item.onClick}
                       style={{
+                        display: item.visible ? "block" : "none",
                         marginTop: "1rem",
                         color: "white",
                         backgroundColor: item.backgroundColor,
