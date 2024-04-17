@@ -9,15 +9,13 @@ import { Link } from "react-router-dom";
 import {
   alwaysBlack,
   alwaysWhite,
-  darkGreyColor,
   lightGreyColor,
   primaryColor,
-  secondaryColor,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 export default function MyCalendar({ headers }) {
-  const today = new Date(); // Data de hoje
+  const today = new Date();
   const futureDates = [];
 
   for (let i = 0; i < 31; i++) {
@@ -28,30 +26,56 @@ export default function MyCalendar({ headers }) {
 
   const events = [
     {
-      student: "Marco",
-      date: new Date(2024, 3, 19, 12, 30, 0, 0),
-      id: 123,
+      date: new Date(2024, 3, 17, 7, 30, 0, 0),
+      id: 10023,
       status: "marcado",
-      description: "Lorem",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "Marco Silva",
-      date: new Date(2024, 3, 19, 12, 30, 0, 0),
-      id: 123,
-      status: "reposicao",
-      description: "Tutoring session for Math",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      date: new Date(2024, 3, 19, 1, 30, 0, 0),
-      id: 1231,
-      status: "desmarcado",
-      description: "Group class on Physics concepts",
+      description: "Live class for the students",
       link: "www.google.com",
       category: "Group Class",
+    },
+    {
+      student: "Nik",
+      date: new Date(2024, 3, 17, 9, 0, 0, 0),
+      id: 123,
+      status: "marcado",
+      description: "",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
+    {
+      student: "Kaulienderson",
+      date: new Date(2024, 3, 17, 12, 0, 0, 0),
+      id: 123,
+      status: "marcado",
+      description: "Tutoring session for Kauli",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
+    {
+      student: "Tati",
+      date: new Date(2024, 3, 17, 13, 0, 0, 0),
+      id: 123,
+      status: "marcado",
+      description: "Tutoring session for tati",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
+    {
+      date: new Date(2024, 3, 17, 17, 0, 0, 0),
+      id: 1231,
+      status: "desmarcado",
+      student: "Hebert",
+      description: "Hebert Hebert",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
+    {
+      date: new Date(2024, 3, 17, 18, 0, 0, 0),
+      id: 1231,
+      status: "desmarcado",
+      student: "Gisele",
+      link: "www.google.com",
+      category: "Tutoring",
     },
     {
       date: new Date(2024, 3, 20, 2, 30, 0, 0),
@@ -77,13 +101,6 @@ export default function MyCalendar({ headers }) {
       category: "Group Class",
     },
     {
-      date: new Date(2024, 3, 17, 5, 30, 0, 0),
-      id: 1423,
-      status: "marcado",
-      link: "www.google.com",
-      category: "Group Class",
-    },
-    {
       student: "Maria",
       date: new Date(2024, 3, 18, 11, 30, 0, 0),
       id: 1243,
@@ -104,7 +121,7 @@ export default function MyCalendar({ headers }) {
       student: "João",
       date: new Date(2024, 3, 21, 8, 30, 0, 0),
       id: 11423,
-      status: "reposicao",
+      status: "marcado",
       link: "www.google.com",
       category: "Tutoring",
     },
@@ -173,7 +190,7 @@ export default function MyCalendar({ headers }) {
                     padding: "0px 0px 10px 0px",
                     margin: "10px 0px",
                     border: `1px solid ${lightGreyColor()}`,
-                    minWidth: "15rem",
+                    minWidth: "14rem",
                     height: "30rem",
                     overflow: "auto",
                   }}
@@ -182,7 +199,6 @@ export default function MyCalendar({ headers }) {
                   <p
                     style={{
                       padding: "5px",
-                      fontSize: "17px",
                       fontFamily: "Athiti",
                       position: "sticky",
                       top: 0,
@@ -215,7 +231,7 @@ export default function MyCalendar({ headers }) {
                           color: alwaysWhite(),
                           backgroundColor:
                             event.category == "Group Class"
-                              ? "#439906"
+                              ? "#306E04"
                               : event.category == "Tutoring"
                               ? primaryColor()
                               : event.category == "Prize Tutoring"
@@ -229,14 +245,29 @@ export default function MyCalendar({ headers }) {
                         <div
                           style={{
                             display: "flex",
-                            gap: "1rem",
+                            gap: "0.5rem",
                             marginBottom: "1rem",
-                            backgroundColor: alwaysWhite(),
+                            backgroundColor:
+                              event.status == "marcado"
+                                ? "#A7D1AE"
+                                : event.status == "desmarcado"
+                                ? "#E0B5B2"
+                                : "#000",
                             padding: "5px",
                             alignItems: "center",
                             justifyContent: "center",
                           }}
                         >
+                          <p
+                            style={{
+                              color: "black",
+                              fontWeight: 600,
+                            }}
+                          >
+                            {event.status == "marcado"
+                              ? "Scheduled"
+                              : "Canceled"}
+                          </p>
                           <i
                             className="fa fa-check-circle-o"
                             aria-hidden="true"
@@ -255,16 +286,6 @@ export default function MyCalendar({ headers }) {
                                 event.status == "desmarcado" ? "20px" : "10px",
                               color:
                                 event.status == "desmarcado" ? "red" : "grey",
-                            }}
-                          />
-                          <i
-                            className="fa fa-plus-circle"
-                            aria-hidden="true"
-                            style={{
-                              fontSize:
-                                event.status == "reposicao" ? "20px" : "10px",
-                              color:
-                                event.status == "reposicao" ? "orange" : "grey",
                             }}
                           />
                         </div>
