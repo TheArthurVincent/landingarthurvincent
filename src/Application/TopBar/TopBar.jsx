@@ -41,6 +41,9 @@ export default function TopBar() {
 
   const topLinks = [
     {
+      title: UniversalTexts.calendar,
+      endpoint: "/my-calendar",
+    },    {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
     },
