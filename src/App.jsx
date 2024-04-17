@@ -17,6 +17,7 @@ import NotFound from "./Routes/NotFound/NotFound";
 import theitems from "../src/Routes/Ranking/RankingComponents/ranking.json";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
+import MyCalendar from "./Routes/MyCalendar/MyCalendar";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -84,6 +85,10 @@ function App() {
     {
       path: "/my-classes",
       element: verifyToken() ? <MyClasses headers={headers} /> : <Login />,
+    },
+    {
+      path: "/my-calendar",
+      element: verifyToken() ? <MyCalendar headers={headers} /> : <Login />,
     },
     {
       path: "/live-classes",

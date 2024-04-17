@@ -171,6 +171,8 @@ export const RouteDiv = styled.div`
   @media (max-width: 750px) {
     padding: 5px;
     max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
   @media (max-width: 610px) {
     max-width: 600px;

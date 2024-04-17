@@ -28,7 +28,6 @@ import {
   secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
-  transparentBlack,
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
