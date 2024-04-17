@@ -209,7 +209,6 @@ export default function MyCalendar({ headers }) {
   /*
   Se um aluno tiver aula terça e quinta, gerar no front mesmo
   Se mudar uma dessas, é só salvar no banco;
-  
   */
 
   return (
