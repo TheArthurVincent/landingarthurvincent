@@ -11,12 +11,49 @@ import {
   alwaysWhite,
   lightGreyColor,
   primaryColor,
+  transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { Button, CircularProgress } from "@mui/material";
+import { Xp } from "../../Resources/UniversalComponents";
 
 export default function MyCalendar({ headers }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [deleteVisible, setDeleteVisible] = useState(false);
+  const [postNew, setPostNew] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loadingInfo, setLoadingInfo] = useState(true);
+  const [permissions, setPermissions] = useState("");
+  const [date, setDate] = useState("");
+  const [theTime, setTheTime] = useState("");
+  const [link, setLink] = useState("");
+  const [ID, setID] = useState("");
+  const [img, setImg] = useState("");
+  const [category, setCategory] = useState("");
+
+  const handleSeeModalNew = () => {
+    setLoadingInfo(true);
+    setPostNew(true);
+    setLoadingInfo(false);
+    handleSeeModal(true);
+  };
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+  }, []);
+
+  const seeDelete = () => {
+    setDeleteVisible(!deleteVisible);
+  };
+
   const today = new Date();
   const futureDates = [];
+  const handleSeeModal = () => {
+    setIsVisible(!isVisible);
+    setDeleteVisible(false);
+    // isVisible && fetchMaterial();
+  };
 
   for (let i = 0; i < 31; i++) {
     const date = new Date(today);
@@ -169,6 +206,12 @@ export default function MyCalendar({ headers }) {
   ];
   const { UniversalTexts } = useUserContext();
 
+  /*
+  Se um aluno tiver aula terça e quinta, gerar no front mesmo
+  Se mudar uma dessas, é só salvar no banco;
+  
+  */
+
   return (
     <>
       <TopBar />
@@ -176,6 +219,14 @@ export default function MyCalendar({ headers }) {
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
+            <Button
+              onClick={() => handleSeeModalNew()}
+              style={{
+                display: permissions == "superadmin" ? "block" : "none",
+              }}
+            >
+              <i className="fa fa-plus-square-o" aria-hidden="true" />
+            </Button>
             <div
               style={{
                 display: "flex",
@@ -202,7 +253,7 @@ export default function MyCalendar({ headers }) {
                       fontFamily: "Athiti",
                       position: "sticky",
                       top: 0,
-                      zIndex: 999,
+                      zIndex: 99,
                       fontWeight: 900,
                       textAlign: "center",
                       backgroundColor: index !== 0 ? alwaysBlack() : "#439906",
@@ -333,6 +384,191 @@ export default function MyCalendar({ headers }) {
               ))}
             </div>
           </RouteDiv>
+
+          <div
+            style={{
+              backgroundColor: transparentWhite(),
+              width: "10000px",
+              height: "10000px",
+              top: "0",
+              left: "0",
+              position: "fixed",
+              zIndex: 99,
+              display: isVisible ? "block" : "none",
+              padding: "1rem",
+            }}
+            onClick={() => handleSeeModal()}
+          />
+          <div
+            className="modal"
+            style={{
+              position: "fixed",
+              display: isVisible ? "block" : "none",
+              zIndex: 100,
+              backgroundColor: alwaysWhite(),
+              boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+              padding: "1rem",
+              width: "20rem",
+              height: "30rem",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Xp onClick={() => handleSeeModal()}>X</Xp>
+            <h2
+              style={{
+                margin: "0.5rem 0",
+              }}
+            >
+              {postNew ? "New" : UniversalTexts.editPost}
+            </h2>
+            {loadingInfo ? (
+              <CircularProgress />
+            ) : (
+              <div
+                style={{
+                  display: "grid",
+                  justifyItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <input
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  type="date"
+                  required
+                />
+                <input
+                  value={theTime}
+                  onChange={(e) => setTheTime(e.target.value)}
+                  type="time"
+                  required
+                />
+                <input
+                  value={img}
+                  onChange={(e) => setImg(e.target.value)}
+                  placeholder="Image"
+                  type="text"
+                  required
+                />{" "}
+                <img style={{ maxWidth: "12rem" }} src={img} />
+                <input
+                  value={link}
+                  onChange={(e) => setLink(e.target.value)}
+                  placeholder="Link"
+                  type="text"
+                  required
+                />{" "}
+                <select required onChange={(e) => setCategory(e.target.value)}>
+                  <option style={{ cursor: "pointer" }} value={category} hidden>
+                    {category}
+                  </option>
+                  {[
+                    "basicClasses",
+                    "intermediateClasses",
+                    "advancedClasses",
+                    "thematicClasses",
+                  ].map((option, index) => {
+                    return (
+                      <option
+                        style={{ cursor: "pointer" }}
+                        key={index}
+                        value={option}
+                      >
+                        {option}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            )}
+
+            {!deleteVisible ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "100%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                {[
+                  {
+                    text: "Delete",
+                    backgroundColor: "red",
+                    onClick: seeDelete,
+                    visible: postNew ? false : true,
+                  },
+                  {
+                    text: "Cancel",
+                    backgroundColor: "navy",
+                    onClick: handleSeeModal,
+                    visible: true,
+                  },
+                  {
+                    text: "Save",
+                    backgroundColor: "green",
+                    // onClick: !postNew ? editOneMaterial : postNewMaterial,
+                    visible: true,
+                  },
+                ].map((item, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      onClick={item.onClick}
+                      style={{
+                        display: item.visible ? "block" : "none",
+                        marginTop: "1rem",
+                        color: "white",
+                        backgroundColor: item.backgroundColor,
+                      }}
+                    >
+                      {item.text}
+                    </Button>
+                  );
+                })}
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "100%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                <p>Are you Sure??</p>
+                {[
+                  {
+                    text: "No!",
+                    backgroundColor: "navy",
+                    onClick: seeDelete,
+                  },
+
+                  {
+                    text: "Yes!",
+                    backgroundColor: "red",
+                    onClick: deleteOneMaterial,
+                  },
+                ].map((item, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      onClick={item.onClick}
+                      style={{
+                        marginTop: "1rem",
+                        color: "white",
+                        backgroundColor: item.backgroundColor,
+                      }}
+                    >
+                      {item.text}
+                    </Button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </RouteSizeControlBox>
       ) : (
         <RouteSizeControlBox>Nenhum usuário logado</RouteSizeControlBox>
