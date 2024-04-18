@@ -87,7 +87,7 @@ export default function MyCalendar({ headers }) {
     setDeleteVisible(false);
   };
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 30; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
@@ -279,7 +279,7 @@ export default function MyCalendar({ headers }) {
                       fontFamily: "Athiti",
                       position: "sticky",
                       top: 0,
-                      zIndex: 99,
+                      zIndex: 50,
                       fontWeight: 900,
                       textAlign: "center",
                       backgroundColor: index !== 0 ? alwaysBlack() : "#439906",
