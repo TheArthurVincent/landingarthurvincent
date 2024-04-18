@@ -22,6 +22,73 @@ import {
 } from "../../Styles/Styles";
 import { FormControl, MenuItem, Select } from "@mui/material";
 
+function ItemTopBar({ title, list }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  return (
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ position: "relative", display: "inline-block" }}
+    >
+      <div style={{ cursor: "pointer" }}>
+        <SpanHover
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          {title}
+        </SpanHover>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          backgroundColor: "#fff",
+          boxShadow: "0px 4px 4px rgba(150, 150, 150)",
+          padding: "8px",
+          display: isHovered ? "grid" : "none",
+          textAlign: "left",
+          zIndex: 500,
+          minWidth: "fit-content",
+        }}
+      >
+        {list.map((link, index) => {
+          return (
+            <NavLink
+              key={index}
+              style={{
+                color: primaryColor(),
+                display: link.display,
+                textDecoration: "none",
+              }}
+              to={link.endpoint}
+            >
+              <SpanHover
+                style={{
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {link.title}
+              </SpanHover>
+            </NavLink>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
@@ -39,11 +106,7 @@ export default function TopBar() {
     setPermissions(getLoggedUser.permissions);
   }, []);
 
-  const topLinks = [
-    {
-      title: UniversalTexts.calendar,
-      endpoint: "/my-calendar",
-    },
+  const classes = [
     {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
@@ -52,22 +115,31 @@ export default function TopBar() {
       title: UniversalTexts.liveClasses,
       endpoint: "/live-classes",
     },
-    {
-      title: "Ranking",
-      endpoint: "/ranking",
-    },
+  ];
+
+  const extras = [
     {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",
     },
     {
-      title: UniversalTexts.extras,
-      endpoint: "/extras",
+      title: UniversalTexts.faq,
+      endpoint: "/faq",
     },
+  ];
 
+  const topLinks = [
+    {
+      title: UniversalTexts.calendar,
+      endpoint: "/my-calendar",
+    },
     {
       title: UniversalTexts.englishMaterial,
       endpoint: "/english-material",
+    },
+    {
+      title: "Ranking",
+      endpoint: "/ranking",
     },
   ];
 
@@ -82,6 +154,7 @@ export default function TopBar() {
     },
   ];
 
+  const allLinksForUser = [...topLinks, ...classes, ...extras];
   const handleVisible = () => {
     visible === "flex" ? setVisible("none") : setVisible("flex");
   };
@@ -115,15 +188,15 @@ export default function TopBar() {
             }}
             to="/"
           >
-            <SpanHover2
+            <SpanHover
               style={{
                 textDecoration: "none",
               }}
             >
               {UniversalTexts.homePage}
-            </SpanHover2>
+            </SpanHover>
           </NavLink>
-          {topLinks.map((link, index) => {
+          {allLinksForUser.map((link, index) => {
             return (
               <NavLink
                 key={index}
@@ -180,6 +253,7 @@ export default function TopBar() {
             gap: "1rem",
           }}
         >
+          <ItemTopBar title={UniversalTexts.classes} list={classes} />
           {topLinks.map((link, index) => {
             return (
               <NavLink
@@ -194,6 +268,7 @@ export default function TopBar() {
               </NavLink>
             );
           })}
+          <ItemTopBar title={UniversalTexts.extras} list={extras} />
         </div>
         <div
           style={{
@@ -228,10 +303,10 @@ export default function TopBar() {
             id="language"
             name="language"
             onChange={(e) => handleLanguageChange(e.target.value)}
-            defaultValue="pt"
+            defaultValue="en"
           >
-            <MenuItem value="pt">PT-BR</MenuItem>
             <MenuItem value="en">EN-US</MenuItem>
+            <MenuItem value="pt">PT-BR</MenuItem>
           </Select>
         </FormControl>
         <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>

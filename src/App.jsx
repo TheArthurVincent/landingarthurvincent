@@ -127,6 +127,10 @@ function App() {
       element: verifyToken() ? <Extras headers={headers} /> : <Login />,
     },
     {
+      path: "/faq",
+      element: verifyToken() ? <Extras headers={headers} /> : <Login />,
+    },
+    {
       path: "*",
       element: verifyToken() ? <NotFound headers={headers} /> : <Login />,
     },

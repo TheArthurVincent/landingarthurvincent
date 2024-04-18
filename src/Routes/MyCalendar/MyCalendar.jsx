@@ -10,12 +10,12 @@ import {
   alwaysBlack,
   alwaysWhite,
   lightGreyColor,
-  primaryColor,
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress } from "@mui/material";
-import { Xp } from "../../Resources/UniversalComponents";
+import { Xp, backDomain } from "../../Resources/UniversalComponents";
+import axios from "axios";
 
 export default function MyCalendar({ headers }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,9 +27,38 @@ export default function MyCalendar({ headers }) {
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
   const [link, setLink] = useState("");
-  const [ID, setID] = useState("");
+  const [id, setID] = useState("651311fac3d58753aa9281c5");
   const [img, setImg] = useState("");
   const [category, setCategory] = useState("");
+  const [user, setUser] = useState({});
+  const [newID, setNewID] = useState("");
+  const [studentsList, setStudentsList] = useState([]);
+
+  useEffect(() => {
+    const theuser = JSON.parse(localStorage.getItem("loggedIn"));
+    const us = theuser;
+    setUser(us);
+    setID(us.id);
+    console.log(us);
+  }, []);
+
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers,
+      });
+      const res = response.data.listOfStudents;
+      setStudentsList(res);
+    } catch (error) {
+      alert(error, "Erro ao encontrarssss alunos");
+    }
+  };
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+    fetchStudents();
+  }, []);
 
   const handleSeeModalNew = () => {
     setLoadingInfo(true);
@@ -38,10 +67,14 @@ export default function MyCalendar({ headers }) {
     handleSeeModal(true);
   };
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setPermissions(getLoggedUser.permissions);
-  }, []);
+  const handleStudentChange = (event) => {
+    setNewID(event.target.value);
+    seeName(event.target.value);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
 
   const seeDelete = () => {
     setDeleteVisible(!deleteVisible);
@@ -52,45 +85,24 @@ export default function MyCalendar({ headers }) {
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
     setDeleteVisible(false);
-    // isVisible && fetchMaterial();
   };
 
-  for (let i = 0; i < 31; i++) {
+  for (let i = 0; i < 30; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
   }
 
+  /*
+    Se um aluno tiver aula terça e quinta, gerar no front mesmo;
+    Se já tiver um no back, nao gerar no dia e gerar o do back (se não tem aquele no back, gerar o do aluno)
+    Se mudar uma dessas, é só salvar no banco;
+  */
+
   const events = [
-    {
-      date: new Date(2024, 3, 18, 9, 0, 0, 0),
-      id: 10023,
-      status: "marcado",
-      student: "Erika",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      date: new Date(2024, 3, 18, 11, 0, 0, 0),
-      id: 10023,
-      status: "marcado",
-      student: "Thiago",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "Gustavo",
-      date: new Date(2024, 3, 18, 12, 0, 0, 0),
-      id: 123,
-      status: "marcado",
-      description: "Aula",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
     {
       student: "Ruy",
       date: new Date(2024, 3, 18, 17, 0, 0, 0),
-      id: 123,
       status: "marcado",
       description: "Aula",
       link: "www.google.com",
@@ -99,58 +111,21 @@ export default function MyCalendar({ headers }) {
     {
       student: "João",
       date: new Date(2024, 3, 18, 18, 0, 0, 0),
-      id: 123,
       status: "marcado",
       description: "Aula",
       link: "www.google.com",
       category: "Rep",
     },
     {
-      student: "Kaulienderson",
-      date: new Date(2024, 3, 20, 12, 0, 0, 0),
-      id: 123,
-      status: "marcado",
-      description: "Tutoring session for Kauli",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "Tati",
-      date: new Date(2024, 3, 20, 13, 0, 0, 0),
-      id: 123,
-      status: "marcado",
-      description: "Tutoring session for tati",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
       date: new Date(2024, 3, 20, 18, 0, 0, 0),
-      id: 1231,
       status: "desmarcado",
       student: "Gisele",
       link: "www.google.com",
       category: "Test",
     },
     {
-      date: new Date(2024, 3, 20, 18, 0, 0, 0),
-      id: 1231,
-      status: "desmarcado",
-      student: "Gisele",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      date: new Date(2024, 3, 19, 1, 30, 0, 0),
-      id: 1231,
-      status: "desmarcado",
-      description: "Lorem LoremL orem",
-      link: "www.google.com",
-      category: "Group Class",
-    },
-    {
       student: "Maria",
       date: new Date(2024, 3, 19, 11, 30, 0, 0),
-      id: 1243,
       status: "marcado",
       description: "5",
       link: "www.google.com",
@@ -158,19 +133,109 @@ export default function MyCalendar({ headers }) {
     },
     {
       date: new Date(2024, 3, 21, 14, 30, 0, 0),
-      id: 11423,
       status: "desmarcado",
       link: "www.google.com",
       category: "Group Class",
     },
+    {
+      student: "Thiago Pessoa",
+      date: new Date(2024, 3, 19, 15, 0, 0, 0),
+      status: "desmarcado",
+      description: "535454",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
   ];
-  const { UniversalTexts } = useUserContext();
 
-  /*
-  Se um aluno tiver aula terça e quinta, gerar no front mesmo;
-  Se já tiver um no back, nao gerar no dia e gerar o do back (se não tem aquele no back, gerar o do aluno)
-  Se mudar uma dessas, é só salvar no banco;
-  */
+  const students = [
+    {
+      name: "Arthur Rodrigues Cardoso",
+      tutoringDays: [
+        [{ day: "Mon", time: "9:00", link: "http://google.com" }],
+        [{ day: "Tue", time: "9:00", link: "http://google.com" }],
+      ],
+    },
+    {
+      name: "Thiago Pessoa",
+      tutoringDays: [
+        [{ day: "Fri", time: "15:00", link: "http://google.com" }],
+        [{ day: "Sat", time: "10:00", link: "http://google.com" }],
+      ],
+    },
+    {
+      name: "Filipi Bela",
+      tutoringDays: [
+        [{ day: "Sat", time: "15:00", link: "http://google.com" }],
+      ],
+    },
+    {
+      name: "Gabriela Pimenta Gaspar",
+      tutoringDays: [
+        [{ day: "Tue", time: "10:00", link: "http://google.com" }],
+        [{ day: "Wed", time: "10:00", link: "http://google.com" }],
+        [{ day: "Thu", time: "10:00", link: "http://google.com" }],
+      ],
+    },
+  ];
+
+  const { UniversalTexts } = useUserContext();
+  const getDayIndex = (day) => {
+    switch (day) {
+      case "Sun":
+        return 0;
+      case "Mon":
+        return 1;
+      case "Tue":
+        return 2;
+      case "Wed":
+        return 3;
+      case "Thu":
+        return 4;
+      case "Fri":
+        return 5;
+      case "Sat":
+        return 6;
+      default:
+        return -1;
+    }
+  };
+  const generateStudentEvents = () => {
+    const generatedEvents = [];
+
+    students.forEach((student) => {
+      student.tutoringDays.forEach((dayAndTime) => {
+        const { day, time, link } = dayAndTime[0];
+        futureDates.forEach((date) => {
+          if (date.getDay() === getDayIndex(day)) {
+            const eventDate = new Date(date);
+            const [hour, minute] = time.split(":");
+            eventDate.setHours(parseInt(hour), parseInt(minute), 0, 0);
+            const isEventExisting = events.some((event) => {
+              return (
+                event.student === student.name &&
+                event.date.getTime() === eventDate.getTime()
+              );
+            });
+
+            if (!isEventExisting) {
+              generatedEvents.push({
+                student: student.name,
+                date: eventDate,
+                status: "marcado",
+                link: link,
+                category: "Tutoring",
+              });
+            }
+          }
+        });
+      });
+    });
+
+    return generatedEvents;
+  };
+
+  const studentEvents = generateStudentEvents();
+  let allEvents = [...events, ...studentEvents];
 
   return (
     <>
@@ -187,6 +252,7 @@ export default function MyCalendar({ headers }) {
             >
               <i className="fa fa-plus-square-o" aria-hidden="true" />
             </Button>
+
             <div
               style={{
                 display: "flex",
@@ -213,7 +279,7 @@ export default function MyCalendar({ headers }) {
                       fontFamily: "Athiti",
                       position: "sticky",
                       top: 0,
-                      zIndex: 99,
+                      zIndex: 50,
                       fontWeight: 900,
                       textAlign: "center",
                       backgroundColor: index !== 0 ? alwaysBlack() : "#439906",
@@ -228,7 +294,7 @@ export default function MyCalendar({ headers }) {
                       year: "numeric",
                     })}
                   </p>
-                  {events
+                  {allEvents
                     .filter(
                       (event) =>
                         event.date.toDateString() === date.toDateString()
@@ -405,11 +471,48 @@ export default function MyCalendar({ headers }) {
             ) : (
               <div
                 style={{
-                  display: "grid",
+                  display: "flex",
+                  flexDirection: "column",
                   justifyItems: "center",
                   gap: "0.5rem",
                 }}
               >
+                <select
+                  onChange={handleCategoryChange}
+                  name="category"
+                  id=""
+                  value={category}
+                >
+                  {[
+                    "Rep",
+                    "Standalone",
+                    "Tutoring",
+                    "Group Class",
+                    "Test",
+                    "Prize Class",
+                  ].map((category, index) => {
+                    return (
+                      <option key={index} value={category}>
+                        {category}
+                      </option>
+                    );
+                  })}
+                </select>
+                <select
+                  onChange={handleStudentChange}
+                  name="students"
+                  id=""
+                  value={newID}
+                  style={{ display: "block" }}
+                >
+                  {studentsList.map((student, index) => {
+                    return (
+                      <option key={index} value={student.id}>
+                        {student.name + " " + student.lastname}
+                      </option>
+                    );
+                  })}
+                </select>
                 <input
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
@@ -422,13 +525,6 @@ export default function MyCalendar({ headers }) {
                   type="time"
                   required
                 />
-                <input
-                  value={img}
-                  onChange={(e) => setImg(e.target.value)}
-                  placeholder="Image"
-                  type="text"
-                  required
-                />{" "}
                 <img style={{ maxWidth: "12rem" }} src={img} />
                 <input
                   value={link}
@@ -437,27 +533,13 @@ export default function MyCalendar({ headers }) {
                   type="text"
                   required
                 />{" "}
-                <select required onChange={(e) => setCategory(e.target.value)}>
-                  <option style={{ cursor: "pointer" }} value={category} hidden>
-                    {category}
-                  </option>
-                  {[
-                    "basicClasses",
-                    "intermediateClasses",
-                    "advancedClasses",
-                    "thematicClasses",
-                  ].map((option, index) => {
-                    return (
-                      <option
-                        style={{ cursor: "pointer" }}
-                        key={index}
-                        value={option}
-                      >
-                        {option}
-                      </option>
-                    );
-                  })}
-                </select>
+                <input
+                  value={link}
+                  onChange={(e) => setLink(e.target.value)}
+                  placeholder="Comments"
+                  type="text"
+                  required
+                />{" "}
               </div>
             )}
 
