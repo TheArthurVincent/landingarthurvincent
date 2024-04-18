@@ -14,7 +14,8 @@ import {
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { Button, CircularProgress } from "@mui/material";
-import { Xp } from "../../Resources/UniversalComponents";
+import { Xp, backDomain } from "../../Resources/UniversalComponents";
+import axios from "axios";
 
 export default function MyCalendar({ headers }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,9 +27,38 @@ export default function MyCalendar({ headers }) {
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
   const [link, setLink] = useState("");
-  const [ID, setID] = useState("");
+  const [id, setID] = useState("651311fac3d58753aa9281c5");
   const [img, setImg] = useState("");
   const [category, setCategory] = useState("");
+  const [user, setUser] = useState({});
+  const [newID, setNewID] = useState("");
+  const [studentsList, setStudentsList] = useState([]);
+
+  useEffect(() => {
+    const theuser = JSON.parse(localStorage.getItem("loggedIn"));
+    const us = theuser;
+    setUser(us);
+    setID(us.id);
+    console.log(us);
+  }, []);
+
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers,
+      });
+      const res = response.data.listOfStudents;
+      setStudentsList(res);
+    } catch (error) {
+      alert(error, "Erro ao encontrarssss alunos");
+    }
+  };
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+    fetchStudents();
+  }, []);
 
   const handleSeeModalNew = () => {
     setLoadingInfo(true);
@@ -37,10 +67,14 @@ export default function MyCalendar({ headers }) {
     handleSeeModal(true);
   };
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setPermissions(getLoggedUser.permissions);
-  }, []);
+  const handleStudentChange = (event) => {
+    setNewID(event.target.value);
+    seeName(event.target.value);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
 
   const seeDelete = () => {
     setDeleteVisible(!deleteVisible);
@@ -203,10 +237,6 @@ export default function MyCalendar({ headers }) {
   const studentEvents = generateStudentEvents();
   let allEvents = [...events, ...studentEvents];
 
-  useEffect(() => {
-    console.log(allEvents);
-  }, [allEvents]);
-
   return (
     <>
       <TopBar />
@@ -222,6 +252,7 @@ export default function MyCalendar({ headers }) {
             >
               <i className="fa fa-plus-square-o" aria-hidden="true" />
             </Button>
+
             <div
               style={{
                 display: "flex",
@@ -440,11 +471,48 @@ export default function MyCalendar({ headers }) {
             ) : (
               <div
                 style={{
-                  display: "grid",
+                  display: "flex",
+                  flexDirection: "column",
                   justifyItems: "center",
                   gap: "0.5rem",
                 }}
               >
+                <select
+                  onChange={handleCategoryChange}
+                  name="category"
+                  id=""
+                  value={category}
+                >
+                  {[
+                    "Rep",
+                    "Standalone",
+                    "Tutoring",
+                    "Group Class",
+                    "Test",
+                    "Prize Class",
+                  ].map((category, index) => {
+                    return (
+                      <option key={index} value={category}>
+                        {category}
+                      </option>
+                    );
+                  })}
+                </select>
+                <select
+                  onChange={handleStudentChange}
+                  name="students"
+                  id=""
+                  value={newID}
+                  style={{ display: "block" }}
+                >
+                  {studentsList.map((student, index) => {
+                    return (
+                      <option key={index} value={student.id}>
+                        {student.name + " " + student.lastname}
+                      </option>
+                    );
+                  })}
+                </select>
                 <input
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
@@ -457,13 +525,6 @@ export default function MyCalendar({ headers }) {
                   type="time"
                   required
                 />
-                <input
-                  value={img}
-                  onChange={(e) => setImg(e.target.value)}
-                  placeholder="Image"
-                  type="text"
-                  required
-                />{" "}
                 <img style={{ maxWidth: "12rem" }} src={img} />
                 <input
                   value={link}
@@ -472,27 +533,13 @@ export default function MyCalendar({ headers }) {
                   type="text"
                   required
                 />{" "}
-                <select required onChange={(e) => setCategory(e.target.value)}>
-                  <option style={{ cursor: "pointer" }} value={category} hidden>
-                    {category}
-                  </option>
-                  {[
-                    "basicClasses",
-                    "intermediateClasses",
-                    "advancedClasses",
-                    "thematicClasses",
-                  ].map((option, index) => {
-                    return (
-                      <option
-                        style={{ cursor: "pointer" }}
-                        key={index}
-                        value={option}
-                      >
-                        {option}
-                      </option>
-                    );
-                  })}
-                </select>
+                <input
+                  value={link}
+                  onChange={(e) => setLink(e.target.value)}
+                  placeholder="Comments"
+                  type="text"
+                  required
+                />{" "}
               </div>
             )}
 
