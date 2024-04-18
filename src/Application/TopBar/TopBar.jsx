@@ -54,7 +54,7 @@ function ItemTopBar({ title, list }) {
           top: "100%",
           left: 0,
           backgroundColor: "#fff",
-          boxShadow: "0px 4px 4px rgba(150, 150, 150)",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0,0.1)",
           padding: "8px",
           display: isHovered ? "grid" : "none",
           textAlign: "left",
