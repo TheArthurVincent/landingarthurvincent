@@ -9,11 +9,15 @@ import {
 
 export const TopBarContainer = styled.header`
   top: 0;
+  z-index: 6;
+  position: sticky;
+  zindex: 99;
   background-color: ${alwaysWhite()};
   justify-content: space-evenly;
   align-items: center;
-  z-index: 6;
   display: flex;
+  box-shadow: 1px 1px 10px 1px #555;
+
   width: 100vw;
 `;
 
@@ -42,7 +46,7 @@ export const TopBarNavigationBurger = styled.div`
   background-color: ${primaryColor()};
   padding: 1rem;
   display: none;
-    &.smooth {
+  &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;

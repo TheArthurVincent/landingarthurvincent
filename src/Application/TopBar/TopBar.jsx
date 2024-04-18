@@ -43,7 +43,8 @@ export default function TopBar() {
     {
       title: UniversalTexts.calendar,
       endpoint: "/my-calendar",
-    },    {
+    },
+    {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
     },
@@ -87,7 +88,13 @@ export default function TopBar() {
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.3);
   return (
-    <TopBarContainer>
+    <TopBarContainer
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 99,
+      }}
+    >
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
       <Link to="/">
         <LogoStyle>{myLogo}</LogoStyle>
