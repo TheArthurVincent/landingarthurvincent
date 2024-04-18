@@ -63,25 +63,51 @@ export default function MyCalendar({ headers }) {
 
   const events = [
     {
-      date: new Date(2024, 3, 17, 7, 30, 0, 0),
+      date: new Date(2024, 3, 18, 9, 0, 0, 0),
       id: 10023,
       status: "marcado",
-      description: "Live class for the students",
-      link: "www.google.com",
-      category: "Group Class",
-    },
-    {
-      student: "Nik",
-      date: new Date(2024, 3, 17, 9, 0, 0, 0),
-      id: 123,
-      status: "marcado",
-      description: "",
+      student: "Erika",
       link: "www.google.com",
       category: "Tutoring",
     },
     {
+      date: new Date(2024, 3, 18, 11, 0, 0, 0),
+      id: 10023,
+      status: "marcado",
+      student: "Thiago",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
+    {
+      student: "Gustavo",
+      date: new Date(2024, 3, 18, 12, 0, 0, 0),
+      id: 123,
+      status: "marcado",
+      description: "Aula",
+      link: "www.google.com",
+      category: "Tutoring",
+    },
+    {
+      student: "Ruy",
+      date: new Date(2024, 3, 18, 17, 0, 0, 0),
+      id: 123,
+      status: "marcado",
+      description: "Aula",
+      link: "www.google.com",
+      category: "Standalone",
+    },
+    {
+      student: "João",
+      date: new Date(2024, 3, 18, 18, 0, 0, 0),
+      id: 123,
+      status: "marcado",
+      description: "Aula",
+      link: "www.google.com",
+      category: "Rep",
+    },
+    {
       student: "Kaulienderson",
-      date: new Date(2024, 3, 17, 12, 0, 0, 0),
+      date: new Date(2024, 3, 20, 12, 0, 0, 0),
       id: 123,
       status: "marcado",
       description: "Tutoring session for Kauli",
@@ -90,7 +116,7 @@ export default function MyCalendar({ headers }) {
     },
     {
       student: "Tati",
-      date: new Date(2024, 3, 17, 13, 0, 0, 0),
+      date: new Date(2024, 3, 20, 13, 0, 0, 0),
       id: 123,
       status: "marcado",
       description: "Tutoring session for tati",
@@ -98,29 +124,20 @@ export default function MyCalendar({ headers }) {
       category: "Tutoring",
     },
     {
-      date: new Date(2024, 3, 17, 17, 0, 0, 0),
+      date: new Date(2024, 3, 20, 18, 0, 0, 0),
       id: 1231,
       status: "desmarcado",
-      student: "Hebert",
-      description: "Hebert Hebert",
+      student: "Gisele",
       link: "www.google.com",
-      category: "Tutoring",
+      category: "Test",
     },
     {
-      date: new Date(2024, 3, 17, 18, 0, 0, 0),
+      date: new Date(2024, 3, 20, 18, 0, 0, 0),
       id: 1231,
       status: "desmarcado",
       student: "Gisele",
       link: "www.google.com",
       category: "Tutoring",
-    },
-    {
-      date: new Date(2024, 3, 20, 2, 30, 0, 0),
-      id: 1213,
-      status: "marcado",
-      description: "Group class on Chemistry reactions",
-      link: "www.google.com",
-      category: "Group Class",
     },
     {
       date: new Date(2024, 3, 19, 1, 30, 0, 0),
@@ -131,61 +148,13 @@ export default function MyCalendar({ headers }) {
       category: "Group Class",
     },
     {
-      date: new Date(2024, 3, 20, 2, 30, 0, 0),
-      id: 1213,
-      status: "marcado",
-      link: "www.google.com",
-      category: "Group Class",
-    },
-    {
       student: "Maria",
-      date: new Date(2024, 3, 18, 11, 30, 0, 0),
+      date: new Date(2024, 3, 19, 11, 30, 0, 0),
       id: 1243,
       status: "marcado",
       description: "5",
       link: "www.google.com",
       category: "Prize Tutoring",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 21, 12, 30, 0, 0),
-      id: 11423,
-      status: "marcado",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 21, 8, 30, 0, 0),
-      id: 11423,
-      status: "marcado",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 21, 12, 30, 0, 0),
-      id: 11423,
-      status: "marcado",
-      description: "5",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 21, 12, 30, 0, 0),
-      id: 11423,
-      status: "marcado",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 21, 13, 30, 0, 0),
-      id: 11423,
-      status: "marcado",
-      link: "www.google.com",
-      category: "Tutoring",
     },
     {
       date: new Date(2024, 3, 21, 14, 30, 0, 0),
@@ -194,20 +163,12 @@ export default function MyCalendar({ headers }) {
       link: "www.google.com",
       category: "Group Class",
     },
-    {
-      student: "João",
-      date: new Date(2024, 3, 21, 12, 30, 0, 0),
-      id: 11423,
-      status: "marcado",
-      description: "5",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
   ];
   const { UniversalTexts } = useUserContext();
 
   /*
-  Se um aluno tiver aula terça e quinta, gerar no front mesmo
+  Se um aluno tiver aula terça e quinta, gerar no front mesmo;
+  Se já tiver um no back, nao gerar no dia e gerar o do back (se não tem aquele no back, gerar o do aluno)
   Se mudar uma dessas, é só salvar no banco;
   */
 
@@ -283,9 +244,15 @@ export default function MyCalendar({ headers }) {
                             event.category == "Group Class"
                               ? "#306E04"
                               : event.category == "Tutoring"
-                              ? primaryColor()
+                              ? "#351c75"
                               : event.category == "Prize Tutoring"
                               ? "#F55C2B"
+                              : event.category == "Standalone"
+                              ? "#ffc000"
+                              : event.category == "Test"
+                              ? "#Fa4561"
+                              : event.category == "Rep"
+                              ? "#599763"
                               : "#000",
                           textAlign: "center",
                           display: "grid",
@@ -318,26 +285,37 @@ export default function MyCalendar({ headers }) {
                               ? "Scheduled"
                               : "Canceled"}
                           </p>
-                          <i
-                            className="fa fa-check-circle-o"
-                            aria-hidden="true"
-                            style={{
-                              fontSize:
-                                event.status == "marcado" ? "20px" : "10px",
-                              color:
-                                event.status == "marcado" ? "green" : "grey",
-                            }}
-                          />
-                          <i
-                            className="fa fa-times-circle-o"
-                            aria-hidden="true"
-                            style={{
-                              fontSize:
-                                event.status == "desmarcado" ? "20px" : "10px",
-                              color:
-                                event.status == "desmarcado" ? "red" : "grey",
-                            }}
-                          />
+                          {[
+                            {
+                              className: "fa fa-check-circle-o",
+                              activeColor: "green",
+                              status: "marcado",
+                            },
+                            {
+                              className: "fa fa-times-circle-o",
+                              activeColor: "red",
+                              status: "desmarcado",
+                            },
+                          ].map((icon, index) => {
+                            return (
+                              <i
+                                key={index}
+                                className={icon.className}
+                                aria-hidden="true"
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == icon.status
+                                      ? "20px"
+                                      : "10px",
+                                  color:
+                                    event.status == icon.status
+                                      ? icon.activeColor
+                                      : "grey",
+                                }}
+                              />
+                            );
+                          })}
                         </div>
                         <p
                           style={{
