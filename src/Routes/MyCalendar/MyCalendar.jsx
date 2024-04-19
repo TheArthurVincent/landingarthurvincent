@@ -35,7 +35,7 @@ export default function MyCalendar({ headers }) {
   const [studentsList, setStudentsList] = useState([]);
   const [events, setEvents] = useState([]);
   const [students, setStudents] = useState([]);
-
+  const [isTutoring, setIsTutoring] = useState(false);
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn"));
     const us = theuser;
@@ -74,6 +74,20 @@ export default function MyCalendar({ headers }) {
   };
 
   const handleCategoryChange = (event) => {
+    if (
+      event.target.value == "Standalone" ||
+      event.target.value == "Group Class" ||
+      event.target.value == "Test"
+    ) {
+      setIsTutoring(false);
+    } else if (
+      event.target.value == "Tutoring" ||
+      event.target.value == "Prize Class" ||
+      event.target.value == "Rep"
+    ) {
+      setIsTutoring(true);
+    }
+
     setCategory(event.target.value);
   };
 
@@ -455,13 +469,16 @@ export default function MyCalendar({ headers }) {
                   id=""
                   value={category}
                 >
+                  <option value="category" hidden>
+                    Select category
+                  </option>
                   {[
-                    "Rep",
-                    "Standalone",
-                    "Tutoring",
-                    "Group Class",
                     "Test",
+                    "Standalone",
+                    "Group Class",
+                    "Rep",
                     "Prize Class",
+                    "Tutoring",
                   ].map((category, index) => {
                     return (
                       <option key={index} value={category}>
@@ -470,21 +487,26 @@ export default function MyCalendar({ headers }) {
                     );
                   })}
                 </select>
-                <select
-                  onChange={handleStudentChange}
-                  name="students"
-                  id=""
-                  value={newID}
-                  style={{ display: "block" }}
-                >
-                  {studentsList.map((student, index) => {
-                    return (
-                      <option key={index} value={student.id}>
-                        {student.name + " " + student.lastname}
-                      </option>
-                    );
-                  })}
-                </select>
+                {isTutoring && (
+                  <select
+                    onChange={handleStudentChange}
+                    name="students"
+                    id=""
+                    value={newID}
+                    style={{ display: "block" }}
+                  >
+                    <option value="category" hidden>
+                      Select student
+                    </option>
+                    {studentsList.map((student, index) => {
+                      return (
+                        <option key={index} value={student.id}>
+                          {student.name + " " + student.lastname}
+                        </option>
+                      );
+                    })}
+                  </select>
+                )}
                 <input
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
