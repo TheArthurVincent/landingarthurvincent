@@ -18,28 +18,32 @@ import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 
 export default function MyCalendar({ headers }) {
+  const [id, setID] = useState("651311fac3d58753aa9281c5");
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+
   const [isVisible, setIsVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(false);
   const [postNew, setPostNew] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [permissions, setPermissions] = useState("");
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
   const [link, setLink] = useState("");
-  const [id, setID] = useState("651311fac3d58753aa9281c5");
-  const [img, setImg] = useState("");
+  const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [user, setUser] = useState({});
   const [newID, setNewID] = useState("");
   const [studentsList, setStudentsList] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [isTutoring, setIsTutoring] = useState(false);
+  const [loadingPost, setLoadingPost] = useState(false);
 
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn"));
     const us = theuser;
     setUser(us);
     setID(us.id);
-    console.log(us);
   }, []);
 
   const fetchStudents = async () => {
@@ -69,10 +73,23 @@ export default function MyCalendar({ headers }) {
 
   const handleStudentChange = (event) => {
     setNewID(event.target.value);
-    seeName(event.target.value);
   };
 
   const handleCategoryChange = (event) => {
+    if (
+      event.target.value == "Standalone" ||
+      event.target.value == "Group Class" ||
+      event.target.value == "Test"
+    ) {
+      setIsTutoring(false);
+    } else if (
+      event.target.value == "Tutoring" ||
+      event.target.value == "Prize Class" ||
+      event.target.value == "Rep"
+    ) {
+      setIsTutoring(true);
+    }
+
     setCategory(event.target.value);
   };
 
@@ -84,6 +101,12 @@ export default function MyCalendar({ headers }) {
   const futureDates = [];
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
+    if (isVisible) {
+      fetchStudentEvents();
+      fetchGeneralEvents();
+    } else {
+      null;
+    }
     setDeleteVisible(false);
   };
 
@@ -93,91 +116,56 @@ export default function MyCalendar({ headers }) {
     futureDates.push(date);
   }
 
-  /*
-    Se um aluno tiver aula terça e quinta, gerar no front mesmo;
-    Se já tiver um no back, nao gerar no dia e gerar o do back (se não tem aquele no back, gerar o do aluno)
-    Se mudar uma dessas, é só salvar no banco;
-  */
+  const fetchStudentEvents = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventstutorings/`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsListTutorings;
+      setStudents(res);
+    } catch (error) {
+      alert(error, "Erro ao encontrarssss alunos");
+    }
+  };
 
-  const events = [
-    {
-      student: "Ruy",
-      date: new Date(2024, 3, 18, 17, 0, 0, 0),
-      status: "marcado",
-      description: "Aula",
-      link: "www.google.com",
-      category: "Standalone",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 18, 18, 0, 0, 0),
-      status: "marcado",
-      description: "Aula",
-      link: "www.google.com",
-      category: "Rep",
-    },
-    {
-      date: new Date(2024, 3, 20, 18, 0, 0, 0),
-      status: "desmarcado",
-      student: "Gisele",
-      link: "www.google.com",
-      category: "Test",
-    },
-    {
-      student: "Maria",
-      date: new Date(2024, 3, 19, 11, 30, 0, 0),
-      status: "marcado",
-      description: "5",
-      link: "www.google.com",
-      category: "Prize Tutoring",
-    },
-    {
-      date: new Date(2024, 3, 21, 14, 30, 0, 0),
-      status: "desmarcado",
-      link: "www.google.com",
-      category: "Group Class",
-    },
-    {
-      student: "Thiago Pessoa",
-      date: new Date(2024, 3, 19, 15, 0, 0, 0),
-      status: "desmarcado",
-      description: "535454",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-  ];
+  const formattedDates = (dateString) => {
+    const date = new Date(dateString);
+    date.toLocaleString("en-US", {
+      weekday: "short",
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short",
+    });
+    return new Date(date);
+  };
 
-  const students = [
-    {
-      name: "Arthur Rodrigues Cardoso",
-      tutoringDays: [
-        [{ day: "Mon", time: "9:00", link: "http://google.com" }],
-        [{ day: "Tue", time: "9:00", link: "http://google.com" }],
-      ],
-    },
-    {
-      name: "Thiago Pessoa",
-      tutoringDays: [
-        [{ day: "Fri", time: "15:00", link: "http://google.com" }],
-        [{ day: "Sat", time: "10:00", link: "http://google.com" }],
-      ],
-    },
-    {
-      name: "Filipi Bela",
-      tutoringDays: [
-        [{ day: "Sat", time: "15:00", link: "http://google.com" }],
-      ],
-    },
-    {
-      name: "Gabriela Pimenta Gaspar",
-      tutoringDays: [
-        [{ day: "Tue", time: "10:00", link: "http://google.com" }],
-        [{ day: "Wed", time: "10:00", link: "http://google.com" }],
-        [{ day: "Thu", time: "10:00", link: "http://google.com" }],
-      ],
-    },
-  ];
+  const fetchGeneralEvents = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
+        headers,
+      });
+      const res = response.data.eventsList;
+      const loopp = res.map((event) => {
+        event.date = formattedDates(event.date);
+        return event;
+      });
+      setEvents(loopp);
+    } catch (error) {
+      alert(error, "Erro ao encontrarssss alunos");
+    }
+  };
 
+  useEffect(() => {
+    fetchStudentEvents();
+    fetchGeneralEvents();
+  }, []);
   const { UniversalTexts } = useUserContext();
   const getDayIndex = (day) => {
     switch (day) {
@@ -204,7 +192,7 @@ export default function MyCalendar({ headers }) {
 
     students.forEach((student) => {
       student.tutoringDays.forEach((dayAndTime) => {
-        const { day, time, link } = dayAndTime[0];
+        const { day, time, link } = dayAndTime;
         futureDates.forEach((date) => {
           if (date.getDay() === getDayIndex(day)) {
             const eventDate = new Date(date);
@@ -212,14 +200,14 @@ export default function MyCalendar({ headers }) {
             eventDate.setHours(parseInt(hour), parseInt(minute), 0, 0);
             const isEventExisting = events.some((event) => {
               return (
-                event.student === student.name &&
+                event.student === student.student &&
                 event.date.getTime() === eventDate.getTime()
               );
             });
 
             if (!isEventExisting) {
               generatedEvents.push({
-                student: student.name,
+                student: student.student,
                 date: eventDate,
                 status: "marcado",
                 link: link,
@@ -237,6 +225,32 @@ export default function MyCalendar({ headers }) {
   const studentEvents = generateStudentEvents();
   let allEvents = [...events, ...studentEvents];
 
+  const postNewEvent = async () => {
+    setLoadingInfo(true);
+    const combinedString = `${date}T${theTime}:00.000Z`;
+    const dateObject = new Date(combinedString);
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/event/`,
+        {
+          category,
+          studentID: isTutoring ? newID : null,
+          date: dateObject,
+          theTime,
+          link,
+          description,
+        },
+        {
+          headers,
+        }
+      );
+      setLoadingInfo(false);
+      handleSeeModal();
+    } catch (error) {
+      alert(error, "Erro ao criar evento");
+    }
+  };
+
   return (
     <>
       <TopBar />
@@ -252,7 +266,6 @@ export default function MyCalendar({ headers }) {
             >
               <i className="fa fa-plus-square-o" aria-hidden="true" />
             </Button>
-
             <div
               style={{
                 display: "flex",
@@ -314,7 +327,7 @@ export default function MyCalendar({ headers }) {
                               : event.category == "Prize Tutoring"
                               ? "#F55C2B"
                               : event.category == "Standalone"
-                              ? "#ffc000"
+                              ? "#222"
                               : event.category == "Test"
                               ? "#Fa4561"
                               : event.category == "Rep"
@@ -344,7 +357,8 @@ export default function MyCalendar({ headers }) {
                           <p
                             style={{
                               color: "black",
-                              fontWeight: 600,
+                            fontSize: "0.9rem",
+                            fontFamily:"Athiti"
                             }}
                           >
                             {event.status == "marcado"
@@ -385,9 +399,8 @@ export default function MyCalendar({ headers }) {
                         </div>
                         <p
                           style={{
-                            fontWeight: 600,
-                            fontFamily: "Athiti",
-                            fontSize: "1.1rem",
+                            fontFamily: "Lato",
+                            fontSize: "1rem",
                           }}
                         >
                           <i
@@ -402,12 +415,11 @@ export default function MyCalendar({ headers }) {
                             }
                             aria-hidden="true"
                           />{" "}
-                          {event.category}{" "}
-                          {event.student && `- ${event.student}`}
-                        </p>
-                        <p style={{ fontWeight: 600 }}>
-                          <i className={"fa fa-clock-o"} aria-hidden="true" />{" "}
                           {event.date.getHours()}:{event.date.getMinutes()}
+                          <br />
+                          {event.category}
+                          <br />
+                          {event.student && ` ${event.student}`}
                         </p>
                         {event.description && <p>{event.description}</p>}{" "}
                         <span
@@ -427,7 +439,6 @@ export default function MyCalendar({ headers }) {
               ))}
             </div>
           </RouteDiv>
-
           <div
             style={{
               backgroundColor: transparentWhite(),
@@ -483,13 +494,16 @@ export default function MyCalendar({ headers }) {
                   id=""
                   value={category}
                 >
+                  <option value="category" hidden>
+                    Select category
+                  </option>
                   {[
-                    "Rep",
-                    "Standalone",
-                    "Tutoring",
-                    "Group Class",
                     "Test",
+                    "Standalone",
+                    "Group Class",
+                    "Rep",
                     "Prize Class",
+                    "Tutoring",
                   ].map((category, index) => {
                     return (
                       <option key={index} value={category}>
@@ -498,21 +512,26 @@ export default function MyCalendar({ headers }) {
                     );
                   })}
                 </select>
-                <select
-                  onChange={handleStudentChange}
-                  name="students"
-                  id=""
-                  value={newID}
-                  style={{ display: "block" }}
-                >
-                  {studentsList.map((student, index) => {
-                    return (
-                      <option key={index} value={student.id}>
-                        {student.name + " " + student.lastname}
-                      </option>
-                    );
-                  })}
-                </select>
+                {isTutoring && (
+                  <select
+                    onChange={handleStudentChange}
+                    name="students"
+                    id=""
+                    value={newID}
+                    style={{ display: "block" }}
+                  >
+                    <option value="category" hidden>
+                      Select student
+                    </option>
+                    {studentsList.map((student, index) => {
+                      return (
+                        <option key={index} value={student.id}>
+                          {student.name + " " + student.lastname}
+                        </option>
+                      );
+                    })}
+                  </select>
+                )}
                 <input
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
@@ -525,7 +544,6 @@ export default function MyCalendar({ headers }) {
                   type="time"
                   required
                 />
-                <img style={{ maxWidth: "12rem" }} src={img} />
                 <input
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
@@ -534,9 +552,9 @@ export default function MyCalendar({ headers }) {
                   required
                 />{" "}
                 <input
-                  value={link}
-                  onChange={(e) => setLink(e.target.value)}
-                  placeholder="Comments"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Description"
                   type="text"
                   required
                 />{" "}
@@ -568,7 +586,7 @@ export default function MyCalendar({ headers }) {
                   {
                     text: "Save",
                     backgroundColor: "green",
-                    // onClick: !postNew ? editOneMaterial : postNewMaterial,
+                    onClick: postNewEvent,
                     visible: true,
                   },
                 ].map((item, index) => {
