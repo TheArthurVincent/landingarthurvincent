@@ -33,13 +33,14 @@ export default function MyCalendar({ headers }) {
   const [user, setUser] = useState({});
   const [newID, setNewID] = useState("");
   const [studentsList, setStudentsList] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [students, setStudents] = useState([]);
 
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn"));
     const us = theuser;
     setUser(us);
     setID(us.id);
-    console.log(us);
   }, []);
 
   const fetchStudents = async () => {
@@ -99,85 +100,56 @@ export default function MyCalendar({ headers }) {
     Se mudar uma dessas, é só salvar no banco;
   */
 
-  const events = [
-    {
-      student: "Ruy",
-      date: new Date(2024, 3, 18, 17, 0, 0, 0),
-      status: "marcado",
-      description: "Aula",
-      link: "www.google.com",
-      category: "Standalone",
-    },
-    {
-      student: "João",
-      date: new Date(2024, 3, 18, 18, 0, 0, 0),
-      status: "marcado",
-      description: "Aula",
-      link: "www.google.com",
-      category: "Rep",
-    },
-    {
-      date: new Date(2024, 3, 20, 18, 0, 0, 0),
-      status: "desmarcado",
-      student: "Gisele",
-      link: "www.google.com",
-      category: "Test",
-    },
-    {
-      student: "Maria",
-      date: new Date(2024, 3, 19, 11, 30, 0, 0),
-      status: "marcado",
-      description: "5",
-      link: "www.google.com",
-      category: "Prize Tutoring",
-    },
-    {
-      date: new Date(2024, 3, 21, 14, 30, 0, 0),
-      status: "desmarcado",
-      link: "www.google.com",
-      category: "Group Class",
-    },
-    {
-      student: "Thiago Pessoa",
-      date: new Date(2024, 3, 19, 15, 0, 0, 0),
-      status: "desmarcado",
-      description: "535454",
-      link: "www.google.com",
-      category: "Tutoring",
-    },
-  ];
+  const fetchStudentEvents = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventstutorings/`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsListTutorings;
+      setStudents(res);
+    } catch (error) {
+      alert(error, "Erro ao encontrarssss alunos");
+    }
+  };
 
-  const students = [
-    {
-      name: "Arthur Rodrigues Cardoso",
-      tutoringDays: [
-        [{ day: "Mon", time: "9:00", link: "http://google.com" }],
-        [{ day: "Tue", time: "9:00", link: "http://google.com" }],
-      ],
-    },
-    {
-      name: "Thiago Pessoa",
-      tutoringDays: [
-        [{ day: "Fri", time: "15:00", link: "http://google.com" }],
-        [{ day: "Sat", time: "10:00", link: "http://google.com" }],
-      ],
-    },
-    {
-      name: "Filipi Bela",
-      tutoringDays: [
-        [{ day: "Sat", time: "15:00", link: "http://google.com" }],
-      ],
-    },
-    {
-      name: "Gabriela Pimenta Gaspar",
-      tutoringDays: [
-        [{ day: "Tue", time: "10:00", link: "http://google.com" }],
-        [{ day: "Wed", time: "10:00", link: "http://google.com" }],
-        [{ day: "Thu", time: "10:00", link: "http://google.com" }],
-      ],
-    },
-  ];
+  const formattedDates = (dateString) => {
+    const date = new Date(dateString);
+    date.toLocaleString("en-US", {
+      weekday: "short",
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short",
+    });
+    return new Date(date);
+  };
 
+  const fetchGeneralEvents = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
+        headers,
+      });
+      const res = response.data.eventsList;
+      const loopp = res.map((event) => {
+        event.date = formattedDates(event.date);
+        return event;
+      });
+      setEvents(loopp);
+    } catch (error) {
+      alert(error, "Erro ao encontrarssss alunos");
+    }
+  };
+
+  useEffect(() => {
+    fetchStudentEvents();
+    fetchGeneralEvents();
+  }, []);
   const { UniversalTexts } = useUserContext();
   const getDayIndex = (day) => {
     switch (day) {
@@ -204,7 +176,7 @@ export default function MyCalendar({ headers }) {
 
     students.forEach((student) => {
       student.tutoringDays.forEach((dayAndTime) => {
-        const { day, time, link } = dayAndTime[0];
+        const { day, time, link } = dayAndTime;
         futureDates.forEach((date) => {
           if (date.getDay() === getDayIndex(day)) {
             const eventDate = new Date(date);
@@ -212,14 +184,14 @@ export default function MyCalendar({ headers }) {
             eventDate.setHours(parseInt(hour), parseInt(minute), 0, 0);
             const isEventExisting = events.some((event) => {
               return (
-                event.student === student.name &&
+                event.student === student.student &&
                 event.date.getTime() === eventDate.getTime()
               );
             });
 
             if (!isEventExisting) {
               generatedEvents.push({
-                student: student.name,
+                student: student.student,
                 date: eventDate,
                 status: "marcado",
                 link: link,
@@ -525,7 +497,6 @@ export default function MyCalendar({ headers }) {
                   type="time"
                   required
                 />
-                <img style={{ maxWidth: "12rem" }} src={img} />
                 <input
                   value={link}
                   onChange={(e) => setLink(e.target.value)}

@@ -10,7 +10,6 @@ import {
   Button,
   LogoSVG,
   SpanHover,
-  SpanHover2,
 } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
