@@ -277,6 +277,7 @@ export default function MyCalendar({ headers }) {
     console.log(allEvents);
   }, [allEvents]);
 
+  
   const postNewEvent = async () => {
     setLoadingInfo(true);
     const combinedString = `${date}T${theTime}:00.000Z`;
@@ -288,7 +289,36 @@ export default function MyCalendar({ headers }) {
           category,
           studentID: isTutoring ? newID : null,
           date: dateObject,
-          theTime,
+          link,
+          description,
+        },
+        {
+          headers,
+        }
+      );
+      setLoadingInfo(false);
+      setIsVisible(false);
+      setCategory("");
+      setNewID("");
+      setDate("");
+      fetchGeneralEvents();
+      fetchStudentEvents();
+    } catch (error) {
+      alert(error, "Erro ao criar evento");
+    }
+  };
+
+  const editOneEvent = async () => {
+    setLoadingInfo(true);
+    const combinedString = `${date}T${theTime}:00.000Z`;
+    const dateObject = new Date(combinedString);
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/event/`,
+        {
+          category,
+          studentID: isTutoring ? newID : null,
+          date: dateObject,
           link,
           description,
         },
@@ -647,7 +677,8 @@ export default function MyCalendar({ headers }) {
                   {
                     text: "Save",
                     backgroundColor: "green",
-                    onClick: postNewEvent,
+                    // onClick: postNewEvent,
+                    onClick: postNew ? postNewEvent : editOneEvent,
                     visible: true,
                   },
                 ].map((item, index) => {
