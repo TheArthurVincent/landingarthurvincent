@@ -146,7 +146,6 @@ export default function MyCalendar({ headers }) {
       setTheTime(timeVariable);
       setDate(dateVariable);
 
-      
       setLoadingInfo(false);
     }
     if (isVisible) {
@@ -259,7 +258,7 @@ export default function MyCalendar({ headers }) {
                 date: eventDate,
                 status: "marcado",
                 link: link,
-                id: student.id,
+                studentID: student.id,
                 category: "Tutoring",
               });
             }
@@ -273,6 +272,10 @@ export default function MyCalendar({ headers }) {
 
   const studentEvents = generateStudentEvents();
   let allEvents = [...events, ...studentEvents];
+
+  useEffect(() => {
+    console.log(allEvents);
+  }, [allEvents]);
 
   const postNewEvent = async () => {
     setLoadingInfo(true);
@@ -298,6 +301,8 @@ export default function MyCalendar({ headers }) {
       setCategory("");
       setNewID("");
       setDate("");
+      fetchGeneralEvents();
+      fetchStudentEvents();
     } catch (error) {
       alert(error, "Erro ao criar evento");
     }
