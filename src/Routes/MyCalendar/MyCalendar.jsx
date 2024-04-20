@@ -65,14 +65,13 @@ export default function MyCalendar({ headers }) {
   }, []);
 
   const handleSeeModalNew = () => {
-    setLoadingInfo(true);
     setPostNew(true);
-    setLoadingInfo(false);
-    handleSeeModal(true);
+    handleSeeModal();
   };
 
   const handleStudentChange = (event) => {
     setNewID(event.target.value);
+    console.log(event);
   };
 
   const handleCategoryChange = (event) => {
@@ -99,8 +98,56 @@ export default function MyCalendar({ headers }) {
 
   const today = new Date();
   const futureDates = [];
-  const handleSeeModal = () => {
+
+  const toggleOpenModal = () => {
     setIsVisible(!isVisible);
+  };
+
+  const handleSeeModal = (e) => {
+    setIsVisible(!isVisible);
+    setLoadingInfo(true);
+    const checkIfNew = e ? false : true;
+    setPostNew(checkIfNew);
+
+    if (checkIfNew) {
+      setLink("");
+      setNewID("");
+      setDescription("");
+      setCategory("");
+
+      setLoadingInfo(false);
+    } else {
+      if (
+        e.category == "Standalone" ||
+        e.category == "Group Class" ||
+        e.category == "Test"
+      ) {
+        setIsTutoring(false);
+      } else if (
+        e.category == "Tutoring" ||
+        e.category == "Prize Class" ||
+        e.category == "Rep"
+      ) {
+        setIsTutoring(true);
+      }
+      setCategory(e.category);
+      setLink(e.link);
+      e.studentID && setNewID(e.studentID);
+      e.description && setDescription(e.description);
+
+      const year = e.date.getFullYear();
+      const month = String(e.date.getMonth() + 1).padStart(2, "0"); // Adiciona 1 ao mês, pois o mês começa em 0
+      const day = String(e.date.getDate()).padStart(2, "0");
+      const hours = String(e.date.getHours()).padStart(2, "0");
+      const minutes = String(e.date.getMinutes()).padStart(2, "0");
+
+      const dateVariable = `${year}-${month}-${day}`;
+      const timeVariable = `${hours}:${minutes}`;
+      setTheTime(timeVariable);
+      setDate(dateVariable);
+
+      setLoadingInfo(false);
+    }
     if (isVisible) {
       fetchStudentEvents();
       fetchGeneralEvents();
@@ -211,6 +258,7 @@ export default function MyCalendar({ headers }) {
                 date: eventDate,
                 status: "marcado",
                 link: link,
+                studentID: student.id,
                 category: "Tutoring",
               });
             }
@@ -224,6 +272,10 @@ export default function MyCalendar({ headers }) {
 
   const studentEvents = generateStudentEvents();
   let allEvents = [...events, ...studentEvents];
+
+  useEffect(() => {
+    console.log(allEvents);
+  }, [allEvents]);
 
   const postNewEvent = async () => {
     setLoadingInfo(true);
@@ -245,7 +297,12 @@ export default function MyCalendar({ headers }) {
         }
       );
       setLoadingInfo(false);
-      handleSeeModal();
+      setIsVisible(false);
+      setCategory("");
+      setNewID("");
+      setDate("");
+      fetchGeneralEvents();
+      fetchStudentEvents();
     } catch (error) {
       alert(error, "Erro ao criar evento");
     }
@@ -357,8 +414,8 @@ export default function MyCalendar({ headers }) {
                           <p
                             style={{
                               color: "black",
-                            fontSize: "0.9rem",
-                            fontFamily:"Athiti"
+                              fontSize: "0.9rem",
+                              fontFamily: "Athiti",
                             }}
                           >
                             {event.status == "marcado"
@@ -429,6 +486,10 @@ export default function MyCalendar({ headers }) {
                             backgroundColor: alwaysWhite(),
                           }}
                         >
+                          <Button onClick={() => handleSeeModal(event)}>
+                            {" "}
+                            <i className="fa fa-pencil" aria-hidden="true" />
+                          </Button>
                           <Link target="_blank" to={event.link}>
                             Click here
                           </Link>
@@ -451,7 +512,7 @@ export default function MyCalendar({ headers }) {
               display: isVisible ? "block" : "none",
               padding: "1rem",
             }}
-            onClick={() => handleSeeModal()}
+            onClick={toggleOpenModal}
           />
           <div
             className="modal"
@@ -469,7 +530,7 @@ export default function MyCalendar({ headers }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <Xp onClick={() => handleSeeModal()}>X</Xp>
+            <Xp onClick={toggleOpenModal}>X</Xp>
             <h2
               style={{
                 margin: "0.5rem 0",
