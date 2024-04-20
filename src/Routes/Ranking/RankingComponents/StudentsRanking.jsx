@@ -467,13 +467,13 @@ export default function StudentsRanking({ headers }) {
                     >
                       Pontuar
                     </Button>
-                    <h2 style={{ fontSize: "1.2rem" }}>
+                    {/* <h2 style={{ fontSize: "1.2rem" }}>
                       <i
                         className={theitems.items[levelNumber].icon}
                         aria-hidden="true"
                       />{" "}
                       {theitems.items[levelNumber].text}
-                    </h2>
+                    </h2> */}
                     <p
                       style={{
                         fontFamily: "Athiti",
