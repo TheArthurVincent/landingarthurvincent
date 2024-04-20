@@ -17,7 +17,7 @@ export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newAttachments, setAttachments] = useState("");
-  
+
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
   const [standardValue, setStandardValue] = useState("Aluno");

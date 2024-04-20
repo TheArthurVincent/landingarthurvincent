@@ -10,7 +10,6 @@ import {
   Button,
   LogoSVG,
   SpanHover,
-  SpanHover2,
 } from "../../Resources/UniversalComponents";
 import { LogoStyle } from "./TopBar.Styled";
 import { Hamburguer } from "./TopBar.Styled";
@@ -21,6 +20,73 @@ import {
   secondaryColor,
 } from "../../Styles/Styles";
 import { FormControl, MenuItem, Select } from "@mui/material";
+
+function ItemTopBar({ title, list }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  return (
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ position: "relative", display: "inline-block" }}
+    >
+      <div style={{ cursor: "pointer" }}>
+        <SpanHover
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          {title}
+        </SpanHover>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          backgroundColor: "#fff",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0,0.1)",
+          padding: "8px",
+          display: isHovered ? "grid" : "none",
+          textAlign: "left",
+          zIndex: 500,
+          minWidth: "fit-content",
+        }}
+      >
+        {list.map((link, index) => {
+          return (
+            <NavLink
+              key={index}
+              style={{
+                color: primaryColor(),
+                display: link.display,
+                textDecoration: "none",
+              }}
+              to={link.endpoint}
+            >
+              <SpanHover
+                style={{
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {link.title}
+              </SpanHover>
+            </NavLink>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function TopBar() {
   const [visible, setVisible] = useState("none");
@@ -39,7 +105,7 @@ export default function TopBar() {
     setPermissions(getLoggedUser.permissions);
   }, []);
 
-  const topLinks = [
+  const classes = [
     {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
@@ -48,22 +114,31 @@ export default function TopBar() {
       title: UniversalTexts.liveClasses,
       endpoint: "/live-classes",
     },
-    {
-      title: "Ranking",
-      endpoint: "/ranking",
-    },
+  ];
+
+  const extras = [
     {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",
     },
     {
-      title: UniversalTexts.extras,
-      endpoint: "/extras",
+      title: UniversalTexts.faq,
+      endpoint: "/faq",
     },
+  ];
 
+  const topLinks = [
+    // {
+    //   title: UniversalTexts.calendar,
+    //   endpoint: "/my-calendar",
+    // },
     {
       title: UniversalTexts.englishMaterial,
       endpoint: "/english-material",
+    },
+    {
+      title: "Ranking",
+      endpoint: "/ranking",
     },
   ];
 
@@ -78,13 +153,20 @@ export default function TopBar() {
     },
   ];
 
+  const allLinksForUser = [...topLinks, ...classes, ...extras];
   const handleVisible = () => {
     visible === "flex" ? setVisible("none") : setVisible("flex");
   };
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.3);
   return (
-    <TopBarContainer>
+    <TopBarContainer
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 99,
+      }}
+    >
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
       <Link to="/">
         <LogoStyle>{myLogo}</LogoStyle>
@@ -105,15 +187,15 @@ export default function TopBar() {
             }}
             to="/"
           >
-            <SpanHover2
+            <SpanHover
               style={{
                 textDecoration: "none",
               }}
             >
               {UniversalTexts.homePage}
-            </SpanHover2>
+            </SpanHover>
           </NavLink>
-          {topLinks.map((link, index) => {
+          {allLinksForUser.map((link, index) => {
             return (
               <NavLink
                 key={index}
@@ -170,6 +252,7 @@ export default function TopBar() {
             gap: "1rem",
           }}
         >
+          <ItemTopBar title={UniversalTexts.classes} list={classes} />
           {topLinks.map((link, index) => {
             return (
               <NavLink
@@ -184,6 +267,7 @@ export default function TopBar() {
               </NavLink>
             );
           })}
+          <ItemTopBar title={UniversalTexts.extras} list={extras} />
         </div>
         <div
           style={{
@@ -212,19 +296,21 @@ export default function TopBar() {
       </TopBarNavigation>
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
-        <FormControl>
-          <Select
-            labelId="language-label"
-            id="language"
-            name="language"
-            onChange={(e) => handleLanguageChange(e.target.value)}
-            defaultValue="pt"
-          >
-            <MenuItem value="pt">PT-BR</MenuItem>
-            <MenuItem value="en">EN-US</MenuItem>
-          </Select>
-        </FormControl>
-        <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <FormControl>
+            <Select
+              labelId="language-label"
+              id="language"
+              name="language"
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              defaultValue="en"
+            >
+              <MenuItem value="en">EN-US</MenuItem>
+              <MenuItem value="pt">PT-BR</MenuItem>
+            </Select>
+          </FormControl>
+          <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
+        </div>
       </div>
     </TopBarContainer>
   );

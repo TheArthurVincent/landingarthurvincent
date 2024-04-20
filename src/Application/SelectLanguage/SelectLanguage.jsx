@@ -5,15 +5,14 @@ const UserContext = createContext();
 export const useUserContext = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState("pt");
-  const [textContent, setTextContent] = useState("UniversalTexts");
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [textContent, setTextContent] = useState("UniversalTextsEn");
   const [UniversalTexts, setUniversalTexts] = useState(
-    import("../../Resources/UniversalTexts.json")
+    import("../../Resources/UniversalTextsEn.json")
   );
 
   const handleLanguageChange = (newLanguage) => {
     setSelectedLanguage(newLanguage);
-
     if (newLanguage === "en") {
       setTextContent("UniversalTextsEn");
     } else if (newLanguage === "pt") {

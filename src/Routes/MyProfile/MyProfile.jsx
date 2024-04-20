@@ -110,7 +110,7 @@ export function MyProfile({ headers }) {
               <input
                 value={newPassword}
                 onChange={(event) => setNewPassword(event.target.value)}
-                placeholder="Escolha uma nova senha"
+                placeholder={UniversalTexts.newPassword}
                 type="password"
                 style={{
                   padding: "0.5rem",
@@ -123,7 +123,7 @@ export function MyProfile({ headers }) {
               <input
                 value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
-                placeholder="Confirme a Senha"
+                placeholder={UniversalTexts.confirmNewPassword}
                 type="password"
                 style={{
                   padding: "0.5rem",

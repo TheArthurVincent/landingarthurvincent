@@ -14,7 +14,6 @@ import axios from "axios";
 import {
   formatDate,
   backDomain,
-  IFrameVideo,
   getVideoEmbedUrl,
   ImgBlog,
   Xp,
@@ -30,7 +29,7 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, CircularProgress, Tooltip } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
 import NextTutorings from "./BlogComponents/NextTutorings";
@@ -430,6 +429,7 @@ export function Blog({ headers }) {
             </div>
           ))}
         </RouteDiv>
+
         <div
           className="modal"
           style={{

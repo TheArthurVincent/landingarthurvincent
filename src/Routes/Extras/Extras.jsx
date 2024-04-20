@@ -44,7 +44,7 @@ export function Extras({ headers }) {
       <TopBar />
       <RouteSizeControlBox style={{ maxWidth: "700px" }} className="smooth">
         <RouteDiv>
-          <HOne>{UniversalTexts.extras}</HOne> <BackToHomePage />
+          <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
           <Input
             style={{
               display: "flex",
