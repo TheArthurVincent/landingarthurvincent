@@ -71,6 +71,7 @@ export default function MyCalendar({ headers }) {
 
   const handleStudentChange = (event) => {
     setNewID(event.target.value);
+    console.log(event);
   };
 
   const handleCategoryChange = (event) => {
@@ -113,6 +114,7 @@ export default function MyCalendar({ headers }) {
       setNewID("");
       setDescription("");
       setCategory("");
+
       setLoadingInfo(false);
     } else {
       if (
@@ -130,9 +132,21 @@ export default function MyCalendar({ headers }) {
       }
       setCategory(e.category);
       setLink(e.link);
-      e.id && setNewID(e.id);
+      e.studentID && setNewID(e.studentID);
       e.description && setDescription(e.description);
-      console.log(e.date);
+
+      const year = e.date.getFullYear();
+      const month = String(e.date.getMonth() + 1).padStart(2, "0"); // Adiciona 1 ao mês, pois o mês começa em 0
+      const day = String(e.date.getDate()).padStart(2, "0");
+      const hours = String(e.date.getHours()).padStart(2, "0");
+      const minutes = String(e.date.getMinutes()).padStart(2, "0");
+
+      const dateVariable = `${year}-${month}-${day}`;
+      const timeVariable = `${hours}:${minutes}`;
+      setTheTime(timeVariable);
+      setDate(dateVariable);
+
+      
       setLoadingInfo(false);
     }
     if (isVisible) {
