@@ -429,11 +429,7 @@ export default function StudentsRanking({ headers }) {
                         padding: "5px",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily: "Athiti",
-                        }}
-                      >
+                      <span>
                         Monthly Score:{" "}
                         <DivFont
                           style={{
