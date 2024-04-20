@@ -277,11 +277,11 @@ export const fadeIn = keyframes`
 `;
 export const DivFont = styled.div`
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.1rem;
   font-family: Athiti;
   margin: 0;
   @media (max-width: 500px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 `;
 export const AnimatedLi = styled.li`
