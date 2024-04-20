@@ -65,10 +65,8 @@ export default function MyCalendar({ headers }) {
   }, []);
 
   const handleSeeModalNew = () => {
-    setLoadingInfo(true);
     setPostNew(true);
-    setLoadingInfo(false);
-    handleSeeModal(true);
+    handleSeeModal();
   };
 
   const handleStudentChange = (event) => {
@@ -99,8 +97,44 @@ export default function MyCalendar({ headers }) {
 
   const today = new Date();
   const futureDates = [];
-  const handleSeeModal = () => {
+
+  const toggleOpenModal = () => {
     setIsVisible(!isVisible);
+  };
+
+  const handleSeeModal = (e) => {
+    setIsVisible(!isVisible);
+    setLoadingInfo(true);
+    const checkIfNew = e ? false : true;
+    setPostNew(checkIfNew);
+
+    if (checkIfNew) {
+      setLink("");
+      setNewID("");
+      setDescription("");
+      setCategory("");
+      setLoadingInfo(false);
+    } else {
+      if (
+        e.category == "Standalone" ||
+        e.category == "Group Class" ||
+        e.category == "Test"
+      ) {
+        setIsTutoring(false);
+      } else if (
+        e.category == "Tutoring" ||
+        e.category == "Prize Class" ||
+        e.category == "Rep"
+      ) {
+        setIsTutoring(true);
+      }
+      setCategory(e.category);
+      setLink(e.link);
+      e.id && setNewID(e.id);
+      e.description && setDescription(e.description);
+      console.log(e.date);
+      setLoadingInfo(false);
+    }
     if (isVisible) {
       fetchStudentEvents();
       fetchGeneralEvents();
@@ -211,6 +245,7 @@ export default function MyCalendar({ headers }) {
                 date: eventDate,
                 status: "marcado",
                 link: link,
+                id: student.id,
                 category: "Tutoring",
               });
             }
@@ -245,7 +280,10 @@ export default function MyCalendar({ headers }) {
         }
       );
       setLoadingInfo(false);
-      handleSeeModal();
+      setIsVisible(false);
+      setCategory("");
+      setNewID("");
+      setDate("");
     } catch (error) {
       alert(error, "Erro ao criar evento");
     }
@@ -357,8 +395,8 @@ export default function MyCalendar({ headers }) {
                           <p
                             style={{
                               color: "black",
-                            fontSize: "0.9rem",
-                            fontFamily:"Athiti"
+                              fontSize: "0.9rem",
+                              fontFamily: "Athiti",
                             }}
                           >
                             {event.status == "marcado"
@@ -429,6 +467,10 @@ export default function MyCalendar({ headers }) {
                             backgroundColor: alwaysWhite(),
                           }}
                         >
+                          <Button onClick={() => handleSeeModal(event)}>
+                            {" "}
+                            <i className="fa fa-pencil" aria-hidden="true" />
+                          </Button>
                           <Link target="_blank" to={event.link}>
                             Click here
                           </Link>
@@ -451,7 +493,7 @@ export default function MyCalendar({ headers }) {
               display: isVisible ? "block" : "none",
               padding: "1rem",
             }}
-            onClick={() => handleSeeModal()}
+            onClick={toggleOpenModal}
           />
           <div
             className="modal"
@@ -469,7 +511,7 @@ export default function MyCalendar({ headers }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <Xp onClick={() => handleSeeModal()}>X</Xp>
+            <Xp onClick={toggleOpenModal}>X</Xp>
             <h2
               style={{
                 margin: "0.5rem 0",
