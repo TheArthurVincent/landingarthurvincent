@@ -128,10 +128,10 @@ export default function TopBar() {
   ];
 
   const topLinks = [
-    {
-      title: UniversalTexts.calendar,
-      endpoint: "/my-calendar",
-    },
+    // {
+    //   title: UniversalTexts.calendar,
+    //   endpoint: "/my-calendar",
+    // },
     {
       title: UniversalTexts.englishMaterial,
       endpoint: "/english-material",
@@ -296,19 +296,21 @@ export default function TopBar() {
       </TopBarNavigation>
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
-        <FormControl>
-          <Select
-            labelId="language-label"
-            id="language"
-            name="language"
-            onChange={(e) => handleLanguageChange(e.target.value)}
-            defaultValue="en"
-          >
-            <MenuItem value="en">EN-US</MenuItem>
-            <MenuItem value="pt">PT-BR</MenuItem>
-          </Select>
-        </FormControl>
-        <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <FormControl>
+            <Select
+              labelId="language-label"
+              id="language"
+              name="language"
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              defaultValue="en"
+            >
+              <MenuItem value="en">EN-US</MenuItem>
+              <MenuItem value="pt">PT-BR</MenuItem>
+            </Select>
+          </FormControl>
+          <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
+        </div>
       </div>
     </TopBarContainer>
   );
