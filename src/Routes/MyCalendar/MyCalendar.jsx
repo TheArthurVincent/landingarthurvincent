@@ -333,7 +333,7 @@ export default function MyCalendar({ headers }) {
       const response = await axios.delete(
         `${backDomain}/api/v1/tutoringevent`,
         {
-          data: { id: item.id, studentID: newStudentId }, 
+          data: { id: item.id, studentID: newStudentId },
           headers,
         }
       );
@@ -1106,7 +1106,10 @@ export default function MyCalendar({ headers }) {
                           <p style={{ fontWeight: 600 }}>Class #{index + 1}</p>
                           <div style={{ display: "flex", gap: "10px" }}>
                             <p>
-                              {item.day} - {item.time} - {item.link}
+                              {item.day} - {item.time} -{" "}
+                              <Link target="_blank" to={item.link}>
+                                Link
+                              </Link>
                             </p>{" "}
                             <button
                               onClick={() => {
