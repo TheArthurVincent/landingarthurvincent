@@ -109,6 +109,8 @@ export default function MyCalendar({ headers }) {
 
     if (checkIfNew) {
       setLink("");
+      setDate("");
+      setTheTime("");
       setNewStudentId("");
       setDescription("");
       setCategory("");
@@ -169,7 +171,9 @@ export default function MyCalendar({ headers }) {
       });
       const res = response.data.eventsList;
       const eventsLoop = res.map((event) => {
-        event.date = formattedDates(event.date);
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
         return event;
       });
       setEvents(eventsLoop);
@@ -198,13 +202,7 @@ export default function MyCalendar({ headers }) {
       setLink(newLink);
       setTheTime(newTime);
       setDescription(newDescription);
-
-      var data = new Date(newDate);
-      var year = data.getFullYear();
-      var month = ("0" + (data.getMonth() + 1)).slice(-2);
-      var day = ("0" + data.getDate()).slice(-2);
-      var formDate = year + "-" + month + "-" + day;
-      setDate(formDate);
+      setDate(newDate);
     } catch (error) {
       console.log(error, "Erro ao encontrarssss alunos");
     }
@@ -283,16 +281,50 @@ export default function MyCalendar({ headers }) {
       );
       setLoadingInfo(false);
       setIsVisible(false);
+      fetchGeneralEvents();
       setCategory("");
       setNewStudentId("");
       setDate("");
-      fetchGeneralEvents();
     } catch (error) {
       console.log(error, "Erro ao criar evento");
     }
   };
   const editInside = () => {
     editOneEvent(newEventId);
+  };
+
+  const updateScheduled = async (id) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/eventstatus/${id}`,
+        {
+          status: "marcado",
+        },
+        {
+          headers,
+        }
+      );
+      fetchGeneralEvents();
+    } catch (error) {
+      console.log(error, "Erro ao atualizar evento");
+    }
+  };
+
+  const updateUnscheduled = async (id) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/eventstatus/${id}`,
+        {
+          status: "desmarcado",
+        },
+        {
+          headers,
+        }
+      );
+      fetchGeneralEvents();
+    } catch (error) {
+      console.log(error, "Erro ao atualizar evento");
+    }
   };
   return (
     <>
@@ -397,89 +429,89 @@ export default function MyCalendar({ headers }) {
                             justifyContent: "center",
                           }}
                         >
-                          <p
+                          <div
                             style={{
                               color: "black",
                               fontSize: "0.9rem",
                               fontFamily: "Athiti",
                             }}
                           >
+                            <Button onClick={() => handleSeeModal(event)}>
+                              <i
+                                style={{ color: "#fff" }}
+                                className="fa fa-pencil"
+                                aria-hidden="true"
+                              />
+                            </Button>
                             {event.status == "marcado"
                               ? "Scheduled"
                               : "Canceled"}
-                          </p>
-                          {[
-                            {
-                              className: "fa fa-check-circle-o",
-                              activeColor: "green",
-                              status: "marcado",
-                            },
-                            {
-                              className: "fa fa-times-circle-o",
-                              activeColor: "red",
-                              status: "desmarcado",
-                            },
-                          ].map((icon, index) => {
-                            return (
-                              <i
-                                key={index}
-                                className={icon.className}
-                                aria-hidden="true"
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == icon.status
-                                      ? "20px"
-                                      : "10px",
-                                  color:
-                                    event.status == icon.status
-                                      ? icon.activeColor
-                                      : "grey",
-                                }}
-                              />
-                            );
-                          })}
+                          </div>
+
+                          <i
+                            className="fa fa-check-circle-o"
+                            aria-hidden="true"
+                            onClick={() => updateScheduled(event._id)}
+                            style={{
+                              cursor: "pointer",
+                              fontSize:
+                                event.status == "marcado" ? "20px" : "10px",
+                              color:
+                                event.status == "marcado" ? "green" : "grey",
+                            }}
+                          />
+                          <i
+                            className="fa fa-check-circle-o"
+                            aria-hidden="true"
+                            onClick={() => updateUnscheduled(event._id)}
+                            style={{
+                              cursor: "pointer",
+                              fontSize:
+                                event.status == "desmarcado" ? "20px" : "10px",
+                              color:
+                                event.status == "desmarcado" ? "red" : "grey",
+                            }}
+                          />
                         </div>
                         <p
                           style={{
-                            fontFamily: "Lato",
-                            fontSize: "1rem",
+                            fontFamily: "Athiti",
+                            fontSize: "0.8rem",
                           }}
                         >
-                          <i
-                            className={
-                              event.category == "Group Class"
-                                ? "fa fa-graduation-cap"
-                                : event.category == "Tutoring"
-                                ? "fa fa-book"
-                                : event.category == "Prize Tutoring"
-                                ? "fa fa-trophy"
-                                : "fa fa-star"
-                            }
-                            aria-hidden="true"
-                          />{" "}
-                          {event.date.getHours()}:{event.date.getMinutes()}
-                          <br />
-                          {event.category}
-                          <br />
                           {event.student && ` ${event.student}`}
+                          {event.student && <br />}
+                          {` ${event.time} | ${event.category}`}
+                          <br />
                         </p>
-                        {event.description && <p>{event.description}</p>}{" "}
-                        <span
-                          style={{
-                            padding: "5px",
-                            marginTop: "10px",
-                            backgroundColor: alwaysWhite(),
-                          }}
-                        >
-                          <Button onClick={() => handleSeeModal(event)}>
-                            {" "}
-                            <i className="fa fa-pencil" aria-hidden="true" />
-                          </Button>
-                          <Link target="_blank" to={event.link}>
-                            Click here
-                          </Link>
-                        </span>
+                        {event.description && (
+                          <div
+                            style={{
+                              backgroundColor: "#fff",
+                              padding: "3px",
+                              color: "#000",
+                              marginTop: "10px",
+                              fontSize: "13px",
+                              fontStyle: "italic",
+                              borderRadius: "3px",
+                            }}
+                          >
+                            <p>{event.description}</p>
+                          </div>
+                        )}{" "}
+                        {index == 0 && (
+                          <span
+                            style={{
+                              padding: "5px",
+                              marginTop: "10px",
+                              backgroundColor: alwaysWhite(),
+                            }}
+                          >
+                            <Link target="_blank" to={event.link}>
+                              Access the class
+                            </Link>
+                          </span>
+                        )}
                       </div>
                     ))}
                 </div>
