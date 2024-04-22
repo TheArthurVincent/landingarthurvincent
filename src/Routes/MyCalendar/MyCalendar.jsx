@@ -20,8 +20,6 @@ import axios from "axios";
 export default function MyCalendar({ headers }) {
   const [id, setID] = useState("651311fac3d58753aa9281c5");
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
-
   const [isVisible, setIsVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(false);
   const [postNew, setPostNew] = useState(false);
@@ -32,12 +30,12 @@ export default function MyCalendar({ headers }) {
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [newID, setNewID] = useState("");
+  const [newStudentId, setNewStudentId] = useState("");
+  const [newEventId, setNewEventId] = useState("");
   const [studentsList, setStudentsList] = useState([]);
   const [events, setEvents] = useState([]);
-  const [students, setStudents] = useState([]);
   const [isTutoring, setIsTutoring] = useState(false);
-  const [loadingPost, setLoadingPost] = useState(false);
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn"));
@@ -54,7 +52,7 @@ export default function MyCalendar({ headers }) {
       const res = response.data.listOfStudents;
       setStudentsList(res);
     } catch (error) {
-      alert(error, "Erro ao encontrarssss alunos");
+      console.log(error, "Erro ao encontrarssss alunos");
     }
   };
 
@@ -69,9 +67,13 @@ export default function MyCalendar({ headers }) {
     handleSeeModal();
   };
 
+  const handleCloseModal = () => {
+    setIsVisible(false);
+    fetchGeneralEvents();
+  };
+
   const handleStudentChange = (event) => {
-    setNewID(event.target.value);
-    console.log(event);
+    setNewStudentId(event.target.value);
   };
 
   const handleCategoryChange = (event) => {
@@ -99,24 +101,22 @@ export default function MyCalendar({ headers }) {
   const today = new Date();
   const futureDates = [];
 
-  const toggleOpenModal = () => {
-    setIsVisible(!isVisible);
-  };
-
   const handleSeeModal = (e) => {
-    setIsVisible(!isVisible);
-    setLoadingInfo(true);
     const checkIfNew = e ? false : true;
+    setIsVisible(true);
+    setLoadingInfo(true);
     setPostNew(checkIfNew);
 
     if (checkIfNew) {
       setLink("");
-      setNewID("");
+      setNewStudentId("");
       setDescription("");
       setCategory("");
-
+      setStatus("");
       setLoadingInfo(false);
     } else {
+      fetchOneEvent(e._id);
+
       if (
         e.category == "Standalone" ||
         e.category == "Group Class" ||
@@ -130,26 +130,9 @@ export default function MyCalendar({ headers }) {
       ) {
         setIsTutoring(true);
       }
-      setCategory(e.category);
-      setLink(e.link);
-      e.studentID && setNewID(e.studentID);
-      e.description && setDescription(e.description);
-
-      const year = e.date.getFullYear();
-      const month = String(e.date.getMonth() + 1).padStart(2, "0"); // Adiciona 1 ao mês, pois o mês começa em 0
-      const day = String(e.date.getDate()).padStart(2, "0");
-      const hours = String(e.date.getHours()).padStart(2, "0");
-      const minutes = String(e.date.getMinutes()).padStart(2, "0");
-
-      const dateVariable = `${year}-${month}-${day}`;
-      const timeVariable = `${hours}:${minutes}`;
-      setTheTime(timeVariable);
-      setDate(dateVariable);
-
       setLoadingInfo(false);
     }
     if (isVisible) {
-      fetchStudentEvents();
       fetchGeneralEvents();
     } else {
       null;
@@ -162,21 +145,6 @@ export default function MyCalendar({ headers }) {
     date.setDate(today.getDate() + i);
     futureDates.push(date);
   }
-
-  const fetchStudentEvents = async () => {
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/eventstutorings/`,
-        {
-          headers,
-        }
-      );
-      const res = response.data.eventsListTutorings;
-      setStudents(res);
-    } catch (error) {
-      alert(error, "Erro ao encontrarssss alunos");
-    }
-  };
 
   const formattedDates = (dateString) => {
     const date = new Date(dateString);
@@ -194,23 +162,55 @@ export default function MyCalendar({ headers }) {
   };
 
   const fetchGeneralEvents = async () => {
+    setPostNew(false);
     try {
       const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
         headers,
       });
       const res = response.data.eventsList;
-      const loopp = res.map((event) => {
+      const eventsLoop = res.map((event) => {
         event.date = formattedDates(event.date);
         return event;
       });
-      setEvents(loopp);
+      setEvents(eventsLoop);
     } catch (error) {
-      alert(error, "Erro ao encontrarssss alunos");
+      console.log(error, "Erro ao encontrarssss alunos");
+    }
+  };
+
+  const fetchOneEvent = async (id) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/event/${id}`, {
+        headers,
+      });
+      const newCategory = response.data.event.category;
+      const newStudentID = response.data.event.studentID;
+      const newStatus = response.data.event.status;
+      const newLink = response.data.event.link;
+      const newDescription = response.data.event.description;
+      const newDate = response.data.event.date;
+      const newTime = response.data.event.time;
+      const newEventId = response.data.event._id;
+      setStatus(newStatus);
+      setCategory(newCategory);
+      setNewStudentId(newStudentID);
+      setNewEventId(newEventId);
+      setLink(newLink);
+      setTheTime(newTime);
+      setDescription(newDescription);
+
+      var data = new Date(newDate);
+      var year = data.getFullYear();
+      var month = ("0" + (data.getMonth() + 1)).slice(-2);
+      var day = ("0" + data.getDate()).slice(-2);
+      var formDate = year + "-" + month + "-" + day;
+      setDate(formDate);
+    } catch (error) {
+      console.log(error, "Erro ao encontrarssss alunos");
     }
   };
 
   useEffect(() => {
-    fetchStudentEvents();
     fetchGeneralEvents();
   }, []);
   const { UniversalTexts } = useUserContext();
@@ -234,61 +234,17 @@ export default function MyCalendar({ headers }) {
         return -1;
     }
   };
-  const generateStudentEvents = () => {
-    const generatedEvents = [];
 
-    students.forEach((student) => {
-      student.tutoringDays.forEach((dayAndTime) => {
-        const { day, time, link } = dayAndTime;
-        futureDates.forEach((date) => {
-          if (date.getDay() === getDayIndex(day)) {
-            const eventDate = new Date(date);
-            const [hour, minute] = time.split(":");
-            eventDate.setHours(parseInt(hour), parseInt(minute), 0, 0);
-            const isEventExisting = events.some((event) => {
-              return (
-                event.student === student.student &&
-                event.date.getTime() === eventDate.getTime()
-              );
-            });
-
-            if (!isEventExisting) {
-              generatedEvents.push({
-                student: student.student,
-                date: eventDate,
-                status: "marcado",
-                link: link,
-                studentID: student.id,
-                category: "Tutoring",
-              });
-            }
-          }
-        });
-      });
-    });
-
-    return generatedEvents;
-  };
-
-  const studentEvents = generateStudentEvents();
-  let allEvents = [...events, ...studentEvents];
-
-  useEffect(() => {
-    console.log(allEvents);
-  }, [allEvents]);
-
-  
   const postNewEvent = async () => {
     setLoadingInfo(true);
-    const combinedString = `${date}T${theTime}:00.000Z`;
-    const dateObject = new Date(combinedString);
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/event/`,
         {
           category,
-          studentID: isTutoring ? newID : null,
-          date: dateObject,
+          studentID: isTutoring ? newStudentId : null,
+          date,
+          time: theTime,
           link,
           description,
         },
@@ -299,26 +255,25 @@ export default function MyCalendar({ headers }) {
       setLoadingInfo(false);
       setIsVisible(false);
       setCategory("");
-      setNewID("");
+      setNewStudentId("");
       setDate("");
       fetchGeneralEvents();
-      fetchStudentEvents();
     } catch (error) {
-      alert(error, "Erro ao criar evento");
+      console.log(error, "Erro ao criar evento");
     }
   };
 
-  const editOneEvent = async () => {
+  const editOneEvent = async (id) => {
     setLoadingInfo(true);
-    const combinedString = `${date}T${theTime}:00.000Z`;
-    const dateObject = new Date(combinedString);
     try {
       const response = await axios.put(
-        `${backDomain}/api/v1/event/`,
+        `${backDomain}/api/v1/event/${id}`,
         {
+          studentID: isTutoring ? newStudentId : null,
+          date,
+          time: theTime,
           category,
-          studentID: isTutoring ? newID : null,
-          date: dateObject,
+          status,
           link,
           description,
         },
@@ -329,15 +284,16 @@ export default function MyCalendar({ headers }) {
       setLoadingInfo(false);
       setIsVisible(false);
       setCategory("");
-      setNewID("");
+      setNewStudentId("");
       setDate("");
       fetchGeneralEvents();
-      fetchStudentEvents();
     } catch (error) {
-      alert(error, "Erro ao criar evento");
+      console.log(error, "Erro ao criar evento");
     }
   };
-
+  const editInside = () => {
+    editOneEvent(newEventId);
+  };
   return (
     <>
       <TopBar />
@@ -394,7 +350,7 @@ export default function MyCalendar({ headers }) {
                       year: "numeric",
                     })}
                   </p>
-                  {allEvents
+                  {events
                     .filter(
                       (event) =>
                         event.date.toDateString() === date.toDateString()
@@ -542,7 +498,7 @@ export default function MyCalendar({ headers }) {
               display: isVisible ? "block" : "none",
               padding: "1rem",
             }}
-            onClick={toggleOpenModal}
+            onClick={handleCloseModal}
           />
           <div
             className="modal"
@@ -560,7 +516,7 @@ export default function MyCalendar({ headers }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <Xp onClick={toggleOpenModal}>X</Xp>
+            <Xp onClick={handleCloseModal}>X</Xp>
             <h2
               style={{
                 margin: "0.5rem 0",
@@ -608,7 +564,7 @@ export default function MyCalendar({ headers }) {
                     onChange={handleStudentChange}
                     name="students"
                     id=""
-                    value={newID}
+                    value={newStudentId}
                     style={{ display: "block" }}
                   >
                     <option value="category" hidden>
@@ -625,13 +581,17 @@ export default function MyCalendar({ headers }) {
                 )}
                 <input
                   value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                  }}
                   type="date"
                   required
                 />
                 <input
                   value={theTime}
-                  onChange={(e) => setTheTime(e.target.value)}
+                  onChange={(e) => {
+                    setTheTime(e.target.value);
+                  }}
                   type="time"
                   required
                 />
@@ -671,14 +631,13 @@ export default function MyCalendar({ headers }) {
                   {
                     text: "Cancel",
                     backgroundColor: "navy",
-                    onClick: handleSeeModal,
+                    onClick: handleCloseModal,
                     visible: true,
                   },
                   {
                     text: "Save",
                     backgroundColor: "green",
-                    // onClick: postNewEvent,
-                    onClick: postNew ? postNewEvent : editOneEvent,
+                    onClick: postNew ? postNewEvent : editInside,
                     visible: true,
                   },
                 ].map((item, index) => {
