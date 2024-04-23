@@ -10,6 +10,8 @@ import {
   alwaysBlack,
   alwaysWhite,
   lightGreyColor,
+  primaryColor,
+  secondaryColor,
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
@@ -17,11 +19,10 @@ import { Button, CircularProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
+import { SpamClick } from "./MyCalendar.Styled";
 
-export default function MyCalendar({ headers }) {
+export default function MyCalendar({ theId, headers, thePermissions }) {
   // states
-  const [id, setID] = useState("651311fac3d58753aa9281c5");
-  const [user, setUser] = useState({});
   const [isVisible, setIsVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(false);
   const [postNew, setPostNew] = useState(false);
@@ -32,9 +33,10 @@ export default function MyCalendar({ headers }) {
     useState(false);
 
   const [loading, setLoading] = useState(true);
-  const [permissions, setPermissions] = useState("");
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
+  const [showClasses, setShowClasses] = useState(false);
+
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -55,35 +57,42 @@ export default function MyCalendar({ headers }) {
   const [tutoringId, setTutoringId] = useState("");
 
   const [weekDay, setWeekDay] = useState("");
-  const [theNewWeekDay, setTheNewWeekDay] = useState("Mon");
-  const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("00:00");
-  const [theNewLink, setTheNewLink] = useState("link");
+  const [theNewWeekDay, setTheNewWeekDay] = useState("");
+  const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
+  const [theNewLink, setTheNewLink] = useState("");
 
   const { UniversalTexts } = useUserContext();
   const today = new Date();
   const futureDates = [];
 
   // AXIOS
-
   const fetchStudents = async () => {
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/students/`, {
-        headers,
-      });
-      const res = response.data.listOfStudents;
-      setStudentsList(res);
-    } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+    if (thePermissions == "superadmin") {
+      try {
+        const response = await axios.get(`${backDomain}/api/v1/students/`, {
+          headers,
+        });
+        const res = response.data.listOfStudents;
+        setStudentsList(res);
+      } catch (error) {
+        console.log(error, "Erro ao encontrar alunos");
+      }
+    } else {
+      null;
     }
   };
 
   const fetchGeneralEvents = async () => {
-    setPostNew(false);
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
-        headers,
-      });
+      const user = JSON.parse(localStorage.getItem("loggedIn"));
+      const id = user.id;
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}`,
+        {
+          headers,
+        }
+      );
       const res = response.data.eventsList;
       const eventsLoop = res.map((event) => {
         const nextDay = new Date(event.date);
@@ -94,7 +103,36 @@ export default function MyCalendar({ headers }) {
       setEvents(eventsLoop);
       setLoading(false);
     } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+      console.log(error, "Erro ao encontrar eventos");
+      setLoading(false);
+    }
+  };
+
+  const fetchGeneralEventsNoLoading = async () => {
+    setPostNew(false);
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    if (user.permissions == "superadmin") {
+      try {
+        const response = await axios.get(
+          `${backDomain}/api/v1/eventsgeneral/${id}`,
+          {
+            headers,
+          }
+        );
+        const res = response.data.eventsList;
+        const eventsLoop = res.map((event) => {
+          const nextDay = new Date(event.date);
+          nextDay.setDate(nextDay.getDate() + 1);
+          event.date = formattedDates(nextDay);
+          return event;
+        });
+        setEvents(eventsLoop);
+      } catch (error) {
+        console.log(error, "Erro ao encontrar alunos");
+      }
+    } else {
+      null;
     }
   };
 
@@ -140,13 +178,14 @@ export default function MyCalendar({ headers }) {
         setLoadingTutoringDays(false);
       }, 100);
     } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+      console.log(error, "Erro ao encontrar alunos");
     }
   };
 
   const fetchOneSetOfTutoringsInside = (e) => {
     const eTargetValue = e.target.value;
     setNewStudentId(eTargetValue);
+    setShowClasses(true);
   };
 
   useEffect(() => {
@@ -254,13 +293,12 @@ export default function MyCalendar({ headers }) {
         }
       );
       if (response) {
-        fetchGeneralEvents();
+        fetchGeneralEventsNoLoading();
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
-
   const updateUnscheduled = async (id) => {
     try {
       const response = await axios.put(
@@ -272,13 +310,33 @@ export default function MyCalendar({ headers }) {
           headers,
         }
       );
-      if (response) {
-        fetchGeneralEvents();
-      }
+      fetchGeneralEventsNoLoading();
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
+  const updateRealizedClass = async (id) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/eventstatus/${id}`,
+        {
+          status: "realizada",
+        },
+        {
+          headers,
+        }
+      );
+      fetchGeneralEventsNoLoading();
+    } catch (error) {
+      console.log(error, "Erro ao atualizar evento");
+    }
+  };
+
+
+
+
+
+
 
   const updateOneTutoring = async () => {
     try {
@@ -303,6 +361,8 @@ export default function MyCalendar({ headers }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
+
+
   const newTutoring = async () => {
     try {
       const response = await axios.post(
@@ -333,7 +393,12 @@ export default function MyCalendar({ headers }) {
       const response = await axios.delete(
         `${backDomain}/api/v1/tutoringevent`,
         {
-          data: { id: item.id, studentID: newStudentId },
+          data: {
+            time: item.time,
+            day: item.day,
+            id: item.id,
+            studentID: newStudentId,
+          },
           headers,
         }
       );
@@ -351,18 +416,22 @@ export default function MyCalendar({ headers }) {
   // UseEffects
 
   useEffect(() => {
-    const theuser = JSON.parse(localStorage.getItem("loggedIn"));
-    const us = theuser;
-    setUser(us);
-    setID(us.id);
-    setPermissions(us.permissions);
-    fetchGeneralEvents();
-    fetchStudents();
+    thePermissions == "superadmin" && fetchStudents();
+    setTimeout(() => {
+      fetchGeneralEvents();
+    }, 100);
   }, []);
 
   // ModalControls
   const handleSeeModalNew = () => {
     setPostNew(true);
+    setNewStudentId("");
+    setTheTime("");
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
+    setWeekDay("");
     handleSeeModal();
   };
 
@@ -370,19 +439,47 @@ export default function MyCalendar({ headers }) {
     setSeeEditTutoring(true);
     setTutoringId(e.id);
     setLink(e.link);
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     setTimeOfTutoring(e.time);
     setWeekDay(e.day);
     console.log(e);
   };
   const closeEditOneTutoring = () => {
     setSeeEditTutoring(false);
+    setNewStudentId("");
+    setTheTime("");
+    setShowClasses(false);
+
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
+    setWeekDay("");
   };
 
   const handleCloseModal = () => {
     setIsVisible(false);
+    setNewStudentId("");
+    setTheTime("");
+    setWeekDay("");
+    setTheNewLink("");
+    setShowClasses(false);
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     fetchGeneralEvents();
   };
   const handleSeeModalOfTutorings = () => {
+    setNewStudentId("");
+    setTheTime("");
+    setWeekDay("");
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     setLoadingModalTutoringsInfo(true);
     setSeeEditTutoring(false);
     fetchStudents();
@@ -391,6 +488,14 @@ export default function MyCalendar({ headers }) {
   };
 
   const handleCloseModalOfTutorings = () => {
+    setNewStudentId("");
+    setTheTime("");
+    setWeekDay("");
+    setShowClasses(false);
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     setIsModalOfTutoringsVisible(false);
     fetchGeneralEvents();
   };
@@ -479,7 +584,7 @@ export default function MyCalendar({ headers }) {
   };
 
   // Formulas
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 365; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
@@ -594,15 +699,21 @@ export default function MyCalendar({ headers }) {
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
-            <div
-              style={{
-                display: permissions == "superadmin" ? "flex" : "none",
-              }}
-            >
-              <Button onClick={() => handleSeeModalNew()}>
+            <div style={{ display: "flex" }}>
+              <Button
+                style={{
+                  display: thePermissions == "superadmin" ? "flex" : "none",
+                }}
+                onClick={() => handleSeeModalNew()}
+              >
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
               </Button>{" "}
-              <Button onClick={() => handleSeeModalOfTutorings()}>
+              <Button
+                style={{
+                  display: thePermissions == "superadmin" ? "flex" : "none",
+                }}
+                onClick={() => handleSeeModalOfTutorings()}
+              >
                 <i className="fa fa-user-circle" aria-hidden="true" />
               </Button>{" "}
               <Button onClick={() => fetchGeneralEvents()}>
@@ -626,7 +737,7 @@ export default function MyCalendar({ headers }) {
                       padding: "0px 0px 10px 0px",
                       margin: "10px 0px",
                       border: `1px solid ${lightGreyColor()}`,
-                      minWidth: "14rem",
+                      minWidth: "13rem",
                       height: "30rem",
                       overflow: "auto",
                     }}
@@ -659,27 +770,42 @@ export default function MyCalendar({ headers }) {
                         (event) =>
                           event.date.toDateString() === date.toDateString()
                       )
-                      .sort((a, b) => a.date - b.date)
+                      .sort((a, b) => a.time - b.time)
                       .map((event, indexx) => (
                         <div
                           style={{
                             margin: "5px",
                             padding: "10px 5px",
-                            color: alwaysWhite(),
+                            boxShadow: "2px 2px 20px 2px #aaa",
+                            borderRadius: "5px",
                             backgroundColor:
                               event.category == "Group Class"
-                                ? "#306E04"
+                                ? `${primaryColor()}`
                                 : event.category == "Tutoring"
-                                ? "#351c75"
-                                : event.category == "Prize Tutoring"
-                                ? "#F55C2B"
+                                ? `${secondaryColor()}`
+                                : event.category == "Prize Class"
+                                ? "#FFB8A3"
                                 : event.category == "Standalone"
-                                ? "#222"
+                                ? "#B2B2B2"
                                 : event.category == "Test"
-                                ? "#Fa4561"
+                                ? "#eee"
                                 : event.category == "Rep"
-                                ? "#599763"
+                                ? "#BFD8B8"
                                 : "#000",
+                            // border:
+                            //   event.category == "Group Class"
+                            //     ? `solid 4px ${primaryColor()}`
+                            //     : event.category == "Tutoring"
+                            //     ? `solid 4px ${secondaryColor()}`
+                            //     : event.category == "Prize Class"
+                            //     ? "solid 4px #FFB8A3"
+                            //     : event.category == "Standalone"
+                            //     ? "solid 4px #B2B2B2"
+                            //     : event.category == "Test"
+                            //     ? "solid 4px #eee"
+                            //     : event.category == "Rep"
+                            //     ? "solid 4px #BFD8B8"
+                            //     : "solid 4px #000",
                             textAlign: "center",
                             display: "grid",
                           }}
@@ -690,8 +816,11 @@ export default function MyCalendar({ headers }) {
                               display: "flex",
                               gap: "0.5rem",
                               marginBottom: "1rem",
+                              borderRadius: "5px",
                               backgroundColor:
                                 event.status == "marcado"
+                                  ? "#AACBDD"
+                                  : event.status == "realizada"
                                   ? "#A7D1AE"
                                   : event.status == "desmarcado"
                                   ? "#E0B5B2"
@@ -704,70 +833,133 @@ export default function MyCalendar({ headers }) {
                             <div
                               style={{
                                 color: "black",
-                                fontSize: "0.9rem",
+                                display: "flex",
+                                gap: "5px",
+                                fontSize: "0.8rem",
+                                borderRadius: "5px",
                                 fontFamily: "Athiti",
                               }}
                             >
-                              <Button onClick={() => handleSeeModal(event)}>
-                                <i
-                                  style={{ color: "#fff" }}
-                                  className="fa fa-pencil"
-                                  aria-hidden="true"
-                                />
-                              </Button>
+                              {thePermissions == "superadmin" && (
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    gap: "5px",
+                                  }}
+                                >
+                                  {" "}
+                                  <Button onClick={() => handleSeeModal(event)}>
+                                    <i
+                                      style={{
+                                        fontSize: "0.6rem",
+                                        color: "#fff",
+                                      }}
+                                      className="fa fa-pencil"
+                                      aria-hidden="true"
+                                    />
+                                  </Button>
+                                  <SpamClick>
+                                    <i
+                                      className="fa fa-clock-o"
+                                      aria-hidden="true"
+                                      onClick={() => updateScheduled(event._id)}
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize:
+                                          event.status == "marcado"
+                                            ? "12px"
+                                            : "10px",
+                                        color:
+                                          event.status == "marcado"
+                                            ? "blue"
+                                            : "grey",
+                                      }}
+                                    />
+                                  </SpamClick>
+                                  <SpamClick>
+                                    <i
+                                      className="fa fa-check-circle"
+                                      aria-hidden="true"
+                                      onClick={() =>
+                                        updateRealizedClass(event._id)
+                                      }
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize:
+                                          event.status == "realizada"
+                                            ? "12px"
+                                            : "10px",
+                                        color:
+                                          event.status == "realizada"
+                                            ? "green"
+                                            : "grey",
+                                      }}
+                                    />
+                                  </SpamClick>
+                                  <SpamClick>
+                                    <i
+                                      className="fa fa-times-circle-o"
+                                      aria-hidden="true"
+                                      onClick={() =>
+                                        updateUnscheduled(event._id)
+                                      }
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize:
+                                          event.status == "desmarcado"
+                                            ? "12px"
+                                            : "10px",
+                                        color:
+                                          event.status == "desmarcado"
+                                            ? "red"
+                                            : "grey",
+                                      }}
+                                    />
+                                  </SpamClick>
+                                </div>
+                              )}
                               {event.status == "marcado"
                                 ? "Scheduled"
-                                : "Canceled"}
+                                : event.status == "desmarcado"
+                                ? "Canceled"
+                                : "Realized"}
                             </div>
-
-                            <i
-                              className="fa fa-check-circle-o"
-                              aria-hidden="true"
-                              onClick={() => updateScheduled(event._id)}
-                              style={{
-                                cursor: "pointer",
-                                fontSize:
-                                  event.status == "marcado" ? "20px" : "10px",
-                                color:
-                                  event.status == "marcado" ? "green" : "grey",
-                              }}
-                            />
-                            <i
-                              className="fa fa-check-circle-o"
-                              aria-hidden="true"
-                              onClick={() => updateUnscheduled(event._id)}
-                              style={{
-                                cursor: "pointer",
-                                fontSize:
-                                  event.status == "desmarcado"
-                                    ? "20px"
-                                    : "10px",
-                                color:
-                                  event.status == "desmarcado" ? "red" : "grey",
-                              }}
-                            />
                           </div>
                           <p
                             style={{
                               fontFamily: "Athiti",
+                              backgroundColor: "#eee",
                               fontSize: "0.8rem",
                             }}
                           >
-                            {event.student && ` ${event.student}`}
-                            {event.student && <br />}
+                            {event.student && (
+                              <p
+                                style={{
+                                  fontFamily: "Athiti",
+                                  backgroundColor: "#eee",
+                                  fontSize: "0.8rem",
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {" "}
+                                {event.student} <br />
+                              </p>
+                            )}
                             {` ${event.time} | ${event.category}`}
                             <br />
                           </p>
                           {event.description && (
                             <div
                               style={{
-                                backgroundColor: "#fff",
+                                backgroundColor: "#333",
                                 padding: "3px",
-                                color: "#000",
+                                color: "#fff",
                                 marginTop: "10px",
-                                fontSize: "13px",
+                                fontSize: "11px",
+                                fontWeight: 600,
                                 fontStyle: "italic",
-                                borderRadius: "3px",
+                                borderRadius: "5px",
+                                border: "solid 1px #ddd",
                               }}
                             >
                               <p>{event.description}</p>
@@ -803,6 +995,7 @@ export default function MyCalendar({ headers }) {
                 top: "0",
                 left: "0",
                 position: "fixed",
+                borderRadius: "3px",
                 zIndex: 99,
                 display: isVisible ? "block" : "none",
                 padding: "1rem",
@@ -1099,7 +1292,7 @@ export default function MyCalendar({ headers }) {
                           key={index}
                           style={{
                             padding: "10px",
-                            display: "grid",
+                            display: showClasses ? "flex" : "none",
                             gap: "5px",
                           }}
                         >
@@ -1140,6 +1333,9 @@ export default function MyCalendar({ headers }) {
                   value={weekDay}
                   style={{ display: "block" }}
                 >
+                  <option value="select week day" hidden>
+                    Select week day
+                  </option>
                   {weekDays.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1155,6 +1351,9 @@ export default function MyCalendar({ headers }) {
                   value={timeOfTutoring}
                   style={{ display: "block" }}
                 >
+                  <option value="select time" hidden>
+                    Select time
+                  </option>
                   {times.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1182,6 +1381,9 @@ export default function MyCalendar({ headers }) {
                   value={theNewWeekDay}
                   style={{ display: "block" }}
                 >
+                  <option hidden value="select week day">
+                    Select Week Day
+                  </option>
                   {weekDays.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1197,6 +1399,9 @@ export default function MyCalendar({ headers }) {
                   value={theNewTimeOfTutoring}
                   style={{ display: "block" }}
                 >
+                  <option hidden value="Select Time">
+                    Select Time
+                  </option>
                   {times.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1206,6 +1411,7 @@ export default function MyCalendar({ headers }) {
                   })}
                 </select>
                 <input
+                  placeholder="New link"
                   value={theNewLink}
                   onChange={(e) => {
                     setTheNewLink(e.target.value);

@@ -211,7 +211,7 @@ export default function EnglishMaterial({ headers }) {
                   display: permissions == "superadmin" ? "block" : "none",
                 }}
               >
-                <i className="fa fa-star" aria-hidden="true" />
+                <i className="fa fa-plus" aria-hidden="true" />
               </Button>
               <BackToHomePage />{" "}
             </div>
