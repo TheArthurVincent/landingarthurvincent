@@ -38,6 +38,8 @@ export default function MyCalendar({ headers }) {
   const [permissions, setPermissions] = useState("");
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
+  const [showClasses, setShowClasses] = useState(false);
+
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -58,9 +60,9 @@ export default function MyCalendar({ headers }) {
   const [tutoringId, setTutoringId] = useState("");
 
   const [weekDay, setWeekDay] = useState("");
-  const [theNewWeekDay, setTheNewWeekDay] = useState("Mon");
-  const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("00:00");
-  const [theNewLink, setTheNewLink] = useState("link");
+  const [theNewWeekDay, setTheNewWeekDay] = useState("");
+  const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
+  const [theNewLink, setTheNewLink] = useState("");
 
   const { UniversalTexts } = useUserContext();
   const today = new Date();
@@ -169,6 +171,7 @@ export default function MyCalendar({ headers }) {
   const fetchOneSetOfTutoringsInside = (e) => {
     const eTargetValue = e.target.value;
     setNewStudentId(eTargetValue);
+    setShowClasses(true);
   };
 
   useEffect(() => {
@@ -409,6 +412,13 @@ export default function MyCalendar({ headers }) {
   // ModalControls
   const handleSeeModalNew = () => {
     setPostNew(true);
+    setNewStudentId("");
+    setTheTime("");
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
+    setWeekDay("");
     handleSeeModal();
   };
 
@@ -416,19 +426,48 @@ export default function MyCalendar({ headers }) {
     setSeeEditTutoring(true);
     setTutoringId(e.id);
     setLink(e.link);
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     setTimeOfTutoring(e.time);
     setWeekDay(e.day);
     console.log(e);
   };
   const closeEditOneTutoring = () => {
     setSeeEditTutoring(false);
+    setNewStudentId("");
+    setTheTime("");
+    setShowClasses(false);
+
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
+    setWeekDay("");
   };
 
   const handleCloseModal = () => {
     setIsVisible(false);
+    setNewStudentId("");
+    setTheTime("");
+    setWeekDay("");
+    setTheNewLink("");
+    setShowClasses(false);
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     fetchGeneralEvents();
   };
   const handleSeeModalOfTutorings = () => {
+    setNewStudentId("");
+    setTheTime("");
+    setWeekDay("");
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
+
     setLoadingModalTutoringsInfo(true);
     setSeeEditTutoring(false);
     fetchStudents();
@@ -437,6 +476,14 @@ export default function MyCalendar({ headers }) {
   };
 
   const handleCloseModalOfTutorings = () => {
+    setNewStudentId("");
+    setTheTime("");
+    setWeekDay("");
+    setShowClasses(false);
+    setTheNewLink("");
+    setTimeOfTutoring("");
+    setTheNewWeekDay("");
+    setTheNewTimeOfTutoring("");
     setIsModalOfTutoringsVisible(false);
     fetchGeneralEvents();
   };
@@ -1207,7 +1254,7 @@ export default function MyCalendar({ headers }) {
                           key={index}
                           style={{
                             padding: "10px",
-                            display: "grid",
+                            display: showClasses ? "grid" : "none",
                             gap: "5px",
                           }}
                         >
@@ -1248,6 +1295,9 @@ export default function MyCalendar({ headers }) {
                   value={weekDay}
                   style={{ display: "block" }}
                 >
+                  <option value="select week day" hidden>
+                    Select week day
+                  </option>
                   {weekDays.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1263,6 +1313,9 @@ export default function MyCalendar({ headers }) {
                   value={timeOfTutoring}
                   style={{ display: "block" }}
                 >
+                  <option value="select time" hidden>
+                    Select time
+                  </option>
                   {times.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1290,6 +1343,9 @@ export default function MyCalendar({ headers }) {
                   value={theNewWeekDay}
                   style={{ display: "block" }}
                 >
+                  <option hidden value="select week day">
+                    Select Week Day
+                  </option>
                   {weekDays.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1305,6 +1361,9 @@ export default function MyCalendar({ headers }) {
                   value={theNewTimeOfTutoring}
                   style={{ display: "block" }}
                 >
+                  <option hidden value="Select Time">
+                    Select Time
+                  </option>
                   {times.map((weekDay, index) => {
                     return (
                       <option key={index} value={weekDay.id}>
@@ -1314,6 +1373,7 @@ export default function MyCalendar({ headers }) {
                   })}
                 </select>
                 <input
+                  placeholder="New link"
                   value={theNewLink}
                   onChange={(e) => {
                     setTheNewLink(e.target.value);
