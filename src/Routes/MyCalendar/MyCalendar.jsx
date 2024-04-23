@@ -21,10 +21,8 @@ import axios from "axios";
 import moment from "moment";
 import { SpamClick } from "./MyCalendar.Styled";
 
-export default function MyCalendar({ headers }) {
+export default function MyCalendar({ theId, headers, thePermissions }) {
   // states
-  const [id, setID] = useState("651311fac3d58753aa9281c5");
-  const [user, setUser] = useState({});
   const [isVisible, setIsVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(false);
   const [postNew, setPostNew] = useState(false);
@@ -35,7 +33,6 @@ export default function MyCalendar({ headers }) {
     useState(false);
 
   const [loading, setLoading] = useState(true);
-  const [permissions, setPermissions] = useState("");
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
   const [showClasses, setShowClasses] = useState(false);
@@ -69,26 +66,33 @@ export default function MyCalendar({ headers }) {
   const futureDates = [];
 
   // AXIOS
-
   const fetchStudents = async () => {
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/students/`, {
-        headers,
-      });
-      const res = response.data.listOfStudents;
-      setStudentsList(res);
-    } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+    if (thePermissions == "superadmin") {
+      try {
+        const response = await axios.get(`${backDomain}/api/v1/students/`, {
+          headers,
+        });
+        const res = response.data.listOfStudents;
+        setStudentsList(res);
+      } catch (error) {
+        console.log(error, "Erro ao encontrar alunos");
+      }
+    } else {
+      null;
     }
   };
 
   const fetchGeneralEvents = async () => {
-    setPostNew(false);
     setLoading(true);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
-        headers,
-      });
+      const user = JSON.parse(localStorage.getItem("loggedIn"));
+      const id = user.id;
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}`,
+        {
+          headers,
+        }
+      );
       const res = response.data.eventsList;
       const eventsLoop = res.map((event) => {
         const nextDay = new Date(event.date);
@@ -99,26 +103,36 @@ export default function MyCalendar({ headers }) {
       setEvents(eventsLoop);
       setLoading(false);
     } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+      console.log(error, "Erro ao encontrar eventos");
+      setLoading(false);
     }
   };
 
   const fetchGeneralEventsNoLoading = async () => {
     setPostNew(false);
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
-        headers,
-      });
-      const res = response.data.eventsList;
-      const eventsLoop = res.map((event) => {
-        const nextDay = new Date(event.date);
-        nextDay.setDate(nextDay.getDate() + 1);
-        event.date = formattedDates(nextDay);
-        return event;
-      });
-      setEvents(eventsLoop);
-    } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    if (user.permissions == "superadmin") {
+      try {
+        const response = await axios.get(
+          `${backDomain}/api/v1/eventsgeneral/${id}`,
+          {
+            headers,
+          }
+        );
+        const res = response.data.eventsList;
+        const eventsLoop = res.map((event) => {
+          const nextDay = new Date(event.date);
+          nextDay.setDate(nextDay.getDate() + 1);
+          event.date = formattedDates(nextDay);
+          return event;
+        });
+        setEvents(eventsLoop);
+      } catch (error) {
+        console.log(error, "Erro ao encontrar alunos");
+      }
+    } else {
+      null;
     }
   };
 
@@ -164,7 +178,7 @@ export default function MyCalendar({ headers }) {
         setLoadingTutoringDays(false);
       }, 100);
     } catch (error) {
-      console.log(error, "Erro ao encontrarssss alunos");
+      console.log(error, "Erro ao encontrar alunos");
     }
   };
 
@@ -285,7 +299,6 @@ export default function MyCalendar({ headers }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
-
   const updateUnscheduled = async (id) => {
     try {
       const response = await axios.put(
@@ -297,14 +310,11 @@ export default function MyCalendar({ headers }) {
           headers,
         }
       );
-      if (response) {
-        fetchGeneralEventsNoLoading();
-      }
+      fetchGeneralEventsNoLoading();
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
-
   const updateRealizedClass = async (id) => {
     try {
       const response = await axios.put(
@@ -316,13 +326,17 @@ export default function MyCalendar({ headers }) {
           headers,
         }
       );
-      if (response) {
-        fetchGeneralEventsNoLoading();
-      }
+      fetchGeneralEventsNoLoading();
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
+
+
+
+
+
+
 
   const updateOneTutoring = async () => {
     try {
@@ -347,6 +361,8 @@ export default function MyCalendar({ headers }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
+
+
   const newTutoring = async () => {
     try {
       const response = await axios.post(
@@ -400,13 +416,10 @@ export default function MyCalendar({ headers }) {
   // UseEffects
 
   useEffect(() => {
-    const theuser = JSON.parse(localStorage.getItem("loggedIn"));
-    const us = theuser;
-    setUser(us);
-    setID(us.id);
-    setPermissions(us.permissions);
-    fetchGeneralEvents();
-    fetchStudents();
+    thePermissions == "superadmin" && fetchStudents();
+    setTimeout(() => {
+      fetchGeneralEvents();
+    }, 100);
   }, []);
 
   // ModalControls
@@ -467,7 +480,6 @@ export default function MyCalendar({ headers }) {
     setTimeOfTutoring("");
     setTheNewWeekDay("");
     setTheNewTimeOfTutoring("");
-
     setLoadingModalTutoringsInfo(true);
     setSeeEditTutoring(false);
     fetchStudents();
@@ -687,15 +699,21 @@ export default function MyCalendar({ headers }) {
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
-            <div
-              style={{
-                display: permissions == "superadmin" ? "flex" : "none",
-              }}
-            >
-              <Button onClick={() => handleSeeModalNew()}>
+            <div style={{ display: "flex" }}>
+              <Button
+                style={{
+                  display: thePermissions == "superadmin" ? "flex" : "none",
+                }}
+                onClick={() => handleSeeModalNew()}
+              >
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
               </Button>{" "}
-              <Button onClick={() => handleSeeModalOfTutorings()}>
+              <Button
+                style={{
+                  display: thePermissions == "superadmin" ? "flex" : "none",
+                }}
+                onClick={() => handleSeeModalOfTutorings()}
+              >
                 <i className="fa fa-user-circle" aria-hidden="true" />
               </Button>{" "}
               <Button onClick={() => fetchGeneralEvents()}>
@@ -815,77 +833,97 @@ export default function MyCalendar({ headers }) {
                             <div
                               style={{
                                 color: "black",
+                                display: "flex",
+                                gap: "5px",
                                 fontSize: "0.8rem",
                                 borderRadius: "5px",
                                 fontFamily: "Athiti",
                               }}
                             >
-                              <Button onClick={() => handleSeeModal(event)}>
-                                <i
+                              {thePermissions == "superadmin" && (
+                                <div
                                   style={{
-                                    fontSize: "0.6rem",
-                                    color: "#fff",
+                                    display: "flex",
+                                    gap: "5px",
                                   }}
-                                  className="fa fa-pencil"
-                                  aria-hidden="true"
-                                />
-                              </Button>
+                                >
+                                  {" "}
+                                  <Button onClick={() => handleSeeModal(event)}>
+                                    <i
+                                      style={{
+                                        fontSize: "0.6rem",
+                                        color: "#fff",
+                                      }}
+                                      className="fa fa-pencil"
+                                      aria-hidden="true"
+                                    />
+                                  </Button>
+                                  <SpamClick>
+                                    <i
+                                      className="fa fa-clock-o"
+                                      aria-hidden="true"
+                                      onClick={() => updateScheduled(event._id)}
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize:
+                                          event.status == "marcado"
+                                            ? "12px"
+                                            : "10px",
+                                        color:
+                                          event.status == "marcado"
+                                            ? "blue"
+                                            : "grey",
+                                      }}
+                                    />
+                                  </SpamClick>
+                                  <SpamClick>
+                                    <i
+                                      className="fa fa-check-circle"
+                                      aria-hidden="true"
+                                      onClick={() =>
+                                        updateRealizedClass(event._id)
+                                      }
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize:
+                                          event.status == "realizada"
+                                            ? "12px"
+                                            : "10px",
+                                        color:
+                                          event.status == "realizada"
+                                            ? "green"
+                                            : "grey",
+                                      }}
+                                    />
+                                  </SpamClick>
+                                  <SpamClick>
+                                    <i
+                                      className="fa fa-times-circle-o"
+                                      aria-hidden="true"
+                                      onClick={() =>
+                                        updateUnscheduled(event._id)
+                                      }
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize:
+                                          event.status == "desmarcado"
+                                            ? "12px"
+                                            : "10px",
+                                        color:
+                                          event.status == "desmarcado"
+                                            ? "red"
+                                            : "grey",
+                                      }}
+                                    />
+                                  </SpamClick>
+                                </div>
+                              )}
                               {event.status == "marcado"
                                 ? "Scheduled"
                                 : event.status == "desmarcado"
                                 ? "Canceled"
                                 : "Realized"}
                             </div>
-                            <SpamClick>
-                              <i
-                                className="fa fa-clock-o"
-                                aria-hidden="true"
-                                onClick={() => updateScheduled(event._id)}
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == "marcado" ? "12px" : "10px",
-                                  color:
-                                    event.status == "marcado" ? "blue" : "grey",
-                                }}
-                              />
-                            </SpamClick>
-                            <SpamClick>
-                              <i
-                                className="fa fa-check-circle"
-                                aria-hidden="true"
-                                onClick={() => updateRealizedClass(event._id)}
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == "realizada"
-                                      ? "12px"
-                                      : "10px",
-                                  color:
-                                    event.status == "realizada"
-                                      ? "green"
-                                      : "grey",
-                                }}
-                              />
-                            </SpamClick>
-                            <SpamClick>
-                              <i
-                                className="fa fa-times-circle-o"
-                                aria-hidden="true"
-                                onClick={() => updateUnscheduled(event._id)}
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == "desmarcado"
-                                      ? "12px"
-                                      : "10px",
-                                  color:
-                                    event.status == "desmarcado"
-                                      ? "red"
-                                      : "grey",
-                                }}
-                              />
-                            </SpamClick>
                           </div>
                           <p
                             style={{
@@ -1254,7 +1292,7 @@ export default function MyCalendar({ headers }) {
                           key={index}
                           style={{
                             padding: "10px",
-                            display: showClasses ? "grid" : "none",
+                            display: showClasses ? "flex" : "none",
                             gap: "5px",
                           }}
                         >
