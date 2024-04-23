@@ -10,6 +10,8 @@ import {
   alwaysBlack,
   alwaysWhite,
   lightGreyColor,
+  primaryColor,
+  secondaryColor,
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
@@ -17,6 +19,7 @@ import { Button, CircularProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
+import { SpamClick } from "./MyCalendar.Styled";
 
 export default function MyCalendar({ headers }) {
   // states
@@ -93,6 +96,25 @@ export default function MyCalendar({ headers }) {
       });
       setEvents(eventsLoop);
       setLoading(false);
+    } catch (error) {
+      console.log(error, "Erro ao encontrarssss alunos");
+    }
+  };
+
+  const fetchGeneralEventsNoLoading = async () => {
+    setPostNew(false);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/eventsgeneral/`, {
+        headers,
+      });
+      const res = response.data.eventsList;
+      const eventsLoop = res.map((event) => {
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
+        return event;
+      });
+      setEvents(eventsLoop);
     } catch (error) {
       console.log(error, "Erro ao encontrarssss alunos");
     }
@@ -254,7 +276,7 @@ export default function MyCalendar({ headers }) {
         }
       );
       if (response) {
-        fetchGeneralEvents();
+        fetchGeneralEventsNoLoading();
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
@@ -273,7 +295,26 @@ export default function MyCalendar({ headers }) {
         }
       );
       if (response) {
-        fetchGeneralEvents();
+        fetchGeneralEventsNoLoading();
+      }
+    } catch (error) {
+      console.log(error, "Erro ao atualizar evento");
+    }
+  };
+
+  const updateRealizedClass = async (id) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/eventstatus/${id}`,
+        {
+          status: "realizada",
+        },
+        {
+          headers,
+        }
+      );
+      if (response) {
+        fetchGeneralEventsNoLoading();
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
@@ -631,7 +672,7 @@ export default function MyCalendar({ headers }) {
                       padding: "0px 0px 10px 0px",
                       margin: "10px 0px",
                       border: `1px solid ${lightGreyColor()}`,
-                      minWidth: "14rem",
+                      minWidth: "13rem",
                       height: "30rem",
                       overflow: "auto",
                     }}
@@ -664,27 +705,42 @@ export default function MyCalendar({ headers }) {
                         (event) =>
                           event.date.toDateString() === date.toDateString()
                       )
-                      .sort((a, b) => a.date - b.date)
+                      .sort((a, b) => a.time - b.time)
                       .map((event, indexx) => (
                         <div
                           style={{
                             margin: "5px",
                             padding: "10px 5px",
-                            color: alwaysWhite(),
+                            boxShadow: "2px 2px 20px 2px #aaa",
+                            borderRadius: "5px",
                             backgroundColor:
                               event.category == "Group Class"
-                                ? "#306E04"
+                                ? `${primaryColor()}`
                                 : event.category == "Tutoring"
-                                ? "#351c75"
-                                : event.category == "Prize Tutoring"
-                                ? "#F55C2B"
+                                ? `${secondaryColor()}`
+                                : event.category == "Prize Class"
+                                ? "#FFB8A3"
                                 : event.category == "Standalone"
-                                ? "#222"
+                                ? "#B2B2B2"
                                 : event.category == "Test"
-                                ? "#Fa4561"
+                                ? "#eee"
                                 : event.category == "Rep"
-                                ? "#599763"
+                                ? "#BFD8B8"
                                 : "#000",
+                            // border:
+                            //   event.category == "Group Class"
+                            //     ? `solid 4px ${primaryColor()}`
+                            //     : event.category == "Tutoring"
+                            //     ? `solid 4px ${secondaryColor()}`
+                            //     : event.category == "Prize Class"
+                            //     ? "solid 4px #FFB8A3"
+                            //     : event.category == "Standalone"
+                            //     ? "solid 4px #B2B2B2"
+                            //     : event.category == "Test"
+                            //     ? "solid 4px #eee"
+                            //     : event.category == "Rep"
+                            //     ? "solid 4px #BFD8B8"
+                            //     : "solid 4px #000",
                             textAlign: "center",
                             display: "grid",
                           }}
@@ -695,8 +751,11 @@ export default function MyCalendar({ headers }) {
                               display: "flex",
                               gap: "0.5rem",
                               marginBottom: "1rem",
+                              borderRadius: "5px",
                               backgroundColor:
                                 event.status == "marcado"
+                                  ? "#AACBDD"
+                                  : event.status == "realizada"
                                   ? "#A7D1AE"
                                   : event.status == "desmarcado"
                                   ? "#E0B5B2"
@@ -709,70 +768,113 @@ export default function MyCalendar({ headers }) {
                             <div
                               style={{
                                 color: "black",
-                                fontSize: "0.9rem",
+                                fontSize: "0.8rem",
+                                borderRadius: "5px",
                                 fontFamily: "Athiti",
                               }}
                             >
                               <Button onClick={() => handleSeeModal(event)}>
                                 <i
-                                  style={{ color: "#fff" }}
+                                  style={{
+                                    fontSize: "0.6rem",
+                                    color: "#fff",
+                                  }}
                                   className="fa fa-pencil"
                                   aria-hidden="true"
                                 />
                               </Button>
                               {event.status == "marcado"
                                 ? "Scheduled"
-                                : "Canceled"}
+                                : event.status == "desmarcado"
+                                ? "Canceled"
+                                : "Realized"}
                             </div>
-
-                            <i
-                              className="fa fa-check-circle-o"
-                              aria-hidden="true"
-                              onClick={() => updateScheduled(event._id)}
-                              style={{
-                                cursor: "pointer",
-                                fontSize:
-                                  event.status == "marcado" ? "20px" : "10px",
-                                color:
-                                  event.status == "marcado" ? "green" : "grey",
-                              }}
-                            />
-                            <i
-                              className="fa fa-check-circle-o"
-                              aria-hidden="true"
-                              onClick={() => updateUnscheduled(event._id)}
-                              style={{
-                                cursor: "pointer",
-                                fontSize:
-                                  event.status == "desmarcado"
-                                    ? "20px"
-                                    : "10px",
-                                color:
-                                  event.status == "desmarcado" ? "red" : "grey",
-                              }}
-                            />
+                            <SpamClick>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                                onClick={() => updateScheduled(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == "marcado" ? "12px" : "10px",
+                                  color:
+                                    event.status == "marcado" ? "blue" : "grey",
+                                }}
+                              />
+                            </SpamClick>
+                            <SpamClick>
+                              <i
+                                className="fa fa-check-circle"
+                                aria-hidden="true"
+                                onClick={() => updateRealizedClass(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == "realizada"
+                                      ? "12px"
+                                      : "10px",
+                                  color:
+                                    event.status == "realizada"
+                                      ? "green"
+                                      : "grey",
+                                }}
+                              />
+                            </SpamClick>
+                            <SpamClick>
+                              <i
+                                className="fa fa-times-circle-o"
+                                aria-hidden="true"
+                                onClick={() => updateUnscheduled(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == "desmarcado"
+                                      ? "12px"
+                                      : "10px",
+                                  color:
+                                    event.status == "desmarcado"
+                                      ? "red"
+                                      : "grey",
+                                }}
+                              />
+                            </SpamClick>
                           </div>
                           <p
                             style={{
                               fontFamily: "Athiti",
+                              backgroundColor: "#eee",
                               fontSize: "0.8rem",
                             }}
                           >
-                            {event.student && ` ${event.student}`}
-                            {event.student && <br />}
+                            {event.student && (
+                              <p
+                                style={{
+                                  fontFamily: "Athiti",
+                                  backgroundColor: "#eee",
+                                  fontSize: "0.8rem",
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {" "}
+                                {event.student} <br />
+                              </p>
+                            )}
                             {` ${event.time} | ${event.category}`}
                             <br />
                           </p>
                           {event.description && (
                             <div
                               style={{
-                                backgroundColor: "#fff",
+                                backgroundColor: "#333",
                                 padding: "3px",
-                                color: "#000",
+                                color: "#fff",
                                 marginTop: "10px",
-                                fontSize: "13px",
+                                fontSize: "11px",
+                                fontWeight: 600,
                                 fontStyle: "italic",
-                                borderRadius: "3px",
+                                borderRadius: "5px",
+                                border: "solid 1px #ddd",
                               }}
                             >
                               <p>{event.description}</p>
@@ -808,6 +910,7 @@ export default function MyCalendar({ headers }) {
                 top: "0",
                 left: "0",
                 position: "fixed",
+                borderRadius: "3px",
                 zIndex: 99,
                 display: isVisible ? "block" : "none",
                 padding: "1rem",

@@ -20,7 +20,29 @@ export const CoursesList = styled.div`
   }
 `;
 
+export const SpamClick = styled.div`
+  border-radius: 50%;
+  padding: 0;
+
+  &:active {
+    box-shadow: 3px 3px 10px 3px #ddd; 
+  }
+`;
 export const CourseItem = styled.div`
+  background-color: ${lightGreyColor()};
+  padding: 3rem;
+  text-align: center;
+  border: none;
+  color: ${primaryColor()};
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: ${primaryColor()};
+    color: ${textSecondaryColorContrast()};
+    font-weight: 700;
+  }
+`;
+export const ItemItem = styled.i`
   background-color: ${lightGreyColor()};
   padding: 3rem;
   text-align: center;
