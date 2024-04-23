@@ -333,7 +333,12 @@ export default function MyCalendar({ headers }) {
       const response = await axios.delete(
         `${backDomain}/api/v1/tutoringevent`,
         {
-          data: { id: item.id, studentID: newStudentId },
+          data: {
+            time: item.time,
+            day: item.day,
+            id: item.id,
+            studentID: newStudentId,
+          },
           headers,
         }
       );
@@ -479,7 +484,7 @@ export default function MyCalendar({ headers }) {
   };
 
   // Formulas
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 365; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
