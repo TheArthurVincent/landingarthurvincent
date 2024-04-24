@@ -368,8 +368,13 @@ export default function MyCalendar({ headers, thePermissions }) {
 
   function isEventTimeNow(eventTime) {
     const now = new Date();
-    const [eventHour, eventMinute] = eventTime.split(":").map(Number);
-    if (now.getHours() === eventHour && now.getMinutes() <= eventMinute) {
+
+    const [eventHour, eventMinute] = eventTime.time.split(":").map(Number);
+    if (
+      now.getHours() === eventHour &&
+      now.getMinutes() <= eventMinute &&
+      eventTime.date.getDate() === now.getDate()
+    ) {
       return true;
     }
     return false;
@@ -919,16 +924,15 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 : "Realized"}
                             </div>
                           </div>
-                          {isEventTimeNow(event.time) &&
-                            event.date === today.getDate() && (
-                              <span
-                                style={{
-                                  paddingBottom: "5px",
-                                }}
-                              >
-                                <LinearProgress />
-                              </span>
-                            )}
+                          {isEventTimeNow(event) && (
+                            <span
+                              style={{
+                                paddingBottom: "5px",
+                              }}
+                            >
+                              <LinearProgress />
+                            </span>
+                          )}
                           <p
                             style={{
                               fontFamily: "Athiti",
