@@ -49,12 +49,12 @@ export const CourseCard = styled.div`
   transition: 0.3s;
   img {
     transition: 0.3s;
-    filter: grayscale(100%);
+    filter: grayscale(0%);
   }
   &:hover {
     box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
     img {
-      filter: grayscale(0%);
+      filter: grayscale(100%);
     }
   }
 `;
