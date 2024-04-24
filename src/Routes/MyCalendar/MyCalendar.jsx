@@ -181,12 +181,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     setShowClasses(true);
   };
 
-  useEffect(() => {
-    if (newStudentId !== "") {
-      fetchOneSetOfTutorings(newStudentId);
-    }
-  }, [newStudentId]);
-
   const postNewEvent = async () => {
     setLoadingInfo(true);
     try {
@@ -412,6 +406,12 @@ export default function MyCalendar({ headers, thePermissions }) {
     fetchGeneralEvents();
   }, []);
 
+  useEffect(() => {
+    if (newStudentId !== "") {
+      fetchOneSetOfTutorings(newStudentId);
+    }
+  }, [newStudentId]);
+
   // ModalControls
   const handleSeeModalNew = () => {
     setPostNew(true);
@@ -573,7 +573,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   // Formulas
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 15; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
@@ -774,16 +774,24 @@ export default function MyCalendar({ headers, thePermissions }) {
                             margin: "4px",
                             marginBottom: "1rem",
                             padding: "10px 5px",
-                            boxShadow: "2px 2px 20px 2px #aaa",
+                            boxShadow: "2px 2px 20px 2px #ccc",
                             borderRadius: "5px",
+                            border: "1px solid #aaa",
                             backgroundColor:
-                              event.status == "marcado"
-                                ? primaryColor()
-                                : event.status == "realizada"
-                                ? secondaryColor()
-                                : event.status == "desmarcado"
-                                ? "red"
+                              event.category === "Group Class"
+                                ? "#F2F1CE"
+                                : event.category === "Rep"
+                                ? "#b33"
+                                : event.category === "Tutoring"
+                                ? "#fff"
+                                : event.category === "Prize Class"
+                                ? "orange"
+                                : event.category === "Standalone"
+                                ? "#ddd"
+                                : event.category === "Test"
+                                ? "#C2F0C2"
                                 : "#000",
+
                             textAlign: "center",
                             display: "grid",
                           }}
@@ -795,10 +803,26 @@ export default function MyCalendar({ headers, thePermissions }) {
                               gap: "0.5rem",
                               marginBottom: "1rem",
                               borderRadius: "5px",
-                              backgroundColor: "#fff",
                               padding: "5px",
                               alignItems: "center",
                               justifyContent: "center",
+                              border: `solid 2px ${
+                                event.status == "marcado"
+                                  ? primaryColor()
+                                  : event.status == "realizada"
+                                  ? secondaryColor()
+                                  : event.status == "desmarcado"
+                                  ? "red"
+                                  : "#000"
+                              }`,
+                              backgroundColor:
+                                event.status == "desmarcado"
+                                  ? "#FFCCCC"
+                                  : event.status == "marcado"
+                                  ? "#CCE5FF"
+                                  : event.status == "realizada"
+                                  ? "#CCFFCC"
+                                  : "#000",
                             }}
                           >
                             <div
@@ -818,6 +842,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     display: "flex",
                                     alignContent: "center",
                                     gap: "5px",
+                                    cursor: "pointer",
                                   }}
                                 >
                                   {" "}
@@ -907,42 +932,15 @@ export default function MyCalendar({ headers, thePermissions }) {
                           <p
                             style={{
                               fontFamily: "Athiti",
-                              padding: "12px 0",
+                              padding: "10px",
                               margin: "0 10px",
-                              borderRadius: "15px",
-                              backgroundColor:
-                                event.category === "Group Class"
-                                  ? "#000"
-                                  : event.category === "Rep"
-                                  ? "#123456"
-                                  : event.category === "Tutoring"
-                                  ? "#abcdef"
-                                  : event.category === "Prize Class"
-                                  ? "orange"
-                                  : event.category === "Standalone"
-                                  ? "#999855"
-                                  : event.category === "Test"
-                                  ? "#6f6f6f"
-                                  : "#000",
-                              color:
-                                event.category === "Group Class"
-                                  ? "#fff"
-                                  : event.category === "Rep"
-                                  ? "#fff"
-                                  : event.category === "Tutoring"
-                                  ? "#000"
-                                  : event.category === "Prize Class"
-                                  ? "#000"
-                                  : event.category === "Standalone"
-                                  ? "#fff"
-                                  : event.category === "Test"
-                                  ? "#fff"
-                                  : "#000",
+                              borderRadius: "10px",
+                              backgroundColor: "#eee",
                               fontSize: "0.8rem",
                             }}
                           >
                             {event.student && (
-                              <p
+                              <span
                                 style={{
                                   fontFamily: "Athiti",
                                   fontSize: "0.8rem",
@@ -951,7 +949,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               >
                                 {" "}
                                 {event.student} <br />
-                              </p>
+                              </span>
                             )}
                             {` ${event.time} | ${event.category}`}
                             <br />
