@@ -168,9 +168,8 @@ export default function MyCalendar({ headers, thePermissions }) {
       const tutorings = response.data.tutorings;
       setLoadingTutoringDays(true);
       setTutoringsListOfOneStudent(response.data.tutorings);
-      // setTimeout(() => {
+
       setLoadingTutoringDays(false);
-      // }, 100);
     } catch (error) {
       console.log(error, "Erro ao encontrar alunos");
     }
@@ -342,9 +341,8 @@ export default function MyCalendar({ headers, thePermissions }) {
         }
       );
       setSeeEditTutoring(false);
-      // setTimeout(() => {
+
       fetchOneSetOfTutorings(newStudentId);
-      // }, 500);
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
@@ -366,9 +364,8 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
       if (response) {
         setSeeEditTutoring(false);
-        // setTimeout(() => {
+
         fetchOneSetOfTutorings(newStudentId);
-        // }, 500);
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
@@ -384,7 +381,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     return false;
   }
 
-  
   const deleteTutoring = async (item) => {
     try {
       const response = await axios.delete(
@@ -401,9 +397,8 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
       if (response) {
         setSeeEditTutoring(false);
-        // setTimeout(() => {
+
         fetchOneSetOfTutorings(newStudentId);
-        // }, 500);
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
@@ -414,9 +409,7 @@ export default function MyCalendar({ headers, thePermissions }) {
 
   useEffect(() => {
     thePermissions == "superadmin" && fetchStudents();
-    // setTimeout(() => {
     fetchGeneralEvents();
-    // }, 100);
   }, []);
 
   // ModalControls
