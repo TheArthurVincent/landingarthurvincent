@@ -58,7 +58,7 @@ export function Blog({ headers }) {
     studentID: "651311fac3d58753aa9281c5",
     date: "2000-00-00",
     time: "00:00",
-    meetingUrl: "https://portal.arthurvincent.com.br/",
+    link: "https://portal.arthurvincent.com.br/",
   });
 
   const items = theitems.items;
@@ -87,14 +87,16 @@ export function Blog({ headers }) {
     setPicture(getLoggedUser.picture);
   }, []);
 
-  const handleSeeIsNextClassVisibleModal = () => {
+  const handleSeeNextTutoring = () => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = getLoggedUser.id;
     const fetchNextClass = async () => {
       try {
         const response = await axios.get(
-          `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
+          `${backDomain}/api/v1/eventseenextttoring/${id}`,
           { headers }
         );
-        setNextTutoring(response.data.nextTutoring);
+        setNextTutoring(response.data.event);
       } catch (error) {
         alert("Erro ao importar próximas aulas");
       }
@@ -102,6 +104,23 @@ export function Blog({ headers }) {
     fetchNextClass();
     setIsNextClassVisible(!isNextClassVisible);
   };
+
+  // const handleSeeNextTutoring = () => {
+  //   handleSeeNextTutoring();
+  //   // const fetchNextClass = async () => {
+  //   //   try {
+  //   //     const response = await axios.get(
+  //   //       `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
+  //   //       { headers }
+  //   //     );
+  //   //     setNextTutoring(response.data.nextTutoring);
+  //   //   } catch (error) {
+  //   //     alert("Erro ao importar próximas aulas");
+  //   //   }
+  //   // };
+  //   // fetchNextClass();
+  //   setIsNextClassVisible(!isNextClassVisible);
+  // };
 
   async function fetchData() {
     setLoading(true);
@@ -291,17 +310,23 @@ export function Blog({ headers }) {
                 })}
               </div>
             </div>
-            {!isNextClassVisible ? (
-              <Button
-                style={{
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                }}
-                onClick={handleSeeIsNextClassVisibleModal}
-              >
-                {UniversalTexts.nextClass}
-              </Button>
-            ) : (
+            {/* {!isNextClassVisible ? ( */}
+            <Link
+              style={{
+                backgroundColor: secondaryColor(),
+                color: textSecondaryColorContrast(),
+                padding: "10px",
+                borderRadius: "5px",
+                display: "flex",
+                gap: "5px",
+                alignItems: "center",
+              }}
+              to="/my-calendar"
+            >
+              <i className="fa fa-calendar" aria-hidden="true" />
+              {UniversalTexts.calendar}
+            </Link>
+            {/* ) : (
               <span>
                 <span
                   style={{
@@ -336,7 +361,7 @@ export function Blog({ headers }) {
                         fontSize: "1rem",
                       }}
                       target="_blank"
-                      to={nextTutoring.meetingUrl}
+                      to={nextTutoring.link}
                     >
                       <span
                         style={{
@@ -358,7 +383,7 @@ export function Blog({ headers }) {
                   </>
                 )}
               </span>
-            )}
+            )} */}
           </div>
           {/* <NextTutorings
             display={permissions == "superadmin" ? "block" : "none"}

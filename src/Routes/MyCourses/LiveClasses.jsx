@@ -23,6 +23,7 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import NextLiveClasses from "./MyCoursesAssets/NextLive";
 
@@ -167,7 +168,31 @@ export default function MyCourses({ headers }) {
             {!loading ? (
               <>
                 <HOne>{UniversalTexts.previousGroupClasses}</HOne>
-                <BackToHomePage />
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "right",
+                    alignItems: "center",
+                  }}
+                >
+                  <Link
+                    style={{
+                      backgroundColor: secondaryColor(),
+                      color: textSecondaryColorContrast(),
+                      padding: "10px",
+                      borderRadius: "5px",
+                      display: "flex",
+                      gap: "5px",
+                      alignItems: "center",
+                    }}
+                    to="/my-calendar"
+                  >
+                    <i className="fa fa-calendar" aria-hidden="true" />
+                    {UniversalTexts.calendar}
+                  </Link>
+
+                  <BackToHomePage />
+                </span>
                 <GroupClassesSideBar />
                 {currentClasses.map((item, index) => (
                   <div key={index}>
@@ -195,9 +220,9 @@ export default function MyCourses({ headers }) {
             )}
           </>
         </RouteDiv>
-        <RouteDiv>
+        {/* <RouteDiv>
           <NextLiveClasses headers={headers} />
-        </RouteDiv>
+        </RouteDiv> */}
       </RouteSizeControlBox>
     </>
   );
