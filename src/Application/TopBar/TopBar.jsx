@@ -128,10 +128,10 @@ export default function TopBar() {
   ];
 
   const topLinks = [
-    // {
-    //   title: UniversalTexts.calendar,
-    //   endpoint: "/my-calendar",
-    // },
+    {
+      title: UniversalTexts.calendar,
+      endpoint: "/my-calendar",
+    },
     {
       title: UniversalTexts.englishMaterial,
       endpoint: "/english-material",

@@ -93,7 +93,7 @@ function App() {
     {
       path: "/my-calendar",
       element: verifyToken() ? (
-        <MyCalendar headers={headers} theId={id} thePermissions={thePermissions} />
+        <MyCalendar headers={headers} thePermissions={thePermissions} />
       ) : (
         <Login />
       ),

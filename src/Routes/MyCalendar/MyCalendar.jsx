@@ -21,22 +21,19 @@ import axios from "axios";
 import moment from "moment";
 import { SpamClick } from "./MyCalendar.Styled";
 
-export default function MyCalendar({ theId, headers, thePermissions }) {
+export default function MyCalendar({ headers, thePermissions }) {
   // states
   const [isVisible, setIsVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(false);
   const [postNew, setPostNew] = useState(false);
   const [seeEditTutoring, setSeeEditTutoring] = useState(false);
-
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [loadingModalTutoringsInfo, setLoadingModalTutoringsInfo] =
     useState(false);
-
   const [loading, setLoading] = useState(true);
   const [date, setDate] = useState("");
   const [theTime, setTheTime] = useState("");
   const [showClasses, setShowClasses] = useState(false);
-
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -44,7 +41,6 @@ export default function MyCalendar({ theId, headers, thePermissions }) {
   const [tutoringsListOfOneStudent, setTutoringsListOfOneStudent] = useState(
     []
   );
-
   const [loadingTutoringDays, setLoadingTutoringDays] = useState(false);
   const [newEventId, setNewEventId] = useState("");
   const [studentsList, setStudentsList] = useState([]);
@@ -55,13 +51,12 @@ export default function MyCalendar({ theId, headers, thePermissions }) {
     useState("");
   const [timeOfTutoring, setTimeOfTutoring] = useState("");
   const [tutoringId, setTutoringId] = useState("");
-
   const [weekDay, setWeekDay] = useState("");
   const [theNewWeekDay, setTheNewWeekDay] = useState("");
   const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
   const [theNewLink, setTheNewLink] = useState("");
-
   const { UniversalTexts } = useUserContext();
+
   const today = new Date();
   const futureDates = [];
 
@@ -332,12 +327,6 @@ export default function MyCalendar({ theId, headers, thePermissions }) {
     }
   };
 
-
-
-
-
-
-
   const updateOneTutoring = async () => {
     try {
       const response = await axios.put(
@@ -361,7 +350,6 @@ export default function MyCalendar({ theId, headers, thePermissions }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
-
 
   const newTutoring = async () => {
     try {
