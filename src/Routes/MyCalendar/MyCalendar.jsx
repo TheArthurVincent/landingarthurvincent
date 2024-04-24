@@ -594,6 +594,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   const times = [
     "6:00",
     "6:15",
@@ -726,7 +727,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                       margin: "10px 0px",
                       border: `1px solid ${lightGreyColor()}`,
                       minWidth: "13rem",
-                      height: "30rem",
+                      height: "50vh",
                       overflow: "auto",
                     }}
                     key={index}
@@ -745,7 +746,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                         color: alwaysWhite(),
                       }}
                     >
-                      {index == 0 && "Today - "}
                       {date.toLocaleDateString("en-US", {
                         weekday: "short",
                         month: "short",
@@ -758,8 +758,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                         (event) =>
                           event.date.toDateString() === date.toDateString()
                       )
-                      .sort((a, b) => a.time - b.time)
-                      .map((event, indexx) => (
+                      .sort((a, b) => {
+                        const timeA =
+                          parseInt(a.time.split(":")[0]) * 60 +
+                          parseInt(a.time.split(":")[1]);
+                        const timeB =
+                          parseInt(b.time.split(":")[0]) * 60 +
+                          parseInt(b.time.split(":")[1]);
+                        return timeA - timeB;
+                      })
+                      .map((event, index) => (
                         <div
                           style={{
                             margin: "5px",
@@ -780,24 +788,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 : event.category == "Rep"
                                 ? "#BFD8B8"
                                 : "#000",
-                            // border:
-                            //   event.category == "Group Class"
-                            //     ? `solid 4px ${primaryColor()}`
-                            //     : event.category == "Tutoring"
-                            //     ? `solid 4px ${secondaryColor()}`
-                            //     : event.category == "Prize Class"
-                            //     ? "solid 4px #FFB8A3"
-                            //     : event.category == "Standalone"
-                            //     ? "solid 4px #B2B2B2"
-                            //     : event.category == "Test"
-                            //     ? "solid 4px #eee"
-                            //     : event.category == "Rep"
-                            //     ? "solid 4px #BFD8B8"
-                            //     : "solid 4px #000",
                             textAlign: "center",
                             display: "grid",
                           }}
-                          key={event + indexx}
+                          key={event + index}
                         >
                           <div
                             style={{
@@ -916,7 +910,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                           <p
                             style={{
                               fontFamily: "Athiti",
-                              backgroundColor: "#eee",
+                              padding: "12px 0",
+                              margin: "0 10px",
+                              borderRadius: "15px",
+                              backgroundColor: "#ccc",
                               fontSize: "0.8rem",
                             }}
                           >
@@ -924,7 +921,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                               <p
                                 style={{
                                   fontFamily: "Athiti",
-                                  backgroundColor: "#eee",
                                   fontSize: "0.8rem",
                                   fontWeight: 600,
                                 }}
