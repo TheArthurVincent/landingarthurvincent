@@ -697,7 +697,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 onClick={() => handleSeeModalNew()}
               >
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
-              </Button>{" "}
+              </Button>
               <Button
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
@@ -705,7 +705,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 onClick={() => handleSeeModalOfTutorings()}
               >
                 <i className="fa fa-user-circle" aria-hidden="true" />
-              </Button>{" "}
+              </Button>
               <Button onClick={() => fetchGeneralEvents()}>
                 <i className="fa fa-refresh" aria-hidden="true" />
               </Button>
@@ -845,7 +845,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     cursor: "pointer",
                                   }}
                                 >
-                                  {" "}
                                   <Button onClick={() => handleSeeModal(event)}>
                                     <i
                                       style={{ fontSize: "0.6rem" }}
@@ -920,15 +919,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 : "Realized"}
                             </div>
                           </div>
-                          {isEventTimeNow(event.time) && (
-                            <span
-                              style={{
-                                paddingBottom: "5px",
-                              }}
-                            >
-                              <LinearProgress />
-                            </span>
-                          )}
+                          {isEventTimeNow(event.time) &&
+                            event.date === today.getDate() && (
+                              <span
+                                style={{
+                                  paddingBottom: "5px",
+                                }}
+                              >
+                                <LinearProgress />
+                              </span>
+                            )}
                           <p
                             style={{
                               fontFamily: "Athiti",
@@ -947,7 +947,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   fontWeight: 600,
                                 }}
                               >
-                                {" "}
                                 {event.student} <br />
                               </span>
                             )}
@@ -970,7 +969,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                             >
                               <p>{event.description}</p>
                             </div>
-                          )}{" "}
+                          )}
                           <span
                             style={{
                               padding: "5px",
@@ -1109,14 +1108,14 @@ export default function MyCalendar({ headers, thePermissions }) {
                     placeholder="Link"
                     type="text"
                     required
-                  />{" "}
+                  />
                   <input
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Description"
                     type="text"
                     required
-                  />{" "}
+                  />
                 </form>
               )}
 
@@ -1304,11 +1303,11 @@ export default function MyCalendar({ headers, thePermissions }) {
                           <p style={{ fontWeight: 600 }}>Class #{index + 1}</p>
                           <div style={{ display: "flex", gap: "10px" }}>
                             <p>
-                              {item.day} - {item.time} -{" "}
+                              {item.day} - {item.time} -
                               <Link target="_blank" to={item.link}>
                                 Link
                               </Link>
-                            </p>{" "}
+                            </p>
                             <button
                               onClick={() => {
                                 seeEditOneTutoring(item);
