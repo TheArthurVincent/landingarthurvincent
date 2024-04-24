@@ -168,10 +168,9 @@ export default function MyCalendar({ headers, thePermissions }) {
       const tutorings = response.data.tutorings;
       setLoadingTutoringDays(true);
       setTutoringsListOfOneStudent(response.data.tutorings);
-      console.log(tutoringsListOfOneStudent);
-      setTimeout(() => {
-        setLoadingTutoringDays(false);
-      }, 100);
+      // setTimeout(() => {
+      setLoadingTutoringDays(false);
+      // }, 100);
     } catch (error) {
       console.log(error, "Erro ao encontrar alunos");
     }
@@ -343,9 +342,9 @@ export default function MyCalendar({ headers, thePermissions }) {
         }
       );
       setSeeEditTutoring(false);
-      setTimeout(() => {
-        fetchOneSetOfTutorings(newStudentId);
-      }, 500);
+      // setTimeout(() => {
+      fetchOneSetOfTutorings(newStudentId);
+      // }, 500);
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
@@ -367,16 +366,15 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
       if (response) {
         setSeeEditTutoring(false);
-        setTimeout(() => {
-          fetchOneSetOfTutorings(newStudentId);
-        }, 500);
+        // setTimeout(() => {
+        fetchOneSetOfTutorings(newStudentId);
+        // }, 500);
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
   const deleteTutoring = async (item) => {
-    console.log(item.id, newStudentId);
     try {
       const response = await axios.delete(
         `${backDomain}/api/v1/tutoringevent`,
@@ -392,9 +390,9 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
       if (response) {
         setSeeEditTutoring(false);
-        setTimeout(() => {
-          fetchOneSetOfTutorings(newStudentId);
-        }, 500);
+        // setTimeout(() => {
+        fetchOneSetOfTutorings(newStudentId);
+        // }, 500);
       }
     } catch (error) {
       console.log(error, "Erro ao atualizar evento");
@@ -405,9 +403,9 @@ export default function MyCalendar({ headers, thePermissions }) {
 
   useEffect(() => {
     thePermissions == "superadmin" && fetchStudents();
-    setTimeout(() => {
-      fetchGeneralEvents();
-    }, 100);
+    // setTimeout(() => {
+    fetchGeneralEvents();
+    // }, 100);
   }, []);
 
   // ModalControls
@@ -433,7 +431,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     setTheNewTimeOfTutoring("");
     setTimeOfTutoring(e.time);
     setWeekDay(e.day);
-    console.log(e);
   };
   const closeEditOneTutoring = () => {
     setSeeEditTutoring(false);
@@ -572,7 +569,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   // Formulas
-  for (let i = 0; i < 365; i++) {
+  for (let i = 0; i < 100; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
@@ -779,10 +776,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                               event.status == "marcado"
                                 ? primaryColor()
                                 : event.status == "realizada"
-                                ? secondaryColor()
-                                : event.status == "desmarcado"
-                                ? "red"
-                                : "#000",
+                                  ? secondaryColor()
+                                  : event.status == "desmarcado"
+                                    ? "red"
+                                    : "#000",
                             textAlign: "center",
                             display: "grid",
                           }}
@@ -890,8 +887,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.status == "marcado"
                                 ? "Scheduled"
                                 : event.status == "desmarcado"
-                                ? "Canceled"
-                                : "Realized"}
+                                  ? "Canceled"
+                                  : "Realized"}
                             </div>
                           </div>
                           <p
@@ -904,30 +901,30 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 event.category === "Group Class"
                                   ? "#000"
                                   : event.category === "Rep"
-                                  ? "#123456"
-                                  : event.category === "Tutoring"
-                                  ? "#abcdef"
-                                  : event.category === "Prize Class"
-                                  ? "orange"
-                                  : event.category === "Standalone"
-                                  ? "#999855"
-                                  : event.category === "Test"
-                                  ? "#6f6f6f"
-                                  : "#000",
+                                    ? "#123456"
+                                    : event.category === "Tutoring"
+                                      ? "#abcdef"
+                                      : event.category === "Prize Class"
+                                        ? "orange"
+                                        : event.category === "Standalone"
+                                          ? "#999855"
+                                          : event.category === "Test"
+                                            ? "#6f6f6f"
+                                            : "#000",
                               color:
-                              event.category === "Group Class"
+                                event.category === "Group Class"
                                   ? "#fff"
                                   : event.category === "Rep"
-                                  ? "#fff"
-                                  : event.category === "Tutoring"
-                                  ? "#000"
-                                  : event.category === "Prize Class"
-                                  ? "#000"
-                                  : event.category === "Standalone"
-                                  ? "#fff"
-                                  : event.category === "Test"
-                                  ? "#fff"
-                                  : "#000",
+                                    ? "#fff"
+                                    : event.category === "Tutoring"
+                                      ? "#000"
+                                      : event.category === "Prize Class"
+                                        ? "#000"
+                                        : event.category === "Standalone"
+                                          ? "#fff"
+                                          : event.category === "Test"
+                                            ? "#fff"
+                                            : "#000",
                               fontSize: "0.8rem",
                             }}
                           >
