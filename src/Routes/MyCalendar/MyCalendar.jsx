@@ -15,7 +15,7 @@ import {
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { Button, CircularProgress } from "@mui/material";
+import { Button, CircularProgress, LinearProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
@@ -374,6 +374,17 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
+
+  function isEventTimeNow(eventTime) {
+    const now = new Date();
+    const [eventHour, eventMinute] = eventTime.split(":").map(Number);
+    if (now.getHours() === eventHour && now.getMinutes() <= eventMinute) {
+      return true;
+    }
+    return false;
+  }
+
+  
   const deleteTutoring = async (item) => {
     try {
       const response = await axios.delete(
@@ -776,10 +787,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                               event.status == "marcado"
                                 ? primaryColor()
                                 : event.status == "realizada"
-                                  ? secondaryColor()
-                                  : event.status == "desmarcado"
-                                    ? "red"
-                                    : "#000",
+                                ? secondaryColor()
+                                : event.status == "desmarcado"
+                                ? "red"
+                                : "#000",
                             textAlign: "center",
                             display: "grid",
                           }}
@@ -887,10 +898,19 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.status == "marcado"
                                 ? "Scheduled"
                                 : event.status == "desmarcado"
-                                  ? "Canceled"
-                                  : "Realized"}
+                                ? "Canceled"
+                                : "Realized"}
                             </div>
                           </div>
+                          {isEventTimeNow(event.time) && (
+                            <span
+                              style={{
+                                paddingBottom: "5px",
+                              }}
+                            >
+                              <LinearProgress />
+                            </span>
+                          )}
                           <p
                             style={{
                               fontFamily: "Athiti",
@@ -901,30 +921,30 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 event.category === "Group Class"
                                   ? "#000"
                                   : event.category === "Rep"
-                                    ? "#123456"
-                                    : event.category === "Tutoring"
-                                      ? "#abcdef"
-                                      : event.category === "Prize Class"
-                                        ? "orange"
-                                        : event.category === "Standalone"
-                                          ? "#999855"
-                                          : event.category === "Test"
-                                            ? "#6f6f6f"
-                                            : "#000",
+                                  ? "#123456"
+                                  : event.category === "Tutoring"
+                                  ? "#abcdef"
+                                  : event.category === "Prize Class"
+                                  ? "orange"
+                                  : event.category === "Standalone"
+                                  ? "#999855"
+                                  : event.category === "Test"
+                                  ? "#6f6f6f"
+                                  : "#000",
                               color:
                                 event.category === "Group Class"
                                   ? "#fff"
                                   : event.category === "Rep"
-                                    ? "#fff"
-                                    : event.category === "Tutoring"
-                                      ? "#000"
-                                      : event.category === "Prize Class"
-                                        ? "#000"
-                                        : event.category === "Standalone"
-                                          ? "#fff"
-                                          : event.category === "Test"
-                                            ? "#fff"
-                                            : "#000",
+                                  ? "#fff"
+                                  : event.category === "Tutoring"
+                                  ? "#000"
+                                  : event.category === "Prize Class"
+                                  ? "#000"
+                                  : event.category === "Standalone"
+                                  ? "#fff"
+                                  : event.category === "Test"
+                                  ? "#fff"
+                                  : "#000",
                               fontSize: "0.8rem",
                             }}
                           >
