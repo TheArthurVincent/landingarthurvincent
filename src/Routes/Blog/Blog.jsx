@@ -360,11 +360,11 @@ export function Blog({ headers }) {
               </span>
             )}
           </div>
-          <NextTutorings
+          {/* <NextTutorings
             display={permissions == "superadmin" ? "block" : "none"}
             headers={headers}
-          />
-          <NextLiveClasses headers={headers} />
+          /> */}
+          {/* <NextLiveClasses headers={headers} /> */}
           <HOne>{UniversalTexts.mural}</HOne>
           {posts.map((post, index) => (
             <div
