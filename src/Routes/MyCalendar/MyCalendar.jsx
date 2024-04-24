@@ -770,23 +770,18 @@ export default function MyCalendar({ headers, thePermissions }) {
                       .map((event, index) => (
                         <div
                           style={{
-                            margin: "5px",
+                            margin: "4px",
+                            marginBottom: "1rem",
                             padding: "10px 5px",
                             boxShadow: "2px 2px 20px 2px #aaa",
                             borderRadius: "5px",
                             backgroundColor:
-                              event.category == "Group Class"
-                                ? `${primaryColor()}`
-                                : event.category == "Tutoring"
-                                ? `${secondaryColor()}`
-                                : event.category == "Prize Class"
-                                ? "#FFB8A3"
-                                : event.category == "Standalone"
-                                ? "#B2B2B2"
-                                : event.category == "Test"
-                                ? "#eee"
-                                : event.category == "Rep"
-                                ? "#BFD8B8"
+                              event.status == "marcado"
+                                ? primaryColor()
+                                : event.status == "realizada"
+                                ? secondaryColor()
+                                : event.status == "desmarcado"
+                                ? "red"
                                 : "#000",
                             textAlign: "center",
                             display: "grid",
@@ -799,14 +794,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               gap: "0.5rem",
                               marginBottom: "1rem",
                               borderRadius: "5px",
-                              backgroundColor:
-                                event.status == "marcado"
-                                  ? "#AACBDD"
-                                  : event.status == "realizada"
-                                  ? "#A7D1AE"
-                                  : event.status == "desmarcado"
-                                  ? "#E0B5B2"
-                                  : "#000",
+                              backgroundColor: "#fff",
                               padding: "5px",
                               alignItems: "center",
                               justifyContent: "center",
@@ -819,6 +807,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 gap: "5px",
                                 fontSize: "0.8rem",
                                 borderRadius: "5px",
+                                alignContent: "center",
                                 fontFamily: "Athiti",
                               }}
                             >
@@ -826,16 +815,14 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 <div
                                   style={{
                                     display: "flex",
+                                    alignContent: "center",
                                     gap: "5px",
                                   }}
                                 >
                                   {" "}
                                   <Button onClick={() => handleSeeModal(event)}>
                                     <i
-                                      style={{
-                                        fontSize: "0.6rem",
-                                        color: "#fff",
-                                      }}
+                                      style={{ fontSize: "0.6rem" }}
                                       className="fa fa-pencil"
                                       aria-hidden="true"
                                     />
@@ -913,7 +900,34 @@ export default function MyCalendar({ headers, thePermissions }) {
                               padding: "12px 0",
                               margin: "0 10px",
                               borderRadius: "15px",
-                              backgroundColor: "#ccc",
+                              backgroundColor:
+                                event.category === "Group Class"
+                                  ? "#000"
+                                  : event.category === "Rep"
+                                  ? "#123456"
+                                  : event.category === "Tutoring"
+                                  ? "#abcdef"
+                                  : event.category === "Prize Class"
+                                  ? "orange"
+                                  : event.category === "Standalone"
+                                  ? "#999855"
+                                  : event.category === "Test"
+                                  ? "#6f6f6f"
+                                  : "#000",
+                              color:
+                              event.category === "Group Class"
+                                  ? "#fff"
+                                  : event.category === "Rep"
+                                  ? "#fff"
+                                  : event.category === "Tutoring"
+                                  ? "#000"
+                                  : event.category === "Prize Class"
+                                  ? "#000"
+                                  : event.category === "Standalone"
+                                  ? "#fff"
+                                  : event.category === "Test"
+                                  ? "#fff"
+                                  : "#000",
                               fontSize: "0.8rem",
                             }}
                           >
@@ -949,19 +963,18 @@ export default function MyCalendar({ headers, thePermissions }) {
                               <p>{event.description}</p>
                             </div>
                           )}{" "}
-                          {index == 0 && (
-                            <span
-                              style={{
-                                padding: "5px",
-                                marginTop: "10px",
-                                backgroundColor: alwaysWhite(),
-                              }}
-                            >
-                              <Link target="_blank" to={event.link}>
-                                Access the class
-                              </Link>
-                            </span>
-                          )}
+                          <span
+                            style={{
+                              padding: "5px",
+                              marginTop: "10px",
+                              fontSize: "10px",
+                              backgroundColor: alwaysWhite(),
+                            }}
+                          >
+                            <Link target="_blank" to={event.link}>
+                              Access the class
+                            </Link>
+                          </span>
                         </div>
                       ))}
                   </div>
@@ -1117,13 +1130,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                     },
                     {
                       text: "Cancel",
-                      backgroundColor: "navy",
+                      backgroundColor: primaryColor(),
                       onClick: handleCloseModal,
                       visible: true,
                     },
                     {
                       text: "Save",
-                      backgroundColor: "green",
+                      backgroundColor: secondaryColor(),
                       onClick: postNew ? postNewEvent : editInside,
                       visible: true,
                       type: "submit",
