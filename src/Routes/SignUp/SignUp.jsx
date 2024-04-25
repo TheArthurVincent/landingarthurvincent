@@ -16,6 +16,7 @@ import {
   alwaysWhite,
   primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
@@ -92,7 +93,7 @@ export function SignUp() {
         newStudent
       );
       alert("Cadastro realizado com sucesso!");
-      window.location.assign("/login");
+      window.location.assign("/");
     } catch (error) {
       setButton("...");
       alert(error);
@@ -103,9 +104,9 @@ export function SignUp() {
 
   return (
     <RouteSizeControlBox>
-      <RouteDiv>
+      <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
         <HOne>Cadastro de Aluno</HOne>
-        <form onSubmit={handleSubmit}>
+        <form style={{ display: "grid", gap: "10px" }} onSubmit={handleSubmit}>
           <InputFieldSignUp
             value={newName}
             onChange={(event) => setNewName(event.target.value)}
@@ -171,9 +172,7 @@ export function SignUp() {
             <p
               style={{
                 maxWidth: "35rem",
-                fontFamily: "Athiti",
                 textAlign: "center",
-                fontSize: "1.2rem",
               }}
             >
               Clique aqui para criar uma conta no
@@ -204,14 +203,11 @@ export function SignUp() {
                 style={{
                   padding: "0.5rem",
                   marginBottom: "0.3rem",
-                  fontFamily: "Athiti",
-                  fontSize: "1.5rem",
                   fontWeight: 500,
                   color: "#01BCFF",
                   backgroundColor: !disabled ? alwaysWhite() : "#ccc",
                   cursor: disabled ? "not-allowed" : "text",
-                  border: "#01BCFF 3px solid",
-                  borderRadius: "10px 0",
+                  border: "#01BCFF 1px solid",
                   width: "80%",
                 }}
                 value={newAnkiEmail}
@@ -226,13 +222,10 @@ export function SignUp() {
                   padding: "0.5rem",
                   marginBottom: "0.3rem",
                   cursor: disabled ? "not-allowed" : "text",
-                  fontFamily: "Athiti",
-                  fontSize: "1.5rem",
                   fontWeight: 500,
                   color: "#01BCFF",
                   backgroundColor: !disabled ? alwaysWhite() : "#ccc",
-                  border: "#01BCFF 3px solid",
-                  borderRadius: "10px 0",
+                  border: "#01BCFF 1px solid",
                   width: "80%",
                 }}
                 value={newAnkiPassword}
@@ -244,7 +237,13 @@ export function SignUp() {
               />
             </div>
           </div>
-          <div style={{ backgroundColor: primaryColor(), padding: "1rem" }}>
+          <div
+            style={{
+              backgroundColor: primaryColor(),
+              color: textPrimaryColorContrast(),
+              padding: "1rem",
+            }}
+          >
             <InputFieldSignUp
               value={newPassword}
               onChange={(event) => setNewPassword(event.target.value)}
@@ -258,9 +257,21 @@ export function SignUp() {
               type="password"
             />
           </div>
-          <Button style={{ marginLeft: "auto" }} type="submit">
+          <button
+            style={{
+              backgroundColor: secondaryColor(),
+              color: textSecondaryColorContrast(),
+              padding: "5px",
+              border: "none",
+              borderRadius: "5px",
+              marginTop: "10px",
+              cursor: "pointer",
+              marginLeft: "auto",
+            }}
+            type="submit"
+          >
             {button}
-          </Button>
+          </button>
         </form>
       </RouteDiv>
     </RouteSizeControlBox>
