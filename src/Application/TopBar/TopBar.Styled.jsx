@@ -16,6 +16,7 @@ export const TopBarContainer = styled.header`
   justify-content: space-evenly;
   align-items: center;
   display: flex;
+  padding: 5px;
   box-shadow: 1px 1px 10px 1px #555;
 
   width: 100vw;
