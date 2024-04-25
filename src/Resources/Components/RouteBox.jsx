@@ -81,22 +81,16 @@ export const BlogRouteSizeControlBox = styled.div`
 
 export const HOne = styled.h1`
   font-weight: 800;
-  font-size: 1.3rem;
-  background-color: ${secondaryColor()};
+  font-size: 1.1rem;
   display: flex;
   max-width: fit-content;
   padding: 0 1rem;
   border-radius: 1rem;
   align-items: center;
   margin: 1rem auto;
-  font-family: Athiti;
   box-shadow: 1px 1px 10px 1px #aaa;
   text-align: center;
-  color: ${textPrimaryColorContrast()};
-  text-shadow: 2px 0 ${primaryColor()}, -2px 0 ${primaryColor()},
-    0 2px ${primaryColor()}, 0 -2px ${primaryColor()}, 1px 1px ${primaryColor()},
-    -1px -1px ${primaryColor()}, 1px -1px ${primaryColor()},
-    -1px 1px ${primaryColor()};
+  color: ${primaryColor()};
 `;
 export const SpanIcon = styled.span`
   font-size: 1px;
