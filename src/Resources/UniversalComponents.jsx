@@ -177,7 +177,7 @@ export function InputField({ value, onChange, id, placeholder, type }) {
           justifyContent: "space-around",
           padding: "0.4rem",
           marginBottom: "0.3rem",
-          fontSize: "1.1rem",
+          fontSize: "1rem",
           fontWeight: 500,
           backgroundColor: "white",
           minWidth: "15rem",
@@ -208,11 +208,8 @@ export function InputFieldSignUp({ value, onChange, id, placeholder, type }) {
       <p
         style={{
           margin: 0,
-          color: "white",
-          textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
           marginBottom: "3px",
           fontWeight: 800,
-          fontSize: "2rem",
           fontFamily: "Athiti",
           textAlign: "center",
         }}
@@ -222,15 +219,12 @@ export function InputFieldSignUp({ value, onChange, id, placeholder, type }) {
       <input
         style={{
           padding: "0.5rem",
-          marginBottom: "0.3rem",
+          margin: "0.3rem",
           fontFamily: "Athiti",
-          fontSize: "1.5rem",
+          fontSize: "1rem",
           fontWeight: 500,
-          backgroundColor: secondaryColor(),
-          color: textSecondaryColorContrast(),
-          border: "#555 3px solid",
-          borderRadius: "10px 0",
-          width: "50%",
+          border: `1px solid ${secondaryColor()}`,
+          width: "90%",
         }}
         value={value}
         onChange={onChange}
@@ -274,7 +268,6 @@ export function InputFieldNotRequired({
           justifyContent: "space-around",
           padding: "0.4rem",
           marginBottom: "0.3rem",
-          fontSize: "1.1rem",
           fontWeight: 500,
           backgroundColor: "white",
           minWidth: "15rem",
