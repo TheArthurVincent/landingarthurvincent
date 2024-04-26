@@ -295,8 +295,8 @@ export default function StudentsRanking({ headers }) {
                     display: item.id === user.id ? "flex" : "none",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    background: theitems.items[levelNumber].color,
-                    color: theitems.items[levelNumber].textcolor,
+                    background: theitems.levels[levelNumber].color,
+                    color: theitems.levels[levelNumber].textcolor,
                   }}
                 >
                   <div
@@ -311,8 +311,8 @@ export default function StudentsRanking({ headers }) {
                         fontWeight: 600,
                         margin: 0,
                         padding: "5px",
-                        background: theitems.items[levelNumber].color,
-                        color: theitems.items[levelNumber].textcolor,
+                        background: theitems.levels[levelNumber].color,
+                        color: theitems.levels[levelNumber].textcolor,
                       }}
                     >
                       #{index + 1} | {item.name}
@@ -375,8 +375,8 @@ export default function StudentsRanking({ headers }) {
                       : index < 5 && item.monthlyScore > 0
                       ? "flex"
                       : "none",
-                    background: theitems.items[levelNumber].color,
-                    color: theitems.items[levelNumber].textcolor,
+                    background: theitems.levels[levelNumber].color,
+                    color: theitems.levels[levelNumber].textcolor,
                   }}
                 >
                   <div
@@ -416,8 +416,8 @@ export default function StudentsRanking({ headers }) {
                         fontFamily: "Athiti",
                         padding: "5px",
                         textAlign: "center",
-                        background: theitems.items[levelNumber].color,
-                        color: theitems.items[levelNumber].textcolor,
+                        background: theitems.levels[levelNumber].color,
+                        color: theitems.levels[levelNumber].textcolor,
                       }}
                     >
                       #{index + 1} | {item.name} <br />
@@ -450,14 +450,14 @@ export default function StudentsRanking({ headers }) {
                       textAlign: "center",
                       justifyContent: "center",
                       alignItems: "center",
-                      color: theitems.items[levelNumber].textcolor,
+                      color: theitems.levels[levelNumber].textcolor,
                     }}
                   >
                     <Button
                       onClick={() => seeEdition(item.id)}
                       style={{
-                        backgroundColor: theitems.items[levelNumber].textcolor,
-                        color: theitems.items[levelNumber].color,
+                        backgroundColor: theitems.levels[levelNumber].textcolor,
+                        color: theitems.levels[levelNumber].color,
                         display: isAdm ? "block" : "none",
                       }}
                     >
@@ -465,10 +465,10 @@ export default function StudentsRanking({ headers }) {
                     </Button>
                     {/* <h2 style={{ fontSize: "1.2rem" }}>
                       <i
-                        className={theitems.items[levelNumber].icon}
+                        className={theitems.levels[levelNumber].icon}
                         aria-hidden="true"
                       />{" "}
-                      {theitems.items[levelNumber].text}
+                      {theitems.levels[levelNumber].text}
                     </h2> */}
                     <p
                       style={{
