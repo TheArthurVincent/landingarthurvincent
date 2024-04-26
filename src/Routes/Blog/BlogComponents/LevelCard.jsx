@@ -23,7 +23,6 @@ import red from "../../../../public/assets/red.png";
 import green from "../../../../public/assets/green.png";
 import yellow from "../../../../public/assets/yellow.png";
 import supreme from "../../../../public/assets/supreme.png";
-import { secondaryColor } from "../../../Styles/Styles";
 import { CircularProgress } from "@mui/material";
 export function LevelCard({ headers, _StudentId, picture }) {
   const items = theitems.levels;
@@ -32,7 +31,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [level, setLevel] = useState(9);
   const [loading, setLoading] = useState(true);
   const [showCard, setShowCard] = useState("none");
-
+  const [color, setColor] = useState("");
   const seeScore = async (id) => {
     setLoading(true);
     try {
@@ -48,6 +47,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
         items[newValue.level].background
       })`;
       setLevel(newValue.level);
+      setColor(newValue.color);
       setShowCard("block");
       setLoading(false);
     } catch (error) {
@@ -66,25 +66,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
   return (
     <NewLevelCardComponent
       style={{
-        border: `groove 3px ${
-          totalScore >= 10000 && totalScore < 20000
-            ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 35000
-            ? "#0C55A5"
-            : totalScore >= 35000 && totalScore < 50000
-            ? "#B7050B"
-            : totalScore >= 50000 && totalScore < 65000
-            ? "#ADB762"
-            : totalScore >= 65000 && totalScore < 80000
-            ? "#FB6E02"
-            : totalScore >= 80000 && totalScore < 100000
-            ? "#703A74"
-            : totalScore >= 100000 && totalScore < 2000000
-            ? "#000"
-            : totalScore >= 2000000
-            ? secondaryColor()
-            : "white"
-        } `,
+        border: `groove 3px ${color} `,
       }}
     >
       <DivCardLevel>
@@ -150,24 +132,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             {loading ? (
               <CircularProgress
                 style={{
-                  color:
-                    totalScore >= 10000 && totalScore < 20000
-                      ? "#F5BD33"
-                      : totalScore >= 20000 && totalScore < 35000
-                      ? "#0C55A5"
-                      : totalScore >= 35000 && totalScore < 50000
-                      ? "#B7050B"
-                      : totalScore >= 50000 && totalScore < 65000
-                      ? "#ADB762"
-                      : totalScore >= 65000 && totalScore < 80000
-                      ? "#FB6E02"
-                      : totalScore >= 80000 && totalScore < 100000
-                      ? "#703A74"
-                      : totalScore >= 100000 && totalScore < 2000000
-                      ? "#000"
-                      : totalScore >= 2000000
-                      ? secondaryColor()
-                      : "white",
+                  color: color,
                 }}
               />
             ) : (
