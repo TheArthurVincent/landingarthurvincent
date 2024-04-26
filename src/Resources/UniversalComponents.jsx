@@ -3,24 +3,73 @@ import {
   alwaysBlack,
   alwaysWhite,
   darkGreyColor,
-  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../Styles/Styles";
 import { Link } from "react-router-dom";
-import emailjs from "emailjs-com";
+import { levels } from "../Routes/Ranking/RankingComponents/ranking.json";
+
+// Função que verifica o nível do aluno
+export function updateScore(totalScore) {
+  var level = 1;
+  var color = "#000";
+  var icon = "fa fa-star";
+  var color = "#eee";
+  var textcolor = "black";
+  var text = "White Belt";
+  var discount = "0%";
+  var background =
+    "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
+
+  for (let i = 0; i < levels.length; i++) {
+    if (levels[i + 1]) {
+      if (
+        totalScore >= levels[i].totalScore &&
+        totalScore < levels[i + 1].totalScore
+      ) {
+        level = i;
+        color = levels[i].color;
+        icon = levels[i].icon;
+        textcolor = levels[i].textcolor;
+        text = levels[i].text;
+        discount = levels[i].discount;
+        background = levels[i].background;
+        break;
+      }
+    } else {
+      level = i;
+      color = levels[i].color;
+      icon = levels[i].icon;
+      textcolor = levels[i].textcolor;
+      text = levels[i].text;
+      discount = levels[i].discount;
+      background = levels[i].background;
+      break;
+    }
+  }
+  return {
+    level,
+    color,
+    icon,
+    textcolor,
+    text,
+    discount,
+    background,
+  };
+}
+
+// Função que verifica o nível do aluno
 
 export const All = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
   width: 100vw;
-  justify-content: space-between;
 
   & *::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
     border-radius: 5px;
   }
 

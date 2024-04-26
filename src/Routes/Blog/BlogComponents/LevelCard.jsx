@@ -3,6 +3,7 @@ import theitems from "../../Ranking/RankingComponents/ranking.json";
 import {
   backDomain,
   formatNumber,
+  updateScore,
 } from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
 import axios from "axios";
@@ -23,10 +24,9 @@ import green from "../../../../public/assets/green.png";
 import yellow from "../../../../public/assets/yellow.png";
 import supreme from "../../../../public/assets/supreme.png";
 import { secondaryColor } from "../../../Styles/Styles";
-import ranking from "../../Ranking/RankingComponents/ranking.json";
 import { CircularProgress } from "@mui/material";
 export function LevelCard({ headers, _StudentId, picture }) {
-  const items = theitems.items;
+  const items = theitems.levels;
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
@@ -42,32 +42,12 @@ export function LevelCard({ headers, _StudentId, picture }) {
 
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
-      const newValue =
-        response.data.totalScore >= 10000 && response.data.totalScore < 20000
-          ? 1
-          : response.data.totalScore >= 20000 &&
-            response.data.totalScore < 35000
-          ? 2
-          : response.data.totalScore >= 35000 &&
-            response.data.totalScore < 50000
-          ? 3
-          : response.data.totalScore >= 50000 &&
-            response.data.totalScore < 65000
-          ? 4
-          : response.data.totalScore >= 65000 &&
-            response.data.totalScore < 80000
-          ? 5
-          : response.data.totalScore >= 80000 &&
-            response.data.totalScore < 100000
-          ? 6
-          : response.data.totalScore >= 100000 &&
-            response.data.totalScore < 2000000
-          ? 7
-          : response.data.totalScore >= 2000000
-          ? 9
-          : 0;
-      document.body.style.backgroundImage = `url(${items[newValue].background})`;
-      setLevel(newValue);
+      var newValue = updateScore(response.data.totalScore);
+      console.log("newValue", newValue.level);
+      document.body.style.backgroundImage = `url(${
+        items[newValue.level].background
+      })`;
+      setLevel(newValue.level);
       setShowCard("block");
       setLoading(false);
     } catch (error) {
