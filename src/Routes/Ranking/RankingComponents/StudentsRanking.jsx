@@ -9,17 +9,16 @@ import {
   Xp,
   backDomain,
   formatNumber,
+  updateScore,
 } from "../../../Resources/UniversalComponents";
-import { Button, CircularProgress, Tooltip } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
   alwaysBlack,
   alwaysWhite,
-  primaryColor,
   secondaryColor,
-  textPrimaryColorContrast,
   textSecondaryColorContrast,
   transparentBlack,
 } from "../../../Styles/Styles";
@@ -53,7 +52,7 @@ export default function StudentsRanking({ headers }) {
       setDisabled(false);
       setLoadingScore(false);
     } catch (error) {
-      // alert(error);
+      console.log("error", error);
       console.error(error);
     }
   };
@@ -70,7 +69,7 @@ export default function StudentsRanking({ headers }) {
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
     } catch (error) {
-      // alert(error);
+      console.log("error".error);
       console.error(error);
     }
   };
@@ -90,7 +89,7 @@ export default function StudentsRanking({ headers }) {
       setDisabled(false);
       setLoadingScore(false);
     } catch (error) {
-      // alert("Erro ao somar pontuação");
+      console.log("Erro ao somar pontuação");
       setDisabled(false);
     }
   };
@@ -117,7 +116,7 @@ export default function StudentsRanking({ headers }) {
       setStudents(response.data.listOfStudents);
       setLoading(false);
     } catch (error) {
-      // alert("Erro ao encontrar alunos");
+      console.log("Erro ao encontrar alunos");
     }
   };
   useEffect(() => {
@@ -268,24 +267,7 @@ export default function StudentsRanking({ headers }) {
       ) : (
         <div>
           {students.map((item, index) => {
-            const levelNumber =
-              item.totalScore >= 10000 && item.totalScore < 20000
-                ? 1
-                : item.totalScore >= 20000 && item.totalScore < 35000
-                ? 2
-                : item.totalScore >= 35000 && item.totalScore < 50000
-                ? 3
-                : item.totalScore >= 50000 && item.totalScore < 65000
-                ? 4
-                : item.totalScore >= 65000 && item.totalScore < 80000
-                ? 5
-                : item.totalScore >= 80000 && item.totalScore < 100000
-                ? 6
-                : item.totalScore >= 100000 && item.totalScore < 2000000
-                ? 7
-                : item.totalScore >= 2000000
-                ? 8
-                : 0;
+            const levelNumber = updateScore(item.totalScore).level;
             return (
               <div key={index}>
                 <RouteDiv
@@ -347,24 +329,8 @@ export default function StudentsRanking({ headers }) {
 
           <ul>
             {students.map((item, index) => {
-              const levelNumber =
-                item.totalScore >= 10000 && item.totalScore < 20000
-                  ? 1
-                  : item.totalScore >= 20000 && item.totalScore < 35000
-                  ? 2
-                  : item.totalScore >= 35000 && item.totalScore < 50000
-                  ? 3
-                  : item.totalScore >= 50000 && item.totalScore < 65000
-                  ? 4
-                  : item.totalScore >= 65000 && item.totalScore < 80000
-                  ? 5
-                  : item.totalScore >= 80000 && item.totalScore < 100000
-                  ? 6
-                  : item.totalScore >= 100000 && item.totalScore < 2000000
-                  ? 7
-                  : item.totalScore >= 2000000
-                  ? 8
-                  : 0;
+              const levelNumber = updateScore(item.totalScore).level;
+
               return (
                 <AnimatedLi
                   key={index}
@@ -435,7 +401,14 @@ export default function StudentsRanking({ headers }) {
                           style={{
                             textAlign: "center",
                             color: alwaysWhite(),
-                            textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
+                            textShadow: `2px 0 ${alwaysBlack()},
+                             -2px 0 ${alwaysBlack()}, 
+                             0 2px ${alwaysBlack()},
+                              0 -2px ${alwaysBlack()},
+                               1px 1px ${alwaysBlack()},
+                                -1px -1px ${alwaysBlack()},
+                                 1px -1px ${alwaysBlack()},
+                                  -1px 1px ${alwaysBlack()}`,
                           }}
                         >
                           {formatNumber(item.monthlyScore)}{" "}
@@ -463,13 +436,7 @@ export default function StudentsRanking({ headers }) {
                     >
                       Pontuar
                     </Button>
-                    {/* <h2 style={{ fontSize: "1.2rem" }}>
-                      <i
-                        className={theitems.levels[levelNumber].icon}
-                        aria-hidden="true"
-                      />{" "}
-                      {theitems.levels[levelNumber].text}
-                    </h2> */}
+
                     <p
                       style={{
                         fontFamily: "Athiti",
