@@ -61,7 +61,7 @@ export function Blog({ headers }) {
     link: "https://portal.arthurvincent.com.br/",
   });
 
-  const items = theitems.items;
+  const items = theitems.levels;
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);

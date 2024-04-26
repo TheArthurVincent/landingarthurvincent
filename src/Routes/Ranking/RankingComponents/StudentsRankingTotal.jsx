@@ -99,8 +99,8 @@ export default function StudentsRankingTotal({ headers }) {
                 index={index}
                 style={{
                   display: item.totalScore >= 5000 ? "flex" : "none",
-                  background: theitems.items[levelNumber].color,
-                  color: theitems.items[levelNumber].textcolor,
+                  background: theitems.levels[levelNumber].color,
+                  color: theitems.levels[levelNumber].textcolor,
                 }}
               >
                 <ImgResponsive3
@@ -123,7 +123,7 @@ export default function StudentsRankingTotal({ headers }) {
                       color: alwaysBlack(),
                       textShadow: `1px 0 ${alwaysWhite()}, -1px 0 ${alwaysWhite()}, 0 1px ${alwaysWhite()}, 0 -1px ${alwaysWhite()}, 1px 1px ${alwaysWhite()}, -1px -1px ${alwaysWhite()}, 1px -1px ${alwaysWhite()}, -1px 1px ${alwaysWhite()}`,
                     }}
-                    className={theitems.items[levelNumber].icon}
+                    className={theitems.levels[levelNumber].icon}
                     aria-hidden="true"
                   />{" "}
                 </DivFont>
