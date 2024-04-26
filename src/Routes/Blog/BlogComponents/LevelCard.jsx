@@ -38,7 +38,6 @@ export function LevelCard({ headers, _StudentId, picture }) {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers,
       });
-
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       var newValue = updateScore(response.data.totalScore);
