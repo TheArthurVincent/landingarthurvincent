@@ -13,7 +13,6 @@ import {
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
-import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
   alwaysBlack,
@@ -97,6 +96,7 @@ export default function StudentsRanking({ headers }) {
   const theItems = levels();
 
   useEffect(() => {
+    console.log(theItems, "theItems")
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
     getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
@@ -277,8 +277,8 @@ export default function StudentsRanking({ headers }) {
                     display: item.id === user.id ? "flex" : "none",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    background: theitems.levels[levelNumber].color,
-                    color: theitems.levels[levelNumber].textcolor,
+                    background: theItems[levelNumber].color,
+                    color: theItems[levelNumber].textcolor,
                   }}
                 >
                   <div
@@ -293,8 +293,8 @@ export default function StudentsRanking({ headers }) {
                         fontWeight: 600,
                         margin: 0,
                         padding: "5px",
-                        background: theitems.levels[levelNumber].color,
-                        color: theitems.levels[levelNumber].textcolor,
+                        background: theItems[levelNumber].color,
+                        color: theItems[levelNumber].textcolor,
                       }}
                     >
                       #{index + 1} | {item.name}
@@ -339,10 +339,10 @@ export default function StudentsRanking({ headers }) {
                     display: isAdm
                       ? "flex"
                       : index < 5 && item.monthlyScore > 0
-                      ? "flex"
-                      : "none",
-                    background: theitems.levels[levelNumber].color,
-                    color: theitems.levels[levelNumber].textcolor,
+                        ? "flex"
+                        : "none",
+                    background: theItems[levelNumber].color,
+                    color: theItems[levelNumber].textcolor,
                   }}
                 >
                   <div
@@ -382,8 +382,8 @@ export default function StudentsRanking({ headers }) {
                         fontFamily: "Athiti",
                         padding: "5px",
                         textAlign: "center",
-                        background: theitems.levels[levelNumber].color,
-                        color: theitems.levels[levelNumber].textcolor,
+                        background: theItems[levelNumber].color,
+                        color: theItems[levelNumber].textcolor,
                       }}
                     >
                       #{index + 1} | {item.name} <br />
@@ -423,14 +423,14 @@ export default function StudentsRanking({ headers }) {
                       textAlign: "center",
                       justifyContent: "center",
                       alignItems: "center",
-                      color: theitems.levels[levelNumber].textcolor,
+                      color: theItems[levelNumber].textcolor,
                     }}
                   >
                     <Button
                       onClick={() => seeEdition(item.id)}
                       style={{
-                        backgroundColor: theitems.levels[levelNumber].textcolor,
-                        color: theitems.levels[levelNumber].color,
+                        backgroundColor: theItems[levelNumber].textcolor,
+                        color: theItems[levelNumber].color,
                         display: isAdm ? "block" : "none",
                       }}
                     >
