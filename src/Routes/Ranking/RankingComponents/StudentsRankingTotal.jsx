@@ -4,10 +4,10 @@ import {
   ImgResponsive3,
   backDomain,
   formatNumber,
+  updateScore,
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
-import theitems from "./ranking.json";
 import { levels } from "./RankingLevelsList";
 import {
   alwaysBlack,
@@ -19,16 +19,8 @@ import {
 export default function StudentsRankingTotal({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
-  const [isAdm, setIsAdm] = useState(false);
 
   const theItems = levels();
-
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setUser(getLoggedUser);
-    getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
-  }, []);
 
   const fetchStudents = async () => {
     setLoading(true);
@@ -75,32 +67,15 @@ export default function StudentsRankingTotal({ headers }) {
       ) : (
         <ul>
           {students.map((item, index) => {
-            const levelNumber =
-              item.totalScore >= 10000 && item.totalScore < 20000
-                ? 1
-                : item.totalScore >= 20000 && item.totalScore < 35000
-                ? 2
-                : item.totalScore >= 35000 && item.totalScore < 50000
-                ? 3
-                : item.totalScore >= 50000 && item.totalScore < 65000
-                ? 4
-                : item.totalScore >= 65000 && item.totalScore < 80000
-                ? 5
-                : item.totalScore >= 80000 && item.totalScore < 100000
-                ? 6
-                : item.totalScore >= 100000 && item.totalScore < 2000000
-                ? 7
-                : item.totalScore >= 2000000
-                ? 8
-                : 0;
+            const levelNumber = updateScore(item.totalScore).level;
             return (
               <AnimatedLi2
                 key={index}
                 index={index}
                 style={{
                   display: item.totalScore >= 5000 ? "flex" : "none",
-                  background: theitems.items[levelNumber].color,
-                  color: theitems.items[levelNumber].textcolor,
+                  background: theItems[levelNumber].color,
+                  color: theItems[levelNumber].textcolor,
                 }}
               >
                 <ImgResponsive3
@@ -108,7 +83,6 @@ export default function StudentsRankingTotal({ headers }) {
                   alt="level"
                 />
                 <p>
-                  {" "}
                   #{index + 1} | {item.name + " " + item.lastname}
                 </p>
                 <DivFont
@@ -117,15 +91,15 @@ export default function StudentsRankingTotal({ headers }) {
                     textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
                   }}
                 >
-                  {formatNumber(item.totalScore)}{" "}
+                  {formatNumber(item.totalScore)}
                   <i
                     style={{
                       color: alwaysBlack(),
                       textShadow: `1px 0 ${alwaysWhite()}, -1px 0 ${alwaysWhite()}, 0 1px ${alwaysWhite()}, 0 -1px ${alwaysWhite()}, 1px 1px ${alwaysWhite()}, -1px -1px ${alwaysWhite()}, 1px -1px ${alwaysWhite()}, -1px 1px ${alwaysWhite()}`,
                     }}
-                    className={theitems.items[levelNumber].icon}
+                    className={theItems[levelNumber].icon}
                     aria-hidden="true"
-                  />{" "}
+                  />
                 </DivFont>
               </AnimatedLi2>
             );

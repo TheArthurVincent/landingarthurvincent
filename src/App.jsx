@@ -7,14 +7,16 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import EnglishMaterial from "./Routes/EnglishMaterial/EnglishMaterial";
-import { All, authorizationToken } from "./Resources/UniversalComponents";
+import {
+  All,
+  authorizationToken,
+} from "./Resources/UniversalComponents";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 import Footer from "./Application/Footer/Footer";
 import { Adm } from "./Routes/Adm/Adm";
 import Ranking from "./Routes/Ranking/Ranking";
 import EnglishActivities from "./Routes/EnglishActivities/EnglishActivities";
 import NotFound from "./Routes/NotFound/NotFound";
-import theitems from "../src/Routes/Ranking/RankingComponents/ranking.json";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
 import MyCalendar from "./Routes/MyCalendar/MyCalendar";
@@ -30,7 +32,6 @@ const headers = {
 
 function App() {
   const [admin, setAdmin] = useState(false);
-  const [score, setScore] = useState(0);
   const [thePermissions, setPermissions] = useState("");
   const [id, setID] = useState("");
 
@@ -38,10 +39,8 @@ function App() {
     const user = localStorage.getItem("loggedIn");
     if (user) {
       const { permissions } = JSON.parse(user);
-      const { totalScore } = JSON.parse(user);
       const { id } = JSON.parse(user);
       setPermissions(permissions);
-      setScore(totalScore);
       setID(id);
       setAdmin(permissions === "superadmin" ? true : false);
     } else {
@@ -49,29 +48,6 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    const levelNumber =
-      score >= 10000 && score < 20000
-        ? 1
-        : score >= 20000 && score < 35000
-          ? 2
-          : score >= 35000 && score < 50000
-            ? 3
-            : score >= 50000 && score < 65000
-              ? 4
-              : score >= 65000 && score < 80000
-                ? 5
-                : score >= 80000 && score < 100000
-                  ? 6
-                  : score >= 100000 && score < 2000000
-                    ? 7
-                    : score >= 2000000
-                      ? 8
-                      : 0;
-    setTimeout(() => {
-      document.body.style.backgroundImage = `url(${theitems.items[levelNumber].background})`;
-    }, 100);
-  }, [score]);
 
   const routes = [
     {

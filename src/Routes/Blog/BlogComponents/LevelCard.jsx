@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import theitems from "../../Ranking/RankingComponents/ranking.json";
 import {
   backDomain,
   formatNumber,
+  updateScore,
 } from "../../../Resources/UniversalComponents";
 import { useEffect } from "react";
 import axios from "axios";
@@ -13,25 +13,16 @@ import {
   NewLevelCardComponent,
   TextLevelCard,
 } from "../../../Resources/Components/RouteBox";
-import blue from "../../../../public/assets/blue.png";
-import black from "../../../../public/assets/black.png";
-import orange from "../../../../public/assets/orange.png";
-import white from "../../../../public/assets/white.png";
-import purple from "../../../../public/assets/purple.png";
-import red from "../../../../public/assets/red.png";
-import green from "../../../../public/assets/green.png";
-import yellow from "../../../../public/assets/yellow.png";
-import supreme from "../../../../public/assets/supreme.png";
-import { secondaryColor } from "../../../Styles/Styles";
-import ranking from "../../Ranking/RankingComponents/ranking.json";
 import { CircularProgress } from "@mui/material";
+import { levels } from "../../Ranking/RankingComponents/RankingLevelsList";
 export function LevelCard({ headers, _StudentId, picture }) {
-  const items = theitems.items;
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
   const [loading, setLoading] = useState(true);
   const [showCard, setShowCard] = useState("none");
+
+  const items = levels();
 
   const seeScore = async (id) => {
     setLoading(true);
@@ -39,39 +30,17 @@ export function LevelCard({ headers, _StudentId, picture }) {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers,
       });
-
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
-      const newValue =
-        response.data.totalScore >= 10000 && response.data.totalScore < 20000
-          ? 1
-          : response.data.totalScore >= 20000 &&
-            response.data.totalScore < 35000
-          ? 2
-          : response.data.totalScore >= 35000 &&
-            response.data.totalScore < 50000
-          ? 3
-          : response.data.totalScore >= 50000 &&
-            response.data.totalScore < 65000
-          ? 4
-          : response.data.totalScore >= 65000 &&
-            response.data.totalScore < 80000
-          ? 5
-          : response.data.totalScore >= 80000 &&
-            response.data.totalScore < 100000
-          ? 6
-          : response.data.totalScore >= 100000 &&
-            response.data.totalScore < 2000000
-          ? 7
-          : response.data.totalScore >= 2000000
-          ? 9
-          : 0;
-      document.body.style.backgroundImage = `url(${items[newValue].background})`;
-      setLevel(newValue);
+      var newValue = updateScore(response.data.totalScore);
+      document.body.style.backgroundImage = `url(${
+        items[newValue.level].background
+      })`;
+      const levelDone = newValue.level;
+      setLevel(levelDone);
       setShowCard("block");
       setLoading(false);
     } catch (error) {
-      alert(error);
       console.error(error);
     }
   };
@@ -86,49 +55,13 @@ export function LevelCard({ headers, _StudentId, picture }) {
   return (
     <NewLevelCardComponent
       style={{
-        border: `groove 3px ${
-          totalScore >= 10000 && totalScore < 20000
-            ? "#F5BD33"
-            : totalScore >= 20000 && totalScore < 35000
-            ? "#0C55A5"
-            : totalScore >= 35000 && totalScore < 50000
-            ? "#B7050B"
-            : totalScore >= 50000 && totalScore < 65000
-            ? "#ADB762"
-            : totalScore >= 65000 && totalScore < 80000
-            ? "#FB6E02"
-            : totalScore >= 80000 && totalScore < 100000
-            ? "#703A74"
-            : totalScore >= 100000 && totalScore < 2000000
-            ? "#000"
-            : totalScore >= 2000000
-            ? secondaryColor()
-            : "white"
-        } `,
+        border: `groove 3px ${items[level].color} `,
       }}
     >
       <DivCardLevel>
         <LevelCardLevel
           style={{ display: showCard }}
-          src={
-            totalScore >= 10000 && totalScore < 20000
-              ? yellow
-              : totalScore >= 20000 && totalScore < 35000
-              ? blue
-              : totalScore >= 35000 && totalScore < 50000
-              ? red
-              : totalScore >= 50000 && totalScore < 65000
-              ? green
-              : totalScore >= 65000 && totalScore < 80000
-              ? orange
-              : totalScore >= 80000 && totalScore < 100000
-              ? purple
-              : totalScore >= 100000 && totalScore < 2000000
-              ? black
-              : totalScore >= 2000000
-              ? supreme
-              : white
-          }
+          src={items[level].image}
           alt="card"
         />
         <LevelCardPhotoLevel src={picture} alt="Profile Picture" />
@@ -170,24 +103,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             {loading ? (
               <CircularProgress
                 style={{
-                  color:
-                    totalScore >= 10000 && totalScore < 20000
-                      ? "#F5BD33"
-                      : totalScore >= 20000 && totalScore < 35000
-                      ? "#0C55A5"
-                      : totalScore >= 35000 && totalScore < 50000
-                      ? "#B7050B"
-                      : totalScore >= 50000 && totalScore < 65000
-                      ? "#ADB762"
-                      : totalScore >= 65000 && totalScore < 80000
-                      ? "#FB6E02"
-                      : totalScore >= 80000 && totalScore < 100000
-                      ? "#703A74"
-                      : totalScore >= 100000 && totalScore < 2000000
-                      ? "#000"
-                      : totalScore >= 2000000
-                      ? secondaryColor()
-                      : "white",
+                  color: items[level].color,
                 }}
               />
             ) : (

@@ -19,8 +19,6 @@ import {
   Xp,
   IFrameVideoClass,
 } from "../../Resources/UniversalComponents";
-import NextLiveClasses from "../MyCourses/MyCoursesAssets/NextLive";
-
 import {
   alwaysBlack,
   alwaysWhite,
@@ -32,8 +30,6 @@ import {
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
-import NextTutorings from "./BlogComponents/NextTutorings";
-import theitems from "../Ranking/RankingComponents/ranking.json";
 import LevelCard from "./BlogComponents/LevelCard";
 
 export function Blog({ headers }) {
@@ -50,18 +46,8 @@ export function Blog({ headers }) {
   const [lastName, setLastName] = useState("");
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [permissions, setPermissions] = useState("");
-  const [isNextClassVisible, setIsNextClassVisible] = useState(false);
   const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
-  const [nextTutoring, setNextTutoring] = useState({
-    _id: "651c13e019e72fbdef2abd76",
-    studentID: "651311fac3d58753aa9281c5",
-    date: "2000-00-00",
-    time: "00:00",
-    link: "https://portal.arthurvincent.com.br/",
-  });
-
-  const items = theitems.items;
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -86,41 +72,6 @@ export function Blog({ headers }) {
     setLastName(getLoggedUser.lastname);
     setPicture(getLoggedUser.picture);
   }, []);
-
-  const handleSeeNextTutoring = () => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    const id = getLoggedUser.id;
-    const fetchNextClass = async () => {
-      try {
-        const response = await axios.get(
-          `${backDomain}/api/v1/eventseenextttoring/${id}`,
-          { headers }
-        );
-        setNextTutoring(response.data.event);
-      } catch (error) {
-        alert("Erro ao importar próximas aulas");
-      }
-    };
-    fetchNextClass();
-    setIsNextClassVisible(!isNextClassVisible);
-  };
-
-  // const handleSeeNextTutoring = () => {
-  //   handleSeeNextTutoring();
-  //   // const fetchNextClass = async () => {
-  //   //   try {
-  //   //     const response = await axios.get(
-  //   //       `${backDomain}/api/v1/nexttutoring/${_StudentId}`,
-  //   //       { headers }
-  //   //     );
-  //   //     setNextTutoring(response.data.nextTutoring);
-  //   //   } catch (error) {
-  //   //     alert("Erro ao importar próximas aulas");
-  //   //   }
-  //   // };
-  //   // fetchNextClass();
-  //   setIsNextClassVisible(!isNextClassVisible);
-  // };
 
   async function fetchData() {
     setLoading(true);
@@ -326,70 +277,7 @@ export function Blog({ headers }) {
               <i className="fa fa-calendar" aria-hidden="true" />
               {UniversalTexts.calendar}
             </Link>
-            {/* ) : (
-              <span>
-                <span
-                  style={{
-                    margin: "3px",
-                  }}
-                >
-                  {UniversalTexts.nextClass}
-                </span>
-                {nextTutoring.date == "" ? (
-                  <div
-                    style={{
-                      display: isNextClassVisible ? "block" : "none",
-                      marginRight: "1.2rem",
-                      marginLeft: "auto",
-                      maxWidth: "fit-content",
-                      padding: "0.5rem",
-                    }}
-                  >
-                    <CircularProgress style={{ color: secondaryColor() }} />
-                  </div>
-                ) : (
-                  <>
-                    <Link
-                      style={{
-                        display: isNextClassVisible ? "block" : "none",
-                        marginRight: "1.2rem",
-                        marginLeft: "auto",
-                        maxWidth: "fit-content",
-                        backgroundColor: secondaryColor(),
-                        color: textSecondaryColorContrast(),
-                        padding: "0.5rem",
-                        fontSize: "1rem",
-                      }}
-                      target="_blank"
-                      to={nextTutoring.link}
-                    >
-                      <span
-                        style={{
-                          textDecoration: "underline",
-                        }}
-                      >
-                        {formatData(nextTutoring.date)
-                          ? formatData(nextTutoring.date)
-                          : "http://google.com"}
-                      </span>
-                      <span
-                        style={{
-                          fontWeight: 600,
-                        }}
-                      >
-                        - {nextTutoring.time}
-                      </span>
-                    </Link>
-                  </>
-                )}
-              </span>
-            )} */}
           </div>
-          {/* <NextTutorings
-            display={permissions == "superadmin" ? "block" : "none"}
-            headers={headers}
-          /> */}
-          {/* <NextLiveClasses headers={headers} /> */}
           <HOne>{UniversalTexts.mural}</HOne>
           {posts.map((post, index) => (
             <div
