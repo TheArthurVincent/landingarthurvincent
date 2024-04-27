@@ -1,13 +1,12 @@
 import blue from "../../../../public/assets/blue.png";
 import black from "../../../../public/assets/black.png";
 import orange from "../../../../public/assets/orange.png";
-import white from "../../../../public/assets/white.png";
 import purple from "../../../../public/assets/purple.png";
 import red from "../../../../public/assets/red.png";
 import green from "../../../../public/assets/green.png";
 import yellow from "../../../../public/assets/yellow.png";
 import supreme from "../../../../public/assets/supreme.png";
-
+import white from "../../../../public/assets/white.png";
 import whitefull from "../../../../public/assets/1.png";
 import yellowfull from "../../../../public/assets/2.png";
 import bluefull from "../../../../public/assets/3.png";
@@ -144,7 +143,7 @@ export const levels = () => {
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       text: "loading",
-      image: white,
+      image: supreme,
       image2: whitefull,
     },
   ];

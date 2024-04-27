@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import theitems from "../../Ranking/RankingComponents/ranking.json";
 import {
   backDomain,
   formatNumber,
@@ -14,24 +13,17 @@ import {
   NewLevelCardComponent,
   TextLevelCard,
 } from "../../../Resources/Components/RouteBox";
-import blue from "../../../../public/assets/blue.png";
-import black from "../../../../public/assets/black.png";
-import orange from "../../../../public/assets/orange.png";
-import white from "../../../../public/assets/white.png";
-import purple from "../../../../public/assets/purple.png";
-import red from "../../../../public/assets/red.png";
-import green from "../../../../public/assets/green.png";
-import yellow from "../../../../public/assets/yellow.png";
-import supreme from "../../../../public/assets/supreme.png";
 import { CircularProgress } from "@mui/material";
+import { levels } from "../../Ranking/RankingComponents/RankingLevelsList";
 export function LevelCard({ headers, _StudentId, picture }) {
-  const items = theitems.levels;
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
   const [loading, setLoading] = useState(true);
   const [showCard, setShowCard] = useState("none");
-  const [color, setColor] = useState("");
+
+  const items = levels();
+
   const seeScore = async (id) => {
     setLoading(true);
     try {
@@ -41,16 +33,14 @@ export function LevelCard({ headers, _StudentId, picture }) {
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       var newValue = updateScore(response.data.totalScore);
-      console.log("newValue", newValue.level);
       document.body.style.backgroundImage = `url(${
         items[newValue.level].background
       })`;
-      setLevel(newValue.level);
-      setColor(newValue.color);
+      const levelDone = newValue.level;
+      setLevel(levelDone);
       setShowCard("block");
       setLoading(false);
     } catch (error) {
-      alert(error);
       console.error(error);
     }
   };
@@ -65,31 +55,13 @@ export function LevelCard({ headers, _StudentId, picture }) {
   return (
     <NewLevelCardComponent
       style={{
-        border: `groove 3px ${color} `,
+        border: `groove 3px ${items[level].color} `,
       }}
     >
       <DivCardLevel>
         <LevelCardLevel
           style={{ display: showCard }}
-          src={
-            totalScore >= 10000 && totalScore < 20000
-              ? yellow
-              : totalScore >= 20000 && totalScore < 35000
-              ? blue
-              : totalScore >= 35000 && totalScore < 50000
-              ? red
-              : totalScore >= 50000 && totalScore < 65000
-              ? green
-              : totalScore >= 65000 && totalScore < 80000
-              ? orange
-              : totalScore >= 80000 && totalScore < 100000
-              ? purple
-              : totalScore >= 100000 && totalScore < 2000000
-              ? black
-              : totalScore >= 2000000
-              ? supreme
-              : white
-          }
+          src={items[level].image}
           alt="card"
         />
         <LevelCardPhotoLevel src={picture} alt="Profile Picture" />
@@ -131,7 +103,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             {loading ? (
               <CircularProgress
                 style={{
-                  color: color,
+                  color: items[level].color,
                 }}
               />
             ) : (

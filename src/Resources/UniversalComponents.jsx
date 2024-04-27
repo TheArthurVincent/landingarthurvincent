@@ -9,6 +9,8 @@ import {
 } from "../Styles/Styles";
 import { Link } from "react-router-dom";
 import { levels } from "../Routes/Ranking/RankingComponents/ranking.json";
+import white from "../../public/assets/white.png";
+import whitefull from "../../public/assets/1.png";
 
 // Função que verifica o nível do aluno
 export function updateScore(totalScore) {
@@ -19,6 +21,8 @@ export function updateScore(totalScore) {
   var textcolor = "black";
   var text = "White Belt";
   var discount = "0%";
+  var image2 = whitefull;
+  var image = white;
   var background =
     "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
 
@@ -35,12 +39,16 @@ export function updateScore(totalScore) {
         text = levels[i].text;
         discount = levels[i].discount;
         background = levels[i].background;
+        image2 = levels[i].image2;
+        image = levels[i].image;
         break;
       }
     } else {
       level = i;
       color = levels[i].color;
       icon = levels[i].icon;
+      image = levels[i].image;
+      image2 = levels[i].image2;
       textcolor = levels[i].textcolor;
       text = levels[i].text;
       discount = levels[i].discount;
@@ -52,6 +60,8 @@ export function updateScore(totalScore) {
     level,
     color,
     icon,
+    image,
+    image2,
     textcolor,
     text,
     discount,
