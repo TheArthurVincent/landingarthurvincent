@@ -7,10 +7,7 @@ import MyClasses from "./Routes/MyClasses/MyClasses";
 import Extras from "./Routes/Extras/Extras";
 import MyProfile from "./Routes/MyProfile/MyProfile";
 import EnglishMaterial from "./Routes/EnglishMaterial/EnglishMaterial";
-import {
-  All,
-  authorizationToken,
-} from "./Resources/UniversalComponents";
+import { All, authorizationToken } from "./Resources/UniversalComponents";
 import LiveClasses from "./Routes/MyCourses/LiveClasses";
 import Footer from "./Application/Footer/Footer";
 import { Adm } from "./Routes/Adm/Adm";
@@ -33,21 +30,17 @@ const headers = {
 function App() {
   const [admin, setAdmin] = useState(false);
   const [thePermissions, setPermissions] = useState("");
-  const [id, setID] = useState("");
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
       const { permissions } = JSON.parse(user);
-      const { id } = JSON.parse(user);
       setPermissions(permissions);
-      setID(id);
       setAdmin(permissions === "superadmin" ? true : false);
     } else {
       return;
     }
   }, []);
-
 
   const routes = [
     {
