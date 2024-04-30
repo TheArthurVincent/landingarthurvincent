@@ -88,7 +88,6 @@ export const SpanHover2 = styled.span`
   &:hover {
     color: ${secondaryColor()};
     border-left: solid ${alwaysWhite()} 2px;
-    // transition: 0.2s;
   }
 `;
 export const FormFlex = styled.form`

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   alwaysBlack,
   alwaysWhite,
@@ -13,6 +13,7 @@ import {
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import { Alert, Button, CircularProgress } from "@mui/material";
+import { SideLoginForm, TextLoginPage } from "./Login.styled";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -20,7 +21,6 @@ export function Login() {
   const [loading, setLoading] = useState(false);
   const [fail, setFail] = useState(false);
   const [button, setButton] = useState("Entrar");
-
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handlePasswordVisible = () => {
@@ -64,103 +64,99 @@ export function Login() {
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
 
   return (
-    <>
-      <div
-        style={{
-          backgroundColor: alwaysWhite(),
-          color: alwaysBlack(),
-          maxWidth: "400px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          padding: "3rem 0",
-          marginTop: "180px",
-          display: "grid",
-          justifyContent: "center",
-        }}
-      >
-        <form
-          onSubmit={handleSubmit}
+    <div style={{ display: "flex" }}>
+      <TextLoginPage>Plataforma de alunos particulares!</TextLoginPage>
+      <SideLoginForm>
+        <div
           style={{
-            display: "grid",
             alignItems: "center",
-            justifyContent: "center",
-            gap: "2rem",
-            padding: "0 5rem",
+            display: "grid",
           }}
         >
-          <div style={{ margin: "0 auto" }}>{myLogo}</div>
-          <InputField
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            id="name"
-            placeholder="E-mail"
-            type="text"
-          />
-          <InputField
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            id="password"
-            placeholder="Senha"
-            type={passwordVisible ? "text" : "password"}
-          />
-          <div
+          <form
+            onSubmit={handleSubmit}
             style={{
-              display: "flex",
-              justifyContent: "space-between",
+              display: "grid",
               alignItems: "center",
+              justifyContent: "center",
+              gap: "2rem",
+              padding: "0 5rem",
             }}
           >
-            <p
-              onClick={handlePasswordVisible}
+            <div style={{ margin: "0 auto" }}>{myLogo}</div>
+            <InputField
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              id="name"
+              placeholder="E-mail"
+              type="text"
+            />
+            <InputField
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              id="password"
+              placeholder="Senha"
+              type={passwordVisible ? "text" : "password"}
+            />
+            <div
               style={{
-                fontSize: "1.2rem",
-                display: "block",
-                cursor: "pointer",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              {passwordVisible ? (
-                <i
-                  style={{
-                    fontSize: "1.2rem",
-                    display: "block",
-                    cursor: "pointer",
-                  }}
-                  className="fa fa-eye-slash"
-                />
-              ) : (
-                <i
-                  style={{
-                    fontSize: "1.2rem",
-                    display: "block",
-                    cursor: "pointer",
-                  }}
-                  className="fa fa-eye"
-                />
-              )}
-            </p>
-            <Button
-              style={{
-                backgroundColor: "#eee",
-                color: primaryColor(),
-              }}
-              type="submit"
-            >
-              {button}
-            </Button>
-          </div>
-        </form>
-        <Alert
-          style={{
-            maxWidth: "20rem",
-            margin: "auto",
-            display: fail ? "block" : "none",
-          }}
-          severity="error"
-        >
-          Credenciais inválidas!
-        </Alert>
-      </div>
-    </>
+              <p
+                onClick={handlePasswordVisible}
+                style={{
+                  fontSize: "1.2rem",
+                  display: "block",
+                  cursor: "pointer",
+                }}
+              >
+                {passwordVisible ? (
+                  <i
+                    style={{
+                      fontSize: "1.2rem",
+                      display: "block",
+                      cursor: "pointer",
+                    }}
+                    className="fa fa-eye-slash"
+                  />
+                ) : (
+                  <i
+                    style={{
+                      fontSize: "1.2rem",
+                      display: "block",
+                      cursor: "pointer",
+                    }}
+                    className="fa fa-eye"
+                  />
+                )}
+              </p>
+              <Button
+                style={{
+                  backgroundColor: "#eee",
+                  color: primaryColor(),
+                }}
+                type="submit"
+              >
+                {button}
+              </Button>
+            </div>
+          </form>
+          <Alert
+            style={{
+              maxWidth: "20rem",
+              margin: "auto",
+              display: fail ? "block" : "none",
+            }}
+            severity="error"
+          >
+            Credenciais inválidas!
+          </Alert>
+        </div>
+      </SideLoginForm>
+    </div>
   );
 }
 
