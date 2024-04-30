@@ -103,7 +103,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
             {loading ? (
               <CircularProgress
                 style={{
-                  color: items[level].color,
+                  color: items[level].textcolor,
                 }}
               />
             ) : (
