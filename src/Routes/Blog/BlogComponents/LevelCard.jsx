@@ -107,11 +107,7 @@ export function LevelCard({ headers, _StudentId, picture }) {
                 }}
               />
             ) : (
-              <div
-                style={{
-                  color: items[level].textcolor,
-                }}
-              >
+              <div style={{ color: "#fff" }}>
                 <p>Total Score: {formatNumber(totalScore)}</p>
                 <p>Monthly Score: {formatNumber(monthlyScore)}</p>
               </div>
