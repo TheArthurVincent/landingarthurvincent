@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
-import { All, authorizationToken } from "./Resources/UniversalComponents";
 import NotFound from "./Routes/NotFound/NotFound";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
+import { All, authorizationToken } from "./App.Styled";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -43,21 +43,15 @@ function App() {
 
   return (
     <All>
-      <div
-        style={{
-          width: "100vw",
-        }}
-      >
-        <UserProvider>
-          <Router>
-            <Routes>
-              {routes.map((route, index) => (
-                <Route key={index} path={route.path} element={route.element} />
-              ))}
-            </Routes>
-          </Router>
-        </UserProvider>
-      </div>
+      <UserProvider>
+        <Router>
+          <Routes>
+            {routes.map((route, index) => (
+              <Route key={index} path={route.path} element={route.element} />
+            ))}
+          </Routes>
+        </Router>
+      </UserProvider>
     </All>
   );
 }

@@ -17,7 +17,6 @@ import AppFooter from "../Application/Footer/Footer";
 import Adm from "./Adm/Adm";
 
 export function HomePage({ headers }) {
-
   const [thePermissions, setPermissions] = useState("");
   const [admin, setAdmin] = useState(false);
 
@@ -31,7 +30,6 @@ export function HomePage({ headers }) {
       return;
     }
   }, []);
-
 
   const appRoutes = [
     {
@@ -69,7 +67,9 @@ export function HomePage({ headers }) {
     },
     {
       title: "My Calendar",
-      component: <MyCalendar thePermissions={thePermissions} headers={headers} />,
+      component: (
+        <MyCalendar thePermissions={thePermissions} headers={headers} />
+      ),
     },
     {
       path: "/adm-businessmanagement",
@@ -82,9 +82,7 @@ export function HomePage({ headers }) {
         ),
     },
   ];
-  useEffect(() => {
-    console.log(admin);
-  }, []);
+
   return (
     <>
       <TopBar />
@@ -101,7 +99,7 @@ export function HomePage({ headers }) {
           );
         })}
       </Routes>
-      <AppFooter />
+      {/* <AppFooter /> */}
       <Outlet />
     </>
   );

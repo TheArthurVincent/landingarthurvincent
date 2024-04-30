@@ -71,27 +71,6 @@ export function updateScore(totalScore) {
 
 // Função que verifica o nível do aluno
 
-export const All = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  width: 100vw;
-
-  & *::-webkit-scrollbar {
-    width: 5px;
-    border-radius: 5px;
-  }
-
-  & *::-webkit-scrollbar-track {
-    background: ${darkGreyColor()};
-  }
-
-  & *::-webkit-scrollbar-thumb {
-    background-color: ${secondaryColor()};
-  }
-`;
-
 export const SpanHover = styled.span`
   padding-left: 10px;
   font-family: Athiti;
@@ -1034,51 +1013,6 @@ export const ButtonButton = (text) => {
     </div>
   );
 };
-
-export const sendEmailTemplateLinkPosted = async (to, message) => {
-  try {
-    // await emailjs.send(
-    //   "service_oja9wsi",
-    //   "template_sqtzkz8",
-    //   {
-    //     to_name: to,
-    //     from_name: "arvinenglishschool@gmail.com",
-    //     message: message,
-    //   },
-    //   "6wagjIYRZpgGApc4x"
-    // );
-    // console.log("E-mail enviado com sucesso!");
-  } catch (error) {
-    console.error("Erro ao enviar e-mail:", error);
-  }
-};
-
-export const sendEmailTemplateVideoPosted = async (to, message) => {
-  try {
-    // await emailjs.send(
-    //   "service_oja9wsi",
-    //   "template_6gu2nig",
-    //   {
-    //     to_name: to,
-    //     from_name: "arvinenglishschool@gmail.com",
-    //     message: message,
-    //   },
-    //   "6wagjIYRZpgGApc4x"
-    // );
-    // console.log("E-mail enviado com sucesso!");
-  } catch (error) {
-    console.error("Erro ao enviar e-mail:", error);
-  }
-};
-
-export function authorizationToken() {
-  const headers = {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem("authorization")}`,
-    },
-  };
-  return headers.headers.authorization.split(" ")[1];
-}
 
 export function isDev() {
   if (window.location.hostname === "localhost") {
