@@ -4,7 +4,6 @@ import {
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
-import TopBar from "../../Application/TopBar/TopBar";
 import { Link } from "react-router-dom";
 import {
   alwaysBlack,
@@ -689,7 +688,6 @@ export default function MyCalendar({ headers, thePermissions }) {
   ];
   return (
     <>
-      <TopBar />
       {headers ? (
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
           <RouteDiv>

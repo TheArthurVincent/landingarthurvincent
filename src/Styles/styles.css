@@ -52,11 +52,11 @@ h4 {
 
 body {
   background-size: cover;
-  background-color: #ddd;
+  background-color: #000;
+  background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387");
   background-attachment: fixed;
   background-position: center;
 }
-
 .comment {
   color: var(--white);
   margin-right: 0.5rem;

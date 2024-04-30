@@ -12,7 +12,6 @@ import {
 } from "../../Resources/UniversalComponents";
 
 export default function EnglishActivity({ headers, title, url, questions }) {
-  const { UniversalTexts } = useUserContext();
 
   return (
     <RouteSizeControlBox>

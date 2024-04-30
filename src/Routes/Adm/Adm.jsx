@@ -10,7 +10,6 @@ import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
 import NextTutoring from "./AdmComponents/ClassesManagement/NextTutoring";
-import TopBar from "../../Application/TopBar/TopBar";
 import ManageCourses, {
   ManageModules,
 } from "./AdmComponents/CoursesManagement/ManageCourses";
@@ -82,7 +81,6 @@ export function Adm({ headers }) {
 
   return (
     <>
-      <TopBar />
       <RouteSizeControlBox
         className="smooth"
         style={{

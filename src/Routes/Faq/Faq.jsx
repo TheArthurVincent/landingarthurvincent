@@ -11,18 +11,17 @@ import {
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
 import { transparentWhite } from "../../Styles/Styles";
-import TopBar from "../../Application/TopBar/TopBar";
 import { DivAppear, H3FAQ } from "../MyClasses/MyClasses.Styled";
 import { Input } from "@mui/material";
-import { contentExtras } from "./ExtrasContent";
+import { contentFaq } from "./FaqContent";
 
-export function Extras({ headers }) {
+export function Faq() {
   const { UniversalTexts } = useUserContext();
 
   const [expandedItem, setExpandedItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredContent = contentExtras.filter((item) => {
+  const filteredContent = contentFaq.filter((item) => {
     const lowerCaseSearchQuery = searchQuery.toLowerCase();
     return (
       item.instruction.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -41,7 +40,6 @@ export function Extras({ headers }) {
 
   return (
     <>
-      <TopBar />
       <RouteSizeControlBox style={{ maxWidth: "700px" }} className="smooth">
         <RouteDiv>
           <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
@@ -104,4 +102,4 @@ export function Extras({ headers }) {
   );
 }
 
-export default Extras;
+export default Faq;

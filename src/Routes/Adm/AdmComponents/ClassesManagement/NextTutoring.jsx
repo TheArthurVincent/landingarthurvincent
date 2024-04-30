@@ -5,7 +5,6 @@ import {
   DivFlex,
   FormFlex,
   backDomain,
-  sendEmailTemplateLinkPosted,
 } from "../../../../Resources/UniversalComponents";
 import { Input } from "@mui/material";
 import {
@@ -87,7 +86,6 @@ export function NextTutoring({ headers }) {
         }
       );
       alert("Aula marcada com sucesso!");
-      sendEmailTemplateLinkPosted(selectedEmail, message);
       fetchStudents();
       resetForm();
     } catch (error) {

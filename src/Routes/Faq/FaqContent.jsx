@@ -3,7 +3,7 @@ import { primaryColor, textPrimaryColorContrast } from "../../Styles/Styles";
 import { Link } from "react-router-dom";
 import RankingExplanation from "../Ranking/RankingComponents/RankingExplanation";
 
-export const contentExtras = [
+export const contentFaq = [
   {
     instruction: "Primeiros passos no portal",
     url: "https://vimeo.com/908265449?share=copy",
