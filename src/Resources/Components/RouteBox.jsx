@@ -219,7 +219,7 @@ export const NewLevelCardComponent = styled.div`
   display: grid;
   border-radius: 1rem;
   text-align: center;
-  background: linear-gradient(to bottom, black 0%, #444 50%);
+  background: linear-gradient(to bottom, #555 0%, #111 90%);
   color: white;
   min-width: 200px;
   height: 300px;
