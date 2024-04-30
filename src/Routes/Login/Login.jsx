@@ -99,7 +99,7 @@ export function Login() {
           <InputField
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            id="name"
+            id="password"
             placeholder="Senha"
             type={passwordVisible ? "text" : "password"}
           />

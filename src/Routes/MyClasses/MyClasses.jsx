@@ -21,7 +21,6 @@ import {
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
-import TopBar from "../../Application/TopBar/TopBar";
 import { Link } from "react-router-dom";
 
 export function MyClasses({ headers }) {
@@ -159,7 +158,6 @@ export function MyClasses({ headers }) {
 
   return (
     <>
-      <TopBar />
       <RouteSizeControlBox className="smooth">
         <RouteDiv>
           {!loading ? (

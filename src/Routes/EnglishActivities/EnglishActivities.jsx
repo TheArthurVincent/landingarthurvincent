@@ -7,7 +7,6 @@ import {
 import { NavLink, Outlet, Route, Routes } from "react-router-dom";
 import { ClassCard } from "./EnglishActivities.Styled";
 import { pathGenerator } from "../../Resources/UniversalComponents";
-import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import EnglishActivity from "./EnglishActivity";
 import { verifyToken } from "../../App";
@@ -18,7 +17,6 @@ export default function EnglishActivities({ headers }) {
 
   return (
     <>
-      <TopBar />
       <Routes>
         {activityRoutes.map((activity, index) => {
           return (

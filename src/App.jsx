@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
-import MyClasses from "./Routes/MyClasses/MyClasses";
-import Extras from "./Routes/Extras/Extras";
-import MyProfile from "./Routes/MyProfile/MyProfile";
-import EnglishMaterial from "./Routes/EnglishMaterial/EnglishMaterial";
 import { All, authorizationToken } from "./Resources/UniversalComponents";
-import LiveClasses from "./Routes/MyCourses/LiveClasses";
-import Footer from "./Application/Footer/Footer";
-import { Adm } from "./Routes/Adm/Adm";
-import Ranking from "./Routes/Ranking/Ranking";
-import EnglishActivities from "./Routes/EnglishActivities/EnglishActivities";
 import NotFound from "./Routes/NotFound/NotFound";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
-import MyCalendar from "./Routes/MyCalendar/MyCalendar";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -28,92 +18,22 @@ const headers = {
 };
 
 function App() {
-  const [admin, setAdmin] = useState(false);
-  const [thePermissions, setPermissions] = useState("");
-
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    if (user) {
-      const { permissions } = JSON.parse(user);
-      setPermissions(permissions);
-      setAdmin(permissions === "superadmin" ? true : false);
-    } else {
-      return;
-    }
-  }, []);
-
   const routes = [
     {
       path: "/login",
       element: <Login />,
     },
     {
-      path: "/",
+      path: "/*",
       element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
-    },
-    {
-      path: "/homepage",
-      element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
-    },
-    {
-      path: "/my-classes",
-      element: verifyToken() ? <MyClasses headers={headers} /> : <Login />,
-    },
-    {
-      path: "/my-calendar",
-      element: verifyToken() ? (
-        <MyCalendar headers={headers} thePermissions={thePermissions} />
-      ) : (
-        <Login />
-      ),
-    },
-    {
-      path: "/live-classes",
-      element: verifyToken() ? <LiveClasses headers={headers} /> : <Login />,
-    },
-    {
-      path: "/my-profile",
-      element: verifyToken() ? <MyProfile headers={headers} /> : <Login />,
-    },
-    {
-      path: "/ranking",
-      element: verifyToken() ? <Ranking headers={headers} /> : <Login />,
     },
     {
       path: "/message",
       element: verifyToken() ? <MessageDrive /> : <Login />,
     },
     {
-      path: "/english-material",
-      element: verifyToken() ? (
-        <EnglishMaterial headers={headers} />
-      ) : (
-        <Login />
-      ),
-    },
-    {
-      path: "/english-activities/*",
-      element: verifyToken() ? (
-        <EnglishActivities headers={headers} />
-      ) : (
-        <Login />
-      ),
-    },
-    {
-      path: "/extras",
-      element: verifyToken() ? <Extras headers={headers} /> : <Login />,
-    },
-    {
-      path: "/faq",
-      element: verifyToken() ? <Extras headers={headers} /> : <Login />,
-    },
-    {
       path: "*",
       element: verifyToken() ? <NotFound headers={headers} /> : <Login />,
-    },
-    {
-      path: "/adm-businessmanagement",
-      element: verifyToken() && admin ? <Adm headers={headers} /> : <Login />,
     },
     {
       path: "/signup",
@@ -138,7 +58,6 @@ function App() {
           </Router>
         </UserProvider>
       </div>
-      <Footer />
     </All>
   );
 }

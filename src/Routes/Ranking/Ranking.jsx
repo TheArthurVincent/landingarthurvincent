@@ -4,7 +4,6 @@ import {
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
-import TopBar from "../../Application/TopBar/TopBar";
 import StudentsRanking from "./RankingComponents/StudentsRanking";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
@@ -18,7 +17,7 @@ import RankingTimeline from "./RankingComponents/RankingTimeline";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 
-export default function Ranking({ headers, logged }) {
+export default function Ranking({ headers }) {
   const [value, setValue] = useState("1");
   const [user, setUser] = useState(false);
 
@@ -68,7 +67,6 @@ export default function Ranking({ headers, logged }) {
 
   return (
     <>
-      <TopBar />
       <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
         <RouteDiv>
           <HOne>Ranking</HOne>

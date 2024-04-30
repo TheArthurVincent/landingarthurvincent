@@ -7,22 +7,23 @@ import {
   darkGreyColor,
   mediumGreyColor,
 } from "../../Styles/Styles";
-export default function Footer() {
+export default function AppFooter() {
   const myLogo = LogoSVG(darkGreyColor(), mediumGreyColor(), 1.3);
-
   return (
     <footer
       style={{
-        bottom: "0vh",
         fontSize: "12px",
-        alignItems: "center",
         backgroundColor: alwaysWhite(),
         color: alwaysBlack(),
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
-        marginTop: "1rem",
         padding: "0.5rem",
+        position: "fixed",
+        left: 0,
+        bottom: 0,
+        width: "100%",
+        zIndex: 9,
       }}
     >
       <LogoStyle>{myLogo}</LogoStyle>

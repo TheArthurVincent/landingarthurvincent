@@ -49,7 +49,6 @@ export function MyProfile({ headers }) {
   const { UniversalTexts } = useUserContext();
   return (
     <>
-      <TopBar />
       {headers ? (
         <RouteSizeControlBox
           className="smooth"

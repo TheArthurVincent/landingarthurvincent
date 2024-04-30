@@ -12,7 +12,6 @@ import {
   backDomain,
 } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
-import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
 import { Button, CircularProgress } from "@mui/material";
@@ -190,7 +189,6 @@ export default function EnglishMaterial({ headers }) {
   ];
   return (
     <>
-      <TopBar />
       {headers ? (
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
           <RouteDiv>

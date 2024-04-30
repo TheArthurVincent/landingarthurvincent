@@ -13,7 +13,6 @@ import {
   backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
-import TopBar from "../../Application/TopBar/TopBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
 import { Button, CircularProgress } from "@mui/material";
@@ -25,7 +24,6 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import NextLiveClasses from "./MyCoursesAssets/NextLive";
 
 export default function MyCourses({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -43,7 +41,7 @@ export default function MyCourses({ headers }) {
       );
       setClasses(response.data);
       setLoading(false);
-    } catch (error) {}
+    } catch (error) { }
   }
 
   useEffect(() => {
@@ -161,7 +159,6 @@ export default function MyCourses({ headers }) {
 
   return (
     <>
-      <TopBar />
       <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <>
