@@ -22,7 +22,7 @@ export default function Ranking({ headers }) {
 
   const { UniversalTexts } = useUserContext();
 
-  const [value, setValue] = useState("1");
+  const [value, setValue] = useState("4");
   const [user, setUser] = useState(false);
 
   useEffect(() => {

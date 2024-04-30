@@ -7,41 +7,25 @@ import {
   getVideoEmbedUrl,
 } from "../../../Resources/UniversalComponents";
 import WarningText from "../../../Resources/Warning";
+import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 
 export default function RankingExplanation() {
+  const { UniversalTexts } = useUserContext();
+
   const h3 = {
     textAlign: "center",
     color: primaryColor(),
     fontWeight: 600,
     margin: "1rem 0",
   };
-  const h4 = {
-    textDecoration: "underline",
-    color: primaryColor(),
-    fontWeight: 600,
-    margin: "1rem 0",
-  };
-
   return (
     <>
-      <h3 style={h3}>O Propósito</h3>
-      <p>
-        Nosso sistema de classificação é uma verdadeira celebração de sua
-        dedicação! Cada tarefa realizada, cada meta alcançada e cada passo dado
-        em direção à fluência é uma oportunidade de ganhar pontos e brilhar!
-        Temos dois tipos de pontuação: o <strong>MONTHLY SCORE</strong>, que é
-        zerado a cada novo mês, e o <strong>TOTAL SCORE</strong>, que acumula ao
-        longo do tempo. A cada mês, destacamos os líderes da pontuação mensal(
-        <strong>MONTHLY SCORE</strong>), oferecendo descontos exclusivos ou
-        aulas extras como recompensa, e monitoramos o progresso total de cada
-        aluno, impulsionando-os para novos patamares de fluência. Não é só uma
-        competição; é uma jornada emocionante rumo à excelência linguística!
-      </p>
-      <h3 style={h3}>Como pontuar</h3>
+      <p>{UniversalTexts.timelineExplanationText}</p>
+      <h3 style={h3}>{UniversalTexts.score}</h3>
       <div
         style={{
           margin: "auto",
-          display:"grid",
+          display: "grid",
           justifyContent: "center",
           justifyItems: "center",
           alignItems: "center",
@@ -66,10 +50,8 @@ export default function RankingExplanation() {
           alt="others"
         />
       </div>
-      <WarningText
-        text={`Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!`}
-      />
-      <h3 style={h3}>Qualificação mensal</h3>
+      <WarningText text={UniversalTexts.t3000} />
+      <h3 style={h3}>{UniversalTexts.monthlyRanking}</h3>
       <ul>
         <li
           style={{
@@ -82,8 +64,7 @@ export default function RankingExplanation() {
             color: "#fff",
           }}
         >
-          <strong> 1st place</strong> = 15% discount/cashback (no mês seguinte à
-          qualificação) <strong>ou</strong> 2 aulas extras (particulares);
+          {UniversalTexts.f1st}
         </li>
         <li
           style={{
@@ -96,8 +77,7 @@ export default function RankingExplanation() {
             color: "#fff",
           }}
         >
-          <strong> 2nd place</strong> = 10% discount/cashback (no mês seguinte à
-          qualificação) <strong>ou</strong> 1 aula extra (particular);
+          {UniversalTexts.s2nd}
         </li>
         <li
           style={{
@@ -110,16 +90,14 @@ export default function RankingExplanation() {
             color: "#fff",
           }}
         >
-          <strong> 3rd place</strong> = 5% discount/cashback (no mês seguinte à
-          qualificação) <strong>ou</strong> 1 aula extra (particular);
+          {UniversalTexts.t3rd}
         </li>
       </ul>
       <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
-        <h3 style={h3}>Passando de Nível (5% de desconto no mês seguinte à qualificação)</h3>
+        <h3 style={h3}>{UniversalTexts.uplevel}</h3>
         <IFrameVideoInstructions
           src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
         />
-
         <RankingList />
       </div>
     </>
