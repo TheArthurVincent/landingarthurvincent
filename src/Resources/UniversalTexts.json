@@ -1,4 +1,8 @@
 {
+  "timeline": "Linha do tempo",
+  "rankingExplanation":"Explicação",
+  "totalRanking":"Totais",
+  "monthlyRanking":"Ranking Mensal",
   "liveClasses": "Aulas em grupo",
   "nextLiveClass": "Próximas aulas em grupo",
   "leaveButton": "Sair",

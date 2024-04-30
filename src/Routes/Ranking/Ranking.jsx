@@ -16,8 +16,12 @@ import RankingExplanation from "./RankingComponents/RankingExplanation";
 import RankingTimeline from "./RankingComponents/RankingTimeline";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 export default function Ranking({ headers }) {
+
+  const { UniversalTexts } = useUserContext();
+
   const [value, setValue] = useState("1");
   const [user, setUser] = useState(false);
 
@@ -28,12 +32,12 @@ export default function Ranking({ headers }) {
 
   const componentsToRender = [
     {
-      title: "Monthly Ranking",
+      title: UniversalTexts.monthlyRanking,
       value: "1",
       component: <StudentsRanking headers={headers} />,
     },
     {
-      title: "Totais",
+      title: UniversalTexts.totalRanking,
       value: "2",
       component: (
         <StudentsRankingTotal
@@ -44,7 +48,7 @@ export default function Ranking({ headers }) {
       ),
     },
     {
-      title: "Timeline",
+      title: UniversalTexts.timeline,
       value: "3",
       component: (
         <RankingTimeline
@@ -55,7 +59,7 @@ export default function Ranking({ headers }) {
       ),
     },
     {
-      title: "O que é?",
+      title: UniversalTexts.rankingExplanation,
       value: "4",
       component: <RankingExplanation />,
     },
