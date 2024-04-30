@@ -103,11 +103,15 @@ export function LevelCard({ headers, _StudentId, picture }) {
             {loading ? (
               <CircularProgress
                 style={{
-                  color: items[level].textcolor,
+                  color: items[level].color,
                 }}
               />
             ) : (
-              <div>
+              <div
+                style={{
+                  color: items[level].textcolor,
+                }}
+              >
                 <p>Total Score: {formatNumber(totalScore)}</p>
                 <p>Monthly Score: {formatNumber(monthlyScore)}</p>
               </div>
