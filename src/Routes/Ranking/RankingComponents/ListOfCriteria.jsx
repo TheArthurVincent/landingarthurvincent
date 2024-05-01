@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const listOfCriteria = [
   {
     title: "Aula particular",
-    comment: "A prova pode ser realizada em Março/Junho/Setembro/Dezembro)",
+    comment: "A prova pode ser realizada em Março/Junho/Setembro/Dezembro",
     icon: "fa fa-book",
     color: "rgb(230, 160, 32)",
     score: [
-      { description: "Homework Realizado", score: 612, color: "green" },
+      { description: "Homework Realizado", score: 610, color: "green" },
       {
         description: "Homework Atrasado (> 7dias)",
-        score: 223,
+        score: 220,
         color: "green",
       },
       {
@@ -27,16 +27,16 @@ export const listOfCriteria = [
     transform: "rotate(-25deg)",
     color: "rgb(1, 188, 255)",
     score: [
-      { description: "6 dias em 7 (1x/semana)", score: 616, color: "green" },
-      { description: "3 dias em 7 (1x/semana)", score: 281, color: "green" },
+      { description: "6 dias em 7 (1x/semana)", score: 700, color: "green" },
+      { description: "3 dias em 7 (1x/semana)", score: 200, color: "green" },
       {
         description: "Chegou na aula com o Anki totalmente revisado",
-        score: 123,
+        score: 130,
         color: "green",
       },
       {
         description: "Enviou foto do Anki totalmente revisado",
-        score: 86,
+        score: 85,
         color: "green",
       },
     ],
@@ -48,24 +48,24 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 486,
+        score: 480,
         description: "Homework Group Class",
         text: "Homework Group Class",
       },
       {
         description: "Homework Atrasado (> 7 dias)",
-        score: 111,
+        score: 110,
         color: "green",
       },
       {
         color: "green",
-        score: 79,
+        score: 80,
         description: "Participou da aula em grupo",
         text: "Participou da aula em grupo",
       },
       {
         color: "green",
-        score: 802,
+        score: 800,
         description: "Fez Apresentação",
         text: "Apresentação (pode fazer na aula particular)",
       },
@@ -78,19 +78,19 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 54,
+        score: 50,
         description: "Recomendação fechada",
         text: "Recomendação",
       },
       {
         color: "green",
-        score: 32,
+        score: 20,
         description: "Instagram Post estudando marcando @thearthurvincent_",
         text: "Instagram Post ",
       },
       {
         color: "red",
-        score: -133,
+        score: -130,
         description: "AWOL Faltou na aula e não avisou",
         text: "Faltou na aula e não avisou",
       },
