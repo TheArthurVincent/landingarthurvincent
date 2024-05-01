@@ -1,6 +1,8 @@
 import React from "react";
 import RankingList from "./RankingList";
-import { primaryColor } from "../../../Styles/Styles";
+import {
+  primaryColor,
+} from "../../../Styles/Styles";
 import {
   IFrameVideoInstructions,
   ImgResponsive2,
@@ -8,6 +10,7 @@ import {
 } from "../../../Resources/UniversalComponents";
 import WarningText from "../../../Resources/Warning";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
+import RankingExplanationComponent from "./RankingExplanationComponents/RankingExplanationComponents";
 
 export default function RankingExplanation() {
   const { UniversalTexts } = useUserContext();
@@ -33,6 +36,7 @@ export default function RankingExplanation() {
           gridTemplateColumns: "1fr 1fr",
         }}
       >
+        <RankingExplanationComponent />
         <ImgResponsive2
           src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(1).png?updatedAt=1709316937391"
           alt="class"

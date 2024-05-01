@@ -96,7 +96,6 @@ export default function StudentsRanking({ headers }) {
   const theItems = levels();
 
   useEffect(() => {
-    console.log(theItems, "theItems")
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
     setUser(getLoggedUser);
     getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
