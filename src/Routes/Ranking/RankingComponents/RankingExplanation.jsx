@@ -1,8 +1,6 @@
 import React from "react";
 import RankingList from "./RankingList";
-import {
-  primaryColor,
-} from "../../../Styles/Styles";
+import { primaryColor } from "../../../Styles/Styles";
 import {
   IFrameVideoInstructions,
   ImgResponsive2,
@@ -22,38 +20,10 @@ export default function RankingExplanation() {
     margin: "1rem 0",
   };
   return (
-    <>
+    <div>
       <p>{UniversalTexts.timelineExplanationText}</p>
       <h3 style={h3}>{UniversalTexts.score}</h3>
-      <div
-        style={{
-          margin: "auto",
-          display: "grid",
-          justifyContent: "center",
-          justifyItems: "center",
-          alignItems: "center",
-          alignContent: "center",
-          gridTemplateColumns: "1fr 1fr",
-        }}
-      >
-        <RankingExplanationComponent />
-        <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(1).png?updatedAt=1709316937391"
-          alt="class"
-        />
-        <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/Levels%20_1%20(3).png?updatedAt=1709318003761"
-          alt="anki"
-        />
-        <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/groupclassesscore.png?updatedAt=1709216354830"
-          alt="group"
-        />
-        <ImgResponsive2
-          src="https://ik.imagekit.io/vjz75qw96/assets/arvin_visuals/othersscore.png?updatedAt=1709216354890"
-          alt="others"
-        />
-      </div>
+      <RankingExplanationComponent />
       <WarningText text={UniversalTexts.t3000} />
       <h3 style={h3}>{UniversalTexts.monthlyRanking}</h3>
       <ul>
@@ -104,6 +74,6 @@ export default function RankingExplanation() {
         />
         <RankingList />
       </div>
-    </>
+    </div>
   );
 }

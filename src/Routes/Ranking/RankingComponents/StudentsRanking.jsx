@@ -22,7 +22,7 @@ import {
   transparentBlack,
 } from "../../../Styles/Styles";
 
-import { buttons } from "../../Adm/AdmComponents/FindStudentAssets/AssetsFindStudent/ButtonsList";
+import { listOfButtons } from "./ListOfCriteria";
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -190,7 +190,7 @@ export default function StudentsRanking({ headers }) {
               gap: "0.5rem",
             }}
           >
-            {buttons.map((item, index) => {
+            {listOfButtons.map((item, index) => {
               return (
                 <Button
                   key={index}
@@ -338,8 +338,8 @@ export default function StudentsRanking({ headers }) {
                     display: isAdm
                       ? "flex"
                       : index < 5 && item.monthlyScore > 0
-                        ? "flex"
-                        : "none",
+                      ? "flex"
+                      : "none",
                     background: theItems[levelNumber].color,
                     color: theItems[levelNumber].textcolor,
                   }}

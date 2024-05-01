@@ -154,7 +154,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
                     ? "fa fa-book"
                     : item.type == "Extra activity"
                     ? "fa fa-users"
-                    : item.type == "Live Class"
+                    : item.type == "Live Class" || "Group Classes"
                     ? "fa fa-graduation-cap"
                     : "fa fa-pencil",
                 color:
@@ -164,7 +164,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
                     ? "#E6A020"
                     : item.type == "Extra activity"
                     ? "#123"
-                    : item.type == "Live Class"
+                    : item.type == "Live Class" || "Group Classes"
                     ? "#753"
                     : "#123",
               };
