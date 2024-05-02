@@ -93,6 +93,7 @@ export const BlogPostTitle = styled.div`
   align-items: center;
   justify-content: space-between;
   min-height: 2.5rem;
+  font-size: 1rem;
   color: ${textPrimaryColorContrast()};
   @media (max-width: 650px) {
     margin: 3px;
