@@ -1421,17 +1421,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                               </Link>
                             </p>
                             <button
-                              className="button"
                               onClick={() => {
                                 seeEditOneTutoring(item);
                               }}
                             >
                               Edit
                             </button>
-                            <button
-                              className="button"
-                              onClick={() => deleteTutoring(item)}
-                            >
+                            <button onClick={() => deleteTutoring(item)}>
                               Delete
                             </button>
                           </div>
@@ -1492,9 +1488,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                   type="text"
                   required
                 />
-                <button className="button" onClick={updateOneTutoring}>
-                  Save
-                </button>
+                <button onClick={updateOneTutoring}>Save</button>
               </div>
               <div style={{ display: !seeEditTutoring ? "block" : "none" }}>
                 <h2>New</h2>
@@ -1543,9 +1537,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                   type="text"
                   required
                 />
-                <button className="button" onClick={newTutoring}>
-                  New
-                </button>
+                <button onClick={newTutoring}>New</button>
               </div>
             </div>
           </>
