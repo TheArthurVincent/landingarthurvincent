@@ -7,10 +7,10 @@ export const listOfCriteria = [
     icon: "fa fa-book",
     color: "rgb(230, 160, 32)",
     score: [
-      { description: "Homework Realizado", score: 610, color: "green" },
+      { description: "Homework Realizado", score: 650, color: "green" },
       {
-        description: "Homework Atrasado (> 7dias)",
-        score: 220,
+        description: "Homework Atrasado (> 7 dias)",
+        score: 200,
         color: "green",
       },
       {
@@ -31,7 +31,7 @@ export const listOfCriteria = [
       { description: "3 dias em 7 (1x/semana)", score: 200, color: "green" },
       {
         description: "Chegou na aula com o Anki totalmente revisado",
-        score: 130,
+        score: 110,
         color: "green",
       },
       {
@@ -48,12 +48,12 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 480,
+        score: 450,
         description: "Homework Group Class",
-        text: "Homework Group Class",
+        text: "Homework Group Class (entregar na aula particular)",
       },
       {
-        description: "Homework Atrasado (> 7 dias)",
+        description: "Homework Atrasado (> 7 dias atrás)",
         score: 110,
         color: "green",
       },
@@ -90,7 +90,7 @@ export const listOfCriteria = [
       },
       {
         color: "red",
-        score: -130,
+        score: -150,
         description: "AWOL Faltou na aula e não avisou",
         text: "Faltou na aula e não avisou",
       },

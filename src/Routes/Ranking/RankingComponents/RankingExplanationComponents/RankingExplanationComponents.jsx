@@ -71,6 +71,7 @@ export default function RankingExplanationComponent() {
                     fontFamily: "Athiti",
                     fontWeight: 600,
                     padding: "5px",
+                    top:"*15px",
                     borderRadius: "12px",
                   }}
                 >

@@ -73,14 +73,7 @@ export function Adm({ headers }) {
 
   return (
     <>
-      <RouteSizeControlBox
-        className="smooth"
-        style={
-          {
-            // maxWidth: "1000px",
-          }
-        }
-      >
+      <RouteSizeControlBox className="smooth">
         <TabContext value={value}>
           <Box
             style={{
