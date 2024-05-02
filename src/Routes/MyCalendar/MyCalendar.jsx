@@ -57,7 +57,6 @@ export default function MyCalendar({ headers, thePermissions }) {
   const [today, setTheToday] = useState(new Date());
   const { UniversalTexts } = useUserContext();
 
-  // const today = new Date();
   const futureDates = [];
 
   // AXIOS
@@ -131,11 +130,40 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-  const changeToday = (e) => {
+  const changeToday = async (e) => {
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    setLoading(true);
     const newDate = new Date(e.target.value);
-    console.log(newDate);
+    const rightDate = newDate.setDate(newDate.getDate() + 1);
     setTheToday(newDate);
-    fetchGeneralEvents();
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${newDate}`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsList;
+      const eventsLoop = res.map((event) => {
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
+        return event;
+      });
+      setEvents(eventsLoop);
+      setTimeout(() => {
+        setLoading(false);
+      }, 300);
+    } catch (error) {
+      console.log(error, "Erro ao encontrar alunos");
+    }
+  };
+
+  const seeToday = async () => {
+    const newDate = new Date();
+    await (() => setTheToday(newDate)); // Esperar pela atualização do estado
+    fetchGeneralEvents(); // Chamar fetchGeneralEvents após o estado ser atualizado
   };
 
   const fetchOneEvent = async (id) => {
@@ -717,7 +745,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               >
                 <i className="fa fa-user-circle" aria-hidden="true" />
               </Button>
-              <Button onClick={() => fetchGeneralEvents()}>
+              <Button onClick={seeToday}>
                 <i className="fa fa-refresh" aria-hidden="true" />
               </Button>
               <input type="date" onChange={changeToday} />
@@ -793,16 +821,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                               event.category === "Group Class"
                                 ? "#F2F1CE"
                                 : event.category === "Rep"
-                                  ? "#b33"
-                                  : event.category === "Tutoring"
-                                    ? "#fff"
-                                    : event.category === "Prize Class"
-                                      ? "orange"
-                                      : event.category === "Standalone"
-                                        ? "#ddd"
-                                        : event.category === "Test"
-                                          ? "#C2F0C2"
-                                          : "#000",
+                                ? "#b33"
+                                : event.category === "Tutoring"
+                                ? "#fff"
+                                : event.category === "Prize Class"
+                                ? "orange"
+                                : event.category === "Standalone"
+                                ? "#ddd"
+                                : event.category === "Test"
+                                ? "#C2F0C2"
+                                : "#000",
 
                             textAlign: "center",
                             display: "grid",
@@ -818,22 +846,23 @@ export default function MyCalendar({ headers, thePermissions }) {
                               padding: "5px",
                               alignItems: "center",
                               justifyContent: "center",
-                              border: `solid 2px ${event.status == "marcado"
+                              border: `solid 2px ${
+                                event.status == "marcado"
                                   ? primaryColor()
                                   : event.status == "realizada"
-                                    ? secondaryColor()
-                                    : event.status == "desmarcado"
-                                      ? "red"
-                                      : "#000"
-                                }`,
+                                  ? secondaryColor()
+                                  : event.status == "desmarcado"
+                                  ? "red"
+                                  : "#000"
+                              }`,
                               backgroundColor:
                                 event.status == "desmarcado"
                                   ? "#FFCCCC"
                                   : event.status == "marcado"
-                                    ? "#CCE5FF"
-                                    : event.status == "realizada"
-                                      ? "#CCFFCC"
-                                      : "#000",
+                                  ? "#CCE5FF"
+                                  : event.status == "realizada"
+                                  ? "#CCFFCC"
+                                  : "#000",
                             }}
                           >
                             <div
@@ -926,8 +955,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.status == "marcado"
                                 ? "Scheduled"
                                 : event.status == "desmarcado"
-                                  ? "Canceled"
-                                  : "Realized"}
+                                ? "Canceled"
+                                : "Realized"}
                             </div>
                           </div>
                           {isEventTimeNow(event) && (
