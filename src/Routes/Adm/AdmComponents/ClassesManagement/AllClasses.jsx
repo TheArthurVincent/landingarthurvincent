@@ -49,6 +49,7 @@ export function AllClasses({ headers }) {
     } catch (error) {
       console.log(error);
       alert("Erro ao listar vídeo aulas");
+      window.location.assign("/");
       setLoading(false);
     }
   };

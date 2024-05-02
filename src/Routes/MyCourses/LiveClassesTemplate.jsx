@@ -43,7 +43,8 @@ export default function LiveClassesTemplate({
         );
         setCourseModules(response.data.modules);
       } catch (error) {
-        alert("Erro ao importar módulos");
+        alert(error, "Erro ao importar módulos, faça login novamente");
+        window.location.assign("/");
       }
     }
     fetchData();
