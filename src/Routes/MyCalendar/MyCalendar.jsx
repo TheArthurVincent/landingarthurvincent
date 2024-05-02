@@ -601,6 +601,15 @@ export default function MyCalendar({ headers, thePermissions }) {
       setIsTutoring(true);
     }
 
+    if (e.target.value == "Rep") {
+      setTheNewLink(
+        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
+      );
+      console.log(
+        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
+      );
+    }
+
     setCategory(e.target.value);
   };
 
