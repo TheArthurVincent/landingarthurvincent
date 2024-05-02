@@ -87,7 +87,7 @@ export function Blog({ headers }) {
       }, 300);
     } catch (error) {
       alert(error, "Erro ao importar posts, faça login novamente");
-      window.location.assign("/");
+      window.location.assign("/login");
       setLoading(false);
     }
   }

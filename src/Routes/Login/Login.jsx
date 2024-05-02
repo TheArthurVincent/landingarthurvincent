@@ -54,7 +54,7 @@ export function Login() {
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       setLoading(false);
       setButton("Sucesso");
-      window.location.reload("/");
+      window.location.assign("/");
     } catch (error) {
       setFail(true);
       setButton("Entrar");
