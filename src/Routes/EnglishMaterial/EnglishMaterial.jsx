@@ -190,7 +190,7 @@ export default function EnglishMaterial({ headers }) {
   return (
     <>
       {headers ? (
-        <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
+        <RouteSizeControlBox className="smooth">
           <RouteDiv>
             <HOne>{UniversalTexts.englishMaterial}</HOne>
             <div

@@ -725,7 +725,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   return (
     <>
       {headers ? (
-        <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
+        <RouteSizeControlBox className="smooth">
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
             <div style={{ display: "flex" }}>
