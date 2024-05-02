@@ -24,52 +24,7 @@ export const RouteDiv = styled.div`
   color: ${alwaysBlack()};
   padding: 0.5rem;
 `;
-// margin-left: auto;
-// margin-right: auto;
-// margin-top: 1rem;
-// @media (max-width: 1200px) {
-//   max-width: 1000px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// @media (max-width: 1100px) {
-//   max-width: 900px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// @media (max-width: 1000px) {
-//   max-width: 800px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// @media (max-width: 900px) {
-//   max-width: 700px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// @media (max-width: 800px) {
-//   max-width: 600px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// @media (max-width: 700px) {
-//   max-width: 500px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-// @media (max-width: 600px) {
-//   max-width: 400px;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
-export const BlogSideBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.51rem;
-  @media (max-width: 900px) {
-    flex-direction: row;
-  }
-`;
+
 export const OverFlow = styled.div`
   max-height: 15rem,
   overflow: auto,
@@ -81,19 +36,13 @@ export const OverFlow = styled.div`
   `;
 export const BlogRouteSizeControlBox = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-  max-width: 1200px;
+  margin: 1rem auto;
+  justify-content: center;
+  max-width: 90vw;
   gap: 0.2rem;
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     flex-direction: column-reverse;
     justify-content: center;
-    max-width: 500px;
-  }
-  @media (max-width: 900px) {
-    max-width: 500px;
-    align-items: center;
   }
   &.smooth {
     animation-name: slideInLeft;
@@ -218,9 +167,9 @@ export const NewLevelCardComponent = styled.div`
   font-size: 12px;
   justify-content: center;
   text-align: center;
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     display: flex;
-    width: 30rem;
+    width: 89vw;
     height: 9rem;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -228,7 +177,6 @@ export const NewLevelCardComponent = styled.div`
   }
   @media (max-width: 450px) {
     display: flex;
-    width: 21rem;
     height: 9rem;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -301,7 +249,7 @@ export const LevelCardLevel = styled.img`
   transform: translate(-50%, -40%);
   animation: ${spinAnimation} 1s ease-out forwards;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     top: 36%;
     left: -18%;
   }
@@ -318,7 +266,7 @@ export const LevelCardPhotoLevel = styled.img`
   position: absolute;
   top: 17%;
   left: 0%;
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     top: 3%;
     left: -68%;
   }
@@ -331,7 +279,7 @@ export const TextLevelCard = styled.div`
   position: relative;
   top: 30%;
   left: 0%;
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     top: 0%;
     left: -5%;
   }
