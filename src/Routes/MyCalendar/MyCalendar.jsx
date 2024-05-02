@@ -613,7 +613,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   // Formulas
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 7; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
