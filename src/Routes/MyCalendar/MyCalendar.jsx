@@ -1045,7 +1045,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                 display: isVisible ? "block" : "none",
                 zIndex: 100,
                 backgroundColor: alwaysWhite(),
-                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
                 padding: "1rem",
                 width: "20rem",
                 height: "30rem",
