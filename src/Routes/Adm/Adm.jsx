@@ -9,13 +9,12 @@ import { alwaysWhite } from "../../Styles/Styles";
 import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
-import NextTutoring from "./AdmComponents/ClassesManagement/NextTutoring";
-import ManageCourses, {
-  ManageModules,
-} from "./AdmComponents/CoursesManagement/ManageCourses";
+
 import AllClasses from "./AdmComponents/ClassesManagement/AllClasses";
-import NextLiveClass from "./AdmComponents/ClassesManagement/NextLiveClass";
 import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
+import ManageModules, {
+  ManageGroupClasses,
+} from "./AdmComponents/GroupClassManagement/ManageCourses";
 
 export function Adm({ headers }) {
   const [value, setValue] = useState("1");
@@ -27,9 +26,10 @@ export function Adm({ headers }) {
       tooltip: "Marque uma aula particular.",
       component: (
         <div>
-          <NextTutoring headers={headers} />
-          <NextLiveClass headers={headers} />
+          {/* <NextTutoring headers={headers} /> */}
+          {/* <NextLiveClass headers={headers} /> */}
           <NewTutoring headers={headers} />
+          <AllClasses headers={headers} />
         </div>
       ),
     },
@@ -45,12 +45,10 @@ export function Adm({ headers }) {
       ),
     },
     {
-      title: "Cursos",
+      title: "Aulas em grupo",
       value: "3",
-      tooltip: "Cursos",
-      component:
-        ((<ManageModules headers={headers} />),
-        (<ManageCourses headers={headers} />)),
+      tooltip: "Aulas em grupo",
+      component: <ManageGroupClasses headers={headers} />,
     },
     {
       title: "Postagens",
@@ -58,12 +56,6 @@ export function Adm({ headers }) {
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost headers={headers} />,
-    },
-    {
-      title: "Aulas Gravadas",
-      value: "5",
-      tooltip: "Todas as aulas.",
-      component: <AllClasses headers={headers} />,
     },
     {
       title: "Links úteis",
@@ -81,12 +73,7 @@ export function Adm({ headers }) {
 
   return (
     <>
-      <RouteSizeControlBox
-        className="smooth"
-        style={{
-          maxWidth: "1000px",
-        }}
-      >
+      <RouteSizeControlBox className="smooth">
         <TabContext value={value}>
           <Box
             style={{
@@ -120,7 +107,7 @@ export function Adm({ headers }) {
           {componentsToRender.map((component, index) => {
             return (
               <TabPanel
-                style={{ padding: 0, margin: "1rem auto", maxWidth: "1000px" }}
+                style={{ padding: 0, margin: "1rem auto" }}
                 key={index + component.value}
                 value={component.value}
               >

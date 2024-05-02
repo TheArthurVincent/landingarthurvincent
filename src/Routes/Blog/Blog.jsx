@@ -5,7 +5,6 @@ import {
   BlogPostTitle,
   HTwo,
   BackgroundClickBlog,
-  BlogSideBox,
   HOne,
   SpanIcon,
 } from "../../Resources/Components/RouteBox";
@@ -22,6 +21,7 @@ import {
 import {
   alwaysBlack,
   alwaysWhite,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -29,7 +29,7 @@ import {
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
-import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
+import { DivPost, SpanDisapear } from "./Blog.Styled";
 import LevelCard from "./BlogComponents/LevelCard";
 
 export function Blog({ headers }) {
@@ -51,6 +51,7 @@ export function Blog({ headers }) {
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
+    seeConfirmDelete(false);
   };
 
   const handleConfirmDelete = () => {
@@ -85,7 +86,8 @@ export function Blog({ headers }) {
         setLoading(false);
       }, 300);
     } catch (error) {
-      alert(error, "Erro ao importar posts");
+      alert(error, "Erro ao importar posts, faça login novamente");
+      window.location.assign("/");
       setLoading(false);
     }
   }
@@ -157,387 +159,381 @@ export function Blog({ headers }) {
   };
 
   return (
-    <>
-      <BackgroundClickBlog
-        onClick={() => handleSeeModal()}
-        style={{ display: !isVisible ? "none" : "flex" }}
-      />
-      <BlogRouteSizeControlBox className="smooth">
-        <RouteDiv>
-          <div
-            style={{
-              margin: "1rem 0.5rem 0 0",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginLeft: "1rem",
-                gap: "1rem",
-              }}
-            >
-              <HTwo
-                style={{
-                  margin: 0,
-                }}
-              >
-                {UniversalTexts.hello}
-                {name}!
-              </HTwo>
-
-              <div
-                style={{
-                  display: "flex",
-                }}
-              >
-                {[
-                  {
-                    link: "https://ankiweb.net/decks",
-                    title: (
-                      <i
-                        style={{ transform: "rotate(-25deg)" }}
-                        className="fa fa-star-o"
-                        aria-hidden="true"
-                      />
-                    ),
-                    tooltip: "Anki",
-                    color: "#01BCFF",
-                  },
-                  {
-                    link: googleDriveLink,
-                    title: <i className="fa fa-folder" aria-hidden="true" />,
-                    tooltip: UniversalTexts.personalFolder,
-                    color: "brown",
-                  },
-                  {
-                    link: "https://wa.me/5511915857807",
-                    title: <i className="fa fa-whatsapp" aria-hidden="true" />,
-                    tooltip: UniversalTexts.talkToTheTeacher,
-                    color: "green",
-                  },
-                ].map((item, index) => {
-                  return (
-                    <Link
-                      key={index}
-                      style={{
-                        marginRight: "0.5rem",
-                        padding: "0.3rem",
-                        fontSize: "1.5rem",
-                        height: "1.5rem",
-                        textAlign: "center",
-                        color: item.color,
-                        gap: "0.2rem",
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                      target="_blank"
-                      to={item.link}
-                    >
-                      <SpanIcon>
-                        <span
-                          style={{
-                            display: "block",
-                            color: item.color,
-                            fontSize: "1.4rem",
-                          }}
-                        >
-                          {item.title}
-                        </span>
-                        <span
-                          style={{
-                            fontWeight: 600,
-                          }}
-                        >
-                          {item.tooltip}
-                        </span>
-                      </SpanIcon>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-            {/* {!isNextClassVisible ? ( */}
-            <Link
-              style={{
-                backgroundColor: secondaryColor(),
-                color: textSecondaryColorContrast(),
-                padding: "10px",
-                borderRadius: "5px",
-                display: "flex",
-                gap: "5px",
-                alignItems: "center",
-              }}
-              to="/my-calendar"
-            >
-              <i className="fa fa-calendar" aria-hidden="true" />
-              {UniversalTexts.calendar}
-            </Link>
-          </div>
-          <HOne>{UniversalTexts.mural}</HOne>
-          {posts.map((post, index) => (
-            <div
-              key={index}
-              style={{
-                borderBottom: `solid 3px ${primaryColor()} `,
-                paddingBottom: "5rem",
-                marginBottom: "1rem",
-              }}
-            >
-              {post.title && (
-                <BlogPostTitle>
-                  <span
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "2rem",
-                    }}
-                  >
-                    <TitleChangeSize>{post.title}</TitleChangeSize>
-                    {!loading && (
-                      <Button
-                        style={{
-                          display:
-                            permissions == "superadmin" ? "grid" : "none",
-                          backgroundColor: textPrimaryColorContrast(),
-                          color: primaryColor(),
-                          fontSize: "0.6rem",
-                        }}
-                        onClick={() => seeEdition(post._id)}
-                      >
-                        <i className="fa fa-edit" aria-hidden="true" />
-                      </Button>
-                    )}
-                  </span>
-                  {post.createdAt && (
-                    <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
-                  )}
-                </BlogPostTitle>
-              )}
-              <DivPost>
-                <>
-                  {post.videoUrl ? (
-                    <IFrameVideoClass src={getVideoEmbedUrl(post.videoUrl)} />
-                  ) : post.img ? (
-                    <ImgBlog src={post.img} alt="logo" />
-                  ) : null}
-                </>
-                <div
-                  style={{
-                    margin: "1rem",
-                    fontSize: "1.1rem",
-                    display: "block",
-                    padding: "1rem",
-                    backgroundColor: alwaysWhite(),
-                    color: alwaysBlack(),
-                  }}
-                >
-                  <div dangerouslySetInnerHTML={{ __html: post.text }} />
-                </div>
-              </DivPost>
-            </div>
-          ))}
-        </RouteDiv>
-
+    <BlogRouteSizeControlBox className="smooth">
+      <RouteDiv>
         <div
-          className="modal"
           style={{
-            position: "fixed",
-            display: isVisible ? "block" : "none",
-            zIndex: 100,
-            backgroundColor: alwaysWhite(),
-            padding: "1rem",
-            width: "29rem",
-            height: "30rem",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            margin: "1rem 0.5rem 0 0",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <Xp onClick={() => handleSeeModal()}>X</Xp>
-          <h2
-            style={{
-              margin: "0.5rem 0",
-            }}
-          >
-            {UniversalTexts.editPost}
-          </h2>
-          <div style={{ display: "grid", gap: "2px" }}>
-            <input
-              value={newTitle}
-              onChange={(event) => setNewTitle(event.target.value)}
-              id="title"
-              placeholder="Title"
-              type="text"
-              style={{
-                alignItems: "center",
-                justifyContent: "space-around",
-                padding: "0.4rem",
-                marginBottom: "0.3rem",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-                backgroundColor: "white",
-                width: "95%",
-                border: "#555 1px solid",
-              }}
-            />
-            <input
-              value={newUrlVideo}
-              onChange={(event) => setNewUrlVideo(event.target.value)}
-              id="VideoUrl"
-              placeholder="VideoUrl (Youtube/Vimeo)"
-              type="text"
-              style={{
-                alignItems: "center",
-                justifyContent: "space-around",
-                padding: "0.4rem",
-                marginBottom: "0.3rem",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-                backgroundColor: "white",
-                width: "95%",
-                border: "#555 1px solid",
-              }}
-            />
-            <input
-              value={newImg}
-              onChange={(event) => setNewImg(event.target.value)}
-              id="VideoUrl"
-              placeholder="Imagem URL"
-              type="text"
-              style={{
-                alignItems: "center",
-                justifyContent: "space-around",
-                padding: "0.4rem",
-                marginBottom: "0.3rem",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-                backgroundColor: "white",
-                width: "95%",
-                border: "#555 1px solid",
-              }}
-            />
-            <textarea
-              style={{
-                alignItems: "center",
-                justifyContent: "space-around",
-                padding: "0.4rem",
-                marginBottom: "0.3rem",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-                backgroundColor: "white",
-                width: "95%",
-                border: "#555 1px solid",
-                minHeight: "10rem",
-              }}
-              value={newText}
-              onChange={(event) => setNewText(event.target.value)}
-              id="Texto"
-              placeholder="Texto"
-              type="text"
-              cols="20"
-              rows="10"
-              required
-            />
-          </div>
           <div
             style={{
-              marginTop: "2rem",
-              display: !seeConfirmDelete ? "flex" : "none",
-              justifyContent: "space-evenly",
-              gap: "0.5rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginLeft: "1rem",
+              gap: "1rem",
             }}
           >
+            <HTwo
+              style={{
+                margin: 0,
+              }}
+            >
+              {UniversalTexts.hello}
+              {name}!
+            </HTwo>
+
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              {[
+                {
+                  link: "https://ankiweb.net/decks",
+                  title: (
+                    <i
+                      style={{ transform: "rotate(-25deg)" }}
+                      className="fa fa-star-o"
+                      aria-hidden="true"
+                    />
+                  ),
+                  tooltip: "Anki",
+                  color: "#01BCFF",
+                },
+                {
+                  link: googleDriveLink,
+                  title: <i className="fa fa-folder" aria-hidden="true" />,
+                  tooltip: UniversalTexts.personalFolder,
+                  color: "brown",
+                },
+                {
+                  link: "https://wa.me/5511915857807",
+                  title: <i className="fa fa-whatsapp" aria-hidden="true" />,
+                  tooltip: UniversalTexts.talkToTheTeacher,
+                  color: "green",
+                },
+              ].map((item, index) => {
+                return (
+                  <Link
+                    key={index}
+                    style={{
+                      marginRight: "0.5rem",
+                      padding: "0.3rem",
+                      fontSize: "1.5rem",
+                      height: "1.5rem",
+                      textAlign: "center",
+                      color: item.color,
+                      gap: "0.2rem",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                    target="_blank"
+                    to={item.link}
+                  >
+                    <SpanIcon>
+                      <span
+                        style={{
+                          display: "block",
+                          color: item.color,
+                          fontSize: "1.4rem",
+                        }}
+                      >
+                        {item.title}
+                      </span>
+                      <span
+                        style={{
+                          fontWeight: 600,
+                        }}
+                      >
+                        {item.tooltip}
+                      </span>
+                    </SpanIcon>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+          {/* {!isNextClassVisible ? ( */}
+          <Link
+            style={{
+              backgroundColor: secondaryColor(),
+              color: textSecondaryColorContrast(),
+              padding: "10px",
+              borderRadius: "5px",
+              display: "flex",
+              gap: "5px",
+              alignItems: "center",
+            }}
+            to="/my-calendar"
+          >
+            <i className="fa fa-calendar" aria-hidden="true" />
+            {UniversalTexts.calendar}
+          </Link>
+        </div>
+        <HOne>{UniversalTexts.mural}</HOne>
+        {posts.map((post, index) => (
+          <div
+            key={index}
+            style={{
+              border: `solid 1px ${lightGreyColor()} `,
+              paddingBottom: "5rem",
+              marginBottom: "1rem",
+            }}
+          >
+            {post.title && (
+              <BlogPostTitle>
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2rem",
+                  }}
+                >
+                  {!loading && (
+                    <button
+                      className="button"
+                      style={{
+                        display: permissions == "superadmin" ? "grid" : "none",
+                      }}
+                      onClick={() => seeEdition(post._id)}
+                    >
+                      <i className="fa fa-edit" aria-hidden="true" />
+                    </button>
+                  )}
+                  <h2> {post.title}</h2>
+                </span>
+                {post.createdAt && (
+                  <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
+                )}
+              </BlogPostTitle>
+            )}
+            <DivPost>
+              <>
+                {post.videoUrl ? (
+                  <IFrameVideoClass src={getVideoEmbedUrl(post.videoUrl)} />
+                ) : post.img ? (
+                  <ImgBlog src={post.img} alt="logo" />
+                ) : null}
+              </>
+              <div
+                style={{
+                  margin: "1rem",
+                  fontSize: "1.1rem",
+                  display: "block",
+                  padding: "1rem",
+                  backgroundColor: alwaysWhite(),
+                  color: alwaysBlack(),
+                }}
+              >
+                <div dangerouslySetInnerHTML={{ __html: post.text }} />
+              </div>
+            </DivPost>
+          </div>
+        ))}
+      </RouteDiv>
+
+      <LevelCard
+        name={name}
+        headers={headers}
+        _StudentId={_StudentId}
+        picture={picture}
+        lastName={lastName}
+      />
+
+      <div
+        className="modal"
+        style={{
+          position: "fixed",
+          display: isVisible ? "block" : "none",
+          zIndex: 100,
+          backgroundColor: alwaysWhite(),
+          padding: "1rem",
+          width: "29rem",
+          height: "30rem",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <Xp onClick={() => handleSeeModal()}>X</Xp>
+        <h2
+          style={{
+            margin: "0.5rem 0",
+          }}
+        >
+          {UniversalTexts.editPost}
+        </h2>
+        <div style={{ display: "grid", gap: "2px" }}>
+          <input
+            value={newTitle}
+            onChange={(event) => setNewTitle(event.target.value)}
+            id="title"
+            placeholder="Title"
+            type="text"
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.4rem",
+              marginBottom: "0.3rem",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              backgroundColor: "white",
+              width: "95%",
+              border: "#555 1px solid",
+            }}
+          />
+          <input
+            value={newUrlVideo}
+            onChange={(event) => setNewUrlVideo(event.target.value)}
+            id="VideoUrl"
+            placeholder="VideoUrl (Youtube/Vimeo)"
+            type="text"
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.4rem",
+              marginBottom: "0.3rem",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              backgroundColor: "white",
+              width: "95%",
+              border: "#555 1px solid",
+            }}
+          />
+          <input
+            value={newImg}
+            onChange={(event) => setNewImg(event.target.value)}
+            id="VideoUrl"
+            placeholder="Imagem URL"
+            type="text"
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.4rem",
+              marginBottom: "0.3rem",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              backgroundColor: "white",
+              width: "95%",
+              border: "#555 1px solid",
+            }}
+          />
+          <textarea
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.4rem",
+              marginBottom: "0.3rem",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              backgroundColor: "white",
+              width: "95%",
+              border: "#555 1px solid",
+              minHeight: "10rem",
+            }}
+            value={newText}
+            onChange={(event) => setNewText(event.target.value)}
+            id="Texto"
+            placeholder="Texto"
+            type="text"
+            cols="20"
+            rows="10"
+            required
+          />
+        </div>
+        <div
+          style={{
+            marginTop: "2rem",
+            display: !seeConfirmDelete ? "flex" : "none",
+            justifyContent: "space-evenly",
+            gap: "0.5rem",
+          }}
+        >
+          <Button
+            style={{
+              color: alwaysWhite(),
+              backgroundColor: "#ba3c3c",
+            }}
+            onClick={() => handleConfirmDelete()}
+          >
+            {UniversalTexts.delete}
+          </Button>
+          <Button
+            style={{
+              color: alwaysWhite(),
+              backgroundColor: "#194169",
+            }}
+            onClick={() => handleSeeModal()}
+          >
+            {UniversalTexts.cancel}
+          </Button>
+          <Button
+            style={{
+              color: alwaysWhite(),
+              backgroundColor: "#138017",
+            }}
+            onClick={() => editPost(_id)}
+          >
+            {UniversalTexts.save}
+          </Button>
+        </div>
+        <div
+          style={{
+            maxWidth: "20rem",
+            textAlign: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
+            display: seeConfirmDelete ? "grid" : "none",
+          }}
+        >
+          <p
+            style={{
+              color: "#ba3c3c",
+              margin: "0.5rem 0",
+              padding: "0.5rem",
+              fontWeight: "500",
+            }}
+          >
+            {UniversalTexts.deleteConfirm}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <Button
+              style={{
+                color: alwaysWhite(),
+
+                backgroundColor: "#194169",
+              }}
+              onClick={() => handleConfirmDelete()}
+            >
+              {UniversalTexts.no}
+            </Button>
             <Button
               style={{
                 color: alwaysWhite(),
                 backgroundColor: "#ba3c3c",
               }}
-              onClick={() => handleConfirmDelete()}
+              onClick={() => deletePost(_id)}
             >
-              {UniversalTexts.delete}
+              {UniversalTexts.yes}
             </Button>
-            <Button
-              style={{
-                color: alwaysWhite(),
-                backgroundColor: "#194169",
-              }}
-              onClick={() => handleSeeModal()}
-            >
-              {UniversalTexts.cancel}
-            </Button>
-            <Button
-              style={{
-                color: alwaysWhite(),
-                backgroundColor: "#138017",
-              }}
-              onClick={() => editPost(_id)}
-            >
-              {UniversalTexts.save}
-            </Button>
-          </div>
-          <div
-            style={{
-              maxWidth: "22rem",
-              textAlign: "center",
-              marginLeft: "auto",
-              marginRight: "auto",
-              display: seeConfirmDelete ? "grid" : "none",
-            }}
-          >
-            <p
-              style={{
-                color: "#ba3c3c",
-                margin: "0.5rem 0",
-                padding: "0.5rem",
-                fontWeight: "500",
-              }}
-            >
-              {UniversalTexts.deleteConfirm}
-            </p>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <Button
-                style={{
-                  color: alwaysWhite(),
-
-                  backgroundColor: "#194169",
-                }}
-                onClick={() => handleConfirmDelete()}
-              >
-                {UniversalTexts.no}
-              </Button>
-              <Button
-                style={{
-                  color: alwaysWhite(),
-                  backgroundColor: "#ba3c3c",
-                }}
-                onClick={() => deletePost(_id)}
-              >
-                {UniversalTexts.yes}
-              </Button>
-            </div>
           </div>
         </div>
-        <BlogSideBox>
-          <LevelCard
-            name={name}
-            headers={headers}
-            _StudentId={_StudentId}
-            picture={picture}
-            lastName={lastName}
-          />
-        </BlogSideBox>
-      </BlogRouteSizeControlBox>
-    </>
+      </div>
+      <BackgroundClickBlog
+        onClick={() => handleSeeModal()}
+        style={{ display: !isVisible ? "none" : "flex" }}
+      />
+    </BlogRouteSizeControlBox>
   );
 }
 

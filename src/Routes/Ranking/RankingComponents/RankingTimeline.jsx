@@ -7,13 +7,9 @@ import {
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
 import axios from "axios";
-import {
-  Disapear,
-  DivHover,
-  backDomain,
-  formatDate,
-} from "../../../Resources/UniversalComponents";
+import { backDomain, formatDate } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
+import { DivHover, CenterRightToggle } from "./RankingComponents";
 
 export default function RankingTimeline({ headers, display, id, name }) {
   const [localTimeline, setLocalTimeline] = useState([]);
@@ -134,7 +130,6 @@ export default function RankingTimeline({ headers, display, id, name }) {
         style={{
           maxHeight: "25rem",
           margin: "auto",
-          maxWidth: "50rem",
           overflow: "auto",
           padding: "1rem",
           fontWeight: 600,
@@ -154,7 +149,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
                     ? "fa fa-book"
                     : item.type == "Extra activity"
                     ? "fa fa-users"
-                    : item.type == "Live Class"
+                    : item.type == "Live Class" || "Group Classes"
                     ? "fa fa-graduation-cap"
                     : "fa fa-pencil",
                 color:
@@ -164,71 +159,51 @@ export default function RankingTimeline({ headers, display, id, name }) {
                     ? "#E6A020"
                     : item.type == "Extra activity"
                     ? "#123"
-                    : item.type == "Live Class"
+                    : item.type == "Live Class" || "Group Classes"
                     ? "#753"
                     : "#123",
               };
 
               return (
                 <DivHover key={index}>
-                  <div>
-                    <div
+                  <span
+                    style={{
+                      display: "flex",
+                      gap: "10px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <i
+                      color=""
                       style={{
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        display: "flex",
-                        gap: "10px",
-                        fontFamily: "Athiti",
-                        padding: "0.5rem 0",
+                        backgroundColor: variables.color,
+                        color: "white",
+                        padding: "0.5rem",
+                        borderRadius: "50%",
+                        fontWeight: 700,
+                        transform: "rotate(-25deg)",
+                      }}
+                      className={variables.type}
+                      aria-hidden="true"
+                    />
+                    <span>{item.type}</span>
+                    <span
+                      style={{
+                        color: alwaysWhite(),
+                        padding: "0.5rem",
+                        borderRadius: "0.5rem",
+                        backgroundColor: item.score < 0 ? "red" : "green",
                       }}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          gap: "1rem",
-                          justifyContent: "space-around",
-                          alignItems: "center",
-                        }}
-                      >
-                        {" "}
-                        <i
-                          color=""
-                          style={{
-                            backgroundColor: variables.color,
-                            color: "white",
-                            padding: "0.5rem",
-                            borderRadius: "50%",
-                            fontWeight: 700,
-                            transform: "rotate(-25deg)",
-                          }}
-                          className={variables.type}
-                          aria-hidden="true"
-                        />{" "}
-                        <span>{item.type}</span>
-                      </div>
-                      <span>
-                        <Disapear>
-                          {formatDate(item.date)} | {item.description} |{" "}
-                        </Disapear>
-                        <span
-                          style={{
-                            color: alwaysWhite(),
-                            padding: "0.5rem",
-                            borderRadius: "0.5rem",
-                            backgroundColor: item.score < 0 ? "red" : "green",
-                          }}
-                        >
-                          {" "}
-                          {item.score}{" "}
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        textAlign: "center",
-                      }}
-                    ></div>
-                  </div>
+                      {" "}
+                      {item.score}{" "}
+                    </span>
+                  </span>
+                  <CenterRightToggle>
+                    {formatDate(item.date)}
+                    <br />
+                    <span style={{ fontWeight: 400 }}>{item.description}</span>
+                  </CenterRightToggle>
                 </DivHover>
               );
             })}

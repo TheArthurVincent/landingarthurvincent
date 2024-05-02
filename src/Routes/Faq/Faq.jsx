@@ -40,7 +40,7 @@ export function Faq() {
 
   return (
     <>
-      <RouteSizeControlBox style={{ maxWidth: "700px" }} className="smooth">
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
           <Input

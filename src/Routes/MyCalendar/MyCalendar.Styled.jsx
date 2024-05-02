@@ -19,13 +19,22 @@ export const CoursesList = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-
-export const SpamClick = styled.div`
-  border-radius: 50%;
-  padding: 0;
-
-  &:active {
-    box-shadow: 3px 3px 10px 3px #ddd; 
+export const StyledDiv = styled.div`
+  padding: 0px 0px 10px 0px;
+  margin: 10px auto;
+  border: 1px solid ${lightGreyColor()};
+  width: 20vw;
+  height: 61vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @media (max-width: 1050px) {
+    min-width: 25vw;
+  }
+  @media (max-width: 700px) {
+    min-width: 50vw;
+  }
+  @media (max-width: 300px) {
+    min-width: 80vw;
   }
 `;
 export const CourseItem = styled.div`

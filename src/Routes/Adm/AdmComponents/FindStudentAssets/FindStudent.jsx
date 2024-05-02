@@ -19,7 +19,6 @@ import {
   textPrimaryColorContrast,
 } from "../../../../Styles/Styles";
 import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
-import { buttons } from "../FindStudentAssets/AssetsFindStudent/ButtonsList";
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
@@ -38,7 +37,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [ID, setID] = useState("");
-  const [value, setValue] = useState("0");
+  const [value, setValue] = useState("1");
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalScore, setTotalScore] = useState(0);
@@ -241,9 +240,12 @@ export function FindStudent({ uploadStatus, headers }) {
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const handleResetMonth = async () => {
     try {
-      const response = await axios.put(`${backDomain}/api/v1/resetmonthscoresecurethepoints`, {
-        headers,
-      });
+      const response = await axios.put(
+        `${backDomain}/api/v1/resetmonthscoresecurethepoints`,
+        {
+          headers,
+        }
+      );
       setResetVisible(true);
       setTimeout(() => {
         setHasReset(true);
@@ -501,94 +503,11 @@ export function FindStudent({ uploadStatus, headers }) {
               scrollButtons="auto"
               aria-label="scrollable auto tabs example"
             >
-              <Tab label="Pontuação" value="0" />
               <Tab label="Dados gerais" value="1" />
               <Tab label="Permissões" value="2" />
               <Tab label="Senha" value="3" />
             </TabList>
           </Box>
-          <TabPanel value="0">
-            {loadingScore ? (
-              <CircularProgress style={{ color: secondaryColor() }} />
-            ) : (
-              <div
-                style={{
-                  display: "grid",
-                  gap: "0.5rem",
-                }}
-              >
-                <h3>
-                  Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
-                </h3>
-                <h3>
-                  Total Score: <strong>{formatNumber(totalScore)} </strong>
-                </h3>
-              </div>
-            )}
-            <div
-              style={{
-                textAlign: "center",
-                display: "grid",
-                gap: "1rem",
-                maxHeight: "15rem",
-                overflow: "auto",
-              }}
-            >
-              <div
-                style={{
-                  display: "grid",
-                  gap: "0.5rem",
-                }}
-              >
-                {buttons.map((item, index) => {
-                  return (
-                    <Button
-                      key={index}
-                      disabled={disabled}
-                      style={{
-                        backgroundColor: disabled ? "grey" : item.color,
-                        fontSize: "0.8rem",
-                        color: alwaysWhite(),
-                      }}
-                      onClick={() =>
-                        submitPlusScore(
-                          ID,
-                          item.score,
-                          item.description,
-                          item.category
-                        )
-                      }
-                    >
-                      {item.text}
-                    </Button>
-                  );
-                })}
-
-                <div>
-                  <p>Personalizado</p>
-                  <input
-                    style={{ maxWidth: "5rem", marginRight: "5px" }}
-                    placeholder="Special Score"
-                    onChange={(e) => changePlusScore(e.target.value)}
-                    type="number"
-                  />
-                  <input
-                    style={{ maxWidth: "5rem", marginRight: "5px" }}
-                    placeholder="Description"
-                    onChange={(e) => setDescSpecial(e.target.value)}
-                    type="text"
-                  />
-                  <Button
-                    onClick={() =>
-                      submitPlusScore(ID, plusScore, descSpecial, "Others")
-                    }
-                  >
-                    +
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </TabPanel>
           <TabPanel value="1">
             <form
               style={{

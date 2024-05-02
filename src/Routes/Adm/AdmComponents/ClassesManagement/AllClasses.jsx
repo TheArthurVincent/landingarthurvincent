@@ -49,6 +49,7 @@ export function AllClasses({ headers }) {
     } catch (error) {
       console.log(error);
       alert("Erro ao listar vídeo aulas");
+      window.location.assign("/");
       setLoading(false);
     }
   };
@@ -78,7 +79,7 @@ export function AllClasses({ headers }) {
   );
 
   return (
-    <RouteDiv style={{ margin: "1rem auto" }}>
+    <RouteDiv>
       <HOne>Aulas gravadas</HOne>
       <Modal
         open={isModalOpen}
@@ -87,13 +88,11 @@ export function AllClasses({ headers }) {
       >
         <div
           style={{
-            backgroundColor: alwaysWhite(),
             position: "fixed",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             textAlign: "center",
-            maxWidth: "20rem",
             padding: "2rem",
           }}
         >
@@ -102,20 +101,14 @@ export function AllClasses({ headers }) {
           <Button onClick={() => deleteTutoring(deleteId)}>Yes</Button>
         </div>
       </Modal>
-      <span
+      <div
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
-        <Button
-          onClick={() => seeAllTutorings()}
-          style={{
-            backgroundColor: textSecondaryColorContrast(),
-            color: secondaryColor(),
-          }}
-        >
+        <Button onClick={() => seeAllTutorings()}>
           <i className="fa fa-refresh" aria-hidden="true" />
         </Button>
         <span>
@@ -131,46 +124,31 @@ export function AllClasses({ headers }) {
           <i className="fa fa-search" aria-hidden="true" />
         </span>
         <BackToHomePage />
-      </span>
-      <div style={{ maxHeight: "40rem", overflow: "auto" }}>
+      </div>
+      <div style={{ maxHeight: "30rem", overflow: "auto" }}>
         {loading ? (
           <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
           filteredTutorings.map((group, index) => (
-            <div
-              style={{
-                padding: "0.5rem",
-                margin: "0.5rem",
-                backgroundColor: "#e6e6e6",
-              }}
-              key={index}
-            >
-              <HThree
-                style={{
-                  borderTop: "1px solid",
-                  border: primaryColor(),
-                  padding: "1rem",
-                  margin: "1rem",
-                }}
-              >{`Student: ${group.student.name}`}</HThree>
-
+            <div key={index}>
+              <HThree>{`Student: ${group.student.name}`}</HThree>
               {group.tutorings.map((tutoring) => (
-                <div key={tutoring.id}>
+                <div
+                  style={{
+                    padding: "1rem",
+                  }}
+                  key={tutoring.id}
+                >
                   <div
                     style={{
-                      borderTop: "1px solid",
-                      border: primaryColor(),
-                      padding: "1rem",
                       display: "flex",
-                      justifyContent: "space-between",
                       alignItems: "center",
+                      gap: "1rem",
                     }}
                   >
-                    <HTwo>
-                      <Link to={tutoring.videoUrl}>{tutoring.date}</Link>
-                      <br />
-                      <IFrameVideo src={getVideoEmbedUrl(tutoring.videoUrl)} />
-                    </HTwo>
+                    <Link target="_blank" to={tutoring.videoUrl}>
+                      {tutoring.date} - Veja a aula
+                    </Link>
                     <Button onClick={() => setSeeDelete(tutoring.id)}>
                       Apagar aula
                     </Button>

@@ -143,10 +143,10 @@ export default function TopBar() {
   ];
 
   const toAdm = [
-    {
-      title: UniversalTexts.activities,
-      endpoint: "/english-activities",
-    },
+    // {
+    //   title: UniversalTexts.activities,
+    //   endpoint: "/english-activities",
+    // },
     {
       title: "Adm",
       endpoint: "/adm-businessmanagement",

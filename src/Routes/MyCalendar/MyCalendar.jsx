@@ -14,11 +14,11 @@ import {
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { Button, CircularProgress, LinearProgress } from "@mui/material";
+import { CircularProgress, LinearProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
-import { SpamClick } from "./MyCalendar.Styled";
+import { StyledDiv } from "./MyCalendar.Styled";
 
 export default function MyCalendar({ headers, thePermissions }) {
   // states
@@ -54,9 +54,21 @@ export default function MyCalendar({ headers, thePermissions }) {
   const [theNewWeekDay, setTheNewWeekDay] = useState("");
   const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
   const [theNewLink, setTheNewLink] = useState("");
+  const getLastMonday = (targetDate) => {
+    const date = new Date(targetDate);
+    const dayOfWeek = date.getDay();
+    const diff = date.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+    const lastMonday = new Date(date.setDate(diff));
+    return lastMonday;
+  };
+
+  var hj = new Date();
+  var lm = getLastMonday(hj);
+
+  const [disabledAvoid, setDisabledAvoid] = useState(true);
+  const [today, setTheToday] = useState(lm);
   const { UniversalTexts } = useUserContext();
 
-  const today = new Date();
   const futureDates = [];
 
   // AXIOS
@@ -82,7 +94,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       const user = JSON.parse(localStorage.getItem("loggedIn"));
       const id = user.id;
       const response = await axios.get(
-        `${backDomain}/api/v1/eventsgeneral/${id}`,
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${today}`,
         {
           headers,
         }
@@ -109,7 +121,7 @@ export default function MyCalendar({ headers, thePermissions }) {
     if (user.permissions == "superadmin") {
       try {
         const response = await axios.get(
-          `${backDomain}/api/v1/eventsgeneral/${id}`,
+          `${backDomain}/api/v1/eventsgeneral/${id}?today=${today}`,
           {
             headers,
           }
@@ -127,6 +139,70 @@ export default function MyCalendar({ headers, thePermissions }) {
       }
     } else {
       null;
+    }
+  };
+
+  const changeToday = async (e) => {
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    setLoading(true);
+    const targetDate = new Date(e.target.value);
+    const newDate = getLastMonday(targetDate); // Obtém a última segunda-feira em relação à data escolhida
+    setTheToday(newDate);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${newDate}`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsList;
+      const eventsLoop = res.map((event) => {
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
+        return event;
+      });
+      setEvents(eventsLoop);
+      setTimeout(() => {
+        setLoading(false);
+      }, 200);
+    } catch (error) {
+      console.log(error, "Erro ao encontrar alunos");
+    }
+  };
+
+  const handleChangeWeek = async (sum) => {
+    setDisabledAvoid(false);
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    setLoading(true);
+    const chosenDate = today;
+    chosenDate.setDate(chosenDate.getDate() + sum);
+    const newDate = getLastMonday(chosenDate);
+    console.log(newDate);
+    setTheToday(newDate);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${newDate}`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsList;
+      const eventsLoop = res.map((event) => {
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
+        return event;
+      });
+      setEvents(eventsLoop);
+      setTimeout(() => {
+        setLoading(false);
+        setDisabledAvoid(true);
+      }, 100);
+    } catch (error) {
+      console.log(error, "Erro ao encontrar alunos");
     }
   };
 
@@ -577,7 +653,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   // Formulas
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 7; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
     futureDates.push(date);
@@ -689,29 +765,57 @@ export default function MyCalendar({ headers, thePermissions }) {
   return (
     <>
       {headers ? (
-        <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
+        <RouteSizeControlBox className="smooth">
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
             <div style={{ display: "flex" }}>
-              <Button
+              <button
+                className="button"
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
                 }}
                 onClick={() => handleSeeModalNew()}
               >
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
-              </Button>
-              <Button
+              </button>
+              <button
+                disabled={!disabledAvoid}
+                className="button"
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
                 }}
                 onClick={() => handleSeeModalOfTutorings()}
               >
                 <i className="fa fa-user-circle" aria-hidden="true" />
-              </Button>
-              <Button onClick={() => fetchGeneralEvents()}>
+              </button>
+              <button
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={() => fetchGeneralEvents()}
+              >
                 <i className="fa fa-refresh" aria-hidden="true" />
-              </Button>
+              </button>
+              <button
+                style={{
+                  width: "5rem",
+                }}
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={() => handleChangeWeek(-7)}
+              >
+                <i class="fa fa-arrow-left" aria-hidden="true" />
+              </button>{" "}
+              <button
+                style={{
+                  width: "5rem",
+                }}
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={() => handleChangeWeek(7)}
+              >
+                <i class="fa fa-arrow-right" aria-hidden="true" />
+              </button>
+              <input type="date" onChange={changeToday} />
             </div>
             {loading ? (
               <CircularProgress />
@@ -720,274 +824,279 @@ export default function MyCalendar({ headers, thePermissions }) {
                 style={{
                   display: "flex",
                   gap: "1rem",
-                  overflow: "auto",
+                  overflowX: "auto",
                 }}
               >
-                {futureDates.map((date, index) => (
-                  <div
-                    style={{
-                      boxShadow: `1px 1px 5px 1px ${lightGreyColor()}`,
-                      padding: "0px 0px 10px 0px",
-                      margin: "10px 0px",
-                      border: `1px solid ${lightGreyColor()}`,
-                      minWidth: "13rem",
-                      height: "50vh",
-                      overflow: "auto",
-                    }}
-                    key={index}
-                  >
-                    <p
-                      style={{
-                        padding: "5px",
-                        fontFamily: "Athiti",
-                        position: "sticky",
-                        top: 0,
-                        zIndex: 50,
-                        fontWeight: 900,
-                        textAlign: "center",
-                        backgroundColor:
-                          index !== 0 ? alwaysBlack() : "#439906",
-                        color: alwaysWhite(),
-                      }}
-                    >
-                      {date.toLocaleDateString("en-US", {
-                        weekday: "short",
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </p>
-                    {events
-                      .filter(
-                        (event) =>
-                          event.date.toDateString() === date.toDateString()
-                      )
-                      .sort((a, b) => {
-                        const timeA =
-                          parseInt(a.time.split(":")[0]) * 60 +
-                          parseInt(a.time.split(":")[1]);
-                        const timeB =
-                          parseInt(b.time.split(":")[0]) * 60 +
-                          parseInt(b.time.split(":")[1]);
-                        return timeA - timeB;
-                      })
-                      .map((event, index) => (
-                        <div
+                {futureDates.map((date, index) => {
+                  if (date.getDay() !== 0) {
+                    const hj = new Date();
+                    return (
+                      <StyledDiv
+                        style={{
+                          backgroundColor:
+                            hj.getDate() == date.getDate() &&
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
+                              ? alwaysBlack()
+                              : lightGreyColor(),
+                        }}
+                        key={index}
+                      >
+                        <p
                           style={{
-                            margin: "4px",
-                            marginBottom: "1rem",
-                            padding: "10px 5px",
-                            boxShadow: "2px 2px 20px 2px #ccc",
-                            borderRadius: "5px",
-                            border: "1px solid #aaa",
-                            backgroundColor:
-                              event.category === "Group Class"
-                                ? "#F2F1CE"
-                                : event.category === "Rep"
-                                ? "#b33"
-                                : event.category === "Tutoring"
-                                ? "#fff"
-                                : event.category === "Prize Class"
-                                ? "orange"
-                                : event.category === "Standalone"
-                                ? "#ddd"
-                                : event.category === "Test"
-                                ? "#C2F0C2"
-                                : "#000",
-
+                            padding: "5px",
+                            fontFamily: "Athiti",
+                            position: "sticky",
+                            top: 0,
+                            zIndex: 50,
+                            fontWeight: 900,
                             textAlign: "center",
-                            display: "grid",
+                            backgroundColor:
+                              hj.getDate() == date.getDate() &&
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
+                                ? "#439906"
+                                : alwaysBlack(),
+                            color: alwaysWhite(),
                           }}
-                          key={event + index}
                         >
-                          <div
-                            style={{
-                              display: "flex",
-                              gap: "0.5rem",
-                              marginBottom: "1rem",
-                              borderRadius: "5px",
-                              padding: "5px",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              border: `solid 2px ${
-                                event.status == "marcado"
-                                  ? primaryColor()
-                                  : event.status == "realizada"
-                                  ? secondaryColor()
-                                  : event.status == "desmarcado"
-                                  ? "red"
-                                  : "#000"
-                              }`,
-                              backgroundColor:
-                                event.status == "desmarcado"
-                                  ? "#FFCCCC"
-                                  : event.status == "marcado"
-                                  ? "#CCE5FF"
-                                  : event.status == "realizada"
-                                  ? "#CCFFCC"
-                                  : "#000",
-                            }}
-                          >
+                          {date.toLocaleDateString("en-US", {
+                            weekday: "short",
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </p>
+                        {events
+                          .filter(
+                            (event) =>
+                              event.date.toDateString() === date.toDateString()
+                          )
+                          .sort((a, b) => {
+                            const timeA =
+                              parseInt(a.time.split(":")[0]) * 60 +
+                              parseInt(a.time.split(":")[1]);
+                            const timeB =
+                              parseInt(b.time.split(":")[0]) * 60 +
+                              parseInt(b.time.split(":")[1]);
+                            return timeA - timeB;
+                          })
+                          .map((event, index) => (
                             <div
                               style={{
-                                color: "black",
-                                display: "flex",
-                                gap: "5px",
-                                fontSize: "0.8rem",
+                                margin: "4px",
+                                marginBottom: "1rem",
+                                padding: "5px",
+                                boxShadow: "2px 2px 20px 2px #ccc",
                                 borderRadius: "5px",
-                                alignContent: "center",
-                                fontFamily: "Athiti",
+                                border: "1px solid #aaa",
+                                backgroundColor:
+                                  event.category === "Group Class"
+                                    ? "#F2F1CE"
+                                    : event.category === "Rep"
+                                    ? "#b33"
+                                    : event.category === "Tutoring"
+                                    ? "#fff"
+                                    : event.category === "Prize Class"
+                                    ? "orange"
+                                    : event.category === "Standalone"
+                                    ? "#ddd"
+                                    : event.category === "Test"
+                                    ? "#C2F0C2"
+                                    : "#000",
+
+                                textAlign: "center",
+                                display: "grid",
                               }}
+                              key={event + index}
                             >
                               {thePermissions == "superadmin" && (
                                 <div
                                   style={{
                                     display: "flex",
-                                    alignContent: "center",
+                                    backgroundColor: alwaysWhite(),
+                                    alignItems: "center",
+                                    justifyContent: "center",
                                     gap: "5px",
-                                    cursor: "pointer",
                                   }}
                                 >
-                                  <Button onClick={() => handleSeeModal(event)}>
+                                  <button
+                                    className="button"
+                                    onClick={() => handleSeeModal(event)}
+                                  >
                                     <i
                                       style={{ fontSize: "0.6rem" }}
                                       className="fa fa-pencil"
                                       aria-hidden="true"
                                     />
-                                  </Button>
-                                  <SpamClick>
-                                    <i
-                                      className="fa fa-clock-o"
-                                      aria-hidden="true"
-                                      onClick={() => updateScheduled(event._id)}
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize:
-                                          event.status == "marcado"
-                                            ? "12px"
-                                            : "10px",
-                                        color:
-                                          event.status == "marcado"
-                                            ? "blue"
-                                            : "grey",
-                                      }}
-                                    />
-                                  </SpamClick>
-                                  <SpamClick>
-                                    <i
-                                      className="fa fa-check-circle"
-                                      aria-hidden="true"
-                                      onClick={() =>
-                                        updateRealizedClass(event._id)
-                                      }
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize:
-                                          event.status == "realizada"
-                                            ? "12px"
-                                            : "10px",
-                                        color:
-                                          event.status == "realizada"
-                                            ? "green"
-                                            : "grey",
-                                      }}
-                                    />
-                                  </SpamClick>
-                                  <SpamClick>
-                                    <i
-                                      className="fa fa-times-circle-o"
-                                      aria-hidden="true"
-                                      onClick={() =>
-                                        updateUnscheduled(event._id)
-                                      }
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize:
-                                          event.status == "desmarcado"
-                                            ? "12px"
-                                            : "10px",
-                                        color:
-                                          event.status == "desmarcado"
-                                            ? "red"
-                                            : "grey",
-                                      }}
-                                    />
-                                  </SpamClick>
+                                  </button>
+                                  <i
+                                    className="fa fa-clock-o"
+                                    aria-hidden="true"
+                                    onClick={() => updateScheduled(event._id)}
+                                    style={{
+                                      cursor: "pointer",
+                                      fontSize:
+                                        event.status == "marcado"
+                                          ? "12px"
+                                          : "10px",
+                                      color:
+                                        event.status == "marcado"
+                                          ? "blue"
+                                          : "grey",
+                                    }}
+                                  />
+                                  <i
+                                    className="fa fa-check-circle"
+                                    aria-hidden="true"
+                                    onClick={() =>
+                                      updateRealizedClass(event._id)
+                                    }
+                                    style={{
+                                      cursor: "pointer",
+                                      fontSize:
+                                        event.status == "realizada"
+                                          ? "12px"
+                                          : "10px",
+                                      color:
+                                        event.status == "realizada"
+                                          ? "green"
+                                          : "grey",
+                                    }}
+                                  />
+                                  <i
+                                    className="fa fa-times-circle-o"
+                                    aria-hidden="true"
+                                    onClick={() => updateUnscheduled(event._id)}
+                                    style={{
+                                      cursor: "pointer",
+                                      fontSize:
+                                        event.status == "desmarcado"
+                                          ? "12px"
+                                          : "10px",
+                                      color:
+                                        event.status == "desmarcado"
+                                          ? "red"
+                                          : "grey",
+                                    }}
+                                  />
                                 </div>
                               )}
-                              {event.status == "marcado"
-                                ? "Scheduled"
-                                : event.status == "desmarcado"
-                                ? "Canceled"
-                                : "Realized"}
-                            </div>
-                          </div>
-                          {isEventTimeNow(event) && (
-                            <span
-                              style={{
-                                paddingBottom: "5px",
-                              }}
-                            >
-                              <LinearProgress />
-                            </span>
-                          )}
-                          <p
-                            style={{
-                              fontFamily: "Athiti",
-                              padding: "10px",
-                              margin: "0 10px",
-                              borderRadius: "10px",
-                              backgroundColor: "#eee",
-                              fontSize: "0.8rem",
-                            }}
-                          >
-                            {event.student && (
-                              <span
+                              <div
                                 style={{
-                                  fontFamily: "Athiti",
-                                  fontSize: "0.8rem",
-                                  fontWeight: 600,
+                                  display: "flex",
+                                  gap: "0.5rem",
+                                  flexDirection: "column",
+                                  marginBottom: "1rem",
+                                  borderRadius: "5px",
+                                  padding: "5px",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  border: `solid 2px ${
+                                    event.status == "marcado"
+                                      ? primaryColor()
+                                      : event.status == "realizada"
+                                      ? secondaryColor()
+                                      : event.status == "desmarcado"
+                                      ? "red"
+                                      : "#000"
+                                  }`,
+                                  backgroundColor:
+                                    event.status == "desmarcado"
+                                      ? "#FFCCCC"
+                                      : event.status == "marcado"
+                                      ? "#CCE5FF"
+                                      : event.status == "realizada"
+                                      ? "#CCFFCC"
+                                      : "#000",
                                 }}
                               >
-                                {event.student} <br />
+                                <div
+                                  style={{
+                                    color: "black",
+                                    fontSize: "0.8rem",
+                                    fontFamily: "Athiti",
+                                  }}
+                                >
+                                  {event.status == "marcado"
+                                    ? "Scheduled"
+                                    : event.status == "desmarcado"
+                                    ? "Canceled"
+                                    : "Realized"}
+                                </div>
+                              </div>
+                              {isEventTimeNow(event) && (
+                                <span
+                                  style={{
+                                    paddingBottom: "5px",
+                                  }}
+                                >
+                                  <LinearProgress />
+                                </span>
+                              )}
+                              <p
+                                style={{
+                                  fontFamily: "Athiti",
+                                  padding: "10px",
+                                  margin: "0 10px",
+                                  borderRadius: "10px",
+                                  backgroundColor: "#eee",
+                                  fontSize: "0.8rem",
+                                }}
+                              >
+                                {event.student && (
+                                  <span
+                                    style={{
+                                      fontFamily: "Athiti",
+                                      fontSize: "0.8rem",
+                                      fontWeight: 600,
+                                    }}
+                                  >
+                                    {event.student}
+                                    <br />
+                                  </span>
+                                )}
+
+                                {` ${event.time} | ${event.category}`}
+                                <br />
+                              </p>
+                              {event.description && (
+                                <div
+                                  style={{
+                                    backgroundColor: "#333",
+                                    padding: "3px",
+                                    color: "#fff",
+                                    marginTop: "10px",
+                                    fontSize: "11px",
+                                    maxWidth: "20ch",
+                                    fontWeight: 600,
+                                    margin: "5px auto",
+                                    fontStyle: "italic",
+                                    borderRadius: "5px",
+                                    border: "solid 1px #ddd",
+                                  }}
+                                >
+                                  <p>{event.description}</p>
+                                </div>
+                              )}
+                              <span
+                                style={{
+                                  padding: "5px",
+                                  marginTop: "10px",
+                                  fontSize: "10px",
+                                  backgroundColor: alwaysWhite(),
+                                }}
+                              >
+                                <Link target="_blank" to={event.link}>
+                                  Access the class
+                                </Link>
                               </span>
-                            )}
-                            {` ${event.time} | ${event.category}`}
-                            <br />
-                          </p>
-                          {event.description && (
-                            <div
-                              style={{
-                                backgroundColor: "#333",
-                                padding: "3px",
-                                color: "#fff",
-                                marginTop: "10px",
-                                fontSize: "11px",
-                                fontWeight: 600,
-                                fontStyle: "italic",
-                                borderRadius: "5px",
-                                border: "solid 1px #ddd",
-                              }}
-                            >
-                              <p>{event.description}</p>
                             </div>
-                          )}
-                          <span
-                            style={{
-                              padding: "5px",
-                              marginTop: "10px",
-                              fontSize: "10px",
-                              backgroundColor: alwaysWhite(),
-                            }}
-                          >
-                            <Link target="_blank" to={event.link}>
-                              Access the class
-                            </Link>
-                          </span>
-                        </div>
-                      ))}
-                  </div>
-                ))}
+                          ))}
+                      </StyledDiv>
+                    );
+                  }
+                })}
               </div>
             )}
           </RouteDiv>
@@ -1016,7 +1125,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                 display: isVisible ? "block" : "none",
                 zIndex: 100,
                 backgroundColor: alwaysWhite(),
-                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
                 padding: "1rem",
                 width: "20rem",
                 height: "30rem",
@@ -1152,19 +1260,20 @@ export default function MyCalendar({ headers, thePermissions }) {
                     },
                   ].map((item, index) => {
                     return (
-                      <Button
+                      <button
                         key={index}
                         onClick={item.onClick}
                         style={{
                           display: item.visible ? "block" : "none",
                           marginTop: "1rem",
+                          cursor:"pointer",
                           color: "white",
                           backgroundColor: item.backgroundColor,
                         }}
                         type={item.type ? item.type : null}
                       >
                         {item.text}
-                      </Button>
+                      </button>
                     );
                   })}
                 </div>
@@ -1192,17 +1301,18 @@ export default function MyCalendar({ headers, thePermissions }) {
                     },
                   ].map((item, index) => {
                     return (
-                      <Button
+                      <button
                         key={index}
                         onClick={item.onClick}
                         style={{
                           marginTop: "1rem",
                           color: "white",
+                          cursor:"pointer",
                           backgroundColor: item.backgroundColor,
                         }}
                       >
                         {item.text}
-                      </Button>
+                      </button>
                     );
                   })}
                 </div>
@@ -1331,7 +1441,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                   display: seeEditTutoring ? "block" : "none",
                 }}
               >
-                <button onClick={closeEditOneTutoring}>x</button>
+                <button className="button" onClick={closeEditOneTutoring}>
+                  x
+                </button>
                 <select
                   onChange={handleWeekDayChange}
                   name="students"

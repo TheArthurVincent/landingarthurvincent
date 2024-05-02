@@ -27,12 +27,6 @@ export const EventsCard = styled.div`
   background-color: ${lightGreyColor()};
 `;
 
-export const TitleChangeSize = styled.span`
-  font-size: 1.2rem;
-  @media (max-width: 800px) {
-    font-size: 0.8rem;
-  }
-`;
 
 export const SpanDisapear = styled.span`
   padding: 3px;

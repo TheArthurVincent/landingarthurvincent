@@ -125,18 +125,6 @@ export const DivFlex = styled.div`
   }
 `;
 
-export const DivHover = styled.span`
-  margin: 0;
-  padding: 0 1rem;
-  display: grid;
-  border-bottom: solid 1px black;
-  &:hover {
-    background-color: ${primaryColor()};
-    color: ${textPrimaryColorContrast()};
-    border-radius: 0.5rem;
-    transition: 0.2s;
-  }
-`;
 
 export const Button = styled.button`
   border: 1px solid ${primaryColor()};
@@ -320,11 +308,6 @@ export function InputFieldNotRequired({
   );
 }
 
-export const Disapear = styled.span`
-  @media (max-width: 500px) {
-    display: none;
-  }
-`;
 
 export const ImgResponsive0 = styled.img`
   max-width: 8rem;
@@ -435,35 +418,9 @@ export const IFrameVideo = styled.iframe`
   }
 `;
 export const IFrameVideoClass = styled.iframe`
-  margin-top: 0;
-  min-width: 636px;
-  min-height: 356px;
-  border: 1px #222 solid;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  @media (max-width: 900px) {
-    margin-top: 0;
-    min-width: 430px;
-    min-height: 230px;
-  }
-  @media (max-width: 450px) {
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 265px;
-    min-height: 150px;
-  }
-  @media (max-width: 280px) {
-    margin-top: 0;
-    min-width: 140px;
-    min-height: 64px;
-  }
-  @media (max-width: 210px) {
-    margin-top: 0;
-    min-width: 80px;
-    min-height: 38px;
-  }
+  min-width: 30vw;
+  min-height: 26vh;
+  border: none;
 `;
 
 export const IFrameVideoInstructions = styled.iframe`
