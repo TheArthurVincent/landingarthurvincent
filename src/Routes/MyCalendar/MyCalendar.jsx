@@ -825,7 +825,17 @@ export default function MyCalendar({ headers, thePermissions }) {
                   if (date.getDay() !== 0) {
                     const hj = new Date();
                     return (
-                      <StyledDiv key={index}>
+                      <StyledDiv
+                        style={{
+                          backgroundColor:
+                            hj.getDate() == date.getDate() &&
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
+                              ? alwaysBlack()
+                              : lightGreyColor(),
+                        }}
+                        key={index}
+                      >
                         <p
                           style={{
                             padding: "5px",
@@ -836,9 +846,11 @@ export default function MyCalendar({ headers, thePermissions }) {
                             fontWeight: 900,
                             textAlign: "center",
                             backgroundColor:
-                              hj.getDate() !== date.getDate()
-                                ? alwaysBlack()
-                                : "#439906",
+                              hj.getDate() == date.getDate() &&
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
+                                ? "#439906"
+                                : alwaysBlack(),
                             color: alwaysWhite(),
                           }}
                         >
