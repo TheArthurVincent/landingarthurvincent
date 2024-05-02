@@ -45,9 +45,9 @@ export function Adm({ headers }) {
       ),
     },
     {
-      title: "Cursos",
+      title: "Aulas em grupo",
       value: "3",
-      tooltip: "Cursos",
+      tooltip: "Aulas em grupo",
       component: <ManageGroupClasses headers={headers} />,
     },
     {
