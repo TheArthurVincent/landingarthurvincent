@@ -20,14 +20,6 @@ export const CoursesList = styled.div`
   }
 `;
 
-export const SpamClick = styled.div`
-  border-radius: 50%;
-  padding: 0;
-
-  &:active {
-    box-shadow: 3px 3px 10px 3px #ddd; 
-  }
-`;
 export const CourseItem = styled.div`
   background-color: ${lightGreyColor()};
   padding: 3rem;

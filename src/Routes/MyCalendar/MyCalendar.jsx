@@ -18,7 +18,6 @@ import { CircularProgress, LinearProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
-import { SpamClick } from "./MyCalendar.Styled";
 
 export default function MyCalendar({ headers, thePermissions }) {
   // states
@@ -769,8 +768,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                       padding: "0px 0px 10px 0px",
                       margin: "10px auto",
                       border: `1px solid ${lightGreyColor()}`,
-                      minWidth: "12rem",
-                      maxWidth: "20rem",
+                      minWidth: "13rem",
                       height: "75vh",
                       overflowY: "auto",
                       overflowX: "hidden",
@@ -841,10 +839,77 @@ export default function MyCalendar({ headers, thePermissions }) {
                           }}
                           key={event + index}
                         >
+                          {thePermissions == "superadmin" && (
+                            <div
+                              style={{
+                                display: "flex",
+                                backgroundColor: alwaysWhite(),
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: "5px",
+                              }}
+                            >
+                              <button
+                                className="button"
+                                onClick={() => handleSeeModal(event)}
+                              >
+                                <i
+                                  style={{ fontSize: "0.6rem" }}
+                                  className="fa fa-pencil"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                                onClick={() => updateScheduled(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == "marcado" ? "12px" : "10px",
+                                  color:
+                                    event.status == "marcado" ? "blue" : "grey",
+                                }}
+                              />
+                              <i
+                                className="fa fa-check-circle"
+                                aria-hidden="true"
+                                onClick={() => updateRealizedClass(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == "realizada"
+                                      ? "12px"
+                                      : "10px",
+                                  color:
+                                    event.status == "realizada"
+                                      ? "green"
+                                      : "grey",
+                                }}
+                              />
+                              <i
+                                className="fa fa-times-circle-o"
+                                aria-hidden="true"
+                                onClick={() => updateUnscheduled(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize:
+                                    event.status == "desmarcado"
+                                      ? "12px"
+                                      : "10px",
+                                  color:
+                                    event.status == "desmarcado"
+                                      ? "red"
+                                      : "grey",
+                                }}
+                              />
+                            </div>
+                          )}
                           <div
                             style={{
                               display: "flex",
                               gap: "0.5rem",
+                              flexDirection: "column",
                               marginBottom: "1rem",
                               borderRadius: "5px",
                               padding: "5px",
@@ -872,93 +937,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                             <div
                               style={{
                                 color: "black",
-                                display: "flex",
-                                gap: "5px",
                                 fontSize: "0.8rem",
-                                borderRadius: "5px",
-                                alignContent: "center",
                                 fontFamily: "Athiti",
                               }}
                             >
-                              {thePermissions == "superadmin" && (
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignContent: "center",
-                                    gap: "5px",
-                                    cursor: "pointer",
-                                  }}
-                                >
-                                  <button
-                                    className="button"
-                                    onClick={() => handleSeeModal(event)}
-                                  >
-                                    <i
-                                      style={{ fontSize: "0.6rem" }}
-                                      className="fa fa-pencil"
-                                      aria-hidden="true"
-                                    />
-                                  </button>
-                                  <SpamClick>
-                                    <i
-                                      className="fa fa-clock-o"
-                                      aria-hidden="true"
-                                      onClick={() => updateScheduled(event._id)}
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize:
-                                          event.status == "marcado"
-                                            ? "12px"
-                                            : "10px",
-                                        color:
-                                          event.status == "marcado"
-                                            ? "blue"
-                                            : "grey",
-                                      }}
-                                    />
-                                  </SpamClick>
-                                  <SpamClick>
-                                    <i
-                                      className="fa fa-check-circle"
-                                      aria-hidden="true"
-                                      onClick={() =>
-                                        updateRealizedClass(event._id)
-                                      }
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize:
-                                          event.status == "realizada"
-                                            ? "12px"
-                                            : "10px",
-                                        color:
-                                          event.status == "realizada"
-                                            ? "green"
-                                            : "grey",
-                                      }}
-                                    />
-                                  </SpamClick>
-                                  <SpamClick>
-                                    <i
-                                      className="fa fa-times-circle-o"
-                                      aria-hidden="true"
-                                      onClick={() =>
-                                        updateUnscheduled(event._id)
-                                      }
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize:
-                                          event.status == "desmarcado"
-                                            ? "12px"
-                                            : "10px",
-                                        color:
-                                          event.status == "desmarcado"
-                                            ? "red"
-                                            : "grey",
-                                      }}
-                                    />
-                                  </SpamClick>
-                                </div>
-                              )}
                               {event.status == "marcado"
                                 ? "Scheduled"
                                 : event.status == "desmarcado"
@@ -993,9 +975,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   fontWeight: 600,
                                 }}
                               >
-                                {event.student} <br />
+                                {event.student.split(" ").slice(0, 1).join(" ")}{" "}
+                                <br />
+                                {event.student.split(" ").slice(1).join(" ")}
                               </span>
                             )}
+                            <br />
+
                             {` ${event.time} | ${event.category}`}
                             <br />
                           </p>
