@@ -54,9 +54,10 @@ export default function MyCalendar({ headers, thePermissions }) {
   const [theNewWeekDay, setTheNewWeekDay] = useState("");
   const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
   const [theNewLink, setTheNewLink] = useState("");
+  const [today, setTheToday] = useState(new Date());
   const { UniversalTexts } = useUserContext();
 
-  const today = new Date();
+  // const today = new Date();
   const futureDates = [];
 
   // AXIOS
@@ -82,7 +83,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       const user = JSON.parse(localStorage.getItem("loggedIn"));
       const id = user.id;
       const response = await axios.get(
-        `${backDomain}/api/v1/eventsgeneral/${id}`,
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${today}`,
         {
           headers,
         }
@@ -109,7 +110,7 @@ export default function MyCalendar({ headers, thePermissions }) {
     if (user.permissions == "superadmin") {
       try {
         const response = await axios.get(
-          `${backDomain}/api/v1/eventsgeneral/${id}`,
+          `${backDomain}/api/v1/eventsgeneral/${id}?today=${today}`,
           {
             headers,
           }
@@ -128,6 +129,13 @@ export default function MyCalendar({ headers, thePermissions }) {
     } else {
       null;
     }
+  };
+
+  const changeToday = (e) => {
+    const newDate = new Date(e.target.value);
+    console.log(newDate);
+    setTheToday(newDate);
+    fetchGeneralEvents();
   };
 
   const fetchOneEvent = async (id) => {
@@ -712,6 +720,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               <Button onClick={() => fetchGeneralEvents()}>
                 <i className="fa fa-refresh" aria-hidden="true" />
               </Button>
+              <input type="date" onChange={changeToday} />
             </div>
             {loading ? (
               <CircularProgress />
@@ -784,16 +793,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                               event.category === "Group Class"
                                 ? "#F2F1CE"
                                 : event.category === "Rep"
-                                ? "#b33"
-                                : event.category === "Tutoring"
-                                ? "#fff"
-                                : event.category === "Prize Class"
-                                ? "orange"
-                                : event.category === "Standalone"
-                                ? "#ddd"
-                                : event.category === "Test"
-                                ? "#C2F0C2"
-                                : "#000",
+                                  ? "#b33"
+                                  : event.category === "Tutoring"
+                                    ? "#fff"
+                                    : event.category === "Prize Class"
+                                      ? "orange"
+                                      : event.category === "Standalone"
+                                        ? "#ddd"
+                                        : event.category === "Test"
+                                          ? "#C2F0C2"
+                                          : "#000",
 
                             textAlign: "center",
                             display: "grid",
@@ -809,23 +818,22 @@ export default function MyCalendar({ headers, thePermissions }) {
                               padding: "5px",
                               alignItems: "center",
                               justifyContent: "center",
-                              border: `solid 2px ${
-                                event.status == "marcado"
+                              border: `solid 2px ${event.status == "marcado"
                                   ? primaryColor()
                                   : event.status == "realizada"
-                                  ? secondaryColor()
-                                  : event.status == "desmarcado"
-                                  ? "red"
-                                  : "#000"
-                              }`,
+                                    ? secondaryColor()
+                                    : event.status == "desmarcado"
+                                      ? "red"
+                                      : "#000"
+                                }`,
                               backgroundColor:
                                 event.status == "desmarcado"
                                   ? "#FFCCCC"
                                   : event.status == "marcado"
-                                  ? "#CCE5FF"
-                                  : event.status == "realizada"
-                                  ? "#CCFFCC"
-                                  : "#000",
+                                    ? "#CCE5FF"
+                                    : event.status == "realizada"
+                                      ? "#CCFFCC"
+                                      : "#000",
                             }}
                           >
                             <div
@@ -918,8 +926,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.status == "marcado"
                                 ? "Scheduled"
                                 : event.status == "desmarcado"
-                                ? "Canceled"
-                                : "Realized"}
+                                  ? "Canceled"
+                                  : "Realized"}
                             </div>
                           </div>
                           {isEventTimeNow(event) && (
