@@ -14,7 +14,7 @@ import {
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { Button, CircularProgress, LinearProgress } from "@mui/material";
+import { CircularProgress, LinearProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
@@ -729,25 +729,27 @@ export default function MyCalendar({ headers, thePermissions }) {
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
             <div style={{ display: "flex" }}>
-              <Button
+              <button
+                className="button"
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
                 }}
                 onClick={() => handleSeeModalNew()}
               >
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
-              </Button>
-              <Button
+              </button>
+              <button
+                className="button"
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
                 }}
                 onClick={() => handleSeeModalOfTutorings()}
               >
                 <i className="fa fa-user-circle" aria-hidden="true" />
-              </Button>
-              <Button onClick={seeToday}>
+              </button>
+              <button className="button" onClick={seeToday}>
                 <i className="fa fa-refresh" aria-hidden="true" />
-              </Button>
+              </button>
               <input type="date" onChange={changeToday} />
             </div>
             {loading ? (
@@ -757,7 +759,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 style={{
                   display: "flex",
                   gap: "1rem",
-                  overflow: "auto",
+                  overflowX: "auto",
                 }}
               >
                 {futureDates.map((date, index) => (
@@ -765,11 +767,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                     style={{
                       boxShadow: `1px 1px 5px 1px ${lightGreyColor()}`,
                       padding: "0px 0px 10px 0px",
-                      margin: "10px 0px",
+                      margin: "10px auto",
                       border: `1px solid ${lightGreyColor()}`,
-                      minWidth: "13rem",
-                      height: "50vh",
-                      overflow: "auto",
+                      minWidth: "12rem",
+                      maxWidth: "20rem",
+                      height: "75vh",
+                      overflowY: "auto",
+                      overflowX: "hidden",
                     }}
                     key={index}
                   >
@@ -885,13 +889,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     cursor: "pointer",
                                   }}
                                 >
-                                  <Button onClick={() => handleSeeModal(event)}>
+                                  <button
+                                    className="button"
+                                    onClick={() => handleSeeModal(event)}
+                                  >
                                     <i
                                       style={{ fontSize: "0.6rem" }}
                                       className="fa fa-pencil"
                                       aria-hidden="true"
                                     />
-                                  </Button>
+                                  </button>
                                   <SpamClick>
                                     <i
                                       className="fa fa-clock-o"
@@ -1000,7 +1007,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 color: "#fff",
                                 marginTop: "10px",
                                 fontSize: "11px",
+                                maxWidth: "20ch",
                                 fontWeight: 600,
+                                margin: "5px auto",
                                 fontStyle: "italic",
                                 borderRadius: "5px",
                                 border: "solid 1px #ddd",
@@ -1189,7 +1198,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                     },
                   ].map((item, index) => {
                     return (
-                      <Button
+                      <button
+                        className="button"
                         key={index}
                         onClick={item.onClick}
                         style={{
@@ -1201,7 +1211,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         type={item.type ? item.type : null}
                       >
                         {item.text}
-                      </Button>
+                      </button>
                     );
                   })}
                 </div>
@@ -1229,7 +1239,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                     },
                   ].map((item, index) => {
                     return (
-                      <Button
+                      <button
+                        className="button"
                         key={index}
                         onClick={item.onClick}
                         style={{
@@ -1239,7 +1250,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         }}
                       >
                         {item.text}
-                      </Button>
+                      </button>
                     );
                   })}
                 </div>
@@ -1348,13 +1359,17 @@ export default function MyCalendar({ headers, thePermissions }) {
                               </Link>
                             </p>
                             <button
+                              className="button"
                               onClick={() => {
                                 seeEditOneTutoring(item);
                               }}
                             >
                               Edit
                             </button>
-                            <button onClick={() => deleteTutoring(item)}>
+                            <button
+                              className="button"
+                              onClick={() => deleteTutoring(item)}
+                            >
                               Delete
                             </button>
                           </div>
@@ -1368,7 +1383,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                   display: seeEditTutoring ? "block" : "none",
                 }}
               >
-                <button onClick={closeEditOneTutoring}>x</button>
+                <button className="button" onClick={closeEditOneTutoring}>
+                  x
+                </button>
                 <select
                   onChange={handleWeekDayChange}
                   name="students"
@@ -1413,7 +1430,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                   type="text"
                   required
                 />
-                <button onClick={updateOneTutoring}>Save</button>
+                <button className="button" onClick={updateOneTutoring}>
+                  Save
+                </button>
               </div>
               <div style={{ display: !seeEditTutoring ? "block" : "none" }}>
                 <h2>New</h2>
@@ -1462,7 +1481,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                   type="text"
                   required
                 />
-                <button onClick={newTutoring}>New</button>
+                <button className="button" onClick={newTutoring}>
+                  New
+                </button>
               </div>
             </div>
           </>
