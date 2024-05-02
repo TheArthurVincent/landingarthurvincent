@@ -764,6 +764,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               >
                 {futureDates.map((date, index) => {
                   if (date.getDay() !== 0) {
+                    const hj = new Date();
                     return (
                       <StyledDiv key={index}>
                         <p
@@ -776,7 +777,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                             fontWeight: 900,
                             textAlign: "center",
                             backgroundColor:
-                              index !== 0 ? alwaysBlack() : "#439906",
+                              hj == date ? alwaysBlack() : "#439906",
                             color: alwaysWhite(),
                           }}
                         >
