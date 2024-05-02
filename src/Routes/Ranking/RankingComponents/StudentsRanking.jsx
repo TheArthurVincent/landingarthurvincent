@@ -23,6 +23,7 @@ import {
 } from "../../../Styles/Styles";
 
 import { listOfButtons } from "./ListOfCriteria";
+import { abreviateName } from "./RankingComponents";
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -296,7 +297,7 @@ export default function StudentsRanking({ headers }) {
                         color: theItems[levelNumber].textcolor,
                       }}
                     >
-                      #{index + 1} | {item.name}
+                      #{index + 1} | {item.name} {abreviateName(item.lastname)}
                     </h1>
                   </div>
                   <div>
@@ -377,7 +378,6 @@ export default function StudentsRanking({ headers }) {
                     <p
                       style={{
                         fontWeight: 600,
-                        fontSize: "1.2rem",
                         fontFamily: "Athiti",
                         padding: "5px",
                         textAlign: "center",
@@ -385,22 +385,29 @@ export default function StudentsRanking({ headers }) {
                         color: theItems[levelNumber].textcolor,
                       }}
                     >
-                      #{index + 1} | {item.name} <br />
+                      #{index + 1} | {item.name} {abreviateName(item.lastname)}{" "}
                     </p>
                     <p
                       style={{
+                        fontSize: "0.9rem",
                         borderRadius: "0.5rem",
                         marginBottom: "0.2rem",
                         padding: "5px",
                       }}
                     >
-                      <span>
-                        Monthly Score:{" "}
-                        <DivFont
-                          style={{
-                            textAlign: "center",
-                            color: alwaysWhite(),
-                            textShadow: `2px 0 ${alwaysBlack()},
+                      <p
+                        style={{
+                          textAlign: "center",
+                        }}
+                      >
+                        Monthly Score:
+                      </p>
+                      <DivFont
+                        style={{
+                          textAlign: "center",
+
+                          color: alwaysWhite(),
+                          textShadow: `2px 0 ${alwaysBlack()},
                              -2px 0 ${alwaysBlack()}, 
                              0 2px ${alwaysBlack()},
                               0 -2px ${alwaysBlack()},
@@ -408,11 +415,10 @@ export default function StudentsRanking({ headers }) {
                                 -1px -1px ${alwaysBlack()},
                                  1px -1px ${alwaysBlack()},
                                   -1px 1px ${alwaysBlack()}`,
-                          }}
-                        >
-                          {formatNumber(item.monthlyScore)}{" "}
-                        </DivFont>
-                      </span>
+                        }}
+                      >
+                        {formatNumber(item.monthlyScore)}{" "}
+                      </DivFont>
                     </p>
                   </div>
                   <div

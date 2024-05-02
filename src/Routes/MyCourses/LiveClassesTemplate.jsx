@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   BackToHomePage,
-  IFrameVideoCourses,
+  IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
@@ -146,7 +146,7 @@ export default function LiveClassesTemplate({
                           </p>
                         )}{" "}
                         {videoItem.url && (
-                          <IFrameVideoCourses
+                          <IFrameVideo
                             style={{
                               border: "solid 1px black",
                             }}

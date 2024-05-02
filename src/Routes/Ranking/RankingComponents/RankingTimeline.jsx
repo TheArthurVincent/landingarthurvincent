@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   alwaysWhite,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -131,9 +132,10 @@ export default function RankingTimeline({ headers, display, id, name }) {
           maxHeight: "25rem",
           margin: "auto",
           overflow: "auto",
-          padding: "1rem",
+          padding: "1px",
           fontWeight: 600,
-          border: "solid 1px grey",
+          backgroundColor: lightGreyColor(),
+          border: `2px solid ${lightGreyColor()}`,
         }}
       >
         {loading ? (

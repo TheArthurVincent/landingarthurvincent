@@ -15,6 +15,7 @@ import {
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
+import { abreviateName } from "./RankingComponents";
 
 export default function StudentsRankingTotal({ headers }) {
   const [students, setStudents] = useState([]);
@@ -40,6 +41,8 @@ export default function StudentsRankingTotal({ headers }) {
   useEffect(() => {
     fetchStudents(theItems);
   }, []);
+
+ 
 
   return (
     <div>
@@ -83,7 +86,8 @@ export default function StudentsRankingTotal({ headers }) {
                   alt="level"
                 />
                 <p>
-                  #{index + 1} | {item.name + " " + item.lastname}
+                  #{index + 1} |{" "}
+                  {item.name + " " + abreviateName(item.lastname)}
                 </p>
                 <DivFont
                   style={{
@@ -95,6 +99,7 @@ export default function StudentsRankingTotal({ headers }) {
                   <i
                     style={{
                       color: alwaysBlack(),
+                      marginLeft: "5px",
                       textShadow: `1px 0 ${alwaysWhite()}, -1px 0 ${alwaysWhite()}, 0 1px ${alwaysWhite()}, 0 -1px ${alwaysWhite()}, 1px 1px ${alwaysWhite()}, -1px -1px ${alwaysWhite()}, 1px -1px ${alwaysWhite()}, -1px 1px ${alwaysWhite()}`,
                     }}
                     className={theItems[levelNumber].icon}

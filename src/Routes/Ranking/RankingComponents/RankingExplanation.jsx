@@ -2,8 +2,7 @@ import React from "react";
 import RankingList from "./RankingList";
 import { primaryColor } from "../../../Styles/Styles";
 import {
-  IFrameVideoInstructions,
-  ImgResponsive2,
+  IFrameVideo,
   getVideoEmbedUrl,
 } from "../../../Resources/UniversalComponents";
 import WarningText from "../../../Resources/Warning";
@@ -20,7 +19,11 @@ export default function RankingExplanation() {
     margin: "1rem 0",
   };
   return (
-    <div>
+    <div
+      style={{
+        padding: "1rem",
+      }}
+    >
       <p>{UniversalTexts.timelineExplanationText}</p>
       <h3 style={h3}>{UniversalTexts.score}</h3>
       <RankingExplanationComponent />
@@ -69,7 +72,7 @@ export default function RankingExplanation() {
       </ul>
       <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
         <h3 style={h3}>{UniversalTexts.uplevel}</h3>
-        <IFrameVideoInstructions
+        <IFrameVideo
           src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
         />
         <RankingList />
