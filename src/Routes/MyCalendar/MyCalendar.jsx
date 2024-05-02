@@ -180,7 +180,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     const chosenDate = today;
     chosenDate.setDate(chosenDate.getDate() + sum);
     const newDate = getLastMonday(chosenDate);
-    console.log(newDate);
     setTheToday(newDate);
     try {
       const response = await axios.get(
@@ -594,9 +593,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
       setDescription("Aula de reposição referente ao dia");
       setIsTutoring(true);
-      console.log(
-        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
-      );
     }
     if (e.target.value == "Standalone") {
       setLink(
@@ -604,9 +600,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
       setDescription("Aula única de");
       setIsTutoring(false);
-      console.log(
-        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
-      );
     }
     if (e.target.value == "Group Class") {
       setLink(
