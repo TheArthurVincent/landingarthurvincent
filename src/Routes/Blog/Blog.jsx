@@ -28,7 +28,7 @@ import {
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
-import { DivPost, SpanDisapear, TitleChangeSize } from "./Blog.Styled";
+import { DivPost, SpanDisapear } from "./Blog.Styled";
 import LevelCard from "./BlogComponents/LevelCard";
 
 export function Blog({ headers }) {
@@ -293,7 +293,7 @@ export function Blog({ headers }) {
                     gap: "2rem",
                   }}
                 >
-                  <TitleChangeSize>{post.title}</TitleChangeSize>
+                  <h1>{post.title}</h1>
                   {!loading && (
                     <Button
                       style={{
