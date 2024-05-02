@@ -20,18 +20,23 @@ export const CoursesList = styled.div`
   }
 `;
 export const StyledDiv = styled.div`
-  box-shadow: 1px 1px 5px 1px ${(props) => props.lightGreyColor};
   padding: 0px 0px 10px 0px;
   margin: 10px auto;
-  border: 1px solid ${(props) => props.lightGreyColor};
-  width: 16vw;
+  border: 1px solid ${lightGreyColor()};
+  width: 20vw;
   height: 61vh;
+
   overflow-y: auto;
   overflow-x: hidden;
-  @media (max-width: 1200px) {
-  min-width: 20vw;
+  @media (max-width: 1050px) {
+    min-width: 25vw;
   }
-
+  @media (max-width: 700px) {
+    min-width: 50vw;
+  }
+  @media (max-width: 300px) {
+    min-width: 80vw;
+  }
 `;
 export const CourseItem = styled.div`
   background-color: ${lightGreyColor()};

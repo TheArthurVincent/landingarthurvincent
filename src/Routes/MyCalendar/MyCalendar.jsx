@@ -763,10 +763,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                 }}
               >
                 {futureDates.map((date, index) => {
+                  if (date.getDay() !== 0) {
                     return (
-                      <StyledDiv
-                        key={index}
-                      >
+                      <StyledDiv key={index}>
                         <p
                           style={{
                             padding: "5px",
@@ -807,7 +806,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               style={{
                                 margin: "4px",
                                 marginBottom: "1rem",
-                                padding: "10px 5px",
+                                padding: "5px",
                                 boxShadow: "2px 2px 20px 2px #ccc",
                                 borderRadius: "5px",
                                 border: "1px solid #aaa",
@@ -973,18 +972,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                       fontWeight: 600,
                                     }}
                                   >
-                                    {event.student
-                                      .split(" ")
-                                      .slice(0, 1)
-                                      .join(" ")}{" "}
+                                    {event.student}
                                     <br />
-                                    {event.student
-                                      .split(" ")
-                                      .slice(1)
-                                      .join(" ")}
                                   </span>
                                 )}
-                                <br />
 
                                 {` ${event.time} | ${event.category}`}
                                 <br />
@@ -1024,6 +1015,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                           ))}
                       </StyledDiv>
                     );
+                  }
                 })}
               </div>
             )}
