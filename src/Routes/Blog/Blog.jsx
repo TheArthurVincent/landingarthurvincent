@@ -52,7 +52,7 @@ export function Blog({ headers }) {
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
-    seeConfirmDelete(false);
+    setSeeConfirmDelete(false);
   };
 
   const handleConfirmDelete = () => {
