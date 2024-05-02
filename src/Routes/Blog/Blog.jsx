@@ -21,6 +21,7 @@ import {
 import {
   alwaysBlack,
   alwaysWhite,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -279,7 +280,7 @@ export function Blog({ headers }) {
           <div
             key={index}
             style={{
-              borderBottom: `solid 3px ${primaryColor()} `,
+              border: `solid 1px ${lightGreyColor()} `,
               paddingBottom: "5rem",
               marginBottom: "1rem",
             }}
@@ -293,20 +294,18 @@ export function Blog({ headers }) {
                     gap: "2rem",
                   }}
                 >
-                  <h1>{post.title}</h1>
                   {!loading && (
-                    <Button
+                    <button
+                      className="button"
                       style={{
                         display: permissions == "superadmin" ? "grid" : "none",
-                        backgroundColor: textPrimaryColorContrast(),
-                        color: primaryColor(),
-                        fontSize: "0.6rem",
                       }}
                       onClick={() => seeEdition(post._id)}
                     >
                       <i className="fa fa-edit" aria-hidden="true" />
-                    </Button>
+                    </button>
                   )}
+                  <h2> {post.title}</h2>
                 </span>
                 {post.createdAt && (
                   <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>

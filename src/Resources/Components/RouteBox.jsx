@@ -52,15 +52,6 @@ export const BlogRouteSizeControlBox = styled.div`
 `;
 
 export const HOne = styled.h1`
-  font-weight: 800;
-  font-size: 1.1rem;
-  display: flex;
-  max-width: fit-content;
-  padding: 0 1rem;
-  border-radius: 1rem;
-  align-items: center;
-  margin: 1rem auto;
-  box-shadow: 1px 1px 10px 1px #aaa;
   text-align: center;
   color: ${primaryColor()};
 `;
@@ -83,18 +74,15 @@ export const SpanIcon = styled.span`
   }
 `;
 export const BlogPostTitle = styled.div`
-  font-weight: 400;
-  background-color: ${primaryColor()};
   padding: 0rem 0.5rem;
   margin: 0.5rem;
-  box-shadow: 1px 1px 10px 1px #aaa;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 2.5rem;
   font-size: 1rem;
-  color: ${textPrimaryColorContrast()};
+  // color: ${textPrimaryColorContrast()};
   @media (max-width: 650px) {
     margin: 3px;
   }
