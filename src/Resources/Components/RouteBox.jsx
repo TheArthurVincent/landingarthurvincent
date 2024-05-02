@@ -10,7 +10,7 @@ import {
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
-  max-width: 90vw;
+  max-width: 96vw;
   margin: 0.5rem auto;
   &.smooth {
     animation-name: slideInLeft;

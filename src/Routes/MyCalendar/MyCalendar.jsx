@@ -18,6 +18,7 @@ import { CircularProgress, LinearProgress } from "@mui/material";
 import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
+import { StyledDiv } from "./MyCalendar.Styled";
 
 export default function MyCalendar({ headers, thePermissions }) {
   // states
@@ -761,265 +762,269 @@ export default function MyCalendar({ headers, thePermissions }) {
                   overflowX: "auto",
                 }}
               >
-                {futureDates.map((date, index) => (
-                  <div
-                    style={{
-                      boxShadow: `1px 1px 5px 1px ${lightGreyColor()}`,
-                      padding: "0px 0px 10px 0px",
-                      margin: "10px auto",
-                      border: `1px solid ${lightGreyColor()}`,
-                      minWidth: "13rem",
-                      height: "75vh",
-                      overflowY: "auto",
-                      overflowX: "hidden",
-                    }}
-                    key={index}
-                  >
-                    <p
-                      style={{
-                        padding: "5px",
-                        fontFamily: "Athiti",
-                        position: "sticky",
-                        top: 0,
-                        zIndex: 50,
-                        fontWeight: 900,
-                        textAlign: "center",
-                        backgroundColor:
-                          index !== 0 ? alwaysBlack() : "#439906",
-                        color: alwaysWhite(),
-                      }}
-                    >
-                      {date.toLocaleDateString("en-US", {
-                        weekday: "short",
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </p>
-                    {events
-                      .filter(
-                        (event) =>
-                          event.date.toDateString() === date.toDateString()
-                      )
-                      .sort((a, b) => {
-                        const timeA =
-                          parseInt(a.time.split(":")[0]) * 60 +
-                          parseInt(a.time.split(":")[1]);
-                        const timeB =
-                          parseInt(b.time.split(":")[0]) * 60 +
-                          parseInt(b.time.split(":")[1]);
-                        return timeA - timeB;
-                      })
-                      .map((event, index) => (
-                        <div
+                {futureDates.map((date, index) => {
+                    return (
+                      <StyledDiv
+                        key={index}
+                      >
+                        <p
                           style={{
-                            margin: "4px",
-                            marginBottom: "1rem",
-                            padding: "10px 5px",
-                            boxShadow: "2px 2px 20px 2px #ccc",
-                            borderRadius: "5px",
-                            border: "1px solid #aaa",
-                            backgroundColor:
-                              event.category === "Group Class"
-                                ? "#F2F1CE"
-                                : event.category === "Rep"
-                                ? "#b33"
-                                : event.category === "Tutoring"
-                                ? "#fff"
-                                : event.category === "Prize Class"
-                                ? "orange"
-                                : event.category === "Standalone"
-                                ? "#ddd"
-                                : event.category === "Test"
-                                ? "#C2F0C2"
-                                : "#000",
-
+                            padding: "5px",
+                            fontFamily: "Athiti",
+                            position: "sticky",
+                            top: 0,
+                            zIndex: 50,
+                            fontWeight: 900,
                             textAlign: "center",
-                            display: "grid",
+                            backgroundColor:
+                              index !== 0 ? alwaysBlack() : "#439906",
+                            color: alwaysWhite(),
                           }}
-                          key={event + index}
                         >
-                          {thePermissions == "superadmin" && (
+                          {date.toLocaleDateString("en-US", {
+                            weekday: "short",
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </p>
+                        {events
+                          .filter(
+                            (event) =>
+                              event.date.toDateString() === date.toDateString()
+                          )
+                          .sort((a, b) => {
+                            const timeA =
+                              parseInt(a.time.split(":")[0]) * 60 +
+                              parseInt(a.time.split(":")[1]);
+                            const timeB =
+                              parseInt(b.time.split(":")[0]) * 60 +
+                              parseInt(b.time.split(":")[1]);
+                            return timeA - timeB;
+                          })
+                          .map((event, index) => (
                             <div
                               style={{
-                                display: "flex",
-                                backgroundColor: alwaysWhite(),
-                                alignItems: "center",
-                                justifyContent: "center",
-                                gap: "5px",
+                                margin: "4px",
+                                marginBottom: "1rem",
+                                padding: "10px 5px",
+                                boxShadow: "2px 2px 20px 2px #ccc",
+                                borderRadius: "5px",
+                                border: "1px solid #aaa",
+                                backgroundColor:
+                                  event.category === "Group Class"
+                                    ? "#F2F1CE"
+                                    : event.category === "Rep"
+                                    ? "#b33"
+                                    : event.category === "Tutoring"
+                                    ? "#fff"
+                                    : event.category === "Prize Class"
+                                    ? "orange"
+                                    : event.category === "Standalone"
+                                    ? "#ddd"
+                                    : event.category === "Test"
+                                    ? "#C2F0C2"
+                                    : "#000",
+
+                                textAlign: "center",
+                                display: "grid",
                               }}
+                              key={event + index}
                             >
-                              <button
-                                className="button"
-                                onClick={() => handleSeeModal(event)}
-                              >
-                                <i
-                                  style={{ fontSize: "0.6rem" }}
-                                  className="fa fa-pencil"
-                                  aria-hidden="true"
-                                />
-                              </button>
-                              <i
-                                className="fa fa-clock-o"
-                                aria-hidden="true"
-                                onClick={() => updateScheduled(event._id)}
+                              {thePermissions == "superadmin" && (
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    backgroundColor: alwaysWhite(),
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    gap: "5px",
+                                  }}
+                                >
+                                  <button
+                                    className="button"
+                                    onClick={() => handleSeeModal(event)}
+                                  >
+                                    <i
+                                      style={{ fontSize: "0.6rem" }}
+                                      className="fa fa-pencil"
+                                      aria-hidden="true"
+                                    />
+                                  </button>
+                                  <i
+                                    className="fa fa-clock-o"
+                                    aria-hidden="true"
+                                    onClick={() => updateScheduled(event._id)}
+                                    style={{
+                                      cursor: "pointer",
+                                      fontSize:
+                                        event.status == "marcado"
+                                          ? "12px"
+                                          : "10px",
+                                      color:
+                                        event.status == "marcado"
+                                          ? "blue"
+                                          : "grey",
+                                    }}
+                                  />
+                                  <i
+                                    className="fa fa-check-circle"
+                                    aria-hidden="true"
+                                    onClick={() =>
+                                      updateRealizedClass(event._id)
+                                    }
+                                    style={{
+                                      cursor: "pointer",
+                                      fontSize:
+                                        event.status == "realizada"
+                                          ? "12px"
+                                          : "10px",
+                                      color:
+                                        event.status == "realizada"
+                                          ? "green"
+                                          : "grey",
+                                    }}
+                                  />
+                                  <i
+                                    className="fa fa-times-circle-o"
+                                    aria-hidden="true"
+                                    onClick={() => updateUnscheduled(event._id)}
+                                    style={{
+                                      cursor: "pointer",
+                                      fontSize:
+                                        event.status == "desmarcado"
+                                          ? "12px"
+                                          : "10px",
+                                      color:
+                                        event.status == "desmarcado"
+                                          ? "red"
+                                          : "grey",
+                                    }}
+                                  />
+                                </div>
+                              )}
+                              <div
                                 style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == "marcado" ? "12px" : "10px",
-                                  color:
-                                    event.status == "marcado" ? "blue" : "grey",
-                                }}
-                              />
-                              <i
-                                className="fa fa-check-circle"
-                                aria-hidden="true"
-                                onClick={() => updateRealizedClass(event._id)}
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == "realizada"
-                                      ? "12px"
-                                      : "10px",
-                                  color:
-                                    event.status == "realizada"
-                                      ? "green"
-                                      : "grey",
-                                }}
-                              />
-                              <i
-                                className="fa fa-times-circle-o"
-                                aria-hidden="true"
-                                onClick={() => updateUnscheduled(event._id)}
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize:
-                                    event.status == "desmarcado"
-                                      ? "12px"
-                                      : "10px",
-                                  color:
-                                    event.status == "desmarcado"
+                                  display: "flex",
+                                  gap: "0.5rem",
+                                  flexDirection: "column",
+                                  marginBottom: "1rem",
+                                  borderRadius: "5px",
+                                  padding: "5px",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  border: `solid 2px ${
+                                    event.status == "marcado"
+                                      ? primaryColor()
+                                      : event.status == "realizada"
+                                      ? secondaryColor()
+                                      : event.status == "desmarcado"
                                       ? "red"
-                                      : "grey",
+                                      : "#000"
+                                  }`,
+                                  backgroundColor:
+                                    event.status == "desmarcado"
+                                      ? "#FFCCCC"
+                                      : event.status == "marcado"
+                                      ? "#CCE5FF"
+                                      : event.status == "realizada"
+                                      ? "#CCFFCC"
+                                      : "#000",
                                 }}
-                              />
-                            </div>
-                          )}
-                          <div
-                            style={{
-                              display: "flex",
-                              gap: "0.5rem",
-                              flexDirection: "column",
-                              marginBottom: "1rem",
-                              borderRadius: "5px",
-                              padding: "5px",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              border: `solid 2px ${
-                                event.status == "marcado"
-                                  ? primaryColor()
-                                  : event.status == "realizada"
-                                  ? secondaryColor()
-                                  : event.status == "desmarcado"
-                                  ? "red"
-                                  : "#000"
-                              }`,
-                              backgroundColor:
-                                event.status == "desmarcado"
-                                  ? "#FFCCCC"
-                                  : event.status == "marcado"
-                                  ? "#CCE5FF"
-                                  : event.status == "realizada"
-                                  ? "#CCFFCC"
-                                  : "#000",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "black",
-                                fontSize: "0.8rem",
-                                fontFamily: "Athiti",
-                              }}
-                            >
-                              {event.status == "marcado"
-                                ? "Scheduled"
-                                : event.status == "desmarcado"
-                                ? "Canceled"
-                                : "Realized"}
-                            </div>
-                          </div>
-                          {isEventTimeNow(event) && (
-                            <span
-                              style={{
-                                paddingBottom: "5px",
-                              }}
-                            >
-                              <LinearProgress />
-                            </span>
-                          )}
-                          <p
-                            style={{
-                              fontFamily: "Athiti",
-                              padding: "10px",
-                              margin: "0 10px",
-                              borderRadius: "10px",
-                              backgroundColor: "#eee",
-                              fontSize: "0.8rem",
-                            }}
-                          >
-                            {event.student && (
-                              <span
+                              >
+                                <div
+                                  style={{
+                                    color: "black",
+                                    fontSize: "0.8rem",
+                                    fontFamily: "Athiti",
+                                  }}
+                                >
+                                  {event.status == "marcado"
+                                    ? "Scheduled"
+                                    : event.status == "desmarcado"
+                                    ? "Canceled"
+                                    : "Realized"}
+                                </div>
+                              </div>
+                              {isEventTimeNow(event) && (
+                                <span
+                                  style={{
+                                    paddingBottom: "5px",
+                                  }}
+                                >
+                                  <LinearProgress />
+                                </span>
+                              )}
+                              <p
                                 style={{
                                   fontFamily: "Athiti",
+                                  padding: "10px",
+                                  margin: "0 10px",
+                                  borderRadius: "10px",
+                                  backgroundColor: "#eee",
                                   fontSize: "0.8rem",
-                                  fontWeight: 600,
                                 }}
                               >
-                                {event.student.split(" ").slice(0, 1).join(" ")}{" "}
+                                {event.student && (
+                                  <span
+                                    style={{
+                                      fontFamily: "Athiti",
+                                      fontSize: "0.8rem",
+                                      fontWeight: 600,
+                                    }}
+                                  >
+                                    {event.student
+                                      .split(" ")
+                                      .slice(0, 1)
+                                      .join(" ")}{" "}
+                                    <br />
+                                    {event.student
+                                      .split(" ")
+                                      .slice(1)
+                                      .join(" ")}
+                                  </span>
+                                )}
                                 <br />
-                                {event.student.split(" ").slice(1).join(" ")}
-                              </span>
-                            )}
-                            <br />
 
-                            {` ${event.time} | ${event.category}`}
-                            <br />
-                          </p>
-                          {event.description && (
-                            <div
-                              style={{
-                                backgroundColor: "#333",
-                                padding: "3px",
-                                color: "#fff",
-                                marginTop: "10px",
-                                fontSize: "11px",
-                                maxWidth: "20ch",
-                                fontWeight: 600,
-                                margin: "5px auto",
-                                fontStyle: "italic",
-                                borderRadius: "5px",
-                                border: "solid 1px #ddd",
-                              }}
-                            >
-                              <p>{event.description}</p>
+                                {` ${event.time} | ${event.category}`}
+                                <br />
+                              </p>
+                              {event.description && (
+                                <div
+                                  style={{
+                                    backgroundColor: "#333",
+                                    padding: "3px",
+                                    color: "#fff",
+                                    marginTop: "10px",
+                                    fontSize: "11px",
+                                    maxWidth: "20ch",
+                                    fontWeight: 600,
+                                    margin: "5px auto",
+                                    fontStyle: "italic",
+                                    borderRadius: "5px",
+                                    border: "solid 1px #ddd",
+                                  }}
+                                >
+                                  <p>{event.description}</p>
+                                </div>
+                              )}
+                              <span
+                                style={{
+                                  padding: "5px",
+                                  marginTop: "10px",
+                                  fontSize: "10px",
+                                  backgroundColor: alwaysWhite(),
+                                }}
+                              >
+                                <Link target="_blank" to={event.link}>
+                                  Access the class
+                                </Link>
+                              </span>
                             </div>
-                          )}
-                          <span
-                            style={{
-                              padding: "5px",
-                              marginTop: "10px",
-                              fontSize: "10px",
-                              backgroundColor: alwaysWhite(),
-                            }}
-                          >
-                            <Link target="_blank" to={event.link}>
-                              Access the class
-                            </Link>
-                          </span>
-                        </div>
-                      ))}
-                  </div>
-                ))}
+                          ))}
+                      </StyledDiv>
+                    );
+                })}
               </div>
             )}
           </RouteDiv>

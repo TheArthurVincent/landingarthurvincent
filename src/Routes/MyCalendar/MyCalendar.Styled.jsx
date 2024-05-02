@@ -19,7 +19,20 @@ export const CoursesList = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+export const StyledDiv = styled.div`
+  box-shadow: 1px 1px 5px 1px ${(props) => props.lightGreyColor};
+  padding: 0px 0px 10px 0px;
+  margin: 10px auto;
+  border: 1px solid ${(props) => props.lightGreyColor};
+  width: 16vw;
+  height: 61vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @media (max-width: 1200px) {
+  min-width: 20vw;
+  }
 
+`;
 export const CourseItem = styled.div`
   background-color: ${lightGreyColor()};
   padding: 3rem;
