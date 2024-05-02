@@ -1266,6 +1266,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         style={{
                           display: item.visible ? "block" : "none",
                           marginTop: "1rem",
+                          cursor:"pointer",
                           color: "white",
                           backgroundColor: item.backgroundColor,
                         }}
@@ -1306,6 +1307,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         style={{
                           marginTop: "1rem",
                           color: "white",
+                          cursor:"pointer",
                           backgroundColor: item.backgroundColor,
                         }}
                       >
