@@ -88,7 +88,6 @@ export const BlogPostTitle = styled.div`
   padding: 0rem 0.5rem;
   margin: 0.5rem;
   box-shadow: 1px 1px 10px 1px #aaa;
-  font-size: 1.3rem;
   border-radius: 10px;
   display: flex;
   align-items: center;
