@@ -33,8 +33,9 @@ export function LevelCard({ headers, _StudentId, picture }) {
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       var newValue = updateScore(response.data.totalScore);
-      document.body.style.backgroundImage = `url(${items[newValue.level].background
-        })`;
+      document.body.style.backgroundImage = `url(${
+        items[newValue.level].background
+      })`;
       const levelDone = newValue.level;
       setLevel(levelDone);
       setShowCard("block");
@@ -46,9 +47,13 @@ export function LevelCard({ headers, _StudentId, picture }) {
 
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setTimeout(() => {
-      seeScore(getLoggedUser.id);
-    }, 300);
+    if (getLoggedUser.id) {
+      setTimeout(() => {
+        seeScore(getLoggedUser.id);
+      }, 100);
+    } else {
+      window.location.assign("/login");
+    }
   }, []);
 
   return (

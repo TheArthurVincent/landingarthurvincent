@@ -495,6 +495,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   // ModalControls
   const handleSeeModalNew = () => {
     setPostNew(true);
+    fetchStudents();
     setNewStudentId("");
     setTheTime("");
     setTheNewLink("");
