@@ -273,7 +273,7 @@ export function Blog({ headers }) {
             to="/my-calendar"
           >
             <i className="fa fa-calendar" aria-hidden="true" />
-            <SpanDisapear> {UniversalTexts.calendar}</SpanDisapear>
+            <SpanDisapear>  {UniversalTexts.calendar}</SpanDisapear>
           </Link>
         </div>
         <HOne>{UniversalTexts.mural}</HOne>
