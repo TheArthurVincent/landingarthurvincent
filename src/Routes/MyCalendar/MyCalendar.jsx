@@ -587,30 +587,52 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   const handleCategoryChange = (e) => {
-    if (
-      e.target.value == "Standalone" ||
-      e.target.value == "Group Class" ||
-      e.target.value == "Test"
-    ) {
-      setIsTutoring(false);
-    } else if (
-      e.target.value == "Tutoring" ||
-      e.target.value == "Prize Class" ||
-      e.target.value == "Rep"
-    ) {
-      setIsTutoring(true);
-    }
-
+    setLoadingInfo(true);
     if (e.target.value == "Rep") {
-      setTheNewLink(
+      setLink(
         "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
       );
+      setDescription("Aula de reposição referente ao dia");
+      setIsTutoring(true);
       console.log(
         "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
       );
     }
+    if (e.target.value == "Standalone") {
+      setLink(
+        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
+      );
+      setDescription("Aula única de");
+      setIsTutoring(false);
+      console.log(
+        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
+      );
+    }
+    if (e.target.value == "Group Class") {
+      setLink(
+        "https://us06web.zoom.us/j/82907112201?pwd=fF9Bv9Ll9U9pPXmdOS7KJsak2SHngM.1"
+      );
+      setDescription("Class Theme:");
+      setIsTutoring(false);
+    }
+    if (e.target.value == "Test") {
+      setLink("");
+      setDescription("");
+      setIsTutoring(false);
+    }
+    if (e.target.value == "Prize Class") {
+      setLink("");
+      setDescription("");
+      setIsTutoring(true);
+    }
+    if (e.target.value == "Tutoring") {
+      setLink("");
+      setDescription("");
+      setIsTutoring(true);
+    }
 
     setCategory(e.target.value);
+    setLoadingInfo(false);
   };
 
   const handleWeekDayChange = (e) => {
@@ -813,7 +835,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 className="button"
                 onClick={() => handleChangeWeek(-7)}
               >
-                <i class="fa fa-arrow-left" aria-hidden="true" />
+                <i className="fa fa-arrow-left" aria-hidden="true" />
               </button>{" "}
               <button
                 style={{
@@ -823,7 +845,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 className="button"
                 onClick={() => handleChangeWeek(7)}
               >
-                <i class="fa fa-arrow-right" aria-hidden="true" />
+                <i className="fa fa-arrow-right" aria-hidden="true" />
               </button>
               <input type="date" onChange={changeToday} />
             </div>
