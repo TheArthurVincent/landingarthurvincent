@@ -10,11 +10,7 @@ import { All, authorizationToken } from "./App.Styled";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
-  if (token) {
-    return token;
-  } else {
-    window.location.assign("/login");
-  }
+  return token;
 };
 const authorization = authorizationToken();
 const headers = {
