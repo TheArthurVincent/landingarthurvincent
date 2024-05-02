@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
+import { alwaysWhite, lightGreyColor, primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
 
 export const FlexAdjust = styled.span`
   display: flex;
@@ -31,13 +31,12 @@ export const DivHover = styled.span`
   gap: 10px;
   font-family: Athiti;
   padding: 0.5rem 0;
-  margin: 10px auto;
-  padding: 5px 10px;
-  border: solid 1px grey;
+  margin: 2px auto;
+    background-color: ${alwaysWhite()};
+    padding: 5px 10px;
+  border: solid 1px ${lightGreyColor()};
   &:hover {
-    background-color: ${primaryColor()};
-    color: ${textPrimaryColorContrast()};
-    border-radius: 0.5rem;
+    background-color: ${lightGreyColor()};
     transition: 0.2s;
   }
   @media (max-width: 800px) {
@@ -45,3 +44,10 @@ export const DivHover = styled.span`
     flex-direction: column;
   }
 `;
+
+
+export const abreviateName = (word) => {
+  const words = word.split(" ");
+  const lastWord = words[words.length - 1];
+  return lastWord;
+};

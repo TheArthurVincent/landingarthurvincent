@@ -386,34 +386,11 @@ export const linkReset2 = {
 
 export const IFrameVideo = styled.iframe`
   margin-top: 0;
-  min-width: 950px;
-  min-height: 500px;
-  border: 1px #222 solid;
+  width: 90vw;
+  height: 70vh;
+  border: none;
   margin-left: auto;
   margin-right: auto;
-  display: inline-block;
-  @media (max-width: 900px) {
-    margin-top: 0;
-    min-width: 430px;
-    min-height: 230px;
-  }
-  @media (max-width: 450px) {
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 265px;
-    min-height: 150px;
-  }
-  @media (max-width: 280px) {
-    margin-top: 0;
-    min-width: 140px;
-    min-height: 64px;
-  }
-  @media (max-width: 210px) {
-    margin-top: 0;
-    min-width: 80px;
-    min-height: 38px;
-  }
 `;
 export const IFrameVideoClass = styled.iframe`
   margin-top: 0;
@@ -439,53 +416,9 @@ export const IFrameVideoClass = styled.iframe`
   }
 `;
 
-export const IFrameVideoInstructions = styled.iframe`
-  margin-top: 0;
-  border: 1px #222 solid;
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;
-  min-width: 1000px;
-  min-height: 600px;
-  @media (max-width: 740px) {
-    min-width: 500px;
-    min-height: 250px;
-  }
-  @media (max-width: 500px) {
-    min-width: 300px;
-    min-height: 170px;
-  }
-`;
 export const SpanCourseResponsive = styled.span`
   @media (max-width: 500px) {
     display: none;
-  }
-`;
-
-export const IFrameVideoCourses = styled.iframe`
-  border: none;
-  margin-top: 0;
-  min-width: 1200px;
-  min-height: 750px;
-  @media (max-width: 950px) {
-    margin-top: 0;
-    min-width: 430px;
-    min-height: 230px;
-  }
-  @media (max-width: 380px) {
-    margin-top: 0;
-    min-width: 265px;
-    min-height: 150px;
-  }
-  @media (max-width: 280px) {
-    margin-top: 0;
-    min-width: 140px;
-    min-height: 64px;
-  }
-  @media (max-width: 210px) {
-    margin-top: 0;
-    min-width: 80px;
-    min-height: 38px;
   }
 `;
 
