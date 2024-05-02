@@ -54,7 +54,19 @@ export default function MyCalendar({ headers, thePermissions }) {
   const [theNewWeekDay, setTheNewWeekDay] = useState("");
   const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
   const [theNewLink, setTheNewLink] = useState("");
-  const [today, setTheToday] = useState(new Date());
+  const getLastMonday = (targetDate) => {
+    const date = new Date(targetDate);
+    const dayOfWeek = date.getDay();
+    const diff = date.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+    const lastMonday = new Date(date.setDate(diff));
+    return lastMonday;
+  };
+
+  var hj = new Date();
+  var lm = getLastMonday(hj);
+
+  const [disabledAvoid, setDisabledAvoid] = useState(true);
+  const [today, setTheToday] = useState(lm);
   const { UniversalTexts } = useUserContext();
 
   const futureDates = [];
@@ -134,8 +146,8 @@ export default function MyCalendar({ headers, thePermissions }) {
     const user = JSON.parse(localStorage.getItem("loggedIn"));
     const id = user.id;
     setLoading(true);
-    const newDate = new Date(e.target.value);
-    const rightDate = newDate.setDate(newDate.getDate() + 1);
+    const targetDate = new Date(e.target.value);
+    const newDate = getLastMonday(targetDate); // Obtém a última segunda-feira em relação à data escolhida
     setTheToday(newDate);
     try {
       const response = await axios.get(
@@ -160,10 +172,38 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-  const seeToday = async () => {
-    const newDate = new Date();
-    await (() => setTheToday(newDate)); // Esperar pela atualização do estado
-    fetchGeneralEvents(); // Chamar fetchGeneralEvents após o estado ser atualizado
+  const handleChangeWeek = async (sum) => {
+    setDisabledAvoid(false);
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    setLoading(true);
+    const chosenDate = today;
+    chosenDate.setDate(chosenDate.getDate() + sum);
+    const newDate = getLastMonday(chosenDate);
+    console.log(newDate);
+    setTheToday(newDate);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${newDate}`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsList;
+      const eventsLoop = res.map((event) => {
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
+        return event;
+      });
+      setEvents(eventsLoop);
+      setTimeout(() => {
+        setLoading(false);
+        setDisabledAvoid(true);
+      }, 100);
+    } catch (error) {
+      console.log(error, "Erro ao encontrar alunos");
+    }
   };
 
   const fetchOneEvent = async (id) => {
@@ -739,6 +779,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
               </button>
               <button
+                disabled={!disabledAvoid}
                 className="button"
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
@@ -747,8 +788,26 @@ export default function MyCalendar({ headers, thePermissions }) {
               >
                 <i className="fa fa-user-circle" aria-hidden="true" />
               </button>
-              <button className="button" onClick={seeToday}>
+              <button
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={() => fetchGeneralEvents()}
+              >
                 <i className="fa fa-refresh" aria-hidden="true" />
+              </button>
+              <button
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={() => handleChangeWeek(-7)}
+              >
+                <i class="fa fa-arrow-left" aria-hidden="true" />
+              </button>{" "}
+              <button
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={() => handleChangeWeek(7)}
+              >
+                <i class="fa fa-arrow-right" aria-hidden="true" />
               </button>
               <input type="date" onChange={changeToday} />
             </div>
@@ -777,7 +836,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                             fontWeight: 900,
                             textAlign: "center",
                             backgroundColor:
-                              hj !== date ? alwaysBlack() : "#439906",
+                              hj.getDate() !== date.getDate()
+                                ? alwaysBlack()
+                                : "#439906",
                             color: alwaysWhite(),
                           }}
                         >
