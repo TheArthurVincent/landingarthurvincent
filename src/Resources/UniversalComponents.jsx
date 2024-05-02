@@ -125,18 +125,6 @@ export const DivFlex = styled.div`
   }
 `;
 
-export const DivHover = styled.span`
-  margin: 0;
-  padding: 0 1rem;
-  display: grid;
-  border-bottom: solid 1px black;
-  &:hover {
-    background-color: ${primaryColor()};
-    color: ${textPrimaryColorContrast()};
-    border-radius: 0.5rem;
-    transition: 0.2s;
-  }
-`;
 
 export const Button = styled.button`
   border: 1px solid ${primaryColor()};
@@ -320,11 +308,6 @@ export function InputFieldNotRequired({
   );
 }
 
-export const Disapear = styled.span`
-  @media (max-width: 500px) {
-    display: none;
-  }
-`;
 
 export const ImgResponsive0 = styled.img`
   max-width: 8rem;

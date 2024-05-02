@@ -19,7 +19,6 @@ import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 export default function Ranking({ headers }) {
-
   const { UniversalTexts } = useUserContext();
 
   const [value, setValue] = useState("1");
@@ -71,7 +70,7 @@ export default function Ranking({ headers }) {
 
   return (
     <>
-      <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
+      <RouteSizeControlBox className="smooth">
         <RouteDiv>
           <HOne>Ranking</HOne>
           <TabContext value={value}>
@@ -113,7 +112,6 @@ export default function Ranking({ headers }) {
                   style={{
                     padding: 0,
                     margin: "1rem auto",
-                    maxWidth: "1000px",
                   }}
                   key={index + component.value}
                   value={component.value}

@@ -10,51 +10,58 @@ import {
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-  @media (max-width: 1200px) {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 1100px) {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 1000px) {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 900px) {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 800px) {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 700px) {
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 600px) {
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  max-width: 90vw;
+  margin: 0.5rem auto;
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
   }
 `;
+
+export const RouteDiv = styled.div`
+  background-color: ${alwaysWhite()};
+  color: ${alwaysBlack()};
+  padding: 0.5rem;
+`;
+// margin-left: auto;
+// margin-right: auto;
+// margin-top: 1rem;
+// @media (max-width: 1200px) {
+//   max-width: 1000px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// @media (max-width: 1100px) {
+//   max-width: 900px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// @media (max-width: 1000px) {
+//   max-width: 800px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// @media (max-width: 900px) {
+//   max-width: 700px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// @media (max-width: 800px) {
+//   max-width: 600px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// @media (max-width: 700px) {
+//   max-width: 500px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+// @media (max-width: 600px) {
+//   max-width: 400px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 export const BlogSideBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -167,37 +174,6 @@ export const HThree = styled.h3`
   @media (max-width: 750px) {
     padding: 3px;
     margin: 5px;
-  }
-`;
-
-export const RouteDiv = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  background-color: ${alwaysWhite()};
-  color: ${alwaysBlack()};
-  padding: 0.5rem;
-  margin: 0;
-
-  @media (max-width: 750px) {
-    padding: 5px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 610px) {
-    max-width: 600px;
-  }
-  @media (max-width: 550px) {
-    max-width: 500px;
-  }
-  @media (max-width: 450px) {
-    max-width: 400px;
-  }
-  @media (max-width: 350px) {
-    max-width: 300px;
-  }
-  @media (max-width: 300px) {
-    max-width: 250px;
   }
 `;
 
