@@ -17,6 +17,7 @@ import {
   ImgBlog,
   Xp,
   IFrameVideoClass,
+  IFrameVideo,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -281,6 +282,7 @@ export function Blog({ headers }) {
             key={index}
             style={{
               border: `solid 1px ${lightGreyColor()} `,
+              boxShadow: "1px 1px 5px 1px #ccc",
               paddingBottom: "5rem",
               marginBottom: "1rem",
             }}

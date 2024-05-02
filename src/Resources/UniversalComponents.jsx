@@ -125,7 +125,6 @@ export const DivFlex = styled.div`
   }
 `;
 
-
 export const Button = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};
@@ -308,7 +307,6 @@ export function InputFieldNotRequired({
   );
 }
 
-
 export const ImgResponsive0 = styled.img`
   max-width: 8rem;
   @media (max-width: 755px) {
@@ -418,9 +416,27 @@ export const IFrameVideo = styled.iframe`
   }
 `;
 export const IFrameVideoClass = styled.iframe`
-  min-width: 30vw;
-  min-height: 26vh;
+  margin-top: 0;
+  min-width: 430px;
+  min-height: 260px;
   border: none;
+  @media (max-width: 450px) {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 265px;
+    min-height: 150px;
+  }
+  @media (max-width: 280px) {
+    margin-top: 0;
+    min-width: 140px;
+    min-height: 64px;
+  }
+  @media (max-width: 210px) {
+    margin-top: 0;
+    min-width: 80px;
+    min-height: 38px;
+  }
 `;
 
 export const IFrameVideoInstructions = styled.iframe`

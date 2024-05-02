@@ -838,7 +838,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                             hj.getDate() == date.getDate() &&
                             hj.getMonth() == date.getMonth() &&
                             hj.getFullYear() == date.getFullYear()
-                              ? alwaysBlack()
+                              ? "#D2F0CE"
                               : lightGreyColor(),
                         }}
                         key={index}
@@ -1267,7 +1267,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         style={{
                           display: item.visible ? "block" : "none",
                           marginTop: "1rem",
-                          cursor:"pointer",
+                          cursor: "pointer",
                           color: "white",
                           backgroundColor: item.backgroundColor,
                         }}
@@ -1308,7 +1308,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         style={{
                           marginTop: "1rem",
                           color: "white",
-                          cursor:"pointer",
+                          cursor: "pointer",
                           backgroundColor: item.backgroundColor,
                         }}
                       >
