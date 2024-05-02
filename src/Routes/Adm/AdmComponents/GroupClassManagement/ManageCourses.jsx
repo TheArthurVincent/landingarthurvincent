@@ -14,7 +14,6 @@ import {
   alwaysWhite,
   lightGreyColor,
   secondaryColor,
-  textSecondaryColorContrast,
 } from "../../../../Styles/Styles";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
@@ -22,8 +21,9 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
 
-export function ManageModules({ headers }) {
+export function ManageGroupClasses({ headers }) {
   const [coursesList, setCoursesList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingModal, setLoadingModal] = useState(false);
@@ -38,11 +38,15 @@ export function ManageModules({ headers }) {
   const [newClassName, setNewClassName] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newGoogleDriveLink, setNewGoogleDriveLink] = useState("");
-  const [newModuleTitle, setNewModuleTitle] = useState("");
-  const [newCourseTitle, setNewCourseTitle] = useState("");
+  const [newModuleTitle, setNewModuleTitle] = useState("group class");
+  const [newCourseTitle, setNewCourseTitle] = useState("group class");
   const [newDescription, setNewDescription] = useState("");
-  const [partner, setPartner] = useState("");
+  const [partner, setPartner] = useState("0");
   const [tabValue, setTabValue] = useState("1");
+
+  const handleDescriptionChange = (htmlContent) => {
+    setNewDescription(htmlContent);
+  };
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -156,7 +160,7 @@ export function ManageModules({ headers }) {
   };
 
   return (
-    <RouteDiv style={{ maxWidth: "50rem", margin: "auto" }}>
+    <RouteDiv>
       <HOne>Gerenciar Cursos</HOne>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabValue}>
@@ -172,13 +176,7 @@ export function ManageModules({ headers }) {
               <span
                 style={{ display: "flex", justifyContent: "space-between" }}
               >
-                <Button
-                  onClick={() => getCourses()}
-                  style={{
-                    backgroundColor: secondaryColor(),
-                    color: textSecondaryColorContrast(),
-                  }}
-                >
+                <Button onClick={() => getCourses()}>
                   <i className="fa fa-refresh" aria-hidden="true" />
                 </Button>
                 <BackToHomePage />
@@ -192,40 +190,35 @@ export function ManageModules({ headers }) {
                       <div
                         key={index}
                         style={{
-                          display: "flex",
-                          margin: "2rem 0.5rem",
+                          display: "grid",
                           padding: "0.5rem",
                           justifyContent: "space-between",
+                          border: "1px solid #000",
+                          padding: "1rem",
+                          margin: "1rem",
                           backgroundColor: lightGreyColor(),
                         }}
                       >
-                        <span>
-                          <h3>{course.classTitle}</h3>
-                          <p>
-                            <strong>Curso:</strong> {course.courseTitle}
-                          </p>
-                          <p>
-                            <strong>Módulo:</strong> {course.moduleTitle}
-                          </p>
-                          <p>
-                            <strong>Descrição:</strong> {course.description}
-                          </p>
-                          <p>
-                            <strong>Plataforma:</strong>
-                            {course.partner == 1
-                              ? "Talking Business"
-                              : "Live Classes"}
-                          </p>
-                          <p>
-                            <Link to={course.googleDriveLink}>Material</Link>
-                          </p>
-                          <p>
-                            <Link to={course.videoUrl}>Vídeo</Link>
-                          </p>
-                        </span>
-                        <Button onClick={() => openEditClass(course._id)}>
-                          Editar
-                        </Button>
+                        <h2>{course.classTitle}</h2>
+                        <h3>Descrição:</h3>{" "}
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: course.description,
+                          }}
+                        />
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "1rem",
+                          }}
+                        >
+                          <Link to={course.googleDriveLink}>Material</Link>
+                          <Link to={course.videoUrl}>Vídeo</Link>
+                          <Button onClick={() => openEditClass(course._id)}>
+                            Editar
+                          </Button>
+                        </div>
                       </div>
                     );
                   })}
@@ -256,10 +249,11 @@ export function ManageModules({ headers }) {
                       value={classTitle}
                       onChange={(event) => setClassTitle(event.target.value)}
                     />
-                    <input
+                    <textarea
                       placeholder="Description"
                       value={description}
                       onChange={(event) => setDescription(event.target.value)}
+                      style={{ width: "100%", height: "300px" }}
                     />
                     <input
                       placeholder="Video URL"
@@ -313,7 +307,6 @@ export function ManageModules({ headers }) {
                 style={{
                   display: "grid",
                   gap: "0.5rem",
-                  maxWidth: "20rem",
                 }}
               >
                 <TextField
@@ -337,33 +330,7 @@ export function ManageModules({ headers }) {
                   value={newGoogleDriveLink}
                   onChange={(e) => setNewGoogleDriveLink(e.target.value)}
                 />
-                <TextField
-                  id="outlined-basic"
-                  label="Módulo da nova aula"
-                  variant="outlined"
-                  value={newModuleTitle}
-                  onChange={(e) => setNewModuleTitle(e.target.value)}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Curso da nova aula"
-                  variant="outlined"
-                  value={newCourseTitle}
-                  onChange={(e) => setNewCourseTitle(e.target.value)}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Plataforma"
-                  value={partner}
-                  variant="outlined"
-                  onChange={(e) => setPartner(e.target.value)}
-                />
-                <textarea
-                  placeholder="Descrição da nova aula"
-                  value={newDescription}
-                  onChange={(e) => setNewDescription(e.target.value)}
-                  style={{ width: "100%", height: "200px" }}
-                />
+                <HTMLEditor onChange={handleDescriptionChange} />
                 <Button onClick={() => postNewClass()}>Salvar</Button>
               </div>
             </div>
@@ -374,4 +341,4 @@ export function ManageModules({ headers }) {
   );
 }
 
-export default ManageModules;
+export default ManageGroupClasses;
