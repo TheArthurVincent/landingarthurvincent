@@ -777,7 +777,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                             fontWeight: 900,
                             textAlign: "center",
                             backgroundColor:
-                              hj == date ? alwaysBlack() : "#439906",
+                              hj !== date ? alwaysBlack() : "#439906",
                             color: alwaysWhite(),
                           }}
                         >
