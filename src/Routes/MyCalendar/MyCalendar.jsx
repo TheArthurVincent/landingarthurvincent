@@ -1261,7 +1261,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                   ].map((item, index) => {
                     return (
                       <button
-                        className="button"
                         key={index}
                         onClick={item.onClick}
                         style={{
@@ -1302,7 +1301,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                   ].map((item, index) => {
                     return (
                       <button
-                        className="button"
                         key={index}
                         onClick={item.onClick}
                         style={{
