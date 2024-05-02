@@ -154,7 +154,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setEvents(eventsLoop);
       setTimeout(() => {
         setLoading(false);
-      }, 300);
+      }, 200);
     } catch (error) {
       console.log(error, "Erro ao encontrar alunos");
     }

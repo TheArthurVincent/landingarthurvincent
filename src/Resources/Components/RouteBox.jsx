@@ -15,22 +15,37 @@ export const RouteSizeControlBox = styled.div`
   margin-right: auto;
   margin-top: 1rem;
   @media (max-width: 1200px) {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (max-width: 1100px) {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
   @media (max-width: 1100px) {
-    max-width: 1000px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
   }
   @media (max-width: 1000px) {
-    max-width: 900px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 900px) {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 800px) {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 700px) {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 600px) {
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
