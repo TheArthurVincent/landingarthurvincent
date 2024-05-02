@@ -796,6 +796,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <i className="fa fa-refresh" aria-hidden="true" />
               </button>
               <button
+                style={{
+                  width: "5rem",
+                }}
                 disabled={!disabledAvoid}
                 className="button"
                 onClick={() => handleChangeWeek(-7)}
@@ -803,6 +806,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <i class="fa fa-arrow-left" aria-hidden="true" />
               </button>{" "}
               <button
+                style={{
+                  width: "5rem",
+                }}
                 disabled={!disabledAvoid}
                 className="button"
                 onClick={() => handleChangeWeek(7)}
