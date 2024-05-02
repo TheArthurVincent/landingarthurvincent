@@ -25,7 +25,6 @@ export const StyledDiv = styled.div`
   border: 1px solid ${lightGreyColor()};
   width: 20vw;
   height: 61vh;
-
   overflow-y: auto;
   overflow-x: hidden;
   @media (max-width: 1050px) {
