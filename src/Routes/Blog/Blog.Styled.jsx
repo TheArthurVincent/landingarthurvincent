@@ -1,12 +1,24 @@
 import { styled } from "styled-components";
-import {
-  alwaysBlack,
-  alwaysWhite,
-  lightGreyColor,
-  primaryColor,
-  textPrimaryColorContrast,
-  textSecondaryColorContrast,
-} from "../../Styles/Styles";
+import { alwaysWhite, lightGreyColor } from "../../Styles/Styles";
+
+export const DivModal = styled.div`
+  position: fixed;
+  z-index: 100;
+  background-color: ${alwaysWhite()};
+  padding: 1rem;
+  width: 50vw;
+  height: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 2px 10px 4px #ccc;
+`;
+
+export const InternDivModal = styled.div`
+  display: grid;
+  gap: 2px;
+  margin: auto;
+`;
 
 export const EventsCardsContainer = styled.div`
   display: flex;
@@ -26,7 +38,6 @@ export const EventsCard = styled.div`
   padding: 0.5rem;
   background-color: ${lightGreyColor()};
 `;
-
 
 export const SpanDisapear = styled.span`
   padding: 3px;

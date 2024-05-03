@@ -18,6 +18,7 @@ import {
   Xp,
   IFrameVideoClass,
   IFrameVideo,
+  UniversalButtonsDivFlex,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -30,7 +31,7 @@ import {
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
-import { DivPost, SpanDisapear } from "./Blog.Styled";
+import { DivModal, DivPost, InternDivModal, SpanDisapear } from "./Blog.Styled";
 import LevelCard from "./BlogComponents/LevelCard";
 
 export function Blog({ headers }) {
@@ -49,52 +50,19 @@ export function Blog({ headers }) {
   const [permissions, setPermissions] = useState("");
   const [picture, setPicture] = useState("");
   const [loading, setLoading] = useState(true);
-
-  const handleSeeModal = () => {
-    setIsVisible(!isVisible);
-    setSeeConfirmDelete(false);
-  };
-
-  const handleConfirmDelete = () => {
-    setSeeConfirmDelete(!seeConfirmDelete);
-  };
-
   const [posts, setPosts] = useState([
     {
       title: <CircularProgress style={{ color: secondaryColor() }} />,
     },
   ]);
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    setName(getLoggedUser.name);
-    setStudentId(getLoggedUser.id || _StudentId);
-    setPermissions(getLoggedUser.permissions);
-    setGoogleDriveLink(getLoggedUser.googleDriveLink);
-    setLastName(getLoggedUser.lastname);
-    setPicture(getLoggedUser.picture);
-  }, []);
-
-  async function fetchData() {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/blogposts`, {
-        headers,
-      });
-
-      setTimeout(() => {
-        setPosts(response.data.listOfPosts || posts);
-        setLoading(false);
-      }, 300);
-    } catch (error) {
-      alert(error, "Erro ao importar posts, faça login novamente");
-      window.location.assign("/login");
-      setLoading(false);
-    }
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const handleSeeModal = () => {
+    setIsVisible(!isVisible);
+    setSeeConfirmDelete(false);
+  };
+  const handleConfirmDelete = () => {
+    setSeeConfirmDelete(!seeConfirmDelete);
+  };
 
   const seeEdition = async (id) => {
     handleSeeModal();
@@ -153,11 +121,34 @@ export function Blog({ headers }) {
     }
   };
 
-  const formatData = (theDate) => {
-    const parts = theDate.split("-");
-    const formatted = parts[2] + "/" + parts[1] + "/" + parts[0];
-    return formatted;
-  };
+  async function fetchData() {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/blogposts`, {
+        headers,
+      });
+
+      setTimeout(() => {
+        setPosts(response.data.listOfPosts || posts);
+        setLoading(false);
+      }, 300);
+    } catch (error) {
+      alert(error, "Erro ao importar posts, faça login novamente");
+      window.location.assign("/login");
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    fetchData();
+    setName(getLoggedUser.name);
+    setStudentId(getLoggedUser.id || _StudentId);
+    setPermissions(getLoggedUser.permissions);
+    setGoogleDriveLink(getLoggedUser.googleDriveLink);
+    setLastName(getLoggedUser.lastname);
+    setPicture(getLoggedUser.picture);
+  }, []);
 
   return (
     <BlogRouteSizeControlBox className="smooth">
@@ -273,7 +264,7 @@ export function Blog({ headers }) {
             to="/my-calendar"
           >
             <i className="fa fa-calendar" aria-hidden="true" />
-            <SpanDisapear>  {UniversalTexts.calendar}</SpanDisapear>
+            <SpanDisapear> {UniversalTexts.calendar}</SpanDisapear>
           </Link>
         </div>
         <HOne>{UniversalTexts.mural}</HOne>
@@ -346,66 +337,31 @@ export function Blog({ headers }) {
         picture={picture}
         lastName={lastName}
       />
-
-      <div
+      <DivModal
         className="modal"
         style={{
-          position: "fixed",
           display: isVisible ? "block" : "none",
-          zIndex: 100,
-          backgroundColor: alwaysWhite(),
-          padding: "1rem",
-          width: "29rem",
-          height: "30rem",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
         }}
       >
         <Xp onClick={() => handleSeeModal()}>X</Xp>
-        <h2
-          style={{
-            margin: "0.5rem 0",
-          }}
-        >
-          {UniversalTexts.editPost}
-        </h2>
-        <div style={{ display: "grid", gap: "2px" }}>
+        <h2>{UniversalTexts.editPost}</h2>
+        <InternDivModal>
           <input
             value={newTitle}
             onChange={(event) => setNewTitle(event.target.value)}
             id="title"
             placeholder="Title"
             type="text"
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.4rem",
-              marginBottom: "0.3rem",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-              backgroundColor: "white",
-              width: "95%",
-              border: "#555 1px solid",
-            }}
+            className="inputs-style"
           />
+
           <input
+            className="inputs-style"
             value={newUrlVideo}
             onChange={(event) => setNewUrlVideo(event.target.value)}
             id="VideoUrl"
             placeholder="VideoUrl (Youtube/Vimeo)"
             type="text"
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.4rem",
-              marginBottom: "0.3rem",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-              backgroundColor: "white",
-              width: "95%",
-              border: "#555 1px solid",
-            }}
           />
           <input
             value={newImg}
@@ -413,31 +369,9 @@ export function Blog({ headers }) {
             id="VideoUrl"
             placeholder="Imagem URL"
             type="text"
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.4rem",
-              marginBottom: "0.3rem",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-              backgroundColor: "white",
-              width: "95%",
-              border: "#555 1px solid",
-            }}
+            className="inputs-style"
           />
           <textarea
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.4rem",
-              marginBottom: "0.3rem",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-              backgroundColor: "white",
-              width: "95%",
-              border: "#555 1px solid",
-              minHeight: "10rem",
-            }}
             value={newText}
             onChange={(event) => setNewText(event.target.value)}
             id="Texto"
@@ -446,14 +380,12 @@ export function Blog({ headers }) {
             cols="20"
             rows="10"
             required
+            className="inputs-style"
           />
-        </div>
-        <div
+        </InternDivModal>
+        <UniversalButtonsDivFlex
           style={{
-            marginTop: "2rem",
             display: !seeConfirmDelete ? "flex" : "none",
-            justifyContent: "space-evenly",
-            gap: "0.5rem",
           }}
         >
           <Button
@@ -483,36 +415,27 @@ export function Blog({ headers }) {
           >
             {UniversalTexts.save}
           </Button>
-        </div>
+        </UniversalButtonsDivFlex>
         <div
           style={{
-            maxWidth: "20rem",
             textAlign: "center",
-            marginLeft: "auto",
-            marginRight: "auto",
+            margin: "0 auto",
             display: seeConfirmDelete ? "grid" : "none",
           }}
         >
           <p
             style={{
               color: "#ba3c3c",
-              margin: "0.5rem 0",
-              padding: "0.5rem",
-              fontWeight: "500",
+              paddingTop: "1rem",
+              fontWeight: 700,
             }}
           >
             {UniversalTexts.deleteConfirm}
           </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
+          <UniversalButtonsDivFlex>
             <Button
               style={{
                 color: alwaysWhite(),
-
                 backgroundColor: "#194169",
               }}
               onClick={() => handleConfirmDelete()}
@@ -528,9 +451,9 @@ export function Blog({ headers }) {
             >
               {UniversalTexts.yes}
             </Button>
-          </div>
+          </UniversalButtonsDivFlex>
         </div>
-      </div>
+      </DivModal>
       <BackgroundClickBlog
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}

@@ -99,7 +99,7 @@ export function HomePage({ headers }) {
           );
         })}
       </Routes>
-      {/* <AppFooter /> */}
+      <AppFooter />
       <Outlet />
     </>
   );

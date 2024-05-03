@@ -75,6 +75,12 @@ export function updateScore(totalScore) {
 
 // Função que verifica o nível do aluno
 
+export const UniversalButtonsDivFlex = styled.div`
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+`;
 export const SpanHover = styled.span`
   padding-left: 10px;
   font-family: Athiti;

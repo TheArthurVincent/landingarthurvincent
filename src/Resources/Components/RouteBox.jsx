@@ -277,6 +277,6 @@ export const BackgroundClickBlog = styled.div`
   position: fixed;
   z-index: 5;
   background-color: ${transparentWhite()};
-  height: 10000vh;
-  width: 10000vw;
+  height: 100000vh;
+  width: 100000vw;
 `;
