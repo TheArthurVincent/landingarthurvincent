@@ -21,6 +21,7 @@ export function updateScore(totalScore) {
   var textcolor = "black";
   var text = "White Belt";
   var discount = "0%";
+  var backgroundcolor = "#ccc";
   var image2 = whitefull;
   var image = white;
   var background =
@@ -38,6 +39,7 @@ export function updateScore(totalScore) {
         textcolor = levels[i].textcolor;
         text = levels[i].text;
         discount = levels[i].discount;
+        backgroundcolor = levels[i].backgroundcolor;
         background = levels[i].background;
         image2 = levels[i].image2;
         image = levels[i].image;
@@ -52,6 +54,7 @@ export function updateScore(totalScore) {
       textcolor = levels[i].textcolor;
       text = levels[i].text;
       discount = levels[i].discount;
+      backgroundcolor = levels[i].backgroundcolor;
       background = levels[i].background;
       break;
     }
@@ -65,6 +68,7 @@ export function updateScore(totalScore) {
     textcolor,
     text,
     discount,
+    backgroundcolor,
     background,
   };
 }
@@ -320,9 +324,10 @@ export const ImgResponsive3 = styled.img`
   }
 `;
 export const ImgResponsive = styled.img`
-  max-width: 40rem;
-  @media (max-width: 600px) {
-    max-width: 5rem;
+  max-width: 25rem;
+  @media (max-width: 800px) {
+    max-width: 10rem;
+    transition: 0.2s;
   }
 `;
 export const ImgResponsive2 = styled.img`
@@ -415,7 +420,6 @@ export const IFrameVideoClass = styled.iframe`
     min-height: 38px;
   }
 `;
-
 
 export const abreviateName = (word) => {
   const words = word.split(" ");

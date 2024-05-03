@@ -1,10 +1,6 @@
 import React from "react";
 import RankingList from "./RankingList";
 import { primaryColor } from "../../../Styles/Styles";
-import {
-  IFrameVideo,
-  getVideoEmbedUrl,
-} from "../../../Resources/UniversalComponents";
 import WarningText from "../../../Resources/Warning";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import RankingExplanationComponent from "./RankingExplanationComponents/RankingExplanationComponents";
@@ -70,11 +66,11 @@ export default function RankingExplanation() {
           {UniversalTexts.t3rd}
         </li>
       </ul>
-      <div style={{ display: "grid", gap: "2rem", padding: "3px" }}>
+      <div style={{ display: "grid", gap: "1rem", padding: "3px" }}>
         <h3 style={h3}>{UniversalTexts.uplevel}</h3>
-        <IFrameVideo
+        {/* <IFrameVideo
           src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
-        />
+        /> */}
         <RankingList />
       </div>
     </div>
