@@ -15,7 +15,11 @@ import {
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { CircularProgress, LinearProgress } from "@mui/material";
-import { Xp, backDomain } from "../../Resources/UniversalComponents";
+import {
+  Xp,
+  abreviateName,
+  backDomain,
+} from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
 import { StyledDiv } from "./MyCalendar.Styled";
@@ -440,14 +444,15 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-  function isEventTimeNow(eventTime) {
-    const now = new Date();
-
+  function isEventTimeNow(eventTime, hj, date) {
     const [eventHour, eventMinute] = eventTime.time.split(":").map(Number);
     if (
-      now.getHours() === eventHour &&
-      now.getMinutes() <= eventMinute &&
-      eventTime.date.getDate() === now.getDate()
+      hj.getDate() == date.getDate() &&
+      hj.getMonth() == date.getMonth() &&
+      hj.getFullYear() == date.getFullYear() &&
+      hj.getHours() == eventHour &&
+      hj.getMinutes() >= eventMinute &&
+      hj.getMonth() == date.getMonth()
     ) {
       return true;
     }
@@ -858,6 +863,18 @@ export default function MyCalendar({ headers, thePermissions }) {
                     return (
                       <StyledDiv
                         style={{
+                          borderRadius:
+                            hj.getDate() == date.getDate() &&
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
+                              ? `10px`
+                              : "null",
+                          border:
+                            hj.getDate() == date.getDate() &&
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
+                              ? `2px solid ${secondaryColor()}`
+                              : "null",
                           backgroundColor:
                             hj.getDate() == date.getDate() &&
                             hj.getMonth() == date.getMonth() &&
@@ -874,7 +891,12 @@ export default function MyCalendar({ headers, thePermissions }) {
                             position: "sticky",
                             top: 0,
                             zIndex: 50,
-                            fontWeight: 900,
+                            fontWeight:
+                              hj.getDate() == date.getDate() &&
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
+                                ? 700
+                                : 500,
                             textAlign: "center",
                             backgroundColor:
                               hj.getDate() == date.getDate() &&
@@ -1012,7 +1034,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   display: "flex",
                                   gap: "0.5rem",
                                   flexDirection: "column",
-                                  marginBottom: "1rem",
+                                  marginBottom: "5px",
                                   borderRadius: "5px",
                                   padding: "5px",
                                   alignItems: "center",
@@ -1050,15 +1072,21 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     : "Realized"}
                                 </div>
                               </div>
-                              {isEventTimeNow(event) && (
-                                <span
-                                  style={{
-                                    paddingBottom: "5px",
-                                  }}
-                                >
-                                  <LinearProgress />
-                                </span>
-                              )}
+                              {event.status !== "desmarcado" &&
+                                isEventTimeNow(event, hj, date) && (
+                                  <span
+                                    style={{
+                                      paddingBottom: "0px",
+                                      marginBottom: "5px",
+                                      padding: "3px",
+                                      border: `3px solid ${secondaryColor()}`,
+                                      borderRadius: `10px`,
+                                      backgroundColor: `${secondaryColor()}`,
+                                    }}
+                                  >
+                                    <LinearProgress color="inherit" />
+                                  </span>
+                                )}
                               <p
                                 style={{
                                   fontFamily: "Athiti",
@@ -1077,7 +1105,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                                       fontWeight: 600,
                                     }}
                                   >
-                                    {event.student}
+                                    {event.student.split(" ")[0]}{" "}
+                                    {abreviateName(event.student)}
                                     <br />
                                   </span>
                                 )}

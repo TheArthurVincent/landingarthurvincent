@@ -2,7 +2,6 @@ import React from "react";
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import {
   primaryColor,
-  secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../../../Styles/Styles";
@@ -13,7 +12,6 @@ import {
 } from "../ListOfCriteria";
 
 export default function RankingExplanationComponent() {
-  const { UniversalTexts } = useUserContext();
   return (
     <GridRankingExplanation>
       {listOfCriteria.map((criteria, index) => (
@@ -71,7 +69,7 @@ export default function RankingExplanationComponent() {
                     fontFamily: "Athiti",
                     fontWeight: 600,
                     padding: "5px",
-                    top:"*15px",
+                    top: "*15px",
                     borderRadius: "12px",
                   }}
                 >

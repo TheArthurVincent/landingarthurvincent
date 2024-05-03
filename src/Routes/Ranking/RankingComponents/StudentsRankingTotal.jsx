@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatedLi2, DivFont } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive3,
+  abreviateName,
   backDomain,
   formatNumber,
   updateScore,
@@ -15,7 +16,6 @@ import {
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
-import { abreviateName } from "./RankingComponents";
 
 export default function StudentsRankingTotal({ headers }) {
   const [students, setStudents] = useState([]);

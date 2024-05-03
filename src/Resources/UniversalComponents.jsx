@@ -416,6 +416,13 @@ export const IFrameVideoClass = styled.iframe`
   }
 `;
 
+
+export const abreviateName = (word) => {
+  const words = word.split(" ");
+  const lastWord = words[words.length - 1];
+  return lastWord;
+};
+
 export const SpanCourseResponsive = styled.span`
   @media (max-width: 500px) {
     display: none;
