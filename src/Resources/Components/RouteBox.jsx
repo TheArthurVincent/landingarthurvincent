@@ -41,7 +41,7 @@ export const BlogRouteSizeControlBox = styled.div`
   justify-content: center;
   max-width: 50vw;
   gap: 0.2rem;
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     display: flex;
     max-width: 90vw;
     flex-direction: column-reverse;
@@ -158,7 +158,7 @@ export const NewLevelCardComponent = styled.div`
   font-size: 12px;
   justify-content: center;
   text-align: center;
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     display: flex;
     width: 89vw;
     height: 9rem;
@@ -240,7 +240,7 @@ export const LevelCardLevel = styled.img`
   transform: translate(-50%, -40%);
   animation: ${spinAnimation} 1s ease-out forwards;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     top: 36%;
     left: -18%;
   }
@@ -257,7 +257,7 @@ export const LevelCardPhotoLevel = styled.img`
   position: absolute;
   top: 17%;
   left: 0%;
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     top: 3%;
     left: -68%;
   }
@@ -270,7 +270,7 @@ export const TextLevelCard = styled.div`
   position: relative;
   top: 30%;
   left: 0%;
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     top: 0%;
     left: -5%;
   }
