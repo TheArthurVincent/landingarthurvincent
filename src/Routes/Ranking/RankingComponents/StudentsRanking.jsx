@@ -7,6 +7,7 @@ import {
 import {
   ImgResponsive0,
   Xp,
+  abreviateName,
   backDomain,
   formatNumber,
   updateScore,
@@ -23,7 +24,6 @@ import {
 } from "../../../Styles/Styles";
 
 import { listOfButtons } from "./ListOfCriteria";
-import { abreviateName } from "./RankingComponents";
 export default function StudentsRanking({ headers }) {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);

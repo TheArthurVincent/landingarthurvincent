@@ -45,9 +45,3 @@ export const DivHover = styled.span`
   }
 `;
 
-
-export const abreviateName = (word) => {
-  const words = word.split(" ");
-  const lastWord = words[words.length - 1];
-  return lastWord;
-};

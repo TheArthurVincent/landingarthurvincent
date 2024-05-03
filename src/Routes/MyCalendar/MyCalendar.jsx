@@ -15,7 +15,11 @@ import {
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { CircularProgress, LinearProgress } from "@mui/material";
-import { Xp, backDomain } from "../../Resources/UniversalComponents";
+import {
+  Xp,
+  abreviateName,
+  backDomain,
+} from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
 import { StyledDiv } from "./MyCalendar.Styled";
@@ -1077,7 +1081,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                                       fontWeight: 600,
                                     }}
                                   >
-                                    {event.student}
+                                    {event.student.split(" ")[0]}{" "}
+                                    {abreviateName(event.student)}
                                     <br />
                                   </span>
                                 )}
