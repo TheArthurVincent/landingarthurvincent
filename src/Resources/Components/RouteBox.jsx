@@ -39,7 +39,7 @@ export const BlogRouteSizeControlBox = styled.div`
   grid-template-columns: 7fr 1fr;
   margin: 1rem auto;
   justify-content: center;
-  max-width: 60vw;
+  max-width: 50vw;
   gap: 0.2rem;
   @media (max-width: 1300px) {
     display: flex;
