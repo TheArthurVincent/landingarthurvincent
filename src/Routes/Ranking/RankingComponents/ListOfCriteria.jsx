@@ -7,10 +7,10 @@ export const listOfCriteria = [
     icon: "fa fa-book",
     color: "rgb(230, 160, 32)",
     score: [
-      { description: "Homework Realizado", score: 650, color: "green" },
+      { description: "Homework Realizado", score: 625, color: "green" },
       {
         description: "Homework Atrasado (> 7 dias)",
-        score: 200,
+        score: 210,
         color: "green",
       },
       {
@@ -28,15 +28,15 @@ export const listOfCriteria = [
     color: "rgb(1, 188, 255)",
     score: [
       { description: "6 dias em 7 (1x/semana)", score: 700, color: "green" },
-      { description: "3 dias em 7 (1x/semana)", score: 200, color: "green" },
+      { description: "3 dias em 7 (1x/semana)", score: 300, color: "green" },
       {
         description: "Chegou na aula com o Anki totalmente revisado",
-        score: 110,
+        score: 50,
         color: "green",
       },
       {
         description: "Enviou foto do Anki totalmente revisado",
-        score: 85,
+        score: 80,
         color: "green",
       },
     ],
@@ -48,18 +48,18 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 450,
+        score: 500,
         description: "Homework Group Class",
         text: "Homework Group Class (entregar na aula particular)",
       },
       {
         description: "Homework Atrasado (> 7 dias atrás)",
-        score: 110,
+        score: 120,
         color: "green",
       },
       {
         color: "green",
-        score: 80,
+        score: 75,
         description: "Participou da aula em grupo",
         text: "Participou da aula em grupo",
       },
@@ -84,7 +84,7 @@ export const listOfCriteria = [
       },
       {
         color: "green",
-        score: 20,
+        score: 25,
         description: "Instagram Post estudando marcando @thearthurvincent_",
         text: "Instagram Post ",
       },
