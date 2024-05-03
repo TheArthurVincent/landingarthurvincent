@@ -31,7 +31,7 @@
       "text": "Blue Belt",
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
       "discount": "5%",
-      "totalScore": 20000
+      "totalScore": 22000
     },
     {
       "level": 4,
@@ -63,7 +63,7 @@
       "backgroundcolor": "#FFE1C5",
       "textcolor": "white",
       "text": "Orange Belt",
-      "totalScore": 65000,
+      "totalScore": 68000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559"
     },
     {
@@ -74,7 +74,7 @@
       "discount": "7%",
       "textcolor": "white",
       "text": "Purple Belt",
-      "totalScore": 80000,
+      "totalScore": 83000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/purple.png?updatedAt=1711540461792"
     },
     {

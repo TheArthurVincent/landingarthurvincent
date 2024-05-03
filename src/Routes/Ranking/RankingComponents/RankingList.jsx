@@ -1,9 +1,6 @@
 import React from "react";
 import { levels } from "./RankingLevelsList";
-import {
-  ImgResponsive,
-  formatNumber,
-} from "../../../Resources/UniversalComponents";
+import { ImgResponsive } from "../../../Resources/UniversalComponents";
 export default function RankingList() {
   const theItems = levels();
 
@@ -11,8 +8,8 @@ export default function RankingList() {
     <div style={{ display: "grid" }}>
       <ul
         style={{
-          padding: "0.5rem 1rem",
-          marginBottom: "5px",
+          padding: "5px",
+          margin: "5px",
         }}
       >
         {theItems.map((item, index) => {
@@ -34,7 +31,6 @@ export default function RankingList() {
                 src={theItems[levelNumber].image2}
                 alt={theItems[levelNumber].text}
               />
-
               <div
                 style={{
                   fontSize: "0.8rem",
@@ -44,7 +40,7 @@ export default function RankingList() {
                   fontSize: "1.1rem",
                 }}
               >
-                <p style={{ fontSize: "1.2rem" }}>
+                <p>
                   <i
                     className={theItems[levelNumber].icon}
                     aria-hidden="true"
@@ -52,12 +48,6 @@ export default function RankingList() {
                   Level {index + 1} | {theItems[levelNumber].text}
                 </p>
                 <p>Total Score: {item.totalScore}</p>
-
-                {/* <p>
-                  {index == 0
-                    ? "Esforce-se para passar de nível pela PRIMEIRA VEZ"
-                    : `${item.discount} de desconto/cashback no mês seguinte à PRIMEIRA QUALIFICAÇÃO.`}
-                </p> */}
               </div>
             </li>
           );
