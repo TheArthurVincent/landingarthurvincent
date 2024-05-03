@@ -865,20 +865,20 @@ export default function MyCalendar({ headers, thePermissions }) {
                         style={{
                           borderRadius:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? `10px`
                               : "null",
                           border:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? `2px solid ${secondaryColor()}`
                               : "null",
                           backgroundColor:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? "#D2F0CE"
                               : lightGreyColor(),
                         }}
@@ -893,15 +893,15 @@ export default function MyCalendar({ headers, thePermissions }) {
                             zIndex: 50,
                             fontWeight:
                               hj.getDate() == date.getDate() &&
-                                hj.getMonth() == date.getMonth() &&
-                                hj.getFullYear() == date.getFullYear()
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
                                 ? 700
                                 : 500,
                             textAlign: "center",
                             backgroundColor:
                               hj.getDate() == date.getDate() &&
-                                hj.getMonth() == date.getMonth() &&
-                                hj.getFullYear() == date.getFullYear()
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
                                 ? "#439906"
                                 : alwaysBlack(),
                             color: alwaysWhite(),
@@ -941,16 +941,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.category === "Group Class"
                                     ? "#F2F1CE"
                                     : event.category === "Rep"
-                                      ? "#b33"
-                                      : event.category === "Tutoring"
-                                        ? "#fff"
-                                        : event.category === "Prize Class"
-                                          ? "orange"
-                                          : event.category === "Standalone"
-                                            ? "#ddd"
-                                            : event.category === "Test"
-                                              ? "#C2F0C2"
-                                              : "#000",
+                                    ? "#b33"
+                                    : event.category === "Tutoring"
+                                    ? "#fff"
+                                    : event.category === "Prize Class"
+                                    ? "orange"
+                                    : event.category === "Standalone"
+                                    ? "#ddd"
+                                    : event.category === "Test"
+                                    ? "#C2F0C2"
+                                    : "#000",
 
                                 textAlign: "center",
                                 display: "grid",
@@ -1034,27 +1034,28 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   display: "flex",
                                   gap: "0.5rem",
                                   flexDirection: "column",
-                                  marginBottom: "1rem",
+                                  marginBottom: "5px",
                                   borderRadius: "5px",
                                   padding: "5px",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  border: `solid 2px ${event.status == "marcado"
+                                  border: `solid 2px ${
+                                    event.status == "marcado"
                                       ? primaryColor()
                                       : event.status == "realizada"
-                                        ? secondaryColor()
-                                        : event.status == "desmarcado"
-                                          ? "red"
-                                          : "#000"
-                                    }`,
+                                      ? secondaryColor()
+                                      : event.status == "desmarcado"
+                                      ? "red"
+                                      : "#000"
+                                  }`,
                                   backgroundColor:
                                     event.status == "desmarcado"
                                       ? "#FFCCCC"
                                       : event.status == "marcado"
-                                        ? "#CCE5FF"
-                                        : event.status == "realizada"
-                                          ? "#CCFFCC"
-                                          : "#000",
+                                      ? "#CCE5FF"
+                                      : event.status == "realizada"
+                                      ? "#CCFFCC"
+                                      : "#000",
                                 }}
                               >
                                 <div
@@ -1067,19 +1068,25 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   {event.status == "marcado"
                                     ? "Scheduled"
                                     : event.status == "desmarcado"
-                                      ? "Canceled"
-                                      : "Realized"}
+                                    ? "Canceled"
+                                    : "Realized"}
                                 </div>
                               </div>
-                              {isEventTimeNow(event, hj, date) && (
-                                <span
-                                  style={{
-                                    paddingBottom: "5px",
-                                  }}
-                                >
-                                  <LinearProgress color="inherit"/>
-                                </span>
-                              )}
+                              {event.status !== "desmarcado" &&
+                                isEventTimeNow(event, hj, date) && (
+                                  <span
+                                    style={{
+                                      paddingBottom: "0px",
+                                      marginBottom: "5px",
+                                      padding: "3px",
+                                      border: `3px solid ${secondaryColor()}`,
+                                      borderRadius: `10px`,
+                                      backgroundColor: `${secondaryColor()}`,
+                                    }}
+                                  >
+                                    <LinearProgress color="inherit" />
+                                  </span>
+                                )}
                               <p
                                 style={{
                                   fontFamily: "Athiti",
