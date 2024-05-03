@@ -127,8 +127,11 @@ export const listOfButtons = transformCriteriaToButtons(listOfCriteria);
 
 export const GridRankingExplanation = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media (max-width: 1600px) {
+    grid-template-columns: 1fr 1fr;
+  }
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
