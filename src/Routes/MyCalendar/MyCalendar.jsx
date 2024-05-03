@@ -209,6 +209,39 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
+  const handleBackToToday = async () => {
+    setDisabledAvoid(false);
+    const user = JSON.parse(localStorage.getItem("loggedIn"));
+    const id = user.id;
+    setLoading(true);
+    const todayy = new Date();
+    const newDate = getLastMonday(todayy);
+    setTheToday(newDate);
+
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/eventsgeneral/${id}?today=${newDate}`,
+        {
+          headers,
+        }
+      );
+      const res = response.data.eventsList;
+      const eventsLoop = res.map((event) => {
+        const nextDay = new Date(event.date);
+        nextDay.setDate(nextDay.getDate() + 1);
+        event.date = formattedDates(nextDay);
+        return event;
+      });
+      setEvents(eventsLoop);
+      setTimeout(() => {
+        setLoading(false);
+        setDisabledAvoid(true);
+      }, 100);
+    } catch (error) {
+      console.log(error, "Erro ao encontrar alunos");
+    }
+  };
+
   const fetchOneEvent = async (id) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/event/${id}`, {
@@ -846,6 +879,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <i className="fa fa-arrow-right" aria-hidden="true" />
               </button>
               <input type="date" onChange={changeToday} />
+              <button
+                style={{
+                  width: "5rem",
+                }}
+                disabled={!disabledAvoid}
+                className="button"
+                onClick={handleBackToToday}
+              >
+                Today
+              </button>{" "}
             </div>
             {loading ? (
               <CircularProgress />
@@ -862,13 +905,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                     const hj = new Date();
                     return (
                       <StyledDiv
-                      className={
-                        hj.getDate() == date.getDate() &&
-                        hj.getMonth() == date.getMonth() &&
-                        hj.getFullYear() == date.getFullYear()
-                          ? "glowing"
-                          : "none"
-                      }
+                        className={
+                          hj.getDate() == date.getDate() &&
+                          hj.getMonth() == date.getMonth() &&
+                          hj.getFullYear() == date.getFullYear()
+                            ? "glowing"
+                            : "none"
+                        }
                         style={{
                           borderRadius:
                             hj.getDate() == date.getDate() &&
@@ -1082,7 +1125,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.status !== "desmarcado" &&
                                 isEventTimeNow(event, hj, date) && (
                                   <span
-                            
                                     style={{
                                       paddingBottom: "0px",
                                       marginBottom: "5px",
