@@ -42,8 +42,8 @@ export const BlogRouteSizeControlBox = styled.div`
   max-width: 60vw;
   gap: 0.2rem;
   @media (max-width: 1300px) {
-  display: flex;
-    
+    display: flex;
+    max-width: 90vw;
     flex-direction: column-reverse;
     justify-content: center;
   }
