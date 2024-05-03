@@ -444,14 +444,15 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-  function isEventTimeNow(eventTime) {
-    const now = new Date();
-
+  function isEventTimeNow(eventTime, hj, date) {
     const [eventHour, eventMinute] = eventTime.time.split(":").map(Number);
     if (
-      now.getHours() === eventHour &&
-      now.getMinutes() <= eventMinute &&
-      eventTime.date.getDate() === now.getDate()
+      hj.getDate() == date.getDate() &&
+      hj.getMonth() == date.getMonth() &&
+      hj.getFullYear() == date.getFullYear() &&
+      hj.getHours() == eventHour &&
+      hj.getMinutes() >= eventMinute &&
+      hj.getMonth() == date.getMonth()
     ) {
       return true;
     }
@@ -862,10 +863,22 @@ export default function MyCalendar({ headers, thePermissions }) {
                     return (
                       <StyledDiv
                         style={{
+                          borderRadius:
+                            hj.getDate() == date.getDate() &&
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
+                              ? `10px`
+                              : "null",
+                          border:
+                            hj.getDate() == date.getDate() &&
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
+                              ? `2px solid ${secondaryColor()}`
+                              : "null",
                           backgroundColor:
                             hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
                               ? "#D2F0CE"
                               : lightGreyColor(),
                         }}
@@ -878,12 +891,17 @@ export default function MyCalendar({ headers, thePermissions }) {
                             position: "sticky",
                             top: 0,
                             zIndex: 50,
-                            fontWeight: 900,
+                            fontWeight:
+                              hj.getDate() == date.getDate() &&
+                                hj.getMonth() == date.getMonth() &&
+                                hj.getFullYear() == date.getFullYear()
+                                ? 700
+                                : 500,
                             textAlign: "center",
                             backgroundColor:
                               hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                                hj.getMonth() == date.getMonth() &&
+                                hj.getFullYear() == date.getFullYear()
                                 ? "#439906"
                                 : alwaysBlack(),
                             color: alwaysWhite(),
@@ -923,16 +941,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.category === "Group Class"
                                     ? "#F2F1CE"
                                     : event.category === "Rep"
-                                    ? "#b33"
-                                    : event.category === "Tutoring"
-                                    ? "#fff"
-                                    : event.category === "Prize Class"
-                                    ? "orange"
-                                    : event.category === "Standalone"
-                                    ? "#ddd"
-                                    : event.category === "Test"
-                                    ? "#C2F0C2"
-                                    : "#000",
+                                      ? "#b33"
+                                      : event.category === "Tutoring"
+                                        ? "#fff"
+                                        : event.category === "Prize Class"
+                                          ? "orange"
+                                          : event.category === "Standalone"
+                                            ? "#ddd"
+                                            : event.category === "Test"
+                                              ? "#C2F0C2"
+                                              : "#000",
 
                                 textAlign: "center",
                                 display: "grid",
@@ -1021,23 +1039,22 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   padding: "5px",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  border: `solid 2px ${
-                                    event.status == "marcado"
+                                  border: `solid 2px ${event.status == "marcado"
                                       ? primaryColor()
                                       : event.status == "realizada"
-                                      ? secondaryColor()
-                                      : event.status == "desmarcado"
-                                      ? "red"
-                                      : "#000"
-                                  }`,
+                                        ? secondaryColor()
+                                        : event.status == "desmarcado"
+                                          ? "red"
+                                          : "#000"
+                                    }`,
                                   backgroundColor:
                                     event.status == "desmarcado"
                                       ? "#FFCCCC"
                                       : event.status == "marcado"
-                                      ? "#CCE5FF"
-                                      : event.status == "realizada"
-                                      ? "#CCFFCC"
-                                      : "#000",
+                                        ? "#CCE5FF"
+                                        : event.status == "realizada"
+                                          ? "#CCFFCC"
+                                          : "#000",
                                 }}
                               >
                                 <div
@@ -1050,17 +1067,17 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   {event.status == "marcado"
                                     ? "Scheduled"
                                     : event.status == "desmarcado"
-                                    ? "Canceled"
-                                    : "Realized"}
+                                      ? "Canceled"
+                                      : "Realized"}
                                 </div>
                               </div>
-                              {isEventTimeNow(event) && (
+                              {isEventTimeNow(event, hj, date) && (
                                 <span
                                   style={{
                                     paddingBottom: "5px",
                                   }}
                                 >
-                                  <LinearProgress />
+                                  <LinearProgress color="inherit"/>
                                 </span>
                               )}
                               <p
