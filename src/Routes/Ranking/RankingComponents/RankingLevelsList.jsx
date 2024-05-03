@@ -96,7 +96,7 @@ export const levels = () => {
       backgroundcolor: "#FFE1C5",
       textcolor: "white",
       text: "Orange Belt",
-      totalScore: 68000,
+      totalScore: 66000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559",
       image: orange,
