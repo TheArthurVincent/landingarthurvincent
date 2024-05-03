@@ -36,10 +36,10 @@ export const OverFlow = styled.div`
   `;
 export const BlogRouteSizeControlBox = styled.div`
   display: grid;
-  grid-template-columns: 6fr 1fr;
+  grid-template-columns: 7fr 1fr;
   margin: 1rem auto;
   justify-content: center;
-  max-width: 90vw;
+  max-width: 60vw;
   gap: 0.2rem;
   @media (max-width: 1300px) {
   display: flex;
