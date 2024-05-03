@@ -44,7 +44,7 @@ export const SpanDisapear = styled.span`
   font-size: 1rem;
   font-weight: 400;
   padding: "0.2rem 0.6rem";
-  @media (max-width: 900px) {
+  @media (max-width: 750px) {
     display: none;
   }
 `;
@@ -55,8 +55,8 @@ export const Disapear = styled.span`
   }
 `;
 export const DivPost = styled.div`
-  display: flex;
-  text-align: left;
-  flex-direction: column;
+  display: grid;
+  // justify-content: center;
+  // flex-direction: column;
   max-width: 650px;
 `;

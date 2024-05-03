@@ -269,6 +269,9 @@ export function Blog({ headers }) {
           <div
             key={index}
             style={{
+              display:"grid",
+              alignItems:"center",
+              justifyContent:"center",
               border: `solid 1px ${lightGreyColor()} `,
               boxShadow: "1px 1px 5px 1px #ccc",
               paddingBottom: "5rem",
@@ -302,27 +305,23 @@ export function Blog({ headers }) {
                 )}
               </BlogPostTitle>
             )}
-            <DivPost>
-              <>
-                {post.videoUrl ? (
-                  <IFrameVideoClass src={getVideoEmbedUrl(post.videoUrl)} />
-                ) : post.img ? (
-                  <ImgBlog src={post.img} alt="logo" />
-                ) : null}
-              </>
-              <div
-                style={{
-                  margin: "1rem",
-                  fontSize: "1.1rem",
-                  display: "block",
-                  padding: "1rem",
-                  backgroundColor: alwaysWhite(),
-                  color: alwaysBlack(),
-                }}
-              >
-                <div dangerouslySetInnerHTML={{ __html: post.text }} />
-              </div>
-            </DivPost>
+            {post.videoUrl ? (
+              <IFrameVideoClass src={getVideoEmbedUrl(post.videoUrl)} />
+            ) : post.img ? (
+              <ImgBlog src={post.img} alt="logo" />
+            ) : null}
+            <div
+              style={{
+                margin: "1rem",
+                fontSize: "1.1rem",
+                display: "block",
+                padding: "1rem",
+                backgroundColor: alwaysWhite(),
+                color: alwaysBlack(),
+              }}
+            >
+              <div dangerouslySetInnerHTML={{ __html: post.text }} />
+            </div>
           </div>
         ))}
       </RouteDiv>
