@@ -862,6 +862,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                     const hj = new Date();
                     return (
                       <StyledDiv
+                      className={
+                        hj.getDate() == date.getDate() &&
+                        hj.getMonth() == date.getMonth() &&
+                        hj.getFullYear() == date.getFullYear()
+                          ? "glowing"
+                          : "none"
+                      }
                         style={{
                           borderRadius:
                             hj.getDate() == date.getDate() &&
@@ -875,12 +882,12 @@ export default function MyCalendar({ headers, thePermissions }) {
                             hj.getFullYear() == date.getFullYear()
                               ? `2px solid ${secondaryColor()}`
                               : "null",
-                          backgroundColor:
-                            hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
-                              ? "#D2F0CE"
-                              : lightGreyColor(),
+                          // backgroundColor:
+                          //   hj.getDate() == date.getDate() &&
+                          //   hj.getMonth() == date.getMonth() &&
+                          //   hj.getFullYear() == date.getFullYear()
+                          //     ? "#D2F0CE"
+                          //     : lightGreyColor(),
                         }}
                         key={index}
                       >
@@ -1075,6 +1082,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.status !== "desmarcado" &&
                                 isEventTimeNow(event, hj, date) && (
                                   <span
+                            
                                     style={{
                                       paddingBottom: "0px",
                                       marginBottom: "5px",

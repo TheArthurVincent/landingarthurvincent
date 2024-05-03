@@ -58,6 +58,22 @@ h4 {
   }
 }
 
+.glowing {
+  animation: piscar 2s infinite;
+}
+
+@keyframes piscar {
+  0% {
+    background-color: #54bf08;
+  }
+  50% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #54bf08;
+  }
+}
+
 .modal {
   animation-name: slideIn;
   animation-duration: 0.2s;
