@@ -17,16 +17,13 @@ import {
   ImgBlog,
   Xp,
   IFrameVideoClass,
-  IFrameVideo,
   UniversalButtonsDivFlex,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
   alwaysWhite,
   lightGreyColor,
-  primaryColor,
   secondaryColor,
-  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
@@ -354,7 +351,6 @@ export function Blog({ headers }) {
             type="text"
             className="inputs-style"
           />
-
           <input
             className="inputs-style"
             value={newUrlVideo}
