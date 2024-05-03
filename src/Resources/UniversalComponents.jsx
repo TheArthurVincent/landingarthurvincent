@@ -21,6 +21,7 @@ export function updateScore(totalScore) {
   var textcolor = "black";
   var text = "White Belt";
   var discount = "0%";
+  var backgroundcolor = "#ccc";
   var image2 = whitefull;
   var image = white;
   var background =
@@ -38,6 +39,7 @@ export function updateScore(totalScore) {
         textcolor = levels[i].textcolor;
         text = levels[i].text;
         discount = levels[i].discount;
+        backgroundcolor = levels[i].backgroundcolor;
         background = levels[i].background;
         image2 = levels[i].image2;
         image = levels[i].image;
@@ -52,6 +54,7 @@ export function updateScore(totalScore) {
       textcolor = levels[i].textcolor;
       text = levels[i].text;
       discount = levels[i].discount;
+      backgroundcolor = levels[i].backgroundcolor;
       background = levels[i].background;
       break;
     }
@@ -65,6 +68,7 @@ export function updateScore(totalScore) {
     textcolor,
     text,
     discount,
+    backgroundcolor,
     background,
   };
 }

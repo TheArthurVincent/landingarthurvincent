@@ -23,6 +23,7 @@ export const levels = () => {
       icon: "fa fa-star",
       color: "#eee",
       textcolor: "black",
+      backgroundcolor: "#EDEDED",
       text: "White Belt",
       discount: "0%",
       totalScore: 0,
@@ -36,6 +37,7 @@ export const levels = () => {
       icon: "fa fa-bolt",
       color: "#F5BD33",
       textcolor: "black",
+      backgroundcolor: "#FFFBD3",
       text: "Yellow Belt",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002",
@@ -50,6 +52,7 @@ export const levels = () => {
       color: "#0C55A5",
       textcolor: "white",
       text: "Blue Belt",
+      backgroundcolor: "#E2F3FD",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
       discount: "5%",
@@ -62,6 +65,7 @@ export const levels = () => {
       icon: "fa fa-fire",
       color: "#B7050B",
       textcolor: "white",
+      backgroundcolor: "#FFE3E0",
       text: "Red Belt",
       discount: "5%",
       background:
@@ -76,6 +80,7 @@ export const levels = () => {
       color: "#ADB762",
       textcolor: "white",
       text: "Green Belt",
+      backgroundcolor: "#DEFFE3",
       discount: "7%",
       totalScore: 50000,
       background:
@@ -88,6 +93,7 @@ export const levels = () => {
       icon: "fa fa-sun-o",
       color: "#FB6E02",
       discount: "7%",
+      backgroundcolor: "#FFE1C5",
       textcolor: "white",
       text: "Orange Belt",
       totalScore: 65000,
@@ -101,6 +107,7 @@ export const levels = () => {
       icon: "fa fa-moon-o",
       color: "#703A74",
       discount: "7%",
+      backgroundcolor: "#D4D3FF",
       textcolor: "white",
       text: "Purple Belt",
       totalScore: 80000,
@@ -115,6 +122,7 @@ export const levels = () => {
       color: "#000",
       textcolor: "white",
       text: "SUPREME",
+      backgroundcolor: "#ccc",
       discount: "%",
       totalScore: 100000,
       background:
@@ -126,6 +134,7 @@ export const levels = () => {
       level: 9,
       icon: "fa fa-eercast",
       color: "#000",
+      backgroundcolor: "#ccc",
       textcolor: "white",
       text: "Black Belt",
       discount: "10%",
@@ -138,6 +147,7 @@ export const levels = () => {
       icon: "fa fa-eercast",
       level: 10,
       color: "#000",
+      backgroundcolor: "#ccc",
       discount: "10%",
       textcolor: "black",
       background:

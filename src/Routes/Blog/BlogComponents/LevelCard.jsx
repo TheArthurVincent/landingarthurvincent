@@ -36,6 +36,9 @@ export function LevelCard({ headers, _StudentId, picture }) {
       document.body.style.backgroundImage = `url(${
         items[newValue.level].background
       })`;
+      // document.body.style.backgroundColor = `url(${
+      //   items[newValue.level].backgroundcolor
+      // })`;
       const levelDone = newValue.level;
       setLevel(levelDone);
       setShowCard("block");
