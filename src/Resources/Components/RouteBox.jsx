@@ -35,12 +35,15 @@ export const OverFlow = styled.div`
 }
   `;
 export const BlogRouteSizeControlBox = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
   margin: 1rem auto;
   justify-content: center;
   max-width: 90vw;
   gap: 0.2rem;
-  @media (max-width: 1100px) {
+  @media (max-width: 1300px) {
+  display: flex;
+    
     flex-direction: column-reverse;
     justify-content: center;
   }
@@ -277,6 +280,6 @@ export const BackgroundClickBlog = styled.div`
   position: fixed;
   z-index: 5;
   background-color: ${transparentWhite()};
-  height: 10000vh;
-  width: 10000vw;
+  height: 100000vh;
+  width: 100000vw;
 `;

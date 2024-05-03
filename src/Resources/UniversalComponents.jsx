@@ -75,6 +75,12 @@ export function updateScore(totalScore) {
 
 // Função que verifica o nível do aluno
 
+export const UniversalButtonsDivFlex = styled.div`
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+`;
 export const SpanHover = styled.span`
   padding-left: 10px;
   font-family: Athiti;
@@ -398,15 +404,107 @@ export const IFrameVideo = styled.iframe`
   margin-right: auto;
 `;
 export const IFrameVideoClass = styled.iframe`
-  margin-top: 0;
-  min-width: 430px;
-  min-height: 260px;
+  min-width: 1600px;
+  min-height: 800px;
   border: none;
+  @media (max-width: 2200px) {
+    margin-top: 0;
+    min-width: 1300px;
+    min-height: 650px;
+  }
+  @media (max-width: 1800px) {
+    margin-top: 0;
+    min-width: 1100px;
+    min-height: 600px;
+  }
+  @media (max-width: 1510px) {
+    margin-top: 0;
+    min-width: 900px;
+    min-height: 450px;
+  }
+  @media (max-width: 1150px) {
+    margin-top: 0;
+    min-width: 800px;
+    min-height: 450px;
+  }
+  @media (max-width: 950px) {
+    margin-top: 0;
+    min-width: 750px;
+    min-height: 400px;
+  }
+  @media (max-width: 875px) {
+    margin-top: 0;
+    min-width: 700px;
+    min-height: 400px;
+  }
+  @media (max-width: 810px) {
+    margin-top: 0;
+    min-width: 650px;
+    min-height: 380px;
+  }
+  @media (max-width: 750px) {
+    margin-top: 0;
+    min-width: 600px;
+    min-height: 350px;
+  }
+  @media (max-width: 692px) {
+    margin-top: 0;
+    min-width: 550px;
+    min-height: 320px;
+  }
+  @media (max-width: 638px) {
+    margin-top: 0;
+    min-width: 500px;
+    min-height: 300px;
+  }
+  @media (max-width: 580px) {
+    margin-top: 0;
+    min-width: 470px;
+    min-height: 200px;
+  }
+  @media (max-width: 542px) {
+    margin-top: 0;
+    min-width: 440px;
+    min-height: 200px;
+  }
+  @media (max-width: 512px) {
+    margin-top: 0;
+    min-width: 430px;
+    min-height: 200px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 0;
+    min-width: 420px;
+    min-height: 200px;
+  }
+  @media (max-width: 486px) {
+    margin-top: 0;
+    min-width: 390px;
+    min-height: 200px;
+  }
   @media (max-width: 450px) {
     margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 265px;
+    min-width: 360px;
+    min-height: 200px;
+  }
+  @media (max-width: 418px) {
+    margin-top: 0;
+    min-width: 340px;
+    min-height: 180px;
+  }
+  @media (max-width: 402px) {
+    margin-top: 0;
+    min-width: 320px;
+    min-height: 165px;
+  }
+  @media (max-width: 376px) {
+    margin-top: 0;
+    min-width: 300px;
+    min-height: 150px;
+  }
+  @media (max-width: 353px) {
+    margin-top: 0;
+    min-width: 270px;
     min-height: 150px;
   }
   @media (max-width: 280px) {

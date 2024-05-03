@@ -29,6 +29,7 @@ h4 {
 }
 
 h1 {
+  font-size: 1.4rem;
   font-weight: 800;
 }
 
@@ -62,13 +63,17 @@ h4 {
   animation: piscar 2s infinite;
 }
 
+
+
 @keyframes piscar {
   0% {
     background-color: #54bf08;
   }
+
   50% {
     background-color: #fff;
   }
+
   100% {
     background-color: #54bf08;
   }
@@ -173,4 +178,65 @@ li {
     transform: translateY(-100%);
     opacity: 1;
   }
+}
+
+
+
+input.inputs-style {
+  float: right;
+  width: 90%;
+  padding: 10px;
+  -moz-border-radius: 19px;
+  -webkit-border-radius: 19px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid #898989;
+  color: #000;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+input.inputs-style:hover {
+  background-color: #c6c6c6;
+  border: 1px solid #54bf08;
+  color: #011042;
+}
+
+input.inputs-style:focus {
+  background-color: #ffffff;
+  border: 1px solid #434343;
+  color: #000000;
+}
+
+
+textarea.inputs-style {
+  float: right;
+  margin: 0 auto;
+  width: 90%;
+  padding: 10px;
+  -moz-border-radius: 19px;
+  -webkit-border-radius: 19px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid #898989;
+  color: #000;
+  font-weight: bold;
+}
+
+textarea.inputs-style:hover {
+  background-color: #c6c6c6;
+  border: 1px solid #54bf08;
+  color: #011042;
+}
+
+textarea.inputs-style:focus {
+  background-color: #ffffff;
+  border: 1px solid #434343;
+  color: #000000;
 }
