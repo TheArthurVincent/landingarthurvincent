@@ -147,7 +147,9 @@ export default function StudentsRanking({ headers }) {
           backgroundColor: alwaysWhite(),
           top: "50%",
           left: "50%",
-          width: "18rem",
+          width: "20rem",
+          maxHeight:"60vh",
+          overflow:"auto",
           display: isVisible ? "block" : "none",
           transform: "translate(-50%, -50%)",
         }}
@@ -159,6 +161,7 @@ export default function StudentsRanking({ headers }) {
             style={{
               display: "grid",
               gap: "0.5rem",
+
             }}
           >
             <Xp
