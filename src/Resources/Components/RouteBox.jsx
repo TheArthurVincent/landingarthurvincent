@@ -6,7 +6,6 @@ import {
   alwaysWhite,
   alwaysBlack,
   transparentWhite,
-  secondaryColor,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
