@@ -14,9 +14,7 @@ import {
   formatDate,
   backDomain,
   getVideoEmbedUrl,
-  ImgBlog,
   Xp,
-  IFrameVideoClass,
   UniversalButtonsDivFlex,
 } from "../../Resources/UniversalComponents";
 import {
@@ -28,7 +26,13 @@ import {
 } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
-import { DivModal, DivPost, InternDivModal, SpanDisapear } from "./Blog.Styled";
+import {
+  DivModal,
+  IFrameVideoBlog,
+  ImgBlog,
+  InternDivModal,
+  SpanDisapear,
+} from "./Blog.Styled";
 import LevelCard from "./BlogComponents/LevelCard";
 
 export function Blog({ headers }) {
@@ -149,11 +153,16 @@ export function Blog({ headers }) {
 
   return (
     <BlogRouteSizeControlBox className="smooth">
-      <RouteDiv>
+      <RouteDiv
+        style={{
+          maxWidth: "60rem",
+        }}
+      >
         <div
           style={{
             margin: "1rem 0.5rem 0 0",
             display: "flex",
+            maxWidth: "100%",
             justifyContent: "space-between",
             alignItems: "center",
           }}
@@ -164,29 +173,22 @@ export function Blog({ headers }) {
               alignItems: "center",
               justifyContent: "center",
               marginLeft: "1rem",
+              maxWidth: "100%",
               gap: "1rem",
             }}
           >
-            <HTwo
-              style={{
-                margin: 0,
-              }}
-            >
+            <HTwo style={{ maxWidth: "100%", margin: 0 }}>
               {UniversalTexts.hello}
               {name}!
             </HTwo>
 
-            <div
-              style={{
-                display: "flex",
-              }}
-            >
+            <div style={{ maxWidth: "100%", display: "flex" }}>
               {[
                 {
                   link: "https://ankiweb.net/decks",
                   title: (
                     <i
-                      style={{ transform: "rotate(-25deg)" }}
+                      style={{ maxWidth: "100%", transform: "rotate(-25deg)" }}
                       className="fa fa-star-o"
                       aria-hidden="true"
                     />
@@ -211,6 +213,7 @@ export function Blog({ headers }) {
                   <Link
                     key={index}
                     style={{
+                      maxWidth: "100%",
                       marginRight: "0.5rem",
                       padding: "0.3rem",
                       fontSize: "1.5rem",
@@ -227,6 +230,7 @@ export function Blog({ headers }) {
                     <SpanIcon>
                       <span
                         style={{
+                          maxWidth: "100%",
                           display: "block",
                           color: item.color,
                           fontSize: "1.4rem",
@@ -234,11 +238,7 @@ export function Blog({ headers }) {
                       >
                         {item.title}
                       </span>
-                      <span
-                        style={{
-                          fontWeight: 600,
-                        }}
-                      >
+                      <span style={{ maxWidth: "100%", fontWeight: 600 }}>
                         {item.tooltip}
                       </span>
                     </SpanIcon>
@@ -250,6 +250,7 @@ export function Blog({ headers }) {
           {/* {!isNextClassVisible ? ( */}
           <Link
             style={{
+              maxWidth: "100%",
               backgroundColor: secondaryColor(),
               color: textSecondaryColorContrast(),
               padding: "10px",
@@ -269,9 +270,10 @@ export function Blog({ headers }) {
           <div
             key={index}
             style={{
-              display:"grid",
-              alignItems:"center",
-              justifyContent:"center",
+              maxWidth: "100%",
+              display: "grid",
+              alignItems: "center",
+              justifyContent: "center",
               border: `solid 1px ${lightGreyColor()} `,
               boxShadow: "1px 1px 5px 1px #ccc",
               paddingBottom: "5rem",
@@ -282,6 +284,7 @@ export function Blog({ headers }) {
               <BlogPostTitle>
                 <span
                   style={{
+                    maxWidth: "100%",
                     display: "flex",
                     alignItems: "center",
                     gap: "2rem",
@@ -306,7 +309,12 @@ export function Blog({ headers }) {
               </BlogPostTitle>
             )}
             {post.videoUrl ? (
-              <IFrameVideoClass src={getVideoEmbedUrl(post.videoUrl)} />
+              <IFrameVideoBlog
+                style={{
+                  maxWidth: "100%",
+                }}
+                src={getVideoEmbedUrl(post.videoUrl)}
+              />
             ) : post.img ? (
               <ImgBlog src={post.img} alt="logo" />
             ) : null}

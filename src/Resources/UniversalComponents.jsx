@@ -399,13 +399,17 @@ export const IFrameVideo = styled.iframe`
   margin-top: 0;
   width: 90vw;
   height: 70vh;
-  border: none;
-  margin-left: auto;
+  margin-top: 0;
   margin-right: auto;
+  margin-left: auto;
+  border: none;
 `;
 export const IFrameVideoClass = styled.iframe`
   min-width: 1600px;
   min-height: 800px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
   border: none;
   @media (max-width: 2200px) {
     margin-top: 0;
@@ -519,6 +523,7 @@ export const IFrameVideoClass = styled.iframe`
   }
 `;
 
+
 export const abreviateName = (word) => {
   const words = word.split(" ");
   const lastWord = words[words.length - 1];
@@ -530,6 +535,7 @@ export const SpanCourseResponsive = styled.span`
     display: none;
   }
 `;
+
 
 export const pathGenerator = (text) => {
   const spacelessText = text.replace(/\s+/g, "-");
@@ -549,21 +555,7 @@ const fadeIn = keyframes`
   }
 `;
 
-export const ImgBlog = styled.img`
-  margin-top: 0;
-  object-position: center;
-  max-height: auto;
 
-  @media (max-width: 1350px) {
-    width: 100%;
-  }
-  @media (max-width: 800px) {
-    width: 100%;
-  }
-  @media (max-width: 700px) {
-    width: 100%;
-  }
-`;
 export const DivModal = styled.div`
   position: fixed;
   z-index: 100;
