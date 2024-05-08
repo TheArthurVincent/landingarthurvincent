@@ -6,12 +6,14 @@ import {
   alwaysWhite,
   alwaysBlack,
   transparentWhite,
-  secondaryColor,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
   max-width: 96vw;
-  margin: 0.5rem auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 9rem;
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;
