@@ -13,7 +13,7 @@ export const RouteSizeControlBox = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 9rem;
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;

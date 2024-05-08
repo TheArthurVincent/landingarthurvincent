@@ -25,6 +25,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [newName, setNewName] = useState("");
   const [newLastName, setNewLastName] = useState("");
   const [newUsername, setNewUsername] = useState("");
+  const [newAddress, setNewAddress] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [permissions, setPermissions] = useState("");
@@ -70,18 +71,76 @@ export function FindStudent({ uploadStatus, headers }) {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
         headers,
       });
-      setNewName(response.data.formattedStudentData.name);
-      setNewLastName(response.data.formattedStudentData.lastname);
-      setNewUsername(response.data.formattedStudentData.username);
-      setNewPhone(response.data.formattedStudentData.phoneNumber);
-      setNewEmail(response.data.formattedStudentData.email);
-      setPermissions(response.data.formattedStudentData.permissions);
-      setID(response.data.formattedStudentData.id);
-      setAnkiEmail(response.data.formattedStudentData.ankiEmail);
-      setAnkiPassword(response.data.formattedStudentData.ankiPassword);
-      setGoogleDriveLink(response.data.formattedStudentData.googleDriveLink);
-      setTotalScore(response.data.formattedStudentData.totalScore);
-      setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+      setNewName(
+        response.data.formattedStudentData.name
+          ? response.data.formattedStudentData.name
+          : ""
+      );
+      setNewLastName(
+        response.data.formattedStudentData.lastname
+          ? response.data.formattedStudentData.lastname
+          : ""
+      );
+      setNewUsername(
+        response.data.formattedStudentData.username
+          ? response.data.formattedStudentData.username
+          : ""
+      );
+      setNewPhone(
+        response.data.formattedStudentData.phoneNumber
+          ? response.data.formattedStudentData.phoneNumber
+          : ""
+      );
+      setNewEmail(
+        response.data.formattedStudentData.email
+          ? response.data.formattedStudentData.email
+          : ""
+      );
+      setPermissions(
+        response.data.formattedStudentData.permissions
+          ? response.data.formattedStudentData.permissions
+          : ""
+      );
+      setID(
+        response.data.formattedStudentData.id
+          ? response.data.formattedStudentData.id
+          : ""
+      );
+      setAnkiEmail(
+        response.data.formattedStudentData.ankiEmail
+          ? response.data.formattedStudentData.ankiEmail
+          : ""
+      );
+      setAnkiPassword(
+        response.data.formattedStudentData.ankiPassword
+          ? response.data.formattedStudentData.ankiPassword
+          : ""
+      );
+      setGoogleDriveLink(
+        response.data.formattedStudentData.googleDriveLink
+          ? response.data.formattedStudentData.googleDriveLink
+          : ""
+      );
+      setTotalScore(
+        response.data.formattedStudentData.totalScore
+          ? response.data.formattedStudentData.totalScore
+          : ""
+      );
+      setMonthlyScore(
+        response.data.formattedStudentData.monthlyScore
+          ? response.data.formattedStudentData.monthlyScore
+          : ""
+      );
+      setPicture(
+        response.data.formattedStudentData.picture
+          ? response.data.formattedStudentData.picture
+          : ""
+      );
+      setNewAddress(
+        response.data.formattedStudentData.address
+          ? response.data.formattedStudentData.address
+          : ""
+      );
       setLoadingScore(false);
       setDisabled(false);
     } catch (error) {
@@ -114,6 +173,7 @@ export function FindStudent({ uploadStatus, headers }) {
       permissions: permissions,
       googleDriveLink: googleDriveLink,
       ankiPassword: ankiPassword,
+      address: newAddress,
       ankiEmail: ankiEmail,
       picture: picture,
     };
@@ -520,124 +580,78 @@ export function FindStudent({ uploadStatus, headers }) {
               }}
             >
               <input
+                className="inputs-style"
                 value={newName}
                 onChange={(event) => setNewName(event.target.value)}
                 id="name"
                 placeholder="Nome"
                 type="text"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={newLastName}
                 onChange={(event) => setNewLastName(event.target.value)}
                 id="lastname"
                 placeholder="Sobrenome"
                 type="text"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={newUsername}
                 onChange={(event) => setNewUsername(event.target.value)}
                 placeholder="Username"
                 type="text"
                 disabled={true}
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
+              />{" "}
+              <input
+                className="inputs-style"
+                value={newAddress}
+                onChange={(event) => setNewAddress(event.target.value)}
+                placeholder="Address"
+                type="text"
+                disabled={true}
               />
               <input
+                className="inputs-style"
                 value={newPhone}
                 onChange={(event) => setNewPhone(event.target.value)}
                 placeholder="Número de celular"
                 type="number"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={newEmail}
                 onChange={(event) => setNewEmail(event.target.value)}
                 placeholder="E-mail"
                 type="email"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={googleDriveLink}
                 onChange={(event) => setGoogleDriveLink(event.target.value)}
                 placeholder="Link do Google Drive"
                 type="email"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={picture}
                 onChange={(event) => setPicture(event.target.value)}
                 placeholder="Foto"
                 type="email"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={ankiEmail}
                 onChange={(event) => setAnkiEmail(event.target.value)}
                 placeholder="E-mail do Anki"
                 type="email"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={ankiPassword}
                 onChange={(event) => setAnkiPassword(event.target.value)}
                 placeholder="Senha do Anki"
                 type="email"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
             </form>
             <div
@@ -799,30 +813,18 @@ export function FindStudent({ uploadStatus, headers }) {
               }}
             >
               <input
+                className="inputs-style"
                 value={newPassword}
                 onChange={(event) => setNewPassword(event.target.value)}
                 placeholder="Escolha uma nova senha"
                 type="password"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <input
+                className="inputs-style"
                 value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
                 placeholder="Confirme a Senha"
                 type="password"
-                style={{
-                  padding: "0.3rem",
-                  marginBottom: "0.3rem",
-
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
               />
               <div
                 style={{
