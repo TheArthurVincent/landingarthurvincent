@@ -47,8 +47,6 @@ h4 {
   font-weight: 400;
 }
 
-
-
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -62,8 +60,6 @@ h4 {
 .glowing {
   animation: piscar 2s infinite;
 }
-
-
 
 @keyframes piscar {
   0% {
@@ -90,7 +86,6 @@ h4 {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 body {
   background-size: cover;
@@ -125,7 +120,6 @@ li {
   border-radius: 5px;
   color: var(--black-arvin);
 }
-
 
 .button:hover {
   font-weight: 600;
@@ -180,7 +174,17 @@ li {
   }
 }
 
+.grid-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
+@media (max-width: 800px) {
+  .grid-flex {
+    grid-template-columns: 1fr;
+
+  }
+}
 
 input.inputs-style {
   float: right;
@@ -196,7 +200,7 @@ input.inputs-style {
   border: 1px solid #898989;
   color: #000;
   font-weight: bold;
-  margin: 0 auto;
+  margin: 2px auto;
 }
 
 input.inputs-style:hover {
@@ -210,7 +214,6 @@ input.inputs-style:focus {
   border: 1px solid #434343;
   color: #000000;
 }
-
 
 textarea.inputs-style {
   float: right;

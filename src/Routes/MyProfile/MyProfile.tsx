@@ -18,14 +18,14 @@ import { MyProfileProps } from "../../Resources/types.universalInterfaces";
 
 export function MyProfile({ headers }: MyProfileProps) {
   const [user, setUser] = useState<User>({} as User);
+  const [newPassword, setNewPassword] = useState<string>(""); 
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  
 
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(getLoggedUser);
   }, []);
-
-  const [newPassword, setNewPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   const editStudentPassword = async () => {
     if (newPassword === confirmPassword) {
@@ -54,7 +54,7 @@ export function MyProfile({ headers }: MyProfileProps) {
   return (
     <>
       {headers ? (
-        <RouteSizeControlBox className="smooth">
+        <RouteSizeControlBox className="smooth grid-flex">
           <RouteDiv>
             <div
               style={{
@@ -118,26 +118,14 @@ export function MyProfile({ headers }: MyProfileProps) {
                 onChange={(event) => setNewPassword(event.target.value)}
                 placeholder={UniversalTexts.newPassword}
                 type="password"
-                style={{
-                  padding: "0.5rem",
-                  marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
+                className="inputs-style"
               />
               <input
                 value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
                 placeholder={UniversalTexts.confirmNewPassword}
                 type="password"
-                style={{
-                  padding: "0.5rem",
-                  marginBottom: "0.3rem",
-                  fontSize: "1.1rem",
-                  color: "#111",
-                  margin: "0.5rem",
-                }}
+                className="inputs-style"
               />
               <div
                 style={{
