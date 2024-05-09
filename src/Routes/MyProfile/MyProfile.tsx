@@ -9,21 +9,23 @@ import {
   BackToHomePage,
   backDomain,
 } from "../../Resources/UniversalComponents";
-import TopBar from "../../Application/TopBar/TopBar";
 import { alwaysBlack } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import axios from "axios";
+import { User } from "./types.MyProfile";
+import { MyProfileProps } from "../../Resources/types.universalInterfaces";
 
-export function MyProfile({ headers }) {
-  const [user, setUser] = useState({});
+export function MyProfile({ headers }: MyProfileProps) {
+  const [user, setUser] = useState<User>({} as User);
+
   useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(getLoggedUser);
   }, []);
 
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   const editStudentPassword = async () => {
     if (newPassword === confirmPassword) {
@@ -32,11 +34,13 @@ export function MyProfile({ headers }) {
       alert("As senhas são diferentes");
       return;
     }
+    const actualHeaders = headers || {};
+
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/studentperspassword/${user.id}`,
         { newPassword },
-        { headers }
+        { headers: actualHeaders }
       );
       setConfirmPassword("");
       setNewPassword("");
