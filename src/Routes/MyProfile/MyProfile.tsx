@@ -20,6 +20,7 @@ export function MyProfile({ headers }: MyProfileProps) {
   const [user, setUser] = useState<User>({} as User);
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const { UniversalTexts } = useUserContext();
 
   useEffect(() => {
     const getLoggedUser: User = JSON.parse(
@@ -51,67 +52,63 @@ export function MyProfile({ headers }: MyProfileProps) {
     }
   };
 
-  const { UniversalTexts } = useUserContext();
   return (
     <>
       {headers ? (
         <RouteSizeControlBox className="smooth grid-flex">
           <RouteDiv>
-            <div
+            <HOne>{UniversalTexts.myProfile}</HOne>
+            <BackToHomePage />
+            <ul
               style={{
-                margin: "auto",
-                padding: "0.5rem",
-                maxWidth: "fit-content",
+                display: "grid",
+                gap: "5px",
+                color: alwaysBlack(),
+                padding: "0.2rem",
               }}
             >
-              <HOne>{UniversalTexts.myProfile}</HOne>
-              <BackToHomePage />
-              <ul style={{ color: alwaysBlack(), padding: "0.2rem" }}>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.name}: {user.name} {user.lastname}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.document}: {user.doc}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.phoneNumber}: {user.phoneNumber}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.dateOfBirth}: {user.dateOfBirth}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.email}: {user.email}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.username}: {user.username}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  <NavLink
-                    style={{
-                      textDecoration: "none",
-                    }}
-                    target="_blank"
-                    to={user.googleDriveLink}
-                  >
-                    <span>{UniversalTexts.googleDriveLink}</span>
-                  </NavLink>
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.ankiEmail}: {user.ankiEmail}
-                </li>
-                <li style={{ marginBottom: "0.3rem" }}>
-                  {UniversalTexts.ankiPassword}: {user.ankiPassword}
-                </li>
-              </ul>
-            </div>
+              <li>
+                {UniversalTexts.name}: {user.name} {user.lastname}
+              </li>
+              <li>
+                {UniversalTexts.document}: {user.doc}
+              </li>
+              <li>
+                {UniversalTexts.phoneNumber}: {user.phoneNumber}
+              </li>
+              <li>
+                {UniversalTexts.dateOfBirth}: {user.dateOfBirth}
+              </li>
+              <li>
+                {UniversalTexts.email}: {user.email}
+              </li>
+              <li>
+                {UniversalTexts.username}: {user.username}
+              </li>
+              <li>
+                <NavLink
+                  style={{
+                    textDecoration: "none",
+                  }}
+                  target="_blank"
+                  to={user.googleDriveLink}
+                >
+                  <span>{UniversalTexts.googleDriveLink}</span>
+                </NavLink>
+              </li>
+              <li>
+                {UniversalTexts.ankiEmail}: {user.ankiEmail}
+              </li>
+              <li>
+                {UniversalTexts.ankiPassword}: {user.ankiPassword}
+              </li>
+            </ul>
           </RouteDiv>
           <RouteDiv>
             <HOne>{UniversalTexts.newPassword}</HOne>
             <form
               style={{
-                display: "grid",
-                alignContent: "center",
-                justifyItems: "center",
+                textAlign: "center",
               }}
             >
               <input
@@ -128,25 +125,16 @@ export function MyProfile({ headers }: MyProfileProps) {
                 type="password"
                 className="inputs-style"
               />
-              <div
+              <Button
                 style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  gap: "1rem",
-                  marginTop: "2rem",
+                  color: "#fff",
+                  width: "8rem",
+                  backgroundColor: "#138017",
                 }}
+                onClick={() => editStudentPassword()}
               >
-                <Button
-                  style={{
-                    color: "#fff",
-                    width: "8rem",
-                    backgroundColor: "#138017",
-                  }}
-                  onClick={() => editStudentPassword()}
-                >
-                  Salvar
-                </Button>
-              </div>
+                Salvar
+              </Button>
             </form>
           </RouteDiv>
         </RouteSizeControlBox>
