@@ -18,16 +18,17 @@ import { MyProfileProps } from "../../Resources/types.universalInterfaces";
 
 export function MyProfile({ headers }: MyProfileProps) {
   const [user, setUser] = useState<User>({} as User);
-  const [newPassword, setNewPassword] = useState<string>(""); 
+  const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  
 
   useEffect(() => {
-    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    const getLoggedUser: User = JSON.parse(
+      localStorage.getItem("loggedIn") || ""
+    );
     setUser(getLoggedUser);
   }, []);
 
-  const editStudentPassword = async () => {
+  const editStudentPassword = async (): Promise<void> => {
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
     } else {
