@@ -75,7 +75,7 @@ export function SignUp() {
       email: newEmail,
       dateOfBirth: newDateOfBirth,
       doc: newCPF,
-      address: address,
+      address: address, 
       ankiEmail: newAnkiEmail,
       ankiPassword: newAnkiPassword,
     };
