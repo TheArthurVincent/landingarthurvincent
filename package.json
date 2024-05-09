@@ -16,6 +16,8 @@
     "@mui/icons-material": "^5.14.11",
     "@mui/lab": "^5.0.0-alpha.145",
     "@mui/material": "^5.14.11",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.11",
     "axios": "^1.5.0",
     "emailjs": "^4.0.3",
     "emailjs-com": "^3.2.0",
@@ -27,11 +29,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "server": "^1.0.38",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.0.7",
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",
