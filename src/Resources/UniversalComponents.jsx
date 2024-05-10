@@ -276,6 +276,12 @@ export function InputFieldNotRequired({
   );
 }
 
+export const ImgResponsive0 = styled.img`
+  max-width: 8rem;
+  @media (max-width: 755px) {
+    display: none;
+  }
+`;
 export const ImgResponsive3 = styled.img`
   max-width: 8rem;
   @media (max-width: 755px) {
