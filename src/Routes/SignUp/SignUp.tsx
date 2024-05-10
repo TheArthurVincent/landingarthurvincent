@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
-import { Button, CircularProgress, MenuItem, Select } from "@mui/material";
+import {
+  CircularProgress,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import {
   HOne,
   RouteDiv,
@@ -8,42 +13,42 @@ import {
 } from "../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
-  InputFieldSignUp,
   backDomain,
 } from "../../Resources/UniversalComponents";
 import {
-  alwaysBlack,
-  alwaysWhite,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
+import { InputFieldSignUp } from "./SignUpAssets/SignUp.Styled";
+
 export function SignUp() {
-  const [newName, setNewName] = useState("");
-  const [newLastName, setNewLastName] = useState("");
-  const [newUsername, setNewUsername] = useState("");
-  const [newPhone, setNewPhone] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newDateOfBirth, setNewDateOfBirth] = useState("2000-12-12");
-  const [newCPF, setNewCPF] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [newAnkiEmail, setNewAnkiEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [newAnkiPassword, setNewAnkiPassword] = useState("");
-  const [newGoogleDriveLink, setNewGoogleDriveLink] = useState("");
-  const [upload, setUpload] = useState(true);
-  const [disabled, setDisabled] = useState(true);
-  const [button, setButton] = useState("Cadastrar");
-  const [selectedOption, setSelectedOption] = useState("nao");
-  const handleChange = (event) => {
-    const value = event.target.value;
+  const [newName, setNewName] = useState<string>("");
+  const [newLastName, setNewLastName] = useState<string>("");
+  const [newUsername, setNewUsername] = useState<string>("");
+  const [newPhone, setNewPhone] = useState<string>("");
+  const [newEmail, setNewEmail] = useState<string>("");
+  const [newDateOfBirth, setNewDateOfBirth] = useState<string>("2000-12-12");
+  const [newCPF, setNewCPF] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [newAnkiEmail, setNewAnkiEmail] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [newAnkiPassword, setNewAnkiPassword] = useState<string>("");
+  const [newGoogleDriveLink, setNewGoogleDriveLink] = useState<string>("");
+  const [upload, setUpload] = useState<boolean>(true);
+  const [disabled, setDisabled] = useState<boolean>(true);
+  const [button, setButton] = useState<any>("Cadastrar");
+  const [selectedOption, setSelectedOption] = useState<string>("nao");
+
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    let value: string = event.target.value.toString();
+    var verify: boolean = event.target.value === "sim" ? false : true;
+
     setSelectedOption(value);
-    if (value === "sim") {
-      setDisabled(false);
-    }
+    setDisabled(verify);
   };
   const reset = () => {
     setNewName("");
@@ -63,7 +68,7 @@ export function SignUp() {
     setUpload(!upload);
     setButton("Cadastrar");
   };
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setButton(<CircularProgress style={{ color: secondaryColor() }} />);
     let newStudent = {
@@ -75,7 +80,7 @@ export function SignUp() {
       email: newEmail,
       dateOfBirth: newDateOfBirth,
       doc: newCPF,
-      address: address, 
+      address: address,
       ankiEmail: newAnkiEmail,
       ankiPassword: newAnkiPassword,
     };
@@ -125,36 +130,42 @@ export function SignUp() {
             value={newUsername}
             onChange={(event) => setNewUsername(event.target.value)}
             placeholder="Username"
+            id="username"
             type="text"
           />
           <InputFieldSignUp
             value={newPhone}
             onChange={(event) => setNewPhone(event.target.value)}
             placeholder="Número de celular"
+            id="num"
             type="number"
           />
           <InputFieldSignUp
             value={newEmail}
             onChange={(event) => setNewEmail(event.target.value)}
             placeholder="E-mail"
+            id="email"
             type="email"
           />
           <InputFieldSignUp
             value={newDateOfBirth}
             onChange={(event) => setNewDateOfBirth(event.target.value)}
             placeholder="Data de Nascimento"
+            id="nasciment"
             type="date"
           />
           <InputFieldSignUp
             value={newCPF}
             onChange={(event) => setNewCPF(event.target.value)}
             placeholder="CPF"
+            id="cpf"
             type="number"
           />
           <InputFieldSignUp
             value={address}
             onChange={(event) => setAddress(event.target.value)}
             placeholder="Endereço"
+            id="address"
             type="text"
           />{" "}
           <div
@@ -189,7 +200,7 @@ export function SignUp() {
               id="anki"
               name="anki"
               value={selectedOption}
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
             >
               <MenuItem value="sim">Sim</MenuItem>
               <MenuItem value="nao">Não</MenuItem>
@@ -200,16 +211,7 @@ export function SignUp() {
               }}
             >
               <input
-                style={{
-                  padding: "0.5rem",
-                  marginBottom: "0.3rem",
-                  fontWeight: 500,
-                  color: "#01BCFF",
-                  backgroundColor: !disabled ? alwaysWhite() : "#ccc",
-                  cursor: disabled ? "not-allowed" : "text",
-                  border: "#01BCFF 1px solid",
-                  width: "80%",
-                }}
+                className="inputs-style"
                 value={newAnkiEmail}
                 onChange={(event) => setNewAnkiEmail(event.target.value)}
                 placeholder="E-mail do Anki"
@@ -218,16 +220,7 @@ export function SignUp() {
                 required
               />
               <input
-                style={{
-                  padding: "0.5rem",
-                  marginBottom: "0.3rem",
-                  cursor: disabled ? "not-allowed" : "text",
-                  fontWeight: 500,
-                  color: "#01BCFF",
-                  backgroundColor: !disabled ? alwaysWhite() : "#ccc",
-                  border: "#01BCFF 1px solid",
-                  width: "80%",
-                }}
+                className="inputs-style"
                 value={newAnkiPassword}
                 onChange={(event) => setNewAnkiPassword(event.target.value)}
                 placeholder="Senha do Anki"
@@ -249,12 +242,14 @@ export function SignUp() {
               onChange={(event) => setNewPassword(event.target.value)}
               placeholder="Escolha uma senha"
               type="password"
+              id="password"
             />
             <InputFieldSignUp
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
               placeholder="Confirme a Senha"
               type="password"
+              id="confirmpassword"
             />
           </div>
           <button
