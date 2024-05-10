@@ -182,7 +182,6 @@ export function SignUp() {
             <img src="https://ankiweb.net/logo.png" alt="level" />
             <p
               style={{
-                maxWidth: "35rem",
                 textAlign: "center",
               }}
             >
