@@ -69,60 +69,58 @@ export default function Ranking({ headers }) {
   };
 
   return (
-    <>
-      <RouteSizeControlBox className="smooth">
-        <RouteDiv>
-          <HOne>Ranking</HOne>
-          <TabContext value={value}>
-            <Box
-              style={{
-                display: "flex",
-                alignItems: "center",
-                backgroundColor: alwaysWhite(),
-                justifyContent: "space-between",
-              }}
-              sx={{ borderBottom: 1, borderColor: "divider" }}
+    <RouteSizeControlBox className="smooth">
+      <RouteDiv>
+        <HOne>Ranking</HOne>
+        <TabContext value={value}>
+          <Box
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: alwaysWhite(),
+              justifyContent: "space-between",
+            }}
+            sx={{ borderBottom: 1, borderColor: "divider" }}
+          >
+            <TabList
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
             >
-              <TabList
-                onChange={handleChange}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
+              {componentsToRender.map((component, index) => {
+                return (
+                  <Tab
+                    key={index + component.value}
+                    style={{
+                      fontWeight: 500,
+                      backgroundColor: textPrimaryColorContrast(),
+                      color: primaryColor(),
+                    }}
+                    label={component.title}
+                    value={component.value}
+                  />
+                );
+              })}
+            </TabList>
+          </Box>
+          <BackToHomePage />
+          {componentsToRender.map((component, index) => {
+            return (
+              <TabPanel
+                style={{
+                  padding: 0,
+                  margin: "1rem auto",
+                }}
+                key={index + component.value}
+                value={component.value}
               >
-                {componentsToRender.map((component, index) => {
-                  return (
-                    <Tab
-                      key={index + component.value}
-                      style={{
-                        fontWeight: 500,
-                        backgroundColor: textPrimaryColorContrast(),
-                        color: primaryColor(),
-                      }}
-                      label={component.title}
-                      value={component.value}
-                    />
-                  );
-                })}
-              </TabList>
-            </Box>
-            <BackToHomePage />
-            {componentsToRender.map((component, index) => {
-              return (
-                <TabPanel
-                  style={{
-                    padding: 0,
-                    margin: "1rem auto",
-                  }}
-                  key={index + component.value}
-                  value={component.value}
-                >
-                  {component.component}
-                </TabPanel>
-              );
-            })}
-          </TabContext>
-        </RouteDiv>
-      </RouteSizeControlBox>
-    </>
+                {component.component}
+              </TabPanel>
+            );
+          })}
+        </TabContext>
+      </RouteDiv>
+    </RouteSizeControlBox>
   );
 }
