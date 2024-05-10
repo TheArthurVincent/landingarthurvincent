@@ -1,20 +1,20 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import axios from "axios";
+import { backDomain } from "../../Resources/UniversalComponents";
+
 import {
   CircularProgress,
   MenuItem,
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+
 import {
   HOne,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
-import {
-  ImgResponsive0,
-  backDomain,
-} from "../../Resources/UniversalComponents";
+
 import {
   primaryColor,
   secondaryColor,
@@ -70,7 +70,7 @@ export function SignUp() {
   };
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setButton(<CircularProgress style={{ color: secondaryColor() }} />);
+    setButton(<CircularProgress style={{ color: primaryColor() }} />);
     let newStudent = {
       name: newName,
       lastname: newLastName,
@@ -179,7 +179,7 @@ export function SignUp() {
               gap: "2rem",
             }}
           >
-            <ImgResponsive0 src="https://ankiweb.net/logo.png" alt="level" />
+            <img src="https://ankiweb.net/logo.png" alt="level" />
             <p
               style={{
                 maxWidth: "35rem",
