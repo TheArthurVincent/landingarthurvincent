@@ -12,3 +12,14 @@ export const transparentWhite = (): string => "rgba(255, 255, 255, 0.7)";
 export const transparentBlack = (): string => "rgba(1, 1, 1, 0.7)";
 export const alwaysWhite = (): string => "#fefefe";
 export const alwaysBlack = (): string => "#111";
+
+
+
+
+
+
+
+
+
+
+
