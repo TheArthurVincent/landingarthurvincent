@@ -33,6 +33,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [picture, setPicture] = useState("");
+  const [fee, setFee] = useState("");
   const [ankiEmail, setAnkiEmail] = useState("");
   const [ankiPassword, setAnkiPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
@@ -136,6 +137,11 @@ export function FindStudent({ uploadStatus, headers }) {
           ? response.data.formattedStudentData.picture
           : ""
       );
+      setFee(
+        response.data.formattedStudentData.fee
+          ? response.data.formattedStudentData.fee
+          : ""
+      );
       setNewAddress(
         response.data.formattedStudentData.address
           ? response.data.formattedStudentData.address
@@ -174,6 +180,7 @@ export function FindStudent({ uploadStatus, headers }) {
       googleDriveLink: googleDriveLink,
       ankiPassword: ankiPassword,
       address: newAddress,
+      fee,
       ankiEmail: ankiEmail,
       picture: picture,
     };
@@ -459,6 +466,16 @@ export function FindStudent({ uploadStatus, headers }) {
                     {UniversalTexts.permissions}
                   </span>
                   : {student.permissions}
+                </li>{" "}
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {UniversalTexts.fee}
+                  </span>
+                  : R$ {student.fee}
                 </li>
                 <li>
                   <span
@@ -630,14 +647,21 @@ export function FindStudent({ uploadStatus, headers }) {
                 value={googleDriveLink}
                 onChange={(event) => setGoogleDriveLink(event.target.value)}
                 placeholder="Link do Google Drive"
-                type="email"
+                type="text"
               />
               <input
                 className="inputs-style"
                 value={picture}
                 onChange={(event) => setPicture(event.target.value)}
                 placeholder="Foto"
-                type="email"
+                type="text"
+              />
+              <input
+                className="inputs-style"
+                value={fee}
+                onChange={(event) => setFee(event.target.value)}
+                placeholder="Mensalidade"
+                type="number"
               />
               <input
                 className="inputs-style"
@@ -651,7 +675,7 @@ export function FindStudent({ uploadStatus, headers }) {
                 value={ankiPassword}
                 onChange={(event) => setAnkiPassword(event.target.value)}
                 placeholder="Senha do Anki"
-                type="email"
+                type="text"
               />
             </form>
             <div
