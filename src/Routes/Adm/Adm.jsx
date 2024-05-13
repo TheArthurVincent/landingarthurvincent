@@ -71,7 +71,7 @@ export function Adm({ headers }) {
     <>
       <RouteSizeControlBox
         style={{
-          backgroundColor: "#eee",
+          backgroundColor: "#f9f9f9",
           padding: "0.5rem",
           borderRadius: "0.5rem",
           maxWidth: "900px",

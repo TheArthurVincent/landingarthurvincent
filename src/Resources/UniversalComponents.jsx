@@ -26,7 +26,6 @@ export function updateScore(totalScore) {
   var image = white;
   var background =
     "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
-
   for (let i = 0; i < levels.length; i++) {
     if (levels[i + 1]) {
       if (
