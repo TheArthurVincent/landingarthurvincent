@@ -288,7 +288,8 @@ export const ImgResponsive3 = styled.img`
   }
 `;
 export const ImgResponsive = styled.img`
-  max-width: 25rem;
+  max-width: 15rem;
+  margin:1rem;
   @media (max-width: 800px) {
     max-width: 10rem;
     transition: 0.2s;

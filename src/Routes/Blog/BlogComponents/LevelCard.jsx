@@ -33,13 +33,10 @@ export function LevelCard({ headers, _StudentId, picture }) {
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       var newValue = updateScore(response.data.totalScore);
+      const levelDone = newValue.level;
       document.body.style.backgroundImage = `url(${
         items[newValue.level].background
       })`;
-      // document.body.style.backgroundColor = `url(${
-      //   items[newValue.level].backgroundcolor
-      // })`;
-      const levelDone = newValue.level;
       setLevel(levelDone);
       setShowCard("block");
       setLoading(false);

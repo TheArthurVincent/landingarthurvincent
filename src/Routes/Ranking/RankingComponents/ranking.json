@@ -83,9 +83,42 @@
       "color": "#000",
       "textcolor": "white",
       "backgroundcolor": "#ccc",
-      "text": "SUPREME",
+      "text": "Black Belt",
       "discount": "%",
       "totalScore": 100000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
+    },
+    {
+      "level": 9,
+      "icon": "fa fa-superpowers",
+      "color": "#000",
+      "textcolor": "white",
+      "backgroundcolor": "#ccc",
+      "text": "Black Belt Bronze Stripe",
+      "discount": "%",
+      "totalScore": 125000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
+    },
+    {
+      "level": 10,
+      "icon": "fa fa-superpowers",
+      "color": "#000",
+      "textcolor": "white",
+      "backgroundcolor": "#ccc",
+      "text": "Black Belt Silver Stripe",
+      "discount": "%",
+      "totalScore": 160000,
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
+    },
+    {
+      "level": 9,
+      "icon": "fa fa-superpowers",
+      "color": "#000",
+      "textcolor": "white",
+      "backgroundcolor": "#ccc",
+      "text": "Black Belt Golden Stripe",
+      "discount": "%",
+      "totalScore": 200000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
     },
     {
