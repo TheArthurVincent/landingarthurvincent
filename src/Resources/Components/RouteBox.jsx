@@ -23,8 +23,10 @@ export const RouteSizeControlBox = styled.div`
 
 export const RouteDiv = styled.div`
   background-color: ${alwaysWhite()};
+  border-radius: 0.5rem;
   color: ${alwaysBlack()};
   padding: 0.5rem;
+  box-shadow: 1px 1px 5px 1px #222;
 `;
 
 export const OverFlow = styled.div`
