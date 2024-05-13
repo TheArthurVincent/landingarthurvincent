@@ -21,7 +21,7 @@ export default function RankingList() {
                 alignItems: "center",
                 background: theItems[levelNumber].color,
                 color: theItems[levelNumber].textcolor,
-                display: index > 7 ? "none" : "flex",
+                display: index > 10 ? "none" : "flex",
                 justifyContent: "space-around",
                 gap: "2rem",
                 marginBottom: "1px",

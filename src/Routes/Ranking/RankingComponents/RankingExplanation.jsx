@@ -68,9 +68,6 @@ export default function RankingExplanation() {
       </ul>
       <div style={{ display: "grid", gap: "1rem", padding: "3px" }}>
         <h3 style={h3}>{UniversalTexts.uplevel}</h3>
-        {/* <IFrameVideo
-          src={getVideoEmbedUrl("https://vimeo.com/913456514?share=copy")}
-        /> */}
         <RankingList />
       </div>
     </div>

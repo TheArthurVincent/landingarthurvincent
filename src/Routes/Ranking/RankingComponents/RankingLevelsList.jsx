@@ -15,6 +15,12 @@ import greenfull from "../../../../public/assets/5.png";
 import orangefull from "../../../../public/assets/6.png";
 import purplefull from "../../../../public/assets/7.png";
 import blackfull from "../../../../public/assets/8.png";
+import blackbronzefull from "../../../../public/assets/9.png";
+import blacksilverfull from "../../../../public/assets/10.png";
+import blackgoldfull from "../../../../public/assets/11.png";
+import blackbronze from "../../../../public/assets/bronze.png";
+import blacksilver from "../../../../public/assets/silver.png";
+import blackgold from "../../../../public/assets/golden.png";
 
 export const levels = () => {
   return [
@@ -119,10 +125,10 @@ export const levels = () => {
     {
       level: 8,
       icon: "fa fa-superpowers",
-      color: "#000",
+      color: "#444",
       textcolor: "white",
-      text: "SUPREME",
-      backgroundcolor: "#ccc",
+      text: "Black Belt",
+      backgroundcolor: "#ddd",
       discount: "%",
       totalScore: 100000,
       background:
@@ -132,20 +138,62 @@ export const levels = () => {
     },
     {
       level: 9,
+      icon: "fa fa-superpowers",
+      color: "brown",
+      textcolor: "white",
+      text: "Black Belt Bronze Stripe" ,
+      backgroundcolor: "#ddd",
+      discount: "%",
+      totalScore: 125000,
+      background:
+        "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
+      image: blackbronze,
+      image2: blackbronzefull,
+    },
+    {
+      level: 10,
+      icon: "fa fa-superpowers",
+      color: "grey",
+      textcolor: "white",
+      text: "Black Belt Silver Stripe",
+      backgroundcolor: "#ddd",
+      discount: "%",
+      totalScore: 160000,
+      background:
+        "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
+      image: blacksilver,
+      image2: blacksilverfull,
+    },
+    {
+      level: 11,
+      icon: "fa fa-superpowers",
+      color: "yellow",
+      textcolor: "white",
+      text: "Black Belt Golden Stripe",
+      backgroundcolor: "#ddd",
+      discount: "%",
+      totalScore: 200000,
+      background:
+        "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
+      image: blackgold,
+      image2: blackgoldfull,
+    },
+    {
+      level: 12,
       icon: "fa fa-eercast",
       color: "#000",
-      backgroundcolor: "#ccc",
+      backgroundcolor: "#ddd",
+      image: supreme,
       textcolor: "white",
-      text: "Black Belt",
+      text: "Supreme",
       discount: "10%",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       totalScore: 1200000,
-      image: supreme,
     },
     {
       icon: "fa fa-eercast",
-      level: 10,
+      level: 13,
       color: "#000",
       backgroundcolor: "#ccc",
       discount: "10%",
