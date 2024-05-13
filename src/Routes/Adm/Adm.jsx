@@ -12,9 +12,7 @@ import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
 
 import AllClasses from "./AdmComponents/ClassesManagement/AllClasses";
 import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
-import ManageModules, {
-  ManageGroupClasses,
-} from "./AdmComponents/GroupClassManagement/ManageCourses";
+import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 
 export function Adm({ headers }) {
   const [value, setValue] = useState("1");
@@ -26,8 +24,6 @@ export function Adm({ headers }) {
       tooltip: "Marque uma aula particular.",
       component: (
         <div>
-          {/* <NextTutoring headers={headers} /> */}
-          {/* <NextLiveClass headers={headers} /> */}
           <NewTutoring headers={headers} />
           <AllClasses headers={headers} />
         </div>
@@ -73,7 +69,15 @@ export function Adm({ headers }) {
 
   return (
     <>
-      <RouteSizeControlBox className="smooth">
+      <RouteSizeControlBox
+        style={{
+          backgroundColor: "#f9f9f9",
+          padding: "0.5rem",
+          borderRadius: "0.5rem",
+          maxWidth: "900px",
+        }}
+        className="smooth"
+      >
         <TabContext value={value}>
           <Box
             style={{

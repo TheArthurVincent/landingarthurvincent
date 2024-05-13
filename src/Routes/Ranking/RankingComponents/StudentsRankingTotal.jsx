@@ -42,8 +42,6 @@ export default function StudentsRankingTotal({ headers }) {
     fetchStudents(theItems);
   }, []);
 
- 
-
   return (
     <div>
       <div

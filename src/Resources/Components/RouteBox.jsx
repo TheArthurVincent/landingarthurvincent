@@ -9,7 +9,7 @@ import {
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
-  max-width: 96vw;
+  max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.5rem;
@@ -23,8 +23,11 @@ export const RouteSizeControlBox = styled.div`
 
 export const RouteDiv = styled.div`
   background-color: ${alwaysWhite()};
+  border-radius: 0.5rem;
   color: ${alwaysBlack()};
   padding: 0.5rem;
+  box-shadow: 1px 1px 5px 1px #777;
+  margin: 5px;
 `;
 
 export const OverFlow = styled.div`
