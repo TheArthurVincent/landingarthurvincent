@@ -139,8 +139,8 @@ export const levels = () => {
     {
       level: 9,
       icon: "fa fa-superpowers",
-      color: "brown",
-      textcolor: "white",
+      color: "#F0DD9C",
+      textcolor: "black",
       text: "Black Belt Bronze Stripe" ,
       backgroundcolor: "#ddd",
       discount: "%",
@@ -167,8 +167,8 @@ export const levels = () => {
     {
       level: 11,
       icon: "fa fa-superpowers",
-      color: "yellow",
-      textcolor: "white",
+      color: "#FFFFC1",
+      textcolor: "black",
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#ddd",
       discount: "%",
