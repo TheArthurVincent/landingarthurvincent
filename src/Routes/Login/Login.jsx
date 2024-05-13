@@ -65,7 +65,7 @@ export function Login() {
 
   return (
     <div style={{ display: "flex" }}>
-      <TextLoginPage>Plataforma de alunos particulares!</TextLoginPage>
+      <TextLoginPage>Plataforma para alunos particulares!</TextLoginPage>
       <SideLoginForm>
         <div
           style={{
