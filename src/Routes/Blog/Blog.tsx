@@ -34,7 +34,6 @@ import {
   SpanDisapear,
 } from "./Blog.Styled";
 import { MyProfileProps } from "../../Resources/types.universalInterfaces";
-// import LevelCard from "../LevelCard/LevelCard";
 
 export function Blog({ headers }: MyProfileProps) {
   const { UniversalTexts } = useUserContext();

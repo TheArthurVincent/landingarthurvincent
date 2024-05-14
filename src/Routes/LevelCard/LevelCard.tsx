@@ -15,7 +15,13 @@ import {
   NewLevelCardComponent,
 } from "./LevelCard.Styled";
 
-export function LevelCard({ headers, _StudentId, picture }) {
+interface LevelCardProps {
+  headers: Headers | null;
+  _StudentId: string;
+  picture: string;
+}
+
+export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
@@ -23,9 +29,10 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [showCard, setShowCard] = useState("none");
 
   const items = levels();
+  const actualHeaders = headers || {};
 
   useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     if (getLoggedUser.id) {
       setTimeout(() => {
         seeScore(getLoggedUser.id);
@@ -35,11 +42,11 @@ export function LevelCard({ headers, _StudentId, picture }) {
     }
   }, []);
 
-  const seeScore = async (id) => {
+  const seeScore = async (id: string) => {
     setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
-        headers,
+        headers: actualHeaders,
       });
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
