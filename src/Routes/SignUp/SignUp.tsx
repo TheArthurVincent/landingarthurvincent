@@ -97,8 +97,8 @@ export function SignUp() {
         `${backDomain}/api/v1/signupstudent`,
         newStudent
       );
-      alert("Cadastro realizado com sucesso!");
-      window.location.assign("/");
+      alert("Cadastro realizado com sucesso! Faça seu login!");
+      window.location.assign("/login");
     } catch (error) {
       setButton("...");
       alert(error);
