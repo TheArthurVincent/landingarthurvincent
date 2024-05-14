@@ -157,7 +157,6 @@ export function Blog({ headers }: MyProfileProps) {
   }
 
   return (
-    // <RouteSizeControlBox className="smooth">
     <>
       <RouteDiv
         style={{
@@ -459,7 +458,6 @@ export function Blog({ headers }: MyProfileProps) {
         style={{ display: !isVisible ? "none" : "flex" }}
       />
     </>
-    // </RouteSizeControlBox>
   );
 }
 
