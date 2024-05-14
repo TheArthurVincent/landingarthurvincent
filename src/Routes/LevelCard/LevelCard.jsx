@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
-import { backDomain, formatNumber, updateScore } from "../../Resources/UniversalComponents";
 import {
-  DivCardLevel,
-  LevelCardLevel,
-  LevelCardPhotoLevel,
-  NewLevelCardComponent,
-  TextLevelCard,
-} from "../../Resources/Components/RouteBox";
+  backDomain,
+  formatNumber,
+  updateScore,
+} from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
+import {
+  LevelCardLevel,
+  LevelCardPhotoLevel,
+  DivCardLevel,
+  TextLevelCard,
+  NewLevelCardComponent,
+} from "./LevelCard.Styled";
 
 export function LevelCard({ headers, _StudentId, picture }) {
   const [totalScore, setTotalScore] = useState(0);
