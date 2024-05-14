@@ -4,8 +4,7 @@ import {
   ImgResponsive3,
   abreviateName,
   backDomain,
-  formatNumber,
-  updateScore,
+  formatNumber,updateScore 
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";

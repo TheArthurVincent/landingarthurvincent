@@ -17,10 +17,11 @@ import { User } from "./types.MyProfile";
 import { MyProfileProps } from "../../Resources/types.universalInterfaces";
 
 export function MyProfile({ headers }: MyProfileProps) {
+  const { UniversalTexts } = useUserContext();
+  
   const [user, setUser] = useState<User>({} as User);
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const { UniversalTexts } = useUserContext();
 
   useEffect(() => {
     const getLoggedUser: User = JSON.parse(

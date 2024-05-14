@@ -1,20 +1,16 @@
-import React, { useState } from "react";
-import {
-  backDomain,
-  formatNumber,
-  updateScore,
-} from "../../../Resources/UniversalComponents";
-import { useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
+import { backDomain, formatNumber, updateScore } from "../../Resources/UniversalComponents";
 import {
   DivCardLevel,
   LevelCardLevel,
   LevelCardPhotoLevel,
   NewLevelCardComponent,
   TextLevelCard,
-} from "../../../Resources/Components/RouteBox";
+} from "../../Resources/Components/RouteBox";
 import { CircularProgress } from "@mui/material";
-import { levels } from "../../Ranking/RankingComponents/RankingLevelsList";
+import axios from "axios";
+
 export function LevelCard({ headers, _StudentId, picture }) {
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
@@ -23,6 +19,17 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [showCard, setShowCard] = useState("none");
 
   const items = levels();
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    if (getLoggedUser.id) {
+      setTimeout(() => {
+        seeScore(getLoggedUser.id);
+      }, 100);
+    } else {
+      window.location.assign("/login");
+    }
+  }, []);
 
   const seeScore = async (id) => {
     setLoading(true);
@@ -41,17 +48,6 @@ export function LevelCard({ headers, _StudentId, picture }) {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    if (getLoggedUser.id) {
-      setTimeout(() => {
-        seeScore(getLoggedUser.id);
-      }, 100);
-    } else {
-      window.location.assign("/login");
-    }
-  }, []);
 
   return (
     <NewLevelCardComponent

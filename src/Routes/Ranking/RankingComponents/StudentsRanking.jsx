@@ -4,13 +4,12 @@ import {
   DivFont,
   RouteDiv,
 } from "../../../Resources/Components/RouteBox";
-import {
+import {    
   ImgResponsive0,
   Xp,
   abreviateName,
   backDomain,
-  formatNumber,
-  updateScore,
+  formatNumber,updateScore
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
@@ -148,8 +147,8 @@ export default function StudentsRanking({ headers }) {
           top: "50%",
           left: "50%",
           width: "20rem",
-          maxHeight:"60vh",
-          overflow:"auto",
+          maxHeight: "60vh",
+          overflow: "auto",
           display: isVisible ? "block" : "none",
           transform: "translate(-50%, -50%)",
         }}
@@ -161,7 +160,6 @@ export default function StudentsRanking({ headers }) {
             style={{
               display: "grid",
               gap: "0.5rem",
-
             }}
           >
             <Xp
