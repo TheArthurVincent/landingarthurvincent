@@ -121,7 +121,10 @@
     "src/main.tsx",
     "src/main.jsx",
     "./src/**/*.jsx",
-    "/*.jsx"
+    "/*.jsx",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg"
   ],
   "exclude": ["node_modules"]
 }
