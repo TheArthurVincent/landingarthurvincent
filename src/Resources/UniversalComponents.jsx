@@ -355,7 +355,7 @@ export const linkReset2 = {
 
 export const IFrameVideo = styled.iframe`
   margin-top: 0;
-  width: 90vw;
+  width: 80vw;
   height: 70vh;
   margin-top: 0;
   margin-right: auto;
