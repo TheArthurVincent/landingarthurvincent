@@ -4,7 +4,8 @@ import {
   ImgResponsive3,
   abreviateName,
   backDomain,
-  formatNumber,updateScore 
+  formatNumber,
+  updateScore,
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
@@ -15,12 +16,15 @@ import {
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
+import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 
-export default function StudentsRankingTotal({ headers }) {
-  const [students, setStudents] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function StudentsRankingTotal({ headers }: HeadersProps) {
+  const [students, setStudents] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const theItems = levels();
+
+  const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
     setLoading(true);
@@ -28,7 +32,7 @@ export default function StudentsRankingTotal({ headers }) {
       const response = await axios.get(
         `${backDomain}/api/v1/scorestotalranking/`,
         {
-          headers,
+          headers: actualHeaders,
         }
       );
       setStudents(response.data.listOfStudents);
@@ -38,7 +42,7 @@ export default function StudentsRankingTotal({ headers }) {
     }
   };
   useEffect(() => {
-    fetchStudents(theItems);
+    fetchStudents();
   }, []);
 
   return (
@@ -66,12 +70,11 @@ export default function StudentsRankingTotal({ headers }) {
         <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
         <ul>
-          {students.map((item, index) => {
+          {students.map((item: any, index: number) => {
             const levelNumber = updateScore(item.totalScore).level;
             return (
               <AnimatedLi2
                 key={index}
-                index={index}
                 style={{
                   display: item.totalScore >= 5000 ? "flex" : "none",
                   background: theItems[levelNumber].color,

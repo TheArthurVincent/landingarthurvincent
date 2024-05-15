@@ -33,11 +33,10 @@ export default function RankingList() {
               />
               <div
                 style={{
-                  fontSize: "0.8rem",
                   alignItems: "center",
                   justifyContent: "space-between",
                   gap: "1rem",
-                  fontSize: "1.1rem",
+                  fontSize: "1rem",
                 }}
               >
                 <p>

@@ -8,12 +8,6 @@ import RankingExplanationComponent from "./RankingExplanationComponents/RankingE
 export default function RankingExplanation() {
   const { UniversalTexts } = useUserContext();
 
-  const h3 = {
-    textAlign: "center",
-    color: primaryColor(),
-    fontWeight: 600,
-    margin: "1rem 0",
-  };
   return (
     <div
       style={{
@@ -21,10 +15,28 @@ export default function RankingExplanation() {
       }}
     >
       <p>{UniversalTexts.timelineExplanationText}</p>
-      <h3 style={h3}>{UniversalTexts.score}</h3>
+      <h3
+        style={{
+          textAlign: "center",
+          color: primaryColor(),
+          fontWeight: 600,
+          margin: "1rem 0",
+        }}
+      >
+        {UniversalTexts.score}
+      </h3>
       <RankingExplanationComponent />
       <WarningText text={UniversalTexts.t3000} />
-      <h3 style={h3}>{UniversalTexts.monthlyRanking}</h3>
+      <h3
+        style={{
+          textAlign: "center",
+          color: primaryColor(),
+          fontWeight: 600,
+          margin: "1rem 0",
+        }}
+      >
+        {UniversalTexts.monthlyRanking}
+      </h3>
       <ul>
         <li
           style={{
@@ -67,7 +79,16 @@ export default function RankingExplanation() {
         </li>
       </ul>
       <div style={{ display: "grid", gap: "1rem", padding: "3px" }}>
-        <h3 style={h3}>{UniversalTexts.uplevel}</h3>
+        <h3
+          style={{
+            textAlign: "center",
+            color: primaryColor(),
+            fontWeight: 600,
+            margin: "1rem 0",
+          }}
+        >
+          {UniversalTexts.uplevel}
+        </h3>
         <RankingList />
       </div>
     </div>

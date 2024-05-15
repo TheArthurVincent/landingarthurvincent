@@ -1,5 +1,29 @@
 import styled from "styled-components";
+// Interfaces
+interface ScoreItem {
+  description: string;
+  score: number;
+  color: string;
+  nobutton?: boolean;
+}
 
+interface Criteria {
+  title: string;
+  score: ScoreItem[];
+  icon: string;
+  transform?: string;
+  color: string;
+  comment?: string;
+}
+
+interface Button {
+  color: string;
+  score: number;
+  description: string;
+  category: string;
+  text: string;
+}
+// Lista
 export const listOfCriteria = [
   {
     title: "Aula particular",
@@ -15,7 +39,7 @@ export const listOfCriteria = [
       },
       {
         description: "Prova",
-        score: "0-1,500",
+        score: 1500,
         color: "green",
         nobutton: true,
       },
@@ -98,13 +122,18 @@ export const listOfCriteria = [
   },
 ];
 
-function transformCriteriaToButtons(criteriaList) {
-  const buttonsList = [];
+// Método
+
+function transformCriteriaToButtons(criteriaList: Criteria[]) {
+  const buttonsList: Button[] = [];
 
   criteriaList.forEach((criteria) => {
     criteria.score.forEach((scoreItem) => {
-      const button = {
-        color: scoreItem.score >= 0 ? "green" : "red",
+      const button: Button = {
+        color:
+          typeof scoreItem.score === "number" && scoreItem.score >= 0
+            ? "green"
+            : "red",
         score: scoreItem.score,
         description: scoreItem.description,
         category: criteria.title,
@@ -112,10 +141,8 @@ function transformCriteriaToButtons(criteriaList) {
           scoreItem.description.split(" ")[0]
         } ${scoreItem.description.split(" ")[1]}`,
       };
-      if (!scoreItem.nobutton == true) {
+      if (!scoreItem.nobutton) {
         buttonsList.push(button);
-      } else {
-        null;
       }
     });
   });
@@ -123,7 +150,8 @@ function transformCriteriaToButtons(criteriaList) {
   return buttonsList;
 }
 
-export const listOfButtons = transformCriteriaToButtons(listOfCriteria);
+export const listOfButtons: Button[] =
+  transformCriteriaToButtons(listOfCriteria);
 
 export const GridRankingExplanation = styled.div`
   display: grid;
