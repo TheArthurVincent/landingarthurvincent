@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Blog from "./Blog/Blog";
 import TopBar from "../Application/TopBar/TopBar";
 import Ranking from "./Ranking/Ranking";
-import LiveClasses from "./MyCourses/LiveClasses";
+import GroupClasses from "./GroupClasses/GroupClasses";
 import { Login } from "@mui/icons-material";
 import { verifyToken } from "../App";
 import { Outlet, Route, Routes } from "react-router-dom";
@@ -15,16 +14,24 @@ import MyClasses from "./MyClasses/MyClasses";
 import MyCalendar from "./MyCalendar/MyCalendar";
 import AppFooter from "../Application/Footer/Footer";
 import Adm from "./Adm/Adm";
+import Blog from "./Blog/Blog";
+import { LevelCard } from "./LevelCard/LevelCard";
+import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
+import { HeadersProps } from "../Resources/types.universalInterfaces";
 
-export function HomePage({ headers }) {
-  const [thePermissions, setPermissions] = useState("");
-  const [admin, setAdmin] = useState(false);
+export function HomePage({ headers }: HeadersProps) {
+  const [thePermissions, setPermissions] = useState<string>("");
+  const [admin, setAdmin] = useState<boolean>(false);
+  const [_StudentId, setStudentId] = useState<string>("");
+  const [picture, setPicture] = useState<string>("");
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions } = JSON.parse(user);
+      const { permissions, picture, id } = JSON.parse(user);
       setPermissions(permissions);
+      setStudentId(id || _StudentId);
+      setPicture(picture);
       setAdmin(permissions === "superadmin" ? true : false);
     } else {
       return;
@@ -35,7 +42,16 @@ export function HomePage({ headers }) {
     {
       title: "Blog",
       path: "/",
-      component: <Blog headers={headers} />,
+      component: (
+        <BlogRouteSizeControlBox style={{ gap: "1rem" }} className="smooth">
+          <Blog headers={headers} />
+          <LevelCard
+            headers={headers}
+            _StudentId={_StudentId}
+            picture={picture}
+          />
+        </BlogRouteSizeControlBox>
+      ),
     },
     {
       title: "Ranking",
@@ -46,8 +62,8 @@ export function HomePage({ headers }) {
       component: <MyProfile headers={headers} />,
     },
     {
-      title: "Live Classes",
-      component: <LiveClasses headers={headers} />,
+      title: "Group Classes",
+      component: <GroupClasses headers={headers} />,
     },
     {
       title: "English Material",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
-  BlogRouteSizeControlBox,
+  RouteSizeControlBox,
   BlogPostTitle,
   HTwo,
   BackgroundClickBlog,
@@ -33,29 +33,41 @@ import {
   InternDivModal,
   SpanDisapear,
 } from "./Blog.Styled";
-import LevelCard from "./BlogComponents/LevelCard";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
 
-export function Blog({ headers }) {
+export function Blog({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
-  const [newTitle, setNewTitle] = useState("");
-  const [_id, setID] = useState("");
-  const [_StudentId, setStudentId] = useState("");
-  const [newText, setNewText] = useState("");
-  const [newImg, setNewImg] = useState("");
-  const [newUrlVideo, setNewUrlVideo] = useState("");
-  const [isVisible, setIsVisible] = useState(false);
-  const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [googleDriveLink, setGoogleDriveLink] = useState("");
-  const [permissions, setPermissions] = useState("");
-  const [picture, setPicture] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([
+  // Strings
+  const [newTitle, setNewTitle] = useState<string>("");
+  const [_id, setID] = useState<string>("");
+  const [_StudentId, setStudentId] = useState<string>("");
+  const [picture, setPicture] = useState<string>("");
+  const [newText, setNewText] = useState<string>("");
+  const [newImg, setNewImg] = useState<string>("");
+  const [newUrlVideo, setNewUrlVideo] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [googleDriveLink, setGoogleDriveLink] = useState<string>("");
+  const [permissions, setPermissions] = useState<string>("");
+  // Booleans
+  const [seeConfirmDelete, setSeeConfirmDelete] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  // Loading
+  const [posts, setPosts] = useState<any>([
     {
       title: <CircularProgress style={{ color: secondaryColor() }} />,
     },
   ]);
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    fetchData();
+    setName(getLoggedUser.name);
+    setStudentId(getLoggedUser.id || _StudentId);
+    setPicture(getLoggedUser.picture);
+    setPermissions(getLoggedUser.permissions);
+    setGoogleDriveLink(getLoggedUser.googleDriveLink);
+  }, []);
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
@@ -65,11 +77,13 @@ export function Blog({ headers }) {
     setSeeConfirmDelete(!seeConfirmDelete);
   };
 
-  const seeEdition = async (id) => {
+  const actualHeaders = headers || {};
+
+  const seeEdition = async (id: string): Promise<void> => {
     handleSeeModal();
     try {
       const response = await axios.get(`${backDomain}/api/v1/blogpost/${id}`, {
-        headers,
+        headers: actualHeaders,
       });
       setID(response.data.formattedBlogPost.id);
       setNewTitle(response.data.formattedBlogPost.title);
@@ -82,7 +96,7 @@ export function Blog({ headers }) {
     }
   };
 
-  const editPost = async (id) => {
+  const editPost = async (id: string): Promise<void> => {
     try {
       const editedPost = {
         title: newTitle,
@@ -93,7 +107,7 @@ export function Blog({ headers }) {
       const response = await axios.put(
         `${backDomain}/api/v1/blogposts/${id}`,
         editedPost,
-        { headers }
+        { headers: actualHeaders }
       );
       fetchData();
       handleSeeModal();
@@ -105,11 +119,11 @@ export function Blog({ headers }) {
     }
   };
 
-  const deletePost = async (id) => {
+  const deletePost = async (id: string): Promise<void> => {
     try {
       const response = await axios.delete(
         `${backDomain}/api/v1/blogposts/${id}`,
-        { headers }
+        { headers: actualHeaders }
       );
       alert("Post definitivamente excluído");
       handleSeeModal();
@@ -122,11 +136,11 @@ export function Blog({ headers }) {
     }
   };
 
-  async function fetchData() {
+  async function fetchData(): Promise<void> {
     setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/blogposts`, {
-        headers,
+        headers: actualHeaders,
       });
 
       setTimeout(() => {
@@ -134,28 +148,19 @@ export function Blog({ headers }) {
         setLoading(false);
       }, 300);
     } catch (error) {
-      alert(error, "Erro ao importar posts, faça login novamente");
+      console.log(error);
+      alert("Erro ao importar posts, faça login novamente");
       window.location.assign("/login");
       setLoading(false);
     }
   }
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    fetchData();
-    setName(getLoggedUser.name);
-    setStudentId(getLoggedUser.id || _StudentId);
-    setPermissions(getLoggedUser.permissions);
-    setGoogleDriveLink(getLoggedUser.googleDriveLink);
-    setLastName(getLoggedUser.lastname);
-    setPicture(getLoggedUser.picture);
-  }, []);
-
   return (
-    <BlogRouteSizeControlBox className="smooth">
+    <>
       <RouteDiv
         style={{
           maxWidth: "60rem",
+          margin: "auto",
         }}
       >
         <div
@@ -266,7 +271,7 @@ export function Blog({ headers }) {
           </Link>
         </div>
         <HOne>{UniversalTexts.mural}</HOne>
-        {posts.map((post, index) => (
+        {posts.map((post: any, index: number) => (
           <div
             key={index}
             style={{
@@ -333,14 +338,6 @@ export function Blog({ headers }) {
           </div>
         ))}
       </RouteDiv>
-
-      <LevelCard
-        name={name}
-        headers={headers}
-        _StudentId={_StudentId}
-        picture={picture}
-        lastName={lastName}
-      />
       <DivModal
         className="modal"
         style={{
@@ -379,9 +376,8 @@ export function Blog({ headers }) {
             onChange={(event) => setNewText(event.target.value)}
             id="Texto"
             placeholder="Texto"
-            type="text"
-            cols="20"
-            rows="10"
+            cols={20}
+            rows={10}
             required
             className="inputs-style"
           />
@@ -461,7 +457,7 @@ export function Blog({ headers }) {
         onClick={() => handleSeeModal()}
         style={{ display: !isVisible ? "none" : "flex" }}
       />
-    </BlogRouteSizeControlBox>
+    </>
   );
 }
 

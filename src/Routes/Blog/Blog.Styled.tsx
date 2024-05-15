@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { alwaysWhite, lightGreyColor } from "../../Styles/Styles";
 
+
 export const DivModal = styled.div`
   position: fixed;
   z-index: 100;

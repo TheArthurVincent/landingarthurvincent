@@ -111,8 +111,8 @@ export default function TopBar() {
       endpoint: "/my-classes",
     },
     {
-      title: UniversalTexts.liveClasses,
-      endpoint: "/live-classes",
+      title: UniversalTexts.groupClasses,
+      endpoint: "/group-classes",
     },
   ];
 

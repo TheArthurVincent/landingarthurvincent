@@ -7,13 +7,14 @@ import NotFound from "./Routes/NotFound/NotFound";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
 import { All, authorizationToken } from "./App.Styled";
+import { MyHeadersType } from "./Resources/types.universalInterfaces";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
   return token;
 };
-const authorization = authorizationToken();
-const headers = {
+const authorization: string = authorizationToken();
+const headers:MyHeadersType= {
   Authorization: authorization,
 };
 
@@ -33,7 +34,7 @@ function App() {
     },
     {
       path: "*",
-      element: verifyToken() ? <NotFound headers={headers} /> : <Login />,
+      element: verifyToken() ? <NotFound /> : <Login />,
     },
     {
       path: "/signup",

@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
 import {
   backDomain,
   formatNumber,
   updateScore,
-} from "../../../Resources/UniversalComponents";
-import { useEffect } from "react";
+} from "../../Resources/UniversalComponents";
+import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import {
-  DivCardLevel,
   LevelCardLevel,
   LevelCardPhotoLevel,
-  NewLevelCardComponent,
+  DivCardLevel,
   TextLevelCard,
-} from "../../../Resources/Components/RouteBox";
-import { CircularProgress } from "@mui/material";
-import { levels } from "../../Ranking/RankingComponents/RankingLevelsList";
-export function LevelCard({ headers, _StudentId, picture }) {
+  NewLevelCardComponent,
+} from "./LevelCard.Styled";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
+
+interface LevelCardProps {
+  headers: MyHeadersType | null;
+  _StudentId: string;
+  picture: string;
+}
+
+export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [level, setLevel] = useState(9);
@@ -23,12 +30,24 @@ export function LevelCard({ headers, _StudentId, picture }) {
   const [showCard, setShowCard] = useState("none");
 
   const items = levels();
+  const actualHeaders = headers || {};
 
-  const seeScore = async (id) => {
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    if (getLoggedUser.id) {
+      setTimeout(() => {
+        seeScore(getLoggedUser.id);
+      }, 100);
+    } else {
+      window.location.assign("/login");
+    }
+  }, []);
+
+  const seeScore = async (id: string) => {
     setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
-        headers,
+        headers: actualHeaders,
       });
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
@@ -42,21 +61,10 @@ export function LevelCard({ headers, _StudentId, picture }) {
     }
   };
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
-    if (getLoggedUser.id) {
-      setTimeout(() => {
-        seeScore(getLoggedUser.id);
-      }, 100);
-    } else {
-      window.location.assign("/login");
-    }
-  }, []);
-
   return (
     <NewLevelCardComponent
       style={{
-        border: `groove 3px ${items[level].color} `,
+        border: `groove 6px ${items[level].color} `,
       }}
     >
       <DivCardLevel>

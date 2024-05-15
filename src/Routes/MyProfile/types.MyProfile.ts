@@ -13,7 +13,4 @@ export interface User {
     monthlyScore: number;
     totalScore: number;
   }
-  export interface Headers {
-    Authorization: string;
-  }
-  
+

@@ -36,7 +36,7 @@ function CoursesSideBar({ courses }) {
       >
         <div>
           <CoursesListTitleContainer style={{ padding: "0 16px" }}>
-            <h2>{UniversalTexts.liveClasses}</h2>
+            <h2>{UniversalTexts.groupClasses}</h2>
             <ArrowStyle>
               {arrow
                 ? UniversalTexts.specialCharacters.leftArrow

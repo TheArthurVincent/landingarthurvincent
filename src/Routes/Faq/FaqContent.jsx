@@ -7,13 +7,13 @@ export const contentFaq = [
   {
     instruction: "Primeiros passos no portal",
     url: "https://vimeo.com/908265449?share=copy",
-    tags: ["portal", "login", "próxima", "next", "ao vivo"],
+    tags: ["portal", "login", "próxima", "next", "em grupo"],
     explanation: (
       <>
         <h2>Página Inicial:</h2>
         <ul>
           <li>Acesse facilmente sua próxima aula.</li>
-          <li>Acesse facilmente a próxima aula ao vivo.</li>
+          <li>Acesse facilmente a próxima aula em grupo.</li>
           <li>Encontre seus cartões Anki prontos para revisão.</li>
           <li>
             Navegue até sua pasta no Google Drive para acessar materiais
@@ -70,7 +70,7 @@ export const contentFaq = [
           <li>Encontre todas as Aulas em grupo.</li>
           <li>Pesquise por tema.</li>
           <li>
-            <Link to="https://portal.arthurvincent.com.br/live-classes">
+            <Link to="https://portal.arthurvincent.com.br/group-classes">
               Entre aqui
             </Link>{" "}
           </li>
@@ -104,7 +104,7 @@ export const contentFaq = [
             Participar de aulas particulares, seja 1 ou 2 vezes por semana.
           </li>
           <li>Participar de Aulas em grupo, também 1 ou 2 vezes por semana.</li>
-          <li>Realizar homeworks particulares e ao vivo.</li>
+          <li>Realizar homeworks particulares e em grupo.</li>
         </ul>
 
         <h2>Estudo Passivo (Diariamente)</h2>

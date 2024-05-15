@@ -25,7 +25,7 @@ import {
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
-export default function MyCourses({ headers }) {
+export default function GroupClasses({ headers }) {
   const { UniversalTexts } = useUserContext();
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -218,7 +218,7 @@ export default function MyCourses({ headers }) {
           </>
         </RouteDiv>
         {/* <RouteDiv>
-          <NextLiveClasses headers={headers} />
+          <NextGroupClasses headers={headers} />
         </RouteDiv> */}
       </RouteSizeControlBox>
     </>
@@ -228,7 +228,7 @@ export default function MyCourses({ headers }) {
 {
   /*agrupada*/
   /* <RouteDiv>
-  <HOne>{UniversalTexts.liveClasses}</HOne>
+  <HOne>{UniversalTexts.groupClasses}</HOne>
   <span style={{ display: "flex", justifyContent: "space-between" }}>
     <Button onClick={() => fetchCoursesTitles()}>
       <i className="fa fa-refresh" aria-hidden="true"></i>
