@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { alwaysWhite, lightGreyColor, primaryColor, textPrimaryColorContrast } from "../../../Styles/Styles";
+import { alwaysWhite, lightGreyColor } from "../../../Styles/Styles";
 
 export const FlexAdjust = styled.span`
   display: flex;
@@ -32,8 +32,8 @@ export const DivHover = styled.span`
   font-family: Athiti;
   padding: 0.5rem 0;
   margin: 2px auto;
-    background-color: ${alwaysWhite()};
-    padding: 5px 10px;
+  background-color: ${alwaysWhite()};
+  padding: 5px 10px;
   border: solid 1px ${lightGreyColor()};
   &:hover {
     background-color: ${lightGreyColor()};
@@ -44,4 +44,3 @@ export const DivHover = styled.span`
     flex-direction: column;
   }
 `;
-

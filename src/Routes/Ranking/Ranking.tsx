@@ -17,15 +17,16 @@ import RankingTimeline from "./RankingComponents/RankingTimeline";
 import { BackToHomePage } from "../../Resources/UniversalComponents";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
 
-export default function Ranking({ headers }) {
+export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
 
-  const [value, setValue] = useState("1");
-  const [user, setUser] = useState(false);
+  const [value, setValue] = useState<string>("1");
+  const [user, setUser] = useState<any>({});
 
   useEffect(() => {
-    const theuser = JSON.parse(localStorage.getItem("loggedIn"));
+    const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(theuser);
   }, []);
 
@@ -38,13 +39,7 @@ export default function Ranking({ headers }) {
     {
       title: UniversalTexts.totalRanking,
       value: "2",
-      component: (
-        <StudentsRankingTotal
-          id={user.id}
-          name={user.name + " " + user.lastname}
-          headers={headers}
-        />
-      ),
+      component: <StudentsRankingTotal headers={headers} />,
     },
     {
       title: UniversalTexts.timeline,
@@ -63,7 +58,7 @@ export default function Ranking({ headers }) {
       component: <RankingExplanation />,
     },
   ];
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: string) => {
     event.preventDefault();
     setValue(newValue);
   };

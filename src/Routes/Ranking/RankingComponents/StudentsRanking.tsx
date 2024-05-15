@@ -24,27 +24,74 @@ import {
 } from "../../../Styles/Styles";
 
 import { listOfButtons } from "./ListOfCriteria";
-export default function StudentsRanking({ headers }) {
-  const [students, setStudents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
-  const [isAdm, setIsAdm] = useState(false);
-  const [loadingScore, setLoadingScore] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [descSpecial, setDescSpecial] = useState("");
-  const [plusScore, setPlusScore] = useState(0);
-  const [totalScore, setTotalScore] = useState(0);
-  const [monthlyScore, setMonthlyScore] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const [ID, setId] = useState("");
+import { HeadersProps } from "../../../Resources/types.universalInterfaces";
+export default function StudentsRanking({ headers }: HeadersProps) {
+  interface StudentsType {
+    id: string;
+    lastname: string;
+    name: string;
+    picture: string;
+    username: string;
+    monthlyScore: number;
+    totalScore: number;
+  }
 
-  const seeEdition = async (id) => {
+  interface UserType {
+    id: string;
+    name: string;
+    lastname: string;
+    ankiEmail: string;
+    ankiPassword: string;
+    dateOfBirth: string;
+    doc: string;
+    email: string;
+    googleDriveLink: string;
+    permissions: string;
+    phoneNumber: string;
+    picture: string;
+    username: string;
+    monthlyScore: number;
+    totalScore: number;
+  }
+
+  const [students, setStudents] = useState<StudentsType[]>([]);
+  const [user, setUser] = useState<UserType>({
+    id: "",
+    name: "",
+    lastname: "",
+    ankiEmail: "",
+    ankiPassword: "",
+    dateOfBirth: "",
+    doc: "",
+    email: "",
+    googleDriveLink: "",
+    permissions: "",
+    phoneNumber: "",
+    picture: "",
+    username: "",
+    monthlyScore: 0,
+    totalScore: 0,
+  });
+  const [loading, setLoading] = useState<boolean>(true);
+  const [isAdm, setIsAdm] = useState<boolean>(false);
+  const [loadingScore, setLoadingScore] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
+  const [descSpecial, setDescSpecial] = useState<string>("");
+  const [plusScore, setPlusScore] = useState<number>(0);
+  const [totalScore, setTotalScore] = useState<number>(0);
+  const [monthlyScore, setMonthlyScore] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [ID, setId] = useState<string>("");
+
+  const actualHeaders = headers || {};
+
+  const seeEdition = async (id: string) => {
     setDisabled(true);
     setLoadingScore(true);
     setIsVisible(!isVisible);
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
-        headers,
+        headers: actualHeaders,
       });
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
@@ -57,24 +104,29 @@ export default function StudentsRanking({ headers }) {
     }
   };
 
-  const changePlusScore = (score) => {
+  const changePlusScore = (score: number) => {
     setPlusScore(score);
   };
 
-  const updateScoreNow = async (id) => {
+  const updateScoreNow = async (id: string) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
-        headers,
+        headers: actualHeaders,
       });
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
-    } catch (error) {
-      console.log("error".error);
+    } catch (error: any) {
+      console.log(error);
       console.error(error);
     }
   };
 
-  const submitPlusScore = async (id, score, description, type) => {
+  const submitPlusScore = async (
+    id: string,
+    score: number,
+    description: string,
+    type: string
+  ) => {
     setLoadingScore(true);
     setDisabled(true);
     try {
@@ -97,21 +149,21 @@ export default function StudentsRanking({ headers }) {
   const theItems = levels();
 
   useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(getLoggedUser);
     getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
   }, []);
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
-    fetchStudents(theItems);
+    fetchStudents();
   };
 
   const fetchStudents = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/scoresranking/`, {
-        headers,
+        headers: actualHeaders,
       });
       setStudents(response.data.listOfStudents);
       setLoading(false);
@@ -120,7 +172,7 @@ export default function StudentsRanking({ headers }) {
     }
   };
   useEffect(() => {
-    fetchStudents(theItems);
+    fetchStudents();
   }, []);
 
   return (
@@ -222,7 +274,7 @@ export default function StudentsRanking({ headers }) {
               <input
                 style={{ maxWidth: "5rem", marginRight: "5px" }}
                 placeholder="Special Score"
-                onChange={(e) => changePlusScore(e.target.value)}
+                onChange={(e) => changePlusScore(Number(e.target.value))}
                 type="number"
               />
               <input
@@ -268,7 +320,7 @@ export default function StudentsRanking({ headers }) {
         <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
         <div>
-          {students.map((item, index) => {
+          {students.map((item: any, index: number) => {
             const levelNumber = updateScore(item.totalScore).level;
             return (
               <div key={index}>
@@ -330,19 +382,18 @@ export default function StudentsRanking({ headers }) {
           })}
 
           <ul>
-            {students.map((item, index) => {
+            {students.map((item: any, index: number) => {
               const levelNumber = updateScore(item.totalScore).level;
 
               return (
                 <AnimatedLi
                   key={index}
-                  index={index}
                   style={{
                     display: isAdm
                       ? "flex"
                       : index < 5 && item.monthlyScore > 0
-                      ? "flex"
-                      : "none",
+                        ? "flex"
+                        : "none",
                     background: theItems[levelNumber].color,
                     color: theItems[levelNumber].textcolor,
                   }}

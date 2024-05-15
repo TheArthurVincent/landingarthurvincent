@@ -11,19 +11,32 @@ import axios from "axios";
 import { backDomain, formatDate } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import { DivHover, CenterRightToggle } from "./RankingComponents";
+import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 
-export default function RankingTimeline({ headers, display, id, name }) {
-  const [localTimeline, setLocalTimeline] = useState([]);
-  const [studentsList, setStudentsList] = useState([]);
-  const [actualName, setActualName] = useState(name);
-  const [newID, setNewID] = useState(id);
-  const [loading, setLoading] = useState(true);
+interface RankingTimeLineProps {
+  headers: MyHeadersType | null;
+  id: string;
+  name: string;
+}
+
+export default function RankingTimeline({
+  headers,
+  id,
+  name,
+}: RankingTimeLineProps) {
+  const [localTimeline, setLocalTimeline] = useState<any>([]);
+  const [studentsList, setStudentsList] = useState<any>([]);
+  const [actualName, setActualName] = useState<string>(name);
+  const [newID, setNewID] = useState<string>(id);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
     if (id == "651311fac3d58753aa9281c5") {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`, {
-          headers,
+          headers: actualHeaders,
         });
         setStudentsList(response.data.listOfStudents);
       } catch (error) {
@@ -33,12 +46,12 @@ export default function RankingTimeline({ headers, display, id, name }) {
     }
   };
 
-  const seeScore = async (id) => {
+  const seeScore = async (id: string) => {
     setLoading(true);
     fetchStudents();
     try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
-        headers,
+        headers: actualHeaders,
       });
       setLocalTimeline(response.data.scoreTimeline);
       setLoading(false);
@@ -49,13 +62,13 @@ export default function RankingTimeline({ headers, display, id, name }) {
       console.error(error);
     }
   };
-  const seeName = async (id) => {
+  const seeName = async (id: string) => {
     setLoading(true);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/studentname/${id}`,
         {
-          headers,
+          headers: actualHeaders,
         }
       );
       setActualName(response.data.name);
@@ -70,7 +83,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
     fetchStudents();
   }, [newID, id]);
 
-  const handleStudentChange = (event) => {
+  const handleStudentChange = (event: any) => {
     setNewID(event.target.value);
     seeName(event.target.value);
   };
@@ -78,7 +91,6 @@ export default function RankingTimeline({ headers, display, id, name }) {
   return (
     <div
       style={{
-        display: display,
         top: "10%",
         borderRadius: "1rem",
         left: "30%",
@@ -108,7 +120,8 @@ export default function RankingTimeline({ headers, display, id, name }) {
             id=""
             value={newID}
           >
-            {studentsList.map((student, index) => {
+            {studentsList.map(
+              (student:any, index:number) => {
               return (
                 <option key={index} value={student.id}>
                   {student.name + " " + student.lastname}
@@ -142,7 +155,7 @@ export default function RankingTimeline({ headers, display, id, name }) {
           <CircularProgress style={{ color: secondaryColor() }} />
         ) : (
           <>
-            {localTimeline.map((item, index) => {
+            {localTimeline.map((item: any, index: number) => {
               const variables = {
                 type:
                   item.type == "Anki"
