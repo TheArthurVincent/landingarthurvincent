@@ -27,7 +27,7 @@ export const levels = () => {
     {
       level: 1,
       icon: "fa fa-star",
-      color: "#eee",
+      color: "#f8f8f8",
       textcolor: "black",
       backgroundcolor: "#EDEDED",
       text: "White Belt",
@@ -41,9 +41,9 @@ export const levels = () => {
     {
       level: 2,
       icon: "fa fa-bolt",
-      color: "#FFE15E",
+      color: "#FFD51E",
       textcolor: "black",
-      backgroundcolor: "#FFE15E", 
+      backgroundcolor: "#FFE15E",
       text: "Yellow Belt",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002",
@@ -54,7 +54,7 @@ export const levels = () => {
     {
       level: 3,
       icon: "fa fa-diamond",
-      color: "#4690E1",
+      color: "#0D5FB8",
       textcolor: "white",
       text: "Blue Belt",
       backgroundcolor: "#4690E1",
@@ -67,7 +67,7 @@ export const levels = () => {
     {
       level: 4,
       icon: "fa fa-fire",
-      color: "#FF6460",
+      color: "#D80600",
       textcolor: "white",
       backgroundcolor: "#FF6460",
       text: "Red Belt",
@@ -119,7 +119,7 @@ export const levels = () => {
     {
       level: 8,
       icon: "fa fa-superpowers",
-      color: "#ccc",
+      color: "#1c1c1c",
       textcolor: "white",
       text: "Black Belt",
       backgroundcolor: "#111",
@@ -133,8 +133,8 @@ export const levels = () => {
       level: 9,
       icon: "fa fa-superpowers",
       color: "#864421",
-      textcolor: "black",
-      text: "Black Belt Bronze Stripe" ,
+      textcolor: "#eee",
+      text: "Black Belt Bronze Stripe",
       backgroundcolor: "#111",
       totalScore: 125000,
       background:
@@ -158,7 +158,7 @@ export const levels = () => {
     {
       level: 11,
       icon: "fa fa-superpowers",
-      color: "#FFFFC1",
+      color: "#F4D54F",
       textcolor: "black",
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#111",

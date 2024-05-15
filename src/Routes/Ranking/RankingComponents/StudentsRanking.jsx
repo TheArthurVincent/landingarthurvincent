@@ -4,12 +4,13 @@ import {
   DivFont,
   RouteDiv,
 } from "../../../Resources/Components/RouteBox";
-import {    
+import {
   ImgResponsive0,
   Xp,
   abreviateName,
   backDomain,
-  formatNumber,updateScore
+  formatNumber,
+  updateScore,
 } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
@@ -388,7 +389,7 @@ export default function StudentsRanking({ headers }) {
                     >
                       #{index + 1} | {item.name} {abreviateName(item.lastname)}{" "}
                     </p>
-                    <p
+                    <div
                       style={{
                         fontSize: "0.9rem",
                         borderRadius: "0.5rem",
@@ -420,7 +421,7 @@ export default function StudentsRanking({ headers }) {
                       >
                         {formatNumber(item.monthlyScore)}{" "}
                       </DivFont>
-                    </p>
+                    </div>
                   </div>
                   <div
                     style={{
