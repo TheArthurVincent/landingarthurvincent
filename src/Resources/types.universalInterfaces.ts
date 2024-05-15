@@ -1,4 +1,8 @@
 // Interface do Headers
-export interface MyProfileProps {
-    headers: Headers | null;
-  }
+
+export interface MyHeadersType {
+  Authorization: string;
+}
+export interface HeadersProps {
+  headers: MyHeadersType | null;
+}

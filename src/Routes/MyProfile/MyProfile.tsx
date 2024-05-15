@@ -14,9 +14,9 @@ import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { User } from "./types.MyProfile";
-import { MyProfileProps } from "../../Resources/types.universalInterfaces";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
 
-export function MyProfile({ headers }: MyProfileProps) {
+export function MyProfile({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
   
   const [user, setUser] = useState<User>({} as User);

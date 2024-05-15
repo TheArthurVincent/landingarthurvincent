@@ -14,9 +14,10 @@ import {
   TextLevelCard,
   NewLevelCardComponent,
 } from "./LevelCard.Styled";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 
 interface LevelCardProps {
-  headers: Headers | null;
+  headers: MyHeadersType | null;
   _StudentId: string;
   picture: string;
 }

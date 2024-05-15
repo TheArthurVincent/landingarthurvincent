@@ -33,9 +33,9 @@ import {
   InternDivModal,
   SpanDisapear,
 } from "./Blog.Styled";
-import { MyProfileProps } from "../../Resources/types.universalInterfaces";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
 
-export function Blog({ headers }: MyProfileProps) {
+export function Blog({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
   // Strings
   const [newTitle, setNewTitle] = useState<string>("");

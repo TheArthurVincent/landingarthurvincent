@@ -24,7 +24,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 
-export default function LiveClassesTemplate({
+export default function GroupClassesTemplate({
   _id,
   title,
   courseColor,
