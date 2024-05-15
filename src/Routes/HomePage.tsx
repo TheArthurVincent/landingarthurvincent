@@ -43,7 +43,7 @@ export function HomePage({ headers }: HeadersProps) {
       title: "Blog",
       path: "/",
       component: (
-        <BlogRouteSizeControlBox className="smooth">
+        <BlogRouteSizeControlBox style={{ gap: "1rem" }} className="smooth">
           <Blog headers={headers} />
           <LevelCard
             headers={headers}

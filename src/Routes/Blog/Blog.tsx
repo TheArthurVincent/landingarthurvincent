@@ -160,6 +160,7 @@ export function Blog({ headers }: HeadersProps) {
       <RouteDiv
         style={{
           maxWidth: "60rem",
+          margin: "auto",
         }}
       >
         <div

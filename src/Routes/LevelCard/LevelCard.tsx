@@ -64,7 +64,7 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
   return (
     <NewLevelCardComponent
       style={{
-        border: `groove 3px ${items[level].color} `,
+        border: `groove 6px ${items[level].color} `,
       }}
     >
       <DivCardLevel>
