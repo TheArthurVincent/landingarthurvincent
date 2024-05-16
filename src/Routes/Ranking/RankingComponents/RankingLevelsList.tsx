@@ -1,26 +1,4 @@
-import blue from "../../../../public/assets/blue.png";
-import black from "../../../../public/assets/black.png";
-import orange from "../../../../public/assets/orange.png";
-import purple from "../../../../public/assets/purple.png";
-import red from "../../../../public/assets/red.png";
-import green from "../../../../public/assets/green.png";
-import yellow from "../../../../public/assets/yellow.png";
-import supreme from "../../../../public/assets/supreme.png";
-import white from "../../../../public/assets/white.png";
-import whitefull from "../../../../public/assets/1.png";
-import yellowfull from "../../../../public/assets/2.png";
-import bluefull from "../../../../public/assets/3.png";
-import redfull from "../../../../public/assets/4.png";
-import greenfull from "../../../../public/assets/5.png";
-import orangefull from "../../../../public/assets/6.png";
-import purplefull from "../../../../public/assets/7.png";
-import blackfull from "../../../../public/assets/8.png";
-import blackbronzefull from "../../../../public/assets/9.png";
-import blacksilverfull from "../../../../public/assets/10.png";
-import blackgoldfull from "../../../../public/assets/11.png";
-import blackbronze from "../../../../public/assets/bronze.png";
-import blacksilver from "../../../../public/assets/silver.png";
-import blackgold from "../../../../public/assets/golden.png";
+
 
 export const levels = () => {
   return [
@@ -35,8 +13,8 @@ export const levels = () => {
       totalScore: 0,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512",
-      image: white,
-      image2: whitefull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785",
     },
     {
       level: 2,
@@ -48,8 +26,8 @@ export const levels = () => {
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002",
       totalScore: 10000,
-      image: yellow,
-      image2: yellowfull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/yellow.png?updatedAt=1715899273407",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/2.png?updatedAt=1715899267032",
     },
     {
       level: 3,
@@ -61,8 +39,8 @@ export const levels = () => {
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
       totalScore: 22000,
-      image: blue,
-      image2: bluefull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/blue.png?updatedAt=1715899268299",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/3.png?updatedAt=1715899266690",
     },
     {
       level: 4,
@@ -74,8 +52,8 @@ export const levels = () => {
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/red.png?updatedAt=1711540460356",
       totalScore: 35000,
-      image: red,
-      image2: redfull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/red.png?updatedAt=1715899270341",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/4.png?updatedAt=1715899266231",
     },
     {
       level: 5,
@@ -87,8 +65,8 @@ export const levels = () => {
       totalScore: 50000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/green.png?updatedAt=1711540460421",
-      image: green,
-      image2: greenfull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/green.png?updatedAt=1715899269178",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/5.png?updatedAt=1715899269573",
     },
     {
       level: 6,
@@ -100,8 +78,8 @@ export const levels = () => {
       totalScore: 66000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559",
-      image: orange,
-      image2: orangefull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/orange.png?updatedAt=1715899269599",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/6.png?updatedAt=1715899267210",
     },
     {
       level: 7,
@@ -113,8 +91,8 @@ export const levels = () => {
       totalScore: 83000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/purple.png?updatedAt=1711540461792",
-      image: purple,
-      image2: purplefull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/purple.png?updatedAt=1715899270084",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/7.png?updatedAt=1715899267116",
     },
     {
       level: 8,
@@ -126,8 +104,8 @@ export const levels = () => {
       totalScore: 100000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: black,
-      image2: blackfull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/black.png?updatedAt=1715899272118",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/8.png?updatedAt=1715899266816",
     },
     {
       level: 9,
@@ -139,8 +117,8 @@ export const levels = () => {
       totalScore: 125000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: blackbronze,
-      image2: blackbronzefull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/bronze.png?updatedAt=1715899268535",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/9.png?updatedAt=1715899269542",
     },
     {
       level: 10,
@@ -152,8 +130,8 @@ export const levels = () => {
       totalScore: 160000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: blacksilver,
-      image2: blacksilverfull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/silver.png?updatedAt=1715899271235",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/10.png?updatedAt=1715899266753",
     },
     {
       level: 11,
@@ -165,15 +143,15 @@ export const levels = () => {
       totalScore: 200000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: blackgold,
-      image2: blackgoldfull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/golden.png?updatedAt=1715899272133",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/11.png?updatedAt=1715899268475",
     },
     {
       level: 12,
       icon: "fa fa-eercast",
       color: "#000",
       backgroundcolor: "#222",
-      image: supreme,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
       textcolor: "white",
       text: "Supreme",
       background:
@@ -190,8 +168,8 @@ export const levels = () => {
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       text: "loading",
-      image: supreme,
-      image2: whitefull,
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
+      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785",
     },
   ];
 };
