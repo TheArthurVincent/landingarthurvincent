@@ -117,7 +117,7 @@ export const levels = () => {
       totalScore: 125000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/bronze.png?updatedAt=1715899268535",
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/bronze.png?updatedAt=1715902897571",
       image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/9.png?updatedAt=1715899269542",
     },
     {
@@ -130,7 +130,7 @@ export const levels = () => {
       totalScore: 160000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/silver.png?updatedAt=1715899271235",
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/silver.png?updatedAt=1715902897080",
       image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/10.png?updatedAt=1715899266753",
     },
     {
@@ -143,7 +143,7 @@ export const levels = () => {
       totalScore: 200000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/golden.png?updatedAt=1715899272133",
+      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/golden.png?updatedAt=1715902897585",
       image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/11.png?updatedAt=1715899268475",
     },
     {
