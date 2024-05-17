@@ -18,6 +18,7 @@ import { BackToHomePage } from "../../Resources/UniversalComponents";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import Helmets from "../../Resources/Helmets";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -65,6 +66,7 @@ export default function Ranking({ headers }: HeadersProps) {
 
   return (
     <RouteSizeControlBox className="smooth">
+      <Helmets text="Ranking" />
       <RouteDiv>
         <HOne>Ranking</HOne>
         <TabContext value={value}>

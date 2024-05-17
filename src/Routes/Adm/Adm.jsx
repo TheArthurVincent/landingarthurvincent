@@ -13,6 +13,7 @@ import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
 import AllClasses from "./AdmComponents/ClassesManagement/AllClasses";
 import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
 import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
+import Helmets from "../../Resources/Helmets";
 
 export function Adm({ headers }) {
   const [value, setValue] = useState("1");
@@ -78,6 +79,7 @@ export function Adm({ headers }) {
         }}
         className="smooth"
       >
+        <Helmets text="Adm" />
         <TabContext value={value}>
           <Box
             style={{

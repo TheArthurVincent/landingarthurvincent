@@ -15,10 +15,11 @@ import { Button } from "@mui/material";
 import axios from "axios";
 import { User } from "./types.MyProfile";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import Helmets from "../../Resources/Helmets";
 
 export function MyProfile({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
-  
+
   const [user, setUser] = useState<User>({} as User);
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -57,6 +58,7 @@ export function MyProfile({ headers }: HeadersProps) {
     <>
       {headers ? (
         <RouteSizeControlBox className="smooth grid-flex">
+          <Helmets text="My Profile" />
           <RouteDiv>
             <HOne>{UniversalTexts.myProfile}</HOne>
             <BackToHomePage />

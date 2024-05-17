@@ -22,6 +22,7 @@ import {
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Helmets from "../../Resources/Helmets";
 
 export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
@@ -159,6 +160,7 @@ export function MyClasses({ headers }) {
   return (
     <>
       <RouteSizeControlBox className="smooth">
+        <Helmets text="My Classes" />
         <RouteDiv>
           {!loading ? (
             <>

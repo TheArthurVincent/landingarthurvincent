@@ -24,6 +24,7 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
+import Helmets from "../../Resources/Helmets";
 
 export default function GroupClasses({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -160,6 +161,7 @@ export default function GroupClasses({ headers }) {
   return (
     <>
       <RouteSizeControlBox className="smooth">
+        <Helmets text="Group Classes" />
         <RouteDiv>
           <>
             {!loading ? (
