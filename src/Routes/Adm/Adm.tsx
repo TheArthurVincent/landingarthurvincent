@@ -14,8 +14,9 @@ import AllClasses from "./AdmComponents/ClassesManagement/AllClasses";
 import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
 import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 import Helmets from "../../Resources/Helmets";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
 
-export function Adm({ headers }) {
+export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
 
   const componentsToRender = [
@@ -63,7 +64,7 @@ export function Adm({ headers }) {
     },
   ];
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: string) => {
     event.preventDefault();
     setValue(newValue);
   };

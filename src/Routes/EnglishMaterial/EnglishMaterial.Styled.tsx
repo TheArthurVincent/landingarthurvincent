@@ -1,12 +1,9 @@
 import { styled } from "styled-components";
 import {
-  alwaysWhite,
   darkGreyColor,
   lightGreyColor,
   primaryColor,
-  secondaryColor,
   textSecondaryColorContrast,
-  transparentBlack,
 } from "../../Styles/Styles";
 
 export const CoursesList = styled.div`

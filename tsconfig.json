@@ -23,6 +23,7 @@
     "src/main.jsx",
     "./src/**/*.jsx",
     "/*.jsx",
+    "./src/**/*.jsx",
     "/*.png",
     "/*.jpg",
     "src/**/*.ts",
