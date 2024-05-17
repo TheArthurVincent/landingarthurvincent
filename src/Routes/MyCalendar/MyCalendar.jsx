@@ -9,7 +9,6 @@ import {
   alwaysBlack,
   alwaysWhite,
   lightGreyColor,
-  primaryColor,
   secondaryColor,
   transparentWhite,
 } from "../../Styles/Styles";

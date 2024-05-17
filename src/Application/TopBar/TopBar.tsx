@@ -76,7 +76,7 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   );
 };
 
-const TopBar: React.FC = () => {
+export const TopBar: React.FC = () => {
   const [visible, setVisible] = useState<string>("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
   const [permissions, setPermissions] = useState<string>("");

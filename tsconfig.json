@@ -126,8 +126,8 @@
     "/*.png",
     "/*.jpg",
     "src/**/*.ts",
-    "src/**/*.tsx",
     "src/**/*.js",
+    "./src/**/*.tsx",
     "src/**/*.jsx",
     "/*.jpeg"
   ],
