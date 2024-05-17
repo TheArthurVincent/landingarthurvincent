@@ -14,6 +14,7 @@ import { transparentWhite } from "../../Styles/Styles";
 import { DivAppear, H3FAQ } from "../MyClasses/MyClasses.Styled";
 import { Input } from "@mui/material";
 import { contentFaq } from "./FaqContent";
+import Helmets from "../../Resources/Helmets";
 
 export function Faq() {
   const { UniversalTexts } = useUserContext();
@@ -32,7 +33,7 @@ export function Faq() {
     );
   });
 
-  const handleItemClick = (index) => {
+  const handleItemClick = (index: any) => {
     setExpandedItem((prevExpandedItem) =>
       prevExpandedItem === index ? null : index
     );
@@ -41,6 +42,7 @@ export function Faq() {
   return (
     <>
       <RouteSizeControlBox className="smooth">
+        <Helmets text="FAQ" />
         <RouteDiv>
           <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
           <Input

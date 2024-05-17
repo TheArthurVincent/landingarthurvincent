@@ -11,6 +11,7 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import EnglishActivity from "./EnglishActivity";
 import { verifyToken } from "../../App";
 import { activityRoutes, cardStyle } from "./ClassesListActivities";
+import Helmets from "../../Resources/Helmets";
 
 export default function EnglishActivities({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -41,6 +42,7 @@ export default function EnglishActivities({ headers }) {
       </Routes>
       {headers ? (
         <RouteSizeControlBox className="smooth" style={{ maxWidth: "70rem" }}>
+          <Helmets text="Activities!" />
           <RouteDiv>
             <HOne>{UniversalTexts.englishMaterial}</HOne>
             <Outlet />

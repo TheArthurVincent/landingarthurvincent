@@ -1,12 +1,9 @@
 import { styled } from "styled-components";
 import {
-  alwaysWhite,
   darkGreyColor,
   lightGreyColor,
   primaryColor,
-  secondaryColor,
   textSecondaryColorContrast,
-  transparentBlack,
 } from "../../Styles/Styles";
 
 export const CoursesList = styled.div`
@@ -19,8 +16,39 @@ export const CoursesList = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-
+export const StyledDiv = styled.div`
+  padding: 0px 0px 10px 0px;
+  margin: 10px auto;
+  border: 1px solid ${lightGreyColor()};
+  width: 20vw;
+  height: 61vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @media (max-width: 1050px) {
+    min-width: 25vw;
+  }
+  @media (max-width: 700px) {
+    min-width: 50vw;
+  }
+  @media (max-width: 300px) {
+    min-width: 80vw;
+  }
+`;
 export const CourseItem = styled.div`
+  background-color: ${lightGreyColor()};
+  padding: 3rem;
+  text-align: center;
+  border: none;
+  color: ${primaryColor()};
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: ${primaryColor()};
+    color: ${textSecondaryColorContrast()};
+    font-weight: 700;
+  }
+`;
+export const ItemItem = styled.i`
   background-color: ${lightGreyColor()};
   padding: 3rem;
   text-align: center;
@@ -49,12 +77,12 @@ export const CourseCard = styled.div`
   transition: 0.3s;
   img {
     transition: 0.3s;
-    filter: grayscale(0%);
+    filter: grayscale(100%);
   }
   &:hover {
     box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
     img {
-      filter: grayscale(100%);
+      filter: grayscale(0%);
     }
   }
 `;

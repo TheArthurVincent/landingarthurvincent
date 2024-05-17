@@ -24,6 +24,7 @@ import {
   textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
+import Helmets from "../../Resources/Helmets";
 
 export default function GroupClasses({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -41,7 +42,7 @@ export default function GroupClasses({ headers }) {
       );
       setClasses(response.data);
       setLoading(false);
-    } catch (error) { }
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -160,6 +161,7 @@ export default function GroupClasses({ headers }) {
   return (
     <>
       <RouteSizeControlBox className="smooth">
+        <Helmets text="Group Classes" />
         <RouteDiv>
           <>
             {!loading ? (
@@ -217,264 +219,7 @@ export default function GroupClasses({ headers }) {
             )}
           </>
         </RouteDiv>
-        {/* <RouteDiv>
-          <NextGroupClasses headers={headers} />
-        </RouteDiv> */}
       </RouteSizeControlBox>
     </>
   );
-}
-
-{
-  /*agrupada*/
-  /* <RouteDiv>
-  <HOne>{UniversalTexts.groupClasses}</HOne>
-  <span style={{ display: "flex", justifyContent: "space-between" }}>
-    <Button onClick={() => fetchCoursesTitles()}>
-      <i className="fa fa-refresh" aria-hidden="true"></i>
-    </Button>
-    <BackToHomePage />
-  </span>{" "}
-  {loading ? (
-    <CircularProgress style={{ color: secondaryColor() }} />
-  ) : (
-    <div
-      style={{
-        padding: "1rem",
-        display: "flex",
-        gap: "1rem",
-        margin: "0 1rem",
-        flexDirection: "column",
-        flexWrap: "wrap",
-      }}
-    >
-      <Select
-        value={courseTitle}
-        onChange={(e) => fetchCourse(e.target.value)}
-      >
-        <MenuItem disabled value="Select the type of classes">
-          Select the type of classes
-        </MenuItem>
-
-        {courses.map((course, index) => (
-          <MenuItem key={index} value={course}>
-            {course}
-          </MenuItem>
-        ))}
-      </Select>
-    </div>
-  )}
-  <span style={{ display: seeModules ? "block" : "none" }}>
-    {loading ? (
-      <CircularProgress style={{ color: secondaryColor() }} />
-    ) : (
-      <div
-        style={{
-          border: "grey 1px solid",
-          gap: "1rem",
-        }}
-      >
-        <HOne>{courseTitle}</HOne>
-        {allModulesFromTheCourse.map((theModule, index) => (
-          <div key={index}>
-            <h2
-              style={{
-                backgroundColor: lightGreyColor(),
-                padding: "1rem",
-              }}
-            >
-              {theModule.moduleName}
-            </h2>
-            {theModule.classes.map((classItem, innerIndex) => (
-              <div style={{}} key={innerIndex}>
-                {classItem.classTitle && (
-                  <p
-                    onClick={() =>
-                      setClass(
-                        classItem.classTitle,
-                        classItem.videoUrl,
-                        classItem.description,
-                        classItem.googleDriveLink,
-                        theModule.moduleName
-                      )
-                    }
-                    style={{
-                      padding: "0.5rem",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {classItem.classTitle}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    )}
-  </span>
-  <RouteSizeControlBox
-    style={{
-      display: isClassVisible ? "block" : "none",
-      maxWidth: "fit-content",
-    }}
-  >
-    <RouteDiv>
-      {title && (
-        <HThree style={{ margin: 0, marginBottom: "1rem" }}>
-          {title}
-        </HThree>
-      )}
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          justifyContent: "space-around",
-        }}
-      >
-        <span>
-          <span onClick={() => back()}>
-            {ButtonButton(`Voltar aos cursos `)}
-          </span>{" "}
-          {videoUrl && (
-            <IFrameVideo
-              src={getVideoEmbedUrl(videoUrl)}
-              frameBorder="0"
-            />
-          )}
-          {description && (
-            <div
-              style={{
-                maxWidth: "100ch",
-                padding: "0.5rem 1rem",
-              }}
-            >
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: description,
-                }}
-              />
-            </div>
-          )}
-          {googleDriveLink && (
-            <Button>
-              <Link to={googleDriveLink} target="_blank">
-                {" "}
-                Pasta da aula
-              </Link>
-            </Button>
-          )}
-        </span>
-        <SpanCourseResponsive>
-          {loading ? (
-            <CircularProgress style={{ color: secondaryColor() }} />
-          ) : (
-            <div
-              style={{
-                border: "grey 1px solid",
-                gap: "1rem",
-                fontSize: "0.8rem",
-              }}
-            >
-              {allModulesFromTheCourse.map((theModule, index) => (
-                <div key={index}>
-                  <h2
-                    style={{
-                      backgroundColor: lightGreyColor(),
-                      padding: "0.3rem",
-                    }}
-                  >
-                    {theModule.moduleName}
-                  </h2>
-                  {theModule.classes.map((classItem, innerIndex) => (
-                    <div style={{}} key={innerIndex}>
-                      {classItem.classTitle && (
-                        <p
-                          onClick={() =>
-                            setClass(
-                              classItem.classTitle,
-                              classItem.videoUrl,
-                              classItem.description,
-                              classItem.googleDriveLink,
-                              theModule.moduleName
-                            )
-                          }
-                          style={{
-                            padding: "0.5rem",
-                            cursor: "pointer",
-                          }}
-                        >
-                          {classItem.classTitle}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
-        </SpanCourseResponsive>
-      </div>
-    </RouteDiv>
-  </RouteSizeControlBox>
-</RouteDiv> 
-
-
-  const back = () => {
-    setIsClassVisible(false);
-  };
-  const selectClass = () => {
-    setIsClassVisible(true);
-  };
-
-
-
-
-  const fetchCoursesTitles = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/courses?partner=${0}`,
-        { headers }
-      );
-      setCourses(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error, "Erro ao importar posts");
-    }
-  };
-
-  const setClass = (
-    thetitle,
-    thevideoUrl,
-    thedescription,
-    thegoogleDriveLink
-  ) => {
-    setVideoUrl(thevideoUrl);
-    setDescription(thedescription);
-    setGoogleDriveLink(thegoogleDriveLink);
-    setTitle(thetitle);
-    selectClass();
-  };
-
-  const fetchCourse = async (selectedCourse) => {
-    setSeeModules(true);
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/course?courseName=${selectedCourse}`,
-        { headers }
-      );
-      setCourseTitle(selectedCourse);
-      setAllModulesFromTheCourse(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error, "Erro ao importar posts");
-    }
-  };
-
-  useEffect(() => {
-    fetchCoursesTitles();
-  }, []);
-*/
 }

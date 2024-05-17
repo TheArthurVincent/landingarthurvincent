@@ -1,5 +1,6 @@
 import React from "react";
 import { alwaysBlack, alwaysWhite } from "../../Styles/Styles";
+import Helmets from "../../Resources/Helmets";
 
 export function MessageDrive() {
   return (
@@ -16,6 +17,7 @@ export function MessageDrive() {
         justifyContent: "center",
       }}
     >
+      <Helmets text="Google Drive" />
       Você ainda não tem uma pasta no Drive. Fale com o professor.
     </div>
   );

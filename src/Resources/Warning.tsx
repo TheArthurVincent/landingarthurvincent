@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function WarningText({ text }) {
+interface WarningTextProps {
+  text: string;
+}
+
+const WarningText: React.FC<WarningTextProps> = ({ text }) => {
   return (
     <div
       style={{
@@ -34,9 +38,10 @@ export default function WarningText({ text }) {
           color: "#FF2214",
         }}
       >
-        {" "}
         {text}
       </span>
     </div>
   );
-}
+};
+
+export default WarningText;

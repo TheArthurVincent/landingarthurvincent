@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import TopBar from "../Application/TopBar/TopBar";
 import Ranking from "./Ranking/Ranking";
 import GroupClasses from "./GroupClasses/GroupClasses";
 import { Login } from "@mui/icons-material";
@@ -18,6 +17,7 @@ import Blog from "./Blog/Blog";
 import { LevelCard } from "./LevelCard/LevelCard";
 import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
+import { TopBar } from "../Application/TopBar/TopBar";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");

@@ -23,6 +23,7 @@ import {
 } from "../../Styles/Styles";
 
 import { InputFieldSignUp } from "./SignUpAssets/SignUp.Styled";
+import Helmets from "../../Resources/Helmets";
 
 export function SignUp() {
   const [newName, setNewName] = useState<string>("");
@@ -109,6 +110,7 @@ export function SignUp() {
 
   return (
     <RouteSizeControlBox>
+      <Helmets text="Sign Up" />
       <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
         <HOne>Cadastro de Aluno</HOne>
         <form style={{ display: "grid", gap: "10px" }} onSubmit={handleSubmit}>

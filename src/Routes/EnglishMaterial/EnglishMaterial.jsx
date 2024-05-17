@@ -16,6 +16,7 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import axios from "axios";
 import { Button, CircularProgress } from "@mui/material";
 import { alwaysWhite, transparentWhite } from "../../Styles/Styles";
+import Helmets from "../../Resources/Helmets";
 
 export default function EnglishMaterial({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -191,6 +192,7 @@ export default function EnglishMaterial({ headers }) {
     <>
       {headers ? (
         <RouteSizeControlBox className="smooth">
+          <Helmets text="Material" />
           <RouteDiv>
             <HOne>{UniversalTexts.englishMaterial}</HOne>
             <div

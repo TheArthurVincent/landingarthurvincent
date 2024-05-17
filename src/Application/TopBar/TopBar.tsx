@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   TopBarContainer,
   TopBarNavigation,
   TopBarNavigationBurger,
   BackgroundClick,
+  LogoStyle,
+  Hamburguer,
 } from "./TopBar.Styled";
 import {
   Button,
   LogoSVG,
   SpanHover,
 } from "../../Resources/UniversalComponents";
-import { LogoStyle } from "./TopBar.Styled";
-import { Hamburguer } from "./TopBar.Styled";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import {
   textPrimaryColorContrast,
@@ -20,8 +20,9 @@ import {
   secondaryColor,
 } from "../../Styles/Styles";
 import { FormControl, MenuItem, Select } from "@mui/material";
+import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
 
-function ItemTopBar({ title, list }) {
+const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -39,13 +40,7 @@ function ItemTopBar({ title, list }) {
       style={{ position: "relative", display: "inline-block" }}
     >
       <div style={{ cursor: "pointer" }}>
-        <SpanHover
-          style={{
-            textDecoration: "none",
-          }}
-        >
-          {title}
-        </SpanHover>
+        <SpanHover style={{ textDecoration: "none" }}>{title}</SpanHover>
       </div>
       <div
         style={{
@@ -53,7 +48,7 @@ function ItemTopBar({ title, list }) {
           top: "100%",
           left: 0,
           backgroundColor: "#fff",
-          boxShadow: "0px 2px 4px rgba(0, 0, 0,0.1)",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
           padding: "8px",
           display: isHovered ? "grid" : "none",
           textAlign: "left",
@@ -61,38 +56,30 @@ function ItemTopBar({ title, list }) {
           minWidth: "fit-content",
         }}
       >
-        {list.map((link, index) => {
-          return (
-            <NavLink
-              key={index}
-              style={{
-                color: primaryColor(),
-                display: link.display,
-                textDecoration: "none",
-              }}
-              to={link.endpoint}
-            >
-              <SpanHover
-                style={{
-                  textDecoration: "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {link.title}
-              </SpanHover>
-            </NavLink>
-          );
-        })}
+        {list.map((link, index) => (
+          <NavLink
+            key={index}
+            style={{
+              color: primaryColor(),
+              display: link.display,
+              textDecoration: "none",
+            }}
+            to={link.endpoint}
+          >
+            <SpanHover style={{ textDecoration: "none", whiteSpace: "nowrap" }}>
+              {link.title}
+            </SpanHover>
+          </NavLink>
+        ))}
       </div>
     </div>
   );
-}
+};
 
-export default function TopBar() {
-  const [visible, setVisible] = useState("none");
+export const TopBar: React.FC = () => {
+  const [visible, setVisible] = useState<string>("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
-
-  const [permissions, setPermissions] = useState("");
+  const [permissions, setPermissions] = useState<string>("");
 
   const onLoggOut = () => {
     localStorage.removeItem("authorization");
@@ -101,61 +88,34 @@ export default function TopBar() {
   };
 
   useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     setPermissions(getLoggedUser.permissions);
   }, []);
 
-  const classes = [
-    {
-      title: UniversalTexts.myClasses,
-      endpoint: "/my-classes",
-    },
-    {
-      title: UniversalTexts.groupClasses,
-      endpoint: "/group-classes",
-    },
+  const classes: LinkItem[] = [
+    { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
+    { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
   ];
 
-  const extras = [
-    {
-      title: UniversalTexts.myProfile,
-      endpoint: "/my-profile",
-    },
-    {
-      title: UniversalTexts.faq,
-      endpoint: "/faq",
-    },
+  const extras: LinkItem[] = [
+    { title: UniversalTexts.myProfile, endpoint: "/my-profile" },
+    { title: UniversalTexts.faq, endpoint: "/faq" },
   ];
 
-  const topLinks = [
-    {
-      title: UniversalTexts.calendar,
-      endpoint: "/my-calendar",
-    },
-    {
-      title: UniversalTexts.englishMaterial,
-      endpoint: "/english-material",
-    },
-    {
-      title: "Ranking",
-      endpoint: "/ranking",
-    },
+  const topLinks: LinkItem[] = [
+    { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
+    { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
+    { title: "Ranking", endpoint: "/ranking" },
   ];
 
-  const toAdm = [
-    // {
-    //   title: UniversalTexts.activities,
-    //   endpoint: "/english-activities",
-    // },
-    {
-      title: "Adm",
-      endpoint: "/adm-businessmanagement",
-    },
+  const toAdm: LinkItem[] = [
+    { title: "Adm", endpoint: "/adm-businessmanagement" },
   ];
 
   const allLinksForUser = [...topLinks, ...classes, ...extras];
+
   const handleVisible = () => {
-    visible === "flex" ? setVisible("none") : setVisible("flex");
+    setVisible(visible === "flex" ? "none" : "flex");
   };
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.3);
@@ -314,4 +274,4 @@ export default function TopBar() {
       </div>
     </TopBarContainer>
   );
-}
+};

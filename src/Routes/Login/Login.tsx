@@ -1,10 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  alwaysBlack,
-  alwaysWhite,
-  primaryColor,
-  secondaryColor,
-} from "../../Styles/Styles";
+import React, { useState } from "react";
+import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import {
   InputField,
   LogoSVG,
@@ -14,25 +9,24 @@ import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import { Alert, Button, CircularProgress } from "@mui/material";
 import { SideLoginForm, TextLoginPage } from "./Login.styled";
+import Helmets from "../../Resources/Helmets";
 
 export function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [fail, setFail] = useState(false);
-  const [button, setButton] = useState("Entrar");
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [fail, setFail] = useState<boolean>(false);
+  const [button, setButton] = useState<any>("Entrar");
+  const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
   const handlePasswordVisible = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setFail(false);
 
     setButton(<CircularProgress style={{ color: secondaryColor() }} />);
-    setLoading(true);
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {
         email,
@@ -52,7 +46,6 @@ export function Login() {
 
       localStorage.setItem("authorization", `${token}`);
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-      setLoading(false);
       setButton("Sucesso");
       window.location.assign("/");
     } catch (error) {
@@ -62,9 +55,10 @@ export function Login() {
   };
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
-
+  
   return (
     <div style={{ display: "flex" }}>
+      <Helmets text={"Login"} />
       <TextLoginPage>Plataforma para alunos particulares!</TextLoginPage>
       <SideLoginForm>
         <div
@@ -86,14 +80,14 @@ export function Login() {
             <div style={{ margin: "0 auto" }}>{myLogo}</div>
             <InputField
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event: any) => setEmail(event.target.value)}
               id="name"
               placeholder="E-mail"
               type="text"
             />
             <InputField
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event: any) => setPassword(event.target.value)}
               id="password"
               placeholder="Senha"
               type={passwordVisible ? "text" : "password"}

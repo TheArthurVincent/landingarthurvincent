@@ -34,6 +34,7 @@ import {
   SpanDisapear,
 } from "./Blog.Styled";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import Helmets from "../../Resources/Helmets";
 
 export function Blog({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -163,6 +164,7 @@ export function Blog({ headers }: HeadersProps) {
           margin: "auto",
         }}
       >
+        <Helmets text="Home Page" />
         <div
           style={{
             margin: "1rem 0.5rem 0 0",

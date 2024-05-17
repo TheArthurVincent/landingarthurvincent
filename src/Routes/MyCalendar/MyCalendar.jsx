@@ -23,6 +23,7 @@ import {
 import axios from "axios";
 import moment from "moment";
 import { StyledDiv } from "./MyCalendar.Styled";
+import Helmets from "../../Resources/Helmets";
 
 export default function MyCalendar({ headers, thePermissions }) {
   // states
@@ -829,6 +830,7 @@ export default function MyCalendar({ headers, thePermissions }) {
     <>
       {headers ? (
         <RouteSizeControlBox className="smooth">
+          <Helmets text="Calendar" />
           <RouteDiv>
             <HOne>{UniversalTexts.calendar}</HOne>
             <div style={{ display: "flex" }}>
@@ -925,12 +927,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                             hj.getFullYear() == date.getFullYear()
                               ? `2px solid ${secondaryColor()}`
                               : "null",
-                          // backgroundColor:
-                          //   hj.getDate() == date.getDate() &&
-                          //   hj.getMonth() == date.getMonth() &&
-                          //   hj.getFullYear() == date.getFullYear()
-                          //     ? "#D2F0CE"
-                          //     : lightGreyColor(),
                         }}
                         key={index}
                       >
