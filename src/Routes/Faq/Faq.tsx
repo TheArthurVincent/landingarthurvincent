@@ -33,7 +33,7 @@ export function Faq() {
     );
   });
 
-  const handleItemClick = (index) => {
+  const handleItemClick = (index: any) => {
     setExpandedItem((prevExpandedItem) =>
       prevExpandedItem === index ? null : index
     );
