@@ -414,6 +414,22 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
+
+  const reminderEmail = async (id) => {
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/eventreminder/${id}`,
+        {},
+        { headers }
+      );
+      alert("E-mail lembrete enviado");
+      console.log("E-mail lembrete enviado");
+      fetchGeneralEventsNoLoading();
+    } catch (error) {
+      console.log(error, "Erro ao enviar e-mail");
+    }
+  };
+
   const updateRealizedClass = async (id) => {
     try {
       const response = await axios.put(
@@ -488,6 +504,21 @@ export default function MyCalendar({ headers, thePermissions }) {
       hj.getMinutes() >= eventMinute &&
       hj.getMonth() == date.getMonth()
     ) {
+      return true;
+    }
+    return false;
+  }
+
+  function isEventFuture(eventTime, hj, date) {
+    const [eventHour, eventMinute] = eventTime.time.split(":").map(Number);
+    const eventDateTime = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      eventHour,
+      eventMinute
+    );
+    if (eventDateTime >= hj) {
       return true;
     }
     return false;
@@ -1072,7 +1103,18 @@ export default function MyCalendar({ headers, thePermissions }) {
                                           ? "red"
                                           : "grey",
                                     }}
-                                  />
+                                  />{" "}
+                                  {event.status !== "desmarcado" && (
+                                    <i
+                                      className="fa fa-envelope-o"
+                                      aria-hidden="true"
+                                      onClick={() => reminderEmail(event._id)}
+                                      style={{
+                                        marginLeft: "1rem",
+                                        cursor: "pointer",
+                                      }}
+                                    />
+                                  )}
                                 </div>
                               )}
                               <div
