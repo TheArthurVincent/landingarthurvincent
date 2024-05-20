@@ -15,6 +15,7 @@ export const ImgLesson = styled.img`
   }
 `;
 
+
 export const LiGridImageLessons = styled.li`
   display: grid;
   list-style: none;

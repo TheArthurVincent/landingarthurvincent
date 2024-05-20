@@ -27,7 +27,7 @@ export default function EnglishActivities({
   headers,
   theclass,
 }: EnglishActivitiesModelProps) {
-  const classes: number = 2;
+  const classes: number = 3;
 
   return (
     <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
