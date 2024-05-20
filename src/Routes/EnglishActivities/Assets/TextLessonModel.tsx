@@ -1,5 +1,6 @@
 import React from "react";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
+import { readText } from "./Functions/FunctionLessons";
 interface TextLessonModelProps {
   headers: MyHeadersType | null;
   text: string;
@@ -16,7 +17,12 @@ export default function TextLessonModel({
         margin: "10px 0",
       }}
     >
-      {text && <div>{text}</div>}
+      <div>
+        <button className="audio-button" onClick={() => readText(text)}>
+          <i className="fa fa-volume-up" aria-hidden="true" />
+        </button>
+        {text}
+      </div>
     </div>
   );
 }

@@ -50,14 +50,6 @@ export default function EnglishActivities({
                     alignItems: "center",
                   }}
                 >
-                  {element.text && element.type === "text" && (
-                    <button
-                      className="audio-button"
-                      onClick={() => readText(element.text)}
-                    >
-                      <i className="fa fa-volume-up" aria-hidden="true" />
-                    </button>
-                  )}
                   <HTwo>{element.subtitle}</HTwo>
                 </div>
               )}
