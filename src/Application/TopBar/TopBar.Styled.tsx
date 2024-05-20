@@ -18,8 +18,10 @@ export const TopBarContainer = styled.header`
   display: flex;
   padding: 5px;
   box-shadow: 1px 1px 10px 1px #555;
-
   width: 100vw;
+  @media print {
+    display: none;
+  }
 `;
 
 export const TopBarNavigation = styled.div`
@@ -30,9 +32,6 @@ export const TopBarNavigation = styled.div`
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
-  @media (max-width: 1200px) {
-    display: none;
-  }
 `;
 
 export const TopBarNavigationBurger = styled.div`

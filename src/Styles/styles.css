@@ -95,16 +95,6 @@ body {
   background-position: center;
 }
 
-.comments {
-  border: none;
-  padding: 1rem;
-  margin: 5px
-}
-
-.comments:hover {
-  background-color: #efefef;
-}
-
 
 .audio-button {
   padding: 0 10px;
@@ -272,4 +262,31 @@ textarea.inputs-style:focus {
   background-color: #ffffff;
   border: 1px solid #434343;
   color: #000000;
+}
+
+.comments {
+  border: none;
+  padding: 5px;
+  font-family: "Athiti";
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.comments:hover {
+  background-color: #ddffc5;
+}
+
+.comments:focus {
+  background-color: #efefef;
+  border: none;
+
+}
+
+@media print {
+  .no-print, .audio-button {
+    display: none;
+  }
 }

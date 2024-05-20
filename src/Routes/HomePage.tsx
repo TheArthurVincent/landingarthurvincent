@@ -71,7 +71,7 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "English Activities",
-      component: <EnglishActivities headers={headers} />,
+      component: <EnglishActivities headers={headers} theclass={undefined} />,
     },
     {
       title: "FAQ",

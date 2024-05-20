@@ -15,13 +15,12 @@ export default function SentenceLessonModel({
     <div
       style={{
         display: "flex",
-        padding: "5px",
-        margin: "10px 0",
+        margin: "0 0 10px 0",
       }}
     >
       <ul
         style={{
-          padding: "1rem ",
+          padding: "0.5rem",
         }}
       >
         {sentences &&

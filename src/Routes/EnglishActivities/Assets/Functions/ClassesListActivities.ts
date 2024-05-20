@@ -1,6 +1,46 @@
 export const lessons = [
   {
     title: "To be - Present Tense",
+    // image:  "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+    elements: [
+      {
+        subtitle: "Basics",
+        comments:
+          "Aqui estão algumas expressões simples para iniciar uma comunicação em inglês",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Hello!", portuguese: "Olá!" },
+          { english: "Hi", portuguese: "Oi" },
+          { english: "How are you?", portuguese: "Como você está?" },
+          { english: "I’m fine", portuguese: "Estou bem" },
+          { english: "I’m good", portuguese: "Estou bem" },
+          { english: "I’m doing well.", portuguese: "Estou indo bem" },
+          { english: "Good morning!", portuguese: "Bom dia!" },
+          { english: "Good afternoon!", portuguese: "Boa tarde!" },
+          { english: "Good evening!", portuguese: "Boa noite!" },
+          { english: "Good night!", portuguese: "Boa noite!" },
+          { english: "Nice to meet you!", portuguese: "Prazer em conhecê-lo!" },
+        ],
+      },
+      {
+        subtitle: "Introducing yourself / Apresentando-se",
+        comments: "Complete as laculas abaixo para se apresentar",
+        order: 1,
+        type: "exercise",
+        items: [
+          "I am... (Brazilian)",
+          "I am from ... (Brazil)",
+          "I am ... (21) years old",
+          "I live in ... (São Paulo)",
+          "I am a/an... (teacher)",
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "To be - Present Tense",
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [
