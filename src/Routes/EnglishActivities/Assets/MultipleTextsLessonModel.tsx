@@ -40,6 +40,7 @@ export default function MultipleTextsLessonModel({
                         </button>
                         {text.text}
                       </p>
+                      <textarea className="comments" rows={10} cols={1} />
                     </>
                   )}
                 </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { readText } from "./Functions/FunctionLessons";
+import { primaryColor, secondaryColor } from "../../../Styles/Styles";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
@@ -32,7 +33,15 @@ export default function SentenceLessonModel({
                 marginBottom: "10px",
               }}
             >
-              <strong>{sentence.english}</strong>
+              <strong
+                style={{
+                  color: !sentence.portuguese
+                    ? secondaryColor()
+                    : primaryColor(),
+                }}
+              >
+                {sentence.english}
+              </strong>
               <button
                 className="audio-button"
                 onClick={() => readText(sentence.english)}
@@ -41,6 +50,7 @@ export default function SentenceLessonModel({
               </button>
               <br />
               <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
+              <textarea className="comments" rows={2} cols={1} />
               <br />
             </li>
           ))}

@@ -45,6 +45,21 @@ export default function EnglishActivities({
             src={lessons[classes].image}
             alt={lessons[classes].title}
           />
+        )}{" "}
+        {lessons[classes].description && (
+          <p
+            style={{
+              margin: "1rem 0",
+              padding: "0.3rem",
+              backgroundColor: "#f9f9f9",
+              fontSize: "1.1rem",
+              fontFamily: "Athiti",
+              fontWeight: 600,
+              textAlign: "center",
+            }}
+          >
+            {lessons[classes].description}
+          </p>
         )}
         {lessons[classes].elements
           .sort((a: any, b: any) => a.order - b.order)
@@ -101,7 +116,7 @@ export default function EnglishActivities({
             </div>
           ))}
         <HTwo>Homework</HTwo>
-        <textarea className="comments" rows={10} cols={1}></textarea>
+        <textarea className="comments" />
       </div>
     </RouteSizeControlBox>
   );

@@ -113,7 +113,157 @@ export const lessons = [
       },
     ],
   },
-
+  {
+    title: "To be",
+    description:
+      "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
+    image:
+      "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
+    elements: [
+      {
+        subtitle: "Conjugations!",
+        comments: "É assim que você conjuga 'ser' ou 'estar' em inglês!",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          // Afirmativo
+          { english: "Affirmations", portuguese: "" },
+          { english: "I am", portuguese: "Eu sou / Eu estou" },
+          { english: "You are", portuguese: "Você é / Você está" },
+          { english: "He is", portuguese: "Ele é / Ele está" },
+          { english: "She is", portuguese: "Ela é / Ela está" },
+          { english: "It is", portuguese: "Ele/Ela é / Está" },
+          { english: "We are", portuguese: "Nós somos / Nós estamos" },
+          { english: "They are", portuguese: "Eles são / Eles estão" },
+          { english: "Negations", portuguese: "" },
+          {
+            english: "I am not / I'm not",
+            portuguese: "Eu não sou / Eu não estou",
+          },
+          {
+            english: "You are not / You aren't / You're not",
+            portuguese: "Você não é / Você não está",
+          },
+          {
+            english: "He is not / He isn't / He's not",
+            portuguese: "Ele não é / Ele não está",
+          },
+          {
+            english: "She is not / She isn't / She's not",
+            portuguese: "Ela não é / Ela não está",
+          },
+          {
+            english: "It is not / It isn't / It's not",
+            portuguese: "Ele/Ela não é / Está",
+          },
+          { english: "Questions", portuguese: "" },
+          { english: "Am I?", portuguese: "Eu sou? / Eu estou?" },
+          { english: "Are you?", portuguese: "Você é? / Você está?" },
+          { english: "Is he?", portuguese: "Ele é? / Ele está?" },
+          { english: "Is she?", portuguese: "Ela é? / Ela está?" },
+          { english: "Is it?", portuguese: "Ele/Ela é? / Está?" },
+          { english: "Are we?", portuguese: "Nós somos? / Nós estamos?" },
+          { english: "Are they?", portuguese: "Eles são? / Eles estão?" },
+        ],
+      },
+      {
+        subtitle: "Vocabulary",
+        comments: "Vocabulário para praticar",
+        order: 1,
+        // image:
+        //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
+        type: "sentences",
+        sentences: [
+          {
+            english: "Here",
+            portuguese: "Aqui",
+          },
+          {
+            english: "There",
+            portuguese: "Lá / Aí",
+          },
+          {
+            english: "Friend",
+            portuguese: "Amigo (a)",
+          },
+          {
+            english: "Enemy",
+            portuguese: "Inimigo (a)",
+          },
+          {
+            english: "Happy",
+            portuguese: "Feliz",
+          },
+          {
+            english: "Sad",
+            portuguese: "Triste",
+          },
+        ],
+      },
+      {
+        subtitle: "Examples in Sentences",
+        comments: "Veja algumas frases abaixo que usam o verbo 'To be'",
+        order: 1,
+        image:
+          "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
+        type: "sentences",
+        sentences: [
+          { english: "I am a student.", portuguese: "Eu sou um estudante." },
+          { english: "You are my friend.", portuguese: "Você é meu amigo." },
+          { english: "She is a teacher.", portuguese: "Ela é uma professora." },
+          {
+            english: "We are going to the park.",
+            portuguese: "Estamos indo para o Parque.",
+          },
+          {
+            english: "They are studying for the exam.",
+            portuguese: "Eles estão estudando para o exame.",
+          },
+          {
+            english: "Am I late for the meeting?",
+            portuguese: "Estou atrasado para a reunião?",
+          },
+          {
+            english: "Are you coming to the party?",
+            portuguese: "Você está vindo para a festa?",
+          },
+          { english: "Is he your brother?", portuguese: "Ele é seu irmão?" },
+          {
+            english: "Are we going to the movies tonight?",
+            portuguese: "Vamos ao cinema hoje à noite?",
+          },
+          {
+            english: "Are they from France?",
+            portuguese: "Eles são da França?",
+          },
+          {
+            english: "Mark is not a nice person.",
+            portuguese: "Mark não é uma pessoa legal.",
+          },
+          {
+            english: "We are not on vacation.",
+            portuguese: "Não estamos de férias.",
+          },
+          {
+            english: "They aren’t aware of the changes.",
+            portuguese: "Eles não estão cientes das mudanças.",
+          },
+          {
+            english: "I am not interested in that!",
+            portuguese: "Eu não estou interessado nisso!",
+          },
+          {
+            english: "You aren't allowed to enter.",
+            portuguese: "Você não tem permissão para entrar.",
+          },
+          {
+            english: "She isn't my friend.",
+            portuguese: "Ela não é minha amiga.",
+          },
+        ],
+      },
+    ],
+  },
   {
     title: "Model",
     image:
