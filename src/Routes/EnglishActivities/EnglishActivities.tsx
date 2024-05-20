@@ -11,11 +11,6 @@ import TextLessonModel from "./Assets/TextLessonModel";
 import SentenceLessonModel from "./Assets/SentenceLessonModel";
 import MultipleTextsLessonModel from "./Assets/MultipleTextsLessonModel";
 import ImageLessonModel from "./Assets/ImageLessonModel";
-import { lessons } from "./Assets/Functions/ClassesListActivities";
-
-import { NavLink, Outlet, Route, Routes } from "react-router-dom";
-import { pathGenerator } from "../../Resources/UniversalComponents";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import ExerciseLessonModel from "./Assets/ExerciseLessonModel";
 
 interface EnglishActivitiesModelProps {
@@ -27,8 +22,6 @@ export default function EnglishActivities({
   headers,
   theclass,
 }: EnglishActivitiesModelProps) {
-  const classes: number = 3;
-
   return (
     <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
       <Helmets text="Activities" />

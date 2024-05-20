@@ -14,7 +14,6 @@ export default function EnglishLessons({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
   const [selectedLesson, setSelectedLesson] = useState<any>(null);
 
-  // Função para agrupar as lições por dificuldade
   const groupedLessons = lessons.reduce((acc: any, lesson: any) => {
     if (!acc[lesson.type]) {
       acc[lesson.type] = [];
@@ -25,7 +24,7 @@ export default function EnglishLessons({ headers }: HeadersProps) {
 
   const handleDifficultyChange = (event: any) => {
     setSelectedDifficulty(event.target.value);
-    setSelectedLesson(null); // Reset selected lesson when difficulty changes
+    setSelectedLesson(null);
   };
 
   const handleLessonChange = (event: any) => {
