@@ -27,6 +27,8 @@ export default function EnglishActivities({
   headers,
   theclass,
 }: EnglishActivitiesModelProps) {
+  const classes: number = 2;
+
   return (
     <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
       <Helmets text="Activities" />
@@ -37,11 +39,14 @@ export default function EnglishActivities({
           backgroundColor: "white",
         }}
       >
-        <HOne>{lessons[0].title}</HOne>
-        {lessons[0].image && (
-          <ImgLesson src={lessons[0].image} alt={lessons[0].title} />
+        <HOne>{lessons[classes].title}</HOne>
+        {lessons[classes].image && (
+          <ImgLesson
+            src={lessons[classes].image}
+            alt={lessons[classes].title}
+          />
         )}
-        {lessons[0].elements
+        {lessons[classes].elements
           .sort((a: any, b: any) => a.order - b.order)
           .map((element: any, index: number) => (
             <div key={index} style={{ margin: "10px 0" }}>
@@ -91,11 +96,12 @@ export default function EnglishActivities({
               ) : (
                 <></>
               )}
+              <HTwo>Comments</HTwo>
               <textarea className="comments" />
             </div>
           ))}
         <HTwo>Homework</HTwo>
-        <textarea className="comments" rows={20} cols={1}></textarea>
+        <textarea className="comments" rows={10} cols={1}></textarea>
       </div>
     </RouteSizeControlBox>
   );

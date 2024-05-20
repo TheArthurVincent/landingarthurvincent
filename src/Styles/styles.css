@@ -267,7 +267,6 @@ textarea.inputs-style:focus {
 
 .comments {
   border: none;
-  transition: all 0.3s ease;
   padding: 5px;
   font-family: "Athiti";
   font-weight: 600;
