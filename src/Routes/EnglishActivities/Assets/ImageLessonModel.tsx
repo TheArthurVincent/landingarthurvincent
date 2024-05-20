@@ -34,6 +34,7 @@ export default function ImageLessonModel({
                   display: "flex",
                   alignItems: "center",
                   fontStyle: "italic",
+                  marginTop: "1.3rem",
                 }}
               >
                 <button

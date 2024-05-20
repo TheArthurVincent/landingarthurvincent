@@ -1,6 +1,6 @@
 export const lessons = [
   {
-    title: "A aula",
+    title: "To be - Present Tense",
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [

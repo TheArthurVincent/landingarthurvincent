@@ -24,30 +24,20 @@ export default function MultipleTextsLessonModel({
             element.subtexts.map((text: any, index: number) => {
               return (
                 <div key={index}>
-                  {text.subtexttitle && (
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      <button
-                        className="audio-button"
-                        onClick={() => readText(text.text)}
-                      >
-                        <i className="fa fa-volume-up" aria-hidden="true" />
-                      </button>
-                      <HThree>{text.subtexttitle}</HThree>
-                    </div>
-                  )}
+                  {text.subtexttitle && <HThree>{text.subtexttitle}</HThree>}
                   {text.text && (
                     <>
-                      {" "}
                       <p
                         style={{
                           marginBottom: "2rem",
                         }}
                       >
+                        <button
+                          className="audio-button"
+                          onClick={() => readText(text.text)}
+                        >
+                          <i className="fa fa-volume-up" aria-hidden="true" />
+                        </button>
                         {text.text}
                       </p>
                     </>

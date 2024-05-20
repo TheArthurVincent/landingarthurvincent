@@ -28,7 +28,7 @@ export default function EnglishActivities({
   theclass,
 }: EnglishActivitiesModelProps) {
   return (
-    <RouteSizeControlBox className="smooth" style={{ maxWidth: "100rem" }}>
+    <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
       <Helmets text="Activities" />
       <div
         style={{
@@ -38,6 +38,7 @@ export default function EnglishActivities({
         }}
       >
         <HOne>{lessons[0].title}</HOne>
+        <ImgLesson src={lessons[0].image} alt={lessons[0].title} />
         {lessons[0].elements
           .sort((a: any, b: any) => a.order - b.order)
           .map((element: any, index: number) => (

@@ -5,9 +5,11 @@ export const ImgLesson = styled.img`
   max-width: 20rem;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  display:block;
+  display: block;
   margin: auto;
   object-position: center;
+  border-radius: 10px;
+  box-shadow: 1px 1px 12px 3px #bbb;
   @media (max-width: 500px) {
     max-width: 15rem;
   }
@@ -24,7 +26,7 @@ export const UlGridImageLessons = styled.ul`
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
-  @media (max-width: 500px) {
+  @media (max-width: 690px) {
     grid-template-columns: 1fr;
   }
 `;
