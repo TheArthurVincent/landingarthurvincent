@@ -1,6 +1,7 @@
 export const lessons = [
   {
     title: "The Alphabet / Spelling",
+    type: "Basic",
     description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
     // image:  "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [
@@ -79,6 +80,7 @@ export const lessons = [
   },
   {
     title: "Introducing Yourself / Basics",
+    type: "Basic",
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [
@@ -115,6 +117,7 @@ export const lessons = [
   },
   {
     title: "To be",
+    type: "Basic",
     description:
       "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
     image:
@@ -264,6 +267,7 @@ export const lessons = [
   },
   {
     title: "Articles",
+    type: "Advanced",
     description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
@@ -556,6 +560,7 @@ export const lessons = [
   },
   {
     title: "Model",
+    type: "Intermediary",
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [

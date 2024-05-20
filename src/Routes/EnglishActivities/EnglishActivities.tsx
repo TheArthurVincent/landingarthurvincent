@@ -39,14 +39,11 @@ export default function EnglishActivities({
           backgroundColor: "white",
         }}
       >
-        <HOne>{lessons[classes].title}</HOne>
-        {lessons[classes].image && (
-          <ImgLesson
-            src={lessons[classes].image}
-            alt={lessons[classes].title}
-          />
+        <HOne>{theclass.title}</HOne>
+        {theclass.image && (
+          <ImgLesson src={theclass.image} alt={theclass.title} />
         )}{" "}
-        {lessons[classes].description && (
+        {theclass.description && (
           <p
             style={{
               margin: "1rem 0",
@@ -58,10 +55,10 @@ export default function EnglishActivities({
               textAlign: "center",
             }}
           >
-            {lessons[classes].description}
+            {theclass.description}
           </p>
         )}
-        {lessons[classes].elements
+        {theclass.elements
           .sort((a: any, b: any) => a.order - b.order)
           .map((element: any, index: number) => (
             <div key={index} style={{ margin: "10px 0" }}>
