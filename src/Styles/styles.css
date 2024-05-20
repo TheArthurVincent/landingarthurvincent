@@ -95,6 +95,36 @@ body {
   background-position: center;
 }
 
+.comments {
+  border: none;
+  padding: 1rem;
+  margin: 5px
+}
+
+.comments:hover {
+  background-color: #efefef;
+}
+
+
+.audio-button {
+  padding: 0 10px;
+  background-color: white;
+  color: #54bf08;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+
+}
+
+.audio-button:hover {
+  color: #49a308;
+}
+
+.audio-button:active {
+  color: #49a308;
+  font-size: 0.9rem;
+}
+
 .comment {
   color: var(--white);
   margin-right: 0.5rem;
