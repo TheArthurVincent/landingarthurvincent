@@ -1,15 +1,14 @@
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
   HOne,
   HTwo,
   RouteDiv,
   RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+} from "../../../Resources/Components/RouteBox";
 import {
   BackToHomePage,
   IFrameVideoClass,
   getVideoEmbedUrl,
-} from "../../Resources/UniversalComponents";
+} from "../../../Resources/UniversalComponents";
 
 export default function EnglishActivity({ headers, title, url, questions }) {
 

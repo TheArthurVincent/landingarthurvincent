@@ -31,9 +31,8 @@ export const EventsCard = styled.div`
 
 export const HThree = styled.h3`
   padding: 0.5rem;
-  margin: 0.5rem;
-  background-color: ${primaryColor()};
-  color: ${textPrimaryColorContrast()};
+  margin: 0.5rem 0;
+  color: ${primaryColor()};
   @media (max-width: 900px) {
     margin: 10px auto;
   }

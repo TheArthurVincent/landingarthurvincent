@@ -1,11 +1,10 @@
 import { styled } from "styled-components";
 import {
-  alwaysWhite,
   lightGreyColor,
   primaryColor,
   secondaryColor,
   textSecondaryColorContrast,
-} from "../../Styles/Styles";
+} from "../../../Styles/Styles";
 
 export const CoursesList = styled.div`
   display: grid;
@@ -78,3 +77,4 @@ export const ClassCard = styled.div`
     }
   }
 `;
+
