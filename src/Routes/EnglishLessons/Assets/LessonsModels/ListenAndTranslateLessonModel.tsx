@@ -20,13 +20,12 @@ export default function ListenAndTranslateLessonModel({
       {element.audios &&
         element.audios.map((audio: any, index: number) => {
           return (
-            <div>
+            <div key={index}>
               <span>{audio.ptbrText}</span>
               <button
                 className="audio-button"
                 onClick={() => readText(audio.enusAudio)}
               >
-                
                 <i className="fa fa-volume-up" aria-hidden="true" />
               </button>
               <textarea className="comments" />
