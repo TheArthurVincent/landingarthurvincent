@@ -1790,8 +1790,6 @@ export const lessons = [
       },
     ],
   },
-  //////
-
   {
     title: "Numbers",
     type: "#1.0 | Basic Grammar",
@@ -1958,6 +1956,287 @@ export const lessons = [
     ],
   },
 
+  {
+    title: "Verbs in General",
+    type: "#1.0 | Basic Grammar",
+    order: 11,
+    image:
+      "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
+    elements: [
+      {
+        subtitle: "List of Verbs",
+        comments: "Vamos aprender alguns verbos no ingles",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "To eat", portuguese: "Comer" },
+          { english: "To drink", portuguese: "Beber" },
+          { english: "To read", portuguese: "Ler" },
+          { english: "To listen", portuguese: "Escutar" },
+          { english: "To speak", portuguese: "Falar" },
+          { english: "To write", portuguese: "Escrever" },
+          { english: "To see", portuguese: "Ver" },
+          { english: "To learn", portuguese: "Aprender" },
+          { english: "To teach", portuguese: "Ensinar" },
+          { english: "To need", portuguese: "Precisar de" },
+          { english: "To buy", portuguese: "Comprar" },
+          { english: "To say", portuguese: "Dizer" },
+          { english: "To take", portuguese: "Levar/Pegar" },
+          { english: "To come", portuguese: "Vir" },
+          { english: "To go", portuguese: "Ir" },
+          { english: "To watch", portuguese: "Assistir" },
+          { english: "To put", portuguese: "Colocar" },
+          { english: "To guide", portuguese: "Guiar" },
+          { english: "To get", portuguese: "Pegar/etc" },
+          { english: "To live", portuguese: "Morar/Viver" },
+          { english: "To share", portuguese: "Compartilhar" },
+          { english: "To sell", portuguese: "Vender" },
+          { english: "To balance", portuguese: "Equilibrar" },
+          { english: "To make fun of", portuguese: "Zoar/Zombar" },
+          { english: "To try", portuguese: "Tentar" },
+          { english: "To bring", portuguese: "Trazer" },
+          { english: "To ask", portuguese: "Perguntar/Pedir" },
+          { english: "To drop", portuguese: "Derrubar" },
+          { english: "To laugh", portuguese: "Rir" },
+          { english: "To swim", portuguese: "Nadar" },
+          { english: "To create", portuguese: "Criar" },
+          {
+            english: "To shape",
+            portuguese: "Dar forma/formato/Formar/moldar",
+          },
+          { english: "To defend", portuguese: "Defender" },
+          { english: "To maintain", portuguese: "Manter" },
+          { english: "To ensure", portuguese: "Garantir" },
+          { english: "To face", portuguese: "Enfrentar" },
+          { english: "To know", portuguese: "Saber/conhecer" },
+          { english: "To lend", portuguese: "Emprestar" },
+          { english: "To borrow", portuguese: "Pegar emprestado" },
+        ],
+      },
+
+      {
+        subtitle: "Conjugations of EAT and DRINK",
+        comments: "Veja abaixo a conjugação de dois desses verbos no presente",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          { english: "To eat", portuguese: "" },
+          { english: "I eat", portuguese: "Eu como" },
+          { english: "You eat", portuguese: "Você/Tu come" },
+          { english: "He/She eats", portuguese: "Ele/Ela come" },
+          { english: "It eats", portuguese: "Ele/Ela come {não-humano}" },
+          { english: "We eat", portuguese: "Nós comemos" },
+          { english: "You (plural) eat", portuguese: "Vocês comem" },
+          { english: "They eat", portuguese: "Eles/Elas comem" },
+          { english: "To drink", portuguese: "" },
+          { english: "I drink", portuguese: "Eu bebo" },
+          { english: "You drink", portuguese: "Você/Tu bebe" },
+          { english: "He/She drinks", portuguese: "Ele/Ela bebe" },
+          { english: "It drinks", portuguese: "Ele/Ela bebe {não-humano}" },
+          { english: "We drink", portuguese: "Nós bebemos" },
+          { english: "You (plural) drink", portuguese: "Vocês bebem" },
+          { english: "They drink", portuguese: "Eles/Elas bebem" },
+        ],
+      },
+
+      {
+        subtitle: "Congugations in general",
+        comments: "Veja abaixo a conjugação desses verbos no presente",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          { english: "I drink", portuguese: "Eu bebo" },
+          { english: "You eat", portuguese: "Você/Tu come" },
+          { english: "He reads", portuguese: "Ele lê" },
+          { english: "We speak", portuguese: "Nós falamos" },
+          { english: "You (plural) listen", portuguese: "Vocês escutam" },
+          { english: "They write", portuguese: "Eles/Elas escrevem" },
+          { english: "You see", portuguese: "Você/Tu vê" },
+          { english: "She learns", portuguese: "Ela aprende" },
+          { english: "We teach", portuguese: "Nós ensinamos" },
+          { english: "They drink", portuguese: "Eles/Elas bebem" },
+          { english: "He speaks", portuguese: "Ele fala" },
+          { english: "We read", portuguese: "Nós lemos" },
+          { english: "You (plural) drink", portuguese: "Vocês bebem" },
+          { english: "I eat", portuguese: "Eu como" },
+          { english: "They see", portuguese: "Eles/Elas veem" },
+          { english: "You write", portuguese: "Você/Tu escreve" },
+          { english: "She listens", portuguese: "Ela escuta" },
+          { english: "They learn", portuguese: "Eles/Elas aprendem" },
+          { english: "You teach", portuguese: "Você/Tu ensina" },
+          { english: "I speak", portuguese: "Eu falo" },
+        ],
+      },
+
+      {
+        subtitle: "Present continuous",
+        comments:
+          "O Present Continuous é usado para descrever ações que estão acontecendo no momento da fala, e é formado pelo verbo 'to be' no presente (am/are/is) + o gerúndio do verbo principal (com o sufixo -ing).",
+        order: 3,
+        type: "sentences",
+        sentences: [
+          { english: "I am drinking", portuguese: "Eu estou bebendo" },
+          { english: "You are eating", portuguese: "Você está comendo" },
+          { english: "He is reading", portuguese: "Ele está lendo" },
+          { english: "We are speaking", portuguese: "Nós estamos falando" },
+          { english: "You are listening", portuguese: "Vocês estão escutando" },
+          { english: "They are writing", portuguese: "Eles estão escrevendo" },
+        ],
+      },
+      {
+        subtitle: "Additional Sentences",
+        order: 4,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I am working now.",
+            portuguese: "Eu estou trabalhando agora.",
+          },
+          {
+            english: "Tom and Mark are eating french fries.",
+            portuguese: "Tom e Mark estão comendo batatas fritas.",
+          },
+          {
+            english: "Mary isn’t doing this.",
+            portuguese: "Mary não está fazendo isso.",
+          },
+          {
+            english: "Is Arthur teaching English?",
+            portuguese: "Arthur está ensinando inglês?",
+          },
+          {
+            english: "We eat sushi at the Japanese restaurant every Friday.",
+            portuguese:
+              "Nós comemos sushi no restaurante japonês toda sexta-feira.",
+          },
+          {
+            english:
+              "He reads an interesting book every night before going to sleep.",
+            portuguese:
+              "Ele lê um livro interessante todas as noites antes de dormir.",
+          },
+          {
+            english:
+              "They listen to classical music while working in the office.",
+            portuguese:
+              "Eles escutam música clássica enquanto trabalham no escritório.",
+          },
+          {
+            english: "He speaks three languages fluently.",
+            portuguese: "Ele fala três idiomas fluentemente.",
+          },
+          {
+            english: "We are drinking water.",
+            portuguese: "Nós estamos bebendo água.",
+          },
+          {
+            english: "Why is she working late today?",
+            portuguese: "Por que ela está trabalhando até tarde hoje?",
+          },
+          {
+            english:
+              "They're not making fun of anyone, they're being respectful.",
+            portuguese:
+              "Eles não estão zoando ninguém, eles estão sendo respeitosos.",
+          },
+          {
+            english: "She writes inspirational poetry in her free time.",
+            portuguese: "Ela escreve poesia inspiradora em seu tempo livre.",
+          },
+          {
+            english: "He watches the sunset every night from his balcony.",
+            portuguese:
+              "Ele assiste ao pôr do sol todas as noites da sua sacada.",
+          },
+          {
+            english: "They learn to play the piano in music classes.",
+            portuguese: "Eles aprendem a tocar piano em aulas de música.",
+          },
+          {
+            english: "She teaches mathematics to elementary school students.",
+            portuguese:
+              "Ela ensina matemática para alunos do ensino fundamental.",
+          },
+          {
+            english: "He watches cooking videos to learn new recipes.",
+            portuguese:
+              "Ele assiste a vídeos de culinária para aprender novas receitas.",
+          },
+          { english: "It’s raining here.", portuguese: "Está chovendo aqui." },
+          {
+            english: "The minimum age to drive here is eighteen.",
+            portuguese: "A idade mínima para dirigir aqui é dezoito anos.",
+          },
+          {
+            english: "My pen is there, on top of the table.",
+            portuguese: "Minha caneta está ali, em cima da mesa.",
+          },
+          {
+            english: "I think my keys are there with you.",
+            portuguese: "Acho que minhas chaves estão aí com você.",
+          },
+        ],
+      },
+      {
+        subtitle: "Tranlate the sentences below into English",
+        order: 5,
+        type: "exercise",
+        items: [
+          "Eles estão comendo?",
+          "Eles comem.",
+          "Nós estamos bebendo.",
+          "Por que ela está trabalhando?",
+          "Eles não estão compartilhando.",
+          "Nós estamos bebendo ",
+          "Por que eles estão bebendo aqui?",
+          "Eles não estão rindo",
+          "Ele tenta ",
+          "Ela traz um presente ",
+          "Eles estão zombando de mim",
+          "Eles comem pizza ",
+          "Ele está derrubando o copo ",
+          "Eles riem ",
+          "Ele está nadando?",
+          "Eles não estão comendo.",
+          "Minha prima bebe.",
+          "Nós não estamos bebendo.",
+          "Onde ela está trabalhando?",
+          "Eles não estão guiando você.",
+          "Nós não estamos zoando você",
+          "Por que eles estão bebendo aqui?",
+          "Eles não estão rindo",
+          "Ele está tentando",
+          "Minha irmã não está rindo",
+        ],
+      },
+
+      {
+        subtitle: "Texts",
+        // image:
+        //   "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+        order: 5,
+        type: "multipletexts",
+        subtexts: [
+          {
+            subtitle: "What is a house?",
+            text: "A house is a place where people live. It has different rooms, such as bedrooms, kitchens, dining rooms, and living rooms. Houses can be large or small, and often have a garden or backyard. People take care of their houses to keep them clean and comfortable.",
+          },
+          {
+            subtitle: "What is a car?",
+            text: "A car is a mode of transportation that people use to get from one place to another. It has four wheels, an engine, and a steering wheel for direction. Cars come in different sizes, colors, and models. They are useful for both short and long trips, providing comfort and convenience to their occupants.",
+          },
+          {
+            subtitle: "What are countries?",
+            text: "Countries are separate geographical territories with their own borders, governments, and cultures. Each country has its own official language, currency, and unique traditions. They are inhabited by a diverse population of people who share a common identity and sense of belonging.",
+          },
+          {
+            subtitle: "What are feelings?",
+            text: "Feelings are emotional states that people experience in response to different situations or stimuli. They can include emotions such as happiness, sadness, anger, fear, and love. Feelings can be influenced by internal factors, such as thoughts and beliefs, as well as external factors, such as events and interactions with others.",
+          },
+        ],
+      },
+    ],
+  },
   ///////////////// Vocabulary Basics
 
   {
