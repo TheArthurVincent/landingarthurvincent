@@ -35,14 +35,21 @@ export default function EnglishLessons({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
-      <RouteDiv>
-        {selectedLesson && (
-          <div>
-            <EnglishActivities theclass={selectedLesson} headers={headers} />
-          </div>
-        )}
-        <Helmets text="Activities" />
+    <RouteSizeControlBox
+      className="smooth"
+      style={{
+        display: "flex",
+        maxWidth: "60rem",
+      }}
+    >
+      <Helmets text="Activities" />
+      <RouteDiv
+        className="no-print"
+        style={{
+          height: "18rem",
+          width: "15rem",
+        }}
+      >
         <div>
           <HOne>Choose a Lesson</HOne>
           <div>
@@ -78,6 +85,14 @@ export default function EnglishLessons({ headers }: HeadersProps) {
             </div>
           )}
         </div>
+      </RouteDiv>
+
+      <RouteDiv>
+        {selectedLesson && (
+          <div>
+            <EnglishActivities theclass={selectedLesson} headers={headers} />
+          </div>
+        )}
       </RouteDiv>
     </RouteSizeControlBox>
   );
