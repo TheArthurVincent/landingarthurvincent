@@ -22,13 +22,13 @@ export default function ExerciseLessonModel({
           return (
             <div key={index}>
               {" "}
+              {theitem}
               <button
                 className="audio-button"
                 onClick={() => readText(theitem)}
               >
                 <i className="fa fa-volume-up" aria-hidden="true" />
               </button>
-              {theitem}
               <br />
               <textarea className="comments" />
             </div>

@@ -1,5 +1,8 @@
 export const lessons = [
   ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
   {
     title: "Introducing Yourself / Basics",
     order: 1,
@@ -2177,7 +2180,7 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "Tranlate the sentences below into English",
+        subtitle: "Translate the sentences below into English",
         order: 5,
         type: "exercise",
         items: [
@@ -2237,13 +2240,266 @@ export const lessons = [
     ],
   },
 
+  {
+    title: "Dates and Days",
+    type: "#1.0 | Basic Grammar",
+    order: 12,
+    image:
+      "https://images.pexels.com/photos/273153/pexels-photo-273153.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [
+      {
+        subtitle: "Days of the week",
+        // comments: "Vamos aprender alguns verbos no ingles",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Sunday", portuguese: "Domingo" },
+          { english: "Monday", portuguese: "Segunda-feira" },
+          { english: "Tuesday", portuguese: "Terça-feira" },
+          { english: "Wednesday", portuguese: "Quarta-feira" },
+          { english: "Thursday", portuguese: "Quinta-feira" },
+          { english: "Friday", portuguese: "Sexta-feira" },
+          { english: "Saturday", portuguese: "Sábado" },
+        ],
+      },
 
+      {
+        subtitle: "Months",
+        // comments: "Vamos aprender alguns verbos no ingles",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          { english: "January", portuguese: "Janeiro" },
+          { english: "February", portuguese: "Fevereiro" },
+          { english: "March", portuguese: "Março" },
+          { english: "April", portuguese: "Abril" },
+          { english: "May", portuguese: "Maio" },
+          { english: "June", portuguese: "Junho" },
+          { english: "July", portuguese: "Julho" },
+          { english: "August", portuguese: "Agosto" },
+          { english: "September", portuguese: "Setembro" },
+          { english: "October", portuguese: "Outubro" },
+          { english: "November", portuguese: "Novembro" },
+          { english: "December", portuguese: "Dezembro" },
+        ],
+      },
 
+      {
+        subtitle: "Ordinal Numbers",
+        // comments: "Vamos aprender alguns verbos no ingles",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "1st", portuguese: "First" },
+          { english: "2nd", portuguese: "Second" },
+          { english: "3rd", portuguese: "Third" },
+          { english: "4th", portuguese: "Fourth" },
+          { english: "5th", portuguese: "Fifth" },
+          { english: "6th", portuguese: "Sixth" },
+          { english: "7th", portuguese: "Seventh" },
+          { english: "8th", portuguese: "Eighth" },
+          { english: "9th", portuguese: "Ninth" },
+          { english: "10th", portuguese: "Tenth" },
+          { english: "11th", portuguese: "Eleventh" },
+          { english: "12th", portuguese: "Twelfth" },
+          { english: "13th", portuguese: "Thirteenth" },
+          { english: "14th", portuguese: "Fourteenth" },
+          { english: "15th", portuguese: "Fifteenth" },
+          { english: "16th", portuguese: "Sixteenth" },
+          { english: "17th", portuguese: "Seventeenth" },
+          { english: "18th", portuguese: "Eighteenth" },
+          { english: "19th", portuguese: "Nineteenth" },
+          { english: "20th", portuguese: "Twentieth" },
+          { english: "21st", portuguese: "Twenty-first" },
+          { english: "22nd", portuguese: "Twenty-second" },
+          { english: "23rd", portuguese: "Twenty-third" },
+          { english: "24th", portuguese: "Twenty-fourth" },
+        ],
+      },
 
+      {
+        subtitle: "Ordinal Numbers",
+        // comments: "Vamos aprender alguns verbos no ingles",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          { english: "1st", portuguese: "First" },
+          { english: "2nd", portuguese: "Second" },
+          { english: "3rd", portuguese: "Third" },
+          { english: "4th", portuguese: "Fourth" },
+          { english: "5th", portuguese: "Fifth" },
+          { english: "6th", portuguese: "Sixth" },
+          { english: "7th", portuguese: "Seventh" },
+          { english: "8th", portuguese: "Eighth" },
+          { english: "9th", portuguese: "Ninth" },
+          { english: "10th", portuguese: "Tenth" },
+          { english: "11th", portuguese: "Eleventh" },
+          { english: "12th", portuguese: "Twelfth" },
+          { english: "13th", portuguese: "Thirteenth" },
+          { english: "14th", portuguese: "Fourteenth" },
+          { english: "15th", portuguese: "Fifteenth" },
+          { english: "16th", portuguese: "Sixteenth" },
+          { english: "17th", portuguese: "Seventeenth" },
+          { english: "18th", portuguese: "Eighteenth" },
+          { english: "19th", portuguese: "Nineteenth" },
+          { english: "20th", portuguese: "Twentieth" },
+          { english: "21st", portuguese: "Twenty-first" },
+          { english: "22nd", portuguese: "Twenty-second" },
+          { english: "23rd", portuguese: "Twenty-third" },
+          { english: "24th", portuguese: "Twenty-fourth" },
+        ],
+      },
 
+      {
+        subtitle: "Dates",
+        // comments: "Vamos aprender alguns verbos no ingles",
+        order: 3,
+        type: "sentences",
+        sentences: [
+          {
+            portuguese: "07/10/1985",
+            english: "July 10th Nineteen Eighty-Five",
+          },
+          {
+            portuguese: "12/05/2001",
+            english: "December 5th Two Thousand and One",
+          },
+          {
+            portuguese: "09/18/1976",
+            english: "September 18th Nineteen Seventy-Six",
+          },
+          {
+            portuguese: "05/30/1999",
+            english: "May 30th Nineteen Ninety-Nine",
+          },
+          {
+            portuguese: "02/14/1989",
+            english: "February 14th Nineteen Eighty-Nine",
+          },
+          {
+            portuguese: "11/08/2005",
+            english: "November 8th Two Thousand and Five",
+          },
+          {
+            portuguese: "06/25/1971",
+            english: "June 25th Nineteen Seventy-One",
+          },
+          { portuguese: "04/03/1990", english: "April 3rd Nineteen Ninety" },
+          {
+            portuguese: "08/22/1967",
+            english: "August 22nd Nineteen Sixty-Seven",
+          },
+          {
+            portuguese: "10/15/2010",
+            english: "October 15th Two Thousand and Ten",
+          },
+          {
+            portuguese: "06/22/1979",
+            english: "June 22nd Nineteen Seventy-Nine",
+          },
+          {
+            portuguese: "04/01/1994",
+            english: "April 1st Nineteen Ninety-Four",
+          },
+        ],
+      },
+
+      {
+        subtitle: "2001-2009",
+        comments:
+          "Usar 'o' para zero em anos, como 'Twenty 'O' One', é uma forma informal e distintiva de expressar o ano verbalmente.",
+        order: 4,
+        type: "sentences",
+        sentences: [
+          { portuguese: "2001", english: "Twenty 'O' One" },
+          { portuguese: "2002", english: "Twenty 'O' Two" },
+          { portuguese: "2003", english: "Twenty 'O' Three" },
+          { portuguese: "2004", english: "Twenty 'O' Four" },
+          { portuguese: "2005", english: "Twenty 'O' Five" },
+          { portuguese: "2006", english: "Twenty 'O' Six" },
+          { portuguese: "2007", english: "Twenty 'O' Seven" },
+          { portuguese: "2008", english: "Twenty 'O' Eight" },
+          { portuguese: "2009", english: "Twenty 'O' Nine" },
+        ],
+      },
+
+      {
+        subtitle: "What date is this?",
+        order: 5,
+        type: "exercise",
+        items: [
+          "05/12/2022",
+          "03/28/1998",
+          "11/05/2007",
+          "09/20/2015",
+          "07/03/1980",
+          "02/18/1976",
+          "10/31/2003",
+          "08/14/1992",
+          "06/09/2000",
+          "04/27/1985",
+          "06/11/2023",
+          "04/25/1999",
+          "12/04/2005",
+          "10/19/2010",
+          "08/21/1871",
+          "03/22/1956",
+          "11/23/2012",
+          "09/13/1901",
+          "07/08/2001",
+          "05/26/1950",
+        ],
+      },
+
+      {
+        subtitle: "Hoidays!",
+        image:
+          "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&w=600",
+        order: 5,
+        type: "multipletexts",
+        subtexts: [
+          {
+            subtitle: "New Year's Day",
+            text: "January 1st - It marks the beginning of the new year, celebrated with parties and fireworks around the world.",
+          },
+          {
+            subtitle: "Valentine's Day",
+            text: "February 14th - A day to celebrate love and affection, often marked by the exchange of cards, flowers, and gifts between romantic partners.",
+          },
+          {
+            subtitle: "St. Patrick's Day",
+            text: "March 17th - A cultural and religious holiday honoring the patron saint of Ireland, St. Patrick. Celebrated with parades, wearing green attire, and festivities.",
+          },
+          {
+            subtitle: "April Fool's Day",
+            text: "April 1st - A day for playing practical jokes and spreading hoaxes. People often prank each other with harmless jokes and tricks.",
+          },
+          {
+            subtitle: "Summer Solstice",
+            text: "June 21st - Marks the longest day of the year in the Northern Hemisphere and the beginning of summer. Celebrated with festivals, bonfires, and outdoor activities.",
+          },
+          {
+            subtitle: "Independence Day (USA)",
+            text: "July 4th - Celebrates the Declaration of Independence from British rule in 1776. Marked with fireworks, parades, concerts, and family gatherings.",
+          },
+          {
+            subtitle: "Halloween",
+            text: "October 31st - A festival observed in many countries on the eve of All Saints' Day. Traditionally associated with costumes, trick-or-treating, carving pumpkins, haunted houses, and storytelling about ghosts and witches.",
+          },
+          {
+            subtitle: "Christmas Day",
+            text: "December 25th - Celebrates the birth of Jesus Christ in Christian tradition. Observed with religious services, gift-giving, feasting, and festive decorations.",
+          },
+        ],
+      },
+    ],
+  },
 
   ///////////////// Vocabulary Basics
-
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
   {
     title: "Animals",
     order: 1,
@@ -2647,147 +2903,4 @@ export const lessons = [
     ],
   },
   /////////////////
-  /////////////////
-  /////////////////
-  /////////////////
-  /////////////////
-  /////////////////
-  {
-    title: "Model",
-    type: "Intermediary",
-    order: 0.1,
-    image:
-      "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-    elements: [
-      {
-        subtitle: "Sentences 1",
-        comments: "Lorem Ipsun",
-        order: 0,
-        type: "sentences",
-        sentences: [
-          { english: "Hello!", portuguese: "Olá!" },
-          { english: "Hi", portuguese: "Oi" },
-          { english: "How are you?", portuguese: "Como você está?" },
-          { english: "I’m fine", portuguese: "Estou bem" },
-          { english: "I’m good", portuguese: "Estou bem" },
-          { english: "I’m doing well.", portuguese: "Estou indo bem" },
-          { english: "Good morning!", portuguese: "Bom dia!" },
-          { english: "Good afternoon!", portuguese: "Boa tarde!" },
-          { english: "Good evening!", portuguese: "Boa noite!" },
-          { english: "Good night!", portuguese: "Boa noite!" },
-          { english: "Nice to meet you!", portuguese: "Prazer em conhecê-lo!" },
-        ],
-      },
-      {
-        subtitle: "Texto 2",
-        image:
-          "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-
-        order: 2,
-        type: "text",
-        text: "We help brands provide better customer service at scale by analyzing, enriching, and automating text communication.",
-      },
-      {
-        subtitle: "Texto 3",
-        order: 3,
-        type: "text",
-        text: "Text.app is a simple text editor for Chrome OS and Chrome. It's fast, lets you open multiple files at once, has syntax highlighting, and saves to Google Drive",
-      },
-      {
-        subtitle: "Textosssssss 3",
-        image:
-          "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-
-        order: 5,
-        type: "multipletexts",
-        subtexts: [
-          {
-            subtexttitle: "Sub Sub Text",
-            text: "Sub Sub Arthur Text 222Text 222Text 222",
-          },
-          {
-            subtexttitle: "Sub Sub Text 2",
-            text: "Sub Sub Text Card 222Text 222Text 222",
-          },
-          {
-            subtexttitle: "Sub Sub Text3",
-            text: "Sub Sub Text See 222Text 222Text 222",
-          },
-        ],
-      },
-      {
-        subtitle: "Sentences 2",
-        comments: "Lorem Ipsun",
-        order: 4,
-        image:
-          "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-
-        type: "sentences",
-        sentences: [
-          {
-            english: "How are you?",
-            portuguese: "Tudo bem? / Como você está?",
-          },
-          { english: "Thank you", portuguese: "Obrigado (a)" },
-          { english: "Please", portuguese: "Por favor." },
-          { english: "Goodbye", portuguese: "Tchau." },
-          { english: "What’s your name?", portuguese: "Qual é o seu nome?" },
-          { english: "Where are you from?", portuguese: "De onde você é?" },
-          { english: "I don't understand.", portuguese: "Eu não entendo." },
-          { english: "Can you help me?", portuguese: "Você pode me ajudar?" },
-          { english: "I'm sorry", portuguese: "Desculpe-me" },
-          { english: "How old are you?", portuguese: "Quantos anos você tem?" },
-          { english: "Excuse me.", portuguese: "Com licença." },
-        ],
-      },
-      {
-        subtitle: "Vocabulary Images 1",
-        order: 9,
-        type: "images",
-        images: [
-          {
-            img: "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_300,h_300,dpr_1/https://assets.app.engoo.com/images/SX40cap5bvPvcFkHzKBXTdVkAISZKF16cMl3AAAy8a3.png",
-            text: "owl",
-          },
-          {
-            img: "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_25,dpr_1/https://assets.app.engoo.com/logos/2FpaQO4zsyNdSYuaGUXYwH.png",
-            text: "logo",
-          },
-          {
-            img: "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-            text: "foto",
-          },
-        ],
-      },
-      {
-        subtitle: "Textosssssss 3",
-        image:
-          "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-
-        order: 5,
-        type: "multipletexts",
-        subtexts: [
-          {
-            subtexttitle: "Sub Sub Text",
-            text: "Sub Sub Arthur Text 222Text 222Text 222",
-          },
-          {
-            subtexttitle: "Sub Sub Text 2",
-            text: "Sub Sub Text Card 222Text 222Text 222",
-          },
-          {
-            subtexttitle: "Sub Sub Text3",
-            text: "Sub Sub Text See 222Text 222Text 222",
-          },
-        ],
-      },
-      {
-        subtitle: "Dialogue 1",
-        // image: "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-        order: 6,
-        type: "dialogue",
-        dialogue: ["Hi", "Hello", "How are you?", "Fine"],
-      },
-    ],
-  },
 ];

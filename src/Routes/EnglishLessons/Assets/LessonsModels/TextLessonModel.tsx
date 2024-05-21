@@ -18,10 +18,10 @@ export default function TextLessonModel({
       }}
     >
       <div>
+        {text}
         <button className="audio-button" onClick={() => readText(text)}>
           <i className="fa fa-volume-up" aria-hidden="true" />
         </button>
-        {text}
       </div>
     </div>
   );

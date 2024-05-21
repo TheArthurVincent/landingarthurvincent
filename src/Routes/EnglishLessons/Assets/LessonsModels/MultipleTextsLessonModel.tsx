@@ -32,13 +32,13 @@ export default function MultipleTextsLessonModel({
                           marginBottom: "2rem",
                         }}
                       >
+                        {text.text}
                         <button
                           className="audio-button"
                           onClick={() => readText(text.text)}
                         >
                           <i className="fa fa-volume-up" aria-hidden="true" />
                         </button>
-                        {text.text}
                       </p>
                       <textarea className="comments" rows={10} cols={1} />
                     </>
