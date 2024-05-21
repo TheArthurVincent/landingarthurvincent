@@ -6,8 +6,12 @@
   --text: "Lato", sans-serif;
   --title: "Athiti", sans-serif;
   --black-arvin: #101010;
+  --blue-arvin: #00132b;
+  --green-arvin: #54bf08;
   --white: #fefefe;
+  
 }
+
 
 body {
   overflow-x: hidden;
@@ -90,9 +94,30 @@ h4 {
 body {
   background-size: cover;
   background-color: #c6ccd1;
-  /* background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387");
-  background-attachment: fixed; */
+  /* background-image: url("https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387"); */
+  background-attachment: fixed;
   background-position: center;
+}
+
+
+.audio-button {
+  padding: 0;
+  padding-left: 10px;
+  background-color: white;
+  color: #54bf08;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+
+}
+
+.audio-button:hover {
+  color: #49a308;
+}
+
+.audio-button:active {
+  color: #49a308;
+  font-size: 0.9rem;
 }
 
 .comment {
@@ -242,4 +267,34 @@ textarea.inputs-style:focus {
   background-color: #ffffff;
   border: 1px solid #434343;
   color: #000000;
+}
+
+.comments {
+  border: none;
+  padding: 2px 2px 2px 1rem;
+  font-family: "Lato";
+  color: #424364;
+  font-style: italic;
+  font-size: 1rem;
+  width: 95%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.comments:hover {
+  background-color: #ddffc5;
+}
+
+.comments:focus {
+  background-color: #efefef;
+  border: none;
+
+}
+
+@media print {
+
+  .no-print,
+  .audio-button {
+    display: none;
+  }
 }

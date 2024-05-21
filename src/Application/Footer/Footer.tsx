@@ -12,7 +12,7 @@ export default function AppFooter() {
   return (
     <LogoStyle>
       <footer
-        className="footer"
+        className="footer no-print"
         style={{
           fontSize: "12px",
           backgroundColor: alwaysWhite(),

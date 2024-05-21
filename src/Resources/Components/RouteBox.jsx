@@ -6,6 +6,7 @@ import {
   alwaysWhite,
   alwaysBlack,
   transparentWhite,
+  secondaryColor,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
@@ -97,11 +98,11 @@ export const BlogPostTitle = styled.div`
 `;
 
 export const HTwo = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   padding: 0.6rem;
   margin-bottom: 1rem;
-  color: ${alwaysBlack()};
+  color: ${secondaryColor()};
   @media (max-width: 1700px) {
     text-align: center;
     margin-top: 1rem;
@@ -114,8 +115,7 @@ export const HTwo = styled.h2`
 
 export const HThree = styled.h3`
   padding: 6px;
-  background-color: ${textPrimaryColorContrast()};
-  color: ${textSecondaryColorContrast()};
+  color: #eee;
   @media (max-width: 750px) {
     padding: 3px;
     margin: 5px;
@@ -178,7 +178,6 @@ export const AnimatedLi2 = styled.li`
     font-size: 1rem;
   }
 `;
-
 
 export const BackgroundClickBlog = styled.div`
   position: fixed;

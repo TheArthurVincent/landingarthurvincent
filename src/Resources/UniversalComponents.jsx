@@ -82,13 +82,13 @@ export const UniversalButtonsDivFlex = styled.div`
   gap: 0.5rem;
 `;
 export const SpanHover = styled.span`
-  padding-left: 10px;
+  padding: 0 8px;
   font-family: Athiti;
   font-weight: 500;
-  border-left: solid ${alwaysWhite()} 2px;
+  border-left: solid rgba(255, 255, 255, 0) 1px;
   &:hover {
     color: ${secondaryColor()};
-    border-left: solid ${secondaryColor()} 2px;
+    border-left: solid ${secondaryColor()} 1px;
     transition: 0.2s;
   }
 `;

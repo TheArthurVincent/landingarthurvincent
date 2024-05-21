@@ -7,7 +7,6 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import { pathGenerator } from "../Resources/UniversalComponents";
 import MyProfile from "./MyProfile/MyProfile";
 import EnglishMaterial from "./EnglishMaterial/EnglishMaterial";
-import EnglishActivities from "./EnglishActivities/EnglishActivities";
 import Faq from "./Faq/Faq";
 import MyClasses from "./MyClasses/MyClasses";
 import MyCalendar from "./MyCalendar/MyCalendar";
@@ -18,6 +17,7 @@ import { LevelCard } from "./LevelCard/LevelCard";
 import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
+import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -70,8 +70,8 @@ export function HomePage({ headers }: HeadersProps) {
       component: <EnglishMaterial headers={headers} />,
     },
     {
-      title: "English Activities",
-      component: <EnglishActivities headers={headers} />,
+      title: "English Lessons",
+      component: <EnglishLessonsHome headers={headers} />,
     },
     {
       title: "FAQ",
@@ -115,7 +115,7 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
-      <AppFooter />
+      {/* <AppFooter /> */}
       <Outlet />
     </>
   );
