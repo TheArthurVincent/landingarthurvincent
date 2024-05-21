@@ -10,6 +10,7 @@ import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
+import { primaryColor } from "../../Styles/Styles";
 
 export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
@@ -36,27 +37,32 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteSizeControlBox className="smooth">
+    <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
       <Helmets text="Activities" />
-      <RouteDiv className="no-print">
+      <RouteDiv
+        className="no-print"
+        style={{
+          position: "fixed",
+          backgroundColor: primaryColor(),
+          right: 0,
+        }}
+      >
         <div
           style={{
             margin: "auto",
             maxWidth: "fit-content",
           }}
         >
-          <HOne>Choose a Lesson</HOne>
           <div
             style={{
-              display: "flex",
-              alignItems: "end",
+              display: "grid",
+              textAlign: "center",
               gap: "0.5rem",
-              justifyContent: "space between",
             }}
           >
             {" "}
             <div>
-              <HThree>Difficulty</HThree>
+              {/* <HThree>Difficulty</HThree> */}
               <select
                 value={selectedDifficulty}
                 onChange={handleDifficultyChange}
@@ -71,7 +77,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
               </select>
             </div>
             <div>
-              <HThree>Lesson</HThree>
+              {/* <HThree>Lesson</HThree> */}
               <select
                 value={selectedLesson?.title || ""}
                 onChange={handleLessonChange}

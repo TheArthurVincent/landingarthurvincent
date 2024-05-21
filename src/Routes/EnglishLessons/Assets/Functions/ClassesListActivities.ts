@@ -812,7 +812,7 @@ export const lessons = [
     type: "#1.0 | Basic Grammar",
     order: 6,
     image:
-      "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+      "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/company.jpg?updatedAt=1688423305321",
     elements: [
       {
         subtitle: "Preposition: To (para)",
@@ -1549,7 +1549,6 @@ export const lessons = [
       },
     ],
   },
-
   {
     title: "Demonstrative Pronouns",
     type: "#1.0 | Basic Grammar",
@@ -1572,6 +1571,7 @@ export const lessons = [
         subtitle: "Sentences with 'Here' and 'There'",
         // comments: "Vamos aprender a falar aqui, aí e lá.",
         order: 1,
+
         type: "sentences",
         sentences: [
           { english: "Thomas is here", portuguese: "Thomas está aqui." },
@@ -1614,9 +1614,185 @@ export const lessons = [
           "https://ik.imagekit.io/vjz75qw96/assets/icons/thisthat.jpg?updatedAt=1716316828185",
         ],
       },
+      {
+        subtitle: "This'",
+        comments: "Vamos aprender a falar Este, ese isto, isso, essa, esa",
+        order: 3,
+        image:
+          "https://ik.imagekit.io/vjz75qw96/assets/icons/this.jpg?updatedAt=1716319150900",
+        type: "sentences",
+        sentences: [
+          { english: "This is my book", portuguese: "Este é o meu livro" },
+          {
+            english: "This is my car, I am the owner",
+            portuguese: "Este é meu carro, eu sou o dono.",
+          },
+        ],
+      },
+      {
+        subtitle: "That",
+        comments:
+          "Vamos aprender a falar Aquele, aquele, aquilo, esse, essa, isso",
+        order: 4,
+        image:
+          "https://ik.imagekit.io/vjz75qw96/assets/icons/that.jpg?updatedAt=1716319151409",
+        type: "sentences",
+        sentences: [
+          { english: "That is her book", portuguese: "Aquele é o livro dela" },
+          {
+            english: "That is our car, we are the owners",
+            portuguese: "Aquele é nosso carro, nós somos os donos",
+          },
+        ],
+      },
+      {
+        subtitle: "These",
+        comments: "Vamos aprender a falar Estes, estas, isso",
+        order: 5,
+        image:
+          "https://ik.imagekit.io/vjz75qw96/assets/icons/these.jpg?updatedAt=1716319151079",
+        type: "sentences",
+        sentences: [
+          {
+            english: "I need to add these documents to my application",
+            portuguese: "Preciso adicionar estes documentos à minha aplicação",
+          },
+          {
+            english: "These two declarations coincide in some points",
+            portuguese: "Estas duas declarações coincidem em alguns pontos",
+          },
+        ],
+      },
+      {
+        subtitle: "Those",
+        comments: "Vamos aprender a falar Aqueles, aquelas, esses, essas, isso",
+        order: 6,
+        image:
+          "https://ik.imagekit.io/vjz75qw96/assets/icons/those.jpg?updatedAt=1716319152072",
+        type: "sentences",
+        sentences: [
+          {
+            english: "Those newer games are awesome",
+            portuguese: "Esses jogos mais recentes são incríveis",
+          },
+          {
+            english: "Those complex calculations are beyond my grasp",
+            portuguese:
+              "Esses cálculos complexos estão além da minha compreensão",
+          },
+        ],
+      },
+      {
+        subtitle: "Common questions",
+        // comments:
+        //   "Em inglês, quando queremos perguntar como se escreve/soletra uma palavra, perguntamos 'How do you spell...?' e completamos com a palavra em questão!",
+        order: 7,
+        type: "exercise",
+        items: [
+          "What is this?",
+          "What’s that?",
+          "What are these?",
+          "What are those?",
+          "Who’s this?",
+          "Who’s that?",
+          "How much is this?",
+          "How much is that?",
+          "How much are these?",
+          "How much are those?",
+        ],
+      },
+      {
+        subtitle: "Exercises",
+        order: 9,
+        type: "images",
+        images: [
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese1.jpg?updatedAt=1716320030598",
+            text: "Do you think _______ dress is cute?",
+          },
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese2.jpg?updatedAt=1716320030146",
+            text: "Man, take a look at _______ shoes!",
+          },
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese3.jpg?updatedAt=1716320030366",
+            text: "_______ nose of yours is horrible!",
+          },
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese4.jpg?updatedAt=1716320030630",
+            text: "________ birds over there are weird!",
+          },
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese5.jpg?updatedAt=1716320030473",
+            text: "Can I borrow _______ pen?",
+          },
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese6.jpg?updatedAt=1716320030475",
+            text: "_______ glasses are beautiful!",
+          },
+          {
+            img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese7.jpg?updatedAt=1716320030543",
+            text: "_______ is my friend, Sarah!",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Translate the sentences below into English",
+        order: 10,
+        type: "listenandtranslate",
+        audios: [
+          {
+            ptbrText: "A bicicleta do irmão dele.",
+            enusAudio: "His brother's bike.",
+          },
+          {
+            ptbrText: "Ela não está aqui.",
+            enusAudio: "She's not here.",
+          },
+          {
+            ptbrText: "Eles estão lá.",
+            enusAudio: "They are there.",
+          },
+          {
+            ptbrText: "Seu pai está aqui?",
+            enusAudio: "Is your father here?",
+          },
+          {
+            ptbrText: "Nossos pais não estão aí com você?",
+            enusAudio: "Are our parents not there with you?",
+          },
+          {
+            ptbrText: "Quem é o pior inimigo deles?",
+            enusAudio: "Who is their worst enemy?",
+          },
+          {
+            ptbrText: "Quem é a melhor amiga do Mark?",
+            enusAudio: "Who is Mark's best friend?",
+          },
+          {
+            ptbrText: "Qual é a nossa comida favorita?",
+            enusAudio: "What is our favorite food?",
+          },
+          {
+            ptbrText: "Quanto custa o teu carro favorito?",
+            enusAudio: "How much is your favorite car?",
+          },
+          {
+            ptbrText: "Qual a cor preferida do seu tio?",
+            enusAudio: "What is your uncle's favorite color?",
+          },
+          {
+            ptbrText: "Na sua opinião, quem é, atualmente, o melhor ator?",
+            enusAudio: "In your opinion, who is currently the best actor?",
+          },
+        ],
+      },
     ],
   },
+
   ///////////////// Vocabulary Basics
+
   {
     title: "Animals",
     order: 1,
@@ -1958,7 +2134,67 @@ export const lessons = [
       },
     ],
   },
-
+  {
+    title: "Colors",
+    order: 4,
+    type: "#1.1 | Basic Vocabulary",
+    elements: [
+      {
+        order: 0,
+        type: "images",
+        images: [
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACxCAMAAAAh3/JWAAAAA1BMVEUbqPBsarW2AAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIALA8UNAAFusnLHAAAAAElFTkSuQmCC",
+            text: "Blue",
+          },
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEUAAIBKwr76AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC",
+            text: "Navy Blue",
+          },
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEVcQDONdcQdAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=",
+            text: "Brown",
+          },
+          {
+            img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PDQ8PDw8PFRUPDw8PDw8VFRUPFQ8PFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQID/8QAGhABAQACAwAAAAAAAAAAAAAAAAHR8BExkf/EABYBAQEBAAAAAAAAAAAAAAAAAAADAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOKAoyAAAAAAAAIAAAAAAAAACACoAAAAAAgDYAAAAAAIAAAAAAAAAAACAAAAAAAIqAogDYAAAAICoAAAAAAAAACAAAAAAAAIAqAAADYICoAKgAAAAAIAKAACAAAAAAAAAgAAAAANAAAAAAAAIoCAAoigIAAAAAIKgCoAAAAAAA0AAAAAAAACAAAAAAAAAAgAAAAAAAACKgNgAAAAAAAgAAAAAAAAIAAAAAAAACAAAA2AACAqKgAAAAAAAACKAgAAAAAAICoAAAG9hyA2CAqAAAAAAAAAACAqAAAAAAgAAAAAAAeAgNgAAAAAAAgqAAAAAqAAAACAAAAAAAAgKgA2AAAAAAIAAAAAAAAACAAAAigAAgAKgAqADYAAAAIAAAAAAACAqAAAACAAAAAAAAAAA2AAAAIAAAIoAgAAAAAAAIqAAAAAAAAAioA6AAIoCAAAAAgKgAAAAAAAIAAAAAAAAICiKDZQBKtQAAAEAAAAAAAAASAAKgCoABAAMAAAAAD/2Q==",
+            text: "Grey",
+          },
+          {
+            img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDQ0NDw0NDw0PDQ0NDQ0NDw8NDw0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NEg4PFSsZFRkrKysrKysrKysrKys3KystLSsrKysrKysrKy0tKysrKysrKysrKysrKysrKysrKysrK//AABEIAKwBJgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAIRABAQEAAQMEAwAAAAAAAAAAAAERIWGBoQIxcfAiQVH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7iAAACW+3Hf+KAAAAJJgKAAAAAAAAAAAAAAAAz6rZfTkt25bx+My3fEndoAAAMAAAAACgAAAAAAAAAAAAAAAAAAACbz7d1AAAAAAAAAAACgAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL08qAAAAAEAAAAAAAAAAAAAAAAANABL96qAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAABLAUAAEBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAIoAAAAAAAAAAAACYoAAAACSqAAAAAAAAAAAAAAAAAAAAAAlgCgAAAAAJd/XHzN4UABKCgAAAAAAAAAAlBRMUAAAAAAAAEqgAAAAD/2Q==",
+            text: "White",
+          },
+          {
+            img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0PDw8PDw0NDQ0PDxAPDQ0NDQ8NDQ0PFRIWFhURFRUYHSggGBolGxUVITEhJSk3Li4uFx8zOD8tNygtLisBCgoKDQ0NDw0NDisZFRkrKy0rKzcrKys3KystKystKys3KysrKysrLSstKysrKysrKysrKystKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAAIFBv/EABwQAQEAAgMBAQAAAAAAAAAAAAAB4fARodHBkf/EABgBAQEBAQEAAAAAAAAAAAAAAAABAwIF/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9OgmT3iRF4BIQhIIIggTBDAajTMaEREaBEFURBBGJCI72kCKIIhCFRGAiCCaZMBpBA4xBRqVPiUApRCGERATAYBhgagGNQQwQkGCIggikoiooiFJKEggikIrvaSAmAwERDAKXIEcdII2aQUBoskQwpQCUYCagMEaMEIEgqhMCApRURGAgYRCBSQhSQIwEEQQRBioUuEg4qBRsoYCBhEIhjUZjQGEGCEgqNQxmNQDCIRChCBSQiKhgJoERJICkgSRBJGKIwQiNSBWgHFSTlsTAYBhBEMajMaijRZhEJBAkECQRDCIQKBEJgQNEJUKBApIEolAKSEJEIGhVA4qgOXLYkGAcEQqhIhEaMBngEiECYEIY0yQaQINKAqhQIEhCEggUkCLJEKiUAwiECjADhkT6YjVQiGAWmeTAahjMaghMBAtRmGASCISEo1CIYI1EIQRCAkEQmBAVEgRBBGBQQtMwqFGJBw0lEakg7vQFKIDGmSo1DGYURpqMmKEgwDCIYIWt7ZhAmAqhSQEgiKEQgYggJCAqJCGGAg1EkI4aBctiYCCMBAkKKNQsmCNGMkGoWY0BIhEahEMUKSgjSiQhQIEskCkgSiQEgwQkKA1EohHDMZLls1CzvrQIgxREIGjGTBGiIYDUMEMVC0y0BLLUAoEQkQwREICQYBSQJRKATARDEkDQUQjhkGOWxhZjUUKSA1AgYYDBDGmYYo3CzGoIckZIEwECQlQkGCFAgSCBSQiiKgIpAYlDEFwjwBHDKTlsoclAUkooQgJiSo1u/piQNQpCGNRIFGklDFChEYkIikBhSEKKBGJCKFIFCkgQko//9k=",
+            text: "Pink",
+          },
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX//wCKxvRFAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC",
+            text: "Yellow",
+          },
+          {
+            img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFxUVFRcYFRUVFRUVFRUXFxUVFRUYHSggGB0lHRUXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQgNDg0HDisZHxkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAKBABAQEAAQMDBAICAwAAAAAAAAERAiExQWGh8FFxkcGB8bHhAxLR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOH55xAAhDAACgLZ87pFzp8+f0CWLGVBqcejNiKCxCwwAAFkShgIKSgsRZZ9EtAJAAMCAsrKwgAtQAAACgsS0ADFxANIAFKiyAYi1b7/AK8AiKgKABCrUAAARQDGrxyS9Ov5mMKAFADBaCSFAAIAAQF5Xbv1/ETSFBFRr1BAhoLIytAWT6MqYAtiGgai1Znn+AQEBbEUgLLiC0DfRABb2SDUzMyb33b+AZhgtmf3AReM36/PRCAtnXp28IigcovH1/wkgAQAAXlfPSek39ggvGfwlBdOV7d+2dUACUACABSUAKSryvW6mAAAUFtBIGLnT5np+wRbPn3QACLJ7AytLUBQAXGVKCKLx9fn0BAlz5poBSLIDK8ioCrUAVlTQAkWfPQGVABFSA1/17ebfHXUggLQAXlPnhF8JgFLd7mAFNKSXsBTTOgCKaAAAYAAQwAiKvt3BCosgAaAAUAKAaQKBAXfAIENAn3wW03t8wEgQoGGhgFRaaBCFiye4JSVqzPv1695/HuyC1lb6EgFoVZ7+3zsBeyUpoLOXT50QXAQKoIvHlnXz4ReOeQQMJAW1F5TL18JP6BfCKkBePLERcAgVYCLxufpNOOeQLTTDQRTCAjV5exYkoBKigYvhKgLpLfz39RAUF0EwggLTA0Axed39TvkQANNAkRv/j5Z16yzrLL2sZgAGgGLvj+fHj1TAFkSwAMXld9PsnKYAsQtAkF45/PhLdu/69p2AFzznRIAYtnz/wAQAAEa+VF3p89AQ1d9EoIpTj6+v+OgEABUAEXQBfHzz/SWIoC3l7e3zUANKEoGGABSBgBQoLc6e/z7IAGmgAAAYABiKAABEUAABZUxd92QUCgC8uOZ6/OqAvKzxM8d+9+rLVL9fPnx+AQwhgAABKi6CNT8IABgAEpKC8UC0CAAi2mkAWoAGBAOPzyLEADQC0XQECkgCLKgKs5Xr69L9kxAa5eLu/nomgBpCKCQtQBbQXwDIpQNBdA5Xrtu3v8AXugUDSIsAKjUoIBKABAXilpaACLAKYFBGsvRF4zfPyeASFLQBF0AA0AQBUAFAAAAAAAAAAkIAGmACNceO+/p0nUAQAAAAgAIALKAB4a2ADJQAwQBUAH/2Q==",
+            text: "Black",
+          },
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC",
+            text: "Red",
+          },
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAA1BMVEX/fyZjSOnzAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC3AcUIAAFkqh/QAAAAAElFTkSuQmCC",
+            text: "Orange",
+          },
+          {
+            img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAA1BMVEV9Js3dWPvwAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC3AcUIAAFkqh/QAAAAAElFTkSuQmCC",
+            text: "Purple",
+          },
+          {
+            img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhMVFhUXFxgVFxcYGBcXGBoaGBcYGB0XGBoaHSggGholHRcYIjEiJSkrLi4uGB8zODMsNygtLisBCgoKDQ0NFQ8PFS0dFR0tLS0tLS0tLS0tLS0rKy0tKy0tLSstKy0tLS0tLS0tLS0tLS0tLTctLS0tLS0tLS0tK//AABEIALcBEwMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAAAAQIDBAf/xAAnEAEAAgEBBgcBAQAAAAAAAAAAAfARMSFBUWGBkQJxobHR4fHBEv/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMFBP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APocSJCw8x963iQuEVBY8SYUEzfxSb9oCwW4DPkCri7UhVQhcpLV3qBHzzvoFt3CGSbtACFzcooL37yRN+0wuVC8eJ4rYJvBADzvmQkAt3mT1TN0Aibt3r3TmYBoz8oAvhVnLUSqNZlE/wBRYkUeRYlIv4ve32cXRqJ9yJ5pE2wohIsGbd6hgzdkGL97iLewC4TN6l9wJUm6gLCxKZai6KiLCRey26WQAvEvO9FQlUIBRIXsCoE3VQlJJSLZBcEhm7ATK4RYv3AKhkAWEUGs+Ynf0VUeWCUVydFgjveaYWAVUIEFyQQoYC37Lxv2CkXUwAHcW3IhPFc3cgouSJ9DACpBgyAv8SFUIvyXcEAd7w5akIYuwFz5kzxIlMiAmfJYkVcBCX9VFVJMgd1Inz9VB5VTNlXJsWeKQKLEqkLAhErCLdALuIldqZ5KKJmAFyZS6qAZSTILgSYMWRGpXLJH8UaGZuWokDoRPn6AAGRQmTNupbtJAzchbIATP7tMk3cABNu8RJ6DWZuBR57cl0L6Dk2qswA1Ml+8QiqLlYt+WYIEXHJUiea5AmUkygNESgopm7MombeYKt0RQDHISIBpWZuuxRFhUyZUUSTIKXUM/iiQQGAWJEibsUASbeJkCZ5e6NZ5II4wQmDDm2q23cRJhQhcM3e0ARFykXutvIFkykcFzd3oIIEgSZTJILkyAEXDV1Yu5pQlUANip1IunuDWefssJnneoqCzsSbsjgoGAglQxcQXRMrhAIQUUQu4Fu/5RJkByuxZhFYaUi3chdoKrMSoGRJgjkDRIghi6BkFJkkyCLgyQXuBIYupIGPhQUAAaXy9kwQqB1JW8QS2CQyBCKSBkMmVATJdAWPFzx1Ex5egDlE3oqeGb/FhhowmFm3eSCBd14rgFv6ShMAuUybTw5v4CykyYtu0/wBAZu2/ixN+E/117Xgut/gLFgRYEJm7S3aqAYItgW71AC/fqCxFui39SDt10BSZRbcKBdSEEC6ABEkrACXcKX+Af58u0oYBXKLr8rnzZiFwwq/65etskz59SJXCjKxJhMAvhm2EzfwSQUMoC+Ged5jMTbq1ALb6nYu5e4EX4VIWAXCRC4FQLrhQEu8W3gRIKJkmfpQhUiSAMHIOogQFvEAEkFkmTKSCzMb/AOIuefuA5WLwVm27yLHww01eKwkTzMKLgI9/UiQLezMtJPUGUmL+9WkxewJlpMTfQhBqJvyrM342qoKkzdi5/AWFQxdVRSSLusLAEQevr/diJN0BvKZvFJhLwsg1k/Etz1McgIm3VUzdpFuFBUAUhIWIEInh8JlZhMgdIE6XuCuawQkW4ZVqCEysSAGbou3UEi+h1L5giSiyRIqYW8DCW8wVYRcAQsT5XZ8J3vFcgqxKRKqiRd6gBEmEXgARBm9ABJUyAHcUMXYAAYMgi90lUBoYuqiuc3ks5BlUjlzP9ACpEY3W+4KhBMKCpM7mPDNuoIN5SZ4/0AVeW8AJ2H+uHEAMtcgEIIUUJ2ewACRIAR4rtLdqgGCLtBUSZuqwAoTNvkALn4EBFiAFH//Z",
+            text: "Beige",
+          },
+        ],
+      },
+    ],
+  },
   /////////////////
   /////////////////
   /////////////////

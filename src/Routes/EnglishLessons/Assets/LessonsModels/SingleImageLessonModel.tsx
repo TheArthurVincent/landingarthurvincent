@@ -10,12 +10,17 @@ export default function SingleImageLessonModel({
   element,
 }: SingleImageLessonModelProps) {
   return (
-    <div>
+    <div
+      style={{
+        display: "grid",
+        gap: "3rem",
+      }}
+    >
       {element.images &&
         element.images.map((image: string, i: number) => (
           <img
             style={{
-              maxWidth: "50vw",
+              maxWidth: "100%",
               margin: "auto ",
               marginBottom: "3rem",
               display: "block",

@@ -115,7 +115,7 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
-      <AppFooter />
+      {/* <AppFooter /> */}
       <Outlet />
     </>
   );

@@ -1,6 +1,4 @@
-export const model = [
 
-];
 export const d = [
   {
     title: "Model",

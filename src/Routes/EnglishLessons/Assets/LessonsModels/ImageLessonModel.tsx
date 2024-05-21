@@ -44,7 +44,9 @@ export default function ImageLessonModel({
                   <i className="fa fa-volume-up" aria-hidden="true" />
                 </button>
                 <span>{image.text}</span>
+              
               </span>
+                <textarea className="comments" />
             </LiGridImageLessons>
           ))}
       </UlGridImageLessons>
