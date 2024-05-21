@@ -9,6 +9,7 @@ import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import EnglishActivities from "./EnglishActivities";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
+import { HThree } from "../MyClasses/MyClasses.Styled";
 
 export default function EnglishLessons({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
@@ -35,55 +36,58 @@ export default function EnglishLessons({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteSizeControlBox
-      className="smooth"
-      style={{
-        display: "flex",
-        maxWidth: "60rem",
-      }}
-    >
+    <RouteSizeControlBox className="smooth">
       <Helmets text="Activities" />
-      <RouteDiv
-        className="no-print"
-        style={{
-          height: "18rem",
-          width: "15rem",
-        }}
-      >
-        <div>
+      <RouteDiv className="no-print">
+        <div
+          style={{
+            margin: "auto",
+            maxWidth: "fit-content",
+          }}
+        >
           <HOne>Choose a Lesson</HOne>
-          <div>
-            <HTwo>Select Difficulty</HTwo>
-            <select
-              value={selectedDifficulty}
-              onChange={handleDifficultyChange}
-            >
-              <option value="">Select Difficulty</option>
-              {Object.keys(groupedLessons).map((difficulty) => (
-                <option key={difficulty} value={difficulty}>
-                  {difficulty}
-                </option>
-              ))}
-            </select>
-          </div>
-          {selectedDifficulty && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "end",
+              gap: "0.5rem",
+              justifyContent: "space between",
+            }}
+          >
+            {" "}
             <div>
-              <HTwo>Select Lesson</HTwo>
+              <HThree>Difficulty</HThree>
               <select
-                value={selectedLesson?.title || ""}
-                onChange={handleLessonChange}
+                value={selectedDifficulty}
+                onChange={handleDifficultyChange}
               >
-                <option value="">Select Lesson</option>
-                {groupedLessons[selectedDifficulty].map(
-                  (lesson: any, index: number) => (
-                    <option key={index} value={lesson.title}>
-                      {lesson.title}
-                    </option>
-                  )
-                )}
+                <option value="">Select Difficulty</option>
+                {Object.keys(groupedLessons).map((difficulty) => (
+                  <option key={difficulty} value={difficulty}>
+                    {difficulty}
+                  </option>
+                ))}
               </select>
             </div>
-          )}
+            {selectedDifficulty && (
+              <div>
+                <HThree>Lesson</HThree>
+                <select
+                  value={selectedLesson?.title || ""}
+                  onChange={handleLessonChange}
+                >
+                  <option value="">Select Lesson</option>
+                  {groupedLessons[selectedDifficulty].map(
+                    (lesson: any, index: number) => (
+                      <option key={index} value={lesson.title}>
+                        {lesson.title}
+                      </option>
+                    )
+                  )}
+                </select>
+              </div>
+            )}
+          </div>
         </div>
       </RouteDiv>
 

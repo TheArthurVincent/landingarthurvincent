@@ -22,6 +22,9 @@ export default function SentenceLessonModel({
       <ul
         style={{
           padding: "0.5rem",
+          display: "grid",
+          gap: "0.8rem",
+          gridTemplateColumns: "1fr 1fr",
         }}
       >
         {sentences &&
@@ -31,6 +34,8 @@ export default function SentenceLessonModel({
               style={{
                 listStyle: "none",
                 marginBottom: "10px",
+                boxShadow: "1px 1px 1px 1px #f1f1f1",
+                padding: "5px",
               }}
             >
               <strong
