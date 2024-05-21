@@ -93,6 +93,7 @@ export const TopBar: FC = () => {
   }, []);
 
   const classes: LinkItem[] = [
+    { title: "Lessons", endpoint: "/english-lessons" },
     { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
     { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
   ];
@@ -103,7 +104,6 @@ export const TopBar: FC = () => {
   ];
 
   const topLinks: LinkItem[] = [
-    { title: "Lessons", endpoint: "/english-lessons" },
     { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
     { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
     { title: "Ranking", endpoint: "/ranking" },
