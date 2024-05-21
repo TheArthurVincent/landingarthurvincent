@@ -1,6 +1,6 @@
 import React from "react";
-import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { readText } from "./Functions/FunctionLessons";
+import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
+import { readText } from "../Functions/FunctionLessons";
 interface ExerciseLessonModelProps {
   headers: MyHeadersType | null;
   item: any;

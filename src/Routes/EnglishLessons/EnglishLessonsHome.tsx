@@ -7,7 +7,7 @@ import {
 } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
-import EnglishLessonsRender from "./EnglishLessonsRender";
+import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 

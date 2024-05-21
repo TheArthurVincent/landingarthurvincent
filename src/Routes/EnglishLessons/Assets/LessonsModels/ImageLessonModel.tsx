@@ -1,11 +1,11 @@
 import React from "react";
-import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { readText } from "./Functions/FunctionLessons";
+import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
+import { readText } from "../Functions/FunctionLessons";
 import {
   ImgLesson,
   LiGridImageLessons,
   UlGridImageLessons,
-} from "./Functions/EnglishActivities.Styled";
+} from "../Functions/EnglishActivities.Styled";
 interface ImageLessonModelProps {
   headers: MyHeadersType | null;
   element: any;

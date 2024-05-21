@@ -3,16 +3,16 @@ import {
   HOne,
   HTwo,
   RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
-import { ImgLesson } from "./Assets/Functions/EnglishActivities.Styled";
-import Helmets from "../../Resources/Helmets";
-import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import TextLessonModel from "./Assets/TextLessonModel";
-import SentenceLessonModel from "./Assets/SentenceLessonModel";
-import MultipleTextsLessonModel from "./Assets/MultipleTextsLessonModel";
-import ImageLessonModel from "./Assets/ImageLessonModel";
-import ExerciseLessonModel from "./Assets/ExerciseLessonModel";
-import DialogueLessonModel from "./Assets/DialogueLessonModel";
+} from "../../../Resources/Components/RouteBox";
+import { ImgLesson } from "./Functions/EnglishActivities.Styled";
+import Helmets from "../../../Resources/Helmets";
+import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
+import TextLessonModel from "./LessonsModels/TextLessonModel";
+import SentenceLessonModel from "./LessonsModels/SentenceLessonModel";
+import MultipleTextsLessonModel from "./LessonsModels/MultipleTextsLessonModel";
+import ImageLessonModel from "./LessonsModels/ImageLessonModel";
+import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
+import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;

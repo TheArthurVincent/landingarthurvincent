@@ -1,8 +1,8 @@
 import React from "react";
-import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { readText } from "./Functions/FunctionLessons";
-import { primaryColor, secondaryColor } from "../../../Styles/Styles";
-import { UlSentences } from "./Functions/EnglishActivities.Styled";
+import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
+import { readText } from "../Functions/FunctionLessons";
+import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
+import { UlSentences } from "../Functions/EnglishActivities.Styled";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;

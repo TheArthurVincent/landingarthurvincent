@@ -516,6 +516,7 @@ export const lessons = [
       },
     ],
   },
+
   {
     title: "To be - Present tense",
     order: 5,
@@ -807,6 +808,180 @@ export const lessons = [
       },
     ],
   },
+
+  {
+    title: "Prepositions #1",
+    type: "Basic",
+    order: 6,
+    image:
+      "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+    elements: [
+      {
+        subtitle: "Preposition: To (para)",
+        order: 1,
+        type: "sentences",
+        comments:
+          "Used to indicate direction or destiny. Also used before the base form of verbs.",
+        sentences: [
+          {
+            english: "I am going to the store.",
+            portuguese: "Estou indo para a loja.",
+          },
+          {
+            english: "She went to the cinema.",
+            portuguese: "Ela foi ao cinema.",
+          },
+          {
+            english: "Give this book to her!",
+            portuguese: "Dê este livro a ela!",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: For (por / para)",
+        order: 2,
+        type: "sentences",
+        comments:
+          "Used to indicate purpose, reason, or benefit. Also used to indicate a period of time.",
+        sentences: [
+          {
+            english: "This gift is for you.",
+            portuguese: "Este presente é para você.",
+          },
+          {
+            english: "I'm making this cake for my friend.",
+            portuguese: "Eu fiz este bolo para meu amigo.",
+          },
+          {
+            english: "She studied for three hours.",
+            portuguese: "Ela estudou por três horas.",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: From (de - origem)",
+        order: 3,
+        type: "sentences",
+        comments: "Used to indicate the starting point or origin.",
+        sentences: [
+          { english: "She is from Brazil.", portuguese: "Ela é do Brasil." },
+          {
+            english: "I received a letter from John.",
+            portuguese: "Recebi uma carta do John.",
+          },
+          {
+            english: "The train departs from platform 5.",
+            portuguese: "O trem parte da plataforma 5.",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: About (sobre)",
+        order: 4,
+        type: "sentences",
+        comments:
+          "Used to indicate the subject of a discussion, book, or other context.",
+        sentences: [
+          {
+            english: "We are talking about the movie.",
+            portuguese: "Nós estamos conversando sobre o filme.",
+          },
+          {
+            english: "I am reading a book about history.",
+            portuguese: "Estou lendo um livro sobre história.",
+          },
+          {
+            english: "The meeting is about the new project.",
+            portuguese: "A reunião é sobre o novo projeto.",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: Of (de)",
+        order: 5,
+        type: "sentences",
+        comments:
+          "Used to indicate belonging, relationships, or a part of something.",
+        sentences: [
+          {
+            english: "This is the purpose of the meeting.",
+            portuguese: "Este é o propósito da reunião",
+          },
+          {
+            english: "The cover of the book is blue.",
+            portuguese: "A capa do livro é azul.",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: In (em)",
+        order: 6,
+        type: "sentences",
+        comments:
+          "Used to indicate location or position within something. Also used for periods of time.",
+        sentences: [
+          { english: "He is living in Paris.", portuguese: "Ele está morando em Paris." },
+          {
+            english: "The keys are in the drawer.",
+            portuguese: "As chaves estão na gaveta.",
+          },
+          {
+            english: "We will meet in the morning.",
+            portuguese: "Nós nos encontraremos pela manhã.",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: On (em / sobre)",
+        order: 7,
+        type: "sentences",
+        comments:
+          "Used to indicate position on a surface. Also used for days and dates.",
+        sentences: [
+          {
+            english: "The book is on the table.",
+            portuguese: "O livro está sobre a mesa.",
+          },
+          {
+            english: "I will meet you on Monday.",
+            portuguese: "Eu vou te encontrar na segunda-feira.",
+          },
+          {
+            english: "Her birthday is on July 10th.",
+            portuguese: "O aniversário dela é no dia 10 de julho.",
+          },
+        ],
+      },
+      {
+        subtitle: "Preposition: At (em / às)",
+        order: 8,
+        type: "sentences",
+        description: "Used to indicate specific locations or points in time.",
+        sentences: [
+          { english: "She is at the park.", portuguese: "Ela está no parque." },
+          {
+            english: "I will see you at 5 PM.",
+            portuguese: "Eu vou te ver às 17h.",
+          },
+          {
+            english: "He is good at math.",
+            portuguese: "Ele é bom em matemática.",
+          },
+        ],
+      },
+      {
+        subtitle: "Dialogue Practice",
+        order: 9,
+        type: "dialogue",
+        dialogue: [
+          "Where are you going?",
+          "I am going to the market.",
+          "What is this book about?",
+          "It is about the history of art.",
+        ],
+      },
+    ],
+  },
   ///////////////// Vocabulary Basics
   {
     title: "Animals",
@@ -1001,7 +1176,6 @@ export const lessons = [
       },
     ],
   },
-
   /////////////////
   /////////////////
   /////////////////
