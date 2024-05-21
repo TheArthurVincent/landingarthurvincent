@@ -3,7 +3,7 @@ export const lessons = [
   {
     title: "Introducing Yourself / Basics",
     order: 1,
-    type: "Basic",
+    type: "#1.0 | Basic",
     description:
       "Nesta aula, aprenderemos algumas expressões básicas, e maneiras comuns de se apresentar.",
     image:
@@ -59,7 +59,7 @@ export const lessons = [
   {
     title: "The Alphabet / Spelling",
     order: 2,
-    type: "Basic",
+    type: "#1.0 | Basic",
     description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
     image:
       "https://images.pexels.com/photos/1337382/pexels-photo-1337382.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -140,7 +140,7 @@ export const lessons = [
   {
     title: "Personal Pronouns",
     order: 3,
-    type: "Basic",
+    type: "#1.0 | Basic",
     description:
       "Os pronomes pessoais em inglês são fundamentais para construir frases. Eles se dividem em 'subject pronouns' e 'object pronouns'.",
     image:
@@ -225,7 +225,7 @@ export const lessons = [
   {
     title: "Articles",
     order: 4,
-    type: "Basic",
+    type: "#1.0 | Basic",
     description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
@@ -519,7 +519,7 @@ export const lessons = [
   {
     title: "To be - Present tense",
     order: 5,
-    type: "Basic",
+    type: "#1.0 | Basic",
     description:
       "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
     image:
@@ -809,7 +809,7 @@ export const lessons = [
   },
   {
     title: "Prepositions #1",
-    type: "Basic",
+    type: "#1.0 | Basic",
     order: 6,
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
@@ -985,7 +985,7 @@ export const lessons = [
   },
   {
     title: "Possessions #1",
-    type: "Basic",
+    type: "#1.0 | Basic",
     order: 7,
     // image:
     // "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
@@ -1173,7 +1173,10 @@ export const lessons = [
             ptbrText: "O livro de receitas do avô deles.",
             enusAudio: "Grandpa's cookbook.",
           },
-          { ptbrText: "O jardim da minha mãe.", enusAudio: "My mother's garden." },
+          {
+            ptbrText: "O jardim da minha mãe.",
+            enusAudio: "My mother's garden.",
+          },
           {
             ptbrText: "O sorriso do meu melhor amigo.",
             enusAudio: "My best friend's smile.",
@@ -1195,11 +1198,363 @@ export const lessons = [
       },
     ],
   },
+  {
+    title: "Question words",
+    type: "#1.0 | Basic",
+    order: 8,
+    image:
+      "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [
+      {
+        comments:
+          "Estas são as question words, ou seja palavras que usamos em perguntas!",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Who", portuguese: "Quem" },
+          { english: "What", portuguese: "O que/Qual (sem opções)" },
+          { english: "Which", portuguese: "Qual (com opções)" },
+          { english: "When", portuguese: "Quando" },
+          { english: "Where", portuguese: "Onde" },
+          { english: "Why", portuguese: "Por que [because]" },
+          { english: "Whose", portuguese: "De quem (cujo)" },
+          { english: "How", portuguese: "Como" },
+          { english: "How many", portuguese: "Quantos" },
+          { english: "How much", portuguese: "Quanto" },
+        ],
+      },
+      {
+        subtitle: "What - O que / Qual",
+        comments: "Qual - Sem opções",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "What kind of engine do you need?",
+            portuguese: "Qual tipo de motor você precisa?",
+          },
+          {
+            english: "What car do you want?",
+            portuguese: "Qual carro você quer?",
+          },
+          { english: "What is this?", portuguese: "O que é isso?" },
+          {
+            english: "This is a motherboard.",
+            portuguese: "Isto é uma placa-mãe.",
+          },
+          {
+            english: "What is your favorite food?",
+            portuguese: "Qual é a sua comida favorita?",
+          },
+          {
+            english: "What is your favorite color?",
+            portuguese: "Qual é a sua cor favorita?",
+          },
+          {
+            english: "What is your favorite movie genre?",
+            portuguese: "Qual é o seu gênero de filme favorito?",
+          },
+        ],
+      },
+      {
+        subtitle: "Who - Quem",
+        comments:
+          "'Who' é um pronome interrogativo em inglês usado para perguntar sobre pessoas. É utilizado quando se deseja saber quem realizou uma ação ou quem é o sujeito em questão. Por exemplo: Who is she? (Quem é ela?)",
+        order: 2,
+        type: "sentences",
+
+        sentences: [
+          {
+            english: "Who is she?",
+            portuguese: "Quem é ela?",
+          },
+          {
+            english: "Who are they?",
+            portuguese: "Quem são eles?",
+          },
+          {
+            english: "Who won the game?",
+            portuguese: "Quem ganhou o jogo?",
+          },
+          {
+            english: "Who is coming to the party?",
+            portuguese: "Quem está vindo para a festa?",
+          },
+          {
+            english: "Who wrote this book?",
+            portuguese: "Quem escreveu este livro?",
+          },
+          {
+            english: "Who is your favorite actor?",
+            portuguese: "Quem é seu ator favorito?",
+          },
+          {
+            english: "Who made this cake?",
+            portuguese: "Quem fez este bolo?",
+          },
+          {
+            english: "Who was at the door?",
+            portuguese: "Quem estava na porta?",
+          },
+          {
+            english: "Who is responsible for this?",
+            portuguese: "Quem é responsável por isso?",
+          },
+          {
+            english: "Who called you?",
+            portuguese: "Quem te ligou?",
+          },
+          {
+            english: "Who is that man?",
+            portuguese: "Quem é aquele homem?",
+          },
+          {
+            english: "Who is the owner of this car?",
+            portuguese: "Quem é o dono deste carro?",
+          },
+        ],
+      },
+      {
+        subtitle: "When - Quando",
+        comments:
+          "'When' é um pronome interrogativo em inglês usado para perguntar sobre tempo. É utilizado quando se deseja saber em que momento algo aconteceu, acontece ou acontecerá. Por exemplo: When is your birthday? (Quando é o seu aniversário?)",
+        order: 3,
+        type: "sentences",
+
+        sentences: [
+          {
+            english: "When is your birthday?",
+            portuguese: "Quando é o seu aniversário?",
+          },
+          {
+            english: "When is my break?",
+            portuguese: "Quando é meu intervalo?",
+          },
+          {
+            english: "When will the meeting start?",
+            portuguese: "Quando a reunião começará?",
+          },
+          {
+            english: "When do you usually wake up?",
+            portuguese: "Quando você geralmente acorda?",
+          },
+        ],
+      },
+      {
+        subtitle: "Where - Onde",
+        comments:
+          "'Where' é um pronome interrogativo em inglês usado para perguntar sobre localização ou lugar. É utilizado quando se deseja saber onde algo aconteceu, acontece ou acontecerá. Por exemplo: Where are you? (Onde você está?)",
+        order: 4,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Where are you?",
+            portuguese: "Onde você está?",
+          },
+          {
+            english: "Where is the nearest hospital?",
+            portuguese: "Onde fica o hospital mais próximo?",
+          },
+          {
+            english: "Where is she working?",
+            portuguese: "Onde ela está comprando?",
+          },
+          {
+            english: "Where do you live?",
+            portuguese: "Onde você mora?",
+          },
+        ],
+      },
+      {
+        subtitle: "Why - Por que",
+        comments:
+          "'Why' é um pronome interrogativo em inglês usado para perguntar sobre razões ou motivos. É utilizado quando se deseja saber o motivo pelo qual algo aconteceu, acontece ou acontecerá. Por exemplo: Why are you late? (Por que você está atrasado?)",
+        order: 5,
+        type: "sentences",
+
+        sentences: [
+          {
+            english: "Why are you late?",
+            portuguese: "Por que você está atrasado?",
+          },
+          {
+            english: "Why are they choosing this job?",
+            portuguese: "Por que eles estão escolhendo este trabalho?",
+          },
+          {
+            english: "Why is the sky blue?",
+            portuguese: "Por que o céu é azul?",
+          },
+          {
+            english: "Why are they arguing?",
+            portuguese: "Por que eles estão discutindo?",
+          },
+        ],
+      },
+      {
+        subtitle: "Whose - De quem / Cujo",
+        comments:
+          "'Whose' é um pronome interrogativo em inglês usado para perguntar sobre posse. É utilizado quando se deseja saber a quem algo pertence. Por exemplo: Whose book is this? (De quem é este livro?)",
+        order: 6,
+        type: "sentences",
+
+        sentences: [
+          {
+            english: "Whose book is this?",
+            portuguese: "De quem é este livro?",
+          },
+          {
+            english: "Whose car is parked outside?",
+            portuguese: "De quem é o carro estacionado lá fora?",
+          },
+          {
+            english: "Whose idea was it to come here?",
+            portuguese: "De quem foi a ideia de vir aqui?",
+          },
+          {
+            english: "Whose shoes are these?",
+            portuguese: "De quem são estes sapatos?",
+          },
+        ],
+      },
+      {
+        subtitle: "How - Como",
+        comments:
+          "'How' é um question word em inglês usado para perguntar sobre a maneira ou o modo de fazer algo, ou sobre a quantidade ou grau de algo. Por exemplo: How are you? (Como você está?) / How much does it cost? (Quanto custa?)",
+        order: 7,
+        type: "sentences",
+        sentences: [
+          {
+            english: "How are you?",
+            portuguese: "Como você está?",
+          },
+          {
+            english: "How much does it cost?",
+            portuguese: "Quanto custa?",
+          },
+          {
+            english: "How did you do that?",
+            portuguese: "Como você fez isso?",
+          },
+          {
+            english: "How long have you been waiting?",
+            portuguese: "Há quanto tempo você está esperando?",
+          },
+        ],
+      },
+      {
+        subtitle: "How Many - Quantos (as)",
+        comments:
+          "'How Many' é usado para perguntar sobre a quantidade de algo que pode ser contado em números inteiros. Por exemplo: How many apples do you have? (Quantas maçãs você tem?)",
+        order: 8,
+        type: "sentences",
+        sentences: [
+          {
+            english: "How many apples do you have?",
+            portuguese: "Quantas maçãs você tem?",
+          },
+          {
+            english: "How many people are coming to the party?",
+            portuguese: "Quantas pessoas estão vindo para a festa?",
+          },
+          {
+            english: "How many hours did you sleep last night?",
+            portuguese: "Quantas horas você dormiu na noite passada?",
+          },
+          {
+            english: "How many books are on the shelf?",
+            portuguese: "Quantos livros há na prateleira?",
+          },
+        ],
+      },
+      {
+        subtitle: "How Much - Quando (a)",
+        comments:
+          "'How Much' é usado para perguntar sobre a quantidade de algo que não pode ser contado facilmente em números inteiros. Por exemplo: How much does it weigh? (Quanto pesa?)",
+        order: 9,
+        type: "sentences",
+        sentences: [
+          {
+            english: "How much does it weigh?",
+            portuguese: "Quanto pesa?",
+          },
+          {
+            english: "How much time do we have left?",
+            portuguese: "Quanto tempo nós temos restante?",
+          },
+          {
+            english: "How much sugar do you need for the recipe?",
+            portuguese: "Quanta açúcar você precisa para a receita?",
+          },
+          {
+            english: "How much water is in the bottle?",
+            portuguese: "Quanta água há na garrafa?",
+          },
+        ],
+      },
+      {
+        subtitle: "Dialogue 1",
+        image:
+          "https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg?auto=compress&cs=tinysrgb&w=600",
+        order: 10,
+        type: "dialogue",
+        dialogue: [
+          "Hi",
+          "Hello",
+          "How are you?",
+          "Fine",
+          "Who is your favorite actor?",
+          "Tom Hanks",
+          "What is your favorite color?",
+          "Blue",
+          "Which movie do you prefer, action or comedy?",
+          "I prefer action movies.",
+          "When is your birthday?",
+          "It's in September.",
+          "Where do you live?",
+          "I live in New York.",
+          "Why did you choose this career?",
+          "Because I love helping people.",
+          "Whose book is this?",
+          "It's Mary's book.",
+          "How did you learn to play the guitar?",
+          "I learned from YouTube tutorials.",
+          "How many siblings do you have?",
+          "I have two sisters.",
+          "How much does that painting cost?",
+          "It costs $2000.",
+        ],
+      },
+      {
+        subtitle: "How do you spell... ?",
+        comments:
+          "Em inglês, quando queremos perguntar como se escreve/soletra uma palavra, perguntamos 'How do you spell...?' e completamos com a palavra em questão!",
+        order: 11,
+        type: "exercise",
+        items: [
+          "Who is your best friend?",
+          "What is your favorite food?",
+          "Where is your dream vacation destination?",
+          "When is your birthday?",
+          "How are you feeling today?",
+          "Why is music important to you?",
+          "Which book are you currently reading?",
+          "Whose birthday party are you attending next?",
+          "What is your favorite movie genre?",
+          "How far is your workplace from your home?",
+          "How much is your favorite car?",
+          "What is your favorite color?",
+          "In your opinion, who is the best actor alive?",
+        ],
+      },
+    ],
+  },
+
   ///////////////// Vocabulary Basics
   {
     title: "Animals",
     order: 1,
-    type: "Basic Vocabulary",
+    type: "#1.1 | Basic Vocabulary",
     elements: [
       {
         subtitle: "Common Animals",
@@ -1312,7 +1667,7 @@ export const lessons = [
   {
     title: "Family",
     order: 1,
-    type: "Basic Vocabulary",
+    type: "#1.1 | Basic Vocabulary",
     description: "Vamos aprender a dizer os membros de família em inglês.",
     image:
       "https://mckinnon-legal.com/wp-content/uploads/2021/08/rajiv-perera-LCAbBV6-CbI-unsplash-scaled.jpg",
@@ -1463,7 +1818,7 @@ export const lessons = [
   {
     title: "Fruits",
     order: 3,
-    type: "Basic Vocabulary",
+    type: "#1.1 | Basic Vocabulary",
     // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
