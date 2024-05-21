@@ -13,6 +13,7 @@ import MultipleTextsLessonModel from "./LessonsModels/MultipleTextsLessonModel";
 import ImageLessonModel from "./LessonsModels/ImageLessonModel";
 import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
 import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
+import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -101,6 +102,11 @@ export default function EnglishLessonsRender({
                 <ExerciseLessonModel headers={headers} item={element.items} />
               ) : element.type === "dialogue" ? (
                 <DialogueLessonModel headers={headers} element={element} />
+              ) : element.type === "listenandtranslate" ? (
+                <ListenAndTranslateLessonModel
+                  headers={headers}
+                  element={element}
+                />
               ) : (
                 <></>
               )}

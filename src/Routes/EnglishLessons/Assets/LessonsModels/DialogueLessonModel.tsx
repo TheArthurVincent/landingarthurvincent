@@ -1,7 +1,6 @@
 import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
-import { HThree } from "../../../MyClasses/MyClasses.Styled";
 interface DialogueLessonModelProps {
   headers: MyHeadersType | null;
   element: any;

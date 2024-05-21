@@ -516,7 +516,6 @@ export const lessons = [
       },
     ],
   },
-
   {
     title: "To be - Present tense",
     order: 5,
@@ -808,7 +807,6 @@ export const lessons = [
       },
     ],
   },
-
   {
     title: "Prepositions #1",
     type: "Basic",
@@ -920,7 +918,10 @@ export const lessons = [
         comments:
           "Used to indicate location or position within something. Also used for periods of time.",
         sentences: [
-          { english: "He is living in Paris.", portuguese: "Ele está morando em Paris." },
+          {
+            english: "He is living in Paris.",
+            portuguese: "Ele está morando em Paris.",
+          },
           {
             english: "The keys are in the drawer.",
             portuguese: "As chaves estão na gaveta.",
@@ -982,14 +983,223 @@ export const lessons = [
       },
     ],
   },
+  {
+    title: "Possessions #1",
+    type: "Basic",
+    order: 7,
+    // image:
+    // "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+    elements: [
+      {
+        subtitle: "Possessive Pronouns",
+        comments: "Estas são as palavras que usamos para falar de posses!",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "My", portuguese: "Meu" },
+          { english: "Your", portuguese: "Teu/tua" },
+          { english: "Her", portuguese: "Dela" },
+          { english: "His", portuguese: "Dele" },
+          { english: "Its", portuguese: "Dele/dela (não humanos)" },
+          { english: "Our", portuguese: "Nosso" },
+          { english: "Your", portuguese: "Teus/tuas" },
+          { english: "Their", portuguese: "Deles/delas" },
+        ],
+      },
+
+      {
+        subtitle: "Sentences",
+        comments: "Examples of possessive pronouns in context:",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The login is necessary to access your email.",
+            portuguese: "O login é necessário para acessar seu email.",
+          },
+          {
+            english: "It is important to be nice to your colleagues.",
+            portuguese: "É importante ser gentil com seus colegas.",
+          },
+          {
+            english: "The boy is rather tall for his age.",
+            portuguese: "O menino é bastante alto para a idade dele.",
+          },
+          {
+            english: "He is a caring father for his children.",
+            portuguese: "Ele é um pai carinhoso para seus filhos.",
+          },
+          {
+            english: "Is her cousin 32 years old or not?",
+            portuguese: "O primo dela tem 32 anos ou não?",
+          },
+          {
+            english: "This car is amazing, its engine is very good!",
+            portuguese: "Este carro é incrível, seu motor é muito bom!",
+          },
+          {
+            english: "Their bank accounts are empty.",
+            portuguese: "As contas bancárias deles estão vazias.",
+          },
+          {
+            english: "Dogs are always faithful to their masters.",
+            portuguese: "Os cachorros são sempre fiéis aos seus mestres.",
+          },
+        ],
+      },
+      {
+        subtitle: "Usando o 's",
+        comments:
+          "O 's é uma construção comumente usada em inglês para indicar posse. É adicionado ao final de um substantivo (ou pronome) para indicar que algo pertence a alguém ou algo. Por exemplo: The dog's tail (A cauda do cachorro)",
+        image:
+          "https://tra1nscode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+        order: 2,
+        type: "sentences",
+
+        sentences: [
+          {
+            english: "His brother's bike.",
+            portuguese: "A bicicleta do irmão dele.",
+          },
+          {
+            english: "My friend's guitar.",
+            portuguese: "O violão do nosso amigo.",
+          },
+          {
+            english: "The neighbor's dog.",
+            portuguese: "O cachorro do nosso vizinho.",
+          },
+          {
+            english: "Grandma's cookbook.",
+            portuguese: "O livro de receitas do avô deles.",
+          },
+          {
+            english: "Aunt Clara's garden.",
+            portuguese: "O jardim da minha mãe.",
+          },
+          {
+            english: "Our best friend's smile.",
+            portuguese: "O sorriso do meu melhor amigo.",
+          },
+          {
+            english: "My grandfather's wristwatch.",
+            portuguese: "O relógio de pulso dele.",
+          },
+          { english: "Your sister's perfume.", portuguese: "O perfume dela." },
+          {
+            english: "Her father's car.",
+            portuguese: "O carro do meu pai e o nosso carro.",
+          },
+          { english: "Mary’s recipe.", portuguese: "A receita da Mary." },
+          {
+            english: "My cousin's computer.",
+            portuguese: "O computador do nosso primo.",
+          },
+          {
+            english: "Mark's keyboard.",
+            portuguese: "O teclado do tio deles.",
+          },
+          {
+            english: "My cousin's name is Sarah, and she is a talented artist.",
+            portuguese:
+              "O nome da minha prima é Sarah e ela é uma artista talentosa.",
+          },
+          {
+            english: "My son's name is Alex, and he loves playing the piano.",
+            portuguese: "O nome do meu filho é Alex e ele adora tocar piano.",
+          },
+          {
+            english:
+              "My uncle's name is David, and he works as a software engineer.",
+            portuguese:
+              "O nome do meu tio é David e ele trabalha como engenheiro de software.",
+          },
+          {
+            english:
+              "My aunt's name is Emily, and she is a professor at the university.",
+            portuguese:
+              "O nome da minha tia é Emily e ela é professora na universidade.",
+          },
+          {
+            english:
+              "My daughter's name is Lily, and she enjoys playing soccer.",
+            portuguese:
+              "O nome da minha filha é Lily e ela gosta de jogar futebol.",
+          },
+          {
+            english:
+              "My grandmother's name is Grace, and she bakes the best apple pies.",
+            portuguese:
+              "O nome da minha avó é Grace e ela faz as melhores tortas de maçã.",
+          },
+          {
+            english:
+              "My aunt's name is Emily, and she is a professor at the university.",
+            portuguese:
+              "O nome da minha tia é Emily e ela é professora na universidade.",
+          },
+          {
+            english:
+              "My daughter's name is Lily, and she enjoys playing soccer.",
+            portuguese:
+              "O nome da minha filha é Lily e ela gosta de jogar futebol.",
+          },
+          {
+            english:
+              "My grandmother's name is Grace, and she bakes the best apple pies.",
+            portuguese:
+              "O nome da minha avó é Grace e ela faz as melhores tortas de maçã.",
+          },
+        ],
+      },
+      {
+        subtitle: "Translate the sentences below into English",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            ptbrText: "A bicicleta do irmão dele.",
+            enusAudio: "His brother's bike.",
+          },
+          {
+            ptbrText: "O violão do nosso amigo.",
+            enusAudio: "My friend's guitar.",
+          },
+          {
+            ptbrText: "O cachorro do nosso vizinho.",
+            enusAudio: "The neighbor's dog.",
+          },
+          {
+            ptbrText: "O livro de receitas do avô deles.",
+            enusAudio: "Grandpa's cookbook.",
+          },
+          { ptbrText: "O jardim da minha mãe.", enusAudio: "My mother's garden." },
+          {
+            ptbrText: "O sorriso do meu melhor amigo.",
+            enusAudio: "My best friend's smile.",
+          },
+          {
+            ptbrText: "O relógio de pulso dele.",
+            enusAudio: "His wristwatch.",
+          },
+          { ptbrText: "O perfume dela.", enusAudio: "Her perfume." },
+          {
+            ptbrText: "O carro do meu pai e o nosso carro.",
+            enusAudio: "My father's car and our car.",
+          },
+          {
+            ptbrText: "O computador do nosso primo e o teclado do tio deles.",
+            enusAudio: "Our cousin's computer and their uncle's keyboard.",
+          },
+        ],
+      },
+    ],
+  },
   ///////////////// Vocabulary Basics
   {
     title: "Animals",
-    order: 6,
+    order: 1,
     type: "Basic Vocabulary",
-    // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
-    // image:
-    //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
     elements: [
       {
         subtitle: "Common Animals",
@@ -1033,7 +1243,7 @@ export const lessons = [
             text: "Lion",
           },
           {
-            img: "https://media.istockphoto.com/id/1335797147/pt/foto/sumatran-tiger-roaring.jpg?s=1024x1024&w=is&k=20&c=vuJbUZ6HGPy9ux60JNWvj6up6gtbexaQCUnYnAaziTQ=",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi1poOoAdHji7CGS2pANtRkn5ZPCCjh5qD4hK3LfcQjQ&s",
             text: "Tiger",
           },
           {
@@ -1100,8 +1310,159 @@ export const lessons = [
     ],
   },
   {
+    title: "Family",
+    order: 1,
+    type: "Basic Vocabulary",
+    description: "Vamos aprender a dizer os membros de família em inglês.",
+    image:
+      "https://mckinnon-legal.com/wp-content/uploads/2021/08/rajiv-perera-LCAbBV6-CbI-unsplash-scaled.jpg",
+    elements: [
+      {
+        subtitle: "Vocabulary",
+        // comments:
+        //   "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Family", portuguese: "Família" },
+          { english: "Parents", portuguese: "Pais (os 2)" },
+          { english: "Mother", portuguese: "Mãe", note: "[Mom]" },
+          { english: "Father", portuguese: "Pai", note: "[Dad]" },
+          { english: "Sibling", portuguese: "Irmão (ã)" },
+          { english: "Brother", portuguese: "Irmão" },
+          { english: "Sister", portuguese: "Irmã" },
+          { english: "Son", portuguese: "Filho" },
+          { english: "Daughter", portuguese: "Filha" },
+          { english: "Grandmother", portuguese: "Avó" },
+          { english: "Grandfather", portuguese: "Avô" },
+          { english: "Cousin", portuguese: "Primo/Prima" },
+          { english: "Aunt", portuguese: "Tia" },
+          { english: "Uncle", portuguese: "Tio" },
+          { english: "Child", portuguese: "Filho (a)" },
+          { english: "Children", portuguese: "Filhos" },
+        ],
+      },
+      {
+        subtitle: "Sentences",
+        // comments:
+        //   "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "My family is large.",
+            portuguese: "Minha família é grande.",
+          },
+          {
+            english: "My parents are from Brazil.",
+            portuguese: "Meus pais são do Brasil.",
+          },
+          {
+            english: "My mother is a teacher.",
+            portuguese: "Minha mãe é professora.",
+          },
+          {
+            english: "My father is an engineer.",
+            portuguese: "Meu pai é engenheiro.",
+          },
+          { english: "I am a sibling.", portuguese: "Eu sou irmão/irmã." },
+          { english: "My brother is tall.", portuguese: "Meu irmão é alto." },
+          {
+            english: "My sister is friendly.",
+            portuguese: "Minha irmã é simpática.",
+          },
+
+          {
+            english: "My grandmother is wise.",
+            portuguese: "Minha avó é sábia.",
+          },
+          {
+            english: "My grandfather is kind.",
+            portuguese: "Meu avô é gentil.",
+          },
+          {
+            english: "My cousin is visiting.",
+            portuguese: "Meu primo/prima está visitando.",
+          },
+
+          {
+            english: "My aunt is coming over.",
+            portuguese: "Minha tia está vindo.",
+          },
+          { english: "My uncle is funny.", portuguese: "Meu tio é engraçado." },
+          {
+            english: "The child is playing.",
+            portuguese: "A criança está brincando.",
+          },
+
+          {
+            english: "My mother is not tired.",
+            portuguese: "Minha mãe não está cansada.",
+          },
+          {
+            english: "My father is not busy.",
+            portuguese: "Meu pai não está ocupado.",
+          },
+          {
+            english: "I am not an only child.",
+            portuguese: "Eu não sou filho único.",
+          },
+
+          {
+            english: "My sister is not mean.",
+            portuguese: "Minha irmã não é má.",
+          },
+          {
+            english: "I am not the oldest son.",
+            portuguese: "Eu não sou o filho mais velho.",
+          },
+
+          {
+            english: "My grandfather is not grumpy.",
+            portuguese: "Meu avô não é rabugento.",
+          },
+          {
+            english: "My cousin is not here.",
+            portuguese: "Meu primo/prima não está aqui.",
+          },
+          {
+            english: "My aunt is not happy.",
+            portuguese: "Minha tia não está feliz.",
+          },
+          {
+            english: "The children are not fighting.",
+            portuguese: "As crianças não estão brigando.",
+          },
+          {
+            english: "Is your family big?",
+            portuguese: "Sua família é grande?",
+          },
+          {
+            english: "Is your father busy?",
+            portuguese: "Seu pai está ocupado?",
+          },
+          { english: "Is your brother tall?", portuguese: "Seu irmão é alto?" },
+
+          { english: "Is she your grandmother?", portuguese: "Ela é sua avó?" },
+          { english: "Is he your grandfather?", portuguese: "Ele é seu avô?" },
+
+          { english: "Is your aunt nice?", portuguese: "Sua tia é legal?" },
+
+          {
+            english: "Is the child playing outside?",
+            portuguese: "A criança está brincando lá fora?",
+          },
+          {
+            english: "Are the children asleep?",
+            portuguese: "As crianças estão dormindo?",
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: "Fruits",
-    order: 6,
+    order: 3,
     type: "Basic Vocabulary",
     // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
@@ -1176,6 +1537,7 @@ export const lessons = [
       },
     ],
   },
+
   /////////////////
   /////////////////
   /////////////////
