@@ -1,14 +1,73 @@
 export const lessons = [
+  ///////////Basic
   {
-    title: "The Alphabet / Spelling",
+    title: "Introducing Yourself / Basics",
+    order: 1,
     type: "Basic",
-    description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
-    // image:  "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+    description:
+      "Nesta aula, aprenderemos algumas expressões básicas, e maneiras comuns de se apresentar.",
+    image:
+      "https://images.pexels.com/photos/5668834/pexels-photo-5668834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     elements: [
       {
-        // subtitle: "Basics",
-        // comments:
-        //   "Aqui estão algumas expressões simples para iniciar uma comunicação em inglês",
+        subtitle: "Sentences 1",
+        comments: "Lorem Ipsun",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Hello!", portuguese: "Olá!" },
+          { english: "Hi", portuguese: "Oi" },
+          { english: "How are you?", portuguese: "Como você está?" },
+          { english: "I’m fine", portuguese: "Estou bem" },
+          { english: "I’m good", portuguese: "Estou bem" },
+          { english: "I’m doing well.", portuguese: "Estou indo bem" },
+          { english: "Good morning!", portuguese: "Bom dia!" },
+          { english: "Good afternoon!", portuguese: "Boa tarde!" },
+          { english: "Good evening!", portuguese: "Boa noite!" },
+          { english: "Good night!", portuguese: "Boa noite!" },
+          { english: "Nice to meet you!", portuguese: "Prazer em conhecê-lo!" },
+          { english: "Thank you", portuguese: "Obrigado (a)" },
+          { english: "Please", portuguese: "Por favor." },
+          { english: "Goodbye", portuguese: "Tchau." },
+          { english: "What’s your name?", portuguese: "Qual é o seu nome?" },
+          { english: "Where are you from?", portuguese: "De onde você é?" },
+          { english: "I don't understand.", portuguese: "Eu não entendo." },
+          { english: "Can you help me?", portuguese: "Você pode me ajudar?" },
+          { english: "I'm sorry", portuguese: "Desculpe-me" },
+          { english: "How old are you?", portuguese: "Quantos anos você tem?" },
+          { english: "Excuse me.", portuguese: "Com licença." },
+        ],
+      },
+      {
+        subtitle: "Dialogue Practice #1",
+        order: 1,
+        type: "dialogue",
+        dialogue: [
+          "What is your name?",
+          "My name is John. What is your name?",
+          "My name is Mary. How old are you?",
+          "I am twenty years old. How old are you?",
+          "I am nineteen. Where are you from?",
+          "I am from Canada. Where are you from?",
+          "I am from Australia.",
+          "Is it nice there?",
+          "Yes, it is. It is very beautiful.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "The Alphabet / Spelling",
+    order: 2,
+    type: "Basic",
+    description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
+    image:
+      "https://images.pexels.com/photos/1337382/pexels-photo-1337382.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [
+      {
+        // subtitle: "",
+        comments:
+          "Veja abaixo as letras do alfabeto em inglês e suas respectivas pronúncias",
         order: 0,
         type: "sentences",
         sentences: [
@@ -62,7 +121,7 @@ export const lessons = [
         subtitle: "How do you spell... ?",
         comments:
           "Em inglês, quando queremos perguntar como se escreve/soletra uma palavra, perguntamos 'How do you spell...?' e completamos com a palavra em questão!",
-        order: 1,
+        order: 2,
         type: "exercise",
         items: [
           "How do you spell your name?",
@@ -79,187 +138,85 @@ export const lessons = [
     ],
   },
   {
-    title: "Introducing Yourself / Basics",
-    type: "Basic",
-    image:
-      "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
-    elements: [
-      {
-        subtitle: "Sentences 1",
-        comments: "Lorem Ipsun",
-        order: 0,
-        type: "sentences",
-        sentences: [
-          { english: "Hello!", portuguese: "Olá!" },
-          { english: "Hi", portuguese: "Oi" },
-          { english: "How are you?", portuguese: "Como você está?" },
-          { english: "I’m fine", portuguese: "Estou bem" },
-          { english: "I’m good", portuguese: "Estou bem" },
-          { english: "I’m doing well.", portuguese: "Estou indo bem" },
-          { english: "Good morning!", portuguese: "Bom dia!" },
-          { english: "Good afternoon!", portuguese: "Boa tarde!" },
-          { english: "Good evening!", portuguese: "Boa noite!" },
-          { english: "Good night!", portuguese: "Boa noite!" },
-          { english: "Nice to meet you!", portuguese: "Prazer em conhecê-lo!" },
-          { english: "Thank you", portuguese: "Obrigado (a)" },
-          { english: "Please", portuguese: "Por favor." },
-          { english: "Goodbye", portuguese: "Tchau." },
-          { english: "What’s your name?", portuguese: "Qual é o seu nome?" },
-          { english: "Where are you from?", portuguese: "De onde você é?" },
-          { english: "I don't understand.", portuguese: "Eu não entendo." },
-          { english: "Can you help me?", portuguese: "Você pode me ajudar?" },
-          { english: "I'm sorry", portuguese: "Desculpe-me" },
-          { english: "How old are you?", portuguese: "Quantos anos você tem?" },
-          { english: "Excuse me.", portuguese: "Com licença." },
-        ],
-      },
-    ],
-  },
-  {
-    title: "To be",
+    title: "Personal Pronouns",
+    order: 3,
     type: "Basic",
     description:
-      "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
+      "Os pronomes pessoais em inglês são fundamentais para construir frases. Eles se dividem em 'subject pronouns' e 'object pronouns'.",
     image:
-      "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
+      "https://images.pexels.com/photos/4629623/pexels-photo-4629623.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
       {
-        subtitle: "Conjugations!",
-        comments: "É assim que você conjuga 'ser' ou 'estar' em inglês!",
+        subtitle: "Subject Pronouns",
+        comments: "Esses pronomes são usados como sujeito da frase.",
         order: 0,
         type: "sentences",
         sentences: [
-          // Afirmativo
-          { english: "Affirmations", portuguese: "" },
-          { english: "I am", portuguese: "Eu sou / Eu estou" },
-          { english: "You are", portuguese: "Você é / Você está" },
-          { english: "He is", portuguese: "Ele é / Ele está" },
-          { english: "She is", portuguese: "Ela é / Ela está" },
-          { english: "It is", portuguese: "Ele/Ela é / Está" },
-          { english: "We are", portuguese: "Nós somos / Nós estamos" },
-          { english: "They are", portuguese: "Eles são / Eles estão" },
-          { english: "Negations", portuguese: "" },
-          {
-            english: "I am not / I'm not",
-            portuguese: "Eu não sou / Eu não estou",
-          },
-          {
-            english: "You are not / You aren't / You're not",
-            portuguese: "Você não é / Você não está",
-          },
-          {
-            english: "He is not / He isn't / He's not",
-            portuguese: "Ele não é / Ele não está",
-          },
-          {
-            english: "She is not / She isn't / She's not",
-            portuguese: "Ela não é / Ela não está",
-          },
-          {
-            english: "It is not / It isn't / It's not",
-            portuguese: "Ele/Ela não é / Está",
-          },
-          { english: "Questions", portuguese: "" },
-          { english: "Am I?", portuguese: "Eu sou? / Eu estou?" },
-          { english: "Are you?", portuguese: "Você é? / Você está?" },
-          { english: "Is he?", portuguese: "Ele é? / Ele está?" },
-          { english: "Is she?", portuguese: "Ela é? / Ela está?" },
-          { english: "Is it?", portuguese: "Ele/Ela é? / Está?" },
-          { english: "Are we?", portuguese: "Nós somos? / Nós estamos?" },
-          { english: "Are they?", portuguese: "Eles são? / Eles estão?" },
+          { english: "I", portuguese: "Eu" },
+          { english: "You", portuguese: "Você" },
+          { english: "He", portuguese: "Ele" },
+          { english: "She", portuguese: "Ela" },
+          { english: "It", portuguese: "Ele/Ela (neutro)" },
+          { english: "We", portuguese: "Nós" },
+          { english: "They", portuguese: "Eles/Elas" },
         ],
       },
       {
-        subtitle: "Vocabulary",
-        comments: "Vocabulário para praticar",
+        subtitle: "Object Pronouns",
+        comments: "Esses pronomes são usados como objeto da frase.",
         order: 1,
         type: "sentences",
         sentences: [
-          {
-            english: "Here",
-            portuguese: "Aqui",
-          },
-          {
-            english: "There",
-            portuguese: "Lá / Aí",
-          },
-          {
-            english: "Friend",
-            portuguese: "Amigo (a)",
-          },
-          {
-            english: "Enemy",
-            portuguese: "Inimigo (a)",
-          },
-          {
-            english: "Happy",
-            portuguese: "Feliz",
-          },
-          {
-            english: "Sad",
-            portuguese: "Triste",
-          },
+          { english: "Me", portuguese: "Me/Mim" },
+          { english: "You", portuguese: "Te/Você" },
+          { english: "Him", portuguese: "Lhe/Ele" },
+          { english: "Her", portuguese: "Lhe/Ela" },
+          { english: "It", portuguese: "Lhe/Ele/Ela (neutro)" },
+          { english: "Us", portuguese: "Nos/Nós" },
+          { english: "Them", portuguese: "Lhes/Eles/Elas" },
+        ],
+      },
+      {
+        subtitle: "Practice Vocabulary",
+        comments: "Vocabulário adicional para prática.",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          { english: "Friend", portuguese: "Amigo(a)" },
+          { english: "Gift", portuguese: "Presente" },
+          { english: "Secret", portuguese: "Segredo" },
+          { english: "Party", portuguese: "Festa" },
+          { english: "Happy", portuguese: "Feliz" },
+          { english: "But", portuguese: "Mas" },
+          { english: "With", portuguese: "Com" },
+          { english: "And", portuguese: "E" },
+          { english: "Too", portuguese: "Também" },
         ],
       },
       {
         subtitle: "Examples in Sentences",
-        comments: "Veja algumas frases abaixo que usam o verbo 'To be'",
-        order: 1,
-        image:
-          "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
+        comments: "Veja como os pronomes pessoais são usados em frases.",
+        order: 3,
         type: "sentences",
         sentences: [
-          { english: "I am a student.", portuguese: "Eu sou um estudante." },
-          { english: "You are my friend.", portuguese: "Você é meu amigo." },
-          { english: "She is a teacher.", portuguese: "Ela é uma professora." },
+          { english: "I love you.", portuguese: "Eu te amo." },
+          { english: "He is my friend.", portuguese: "Ele é meu amigo." },
           {
-            english: "We are going to the park.",
-            portuguese: "Estamos indo para o Parque.",
+            english: "She gave me a gift.",
+            portuguese: "Ela me deu um presente.",
+          },
+          { english: "We are happy.", portuguese: "Nós estamos felizes." },
+          { english: "They will help us.", portuguese: "Eles vão nos ajudar." },
+          { english: "Can you see it?", portuguese: "Você pode ver isso?" },
+          { english: "She likes him.", portuguese: "Ela gosta dele." },
+          { english: "I called them.", portuguese: "Eu liguei para eles." },
+          {
+            english: "He told her a secret.",
+            portuguese: "Ele contou um segredo para ela.",
           },
           {
-            english: "They are studying for the exam.",
-            portuguese: "Eles estão estudando para o exame.",
-          },
-          {
-            english: "Am I late for the meeting?",
-            portuguese: "Estou atrasado para a reunião?",
-          },
-          {
-            english: "Are you coming to the party?",
-            portuguese: "Você está vindo para a festa?",
-          },
-          { english: "Is he your brother?", portuguese: "Ele é seu irmão?" },
-          {
-            english: "Are we going to the movies tonight?",
-            portuguese: "Vamos ao cinema hoje à noite?",
-          },
-          {
-            english: "Are they from France?",
-            portuguese: "Eles são da França?",
-          },
-          {
-            english: "Mark is not a nice person.",
-            portuguese: "Mark não é uma pessoa legal.",
-          },
-          {
-            english: "We are not on vacation.",
-            portuguese: "Não estamos de férias.",
-          },
-          {
-            english: "They aren’t aware of the changes.",
-            portuguese: "Eles não estão cientes das mudanças.",
-          },
-          {
-            english: "I am not interested in that!",
-            portuguese: "Eu não estou interessado nisso!",
-          },
-          {
-            english: "You aren't allowed to enter.",
-            portuguese: "Você não tem permissão para entrar.",
-          },
-          {
-            english: "She isn't my friend.",
-            portuguese: "Ela não é minha amiga.",
+            english: "They invited us to the party.",
+            portuguese: "Eles nos convidaram para a festa.",
           },
         ],
       },
@@ -267,7 +224,8 @@ export const lessons = [
   },
   {
     title: "Articles",
-    type: "Advanced",
+    order: 4,
+    type: "Basic",
     description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
@@ -559,8 +517,501 @@ export const lessons = [
     ],
   },
   {
+    title: "To be - Present tense",
+    order: 5,
+    type: "Basic",
+    description:
+      "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
+    image:
+      "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
+    elements: [
+      {
+        subtitle: "Affirmative Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "I am", portuguese: "Eu sou / Eu estou" },
+          { english: "You are", portuguese: "Você é / Você está" },
+          { english: "He is", portuguese: "Ele é / Ele está" },
+          { english: "She is", portuguese: "Ela é / Ela está" },
+          { english: "It is", portuguese: "Ele/Ela é / Está" },
+          { english: "We are", portuguese: "Nós somos / Nós estamos" },
+          { english: "They are", portuguese: "Eles são / Eles estão" },
+        ],
+      },
+      {
+        subtitle: "Negative Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver negando!",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I am not / I'm not",
+            portuguese: "Eu não sou / Eu não estou",
+          },
+          {
+            english: "You are not / You aren't / You're not",
+            portuguese: "Você não é / Você não está",
+          },
+          {
+            english: "He is not / He isn't / He's not",
+            portuguese: "Ele não é / Ele não está",
+          },
+          {
+            english: "She is not / She isn't / She's not",
+            portuguese: "Ela não é / Ela não está",
+          },
+          {
+            english: "It is not / It isn't / It's not",
+            portuguese: "Ele/Ela não é / Está",
+          },
+        ],
+      },
+      {
+        subtitle: "Interrogative Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver perguntando!",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          { english: "Am I?", portuguese: "Eu sou? / Eu estou?" },
+          { english: "Are you?", portuguese: "Você é? / Você está?" },
+          { english: "Is he?", portuguese: "Ele é? / Ele está?" },
+          { english: "Is she?", portuguese: "Ela é? / Ela está?" },
+          { english: "Is it?", portuguese: "Ele/Ela é? / Está?" },
+          { english: "Are we?", portuguese: "Nós somos? / Nós estamos?" },
+          { english: "Are they?", portuguese: "Eles são? / Eles estão?" },
+        ],
+      },
+      {
+        subtitle: "Vocabulary",
+        comments: "Vocabulário para praticar",
+        order: 3,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Here",
+            portuguese: "Aqui",
+          },
+          {
+            english: "There",
+            portuguese: "Lá / Aí",
+          },
+          {
+            english: "Friend",
+            portuguese: "Amigo (a)",
+          },
+          {
+            english: "Enemy",
+            portuguese: "Inimigo (a)",
+          },
+          {
+            english: "Happy",
+            portuguese: "Feliz",
+          },
+          {
+            english: "Sad",
+            portuguese: "Triste",
+          },
+        ],
+      },
+      {
+        subtitle: "Examples in Sentences",
+        comments: "Veja algumas frases abaixo que usam o verbo 'To be'",
+        order: 4,
+        image:
+          "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
+        type: "sentences",
+        sentences: [
+          { english: "I am a student.", portuguese: "Eu sou um estudante." },
+          { english: "You are my friend.", portuguese: "Você é meu amigo." },
+          { english: "She is a teacher.", portuguese: "Ela é uma professora." },
+          {
+            english: "We are going to the park.",
+            portuguese: "Estamos indo para o Parque.",
+          },
+          {
+            english: "They are studying for the exam.",
+            portuguese: "Eles estão estudando para o exame.",
+          },
+          {
+            english: "Am I late for the meeting?",
+            portuguese: "Estou atrasado para a reunião?",
+          },
+          {
+            english: "Are you coming to the party?",
+            portuguese: "Você está vindo para a festa?",
+          },
+          { english: "Is he your brother?", portuguese: "Ele é seu irmão?" },
+          {
+            english: "Are we going to the movies tonight?",
+            portuguese: "Vamos ao cinema hoje à noite?",
+          },
+          {
+            english: "Are they from France?",
+            portuguese: "Eles são da França?",
+          },
+          {
+            english: "Mark is not a nice person.",
+            portuguese: "Mark não é uma pessoa legal.",
+          },
+          {
+            english: "We are not on vacation.",
+            portuguese: "Não estamos de férias.",
+          },
+          {
+            english: "They aren’t aware of the changes.",
+            portuguese: "Eles não estão cientes das mudanças.",
+          },
+          {
+            english: "I am not interested in that!",
+            portuguese: "Eu não estou interessado nisso!",
+          },
+          {
+            english: "You aren't allowed to enter.",
+            portuguese: "Você não tem permissão para entrar.",
+          },
+          {
+            english: "She isn't my friend.",
+            portuguese: "Ela não é minha amiga.",
+          },
+        ],
+      },
+      {
+        subtitle: "Vocabulary",
+        comments: "Vocabulário para praticar",
+        order: 5,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Here",
+            portuguese: "Aqui",
+          },
+          {
+            english: "Looking for",
+            portuguese: "Procurando",
+          },
+          {
+            english: "Mall",
+            portuguese: "Shopping",
+          },
+          {
+            english: "Parents",
+            portuguese: "Pais (os 2)",
+          },
+          {
+            english: "Beach",
+            portuguese: "Praia",
+          },
+          {
+            english: "Engineer",
+            portuguese: "Engenheiro (a)",
+          },
+          {
+            english: "Close",
+            portuguese: "Perto",
+          },
+          {
+            english: "Nurse",
+            portuguese: "Enfermeiro (a)",
+          },
+          {
+            english: "Twins",
+            portuguese: "Gêmeos",
+          },
+          {
+            english: "Expensive",
+            portuguese: "Caro",
+          },
+          {
+            english: "Earlier",
+            portuguese: "Mais cedo",
+          },
+          {
+            english: "Year",
+            portuguese: "Ano",
+          },
+          {
+            english: "First",
+            portuguese: "Primeiro",
+          },
+          {
+            english: "Second",
+            portuguese: "Segundo",
+          },
+        ],
+      },
+      {
+        subtitle: "Dialogue Practice #1",
+        order: 6,
+        type: "dialogue",
+        dialogue: [
+          "Hi",
+          "Hello",
+          "How are you?",
+          "I am fine, thank you. And you?",
+          "I am good too, thank you.",
+          "Are you a student?",
+          "Yes, I am. Are you a teacher?",
+          "No, I am not. I am a student too.",
+          "Is this your first year?",
+          "Yes, it is. Is this your first year too?",
+          "No, it is not. It is my second year.",
+        ],
+      },
+      {
+        subtitle: "Dialogue Practice #2",
+        order: 6,
+        type: "dialogue",
+        dialogue: [
+          "Hey, Is Martha here? Tom is looking for her.",
+          "No, she isn't, she's at the mall.",
+        ],
+      },
+      {
+        subtitle: "Dialogue Practice #3",
+        order: 7,
+        type: "dialogue",
+        dialogue: [
+          "Who is she?",
+          "She is my sister.",
+          "Is she a doctor?",
+          "No, she is not. She is a nurse.",
+          "Where is he from?",
+          "He is from Brazil.",
+          "Are they siblings?",
+          "Yes, they are. They are twins.",
+          "Is it expensive?",
+          "Yes, it is. It is very expensive.",
+        ],
+      },
+      {
+        subtitle: "Dialogue Practice #4",
+        order: 8,
+        type: "dialogue",
+        dialogue: [
+          "Who are they?",
+          "They are my parents.",
+          "Are they teachers?",
+          "No, they are not. They are engineers.",
+          "Where are they going?",
+          "They are going to the beach.",
+          "Is it far?",
+          "No, it is not. It is quite close.",
+          "Are you sure?",
+          "Yes, I am. I asked them earlier.",
+        ],
+      },
+    ],
+  },
+  ///////////////// Vocabulary Basics
+  {
+    title: "Animals",
+    order: 6,
+    type: "Basic Vocabulary",
+    // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
+    // image:
+    //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
+    elements: [
+      {
+        subtitle: "Common Animals",
+        order: 0,
+        type: "images",
+        images: [
+          {
+            img: "https://media.istockphoto.com/id/1482199015/pt/foto/happy-puppy-welsh-corgi-14-weeks-old-dog-winking-panting-and-sitting-isolated-on-white.jpg?s=612x612&w=0&k=20&c=XI-fFXTXEU4UbQtGwM_vWzBB4F17W4dlPtXL4wr2dmE=",
+            text: "Dog",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1443562748/pt/foto/cute-ginger-cat.jpg?s=612x612&w=0&k=20&c=OqlMF3bysUX6cVux5kKc1gqCGMghQpGc5ukyw1qG82s=",
+            text: "Cat",
+          },
+          {
+            img: "https://images.pexels.com/photos/2662434/pexels-photo-2662434.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Bird",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1353747129/pt/foto/gold-fish-swimming-underwater.jpg?s=612x612&w=0&k=20&c=3cQZfHlKUMz-46FmzLfKTGw7jkqKKQJQBhtxtaoQb1M=",
+            text: "Fish",
+          },
+          {
+            img: "https://media.istockphoto.com/id/483797166/pt/foto/cavalo-andaluz.jpg?s=612x612&w=0&k=20&c=-aKexRd308c2Sp9pC_3cEINhU9PGG8rTqjWKfDTJhYg=",
+            text: "Horse",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1428640160/pt/foto/cow-isolated-on-white-standing-upright-black-and-white-full-length-and-front-view-and-copy.jpg?s=612x612&w=0&k=20&c=MwWpcK7CPz3lUDyCUnb6I5R3ScMK2sDpnwbI-Mj5vf8=",
+            text: "Cow",
+          },
+          {
+            img: "https://media.istockphoto.com/id/161953792/pt/foto/vista-lateral-de-uma-ovelha-olhando-para-longe-contra-o-fundo-branco.jpg?s=612x612&w=0&k=20&c=duXlJazhMNVPW7BaCTSlE9C9hdYpsfJUpXJ4V80Kpiw=",
+            text: "Sheep",
+          },
+          {
+            img: "https://media.istockphoto.com/id/140462837/pt/foto/porco-engra%C3%A7ado-inclinar-se-no-parapeito-da-sua-cot.jpg?s=612x612&w=0&k=20&c=ijUoPjQG4yE5cuRcKKxSZ7ztwPdYGGLLLU69d4pk96s=",
+            text: "Pig",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1354939778/pt/foto/close-up-of-a-roaring-lion.jpg?s=612x612&w=0&k=20&c=Og23ITwdHr6xRP_KTAD4x2a07pUbJ_OCNHtYnstg1rw=",
+            text: "Lion",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1335797147/pt/foto/sumatran-tiger-roaring.jpg?s=1024x1024&w=is&k=20&c=vuJbUZ6HGPy9ux60JNWvj6up6gtbexaQCUnYnAaziTQ=",
+            text: "Tiger",
+          },
+          {
+            img: "https://media.istockphoto.com/id/479667835/pt/foto/elefante-de-fundo.jpg?s=612x612&w=0&k=20&c=oIV_X_5GwkCzzFfrMbxXwooVeRrLc5IGA0lmlvFSv_o=",
+            text: "Elephant",
+          },
+          {
+            img: "https://media.istockphoto.com/id/944271706/pt/foto/young-chimpanzee-sitting-simia-troglodytes-in-front-of-a-white-background.jpg?s=612x612&w=0&k=20&c=tVy-VkVaOmM8NY03u6PnkhGSZF9Z6soDSW8YdcmiulY=",
+            text: "Monkey",
+          },
+          {
+            img: "https://media.istockphoto.com/id/488580536/pt/foto/girafa-na-frente-de-kilimanjaro-montanha.jpg?s=612x612&w=0&k=20&c=Q6vsFRLVbsQbJuAQqPsiPNTA9_5Lma57Vba0xF9FQqo=",
+            text: "Giraffe",
+          },
+          {
+            img: "https://media.istockphoto.com/id/170048830/pt/foto/rir-zebra.jpg?s=612x612&w=0&k=20&c=_FEMS1lCaJKqEtO6tttsMRzS4QGjWRtbdnXbBZry-SA=",
+            text: "Zebra",
+          },
+          {
+            img: "https://media.istockphoto.com/id/163639080/pt/foto/urso-cinzento.jpg?s=612x612&w=0&k=20&c=XYwtapDQXQ66diZbrfwaP9_4BYmrgpBZ_YYGbRSZOyg=",
+            text: "Bear",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1359866154/pt/foto/little-red-fluffy-rabbit-on-light-green-background.jpg?s=612x612&w=0&k=20&c=fLnEnTm_OhAv6ZBVFH7ZqfaZlAkMaqBPupVp2romrGE=",
+            text: "Rabbit",
+          },
+          {
+            img: "https://media.istockphoto.com/id/516318760/pt/foto/raposa-vermelha-vulpes-vulpes.jpg?s=612x612&w=0&k=20&c=9YTCdFJghOt9Cz73wq0y3_zkcC5x5-NQCDe1yEUPAI8=",
+            text: "Fox",
+          },
+          {
+            img: "https://media.istockphoto.com/id/177794699/pt/foto/lobo-cinzento-retrato.jpg?s=612x612&w=0&k=20&c=iZHohTbptMVPjsS2l08tCX_LLoGVVyowGYUg4sI1yc4=",
+            text: "Wolf",
+          },
+          {
+            img: "https://images.pexels.com/photos/106685/pexels-photo-106685.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Owl",
+          },
+          {
+            img: "https://media.istockphoto.com/id/525733140/pt/foto/golfinho-recife-debaixo-de-%C3%A1gua-no-fundo.jpg?s=612x612&w=0&k=20&c=2b2AQ6wA85GQvnbVV8r8mIfTOVtqfF_2iN54EcxXA9A=",
+            text: "Dolphin",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1399799270/pt/foto/extreme-close-up-of-great-white-shark-looking-directly-at-camera-smiling.jpg?s=612x612&w=0&k=20&c=A3mOrWUFUHiubuytJinpn3S3rQRUP5tiIT6G1qDs39g=",
+            text: "Shark",
+          },
+        ],
+      },
+      {
+        subtitle: "Additional Expressions",
+        order: 1,
+        type: "images",
+        images: [
+          {
+            img: "https://media.istockphoto.com/id/483770579/pt/foto/cocker-cachorrinho-sentado-olhando-para-a-c%C3%A2mera-isolado-a-branco.jpg?s=612x612&w=0&k=20&c=YCs-x7NE2MwZgre1HV5yOaEtoZY3Rj-82-Nd--k2ZMs=",
+            text: "Puppy",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1018078858/pt/foto/gorgeous-ginger-cat-on-isolated-black-background.jpg?s=612x612&w=0&k=20&c=CtTsSC8y35N4R9sneaSwlCbCWe8SsAHAgZmqSjZqsIU=",
+            text: "Kitty",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Fruits",
+    order: 6,
+    type: "Basic Vocabulary",
+    // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
+    // image:
+    //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
+    elements: [
+      {
+        // subtitle: "Fruits",
+        order: 0,
+        type: "images",
+        images: [
+          {
+            img: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Apple",
+          },
+          {
+            img: "https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Banana",
+          },
+          {
+            img: "https://images.pexels.com/photos/161559/background-bitter-breakfast-bright-161559.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Orange",
+          },
+          {
+            img: "https://images.pexels.com/photos/23042/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
+            text: "Grapes",
+          },
+          {
+            img: "https://images.pexels.com/photos/14821717/pexels-photo-14821717.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Strawberry",
+          },
+          {
+            img: "https://images.pexels.com/photos/568471/pexels-photo-568471.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Pear",
+          },
+          {
+            img: "https://images.pexels.com/photos/947879/pexels-photo-947879.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Pineapple",
+          },
+          {
+            img: "https://images.pexels.com/photos/3429784/pexels-photo-3429784.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Watermelon",
+          },
+          {
+            img: "https://images.pexels.com/photos/142890/pexels-photo-142890.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Avocado",
+          },
+          {
+            img: "https://images.pexels.com/photos/39303/mango-tropical-fruit-juicy-sweet-39303.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Mango",
+          },
+          {
+            img: "https://images.pexels.com/photos/54370/pexels-photo-54370.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Kiwi",
+          },
+          {
+            img: "https://images.pexels.com/photos/19937268/pexels-photo-19937268/free-photo-of-comida-alimento-refeicao-jardim.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Peach",
+          },
+          {
+            img: "https://images.pexels.com/photos/768009/pexels-photo-768009.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Cherry",
+          },
+          {
+            img: "https://images.pexels.com/photos/1343537/pexels-photo-1343537.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Lemon",
+          },
+          {
+            img: "https://images.pexels.com/photos/1047261/pexels-photo-1047261.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "Lime",
+          },
+        ],
+      },
+    ],
+  },
+
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  {
     title: "Model",
     type: "Intermediary",
+    order: 0.1,
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [
@@ -685,6 +1136,13 @@ export const lessons = [
             text: "Sub Sub Text See 222Text 222Text 222",
           },
         ],
+      },
+      {
+        subtitle: "Dialogue 1",
+        // image: "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+        order: 6,
+        type: "dialogue",
+        dialogue: ["Hi", "Hello", "How are you?", "Fine"],
       },
     ],
   },

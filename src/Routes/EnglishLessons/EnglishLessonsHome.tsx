@@ -62,31 +62,35 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
                 onChange={handleDifficultyChange}
               >
                 <option value="">Select Difficulty</option>
-                {Object.keys(groupedLessons).map((difficulty) => (
-                  <option key={difficulty} value={difficulty}>
-                    {difficulty}
-                  </option>
-                ))}
+                {groupedLessons &&
+                  Object.keys(groupedLessons).map((difficulty) => (
+                    <option key={difficulty} value={difficulty}>
+                      {difficulty}
+                    </option>
+                  ))}
               </select>
             </div>
-            {selectedDifficulty && (
-              <div>
-                <HThree>Lesson</HThree>
-                <select
-                  value={selectedLesson?.title || ""}
-                  onChange={handleLessonChange}
-                >
-                  <option value="">Select Lesson</option>
-                  {groupedLessons[selectedDifficulty].map(
-                    (lesson: any, index: number) => (
+            <div>
+              <HThree>Lesson</HThree>
+              <select
+                value={selectedLesson?.title || ""}
+                onChange={handleLessonChange}
+                disabled={selectedDifficulty ? false : true}
+                style={{
+                  cursor: selectedDifficulty ? "auto" : "not-allowed",
+                }}
+              >
+                <option value="">Select Lesson</option>
+                {groupedLessons[selectedDifficulty] &&
+                  groupedLessons[selectedDifficulty]
+                    .sort((a: any, b: any) => a.order - b.order)
+                    .map((lesson: any, index: number) => (
                       <option key={index} value={lesson.title}>
                         {lesson.title}
                       </option>
-                    )
-                  )}
-                </select>
-              </div>
-            )}
+                    ))}
+              </select>
+            </div>
           </div>
         </div>
       </RouteDiv>

@@ -47,7 +47,6 @@ export default function ImageLessonModel({
               </span>
             </LiGridImageLessons>
           ))}
-        <textarea className="comments" rows={10} cols={1} />
       </UlGridImageLessons>
     </div>
   );

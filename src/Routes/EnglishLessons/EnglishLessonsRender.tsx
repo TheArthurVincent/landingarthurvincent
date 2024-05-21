@@ -12,6 +12,7 @@ import SentenceLessonModel from "./Assets/SentenceLessonModel";
 import MultipleTextsLessonModel from "./Assets/MultipleTextsLessonModel";
 import ImageLessonModel from "./Assets/ImageLessonModel";
 import ExerciseLessonModel from "./Assets/ExerciseLessonModel";
+import DialogueLessonModel from "./Assets/DialogueLessonModel";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -35,7 +36,7 @@ export default function EnglishLessonsRender({
         <HOne>{theclass.title}</HOne>
         {theclass.image && (
           <ImgLesson src={theclass.image} alt={theclass.title} />
-        )}{" "}
+        )}
         {theclass.description && (
           <p
             style={{
@@ -98,6 +99,8 @@ export default function EnglishLessonsRender({
                 <ImageLessonModel headers={headers} element={element} />
               ) : element.type === "exercise" ? (
                 <ExerciseLessonModel headers={headers} item={element.items} />
+              ) : element.type === "dialogue" ? (
+                <DialogueLessonModel headers={headers} element={element} />
               ) : (
                 <></>
               )}
@@ -111,3 +114,4 @@ export default function EnglishLessonsRender({
     </RouteSizeControlBox>
   );
 }
+//

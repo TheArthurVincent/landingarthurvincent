@@ -2,6 +2,7 @@ import React from "react";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { readText } from "./Functions/FunctionLessons";
 import { primaryColor, secondaryColor } from "../../../Styles/Styles";
+import { UlSentences } from "./Functions/EnglishActivities.Styled";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
@@ -13,14 +14,7 @@ export default function SentenceLessonModel({
   sentences,
 }: SentenceLessonModelProps) {
   return (
-    <ul
-      style={{
-        padding: "0.5rem",
-        display: "grid",
-        gap: "0.8rem",
-        gridTemplateColumns: "1fr 1fr",
-      }}
-    >
+    <UlSentences>
       {sentences &&
         sentences.map((sentence: any, i: number) => (
           <li
@@ -51,6 +45,6 @@ export default function SentenceLessonModel({
             <br />
           </li>
         ))}
-    </ul>
+    </UlSentences>
   );
 }
