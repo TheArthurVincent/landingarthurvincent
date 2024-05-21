@@ -26,6 +26,7 @@ export default function ListenAndTranslateLessonModel({
                 className="audio-button"
                 onClick={() => readText(audio.enusAudio)}
               >
+                
                 <i className="fa fa-volume-up" aria-hidden="true" />
               </button>
               <textarea className="comments" />
