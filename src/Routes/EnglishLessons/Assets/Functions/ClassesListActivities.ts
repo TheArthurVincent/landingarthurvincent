@@ -3,7 +3,7 @@ export const lessons = [
   {
     title: "Introducing Yourself / Basics",
     order: 1,
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     description:
       "Nesta aula, aprenderemos algumas expressões básicas, e maneiras comuns de se apresentar.",
     image:
@@ -59,7 +59,7 @@ export const lessons = [
   {
     title: "The Alphabet / Spelling",
     order: 2,
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
     image:
       "https://images.pexels.com/photos/1337382/pexels-photo-1337382.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -140,7 +140,7 @@ export const lessons = [
   {
     title: "Personal Pronouns",
     order: 3,
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     description:
       "Os pronomes pessoais em inglês são fundamentais para construir frases. Eles se dividem em 'subject pronouns' e 'object pronouns'.",
     image:
@@ -225,7 +225,7 @@ export const lessons = [
   {
     title: "Articles",
     order: 4,
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
@@ -519,7 +519,7 @@ export const lessons = [
   {
     title: "To be - Present tense",
     order: 5,
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     description:
       "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
     image:
@@ -809,7 +809,7 @@ export const lessons = [
   },
   {
     title: "Prepositions #1",
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     order: 6,
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
@@ -985,10 +985,10 @@ export const lessons = [
   },
   {
     title: "Possessions #1",
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     order: 7,
-    // image:
-    // "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+    image:
+      "https://images.pexels.com/photos/2440530/pexels-photo-2440530.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
       {
         subtitle: "Possessive Pronouns",
@@ -1200,7 +1200,7 @@ export const lessons = [
   },
   {
     title: "Question words",
-    type: "#1.0 | Basic",
+    type: "#1.0 | Basic Grammar",
     order: 8,
     image:
       "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -1550,6 +1550,72 @@ export const lessons = [
     ],
   },
 
+  {
+    title: "Demonstrative Pronouns",
+    type: "#1.0 | Basic Grammar",
+    order: 9,
+    image:
+      "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
+    elements: [
+      {
+        subtitle: "Here and There",
+        comments: "Vamos aprender a falar aqui, aí e lá.",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Here", portuguese: "Aqui" },
+          { english: "There", portuguese: "Lá" },
+          { english: "There", portuguese: "Lá" },
+        ],
+      },
+      {
+        subtitle: "Sentences with 'Here' and 'There'",
+        // comments: "Vamos aprender a falar aqui, aí e lá.",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          { english: "Thomas is here", portuguese: "Thomas está aqui." },
+          { english: "Mary isn't there", portuguese: "Mary não está lá." },
+          {
+            english: "Are your cousins there?",
+            portuguese: "Seus primos estão aí?",
+          },
+        ],
+      },
+      {
+        subtitle: "Demonstrative pronouns",
+        comments:
+          "Os pronomes demonstrativos em inglês são This, that, these e those.",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "This (for something that is closer to you)",
+            portuguese: "Este (para algo que está mais perto de você)",
+          },
+          {
+            english: "That (for something that is further from you)",
+            portuguese: "Esse (para algo que está mais longe de você)",
+          },
+          {
+            english: "These (for things that are closer to you)",
+            portuguese: "Estes (para coisas que estão mais perto de você)",
+          },
+          {
+            english: "Those (for things that are further from you)",
+            portuguese: "Esses (para coisas que estão mais longe de você)",
+          },
+        ],
+      },
+      {
+        type: "singleimages",
+        images: [
+          "https://ik.imagekit.io/vjz75qw96/assets/icons/thisthat2.jpg?updatedAt=1716316828055",
+          "https://ik.imagekit.io/vjz75qw96/assets/icons/thisthat.jpg?updatedAt=1716316828185",
+        ],
+      },
+    ],
+  },
   ///////////////// Vocabulary Basics
   {
     title: "Animals",
