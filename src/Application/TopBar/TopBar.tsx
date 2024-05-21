@@ -76,7 +76,7 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   );
 };
 
-export const TopBar: React.FC = () => {
+export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
   const [permissions, setPermissions] = useState<string>("");
@@ -103,9 +103,9 @@ export const TopBar: React.FC = () => {
   ];
 
   const topLinks: LinkItem[] = [
-    { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
+    { title: "Lessons", endpoint: "/english-lessons" },
     { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
-    { title: "English Lessons", endpoint: "/english-lessons" },
+    { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
     { title: "Ranking", endpoint: "/ranking" },
   ];
 
@@ -140,7 +140,6 @@ export const TopBar: React.FC = () => {
           style={{
             display: "grid",
             alignItems: "center",
-            gap: "0.5rem",
           }}
         >
           <NavLink
@@ -182,10 +181,7 @@ export const TopBar: React.FC = () => {
         </div>
         <div
           style={{
-            display: permissions == "superadmin" ? "grid" : "none",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            gap: "1rem",
+            display: permissions == "superadmin" ? "block" : "none",
           }}
         >
           {toAdm.map((link, index) => {
