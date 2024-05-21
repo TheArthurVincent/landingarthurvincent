@@ -2239,7 +2239,6 @@ export const lessons = [
       },
     ],
   },
-
   {
     title: "Dates and Days",
     type: "#1.0 | Basic Grammar",
@@ -2450,9 +2449,8 @@ export const lessons = [
           "05/26/1950",
         ],
       },
-
       {
-        subtitle: "Hoidays!",
+        subtitle: "Holidays!",
         image:
           "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&w=600",
         order: 5,
@@ -2494,7 +2492,6 @@ export const lessons = [
       },
     ],
   },
-
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
@@ -2902,5 +2899,227 @@ export const lessons = [
       },
     ],
   },
+  {
+    title: "Professions",
+    order: 5,
+    type: "#1.1 | Basic Vocabulary",
+    description: "Vamos aprender a dizer algumas profissões em inglês.",
+    image:
+      "https://static.mundoeducacao.uol.com.br/mundoeducacao/2019/11/professions.jpg",
+    elements: [
+      {
+        subtitle: "Vocabulary",
+        // comments:
+        //   "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          { english: "Doctor", portuguese: "Médico" },
+          { english: "Teacher", portuguese: "Professor" },
+          { english: "Engineer", portuguese: "Engenheiro" },
+          { english: "Artist", portuguese: "Artista" },
+          { english: "Lawyer", portuguese: "Advogado" },
+          { english: "Nurse", portuguese: "Enfermeiro/Enfermeira" },
+          { english: "Programmer", portuguese: "Programador" },
+          { english: "Chef", portuguese: "Chef de cozinha" },
+          { english: "Police Officer", portuguese: "Policial" },
+          { english: "Firefighter", portuguese: "Bombeiro" },
+        ],
+      },
+      {
+        subtitle: "Sentences",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The doctor is examining a patient's X-rays.",
+            portuguese: "O médico está examinando os raios-X de um paciente.",
+          },
+          {
+            english: "Is the doctor conducting a check-up?",
+            portuguese: "O médico está realizando um check-up?",
+          },
+          {
+            english:
+              "The teacher is explaining a difficult concept to the students.",
+            portuguese:
+              "O professor está explicando um conceito difícil para os alunos.",
+          },
+          {
+            english: "Are the engineers designing a new prototype?",
+            portuguese: "Os engenheiros estão projetando um novo protótipo?",
+          },
+          {
+            english: "The artist is painting a landscape in the studio.",
+            portuguese: "O artista está pintando uma paisagem no estúdio.",
+          },
+          {
+            english: "Is the lawyer representing a client in court?",
+            portuguese: "O advogado está representando um cliente no tribunal?",
+          },
+          {
+            english: "The nurse is administering injections to the patients.",
+            portuguese:
+              "A enfermeira está administrando injeções aos pacientes.",
+          },
+          {
+            english: "Is the programmer debugging the software code?",
+            portuguese: "O programador está depurando o código do software?",
+          },
+          {
+            english:
+              "The chef is preparing a special dish for the dinner service.",
+            portuguese:
+              "O chef está preparando um prato especial para o serviço de jantar.",
+          },
+          {
+            english:
+              "Are the police officers patrolling the neighborhood streets?",
+            portuguese: "Os policiais estão patrulhando as ruas do bairro?",
+          },
+          {
+            english:
+              "The firefighters are extinguishing a fire in the building.",
+            portuguese: "Os bombeiros estão extinguindo um incêndio no prédio.",
+          },
+          {
+            english: "Is the teacher teaching an online class?",
+            portuguese: "O professor está dando uma aula online?",
+          },
+          {
+            english: "The engineer is inspecting the construction site.",
+            portuguese:
+              "O engenheiro está inspecionando o local de construção.",
+          },
+          {
+            english: "Are the artists showcasing their work at the gallery?",
+            portuguese: "Os artistas estão exibindo seu trabalho na galeria?",
+          },
+          {
+            english:
+              "The lawyer is negotiating a settlement with the opposing counsel.",
+            portuguese:
+              "O advogado está negociando um acordo com o conselho adversário.",
+          },
+          {
+            english: "What kind of art is the artist known for?",
+            portuguese: "Que tipo de arte o artista é conhecido por?",
+          },
+          {
+            english:
+              "How much is the nurse trying to take care of the patients in the hospital?",
+            portuguese:
+              "Quanto a enfermeira está tentando cuidar dos pacientes no hospital?",
+          },
+          {
+            english: "The programmer is coding a new software.",
+            portuguese: "O programador está codificando um novo software.",
+          },
+          {
+            english: "When is the chef preparing the special dish?",
+            portuguese: "Quando o chef está preparando o prato especial?",
+          },
+          {
+            english: "How is the firefighter serving in the department?",
+            portuguese: "Como o bombeiro está servindo no departamento?",
+          },
+          {
+            english: "The doctor examines patients and prescribes medication.",
+            portuguese: "O médico examina pacientes e prescreve medicamentos.",
+          },
+          {
+            english: "The teacher educates students and assigns homework.",
+            portuguese: "O professor educa os alunos e atribui lição de casa.",
+          },
+          {
+            english: "The engineer designs buildings and constructs bridges.",
+            portuguese: "O engenheiro projeta edifícios e constrói pontes.",
+          },
+          {
+            english: "The artist creates paintings and sculptures.",
+            portuguese: "O artista cria pinturas e esculturas.",
+          },
+          {
+            english:
+              "The lawyer represents clients in court and offers legal advice.",
+            portuguese:
+              "O advogado representa clientes no tribunal e oferece consultoria jurídica.",
+          },
+          {
+            english:
+              "The nurse administers medication and assists doctors in surgeries.",
+            portuguese:
+              "A enfermeira administra medicamentos e auxilia os médicos em cirurgias.",
+          },
+          {
+            english:
+              "The programmer writes code and develops software applications.",
+            portuguese:
+              "O programador escreve código e desenvolve aplicativos de software.",
+          },
+          {
+            english:
+              "The chef prepares delicious meals and experiments with new recipes.",
+            portuguese:
+              "O chef prepara refeições deliciosas e experimenta novas receitas.",
+          },
+          {
+            english:
+              "The police officer patrols the streets and maintains public safety.",
+            portuguese:
+              "O policial patrulha as ruas e mantém a segurança pública.",
+          },
+          {
+            english:
+              "The firefighter extinguishes fires and rescues people from danger.",
+            portuguese:
+              "O bombeiro apaga incêndios e resgata pessoas do perigo.",
+          },
+          { english: "She is a doctor.", portuguese: "Ela é médica." },
+          {
+            english: "That doctor is 29 years old.",
+            portuguese: "Aquele médico tem 29 anos.",
+          },
+          {
+            english: "What is the doctor trying to do?",
+            portuguese: "O que o médico está tentando fazer?",
+          },
+          {
+            english: "They are engineers.",
+            portuguese: "Eles são engenheiros.",
+          },
+          {
+            english: "Those engineers are 35 years old.",
+            portuguese: "Aqueles engenheiros têm 35 anos.",
+          },
+          {
+            english: "When is the engineer coming here?",
+            portuguese: "Quando o engenheiro está vindo aqui?",
+          },
+          {
+            english: "The teacher is planning a lesson.",
+            portuguese: "O professor está planejando uma lição.",
+          },
+          {
+            english: "How old is the professor teaching in the university?",
+            portuguese:
+              "Quantos anos tem o professor que leciona na universidade?",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Text",
+        order: 2,
+        type: "text",
+        text: "In our society, all professions play their essential roles. Let me talk about a few, using my friends as examples. Mary is a doctor, and she is very dedicated to her patients. James, the teacher, is a master at sharing knowledge, guiding students to a brighter future. John and Carly are engineers, creating innovative solutions. Michael is a lawyer who defends justice, and Rebeca is a nurse always providing comfort in times of illness. Tom and Jerry, the chefs, with their culinary expertise, are adept at transforming ingredients into delicious meals. My friends Marco and Janah are police officers, maintaining order and ensuring safety in our communities, while the firefighter Jonathan is always facing danger to protect lives. My brother Jimmy and I are programmers, using our skills to develop the technology that shapes our modern world.",
+      },
+    ],
+  },
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
   /////////////////
 ];

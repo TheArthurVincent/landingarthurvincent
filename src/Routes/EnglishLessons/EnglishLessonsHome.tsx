@@ -62,12 +62,17 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
           >
             {" "}
             <div>
-              {/* <HThree>Difficulty</HThree> */}
               <select
+                style={{
+                  width: "10rem",
+                  fontFamily: "Athiti",
+                }}
                 value={selectedDifficulty}
                 onChange={handleDifficultyChange}
               >
-                <option value="">Select Difficulty</option>
+                <option hidden value="">
+                  Select Difficulty
+                </option>
                 {groupedLessons &&
                   Object.keys(groupedLessons).map((difficulty) => (
                     <option key={difficulty} value={difficulty}>
@@ -77,16 +82,19 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
               </select>
             </div>
             <div>
-              {/* <HThree>Lesson</HThree> */}
               <select
                 value={selectedLesson?.title || ""}
                 onChange={handleLessonChange}
                 disabled={selectedDifficulty ? false : true}
                 style={{
                   cursor: selectedDifficulty ? "auto" : "not-allowed",
+                  width: "10rem",
+                  fontFamily: "Athiti",
                 }}
               >
-                <option value="">Select Lesson</option>
+                <option hidden value="">
+                  Select Lesson
+                </option>
                 {groupedLessons[selectedDifficulty] &&
                   groupedLessons[selectedDifficulty]
                     .sort((a: any, b: any) => a.order - b.order)
