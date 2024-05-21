@@ -17,7 +17,7 @@ import { LevelCard } from "./LevelCard/LevelCard";
 import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
-import EnglishLessons from "./EnglishActivities/EnglishLessons";
+import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -71,7 +71,7 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "English Lessons",
-      component: <EnglishLessons headers={headers} />,
+      component: <EnglishLessonsHome headers={headers} />,
     },
     {
       title: "FAQ",

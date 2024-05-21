@@ -105,6 +105,7 @@ export const TopBar: React.FC = () => {
   const topLinks: LinkItem[] = [
     { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
     { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
+    { title: "English Lessons", endpoint: "/english-lessons" },
     { title: "Ranking", endpoint: "/ranking" },
   ];
 
@@ -131,13 +132,15 @@ export const TopBar: React.FC = () => {
       <Link to="/">
         <LogoStyle>{myLogo}</LogoStyle>
       </Link>
-      <TopBarNavigationBurger style={{ display: visible }}>
+      <TopBarNavigationBurger
+        onClick={handleVisible}
+        style={{ display: visible }}
+      >
         <div
           style={{
             display: "grid",
             alignItems: "center",
-            justifyContent: "space-evenly",
-            gap: "1rem",
+            gap: "0.5rem",
           }}
         >
           <NavLink

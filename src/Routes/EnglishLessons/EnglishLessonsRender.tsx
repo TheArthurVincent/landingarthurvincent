@@ -13,15 +13,15 @@ import MultipleTextsLessonModel from "./Assets/MultipleTextsLessonModel";
 import ImageLessonModel from "./Assets/ImageLessonModel";
 import ExerciseLessonModel from "./Assets/ExerciseLessonModel";
 
-interface EnglishActivitiesModelProps {
+interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
   theclass: any;
 }
 
-export default function EnglishActivities({
+export default function EnglishLessonsRender({
   headers,
   theclass,
-}: EnglishActivitiesModelProps) {
+}: EnglishLessonsRenderModelProps) {
   return (
     <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
       <Helmets text="Activities" />

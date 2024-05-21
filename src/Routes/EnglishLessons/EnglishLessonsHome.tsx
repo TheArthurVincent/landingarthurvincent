@@ -7,11 +7,11 @@ import {
 } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
-import EnglishActivities from "./EnglishActivities";
+import EnglishLessonsRender from "./EnglishLessonsRender";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 
-export default function EnglishLessons({ headers }: HeadersProps) {
+export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
   const [selectedLesson, setSelectedLesson] = useState<any>(null);
 
@@ -94,7 +94,7 @@ export default function EnglishLessons({ headers }: HeadersProps) {
       <RouteDiv>
         {selectedLesson && (
           <div>
-            <EnglishActivities theclass={selectedLesson} headers={headers} />
+            <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
           </div>
         )}
       </RouteDiv>

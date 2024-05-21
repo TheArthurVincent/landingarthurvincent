@@ -32,19 +32,22 @@ export const TopBarNavigation = styled.div`
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
+    @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 export const TopBarNavigationBurger = styled.div`
   position: fixed;
   flex-direction: column;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.1rem;
+  left: 0.1rem;
   z-index: 6;
   list-style: none;
   gap: 1rem;
   text-align: left;
   background-color: ${primaryColor()};
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   display: none;
   &.smooth {
     animation-name: slideInLeft;
