@@ -1955,7 +1955,6 @@ export const lessons = [
       },
     ],
   },
-
   {
     title: "Verbs in General",
     type: "#1.0 | Basic Grammar",
@@ -2219,7 +2218,7 @@ export const lessons = [
         subtexts: [
           {
             subtitle: "What is a house?",
-            text: "A house is a place where people live. It has different rooms, such as bedrooms, kitchens, dining rooms, and living rooms. Houses can be large or small, and often have a garden or backyard. People take care of their houses to keep them clean and comfortable.",
+            text: "A house is a place where people live. It has different rooms, such as bedrooms, kitchens, dining rooms, and living rooms. Houses come in different sizes, large or small, and often have a garden or backyard. People take care of their houses to keep them clean and comfortable.",
           },
           {
             subtitle: "What is a car?",
@@ -2231,12 +2230,18 @@ export const lessons = [
           },
           {
             subtitle: "What are feelings?",
-            text: "Feelings are emotional states that people experience in response to different situations or stimuli. They can include emotions such as happiness, sadness, anger, fear, and love. Feelings can be influenced by internal factors, such as thoughts and beliefs, as well as external factors, such as events and interactions with others.",
+            text: "Feelings are emotional states that people experience in response to different situations or stimuli. They include emotions such as happiness, sadness, anger, fear, and love. Feelings can be influenced by internal factors, such as thoughts and beliefs, as well as external factors, such as events and interactions with others.",
           },
         ],
       },
     ],
   },
+
+
+
+
+
+
   ///////////////// Vocabulary Basics
 
   {

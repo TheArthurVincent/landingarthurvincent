@@ -26,7 +26,7 @@ export default function DialogueLessonModel({
           {element.dialogue &&
             element.dialogue.map((text: any, index: number) => {
               return (
-                <div>
+                <div key={index}>
                   <div
                     style={{
                       display: "grid",
@@ -34,7 +34,6 @@ export default function DialogueLessonModel({
                     }}
                   >
                     <p
-                      key={index}
                       style={{
                         padding: "1rem",
                         margin: "5px",
