@@ -32,16 +32,6 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
   const items = levels();
   const actualHeaders = headers || {};
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
-    if (getLoggedUser.id) {
-      setTimeout(() => {
-        seeScore(getLoggedUser.id);
-      }, 100);
-    } else {
-      window.location.assign("/login");
-    }
-  }, []);
 
   const seeScore = async (id: string) => {
     setLoading(true);
@@ -60,11 +50,22 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
       console.error(error);
     }
   };
+  
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    if (getLoggedUser.id) {
+      setTimeout(() => {
+        seeScore(getLoggedUser.id);
+      }, 100);
+    } else {
+      window.location.assign("/login");
+    }
+  }, []);
 
   return (
     <NewLevelCardComponent
       style={{
-        border: `groove 6px ${items[level].color} `,
+        border: `double 5px ${items[level].color} `,
       }}
     >
       <DivCardLevel>

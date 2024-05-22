@@ -31,7 +31,7 @@ export const LevelCardComponent = styled.div`
 export const NewLevelCardComponent = styled.div`
   padding: 12px 8px;
   display: grid;
-  border-radius: 3rem;
+  border-radius: 4rem;
   text-align: center;
   background: linear-gradient(to bottom, #444 20%, #000 95%);
   color: white;
