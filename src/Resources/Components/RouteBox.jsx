@@ -2,7 +2,6 @@ import { keyframes, styled } from "styled-components";
 import {
   primaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
   alwaysWhite,
   alwaysBlack,
   transparentWhite,
@@ -20,6 +19,9 @@ export const RouteSizeControlBox = styled.div`
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
   }
+  @media (max-width: 1000px) {
+    max-width: 100vw;
+  }
 `;
 
 export const RouteDiv = styled.div`
@@ -29,6 +31,9 @@ export const RouteDiv = styled.div`
   padding: 0.5rem;
   box-shadow: 1px 1px 5px 1px #777;
   margin: 5px;
+  @media (max-width: 800px) {
+    margin: 0;
+  }
 `;
 
 export const OverFlow = styled.div`
@@ -57,6 +62,9 @@ export const BlogRouteSizeControlBox = styled.div`
     animation-name: slideInLeft;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
+  }
+  @media (max-width: 800px) {
+    max-width: 100vw;
   }
 `;
 

@@ -37,6 +37,17 @@ export const lessons = [
   ///////////Basic
   ///////////Basic
   ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
   {
     title: "Introducing Yourself / Basics",
     order: 1,
@@ -2728,12 +2739,6 @@ export const lessons = [
 
 
 
-
-
-
-
-
-
       {
         subtitle: "Answer the questions below.",
         order: 2,
@@ -2749,6 +2754,21 @@ export const lessons = [
       },
     ],
   },
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
