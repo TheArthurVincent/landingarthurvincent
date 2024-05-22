@@ -24,7 +24,6 @@ body {
   animation-name: slideInLeft;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
-  transition: all 0.2s ease-out; 
 }
 
 h1,
