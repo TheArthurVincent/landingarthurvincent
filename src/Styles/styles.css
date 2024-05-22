@@ -9,7 +9,7 @@
   --blue-arvin: #00132b;
   --green-arvin: #54bf08;
   --white: #fefefe;
-  
+
 }
 
 
@@ -21,6 +21,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--text);
+}
+
+div {
+  animation-name: slideInLeft;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  transition: all 0.1s ease-out;
 }
 
 h1,

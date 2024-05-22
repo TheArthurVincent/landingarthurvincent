@@ -222,7 +222,6 @@ export function Blog({ headers }: HeadersProps) {
                     style={{
                       maxWidth: "100%",
                       marginRight: "0.5rem",
-                      padding: "0.3rem",
                       fontSize: "1.5rem",
                       height: "1.5rem",
                       textAlign: "center",
@@ -254,7 +253,6 @@ export function Blog({ headers }: HeadersProps) {
               })}
             </div>
           </div>
-          {/* {!isNextClassVisible ? ( */}
           <Link
             style={{
               maxWidth: "100%",
@@ -282,8 +280,6 @@ export function Blog({ headers }: HeadersProps) {
               alignItems: "center",
               justifyContent: "center",
               border: `solid 1px ${lightGreyColor()} `,
-              boxShadow: "1px 1px 5px 1px #ccc",
-              paddingBottom: "5rem",
               marginBottom: "1rem",
             }}
           >

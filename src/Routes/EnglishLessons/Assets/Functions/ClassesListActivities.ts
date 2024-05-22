@@ -3,6 +3,51 @@ export const lessons = [
   ///////////Basic
   ///////////Basic
   ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
+  ///////////Basic
   {
     title: "Introducing Yourself / Basics",
     order: 1,
@@ -21,9 +66,9 @@ export const lessons = [
           { english: "Hello!", portuguese: "Olá!" },
           { english: "Hi", portuguese: "Oi" },
           { english: "How are you?", portuguese: "Como você está?" },
-          { english: "I’m fine", portuguese: "Estou bem" },
-          { english: "I’m good", portuguese: "Estou bem" },
-          { english: "I’m doing well.", portuguese: "Estou indo bem" },
+          { english: "I'm fine", portuguese: "Estou bem" },
+          { english: "I'm good", portuguese: "Estou bem" },
+          { english: "I'm doing well.", portuguese: "Estou indo bem" },
           { english: "Good morning!", portuguese: "Bom dia!" },
           { english: "Good afternoon!", portuguese: "Boa tarde!" },
           { english: "Good evening!", portuguese: "Boa noite!" },
@@ -32,7 +77,7 @@ export const lessons = [
           { english: "Thank you", portuguese: "Obrigado (a)" },
           { english: "Please", portuguese: "Por favor." },
           { english: "Goodbye", portuguese: "Tchau." },
-          { english: "What’s your name?", portuguese: "Qual é o seu nome?" },
+          { english: "What's your name?", portuguese: "Qual é o seu nome?" },
           { english: "Where are you from?", portuguese: "De onde você é?" },
           { english: "I don't understand.", portuguese: "Eu não entendo." },
           { english: "Can you help me?", portuguese: "Você pode me ajudar?" },
@@ -128,11 +173,11 @@ export const lessons = [
         type: "exercise",
         items: [
           "How do you spell your name?",
-          "How do you spell your mother’s last name?",
-          "How do you spell your mother’s first name?",
-          "How do you spell your best friend’s last name?",
-          "How do you spell your best friend’s last name?",
-          "How do you spell your favorite book’s name?",
+          "How do you spell your mother's last name?",
+          "How do you spell your mother's first name?",
+          "How do you spell your best friend's last name?",
+          "How do you spell your best friend's last name?",
+          "How do you spell your favorite book's name?",
           "How do you spell 'International'?",
           "How do you spell 'Seventy'?",
           "How do you spell 'Tonight'?",
@@ -500,7 +545,7 @@ export const lessons = [
             portuguese: "Não estamos de férias.",
           },
           {
-            english: "They aren’t aware of the changes.",
+            english: "They aren't aware of the changes.",
             portuguese: "Eles não estão cientes das mudanças.",
           },
           {
@@ -666,7 +711,7 @@ export const lessons = [
             portuguese: "Não estamos de férias.",
           },
           {
-            english: "They aren’t aware of the changes.",
+            english: "They aren't aware of the changes.",
             portuguese: "Eles não estão cientes das mudanças.",
           },
           {
@@ -1093,7 +1138,7 @@ export const lessons = [
             english: "Her father's car.",
             portuguese: "O carro do meu pai e o nosso carro.",
           },
-          { english: "Mary’s recipe.", portuguese: "A receita da Mary." },
+          { english: "Mary's recipe.", portuguese: "A receita da Mary." },
           {
             english: "My cousin's computer.",
             portuguese: "O computador do nosso primo.",
@@ -1693,11 +1738,11 @@ export const lessons = [
         type: "exercise",
         items: [
           "What is this?",
-          "What’s that?",
+          "What's that?",
           "What are these?",
           "What are those?",
-          "Who’s this?",
-          "Who’s that?",
+          "Who's this?",
+          "Who's that?",
           "How much is this?",
           "How much is that?",
           "How much are these?",
@@ -2015,7 +2060,6 @@ export const lessons = [
           { english: "To borrow", portuguese: "Pegar emprestado" },
         ],
       },
-
       {
         subtitle: "Conjugations of EAT and DRINK",
         comments: "Veja abaixo a conjugação de dois desses verbos no presente",
@@ -2040,7 +2084,6 @@ export const lessons = [
           { english: "They drink", portuguese: "Eles/Elas bebem" },
         ],
       },
-
       {
         subtitle: "Congugations in general",
         comments: "Veja abaixo a conjugação desses verbos no presente",
@@ -2069,7 +2112,6 @@ export const lessons = [
           { english: "I speak", portuguese: "Eu falo" },
         ],
       },
-
       {
         subtitle: "Present continuous",
         comments:
@@ -2099,7 +2141,7 @@ export const lessons = [
             portuguese: "Tom e Mark estão comendo batatas fritas.",
           },
           {
-            english: "Mary isn’t doing this.",
+            english: "Mary isn't doing this.",
             portuguese: "Mary não está fazendo isso.",
           },
           {
@@ -2164,7 +2206,7 @@ export const lessons = [
             portuguese:
               "Ele assiste a vídeos de culinária para aprender novas receitas.",
           },
-          { english: "It’s raining here.", portuguese: "Está chovendo aqui." },
+          { english: "It's raining here.", portuguese: "Está chovendo aqui." },
           {
             english: "The minimum age to drive here is eighteen.",
             portuguese: "A idade mínima para dirigir aqui é dezoito anos.",
@@ -2211,7 +2253,6 @@ export const lessons = [
           "Minha irmã não está rindo",
         ],
       },
-
       {
         subtitle: "Texts",
         // image:
@@ -2261,7 +2302,6 @@ export const lessons = [
           { english: "Saturday", portuguese: "Sábado" },
         ],
       },
-
       {
         subtitle: "Months",
         // comments: "Vamos aprender alguns verbos no ingles",
@@ -2282,40 +2322,6 @@ export const lessons = [
           { english: "December", portuguese: "Dezembro" },
         ],
       },
-
-      {
-        subtitle: "Ordinal Numbers",
-        // comments: "Vamos aprender alguns verbos no ingles",
-        order: 0,
-        type: "sentences",
-        sentences: [
-          { english: "1st", portuguese: "First" },
-          { english: "2nd", portuguese: "Second" },
-          { english: "3rd", portuguese: "Third" },
-          { english: "4th", portuguese: "Fourth" },
-          { english: "5th", portuguese: "Fifth" },
-          { english: "6th", portuguese: "Sixth" },
-          { english: "7th", portuguese: "Seventh" },
-          { english: "8th", portuguese: "Eighth" },
-          { english: "9th", portuguese: "Ninth" },
-          { english: "10th", portuguese: "Tenth" },
-          { english: "11th", portuguese: "Eleventh" },
-          { english: "12th", portuguese: "Twelfth" },
-          { english: "13th", portuguese: "Thirteenth" },
-          { english: "14th", portuguese: "Fourteenth" },
-          { english: "15th", portuguese: "Fifteenth" },
-          { english: "16th", portuguese: "Sixteenth" },
-          { english: "17th", portuguese: "Seventeenth" },
-          { english: "18th", portuguese: "Eighteenth" },
-          { english: "19th", portuguese: "Nineteenth" },
-          { english: "20th", portuguese: "Twentieth" },
-          { english: "21st", portuguese: "Twenty-first" },
-          { english: "22nd", portuguese: "Twenty-second" },
-          { english: "23rd", portuguese: "Twenty-third" },
-          { english: "24th", portuguese: "Twenty-fourth" },
-        ],
-      },
-
       {
         subtitle: "Ordinal Numbers",
         // comments: "Vamos aprender alguns verbos no ingles",
@@ -2348,7 +2354,6 @@ export const lessons = [
           { english: "24th", portuguese: "Twenty-fourth" },
         ],
       },
-
       {
         subtitle: "Dates",
         // comments: "Vamos aprender alguns verbos no ingles",
@@ -2402,7 +2407,6 @@ export const lessons = [
           },
         ],
       },
-
       {
         subtitle: "2001-2009",
         comments:
@@ -2421,7 +2425,6 @@ export const lessons = [
           { portuguese: "2009", english: "Twenty 'O' Nine" },
         ],
       },
-
       {
         subtitle: "What date is this?",
         order: 5,
@@ -2453,7 +2456,7 @@ export const lessons = [
         subtitle: "Holidays!",
         image:
           "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&w=600",
-        order: 5,
+        order: 6,
         type: "multipletexts",
         subtexts: [
           {
@@ -2492,6 +2495,312 @@ export const lessons = [
       },
     ],
   },
+  {
+    title: "-ing | Objetivicando verbos",
+    type: "#1.0 | Basic Grammar",
+    order: 13,
+    image:
+      "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [
+      {
+        subtitle: "Examples",
+        comments: "Vamos aprender a objetificar verbos no inglês",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Playing video games isn't very productive.",
+            portuguese: "Jogar video game não é muito produtivo.",
+          },
+          {
+            english: "Cooking is my favorite activity.",
+            portuguese: "Cozinhar é minha atividade favorita.",
+          },
+          {
+            english: "Learning languages is absolutely necessary.",
+            portuguese: "Aprender idiomas é absolutamente necessário.",
+          },
+          {
+            english: "I love teaching English!",
+            portuguese: "Eu amo ensinar inglês!",
+          },
+          {
+            english: "Sharing knowledge is mandatory to preserve our history.",
+            portuguese:
+              "Compartilhar conhecimento é obrigatório para preservar nossa história.",
+          },
+        ],
+      },
+      {
+        subtitle: "Examples",
+        comments: "Vamos aprender a dizer que somos bons ou ruins em algo.",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I'm bad at playing video games.",
+            portuguese: "Sou ruim em jogar video game.",
+          },
+          {
+            english: "She's good at cooking.",
+            portuguese: "Ela é boa em cozinhar.",
+          },
+          {
+            english: "They are professionals at learning languages.",
+            portuguese: "Eles são profissionais em aprender idiomas.",
+          },
+          {
+            english: "We suck at teaching English!",
+            portuguese: "Nós somos péssimos em ensinar inglês!",
+          },
+          {
+            english: "He is a master at sharing knowledge.",
+            portuguese: "Ele é um mestre em compartilhar conhecimento.",
+          },
+        ],
+      },
+      {
+        subtitle: "Answer the questions below.",
+        order: 2,
+        type: "exercise",
+        items: [
+          "What are your favorite activities?",
+          "What are your least favorite activities?",
+          "What are you good at?",
+          "What is your best friend good at?",
+          "What are you bad at?",
+          "What is your best friend bad at?",
+        ],
+      },
+    ],
+  },
+  {
+    title: "To be (past tense)",
+    type: "#1.0 | Basic Grammar",
+    order: 14,
+    // image: "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [
+      {
+        subtitle: "Affirmations",
+        comments: "Vamos aprender o verbo To be em inglês no passado",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I was.",
+            portuguese: "Eu era / estava.",
+          },
+          {
+            english: "You were.",
+            portuguese: "Você era / estava.",
+          },
+          {
+            english: "He was.",
+            portuguese: "Ele era / estava.",
+          },
+          {
+            english: "She was.",
+            portuguese: "Ela era / estava.",
+          },
+          {
+            english: "It was.",
+            portuguese: "Ele/ela era / estava.",
+          },
+          {
+            english: "We were.",
+            portuguese: "Nós éramos / estávamos.",
+          },
+          {
+            english: "You (plural) were.",
+            portuguese: "Vocês eram / estavam.",
+          },
+          {
+            english: "They were.",
+            portuguese: "Eles/Elas eram / estavam.",
+          },
+        ],
+      },
+      {
+        subtitle: "Questions",
+        comments:
+          "Vamos aprender o verbo To be em inglês no passado em perguntas",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Was I?",
+            portuguese: "Eu era / estava?",
+          },
+          {
+            english: "Were you?",
+            portuguese: "Você era / estava?",
+          },
+          {
+            english: "Was he?",
+            portuguese: "Ele era / estava?",
+          },
+          {
+            english: "Was she?",
+            portuguese: "Ela era / estava?",
+          },
+          {
+            english: "Was it?",
+            portuguese: "Ele/ela era / estava?",
+          },
+          {
+            english: "Were we?",
+            portuguese: "Nós éramos / estávamos?",
+          },
+          {
+            english: "Were you (plural)?",
+            portuguese: "Vocês eram / estavam?",
+          },
+          {
+            english: "Were they?",
+            portuguese: "Eles/Elas eram / estavam?",
+          },
+        ],
+      },
+      {
+        subtitle: "Negations",
+        comments:
+          "Vamos aprender o verbo To be em inglês no passado em negações",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I was not.",
+            portuguese: "Eu não era / estava.",
+          },
+          {
+            english: "You were not.",
+            portuguese: "Você não era / estava.",
+          },
+          {
+            english: "He was not.",
+            portuguese: "Ele não era / estava.",
+          },
+          {
+            english: "She was not.",
+            portuguese: "Ela não era / estava.",
+          },
+          {
+            english: "It was not.",
+            portuguese: "Ele/ela não era / estava.",
+          },
+          {
+            english: "We were not.",
+            portuguese: "Nós não éramos / estávamos.",
+          },
+          {
+            english: "You (plural) were not.",
+            portuguese: "Vocês não eram / estavam.",
+          },
+          {
+            english: "They were not.",
+            portuguese: "Eles/Elas não eram / estavam.",
+          },
+          {
+            english: "I wasn't.",
+            portuguese: "Eu não era / estava.",
+          },
+          {
+            english: "You weren't.",
+            portuguese: "Você não era / estava.",
+          },
+          {
+            english: "He wasn't.",
+            portuguese: "Ele não era / estava.",
+          },
+          {
+            english: "She wasn't.",
+            portuguese: "Ela não era / estava.",
+          },
+          {
+            english: "It wasn't.",
+            portuguese: "Ele/ela não era / estava.",
+          },
+          {
+            english: "We weren't.",
+            portuguese: "Nós não éramos / estávamos.",
+          },
+          {
+            english: "You (plural) weren't.",
+            portuguese: "Vocês não eram / estavam.",
+          },
+          {
+            english: "They weren't.",
+            portuguese: "Eles/Elas não eram / estavam.",
+          },
+        ],
+      },
+
+
+
+
+
+      {
+        subtitle: "Answer the questions below.",
+        order: 2,
+        type: "exercise",
+        items: [
+          "What are your favorite activities?",
+          "What are your least favorite activities?",
+          "What are you good at?",
+          "What is your best friend good at?",
+          "What are you bad at?",
+          "What is your best friend bad at?",
+        ],
+      },
+    ],
+  },
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
+  ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
@@ -2672,7 +2981,6 @@ export const lessons = [
             english: "My sister is friendly.",
             portuguese: "Minha irmã é simpática.",
           },
-
           {
             english: "My grandmother is wise.",
             portuguese: "Minha avó é sábia.",
@@ -2685,7 +2993,6 @@ export const lessons = [
             english: "My cousin is visiting.",
             portuguese: "Meu primo/prima está visitando.",
           },
-
           {
             english: "My aunt is coming over.",
             portuguese: "Minha tia está vindo.",
@@ -2695,7 +3002,6 @@ export const lessons = [
             english: "The child is playing.",
             portuguese: "A criança está brincando.",
           },
-
           {
             english: "My mother is not tired.",
             portuguese: "Minha mãe não está cansada.",
@@ -3116,6 +3422,32 @@ export const lessons = [
       },
     ],
   },
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
+  /////////////////
   /////////////////
   /////////////////
   /////////////////
