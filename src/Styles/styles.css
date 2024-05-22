@@ -26,6 +26,12 @@ body {
   animation-timing-function: ease-out;
 }
 
+div,
+span {
+  transition: all 0.1s ease-out;
+
+}
+
 h1,
 h2,
 h3,
