@@ -110,8 +110,8 @@ export const levels = () => {
     {
       level: 9,
       icon: "fa fa-superpowers",
-      color: "#864421",
-      textcolor: "#eee",
+      color: "#000",
+      textcolor: "#fff",
       text: "Black Belt Bronze Stripe",
       backgroundcolor: "#111",
       totalScore: 125000,
@@ -123,8 +123,8 @@ export const levels = () => {
     {
       level: 10,
       icon: "fa fa-superpowers",
-      color: "grey",
-      textcolor: "white",
+      color: "#000",
+      textcolor: "#fff",
       text: "Black Belt Silver Stripe",
       backgroundcolor: "#111",
       totalScore: 160000,
@@ -136,8 +136,8 @@ export const levels = () => {
     {
       level: 11,
       icon: "fa fa-superpowers",
-      color: "#F4D54F",
-      textcolor: "black",
+      color: "#000",
+      textcolor: "#fff",
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#111",
       totalScore: 200000,
@@ -147,12 +147,12 @@ export const levels = () => {
       image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/11.png?updatedAt=1715899268475",
     },
     {
+      color: "#00132b",
+      backgroundcolor: "#00132b",
+      textcolor: "#00132b",
       level: 12,
       icon: "fa fa-eercast",
-      color: "#000",
-      backgroundcolor: "#222",
       image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
-      textcolor: "white",
       text: "Supreme",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
@@ -161,10 +161,10 @@ export const levels = () => {
     {
       icon: "fa fa-eercast",
       level: 13,
-      color: "#000",
+      color: "#54bf08",
       backgroundcolor: "#ccc",
       discount: "10%",
-      textcolor: "black",
+      textcolor: "#54bf08",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       text: "loading",

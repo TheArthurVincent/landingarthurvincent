@@ -124,9 +124,9 @@
     {
       "level": 9,
       "icon": "fa fa-eercast",
-      "color": "#000",
-      "textcolor": "white",
-      "backgroundcolor": "#222",
+      "color": "#00132b",
+      "textcolor": "#00132b",
+      "backgroundcolor": "#00132b",
       "text": "Supreme",
       "discount": "10%",
       "background": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
