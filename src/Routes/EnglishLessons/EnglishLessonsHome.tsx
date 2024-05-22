@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   HOne,
   HTwo,
@@ -8,9 +8,7 @@ import {
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
-import { HThree } from "../MyClasses/MyClasses.Styled";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
-import { primaryColor } from "../../Styles/Styles";
 
 export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
@@ -42,9 +40,9 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
       <RouteDiv
         className="no-print"
         style={{
-          position: "fixed",
-          backgroundColor: primaryColor(),
-          right: 0,
+          position: selectedLesson ? "fixed" : "static",
+          right: 10,
+          transition: "right 0.3s ease",
         }}
       >
         <div
@@ -110,9 +108,18 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
       </RouteDiv>
 
       <RouteDiv>
-        {selectedLesson && (
+        {selectedLesson ? (
           <div>
             <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
+          </div>
+        ) : (
+          <div
+            style={{
+              textAlign: "center",
+              height: "4.5rem",
+            }}
+          >
+            Escolha uma lição
           </div>
         )}
       </RouteDiv>
