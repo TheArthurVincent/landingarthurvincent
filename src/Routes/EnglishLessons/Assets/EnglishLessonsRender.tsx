@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HOne,
   HTwo,
   RouteSizeControlBox,
 } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
-import Helmets from "../../../Resources/Helmets";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import TextLessonModel from "./LessonsModels/TextLessonModel";
 import SentenceLessonModel from "./LessonsModels/SentenceLessonModel";
@@ -15,6 +14,7 @@ import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
 import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
+import HTMLEditor from "../../../Resources/Components/HTMLEditor";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -25,6 +25,10 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
 }: EnglishLessonsRenderModelProps) {
+  const [newDescription, setNewDescription] = useState<string>("");
+  const handleDescriptionChange = (htmlContent: string) => {
+    setNewDescription(htmlContent);
+  };
   return (
     <div
       style={{
@@ -33,6 +37,10 @@ export default function EnglishLessonsRender({
         backgroundColor: "white",
       }}
     >
+      <HOne>Notes</HOne>
+      <span className="no-print">
+        <HTMLEditor onChange={handleDescriptionChange} />
+      </span>
       <HOne>{theclass.title}</HOne>
       {theclass.image && (
         <ImgLesson src={theclass.image} alt={theclass.title} />
@@ -85,7 +93,7 @@ export default function EnglishLessonsRender({
             )}
             {element.type === "sentences" ? (
               <SentenceLessonModel
-                sentences={element.sentences}
+                element={element}
                 headers={headers}
               />
             ) : element.type === "text" ? (
@@ -117,6 +125,7 @@ export default function EnglishLessonsRender({
         ))}
       <HTwo>Homework</HTwo>
       <textarea className="comments" />
+      <div dangerouslySetInnerHTML={{ __html: newDescription }} />
     </div>
   );
 }

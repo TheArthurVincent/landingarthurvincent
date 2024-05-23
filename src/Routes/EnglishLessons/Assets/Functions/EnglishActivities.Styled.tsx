@@ -19,7 +19,6 @@ export const UlSentences = styled.ul`
   padding: 0.5rem;
   display: grid;
   gap: 0.8rem;
-  grid-template-columns: 1fr 1fr 1fr;
 
   @media (max-width: 1500px) {
     grid-template-columns: 1fr 1fr;

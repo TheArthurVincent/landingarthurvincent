@@ -40,8 +40,9 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
       <RouteDiv
         className="no-print"
         style={{
-          position: selectedLesson ? "fixed" : "static",
-          right: 10,
+          position: "fixed",
+          backgroundColor: "white",
+
           transition: "right 0.3s ease",
         }}
       >
@@ -53,7 +54,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
         >
           <div
             style={{
-              display: "grid",
+              display: "flex",
               textAlign: "center",
               gap: "0.5rem",
             }}
@@ -62,6 +63,8 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
             <div>
               <select
                 style={{
+                  backgroundColor: "white",
+
                   width: "10rem",
                   fontFamily: "Athiti",
                 }}
@@ -85,6 +88,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
                 onChange={handleLessonChange}
                 disabled={selectedDifficulty ? false : true}
                 style={{
+                  backgroundColor: "white",
                   cursor: selectedDifficulty ? "auto" : "not-allowed",
                   width: "10rem",
                   fontFamily: "Athiti",
@@ -108,18 +112,9 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
       </RouteDiv>
 
       <RouteDiv>
-        {selectedLesson ? (
+        {selectedLesson && (
           <div>
             <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
-          </div>
-        ) : (
-          <div
-            style={{
-              textAlign: "center",
-              height: "4.5rem",
-            }}
-          >
-            Escolha uma lição
           </div>
         )}
       </RouteDiv>

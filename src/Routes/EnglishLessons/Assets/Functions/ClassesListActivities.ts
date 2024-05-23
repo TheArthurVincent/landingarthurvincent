@@ -118,6 +118,7 @@ export const lessons = [
           "Veja abaixo as letras do alfabeto em inglês e suas respectivas pronúncias",
         order: 0,
         type: "sentences",
+        grid: 3,
         sentences: [
           { english: "A", portuguese: "êi" },
           { english: "B", portuguese: "bí" },
@@ -283,6 +284,7 @@ export const lessons = [
         comments:
           "Estes são os artigos indefinidos, ou seja, 'um' ou 'uma'. Você usa 'a' para palavras que antecedem consoantes, e 'an' para palavras que antecedem vogais.",
         order: 0,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "a doctor", portuguese: "um médico / uma médica" },
@@ -387,6 +389,7 @@ export const lessons = [
         subtitle: "The",
         comments: "Este é o artigo indefinido, ou seja, 'o / a / os / as'.",
         order: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "the doctor", portuguese: "o médico / a médica" },
@@ -472,6 +475,7 @@ export const lessons = [
         subtitle: "Vocabulary",
         comments: "Vocabulário para praticar",
         order: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -978,6 +982,14 @@ export const lessons = [
             english: "We will meet in the morning.",
             portuguese: "Nós nos encontraremos pela manhã.",
           },
+          {
+            english: "I finished my course in January.",
+            portuguese: "Eu terminei meu curso em Janeiro.",
+          },
+          {
+            english: "She finished her course in 2024.",
+            portuguese: "Ela terminou o curso dela 2024.",
+          },
         ],
       },
       {
@@ -999,11 +1011,16 @@ export const lessons = [
             english: "Her birthday is on July 10th.",
             portuguese: "O aniversário dela é no dia 10 de julho.",
           },
+          {
+            english: "My meeting is on Friday.",
+            portuguese: "Minha reunião é na sexta-feira.",
+          },
         ],
       },
       {
         subtitle: "Preposition: At (em / às)",
         order: 8,
+        comments: "Used to indicate specific locations ou time. .",
         type: "sentences",
         description: "Used to indicate specific locations or points in time.",
         sentences: [
@@ -1013,8 +1030,8 @@ export const lessons = [
             portuguese: "Eu vou te ver às 17h.",
           },
           {
-            english: "He is good at math.",
-            portuguese: "Ele é bom em matemática.",
+            english: "We're at the hospital.",
+            portuguese: "Estamos no hospital.",
           },
         ],
       },
@@ -1024,9 +1041,15 @@ export const lessons = [
         type: "dialogue",
         dialogue: [
           "Where are you going?",
-          "I am going to the market.",
-          "What is this book about?",
+          "I am going to the bookstore.",
+          "Why?",
+          "Because I need to buy a book.",
+          "What is the book about?",
           "It is about the history of art.",
+          "Is it for you?",
+          "No, it's for my sister.",
+          "Where is she now?",
+          "She is at home.",
         ],
       },
     ],
@@ -1900,8 +1923,8 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "20-99",
-        comments: "Vamos aprender a falar os números de 20 - 99",
+        subtitle: "100-999",
+        comments: "Vamos aprender a falar os números de 100 - 999",
         order: 3,
         type: "sentences",
         sentences: [
@@ -1920,9 +1943,9 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "1000-9000",
+        subtitle: "1,000-999,999",
         comments:
-          "Vamos aprender a falar os números de 1000 a 9000 com variação nos milhares",
+          "Vamos aprender a falar os números de 1,000 a 999,999 com variação nos milhares",
         order: 4,
         type: "sentences",
         sentences: [
@@ -2734,10 +2757,6 @@ export const lessons = [
           },
         ],
       },
-
-
-
-
 
       {
         subtitle: "Answer the questions below.",

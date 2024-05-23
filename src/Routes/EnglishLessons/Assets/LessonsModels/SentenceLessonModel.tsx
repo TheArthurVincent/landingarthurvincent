@@ -6,17 +6,26 @@ import { UlSentences } from "../Functions/EnglishActivities.Styled";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
-  sentences: any;
+  element: any;
 }
 
 export default function SentenceLessonModel({
   headers,
-  sentences,
+  element,
 }: SentenceLessonModelProps) {
   return (
-    <UlSentences>
-      {sentences &&
-        sentences.map((sentence: any, i: number) => (
+    <UlSentences
+      style={{
+        gridTemplateColumns:
+          element.grid === 3
+            ? "1fr 1fr 1fr"
+            : element.grid === 2
+            ? "1fr 1fr"
+            : "1fr",
+      }}
+    >
+      {element.sentences &&
+        element.sentences.map((sentence: any, i: number) => (
           <li
             key={i}
             style={{
