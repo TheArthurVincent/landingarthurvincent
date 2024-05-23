@@ -81,7 +81,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
               onChange={handleDifficultyChange}
             >
               <option hidden value="">
-                Select Difficulty
+                Select Category
               </option>
               {groupedLessons &&
                 Object.keys(groupedLessons).map((difficulty) => (
@@ -109,7 +109,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
                   .sort((a: any, b: any) => a.order - b.order)
                   .map((lesson: any, index: number) => (
                     <option key={index} value={lesson.title}>
-                      {lesson.title}
+                      {lesson.order + "- " + lesson.title}
                     </option>
                   ))}
             </select>

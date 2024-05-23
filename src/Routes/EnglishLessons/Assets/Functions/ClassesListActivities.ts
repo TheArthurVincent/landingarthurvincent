@@ -236,7 +236,7 @@ export const lessons = [
   },
   {
     title: "Personal Pronouns",
-    order: 3,
+    order:7,
     type: "#1.0 | Basic Grammar",
     description:
       "Os pronomes pessoais em inglês são fundamentais para construir frases. Eles se dividem em 'subject pronouns' e 'object pronouns'.",
@@ -369,7 +369,7 @@ export const lessons = [
   },
   {
     title: "Articles",
-    order: 4,
+    order: 8,
     type: "#1.0 | Basic Grammar",
     description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
@@ -666,7 +666,7 @@ export const lessons = [
   },
   {
     title: "To be - Present tense",
-    order: 5,
+    order: 9,
     type: "#1.0 | Basic Grammar",
     description:
       "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
@@ -958,7 +958,7 @@ export const lessons = [
   {
     title: "Prepositions #1",
     type: "#1.0 | Basic Grammar",
-    order: 6,
+    order: 10,
     image:
       "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/company.jpg?updatedAt=1688423305321",
     elements: [
@@ -1153,7 +1153,7 @@ export const lessons = [
   {
     title: "Possessions #1",
     type: "#1.0 | Basic Grammar",
-    order: 7,
+    order: 11,
     image:
       "https://images.pexels.com/photos/2440530/pexels-photo-2440530.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
@@ -1368,7 +1368,7 @@ export const lessons = [
   {
     title: "Question words",
     type: "#1.0 | Basic Grammar",
-    order: 8,
+    order: 13,
     image:
       "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
@@ -1717,7 +1717,7 @@ export const lessons = [
   {
     title: "Demonstrative Pronouns",
     type: "#1.0 | Basic Grammar",
-    order: 9,
+    order: 14,
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
     elements: [
@@ -1958,7 +1958,7 @@ export const lessons = [
   {
     title: "Numbers",
     type: "#1.0 | Basic Grammar",
-    order: 10,
+    order: 15,
     image:
       "data:image/png;base64,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",
     elements: [
@@ -2123,7 +2123,7 @@ export const lessons = [
   {
     title: "Verbs in General",
     type: "#1.0 | Basic Grammar",
-    order: 11,
+    order: 17,
     image:
       "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
     elements: [
@@ -2400,7 +2400,7 @@ export const lessons = [
   {
     title: "Dates and Days",
     type: "#1.0 | Basic Grammar",
-    order: 12,
+    order: 18,
     image:
       "https://images.pexels.com/photos/273153/pexels-photo-273153.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
@@ -2615,7 +2615,7 @@ export const lessons = [
   {
     title: "-ing | Objetivicando verbos",
     type: "#1.0 | Basic Grammar",
-    order: 13,
+    order: 19,
     image:
       "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
@@ -2694,7 +2694,7 @@ export const lessons = [
   {
     title: "To be (past tense)",
     type: "#1.0 | Basic Grammar",
-    order: 14,
+    order: 20,
     image:
       "https://media.istockphoto.com/id/858917054/photo/happy-friends-travel-expedition-concept.jpg?b=1&s=612x612&w=0&k=20&c=2MeMqro7z7mI9qW_Bn5bhv2DA9zja6psLKYeKoB1eAA=",
     elements: [
@@ -3035,9 +3035,9 @@ export const lessons = [
   {
     title: "Don't / Doesn't",
     type: "#1.0 | Basic Grammar",
-    order: 15,
+    order: 21,
     description:
-      "O 'don't e o 'doesn't' são usados para fazer negações com verbos em geral que não são o 'to be'. Funcionam como se fosse o 'não' do português.",
+      "O 'don't (do not) e o 'doesn't (does not)' são usados para fazer negações com verbos em geral que não são o 'to be'. Funcionam como se fosse o 'não' do português.",
     image:
       "https://media.istockphoto.com/id/952805548/pt/foto/dont-forget-date-meeting-remind-reminder-notepaper-business-concept.jpg?b=1&s=612x612&w=0&k=20&c=qQdlyPviRLKQ0LdX6IogFq20GnIdO1Bex3ydRYY4YzM=",
     elements: [
@@ -3082,7 +3082,7 @@ export const lessons = [
       },
       {
         subtitle: "Veja algumas frases de exemplo.",
-        order: 0,
+        order: 1,
         type: "sentences",
         sentences: [
           {
@@ -3165,7 +3165,7 @@ export const lessons = [
       },
       {
         subtitle: "What word is this?",
-        order: 1,
+        order: 2,
         type: "listenandtranslate",
         audios: [
           {
@@ -3251,8 +3251,26 @@ export const lessons = [
         ],
       },
       {
+        subtitle: "Transforme as frases abaixo para o negativo",
+        comments:
+          "Em inglês, quando queremos perguntar como se escreve/soletra uma palavra, perguntamos 'How do you spell...?' e completamos com a palavra em questão!",
+        order: 3,
+        type: "exercise",
+        items: [
+          "We eat sushi at the Japanese restaurant every Friday.",
+          "He reads an interesting book every night before going to sleep.",
+          "They listen to classical music while working in the office.",
+          "He speaks three languages fluently.",
+          "She writes inspirational poetry in her free time.",
+          "He watches the sunset every night from his balcony.",
+          "They learn to play the piano in music classes.",
+          "She teaches mathematics to elementary school students.",
+          "He watches cooking videos to learn new recipes.",
+        ],
+      },
+      {
         subtitle: "Text",
-        order: 2,
+        order: 4,
         type: "text",
         text: "Learning foreign languages is very important. The ability to speak various languages opens doors to countless options in our interconnected world. First of all, it improves communication abilities, making people able to engage with people from different backgrounds in productive ways. Furthermore, acquiring a language promotes empathy and cultural understanding, fostering respect for others. Additionally, technology makes it easier to access a variety of professional and academic resources. Having fluency in another language improves people's chances for employment because it makes one more competitive in the global labor market and allows one to conduct business internationally. In the end, learning a foreign language doesn't just improve people's lives, but it also gives them new perspectives and gives them the confidence and competence to navigate a more diversified and linked society. If you don't know what career you want to follow, start learning a foreign language!",
       },
@@ -3262,15 +3280,138 @@ export const lessons = [
     title: "Do...? / Does...?",
     type: "#1.0 | Basic Grammar",
     order: 16,
-    description: "",
+    description:
+      "O 'do' e o 'does'  são usados para fazer perguntas com verbos em geral que não são o 'to be'. Você deve por estas palavras antes do sujeito da frase para montar a pergunta.",
     image:
       "https://images.pexels.com/photos/5428833/pexels-photo-5428833.jpeg?auto=compress&cs=tinysrgb&w=600",
-    elements: [],
+    elements: [
+      {
+        subtitle: "Veja as conjugações.",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Do I know?",
+            portuguese: "Eu sei?",
+          },
+          {
+            english: "Do you drink?",
+            portuguese: "Você bebe?",
+          },
+          {
+            english: "Does he study?",
+            portuguese: "Ele estuda?",
+          },
+          {
+            english: "Does she live here?",
+            portuguese: "Ela mora aqui?",
+          },
+          {
+            english: "Does it snow here?",
+            portuguese: "Neva aqui?",
+          },
+          {
+            english: "Do we know?",
+            portuguese: "Nós sabemos?",
+          },
+          {
+            english: "Do you deserve help?",
+            portuguese: "Vocês merecem ajuda?",
+          },
+          {
+            english: "Do they speak English?",
+            portuguese: "Elas falam inglês?",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Frases de exemplo.",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            portuguese: "Eles não defendem suas crenças em debates públicos.",
+            english: "Do they defend their beliefs in public debates?",
+          },
+          {
+            portuguese: "Nós não mantemos contato com parentes distantes.",
+            english: "Do we maintain contact with distant relatives?",
+          },
+          {
+            portuguese: "Ele não garante a segurança no canteiro de obras.",
+            english: "Does he ensure safety at the construction site?",
+          },
+          {
+            portuguese: "A equipe não enfrenta desafios sem preparação.",
+            english: "Does the team face challenges without preparation?",
+          },
+          {
+            portuguese: "Ela não sabe muito sobre o assunto.",
+            english: "Doesn't she know much about the topic?",
+          },
+          {
+            portuguese:
+              "Eles não emprestam dinheiro para amigos em necessidade.",
+            english: "Do they lend money to friends in need?",
+          },
+          {
+            portuguese: "Ele não pega livros emprestados na biblioteca mais.",
+            english: "Doesn't he borrow books at the library anymore?",
+          },
+          {
+            portuguese: "Nós não moramos mais naquele bairro.",
+            english: "Do we live in that neighborhood anymore?",
+          },
+          {
+            portuguese:
+              "Ele não compartilha seus brinquedos com outros no parquinho.",
+            english: "Doesn't he share his toys with others in the playground?",
+          },
+          {
+            portuguese: "Ela não se equilibra bem na corda bamba.",
+            english: "Doesn't she balance well on the tightrope?",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Answer the questions below.",
+        order: 3,
+        type: "dialogue",
+        dialogue: [
+          "Do you watch TV often?",
+          "No, I don't watch TV often. I prefer to read books in my free time.",
+          "Does she speak French fluently?",
+          "Yes, she does. She lived in France for several years, so she became fluent in French.",
+          "Do your parents live nearby?",
+          "No, they don't. They live in another city, but we visit each other often.",
+          "Does your brother play any musical instruments?",
+          "Yes, he does. He plays the guitar and the piano.",
+          "Do you enjoy cooking?",
+          "No, I don't. I prefer to eat out or order takeout instead of cooking.",
+          "Does your friend know how to swim?",
+          "No, he doesn't. He's afraid of water, so he never learned how to swim.",
+        ],
+      },
+
+      {
+        subtitle: "Answer the questions below.",
+        order: 4,
+        type: "exercise",
+        items: [
+          "Do you like pizza?",
+          "What do you prefer: sweet or salty? Why?",
+        ],
+      },
+
+      {},
+    ],
   },
   {
     title: "Empty 'it'",
     type: "#1.0 | Basic Grammar",
-    order: 17,
+    order: 22,
     description: "",
     image:
       "https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -3404,7 +3545,7 @@ export const lessons = [
   ///////////////// Vocabulary Basics
   {
     title: "Animals",
-    order: 1,
+    order: 3,
     type: "#1.1 | Basic Vocabulary",
     elements: [
       {
@@ -3517,7 +3658,7 @@ export const lessons = [
   },
   {
     title: "Family",
-    order: 1,
+    order: 4,
     type: "#1.1 | Basic Vocabulary",
     description: "Vamos aprender a dizer os membros de família em inglês.",
     image:
@@ -3665,7 +3806,7 @@ export const lessons = [
   },
   {
     title: "Fruits",
-    order: 3,
+    order: 5,
     type: "#1.1 | Basic Vocabulary",
     // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
@@ -3742,7 +3883,7 @@ export const lessons = [
   },
   {
     title: "Colors",
-    order: 4,
+    order: 6,
     type: "#1.1 | Basic Vocabulary",
     elements: [
       {
@@ -3803,7 +3944,7 @@ export const lessons = [
   },
   {
     title: "Professions",
-    order: 5,
+    order: 16,
     type: "#1.1 | Basic Vocabulary",
     description: "Vamos aprender a dizer algumas profissões em inglês.",
     image:
