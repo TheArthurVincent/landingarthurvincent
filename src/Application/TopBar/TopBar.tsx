@@ -119,15 +119,9 @@ export const TopBar: FC = () => {
     setVisible(visible === "flex" ? "none" : "flex");
   };
 
-  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1.3);
+  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 0.8);
   return (
-    <TopBarContainer
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 99,
-      }}
-    >
+    <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
       <Link to="/">
         <LogoStyle>{myLogo}</LogoStyle>
@@ -257,16 +251,16 @@ export const TopBar: FC = () => {
         {" "}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <FormControl>
-            <Select
-              labelId="language-label"
+            <select
+              // labelId="language-label"
               id="language"
               name="language"
               onChange={(e) => handleLanguageChange(e.target.value)}
               defaultValue="en"
             >
-              <MenuItem value="en">EN-US</MenuItem>
-              <MenuItem value="pt">PT-BR</MenuItem>
-            </Select>
+              <option value="en">EN-US</option>
+              <option value="pt">PT-BR</option>
+            </select>
           </FormControl>
           <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
         </div>

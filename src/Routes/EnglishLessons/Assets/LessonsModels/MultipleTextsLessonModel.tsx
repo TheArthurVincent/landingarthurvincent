@@ -2,6 +2,7 @@ import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
+import TextAreaLesson from "../Functions/TextAreaLessons";
 interface MultipleTextsLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
@@ -40,7 +41,7 @@ export default function MultipleTextsLessonModel({
                           <i className="fa fa-volume-up" aria-hidden="true" />
                         </button>
                       </p>
-                      <textarea className="comments" rows={10} cols={1} />
+                      <TextAreaLesson />
                     </>
                   )}
                 </div>

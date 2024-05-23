@@ -1,11 +1,6 @@
 import React from "react";
-import {
-  HOne,
-  HTwo,
-  RouteSizeControlBox,
-} from "../../../Resources/Components/RouteBox";
+import { HOne, HTwo } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
-import Helmets from "../../../Resources/Helmets";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import TextLessonModel from "./LessonsModels/TextLessonModel";
 import SentenceLessonModel from "./LessonsModels/SentenceLessonModel";
@@ -15,6 +10,7 @@ import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
 import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
+import TextAreaLesson from "./Functions/TextAreaLessons";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -84,10 +80,7 @@ export default function EnglishLessonsRender({
               </p>
             )}
             {element.type === "sentences" ? (
-              <SentenceLessonModel
-                sentences={element.sentences}
-                headers={headers}
-              />
+              <SentenceLessonModel element={element} headers={headers} />
             ) : element.type === "text" ? (
               <TextLessonModel
                 headers={headers}
@@ -111,12 +104,9 @@ export default function EnglishLessonsRender({
             ) : (
               <></>
             )}
-            <HTwo>Comments</HTwo>
-            <textarea className="comments" />
           </div>
-        ))}
-      <HTwo>Homework</HTwo>
-      <textarea className="comments" />
+        ))
+        }
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
+import TextAreaLesson from "../Functions/TextAreaLessons";
 interface DialogueLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
@@ -52,7 +53,7 @@ export default function DialogueLessonModel({
                       <i className="fa fa-volume-up" aria-hidden="true" />
                     </button>
                   </div>
-                  <textarea className="comments" />
+                  <TextAreaLesson />
                 </div>
               );
             })}

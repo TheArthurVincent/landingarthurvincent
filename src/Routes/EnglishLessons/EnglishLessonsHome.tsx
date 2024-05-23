@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  HTwo,
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import React, { useState } from "react";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
+import HTMLEditor from "../../Resources/Components/HTMLEditor";
+import {
+  LessonSizeControlBox,
+  RouteDivNotes,
+} from "./Assets/Functions/EnglishActivities.Styled";
 
 export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
@@ -33,96 +33,106 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
     );
     setSelectedLesson(lesson);
   };
+  const [newDescription, setNewDescription] = useState<string>("");
+  const handleDescriptionChange = (htmlContent: string) => {
+    setNewDescription(htmlContent);
+  };
+
+  const [homework, setHomework] = useState<string>("");
+  const handleHomeworkChange = (htmlContent: string) => {
+    setHomework(htmlContent);
+  };
 
   return (
-    <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
+    <LessonSizeControlBox className="smooth">
       <Helmets text="Activities" />
-      <RouteDiv
-        className="no-print"
-        style={{
-          position: selectedLesson ? "fixed" : "static",
-          right: 10,
-          transition: "right 0.3s ease",
-        }}
-      >
+      <div className="do-print">
+        <HOne>Notes</HOne>
         <div
           style={{
-            margin: "auto",
-            maxWidth: "fit-content",
+            padding: "2rem",
           }}
-        >
+          dangerouslySetInnerHTML={{ __html: newDescription }}
+        />
+        <HOne>Homework</HOne>
+        <div
+          style={{
+            padding: "2rem",
+          }}
+          dangerouslySetInnerHTML={{ __html: homework }}
+        />
+      </div>
+      <div>
+        <RouteDivNotes className="no-print">
+          <HOne>Notes</HOne>
           <div
             style={{
-              display: "grid",
-              textAlign: "center",
-              gap: "0.5rem",
+              margin: "auto",
+              maxWidth: "fit-content",
             }}
           >
-            {" "}
             <div>
-              <select
-                style={{
-                  width: "10rem",
-                  fontFamily: "Athiti",
-                }}
-                value={selectedDifficulty}
-                onChange={handleDifficultyChange}
-              >
-                <option hidden value="">
-                  Select Difficulty
-                </option>
-                {groupedLessons &&
-                  Object.keys(groupedLessons).map((difficulty) => (
-                    <option key={difficulty} value={difficulty}>
-                      {difficulty}
-                    </option>
-                  ))}
-              </select>
-            </div>
-            <div>
-              <select
-                value={selectedLesson?.title || ""}
-                onChange={handleLessonChange}
-                disabled={selectedDifficulty ? false : true}
-                style={{
-                  cursor: selectedDifficulty ? "auto" : "not-allowed",
-                  width: "10rem",
-                  fontFamily: "Athiti",
-                }}
-              >
-                <option hidden value="">
-                  Select Lesson
-                </option>
-                {groupedLessons[selectedDifficulty] &&
-                  groupedLessons[selectedDifficulty]
-                    .sort((a: any, b: any) => a.order - b.order)
-                    .map((lesson: any, index: number) => (
-                      <option key={index} value={lesson.title}>
-                        {lesson.title}
+              <div>
+                <select
+                  style={{
+                    backgroundColor: "white",
+                    width: "10rem",
+                    fontFamily: "Athiti",
+                    marginBottom: "3px",
+                  }}
+                  value={selectedDifficulty}
+                  onChange={handleDifficultyChange}
+                >
+                  <option hidden value="">
+                    Select Difficulty
+                  </option>
+                  {groupedLessons &&
+                    Object.keys(groupedLessons).map((difficulty) => (
+                      <option key={difficulty} value={difficulty}>
+                        {difficulty}
                       </option>
                     ))}
-              </select>
+                </select>
+              </div>
+              <div>
+                <select
+                  value={selectedLesson?.title || ""}
+                  onChange={handleLessonChange}
+                  disabled={selectedDifficulty ? false : true}
+                  style={{
+                    backgroundColor: "white",
+                    cursor: selectedDifficulty ? "auto" : "not-allowed",
+                    width: "10rem",
+                    fontFamily: "Athiti",
+                  }}
+                >
+                  <option hidden value="">
+                    Select Lesson
+                  </option>
+                  {groupedLessons[selectedDifficulty] &&
+                    groupedLessons[selectedDifficulty]
+                      .sort((a: any, b: any) => a.order - b.order)
+                      .map((lesson: any, index: number) => (
+                        <option key={index} value={lesson.title}>
+                          {lesson.title}
+                        </option>
+                      ))}
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-      </RouteDiv>
-
+          <HTMLEditor onChange={handleDescriptionChange} />
+          <HOne>Homework</HOne>
+          <HTMLEditor onChange={handleHomeworkChange} />
+        </RouteDivNotes>
+      </div>
       <RouteDiv>
-        {selectedLesson ? (
-          <div>
+        {selectedLesson && (
+          <span id="pdf-content">
             <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
-          </div>
-        ) : (
-          <div
-            style={{
-              textAlign: "center",
-              height: "4.5rem",
-            }}
-          >
-            Escolha uma lição
-          </div>
+          </span>
         )}
       </RouteDiv>
-    </RouteSizeControlBox>
+    </LessonSizeControlBox>
   );
 }

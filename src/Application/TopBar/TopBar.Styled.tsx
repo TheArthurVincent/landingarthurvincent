@@ -10,8 +10,7 @@ import {
 export const TopBarContainer = styled.header`
   top: 0;
   z-index: 6;
-  position: sticky;
-  zindex: 99;
+  position: fixed;
   background-color: ${alwaysWhite()};
   justify-content: space-evenly;
   align-items: center;
@@ -32,7 +31,7 @@ export const TopBarNavigation = styled.div`
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
-    @media (max-width: 1200px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

@@ -118,6 +118,7 @@ export const lessons = [
           "Veja abaixo as letras do alfabeto em inglês e suas respectivas pronúncias",
         order: 0,
         type: "sentences",
+        grid: 3,
         sentences: [
           { english: "A", portuguese: "êi" },
           { english: "B", portuguese: "bí" },
@@ -183,6 +184,54 @@ export const lessons = [
           "How do you spell 'Tonight'?",
         ],
       },
+      {
+        subtitle: "What word is this?",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "I... M... P... O... R... T... A... N... T...",
+            ptbrText: "This subject is very....",
+          },
+          {
+            enusAudio: "M... O... T... H... E... R...",
+            ptbrText: "Mary is my...",
+          },
+          {
+            enusAudio: "B... R... O... K... E... N...",
+            ptbrText: "The computer is...",
+          },
+          { enusAudio: "L... O... V... E...", ptbrText: "I ... you." },
+          { enusAudio: "D... O... G...", ptbrText: "The ... is barking." },
+          {
+            enusAudio: "S... C... H... O... O... L...",
+            ptbrText: "I go to ... every day.",
+          },
+          { enusAudio: "C... A... R...", ptbrText: "My ... is red." },
+          {
+            enusAudio: "H... O... U... S... E...",
+            ptbrText: "We live in a big ...",
+          },
+          { enusAudio: "P... A... R... K...", ptbrText: "Let's go to the ..." },
+          {
+            enusAudio: "B... O... O... K...",
+            ptbrText: "She is reading a ...",
+          },
+          {
+            enusAudio: "F... R... I... E... N... D...",
+            ptbrText: "He is my best ...",
+          },
+          { enusAudio: "C... A... T...", ptbrText: "The ... is sleeping." },
+          {
+            enusAudio: "M... O... V... I... E...",
+            ptbrText: "We watched a ...",
+          },
+          {
+            enusAudio: "F... A... M... I... L... Y...",
+            ptbrText: "I love my ...",
+          },
+        ],
+      },
     ],
   },
   {
@@ -197,6 +246,7 @@ export const lessons = [
       {
         subtitle: "Subject Pronouns",
         comments: "Esses pronomes são usados como sujeito da frase.",
+        grid: 3,
         order: 0,
         type: "sentences",
         sentences: [
@@ -213,6 +263,7 @@ export const lessons = [
         subtitle: "Object Pronouns",
         comments: "Esses pronomes são usados como objeto da frase.",
         order: 1,
+        grid: 3,
         type: "sentences",
         sentences: [
           { english: "Me", portuguese: "Me/Mim" },
@@ -228,6 +279,7 @@ export const lessons = [
         subtitle: "Practice Vocabulary",
         comments: "Vocabulário adicional para prática.",
         order: 2,
+        grid: 3,
         type: "sentences",
         sentences: [
           { english: "Friend", portuguese: "Amigo(a)" },
@@ -268,6 +320,51 @@ export const lessons = [
           },
         ],
       },
+      {
+        subtitle: "Translate the sentences below into English",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "They are here with me",
+            ptbrText: "Eles estão aqui comigo",
+          },
+          {
+            enusAudio: "She is here with them",
+            ptbrText: "Ela está aqui com ela",
+          },
+          {
+            enusAudio: "Are your friends there with them?",
+            ptbrText: "Seus amigos estão lá com eles?",
+          },
+          {
+            enusAudio: "Are my mother and my father there with you now?",
+            ptbrText: "Minha mãe e meu pai estão aí com você agora?",
+          },
+          { enusAudio: "You love me.", ptbrText: "Você me ama." },
+          {
+            enusAudio: "She is there with him.",
+            ptbrText: "Ela está lá com ele.",
+          },
+          {
+            enusAudio: "He isn't here with her, he's there.",
+            ptbrText: "Ele não está aqui com ela, ele está lá.",
+          },
+          { enusAudio: "They love us.", ptbrText: "Eles nos amam." },
+          {
+            enusAudio: "Your friends love you.",
+            ptbrText: "Seus amigos amam você.",
+          },
+          {
+            enusAudio: "They work with us.",
+            ptbrText: "Eles trabalham conosco.",
+          },
+          {
+            enusAudio: "We work with them",
+            ptbrText: "Nós trabalhamos com eles.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -283,6 +380,7 @@ export const lessons = [
         comments:
           "Estes são os artigos indefinidos, ou seja, 'um' ou 'uma'. Você usa 'a' para palavras que antecedem consoantes, e 'an' para palavras que antecedem vogais.",
         order: 0,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "a doctor", portuguese: "um médico / uma médica" },
@@ -387,6 +485,7 @@ export const lessons = [
         subtitle: "The",
         comments: "Este é o artigo indefinido, ou seja, 'o / a / os / as'.",
         order: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "the doctor", portuguese: "o médico / a médica" },
@@ -472,6 +571,7 @@ export const lessons = [
         subtitle: "Vocabulary",
         comments: "Vocabulário para praticar",
         order: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -978,6 +1078,14 @@ export const lessons = [
             english: "We will meet in the morning.",
             portuguese: "Nós nos encontraremos pela manhã.",
           },
+          {
+            english: "I finished my course in January.",
+            portuguese: "Eu terminei meu curso em Janeiro.",
+          },
+          {
+            english: "She finished her course in 2024.",
+            portuguese: "Ela terminou o curso dela 2024.",
+          },
         ],
       },
       {
@@ -999,11 +1107,16 @@ export const lessons = [
             english: "Her birthday is on July 10th.",
             portuguese: "O aniversário dela é no dia 10 de julho.",
           },
+          {
+            english: "My meeting is on Friday.",
+            portuguese: "Minha reunião é na sexta-feira.",
+          },
         ],
       },
       {
         subtitle: "Preposition: At (em / às)",
         order: 8,
+        comments: "Used to indicate specific locations ou time. .",
         type: "sentences",
         description: "Used to indicate specific locations or points in time.",
         sentences: [
@@ -1013,8 +1126,8 @@ export const lessons = [
             portuguese: "Eu vou te ver às 17h.",
           },
           {
-            english: "He is good at math.",
-            portuguese: "Ele é bom em matemática.",
+            english: "We're at the hospital.",
+            portuguese: "Estamos no hospital.",
           },
         ],
       },
@@ -1024,9 +1137,15 @@ export const lessons = [
         type: "dialogue",
         dialogue: [
           "Where are you going?",
-          "I am going to the market.",
-          "What is this book about?",
+          "I am going to the bookstore.",
+          "Why?",
+          "Because I need to buy a book.",
+          "What is the book about?",
           "It is about the history of art.",
+          "Is it for you?",
+          "No, it's for my sister.",
+          "Where is she now?",
+          "She is at home.",
         ],
       },
     ],
@@ -1900,8 +2019,8 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "20-99",
-        comments: "Vamos aprender a falar os números de 20 - 99",
+        subtitle: "100-999",
+        comments: "Vamos aprender a falar os números de 100 - 999",
         order: 3,
         type: "sentences",
         sentences: [
@@ -1920,9 +2039,9 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "1000-9000",
+        subtitle: "1,000-999,999",
         comments:
-          "Vamos aprender a falar os números de 1000 a 9000 com variação nos milhares",
+          "Vamos aprender a falar os números de 1,000 a 999,999 com variação nos milhares",
         order: 4,
         type: "sentences",
         sentences: [
@@ -2734,10 +2853,6 @@ export const lessons = [
           },
         ],
       },
-
-
-
-
 
       {
         subtitle: "Answer the questions below.",
