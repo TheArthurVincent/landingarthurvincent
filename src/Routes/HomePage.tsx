@@ -100,7 +100,7 @@ export function HomePage({ headers }: HeadersProps) {
   ];
 
   return (
-    <>
+    <div style={{ marginTop: "3.5rem" }}>
       <TopBar />
       <Routes>
         {appRoutes.map((component, index) => {
@@ -117,7 +117,7 @@ export function HomePage({ headers }: HeadersProps) {
       </Routes>
       {/* <AppFooter /> */}
       <Outlet />
-    </>
+    </div>
   );
 }
 
