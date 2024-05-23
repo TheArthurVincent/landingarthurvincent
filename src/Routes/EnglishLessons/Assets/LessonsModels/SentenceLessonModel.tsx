@@ -3,6 +3,7 @@ import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
+import TextAreaLesson from "../Functions/TextAreaLessons";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
@@ -42,7 +43,7 @@ export default function SentenceLessonModel({
             </button>
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
-            <textarea className="comments" />
+            <TextAreaLesson />
             <br />
           </LiSentence>
         ))}

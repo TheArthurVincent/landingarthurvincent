@@ -104,6 +104,7 @@ function HTMLEditor({ onChange }) {
           height: "98.5%",
           marginTop: "1rem",
           fontSize: "1.1rem",
+          width:"100%"
         }}
       />
     );

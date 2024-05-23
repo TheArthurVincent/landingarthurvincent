@@ -184,6 +184,54 @@ export const lessons = [
           "How do you spell 'Tonight'?",
         ],
       },
+      {
+        subtitle: "What word is this?",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "I... M... P... O... R... T... A... N... T...",
+            ptbrText: "This subject is very....",
+          },
+          {
+            enusAudio: "M... O... T... H... E... R...",
+            ptbrText: "Mary is my...",
+          },
+          {
+            enusAudio: "B... R... O... K... E... N...",
+            ptbrText: "The computer is...",
+          },
+          { enusAudio: "L... O... V... E...", ptbrText: "I ... you." },
+          { enusAudio: "D... O... G...", ptbrText: "The ... is barking." },
+          {
+            enusAudio: "S... C... H... O... O... L...",
+            ptbrText: "I go to ... every day.",
+          },
+          { enusAudio: "C... A... R...", ptbrText: "My ... is red." },
+          {
+            enusAudio: "H... O... U... S... E...",
+            ptbrText: "We live in a big ...",
+          },
+          { enusAudio: "P... A... R... K...", ptbrText: "Let's go to the ..." },
+          {
+            enusAudio: "B... O... O... K...",
+            ptbrText: "She is reading a ...",
+          },
+          {
+            enusAudio: "F... R... I... E... N... D...",
+            ptbrText: "He is my best ...",
+          },
+          { enusAudio: "C... A... T...", ptbrText: "The ... is sleeping." },
+          {
+            enusAudio: "M... O... V... I... E...",
+            ptbrText: "We watched a ...",
+          },
+          {
+            enusAudio: "F... A... M... I... L... Y...",
+            ptbrText: "I love my ...",
+          },
+        ],
+      },
     ],
   },
   {
@@ -198,6 +246,7 @@ export const lessons = [
       {
         subtitle: "Subject Pronouns",
         comments: "Esses pronomes são usados como sujeito da frase.",
+        grid: 3,
         order: 0,
         type: "sentences",
         sentences: [
@@ -214,6 +263,7 @@ export const lessons = [
         subtitle: "Object Pronouns",
         comments: "Esses pronomes são usados como objeto da frase.",
         order: 1,
+        grid: 3,
         type: "sentences",
         sentences: [
           { english: "Me", portuguese: "Me/Mim" },
@@ -229,6 +279,7 @@ export const lessons = [
         subtitle: "Practice Vocabulary",
         comments: "Vocabulário adicional para prática.",
         order: 2,
+        grid: 3,
         type: "sentences",
         sentences: [
           { english: "Friend", portuguese: "Amigo(a)" },
@@ -266,6 +317,51 @@ export const lessons = [
           {
             english: "They invited us to the party.",
             portuguese: "Eles nos convidaram para a festa.",
+          },
+        ],
+      },
+      {
+        subtitle: "Translate the sentences below into English",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "They are here with me",
+            ptbrText: "Eles estão aqui comigo",
+          },
+          {
+            enusAudio: "She is here with them",
+            ptbrText: "Ela está aqui com ela",
+          },
+          {
+            enusAudio: "Are your friends there with them?",
+            ptbrText: "Seus amigos estão lá com eles?",
+          },
+          {
+            enusAudio: "Are my mother and my father there with you now?",
+            ptbrText: "Minha mãe e meu pai estão aí com você agora?",
+          },
+          { enusAudio: "You love me.", ptbrText: "Você me ama." },
+          {
+            enusAudio: "She is there with him.",
+            ptbrText: "Ela está lá com ele.",
+          },
+          {
+            enusAudio: "He isn't here with her, he's there.",
+            ptbrText: "Ele não está aqui com ela, ele está lá.",
+          },
+          { enusAudio: "They love us.", ptbrText: "Eles nos amam." },
+          {
+            enusAudio: "Your friends love you.",
+            ptbrText: "Seus amigos amam você.",
+          },
+          {
+            enusAudio: "They work with us.",
+            ptbrText: "Eles trabalham conosco.",
+          },
+          {
+            enusAudio: "We work with them",
+            ptbrText: "Nós trabalhamos com eles.",
           },
         ],
       },

@@ -6,6 +6,7 @@ import {
   LiGridImageLessons,
   UlGridImageLessons,
 } from "../Functions/EnglishActivities.Styled";
+import TextAreaLesson from "../Functions/TextAreaLessons";
 interface ImageLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
@@ -46,7 +47,7 @@ export default function ImageLessonModel({
                 <span>{image.text}</span>
               
               </span>
-                <textarea className="comments" />
+              <TextAreaLesson />
             </LiGridImageLessons>
           ))}
       </UlGridImageLessons>

@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { alwaysBlack, alwaysWhite } from "../../../../Styles/Styles";
 
 export const ImgLesson = styled.img`
   width: 100%;
@@ -26,6 +27,25 @@ export const LiSentence = styled.li`
 
   @media print {
     box-shadow: 1px 1px 12px 3px white;
+  }
+`;
+
+export const RouteDivNotes = styled.div`
+  background-color: ${alwaysWhite()};
+  border-radius: 0.5rem;
+  color: ${alwaysBlack()};
+  padding: 0.5rem;
+  position: sticky;
+  top: 50px; 
+  left: 0; 
+  box-shadow: 1px 1px 5px 1px #777;
+  background-color: white;
+  transition: right 0.3s ease;
+  margin: 5px;
+  margin-top: 15px;
+
+  @media (max-width: 800px) {
+    margin: 0;
   }
 `;
 
@@ -59,20 +79,22 @@ export const UlGridImageLessons = styled.ul`
   }
 `;
 export const LessonSizeControlBox = styled.div`
-  max-width: 90vw;
+  max-width: 80vw;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
   justify-content: center;
   gap: 5px;
-  margin-top: 0.5rem;
   margin-bottom: 9rem;
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1100px) {
+    display: flex;
     flex-direction: column-reverse;
     max-width: 100vw;
   }

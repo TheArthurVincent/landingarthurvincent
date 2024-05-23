@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  HOne,
-  HTwo,
-} from "../../../Resources/Components/RouteBox";
+import { HOne, HTwo } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import TextLessonModel from "./LessonsModels/TextLessonModel";
@@ -13,6 +10,7 @@ import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
 import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
+import TextAreaLesson from "./Functions/TextAreaLessons";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -23,7 +21,6 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
 }: EnglishLessonsRenderModelProps) {
-
   return (
     <div
       style={{
@@ -107,12 +104,9 @@ export default function EnglishLessonsRender({
             ) : (
               <></>
             )}
-            <HTwo>Comments</HTwo>
-            <textarea className="comments" />
           </div>
-        ))}
-      <HTwo>Homework</HTwo>
-      <textarea className="comments" />
+        ))
+        }
     </div>
   );
 }
