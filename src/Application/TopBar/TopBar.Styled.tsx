@@ -21,13 +21,14 @@ export const TopBarContainer = styled.header`
   @media print {
     display: none;
   }
-`;
+`;  
 
 export const TopBarNavigation = styled.div`
   text-align: center;
   gap: 2rem;
   display: flex;
   z-index: 4;
+  font-size:13px;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
