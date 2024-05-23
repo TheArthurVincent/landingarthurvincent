@@ -64,63 +64,57 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
       </div>
       <div>
         <RouteDivNotes className="no-print">
-          <HOne>Notes</HOne>
           <div
             style={{
               margin: "auto",
               maxWidth: "fit-content",
             }}
           >
-            <div>
-              <div>
-                <select
-                  style={{
-                    backgroundColor: "white",
-                    width: "10rem",
-                    fontFamily: "Athiti",
-                    marginBottom: "3px",
-                  }}
-                  value={selectedDifficulty}
-                  onChange={handleDifficultyChange}
-                >
-                  <option hidden value="">
-                    Select Difficulty
+            <select
+              style={{
+                backgroundColor: "white",
+                width: "10rem",
+                fontFamily: "Athiti",
+                margin: "3px",
+              }}
+              value={selectedDifficulty}
+              onChange={handleDifficultyChange}
+            >
+              <option hidden value="">
+                Select Difficulty
+              </option>
+              {groupedLessons &&
+                Object.keys(groupedLessons).map((difficulty) => (
+                  <option key={difficulty} value={difficulty}>
+                    {difficulty}
                   </option>
-                  {groupedLessons &&
-                    Object.keys(groupedLessons).map((difficulty) => (
-                      <option key={difficulty} value={difficulty}>
-                        {difficulty}
-                      </option>
-                    ))}
-                </select>
-              </div>
-              <div>
-                <select
-                  value={selectedLesson?.title || ""}
-                  onChange={handleLessonChange}
-                  disabled={selectedDifficulty ? false : true}
-                  style={{
-                    backgroundColor: "white",
-                    cursor: selectedDifficulty ? "auto" : "not-allowed",
-                    width: "10rem",
-                    fontFamily: "Athiti",
-                  }}
-                >
-                  <option hidden value="">
-                    Select Lesson
-                  </option>
-                  {groupedLessons[selectedDifficulty] &&
-                    groupedLessons[selectedDifficulty]
-                      .sort((a: any, b: any) => a.order - b.order)
-                      .map((lesson: any, index: number) => (
-                        <option key={index} value={lesson.title}>
-                          {lesson.title}
-                        </option>
-                      ))}
-                </select>
-              </div>
-            </div>
+                ))}
+            </select>
+            <select
+              value={selectedLesson?.title || ""}
+              onChange={handleLessonChange}
+              disabled={selectedDifficulty ? false : true}
+              style={{
+                backgroundColor: "white",
+                cursor: selectedDifficulty ? "auto" : "not-allowed",
+                width: "10rem",
+                fontFamily: "Athiti",
+              }}
+            >
+              <option hidden value="">
+                Select Lesson
+              </option>
+              {groupedLessons[selectedDifficulty] &&
+                groupedLessons[selectedDifficulty]
+                  .sort((a: any, b: any) => a.order - b.order)
+                  .map((lesson: any, index: number) => (
+                    <option key={index} value={lesson.title}>
+                      {lesson.title}
+                    </option>
+                  ))}
+            </select>
           </div>
+          <HOne>Notes</HOne>
           <HTMLEditor onChange={handleDescriptionChange} />
           <HOne>Homework</HOne>
           <HTMLEditor onChange={handleHomeworkChange} />
