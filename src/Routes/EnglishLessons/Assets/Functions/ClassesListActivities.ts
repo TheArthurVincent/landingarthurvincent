@@ -1693,9 +1693,7 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "How do you spell... ?",
-        comments:
-          "Em inglês, quando queremos perguntar como se escreve/soletra uma palavra, perguntamos 'How do you spell...?' e completamos com a palavra em questão!",
+        subtitle: "Answer the questions below.",
         order: 11,
         type: "exercise",
         items: [
@@ -2697,7 +2695,8 @@ export const lessons = [
     title: "To be (past tense)",
     type: "#1.0 | Basic Grammar",
     order: 14,
-    // image: "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://media.istockphoto.com/id/858917054/photo/happy-friends-travel-expedition-concept.jpg?b=1&s=612x612&w=0&k=20&c=2MeMqro7z7mI9qW_Bn5bhv2DA9zja6psLKYeKoB1eAA=",
     elements: [
       {
         subtitle: "Affirmations",
@@ -2781,90 +2780,254 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "Negations",
-        comments:
-          "Vamos aprender o verbo To be em inglês no passado em negações",
-        order: 1,
+        subtitle: "Vocabulary",
+        comments: "Vamos aprender algumas palavras para estudar frases.",
+        order: 2,
+        grid: 3,
         type: "sentences",
         sentences: [
           {
-            english: "I was not.",
-            portuguese: "Eu não era / estava.",
+            english: "policy",
+            portuguese: "política",
           },
           {
-            english: "You were not.",
-            portuguese: "Você não era / estava.",
+            english: "meeting",
+            portuguese: "reunião",
           },
           {
-            english: "He was not.",
-            portuguese: "Ele não era / estava.",
+            english: "results",
+            portuguese: "resultados",
           },
           {
-            english: "She was not.",
-            portuguese: "Ela não era / estava.",
+            english: "visitors",
+            portuguese: "visitantes",
           },
           {
-            english: "It was not.",
-            portuguese: "Ele/ela não era / estava.",
+            english: "idea",
+            portuguese: "ideia",
           },
           {
-            english: "We were not.",
-            portuguese: "Nós não éramos / estávamos.",
+            english: "storm",
+            portuguese: "tempestade",
           },
           {
-            english: "You (plural) were not.",
-            portuguese: "Vocês não eram / estavam.",
+            english: "schedule",
+            portuguese: "horário",
           },
           {
-            english: "They were not.",
-            portuguese: "Eles/Elas não eram / estavam.",
+            english: "rules",
+            portuguese: "regras",
           },
           {
-            english: "I wasn't.",
-            portuguese: "Eu não era / estava.",
+            english: "exam",
+            portuguese: "exame",
           },
           {
-            english: "You weren't.",
-            portuguese: "Você não era / estava.",
+            english: "events",
+            portuguese: "eventos",
           },
           {
-            english: "He wasn't.",
-            portuguese: "Ele não era / estava.",
+            english: "mood",
+            portuguese: "clima",
           },
           {
-            english: "She wasn't.",
-            portuguese: "Ela não era / estava.",
+            english: "celebrations",
+            portuguese: "comemorações",
           },
           {
-            english: "It wasn't.",
-            portuguese: "Ele/ela não era / estava.",
+            english: "meeting",
+            portuguese: "reunião",
           },
           {
-            english: "We weren't.",
-            portuguese: "Nós não éramos / estávamos.",
+            english: "events",
+            portuguese: "eventos",
           },
           {
-            english: "You (plural) weren't.",
-            portuguese: "Vocês não eram / estavam.",
+            english: "service",
+            portuguese: "serviço",
           },
           {
-            english: "They weren't.",
-            portuguese: "Eles/Elas não eram / estavam.",
+            english: "attention",
+            portuguese: "atenção",
+          },
+          {
+            english: "decision",
+            portuguese: "decisão",
           },
         ],
       },
+      {
+        subtitle: "Sentences",
+        comments: "Vamos ver algumas frases",
+        order: 3,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I was not aware of the new policy.",
+            portuguese: "Eu não estava ciente da nova política.",
+          },
+          {
+            english: "You were not invited to the meeting.",
+            portuguese: "Você não foi convidado para a reunião.",
+          },
+          {
+            english: "He was not happy with the results.",
+            portuguese: "Ele não estava feliz com os resultados.",
+          },
+          {
+            english: "She was not expecting visitors today.",
+            portuguese: "Ela não estava esperando visitantes hoje.",
+          },
+          {
+            english: "It was not a good idea to go out in the storm.",
+            portuguese: "Não foi uma boa ideia sair na tempestade.",
+          },
+          {
+            english: "We were not informed about the schedule change.",
+            portuguese: "Nós não fomos informados sobre a mudança de horário.",
+          },
+          {
+            english: "You (plural) were not following the rules.",
+            portuguese: "Vocês não estavam seguindo as regras.",
+          },
+          {
+            english: "They were not ready for the exam.",
+            portuguese: "Eles não estavam prontos para o exame.",
+          },
 
+          {
+            english: "You were not invited to the meeting.",
+            portuguese: "Você não foi convidado para a reunião.",
+          },
+          {
+            english: "He was not happy with the results.",
+            portuguese: "Ele não estava feliz com os resultados.",
+          },
+          {
+            english: "She was not expecting visitors today.",
+            portuguese: "Ela não estava esperando visitantes hoje.",
+          },
+          {
+            english: "It wasn't a good idea to go out in the storm.",
+            portuguese: "Não foi uma boa ideia sair na tempestade.",
+          },
+          {
+            english: "We weren'o't informed about the schedule change.",
+            portuguese: "Nós não fomos informados sobre a mudança de horário.",
+          },
+          {
+            english: "You (plural) were not following the rules.",
+            portuguese: "Vocês não estavam seguindo as regras.",
+          },
+          {
+            english: "They were not ready for the exam.",
+            portuguese: "Eles não estavam prontos para o exame.",
+          },
+          {
+            english: "I wasn't expecting such a turn of events.",
+            portuguese: "Eu não estava esperando uma virada de eventos assim.",
+          },
+          {
+            english: "You were not supposed to arrive late.",
+            portuguese: "Você não deveria chegar atrasado.",
+          },
+          {
+            english: "He wasn't in the mood for celebrations.",
+            portuguese: "Ele não estava no clima para comemorações.",
+          },
+          {
+            english: "She was not available for a meeting yesterday.",
+            portuguese: "Ela não estava disponível para uma reunião ontem.",
+          },
+          {
+            english: "It was not what I expected to find.",
+            portuguese: "Não era o que eu esperava encontrar.",
+          },
+          {
+            english: "We were not satisfied with the service.",
+            portuguese: "Nós não ficamos satisfeitos com o serviço.",
+          },
+          {
+            english: "You (plural) were not paying attention.",
+            portuguese: "Vocês não estavam prestando atenção.",
+          },
+          {
+            english: "They were not sure about their decision.",
+            portuguese: "Eles não estavam certos sobre sua decisão.",
+          },
+        ],
+      },
+      {
+        subtitle: "Listen and translate",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            ptbrText: "Ele estava lá.",
+            enusAudio: "He was there.",
+          },
+          {
+            ptbrText: "Nós não estávamos prontos.",
+            enusAudio: "We were not ready.",
+          },
+          {
+            ptbrText: "Eles não eram amigos.",
+            enusAudio: "They were not friends.",
+          },
+          {
+            ptbrText: "Eu não estava cansado.",
+            enusAudio: "I was not tired.",
+          },
+          {
+            ptbrText: "Você estava ocupado.",
+            enusAudio: "You were busy.",
+          },
+          {
+            ptbrText: "Ele não estava feliz.",
+            enusAudio: "He was not happy.",
+          },
+          {
+            ptbrText: "Ela estava nervosa.",
+            enusAudio: "She was nervous.",
+          },
+          {
+            ptbrText: "Nós não estávamos juntos.",
+            enusAudio: "We were not together.",
+          },
+          {
+            ptbrText: "Vocês não estavam certos.",
+            enusAudio: "You were not right.",
+          },
+          {
+            ptbrText: "Eles estavam perdidos.",
+            enusAudio: "They were lost.",
+          },
+          {
+            ptbrText: "Eu estava confuso.",
+            enusAudio: "I was confused.",
+          },
+          {
+            ptbrText: "Ele não estava em casa.",
+            enusAudio: "He was not at home.",
+          },
+          {
+            ptbrText: "Você não era minha amiga.",
+            enusAudio: "You were not my friend.",
+          },
+          {
+            ptbrText: "Ela não estava em casa.",
+            enusAudio: "She was not at home.",
+          },
+        ],
+      },
       {
         subtitle: "Answer the questions below.",
-        order: 2,
+        order: 5,
         type: "exercise",
         items: [
-          "What are your favorite activities?",
-          "What are your least favorite activities?",
-          "What are you good at?",
-          "What is your best friend good at?",
-          "What are you bad at?",
-          "What is your best friend bad at?",
+          "What was the most important figure in your life?",
+          "What was your last trip?",
+          "Was your childhood in Brazil?",
         ],
       },
     ],
