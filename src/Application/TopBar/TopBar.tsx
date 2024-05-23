@@ -19,7 +19,6 @@ import {
   primaryColor,
   secondaryColor,
 } from "../../Styles/Styles";
-import { FormControl, MenuItem, Select } from "@mui/material";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
 
 const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
@@ -184,12 +183,13 @@ export const TopBar: FC = () => {
                 style={{
                   display: link.display,
                   color: textPrimaryColorContrast(),
+
                   textDecoration: "none",
                 }}
                 key={index}
                 to={link.endpoint}
               >
-                <SpanHover>{link.title}</SpanHover>
+                <SpanHover style={{}}>{link.title}</SpanHover>
               </NavLink>
             );
           })}
@@ -213,10 +213,16 @@ export const TopBar: FC = () => {
                 style={{
                   color: primaryColor(),
                   textDecoration: "none",
+
+
                 }}
                 to={link.endpoint}
               >
-                <SpanHover>{link.title}</SpanHover>
+                <SpanHover
+
+                >
+                  {link.title}
+                </SpanHover>
               </NavLink>
             );
           })}
@@ -250,9 +256,8 @@ export const TopBar: FC = () => {
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <FormControl>
+          <form>
             <select
-              // labelId="language-label"
               id="language"
               name="language"
               onChange={(e) => handleLanguageChange(e.target.value)}
@@ -261,7 +266,7 @@ export const TopBar: FC = () => {
               <option value="en">EN-US</option>
               <option value="pt">PT-BR</option>
             </select>
-          </FormControl>
+          </form>
           <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
         </div>
       </div>
