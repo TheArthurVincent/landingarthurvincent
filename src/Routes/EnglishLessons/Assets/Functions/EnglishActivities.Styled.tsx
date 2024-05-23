@@ -13,6 +13,20 @@ export const ImgLesson = styled.img`
   @media (max-width: 500px) {
     max-width: 15rem;
   }
+  @media print {
+    box-shadow: 1px 1px 12px 3px white;
+  }
+`;
+
+export const LiSentence = styled.li`
+  list-style: none;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 10px 1px #ddd;
+  padding: 5px;
+
+  @media print {
+    box-shadow: 1px 1px 12px 3px white;
+  }
 `;
 
 export const UlSentences = styled.ul`
@@ -42,5 +56,24 @@ export const UlGridImageLessons = styled.ul`
   gap: 1rem;
   @media (max-width: 690px) {
     grid-template-columns: 1fr;
+  }
+`;
+export const LessonSizeControlBox = styled.div`
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 9rem;
+  &.smooth {
+    animation-name: slideInLeft;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column-reverse;
+    max-width: 100vw;
   }
 `;

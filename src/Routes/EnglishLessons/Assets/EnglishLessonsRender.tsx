@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   HOne,
   HTwo,
-  RouteSizeControlBox,
 } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
@@ -14,7 +13,6 @@ import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
 import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
-import HTMLEditor from "../../../Resources/Components/HTMLEditor";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -25,10 +23,7 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
 }: EnglishLessonsRenderModelProps) {
-  const [newDescription, setNewDescription] = useState<string>("");
-  const handleDescriptionChange = (htmlContent: string) => {
-    setNewDescription(htmlContent);
-  };
+
   return (
     <div
       style={{
@@ -37,10 +32,6 @@ export default function EnglishLessonsRender({
         backgroundColor: "white",
       }}
     >
-      <HOne>Notes</HOne>
-      <span className="no-print">
-        <HTMLEditor onChange={handleDescriptionChange} />
-      </span>
       <HOne>{theclass.title}</HOne>
       {theclass.image && (
         <ImgLesson src={theclass.image} alt={theclass.title} />
@@ -92,10 +83,7 @@ export default function EnglishLessonsRender({
               </p>
             )}
             {element.type === "sentences" ? (
-              <SentenceLessonModel
-                element={element}
-                headers={headers}
-              />
+              <SentenceLessonModel element={element} headers={headers} />
             ) : element.type === "text" ? (
               <TextLessonModel
                 headers={headers}
@@ -125,7 +113,6 @@ export default function EnglishLessonsRender({
         ))}
       <HTwo>Homework</HTwo>
       <textarea className="comments" />
-      <div dangerouslySetInnerHTML={{ __html: newDescription }} />
     </div>
   );
 }

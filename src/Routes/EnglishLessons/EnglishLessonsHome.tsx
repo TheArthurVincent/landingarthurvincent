@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   HOne,
-  HTwo,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
@@ -9,6 +8,8 @@ import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
+import HTMLEditor from "../../Resources/Components/HTMLEditor";
+import { LessonSizeControlBox } from "./Assets/Functions/EnglishActivities.Styled";
 
 export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
@@ -33,19 +34,28 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
     );
     setSelectedLesson(lesson);
   };
-
+  const [newDescription, setNewDescription] = useState<string>("");
+  const handleDescriptionChange = (htmlContent: string) => {
+    setNewDescription(htmlContent);
+  };
   return (
-    <RouteSizeControlBox className="smooth" style={{ maxWidth: "40rem" }}>
+    <LessonSizeControlBox className="smooth">
       <Helmets text="Activities" />
+      <div
+        className="do-print"
+        style={{
+          padding: "2rem",
+        }}
+        dangerouslySetInnerHTML={{ __html: newDescription }}
+      />
       <RouteDiv
         className="no-print"
         style={{
-          position: "fixed",
           backgroundColor: "white",
-
           transition: "right 0.3s ease",
         }}
       >
+        <HOne>Notes</HOne>
         <div
           style={{
             margin: "auto",
@@ -109,8 +119,8 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
             </div>
           </div>
         </div>
+        <HTMLEditor onChange={handleDescriptionChange} />
       </RouteDiv>
-
       <RouteDiv>
         {selectedLesson && (
           <div>
@@ -118,6 +128,6 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
           </div>
         )}
       </RouteDiv>
-    </RouteSizeControlBox>
+    </LessonSizeControlBox>
   );
 }

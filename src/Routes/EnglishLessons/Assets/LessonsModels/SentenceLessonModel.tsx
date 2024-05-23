@@ -2,7 +2,7 @@ import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
-import { UlSentences } from "../Functions/EnglishActivities.Styled";
+import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
@@ -26,15 +26,7 @@ export default function SentenceLessonModel({
     >
       {element.sentences &&
         element.sentences.map((sentence: any, i: number) => (
-          <li
-            key={i}
-            style={{
-              listStyle: "none",
-              marginBottom: "10px",
-              boxShadow: "1px 1px 10px 1px #ddd",
-              padding: "5px",
-            }}
-          >
+          <LiSentence key={i}>
             <strong
               style={{
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
@@ -52,7 +44,7 @@ export default function SentenceLessonModel({
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
             <textarea className="comments" />
             <br />
-          </li>
+          </LiSentence>
         ))}
     </UlSentences>
   );

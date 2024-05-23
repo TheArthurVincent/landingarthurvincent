@@ -298,7 +298,15 @@ textarea.inputs-style:focus {
 
 }
 
+.do-print {
+  display: none;
+}
+
 @media print {
+
+  .do-print {
+    display: block;
+  }
 
   .no-print,
   .audio-button {
