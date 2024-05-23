@@ -3033,9 +3033,244 @@ export const lessons = [
     ],
   },
   {
-    title: "Empty 'it'",
+    title: "Don't / Doesn't",
     type: "#1.0 | Basic Grammar",
     order: 15,
+    description:
+      "O 'don't e o 'doesn't' são usados para fazer negações com verbos em geral que não são o 'to be'. Funcionam como se fosse o 'não' do português.",
+    image:
+      "https://media.istockphoto.com/id/952805548/pt/foto/dont-forget-date-meeting-remind-reminder-notepaper-business-concept.jpg?b=1&s=612x612&w=0&k=20&c=qQdlyPviRLKQ0LdX6IogFq20GnIdO1Bex3ydRYY4YzM=",
+    elements: [
+      {
+        subtitle: "Veja as conjugações.",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I don't know.",
+            portuguese: "Eu não sei.",
+          },
+          {
+            english: "You don't drink.",
+            portuguese: "Você não bebe.",
+          },
+          {
+            english: "He doesn't study.",
+            portuguese: "Ele não estuda.",
+          },
+          {
+            english: "She doesn't live here.",
+            portuguese: "Ela não mora aqui.",
+          },
+          {
+            english: "It doesn't rain.",
+            portuguese: "Não chove.",
+          },
+          {
+            english: "We don't love.",
+            portuguese: "Nós não amamos.",
+          },
+          {
+            english: "You don't deserve help.",
+            portuguese: "Vocês não merecem ajuda.",
+          },
+          {
+            english: "They don't speak English.",
+            portuguese: "Elas não falam inglês.",
+          },
+        ],
+      },
+      {
+        subtitle: "Veja algumas frases de exemplo.",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          {
+            portuguese:
+              "Ela não molda suas opiniões com base nos julgamentos dos outros.",
+            english:
+              "She doesn't shape her opinions based on others' judgments.",
+          },
+          {
+            portuguese: "Eles não defendem suas crenças em debates públicos.",
+            english: "They don't defend their beliefs in public debates.",
+          },
+          {
+            portuguese: "Nós não mantemos contato com parentes distantes.",
+            english: "We don't maintain contact with distant relatives.",
+          },
+          {
+            portuguese: "Ele não garante a segurança no canteiro de obras.",
+            english: "He doesn't ensure safety at the construction site.",
+          },
+          {
+            portuguese: "A equipe não enfrenta desafios sem preparação.",
+            english: "The team doesn't face challenges without preparation.",
+          },
+          {
+            portuguese: "Ela não sabe muito sobre o assunto.",
+            english: "She doesn't know much about the topic.",
+          },
+          {
+            portuguese:
+              "Eles não emprestam dinheiro para amigos em necessidade.",
+            english: "They don't lend money to friends in need.",
+          },
+          {
+            portuguese: "Ele não pega livros emprestados na biblioteca mais.",
+            english: "He doesn't borrow books at the library anymore.",
+          },
+          {
+            portuguese: "Nós não moramos mais naquele bairro.",
+            english: "We don't live in that neighborhood anymore.",
+          },
+          {
+            portuguese:
+              "Ele não compartilha seus brinquedos com outros no parquinho.",
+            english: "He doesn't share his toys with others in the playground.",
+          },
+          {
+            portuguese: "Ela não se equilibra bem na corda bamba.",
+            english: "She doesn't balance well on the tightrope.",
+          },
+          {
+            portuguese: "Eles não zombam dos colegas na escola.",
+            english: "They don't make fun of their classmates at school.",
+          },
+          {
+            portuguese: "Ele não experimenta comidas novas em restaurantes.",
+            english: "He doesn't try new foods in restaurants.",
+          },
+          {
+            portuguese: "Ela não traz seu guarda-chuva em dias ensolarados.",
+            english: "She doesn't bring her umbrella on sunny days.",
+          },
+          {
+            portuguese: "Eles não pedem ajuda quando estão perdidos na cidade.",
+            english: "They don't ask for help when they're lost in the city.",
+          },
+          {
+            portuguese: "O vento não derruba folhas das árvores no inverno.",
+            english: "The wind doesn't drop leaves from the trees in winter.",
+          },
+          {
+            portuguese: "Ele não ri de piadas sobre infortúnios alheios.",
+            english: "He doesn't laugh at jokes about others' misfortunes.",
+          },
+          {
+            portuguese: "Ela não nada no lago depois do escurecer.",
+            english: "She doesn't swim in the lake after dark.",
+          },
+        ],
+      },
+      {
+        subtitle: "What word is this?",
+        order: 1,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "I don't know that",
+            ptbrText: "Eu não sei isso",
+          },
+          {
+            ptbrText: "Ele não pratica esportes regularmente.",
+            enusAudio: "He doesn't practice sports regularly.",
+          },
+          {
+            ptbrText: "Nós não assistimos televisão durante a semana.",
+            enusAudio: "We don't watch television during the week.",
+          },
+          {
+            ptbrText: "Ela não gosta de acordar cedo aos sábados.",
+            enusAudio: "She doesn't like to wake up early on Saturdays.",
+          },
+          {
+            ptbrText: "Eles não compram roupas de marca.",
+            enusAudio: "They don't buy designer clothes.",
+          },
+          {
+            ptbrText: "Eu não trabalho aos domingos.",
+            enusAudio: "I don't work on Sundays.",
+          },
+          {
+            ptbrText: "Ele não visita o dentista regularmente.",
+            enusAudio: "He doesn't visit the dentist regularly.",
+          },
+          {
+            ptbrText: "Nós não bebemos café depois das 18 horas.",
+            enusAudio: "We don't drink coffee after 6 PM.",
+          },
+          {
+            ptbrText: "Ela não usa o celular enquanto dirige.",
+            enusAudio: "She doesn't use her phone while driving.",
+          },
+          {
+            ptbrText: "Eles não assistem filmes de terror.",
+            enusAudio: "They don't watch horror movies.",
+          },
+          {
+            ptbrText: "Eu não falo alto em lugares públicos.",
+            enusAudio: "I don't speak loudly in public places.",
+          },
+          {
+            ptbrText: "Ele não come comida apimentada.",
+            enusAudio: "He doesn't eat spicy food.",
+          },
+          {
+            ptbrText: "Nós não deixamos comida na mesa durante a noite.",
+            enusAudio: "We don't leave food on the table overnight.",
+          },
+          {
+            ptbrText: "Ela não corre riscos desnecessários.",
+            enusAudio: "She doesn't take unnecessary risks.",
+          },
+          {
+            ptbrText: "Eles não jogam videogame durante a semana.",
+            enusAudio: "They don't play video games during the week.",
+          },
+          {
+            ptbrText: "Eu não pratico yoga regularmente.",
+            enusAudio: "I don't practice yoga regularly.",
+          },
+          {
+            ptbrText: "Ele não usa óculos de sol quando está nublado.",
+            enusAudio: "He doesn't wear sunglasses when it's cloudy.",
+          },
+          {
+            ptbrText: "Nós não deixamos as luzes acesas quando saímos de casa.",
+            enusAudio: "We don't leave the lights on when we leave the house.",
+          },
+          {
+            ptbrText: "Ela não tira sonecas durante o dia.",
+            enusAudio: "She doesn't take naps during the day.",
+          },
+          {
+            ptbrText: "Eles não usam roupas informais no trabalho.",
+            enusAudio: "They don't wear casual clothes at work.",
+          },
+        ],
+      },
+      {
+        subtitle: "Text",
+        order: 2,
+        type: "text",
+        text: "Learning foreign languages is very important. The ability to speak various languages opens doors to countless options in our interconnected world. First of all, it improves communication abilities, making people able to engage with people from different backgrounds in productive ways. Furthermore, acquiring a language promotes empathy and cultural understanding, fostering respect for others. Additionally, technology makes it easier to access a variety of professional and academic resources. Having fluency in another language improves people's chances for employment because it makes one more competitive in the global labor market and allows one to conduct business internationally. In the end, learning a foreign language doesn't just improve people's lives, but it also gives them new perspectives and gives them the confidence and competence to navigate a more diversified and linked society. If you don't know what career you want to follow, start learning a foreign language!",
+      },
+    ],
+  },
+  {
+    title: "Do...? / Does...?",
+    type: "#1.0 | Basic Grammar",
+    order: 16,
+    description: "",
+    image:
+      "https://images.pexels.com/photos/5428833/pexels-photo-5428833.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [],
+  },
+  {
+    title: "Empty 'it'",
+    type: "#1.0 | Basic Grammar",
+    order: 17,
     description: "",
     image:
       "https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -3050,6 +3285,14 @@ export const lessons = [
           {
             english: "It is hot in the Philippines.",
             portuguese: "Está calor nas Filipinas.",
+          },
+          {
+            english: "It rains a lot in the Philippines.",
+            portuguese: "Chove muito nas Filipinas.",
+          },
+          {
+            english: "It works!",
+            portuguese: "Funciona!",
           },
           {
             english: "It’s 4pm.",

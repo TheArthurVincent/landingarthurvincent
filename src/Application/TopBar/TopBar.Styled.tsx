@@ -21,7 +21,7 @@ export const TopBarContainer = styled.header`
   @media print {
     display: none;
   }
-`;
+`;  
 
 export const TopBarNavigation = styled.div`
   text-align: center;
