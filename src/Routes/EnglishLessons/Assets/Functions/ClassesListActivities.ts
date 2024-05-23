@@ -3032,6 +3032,81 @@ export const lessons = [
       },
     ],
   },
+  {
+    title: "Empty 'it'",
+    type: "#1.0 | Basic Grammar",
+    order: 15,
+    description: "",
+    image:
+      "https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&w=600",
+    elements: [
+      {
+        subtitle: "Vocabulary",
+        comments:
+          "'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
+        order: 0,
+        type: "sentences",
+        sentences: [
+          {
+            english: "It is hot in the Philippines.",
+            portuguese: "Está calor nas Filipinas.",
+          },
+          {
+            english: "It’s 4pm.",
+            portuguese: "São 16h.",
+          },
+          {
+            english: "It’s 9am.",
+            portuguese: "São 9h.",
+          },
+          {
+            english: "It is 8 in the morning.",
+            portuguese: "São 8 da manhã.",
+          },
+          {
+            english: "It’s snowing outside.",
+            portuguese: "Está nevando lá fora.",
+          },
+          {
+            english: "It's too cold in this room.",
+            portuguese: "Está frio demais nesta sala.",
+          },
+          {
+            english: "It is sunny today.",
+            portuguese: "Está ensolarado hoje.",
+          },
+          {
+            english: "It’s not 8 in the morning.",
+            portuguese: "Não são 8 da manhã.",
+          },
+          {
+            english: "It isn’t snowing outside.",
+            portuguese: "Não está nevando lá fora.",
+          },
+          {
+            english: "It’s not too cold in this room.",
+            portuguese: "Não está frio demais nesta sala.",
+          },
+          {
+            english: "It isn’t sunny today.",
+            portuguese: "Não está ensolarado hoje.",
+          },
+          {
+            english: "Is it hot in the Philippines?",
+            portuguese: "Está calor nas Filipinas?",
+          },
+          {
+            english: "Is it 4pm?",
+            portuguese: "São 16h?",
+          },
+          {
+            english: "Is it 9am?",
+            portuguese: "São 9h?",
+          },
+        ],
+      },
+    ],
+  },
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
