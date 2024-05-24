@@ -118,7 +118,7 @@ export const TopBar: FC = () => {
     setVisible(visible === "flex" ? "none" : "flex");
   };
 
-  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 0.8);
+  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1);
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
@@ -213,16 +213,10 @@ export const TopBar: FC = () => {
                 style={{
                   color: primaryColor(),
                   textDecoration: "none",
-
-
                 }}
                 to={link.endpoint}
               >
-                <SpanHover
-
-                >
-                  {link.title}
-                </SpanHover>
+                <SpanHover>{link.title}</SpanHover>
               </NavLink>
             );
           })}
