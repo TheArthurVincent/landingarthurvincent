@@ -79,7 +79,7 @@ export function AllClasses({ headers }) {
   );
 
   return (
-    <RouteDiv>
+    <>
       <HOne>Aulas gravadas</HOne>
       <Modal
         open={isModalOpen}
@@ -168,7 +168,7 @@ export function AllClasses({ headers }) {
           ))
         )}
       </div>
-    </RouteDiv>
+    </>
   );
 }
 

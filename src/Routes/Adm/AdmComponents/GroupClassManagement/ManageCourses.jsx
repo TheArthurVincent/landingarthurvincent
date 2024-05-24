@@ -160,7 +160,7 @@ export function ManageGroupClasses({ headers }) {
   };
 
   return (
-    <RouteDiv>
+    <>
       <HOne>Gerenciar Cursos</HOne>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabValue}>
@@ -337,7 +337,7 @@ export function ManageGroupClasses({ headers }) {
           </TabPanel>
         </TabContext>
       </Box>
-    </RouteDiv>
+    </>
   );
 }
 
