@@ -23,15 +23,14 @@ interface LevelCardProps {
 }
 
 export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
-  const [totalScore, setTotalScore] = useState(0);
-  const [monthlyScore, setMonthlyScore] = useState(0);
-  const [level, setLevel] = useState(9);
-  const [loading, setLoading] = useState(true);
-  const [showCard, setShowCard] = useState("none");
+  const [totalScore, setTotalScore] = useState<number>(0);
+  const [monthlyScore, setMonthlyScore] = useState<number>(0);
+  const [level, setLevel] = useState<number>(9);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [showCard, setShowCard] = useState<any>("none");
 
   const items = levels();
   const actualHeaders = headers || {};
-
 
   const seeScore = async (id: string) => {
     setLoading(true);
@@ -41,6 +40,7 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
       });
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
+
       var newValue = updateScore(response.data.totalScore);
       const levelDone = newValue.level;
       setLevel(levelDone);
@@ -50,7 +50,7 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
       console.error(error);
     }
   };
-  
+
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     if (getLoggedUser.id) {

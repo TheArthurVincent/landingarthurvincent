@@ -60,6 +60,7 @@ export function Blog({ headers }: HeadersProps) {
     },
   ]);
 
+
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
