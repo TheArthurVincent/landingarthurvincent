@@ -236,7 +236,7 @@ export const lessons = [
   },
   {
     title: "Personal Pronouns",
-    order:7,
+    order: 7,
     type: "#1.0 | Basic Grammar",
     description:
       "Os pronomes pessoais em inglês são fundamentais para construir frases. Eles se dividem em 'subject pronouns' e 'object pronouns'.",
@@ -3491,6 +3491,193 @@ export const lessons = [
       },
     ],
   },
+  {
+    title: "There is / There are",
+    type: "#1.0 | Basic Grammar",
+    order: 24,
+    description:
+      "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
+    image:
+      "https://media.istockphoto.com/id/1383796215/photo/silhouette-of-man-holding-binoculars-on-mountain-peak-against-bright-sunlight-sky-background.jpg?b=1&s=612x612&w=0&k=20&c=7qil3OYFwP814_tFl1b-nPHloTptreuOeWA0HOLE5pE=",
+    elements: [
+      {
+        subtitle: "Examples",
+        order: 0,
+        type: "images",
+        images: [
+          {
+            img: "https://images.pexels.com/photos/4916680/pexels-photo-4916680.jpeg?auto=compress&cs=tinysrgb&w=600",
+            text: "There is a dog in the car.",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1343268234/pt/foto/human-hands-put-chicken-eggs-in-the-egg-laying-compartment-in-the-refrigerator.jpg?b=1&s=612x612&w=0&k=20&c=FKENb_yGSLz_E6MHYM0q2Z69s948n1LqlZvaoPvOJRk=",
+            text: "There is an egg in the fridge.",
+          },
+          {
+            img: "data:image/jpeg;base64,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",
+            text: "There are dogs in the car.",
+          },
+          {
+            img: "https://media.istockphoto.com/id/1094120062/pt/foto/healthy-bio-eggs-in-the-fridge.jpg?b=1&s=612x612&w=0&k=20&c=vDcYKrGIQFQbeHuOXvoQXQunlYhD-HmfH_Rj9bvI0R4=",
+            text: "There are eggs in the fridge.",
+          },
+        ],
+      },
+      {
+        subtitle: "Negations and questions",
+        // comments:
+        //   "'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Is there?",
+            portuguese: "Tem?",
+          },
+          {
+            english: "Are there?",
+            portuguese: "Tem?",
+          },
+          {
+            english: "Is there any?",
+            portuguese: "Tem algum?",
+          },
+          {
+            english: "Are there any?",
+            portuguese: "Tem algum?",
+          },
+          {
+            english: "There is no.",
+            portuguese: "Não tem.",
+          },
+          {
+            english: "There are no.",
+            portuguese: "Não tem.",
+          },
+        ],
+      },
+      {
+        subtitle: "Examples in sentences",
+        // comments:
+        //   "'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "There is no dentist appointment scheduled for today.",
+            portuguese: "Não tem consulta com o dentista marcada para hoje.",
+          },
+          {
+            english: "Is there a navy blue backpack on the table?",
+            portuguese: "Tem uma mochila azul marinho na mesa?",
+          },
+          {
+            english: "There are no plumbers available for emergency repairs.",
+            portuguese:
+              "Não tem encanadores disponíveis para reparos de emergência.",
+          },
+          {
+            english:
+              "Are there enough curtains in this living room? It’s so dark!",
+            portuguese:
+              "Tem cortinas suficientes nesta sala de estar? Está tão escuro!",
+          },
+          {
+            english: "Are there any purple flowers in the garden?",
+            portuguese: "Tem flores roxas no jardim?",
+          },
+          {
+            english: "There are five blue cars parked in the lot.",
+            portuguese:
+              "Tem cinco carros azuis estacionados no estacionamento.",
+          },
+          {
+            english: "Is there a yellow pencil on your desk?",
+            portuguese: "Tem um lápis amarelo na sua mesa?",
+          },
+          {
+            english: "There are no green chairs in the conference room.",
+            portuguese: "Não tem cadeiras verdes na sala de conferências.",
+          },
+          {
+            english: "There is no black cat in the living room.",
+            portuguese: "Não tem gato preto na sala de estar.",
+          },
+          {
+            english: "There are three red apples in the basket.",
+            portuguese: "Tem três maçãs vermelhas na cesta.",
+          },
+          {
+            english: "Is there a brown briefcase under the table?",
+            portuguese: "Tem uma maleta marrom embaixo da mesa?",
+          },
+          {
+            english: "There is one orange shirt on the bed.",
+            portuguese: "Tem uma camisa laranja na cama.",
+          },
+          {
+            english: "There are no gray laptops available in stock.",
+            portuguese: "Não tem laptops cinza disponíveis em estoque.",
+          },
+          {
+            english: "There is no chef in the kitchen right now.",
+            portuguese: "Não tem chef na cozinha agora.",
+          },
+          {
+            english: "There are seven whiteboards in the classroom.",
+            portuguese: "Tem sete quadros brancos na sala de aula.",
+          },
+          {
+            english: "Is there a pink dress in your wardrobe?",
+            portuguese: "Tem um vestido rosa no seu guarda-roupa?",
+          },
+          {
+            english: "There are four black suits hanging in the closet.",
+            portuguese: "Tem quatro ternos pretos pendurados no armário.",
+          },
+          {
+            english: "There is one electrician working on the wiring.",
+            portuguese: "Tem um eletricista trabalhando na fiação.",
+          },
+          {
+            english: "There are no architects present at the meeting.",
+            portuguese: "Não tem arquitetos presentes na reunião.",
+          },
+          {
+            english: "There is no veterinarian available at this hour.",
+            portuguese: "Não tem veterinário disponível a esta hora.",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Dialogue Practice #1",
+        order: 3,
+        type: "dialogue",
+        dialogue: [
+          "Hey Thomas! What is your favorite weather?",
+          "Hey Sarah! My favorite weather? I really enjoy sunny days. How about you?",
+          "Oh, interesting choice! I'm more of a fan of cloudy weather myself. It just feels cozy and calm to me. And I have to say, I like foggy days as well.",
+          "Foggy days have this mysterious vibe, right? It's like the world becomes a bit more intriguing.",
+          "Exactly! And what about snowy weather?",
+          "Oh I love snowy days! There's something magical about watching the snowfall. But I have to admit, the cold that comes with it is not so good.",
+          "I totally get that. While I appreciate the beauty of snow, I prefer warmer temperatures. Hot weather is my favorite! There's nothing like enjoying outdoor activities on a beach.",
+          "Ah, I see! So you're a summer person then. Well, it's true that warm weather has its charms too.",
+        ],
+      },
+      {
+        subtitle: "Questions",
+        comments: "Tente responder estas pergunta usando o que você aprendeu.",
+        order: 3,
+        type: "exercise",
+        items: [
+          "Is there a particular place you dream to visit?",
+          "Are there any hobbies you’re interested in?",
+          "Is there a favorite childhood memory that you love?",
+        ],
+      },
+    ],
+  },
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
   ///////////////// Vocabulary Basics
@@ -4147,6 +4334,42 @@ export const lessons = [
             english: "How old is the professor teaching in the university?",
             portuguese:
               "Quantos anos tem o professor que leciona na universidade?",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Text",
+        order: 2,
+        type: "text",
+        text: "In our society, all professions play their essential roles. Let me talk about a few, using my friends as examples. Mary is a doctor, and she is very dedicated to her patients. James, the teacher, is a master at sharing knowledge, guiding students to a brighter future. John and Carly are engineers, creating innovative solutions. Michael is a lawyer who defends justice, and Rebeca is a nurse always providing comfort in times of illness. Tom and Jerry, the chefs, with their culinary expertise, are adept at transforming ingredients into delicious meals. My friends Marco and Janah are police officers, maintaining order and ensuring safety in our communities, while the firefighter Jonathan is always facing danger to protect lives. My brother Jimmy and I are programmers, using our skills to develop the technology that shapes our modern world.",
+      },
+    ],
+  },
+  {
+    title: "Weather",
+    order: 23,
+    type: "#1.1 | Basic Vocabulary",
+    description: "Vamos aprender a dizer algumas profissões em inglês.",
+    image:
+      "https://static.mundoeducacao.uol.com.br/mundoeducacao/2019/11/professions.jpg",
+    elements: [
+      {
+        subtitle: "Vocabulary",
+        // comments:
+        //   "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
+        order: 0,
+        type: "sentences",
+        sentences: [{ english: "Doctor", portuguese: "Médico" }],
+      },
+      {
+        subtitle: "Sentences",
+        order: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The doctor is examining a patient's X-rays.",
+            portuguese: "O médico está examinando os raios-X de um paciente.",
           },
         ],
       },
