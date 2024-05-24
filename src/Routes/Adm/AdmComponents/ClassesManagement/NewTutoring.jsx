@@ -79,7 +79,7 @@ export function NewTutoring({ headers }) {
   };
 
   return (
-    <RouteDiv>
+    <>
       <HOne>Postar aula particular dada</HOne>
       <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
         <div
@@ -200,7 +200,7 @@ export function NewTutoring({ headers }) {
           {button}
         </Button>
       </form>
-    </RouteDiv>
+    </>
   );
 }
 

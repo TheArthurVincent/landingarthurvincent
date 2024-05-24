@@ -5,7 +5,7 @@ import { linksInfo } from "./LinksManagementAssets/UsefulLinksList";
 
 export function UsefulLinks() {
   return (
-    <RouteDiv>
+    <>
       <ul
         style={{
           display: "flex",
@@ -24,7 +24,7 @@ export function UsefulLinks() {
           );
         })}
       </ul>
-    </RouteDiv>
+    </>
   );
 }
 

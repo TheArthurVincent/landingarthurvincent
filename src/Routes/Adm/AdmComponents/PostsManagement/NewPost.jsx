@@ -43,7 +43,7 @@ export function NewPost({ headers }) {
   };
 
   return (
-    <RouteDiv>
+    <>
       <HOne>Nova Postagem</HOne>
       <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
         <input
@@ -141,7 +141,7 @@ export function NewPost({ headers }) {
           Criar
         </Button>
       </form>
-    </RouteDiv>
+    </>
   );
 }
 

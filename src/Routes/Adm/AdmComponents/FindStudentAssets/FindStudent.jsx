@@ -327,7 +327,7 @@ export function FindStudent({ uploadStatus, headers }) {
   };
 
   return (
-    <RouteDiv style={{ margin: "1rem auto" }}>
+    <>
       <HOne>{UniversalTexts.myStudents}</HOne>
       <div style={{ display: hasReset ? "none" : "block" }}>
         {" "}
@@ -883,7 +883,7 @@ export function FindStudent({ uploadStatus, headers }) {
           </TabPanel>
         </TabContext>
       </DivModal>
-    </RouteDiv>
+    </>
   );
 }
 
