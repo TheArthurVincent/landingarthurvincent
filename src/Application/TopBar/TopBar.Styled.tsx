@@ -42,7 +42,7 @@ export const TopBarNavigationBurger = styled.div`
   flex-direction: column;
   top: 0.1rem;
   left: 0.1rem;
-  z-index: 6000000;
+  z-index: 6000;
   list-style: none;
   gap: 1rem;
   text-align: left;
