@@ -2142,6 +2142,8 @@ export const lessons = [
           { english: "To speak", portuguese: "Falar" },
           { english: "To write", portuguese: "Escrever" },
           { english: "To see", portuguese: "Ver" },
+          { english: "To have", portuguese: "Ter" },
+          { english: "To get", portuguese: "Pegar/Conseguir/Etc..." },
           { english: "To learn", portuguese: "Aprender" },
           { english: "To teach", portuguese: "Ensinar" },
           { english: "To need", portuguese: "Precisar de" },
