@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import {
   alwaysBlack,
   alwaysWhite,
-  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -996,13 +995,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.category === "Group Class"
                                     ? "#F2F1CE"
                                     : event.category === "Rep"
-                                      ? "#FEEBED"
+                                      ? "#aaa"
                                       : event.category === "Tutoring"
                                         ? "#eee"
                                         : event.category === "Prize Class"
                                           ? "#FCE562"
                                           : event.category === "Standalone"
-                                            ? "#ddd"
+                                            ? "#123"
                                             : event.category === "Test"
                                               ? "#333"
                                               : "#000",
