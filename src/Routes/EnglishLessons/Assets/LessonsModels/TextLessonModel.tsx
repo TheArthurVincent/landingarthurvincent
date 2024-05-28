@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
-import { readText } from "../Functions/FunctionLessons";
+import { pauseSpeech, readText } from "../Functions/FunctionLessons";
 import TextAreaLesson from "../Functions/TextAreaLessons";
 interface TextLessonModelProps {
   headers: MyHeadersType | null;
@@ -11,6 +11,8 @@ export default function TextLessonModel({
   headers,
   text,
 }: TextLessonModelProps) {
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
   return (
     <div
       style={{
@@ -20,8 +22,17 @@ export default function TextLessonModel({
     >
       <div>
         {text}
-        <button className="audio-button" onClick={() => readText(text)}>
-          <i className="fa fa-volume-up" aria-hidden="true" />
+        <button
+          className="audio-button"
+          onClick={() => {
+            readText(text, true);
+            setIsPaused(!isPaused);
+          }}
+        >
+          <i
+            className={!isPaused ? "fa fa-volume-up" : "fa fa-pause"}
+            aria-hidden="true"
+          />
         </button>
         <TextAreaLesson />
       </div>

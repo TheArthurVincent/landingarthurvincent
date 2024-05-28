@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
-import { readText } from "../Functions/FunctionLessons";
+import { pauseSpeech, readText } from "../Functions/FunctionLessons";
 import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 import TextAreaLesson from "../Functions/TextAreaLessons";
@@ -14,6 +14,7 @@ export default function SentenceLessonModel({
   headers,
   element,
 }: SentenceLessonModelProps) {
+  const [isPause, setIsPause] = useState<boolean>(true);
   return (
     <UlSentences
       style={{
@@ -37,7 +38,9 @@ export default function SentenceLessonModel({
             </strong>
             <button
               className="audio-button"
-              onClick={() => readText(sentence.english)}
+              onClick={() => {
+                readText(sentence.english, true);
+              }}
             >
               <i className="fa fa-volume-up" aria-hidden="true" />
             </button>

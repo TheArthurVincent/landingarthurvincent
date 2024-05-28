@@ -40,12 +40,11 @@ export default function ImageLessonModel({
               >
                 <button
                   className="audio-button"
-                  onClick={() => readText(image.text)}
+                  onClick={() => readText(image.text, true)}
                 >
                   <i className="fa fa-volume-up" aria-hidden="true" />
                 </button>
                 <span>{image.text}</span>
-              
               </span>
               <TextAreaLesson />
             </LiGridImageLessons>

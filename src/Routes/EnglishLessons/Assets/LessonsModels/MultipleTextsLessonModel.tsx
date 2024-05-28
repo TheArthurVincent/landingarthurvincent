@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
-import { readText } from "../Functions/FunctionLessons";
+import { pauseSpeech, readText } from "../Functions/FunctionLessons";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 import TextAreaLesson from "../Functions/TextAreaLessons";
 interface MultipleTextsLessonModelProps {
@@ -12,6 +12,7 @@ export default function MultipleTextsLessonModel({
   headers,
   element,
 }: MultipleTextsLessonModelProps) {
+  const [isPaused, setIsPaused] = useState<boolean>(false);
   return (
     <div
       style={{
@@ -36,9 +37,17 @@ export default function MultipleTextsLessonModel({
                         {text.text}
                         <button
                           className="audio-button"
-                          onClick={() => readText(text.text)}
+                          onClick={() => {
+                            readText(text, false);
+                            setIsPaused(!isPaused);
+                          }}
                         >
-                          <i className="fa fa-volume-up" aria-hidden="true" />
+                          <i
+                            className={
+                              !isPaused ? "fa fa-volume-up" : "fa fa-pause"
+                            }
+                            aria-hidden="true"
+                          />
                         </button>
                       </p>
                       <TextAreaLesson />
