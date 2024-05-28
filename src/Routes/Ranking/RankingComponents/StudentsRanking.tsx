@@ -323,60 +323,60 @@ export default function StudentsRanking({ headers }: HeadersProps) {
           {students.map((item: any, index: number) => {
             const levelNumber = updateScore(item.totalScore).level;
             return (
-              <div key={index}>
-                <RouteDiv
+              <div
+                key={index}
+                style={{
+                  padding: "0.5rem 1rem",
+                  margin: "1rem 0",
+                  boxShadow: "1px 1px 10px 1px #aaa",
+                  display: item.id === user.id ? "flex" : "none",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  background: theItems[levelNumber].color,
+                  color: theItems[levelNumber].textcolor,
+                }}
+              >
+                <div
                   style={{
-                    padding: "0.5rem 1rem",
-                    margin: "1rem 0",
-                    display: item.id === user.id ? "flex" : "none",
-                    justifyContent: "space-between",
+                    display: "grid",
+                    justifyContent: "space-evenly",
                     alignItems: "center",
-                    background: theItems[levelNumber].color,
-                    color: theItems[levelNumber].textcolor,
                   }}
                 >
-                  <div
+                  <h1
                     style={{
-                      display: "grid",
-                      justifyContent: "space-evenly",
-                      alignItems: "center",
+                      fontWeight: 600,
+                      margin: 0,
+                      padding: "5px",
+                      background: theItems[levelNumber].color,
+                      color: theItems[levelNumber].textcolor,
                     }}
                   >
-                    <h1
+                    #{index + 1} | {item.name} {abreviateName(item.lastname)}
+                  </h1>
+                </div>
+                <div>
+                  <p>
+                    Monthly Score:{" "}
+                    <span
                       style={{
-                        fontWeight: 600,
-                        margin: 0,
-                        padding: "5px",
-                        background: theItems[levelNumber].color,
-                        color: theItems[levelNumber].textcolor,
+                        fontWeight: "600",
                       }}
                     >
-                      #{index + 1} | {item.name} {abreviateName(item.lastname)}
-                    </h1>
-                  </div>
-                  <div>
-                    <p>
-                      Monthly Score:{" "}
-                      <span
-                        style={{
-                          fontWeight: "600",
-                        }}
-                      >
-                        {formatNumber(item.monthlyScore)}
-                      </span>
-                    </p>
-                    <p>
-                      Total Score:{" "}
-                      <span
-                        style={{
-                          fontWeight: "600",
-                        }}
-                      >
-                        {formatNumber(item.totalScore)}
-                      </span>
-                    </p>
-                  </div>
-                </RouteDiv>
+                      {formatNumber(item.monthlyScore)}
+                    </span>
+                  </p>
+                  <p>
+                    Total Score:{" "}
+                    <span
+                      style={{
+                        fontWeight: "600",
+                      }}
+                    >
+                      {formatNumber(item.totalScore)}
+                    </span>
+                  </p>
+                </div>
               </div>
             );
           })}
@@ -392,8 +392,8 @@ export default function StudentsRanking({ headers }: HeadersProps) {
                     display: isAdm
                       ? "flex"
                       : index < 5 && item.monthlyScore > 0
-                        ? "flex"
-                        : "none",
+                      ? "flex"
+                      : "none",
                     background: theItems[levelNumber].color,
                     color: theItems[levelNumber].textcolor,
                   }}
