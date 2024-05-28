@@ -48,7 +48,7 @@ export default function DialogueLessonModel({
                     </p>
                     <button
                       className="audio-button"
-                      onClick={() => readText(text)}
+                      onClick={() => readText(text, true)}
                     >
                       <i className="fa fa-volume-up" aria-hidden="true" />
                     </button>
