@@ -11,6 +11,7 @@ import {
   lightGreyColor,
   primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
@@ -509,21 +510,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     return false;
   }
 
-  function isEventFuture(eventTime, hj, date) {
-    const [eventHour, eventMinute] = eventTime.time.split(":").map(Number);
-    const eventDateTime = new Date(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
-      eventHour,
-      eventMinute
-    );
-    if (eventDateTime >= hj) {
-      return true;
-    }
-    return false;
-  }
-
   const deleteTutoring = async (item) => {
     try {
       const response = await axios.delete(
@@ -940,22 +926,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                       <StyledDiv
                         className={
                           hj.getDate() == date.getDate() &&
-                          hj.getMonth() == date.getMonth() &&
-                          hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                             ? "glowing"
                             : "none"
                         }
                         style={{
-                          borderRadius:
-                            hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
-                              ? `10px`
-                              : "null",
                           border:
                             hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
                               ? `2px solid ${secondaryColor()}`
                               : "null",
                         }}
@@ -964,21 +944,19 @@ export default function MyCalendar({ headers, thePermissions }) {
                         <p
                           style={{
                             padding: "5px",
-                            fontFamily: "Athiti",
                             position: "sticky",
                             top: 0,
-                            zIndex: 50,
                             fontWeight:
                               hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                                hj.getMonth() == date.getMonth() &&
+                                hj.getFullYear() == date.getFullYear()
                                 ? 700
                                 : 500,
                             textAlign: "center",
                             backgroundColor:
                               hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                                hj.getMonth() == date.getMonth() &&
+                                hj.getFullYear() == date.getFullYear()
                                 ? "#439906"
                                 : alwaysBlack(),
                             color: alwaysWhite(),
@@ -1018,16 +996,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.category === "Group Class"
                                     ? "#F2F1CE"
                                     : event.category === "Rep"
-                                    ? "#b33"
-                                    : event.category === "Tutoring"
-                                    ? "#fff"
-                                    : event.category === "Prize Class"
-                                    ? "orange"
-                                    : event.category === "Standalone"
-                                    ? "#ddd"
-                                    : event.category === "Test"
-                                    ? "#C2F0C2"
-                                    : "#000",
+                                      ? "#FEEBED"
+                                      : event.category === "Tutoring"
+                                        ? "#eee"
+                                        : event.category === "Prize Class"
+                                          ? "#FCE562"
+                                          : event.category === "Standalone"
+                                            ? "#ddd"
+                                            : event.category === "Test"
+                                              ? "#333"
+                                              : "#000",
 
                                 textAlign: "center",
                                 display: "grid",
@@ -1117,49 +1095,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   )}
                                 </div>
                               )}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  gap: "0.5rem",
-                                  flexDirection: "column",
-                                  marginBottom: "5px",
-                                  borderRadius: "5px",
-                                  padding: "5px",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  border: `solid 2px ${
-                                    event.status == "marcado"
-                                      ? primaryColor()
-                                      : event.status == "realizada"
-                                      ? secondaryColor()
-                                      : event.status == "desmarcado"
-                                      ? "red"
-                                      : "#000"
-                                  }`,
-                                  backgroundColor:
-                                    event.status == "desmarcado"
-                                      ? "#FFCCCC"
-                                      : event.status == "marcado"
-                                      ? "#CCE5FF"
-                                      : event.status == "realizada"
-                                      ? "#CCFFCC"
-                                      : "#000",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    color: "black",
-                                    fontSize: "0.8rem",
-                                    fontFamily: "Athiti",
-                                  }}
-                                >
-                                  {event.status == "marcado"
-                                    ? "Scheduled"
-                                    : event.status == "desmarcado"
-                                    ? "Canceled"
-                                    : "Realized"}
-                                </div>
-                              </div>
+                             
                               {event.status !== "desmarcado" &&
                                 isEventTimeNow(event, hj, date) && (
                                   <span
@@ -1167,8 +1103,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                       paddingBottom: "0px",
                                       marginBottom: "5px",
                                       padding: "3px",
-                                      border: `3px solid ${secondaryColor()}`,
-                                      borderRadius: `10px`,
+                                      border: `2px solid ${secondaryColor()}`,
                                       backgroundColor: `${secondaryColor()}`,
                                     }}
                                   >
@@ -1179,9 +1114,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 style={{
                                   fontFamily: "Athiti",
                                   padding: "10px",
-                                  margin: "0 10px",
+                                  margin: "10px",
                                   borderRadius: "10px",
-                                  backgroundColor: "#eee",
+                                  backgroundColor: textPrimaryColorContrast(),
+                                  color: primaryColor(),
                                   fontSize: "0.8rem",
                                 }}
                               >
@@ -1221,6 +1157,48 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   <p>{event.description}</p>
                                 </div>
                               )}
+                               <div
+                                style={{
+                                  display: "flex",
+                                  gap: "0.5rem",
+                                  flexDirection: "column",
+                                  margin: "5px",
+                                  borderRadius: "50px",
+                                  padding: "0px",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  backgroundColor:
+                                    event.status == "desmarcado"
+                                      ? "#FFCCCC"
+                                      : event.status == "marcado"
+                                        ? "#CCE5FF"
+                                        : event.status == "realizada"
+                                          ? "#CCFFCC"
+                                          : "#000",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color:
+                                      event.status == "marcado"
+                                        ? primaryColor()
+                                        : event.status == "realizada"
+                                          ? secondaryColor()
+                                          : event.status == "desmarcado"
+                                            ? "red"
+                                            : "#000",
+                                    fontSize: "0.6rem",
+                                    padding: "5px",
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  {event.status == "marcado"
+                                    ? "Scheduled"
+                                    : event.status == "desmarcado"
+                                      ? "Canceled"
+                                      : "Realized"}
+                                </div>
+                              </div>
                               <span
                                 style={{
                                   padding: "5px",
