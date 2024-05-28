@@ -1141,13 +1141,12 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.description && (
                                 <div
                                   style={{
-                                    backgroundColor: "#333",
+                                    color: "#333",
+                                    backgroundColor: "#fff",
                                     padding: "3px",
-                                    color: "#fff",
                                     marginTop: "10px",
                                     fontSize: "11px",
                                     maxWidth: "20ch",
-                                    fontWeight: 600,
                                     margin: "5px auto",
                                     fontStyle: "italic",
                                     borderRadius: "5px",
