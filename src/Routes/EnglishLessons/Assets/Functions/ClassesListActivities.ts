@@ -333,7 +333,7 @@ export const lessons = [
           },
           {
             enusAudio: "She is here with them",
-            ptbrText: "Ela está aqui com ela",
+            ptbrText: "Ela está aqui com elas",
           },
           {
             enusAudio: "Are your friends there with them?",
