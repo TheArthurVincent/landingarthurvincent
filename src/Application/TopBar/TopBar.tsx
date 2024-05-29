@@ -73,6 +73,9 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
               color: location.pathname.includes(link.endpoint)
                 ? secondaryColor()
                 : alwaysBlack(),
+              cursor: location.pathname.includes(link.endpoint)
+                ? "default"
+                : "pointer",
               display: link.display,
               textDecoration: "none",
             }}
@@ -174,6 +177,9 @@ export const TopBar: FC = () => {
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
+                  cursor: location.pathname.includes(link.endpoint)
+                    ? "default"
+                    : "pointer",
                   display: link.display,
                   textDecoration: "none",
                 }}
@@ -203,6 +209,9 @@ export const TopBar: FC = () => {
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
+                  cursor: location.pathname.includes(link.endpoint)
+                    ? "default"
+                    : "pointer",
                   textDecoration: "none",
                 }}
                 key={index}
@@ -233,6 +242,9 @@ export const TopBar: FC = () => {
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
+                  cursor: location.pathname.includes(link.endpoint)
+                    ? "default"
+                    : "pointer",
                   textDecoration: "none",
                 }}
                 to={link.endpoint}
@@ -260,6 +272,9 @@ export const TopBar: FC = () => {
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
+                  cursor: location.pathname.includes(link.endpoint)
+                    ? "default"
+                    : "pointer",
                   textDecoration: "none",
                 }}
                 to={link.endpoint}
