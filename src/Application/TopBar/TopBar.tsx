@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   TopBarContainer,
   TopBarNavigation,
@@ -18,6 +18,7 @@ import {
   textPrimaryColorContrast,
   primaryColor,
   secondaryColor,
+  alwaysBlack,
 } from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
 
@@ -31,6 +32,9 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  const isAnyLinkActive = list.some((link) =>
+    location.pathname.includes(link.endpoint)
+  );
 
   return (
     <div
@@ -39,7 +43,14 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
       style={{ position: "relative", display: "inline-block" }}
     >
       <div style={{ cursor: "pointer" }}>
-        <SpanHover style={{ textDecoration: "none" }}>{title}</SpanHover>
+        <SpanHover
+          style={{
+            textDecoration: "none",
+            color: isAnyLinkActive ? secondaryColor() : alwaysBlack(),
+          }}
+        >
+          {title}
+        </SpanHover>
       </div>
       <div
         style={{
@@ -59,7 +70,9 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
           <NavLink
             key={index}
             style={{
-              color: primaryColor(),
+              color: location.pathname.includes(link.endpoint)
+                ? secondaryColor()
+                : alwaysBlack(),
               display: link.display,
               textDecoration: "none",
             }}
@@ -117,7 +130,10 @@ export const TopBar: FC = () => {
   const handleVisible = () => {
     setVisible(visible === "flex" ? "none" : "flex");
   };
-
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location);
+  });
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1);
   return (
     <TopBarContainer>
@@ -155,7 +171,9 @@ export const TopBar: FC = () => {
               <NavLink
                 key={index}
                 style={{
-                  color: textPrimaryColorContrast(),
+                  color: location.pathname.includes(link.endpoint)
+                    ? secondaryColor()
+                    : alwaysBlack(),
                   display: link.display,
                   textDecoration: "none",
                 }}
@@ -182,8 +200,9 @@ export const TopBar: FC = () => {
               <NavLink
                 style={{
                   display: link.display,
-                  color: textPrimaryColorContrast(),
-
+                  color: location.pathname.includes(link.endpoint)
+                    ? secondaryColor()
+                    : alwaysBlack(),
                   textDecoration: "none",
                 }}
                 key={index}
@@ -211,7 +230,9 @@ export const TopBar: FC = () => {
               <NavLink
                 key={index}
                 style={{
-                  color: primaryColor(),
+                  color: location.pathname.includes(link.endpoint)
+                    ? secondaryColor()
+                    : alwaysBlack(),
                   textDecoration: "none",
                 }}
                 to={link.endpoint}
@@ -236,7 +257,9 @@ export const TopBar: FC = () => {
               <NavLink
                 key={index}
                 style={{
-                  color: primaryColor(),
+                  color: location.pathname.includes(link.endpoint)
+                    ? secondaryColor()
+                    : alwaysBlack(),
                   textDecoration: "none",
                 }}
                 to={link.endpoint}

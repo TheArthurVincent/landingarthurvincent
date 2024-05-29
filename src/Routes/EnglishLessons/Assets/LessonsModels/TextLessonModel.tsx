@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
-import { pauseSpeech, readText } from "../Functions/FunctionLessons";
+import { readText } from "../Functions/FunctionLessons";
 import TextAreaLesson from "../Functions/TextAreaLessons";
 interface TextLessonModelProps {
   headers: MyHeadersType | null;
