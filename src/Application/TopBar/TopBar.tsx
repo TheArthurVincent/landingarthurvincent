@@ -156,7 +156,9 @@ export const TopBar: FC = () => {
         >
           <NavLink
             style={{
-              color: textPrimaryColorContrast(),
+              color: location.pathname.includes("home")
+                ? secondaryColor()
+                : alwaysBlack(),
               textDecoration: "none",
             }}
             to="/"

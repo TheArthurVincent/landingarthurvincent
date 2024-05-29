@@ -46,7 +46,7 @@ export const TopBarNavigationBurger = styled.div`
   list-style: none;
   gap: 1rem;
   text-align: left;
-  background-color: ${primaryColor()};
+  background-color: ${alwaysWhite()};
   padding: 1rem 0.5rem;
   display: none;
   &.smooth {
