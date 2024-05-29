@@ -89,7 +89,7 @@ export const Hamburguer = styled.div`
   font-size: 2rem;
   cursor: pointer;
   &:hover {
-    color: ${textSecondaryColorContrast()};
+    color: ${primaryColor()};
   }
   @media (max-width: 1200px) {
     display: block;
