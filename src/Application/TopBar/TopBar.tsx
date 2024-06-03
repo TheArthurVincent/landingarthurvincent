@@ -108,9 +108,9 @@ export const TopBar: FC = () => {
   }, []);
 
   const classes: LinkItem[] = [
-    { title: "Lessons", endpoint: "/english-lessons" },
     { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
     { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
+    { title: "Lessons", endpoint: "/english-lessons" },
   ];
 
   const extras: LinkItem[] = [
