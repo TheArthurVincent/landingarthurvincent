@@ -8,6 +8,8 @@
   --black-arvin: #101010;
   --blue-arvin: #00132b;
   --green-arvin: #54bf08;
+  --blue-arvin2: #001e42;
+  --green-arvin2: #61de08;
   --white: #fefefe;
 
 }
@@ -15,7 +17,7 @@
 
 body {
   overflow-x: hidden;
-margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 * {

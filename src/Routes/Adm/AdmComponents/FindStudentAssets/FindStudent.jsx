@@ -42,6 +42,7 @@ export function FindStudent({ uploadStatus, headers }) {
   const [value, setValue] = useState("1");
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [weeklyClasses, setWeeklyClasses] = useState(1);
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
   const [disabled, setDisabled] = useState(false);
@@ -100,6 +101,11 @@ export function FindStudent({ uploadStatus, headers }) {
       setPermissions(
         response.data.formattedStudentData.permissions
           ? response.data.formattedStudentData.permissions
+          : ""
+      );
+      setWeeklyClasses(
+        response.data.formattedStudentData.weeklyClasses
+          ? response.data.formattedStudentData.weeklyClasses
           : ""
       );
       setID(
@@ -176,6 +182,7 @@ export function FindStudent({ uploadStatus, headers }) {
       name: newName,
       lastname: newLastName,
       phoneNumber: newPhone,
+      weeklyClasses,
       permissions: permissions,
       googleDriveLink: googleDriveLink,
       ankiPassword: ankiPassword,
@@ -503,6 +510,16 @@ export function FindStudent({ uploadStatus, headers }) {
                       fontWeight: 600,
                     }}
                   >
+                    {UniversalTexts.weeklyClasses}
+                  </span>
+                  : {student.weeklyClasses}
+                </li>
+                <li>
+                  <span
+                    style={{
+                      fontWeight: 600,
+                    }}
+                  >
                     {UniversalTexts.googleDriveLink}
                   </span>
                   :
@@ -674,6 +691,13 @@ export function FindStudent({ uploadStatus, headers }) {
                 className="inputs-style"
                 value={ankiPassword}
                 onChange={(event) => setAnkiPassword(event.target.value)}
+                placeholder="Senha do Anki"
+                type="text"
+              />
+              <input
+                className="inputs-style"
+                value={weeklyClasses}
+                onChange={(event) => setWeeklyClasses(event.target.value)}
                 placeholder="Senha do Anki"
                 type="text"
               />

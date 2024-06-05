@@ -15,6 +15,7 @@ import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
 import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import Contract from "./AdmComponents/Contract/Contract";
 
 export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
@@ -56,8 +57,14 @@ export function Adm({ headers }: HeadersProps) {
       component: <NewPost headers={headers} />,
     },
     {
-      title: "Links úteis",
+      title: "Gerar contrato",
       value: "6",
+      tooltip: "Geração do contrato de um aluno específico.",
+      component: <Contract headers={headers} />,
+    },
+    {
+      title: "Links úteis",
+      value: "7",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <UsefulLinks />,
@@ -82,35 +89,38 @@ export function Adm({ headers }: HeadersProps) {
       >
         <Helmets text="Adm" />
         <TabContext value={value}>
-          <Box
-            style={{
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: alwaysWhite(),
-              justifyContent: "space-between",
-            }}
-            sx={{ borderBottom: 1, borderColor: "divider" }}
-          >
-            <TabList
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons="auto"
-              aria-label="scrollable auto tabs example"
+          <span className="no-print">
+            {" "}
+            <Box
+              style={{
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: alwaysWhite(),
+                justifyContent: "space-between",
+              }}
+              sx={{ borderBottom: 1, borderColor: "divider" }}
             >
-              {componentsToRender.map((component, index) => {
-                return (
-                  <Tab
-                    key={index + component.value}
-                    style={{
-                      fontWeight: 500,
-                    }}
-                    label={component.title}
-                    value={component.value}
-                  />
-                );
-              })}
-            </TabList>
-          </Box>
+              <TabList
+                onChange={handleChange}
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+              >
+                {componentsToRender.map((component, index) => {
+                  return (
+                    <Tab
+                      key={index + component.value}
+                      style={{
+                        fontWeight: 500,
+                      }}
+                      label={component.title}
+                      value={component.value}
+                    />
+                  );
+                })}
+              </TabList>
+            </Box>
+          </span>
           {componentsToRender.map((component, index) => {
             return (
               <TabPanel
