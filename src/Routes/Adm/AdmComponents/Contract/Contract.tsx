@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { HOne, HTwo, RouteDiv } from "../../../../Resources/Components/RouteBox";
+import {
+  HOne,
+  HTwo,
+  RouteDiv,
+} from "../../../../Resources/Components/RouteBox";
 import {
   BackToHomePage,
   IFrameVideo,
@@ -19,38 +23,105 @@ import { HThree } from "../../../MyClasses/MyClasses.Styled";
 import { HeadersProps } from "../../../../Resources/types.universalInterfaces";
 
 export function Contract({ headers }: HeadersProps) {
+  const [studentsList, setStudentsList] = useState<any>([]);
+  const [newID, setNewID] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [dateOfBirth, setDateOfBirth] = useState<string>("");
+  const [doc, setDoc] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [fee, setFee] = useState<number>(0);
+  const [weeklyClasses, setWeeklyClasses] = useState<number>(0);
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+
+  const handleStudentChange = async (event: any) => {
+    setNewID(event.target.value);
+
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/student/${event.target.value}`,
+        {
+          headers: actualHeaders,
+        }
+      );
+      setName(response.data.formattedStudentData.fullname);
+      setFee(response.data.formattedStudentData.fee);
+      setWeeklyClasses(response.data.formattedStudentData.weeklyClasses);
+      setEmail(response.data.formattedStudentData.email);
+      setPhoneNumber(response.data.formattedStudentData.phoneNumber);
+      setDoc(response.data.formattedStudentData.doc);
+      setAddress(response.data.formattedStudentData.address);
+      setDateOfBirth(response.data.formattedStudentData.dateOfBirth);
+      console.log(response);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+
+    console.log(event.target.value);
+  };
+
+  const actualHeaders = headers || {};
+
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers: actualHeaders,
+      });
+      setStudentsList(response.data.listOfStudents);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+
+  useEffect(() => {
+    fetchStudents();
+  }, []);
   return (
     <RouteDiv>
+      <select
+        onChange={handleStudentChange}
+        name="students"
+        id=""
+        value={newID}
+      >
+        {studentsList.map((student: any, index: number) => {
+          return (
+            <option key={index} value={student.id}>
+              {student.name + " " + student.lastname}
+            </option>
+          );
+        })}
+      </select>
       <HOne>Contrato de Aulas Particulares</HOne>
-
       <HTwo>Dados do Aluno</HTwo>
       <p>
-        <strong>Nome do aluno:</strong> Paula Mota
+        <strong>Nome do aluno:</strong> {name}
       </p>
       <p>
-        <strong>Data de nascimento:</strong> 11/04/1992
+        <strong>Data de nascimento:</strong> {dateOfBirth}
       </p>
       <p>
-        <strong>Telefone:</strong> +55 71 99108-1255
+        <strong>Telefone:</strong> {phoneNumber}
       </p>
       <p>
-        <strong>E-mail:</strong> paula.motac@gmail.com
+        <strong>E-mail:</strong> {email}
       </p>
       <p>
-        <strong>CPF:</strong> 03095976500
+        <strong>CPF:</strong> {doc}
+      </p>{" "}
+      <p>
+        <strong>Address:</strong> {address}
       </p>
-
       <HTwo>Detalhes do Contrato</HTwo>
       <p>
-        <strong>Número de aulas semanais (55min):</strong> 1
+        <strong>Número de aulas semanais (55min):</strong> {weeklyClasses}
       </p>
       <p>
-        <strong>Valor acordado:</strong> R$ 300,00
+        <strong>Valor acordado:</strong> R$ {fee}
       </p>
       <p>
         <strong>Data de assinatura do contrato:</strong> ___/___/___
       </p>
-
       <HTwo>Termos do Contrato</HTwo>
       <p>
         As aulas terão duração de 55min, e o professor deve enviar ao aluno o
@@ -94,19 +165,22 @@ export function Contract({ headers }: HeadersProps) {
         Em caso de falta do professor, este reporá a aula ao aluno em horário
         combinado por ambos.
       </p>
-
       <HTwo>Assinaturas</HTwo>
-      <p>_____________________________</p>
-      <p>_____________________________</p>
-      <p>Paula Mota</p>
-      <p>Mariana Araujo Lins</p>
-      <p>
-        <strong>ASSINATURA DOS (AS) ALUNOS (AS)</strong>
-      </p>
-      <p>__________________________</p>
-      <p>
-        <strong>ASSINATURA DO PROFESSOR</strong>
-      </p>
+      <div style={{ display: "flex", margin: "auto", gap: "3rem" }}>
+        <div>
+          <p>_____________________________</p>
+          <p>{name}</p>
+          <p>
+            <strong>ASSINATURA DO (A) ALUNO (A)</strong>
+          </p>
+        </div>
+        <div>
+          <p>__________________________</p>
+          <p>
+            <strong>ASSINATURA DO PROFESSOR</strong>
+          </p>
+        </div>
+      </div>
     </RouteDiv>
   );
 }
