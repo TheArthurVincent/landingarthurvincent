@@ -9,13 +9,20 @@ import {
   BackToHomePage,
   backDomain,
 } from "../../Resources/UniversalComponents";
-import { alwaysBlack } from "../../Styles/Styles";
+import {
+  alwaysBlack,
+  primaryColor,
+  primaryColor2,
+  secondaryColor,
+  textPrimaryColorContrast,
+} from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { User } from "./types.MyProfile";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
+import { MyButton } from "../../Resources/Components/ItemsLibrary";
 
 export function MyProfile({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -70,6 +77,7 @@ export function MyProfile({ headers }: HeadersProps) {
                 padding: "0.2rem",
               }}
             >
+              {/* <MyButton>oi</MyButton> */}
               <li>
                 {UniversalTexts.name}: {user.name} {user.lastname}
               </li>
