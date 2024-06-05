@@ -15,6 +15,7 @@ import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
 import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import Contract from "./AdmComponents/Contract/Contract";
 
 export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
@@ -56,8 +57,14 @@ export function Adm({ headers }: HeadersProps) {
       component: <NewPost headers={headers} />,
     },
     {
-      title: "Links úteis",
+      title: "Gerar contrato",
       value: "6",
+      tooltip: "Geração do contrato de um aluno específico.",
+      component: <Contract headers={headers} />,
+    },
+    {
+      title: "Links úteis",
+      value: "7",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <UsefulLinks />,
