@@ -5,21 +5,7 @@ import {
   HTwo,
   RouteDiv,
 } from "../../../../Resources/Components/RouteBox";
-import {
-  BackToHomePage,
-  IFrameVideo,
-  backDomain,
-  getVideoEmbedUrl,
-} from "../../../../Resources/UniversalComponents";
-import { Button, CircularProgress, Input, Modal } from "@mui/material";
-import { Link } from "react-router-dom";
-import {
-  alwaysWhite,
-  primaryColor,
-  secondaryColor,
-  textSecondaryColorContrast,
-} from "../../../../Styles/Styles";
-import { HThree } from "../../../MyClasses/MyClasses.Styled";
+import { backDomain } from "../../../../Resources/UniversalComponents";
 import { HeadersProps } from "../../../../Resources/types.universalInterfaces";
 
 export function Contract({ headers }: HeadersProps) {
@@ -28,7 +14,6 @@ export function Contract({ headers }: HeadersProps) {
   const [name, setName] = useState<string>("");
   const [dateOfBirth, setDateOfBirth] = useState<string>("");
   const [doc, setDoc] = useState<string>("");
-  const [address, setAddress] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [fee, setFee] = useState<number>(0);
   const [weeklyClasses, setWeeklyClasses] = useState<number>(0);
@@ -50,7 +35,6 @@ export function Contract({ headers }: HeadersProps) {
       setEmail(response.data.formattedStudentData.email);
       setPhoneNumber(response.data.formattedStudentData.phoneNumber);
       setDoc(response.data.formattedStudentData.doc);
-      setAddress(response.data.formattedStudentData.address);
       setDateOfBirth(response.data.formattedStudentData.dateOfBirth);
       console.log(response);
     } catch (error) {
@@ -77,8 +61,9 @@ export function Contract({ headers }: HeadersProps) {
     fetchStudents();
   }, []);
   return (
-    <RouteDiv>
+    <RouteDiv style={{ fontSize: "12px" }}>
       <select
+        className="no-print"
         onChange={handleStudentChange}
         name="students"
         id=""
@@ -93,7 +78,7 @@ export function Contract({ headers }: HeadersProps) {
         })}
       </select>
       <HOne>Contrato de Aulas Particulares</HOne>
-      <HTwo>Dados do Aluno</HTwo>
+      <h3>Dados do Aluno</h3>
       <p>
         <strong>Nome do aluno:</strong> {name}
       </p>
@@ -109,10 +94,7 @@ export function Contract({ headers }: HeadersProps) {
       <p>
         <strong>CPF:</strong> {doc}
       </p>{" "}
-      <p>
-        <strong>Address:</strong> {address}
-      </p>
-      <HTwo>Detalhes do Contrato</HTwo>
+      <h3>Detalhes do Contrato</h3>
       <p>
         <strong>Número de aulas semanais (55min):</strong> {weeklyClasses}
       </p>
@@ -122,7 +104,7 @@ export function Contract({ headers }: HeadersProps) {
       <p>
         <strong>Data de assinatura do contrato:</strong> ___/___/___
       </p>
-      <HTwo>Termos do Contrato</HTwo>
+      <h3>Termos do Contrato</h3>
       <p>
         As aulas terão duração de 55min, e o professor deve enviar ao aluno o
         link de acesso com, no mínimo, 5 minutos de antecedência;
@@ -165,7 +147,7 @@ export function Contract({ headers }: HeadersProps) {
         Em caso de falta do professor, este reporá a aula ao aluno em horário
         combinado por ambos.
       </p>
-      <HTwo>Assinaturas</HTwo>
+      <h3>Assinaturas</h3>
       <div style={{ display: "flex", margin: "auto", gap: "3rem" }}>
         <div>
           <p>_____________________________</p>

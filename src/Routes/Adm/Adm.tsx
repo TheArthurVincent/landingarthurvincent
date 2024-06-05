@@ -89,35 +89,38 @@ export function Adm({ headers }: HeadersProps) {
       >
         <Helmets text="Adm" />
         <TabContext value={value}>
-          <Box
-            style={{
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: alwaysWhite(),
-              justifyContent: "space-between",
-            }}
-            sx={{ borderBottom: 1, borderColor: "divider" }}
-          >
-            <TabList
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons="auto"
-              aria-label="scrollable auto tabs example"
+          <span className="no-print">
+            {" "}
+            <Box
+              style={{
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: alwaysWhite(),
+                justifyContent: "space-between",
+              }}
+              sx={{ borderBottom: 1, borderColor: "divider" }}
             >
-              {componentsToRender.map((component, index) => {
-                return (
-                  <Tab
-                    key={index + component.value}
-                    style={{
-                      fontWeight: 500,
-                    }}
-                    label={component.title}
-                    value={component.value}
-                  />
-                );
-              })}
-            </TabList>
-          </Box>
+              <TabList
+                onChange={handleChange}
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+              >
+                {componentsToRender.map((component, index) => {
+                  return (
+                    <Tab
+                      key={index + component.value}
+                      style={{
+                        fontWeight: 500,
+                      }}
+                      label={component.title}
+                      value={component.value}
+                    />
+                  );
+                })}
+              </TabList>
+            </Box>
+          </span>
           {componentsToRender.map((component, index) => {
             return (
               <TabPanel
