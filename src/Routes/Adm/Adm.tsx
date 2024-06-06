@@ -16,6 +16,7 @@ import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageC
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Contract from "./AdmComponents/Contract/Contract";
+import Invoice from "./AdmComponents/Invoice/Invoice";
 
 export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
@@ -63,8 +64,14 @@ export function Adm({ headers }: HeadersProps) {
       component: <Contract headers={headers} />,
     },
     {
-      title: "Links úteis",
+      title: "Gerar recibo",
       value: "7",
+      tooltip: "Geração do recibo de um aluno específico.",
+      component: <Invoice headers={headers} />,
+    },
+    {
+      title: "Links úteis",
+      value: "8",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <UsefulLinks />,
