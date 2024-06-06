@@ -7,7 +7,6 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
-  BackToHomePage,
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
@@ -165,7 +164,6 @@ export function MyClasses({ headers }) {
           {!loading ? (
             <>
               <HOne>{UniversalTexts.myClasses}</HOne>
-              <BackToHomePage />
               <ClassesSideBar />
               {currentClasses.map((item, index) => (
                 <div key={index}>

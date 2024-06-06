@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  BackToHomePage,
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
@@ -209,7 +208,6 @@ export default function GroupClassesTemplate({
                 })}
             </DivCourse>
             <SideBarCourse>
-              <BackToHomePage />
               {courseModules.map((item, index) => {
                 return item ? (
                   <div key={index}>

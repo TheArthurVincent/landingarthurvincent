@@ -5,17 +5,8 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import {
-  BackToHomePage,
-  backDomain,
-} from "../../Resources/UniversalComponents";
-import {
-  alwaysBlack,
-  primaryColor,
-  primaryColor2,
-  secondaryColor,
-  textPrimaryColorContrast,
-} from "../../Styles/Styles";
+import { backDomain } from "../../Resources/UniversalComponents";
+import { alwaysBlack } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import axios from "axios";
@@ -68,7 +59,6 @@ export function MyProfile({ headers }: HeadersProps) {
           <Helmets text="My Profile" />
           <RouteDiv>
             <HOne>{UniversalTexts.myProfile}</HOne>
-            <BackToHomePage />
             <ul
               style={{
                 display: "grid",

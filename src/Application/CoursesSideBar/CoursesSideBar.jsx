@@ -10,7 +10,7 @@ import {
   CoursesListTitleContainer,
 } from "./CoursesSideBarStyled";
 import UniversalTexts from "../../Resources/UniversalTexts.json";
-import { BackToHomePage, linkReset } from "../../Resources/UniversalComponents";
+import { linkReset } from "../../Resources/UniversalComponents";
 import { alwaysWhite } from "../../Styles/Styles";
 
 function CoursesSideBar({ courses }) {
@@ -71,7 +71,6 @@ function CoursesSideBar({ courses }) {
             display: showCourses ? "block" : "none",
           }}
         >
-          <BackToHomePage />
         </div>
       </CoursesListInnerContainer>
       <Mask

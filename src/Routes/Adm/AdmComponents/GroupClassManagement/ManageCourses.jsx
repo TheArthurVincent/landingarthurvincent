@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  HTwo,
-  RouteDiv,
-} from "../../../../Resources/Components/RouteBox";
+import { HOne, HTwo } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
-import {
-  BackToHomePage,
-  backDomain,
-} from "../../../../Resources/UniversalComponents";
+import { backDomain } from "../../../../Resources/UniversalComponents";
 import { CircularProgress, Button, TextField } from "@mui/material";
 import {
   alwaysWhite,
@@ -179,7 +172,6 @@ export function ManageGroupClasses({ headers }) {
                 <Button onClick={() => getCourses()}>
                   <i className="fa fa-refresh" aria-hidden="true" />
                 </Button>
-                <BackToHomePage />
               </span>
               {loading ? (
                 <CircularProgress style={{ color: secondaryColor() }} />

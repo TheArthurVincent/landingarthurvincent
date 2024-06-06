@@ -14,7 +14,6 @@ import {
 } from "../../Styles/Styles";
 import RankingExplanation from "./RankingComponents/RankingExplanation";
 import RankingTimeline from "./RankingComponents/RankingTimeline";
-import { BackToHomePage } from "../../Resources/UniversalComponents";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
@@ -101,7 +100,6 @@ export default function Ranking({ headers }: HeadersProps) {
               })}
             </TabList>
           </Box>
-          <BackToHomePage />
           {componentsToRender.map((component, index) => {
             return (
               <TabPanel

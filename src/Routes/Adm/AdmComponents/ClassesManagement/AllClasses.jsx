@@ -1,24 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  HOne,
-  HTwo,
-  RouteDiv,
-} from "../../../../Resources/Components/RouteBox";
-import {
-  BackToHomePage,
-  IFrameVideo,
-  backDomain,
-  getVideoEmbedUrl,
-} from "../../../../Resources/UniversalComponents";
+import { HOne } from "../../../../Resources/Components/RouteBox";
+import { backDomain } from "../../../../Resources/UniversalComponents";
 import { Button, CircularProgress, Input, Modal } from "@mui/material";
 import { Link } from "react-router-dom";
-import {
-  alwaysWhite,
-  primaryColor,
-  secondaryColor,
-  textSecondaryColorContrast,
-} from "../../../../Styles/Styles";
+import { secondaryColor } from "../../../../Styles/Styles";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllClasses({ headers }) {
@@ -123,7 +109,6 @@ export function AllClasses({ headers }) {
           />{" "}
           <i className="fa fa-search" aria-hidden="true" />
         </span>
-        <BackToHomePage />
       </div>
       <div style={{ maxHeight: "30rem", overflow: "auto" }}>
         {loading ? (
