@@ -3,7 +3,7 @@ import axios from "axios";
 import { HeadersProps } from "../../../../Resources/types.universalInterfaces";
 import {
   backDomain,
-  formatDateBr,
+  formatDateBrContract,
 } from "../../../../Resources/UniversalComponents";
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 import Helmets from "../../../../Resources/Helmets";
@@ -36,12 +36,9 @@ export function Contract({ headers }: HeadersProps) {
       setPhoneNumber(response.data.formattedStudentData.phoneNumber);
       setDoc(response.data.formattedStudentData.doc);
       setDateOfBirth(response.data.formattedStudentData.dateOfBirth);
-      console.log(response);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
-
-    console.log(event.target.value);
   };
 
   const actualHeaders = headers || {};
@@ -129,7 +126,7 @@ export function Contract({ headers }: HeadersProps) {
             <strong>Nome do aluno:</strong> {name}
           </p>
           <p>
-            <strong>Data de nascimento:</strong> {formatDateBr(dateOfBirth)}
+            <strong>Data de nascimento:</strong> {formatDateBrContract(dateOfBirth)}
           </p>
           <p>
             <strong>Telefone:</strong> {phoneNumber}

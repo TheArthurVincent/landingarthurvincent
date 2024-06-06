@@ -573,7 +573,7 @@ export function formatDate(dateString) {
   return date.toLocaleDateString("en-US", options);
 }
 
-export function formatDateBr(dateString) {
+export function formatDateBrContract(dateString) {
   const [year, month, day] = dateString.split("-").map(Number);
   const date = new Date(year, month - 1, day);
 
@@ -583,6 +583,15 @@ export function formatDateBr(dateString) {
     day: "numeric",
   };
 
+  return date.toLocaleDateString("pt-BR", options);
+}
+export function formatDateBr(dateString) {
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  };
+  const date = new Date(dateString);
   return date.toLocaleDateString("pt-BR", options);
 }
 
