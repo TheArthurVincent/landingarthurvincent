@@ -199,7 +199,7 @@ export function Contract({ headers }: HeadersProps) {
               </li>
               <li style={liStyle}>
                 Se o aluno não puder comparecer à aula, deve informar o
-                professor com, no máximo, 24 horas de antecedência;
+                professor com, no mínimo, 24 horas de antecedência;
               </li>
               <li style={liStyle}>
                 Se o aluno não avisar ao professor com tal antecedência, o

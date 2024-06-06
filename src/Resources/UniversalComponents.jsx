@@ -574,12 +574,15 @@ export function formatDate(dateString) {
 }
 
 export function formatDateBr(dateString) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+
   const options = {
     year: "numeric",
     month: "numeric",
     day: "numeric",
   };
-  const date = new Date(dateString);
+
   return date.toLocaleDateString("pt-BR", options);
 }
 
