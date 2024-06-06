@@ -134,9 +134,6 @@ export const TopBar: FC = () => {
     setVisible(visible === "flex" ? "none" : "flex");
   };
   const location = useLocation();
-  useEffect(() => {
-    console.log(location);
-  });
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1);
   return (
     <TopBarContainer>

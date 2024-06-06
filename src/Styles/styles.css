@@ -109,6 +109,11 @@ body {
   background-position: center;
 }
 
+.the-hover:hover {
+  cursor: pointer;
+  background-color: #eee;
+  transition: 0.2s;
+}
 
 .audio-button {
   padding: 0;
