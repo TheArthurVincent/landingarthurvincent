@@ -6,6 +6,7 @@ import {
   formatDateBr,
 } from "../../../../Resources/UniversalComponents";
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
+import Helmets from "../../../../Resources/Helmets";
 
 export function Contract({ headers }: HeadersProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
@@ -59,7 +60,7 @@ export function Contract({ headers }: HeadersProps) {
   const liStyle = { listStyle: "upper-roman inside", marginBottom: "6px" };
   const ulStyle = { padding: " 0 1rem" };
   const topSignature = {
-    width: "20rem",
+    width: "25rem",
     borderTop: "2px solid",
     paddingTop: "5px",
   };
@@ -69,35 +70,13 @@ export function Contract({ headers }: HeadersProps) {
   }, []);
 
   const generateImage = () => {
-    import("html-to-image").then((htmlToImage) => {
-      const element: any = document.getElementById("contract-content");
-      htmlToImage
-        .toPng(element)
-        .then(function (dataUrl) {
-          const img = new Image();
-          img.src = dataUrl;
-
-          // Cria um novo elemento de imagem para exibir a imagem na página
-          const imageContainer = document.createElement("div");
-          imageContainer.appendChild(img);
-          document.body.appendChild(imageContainer);
-
-          // Após a imagem ser carregada, abre a caixa de diálogo de impressão
-          img.onload = function () {
-            window.print();
-            // Remove a imagem da página após a impressão
-            document.body.removeChild(imageContainer);
-          };
-        })
-        .catch(function (error) {
-          console.error("Erro ao gerar imagem:", error);
-        });
-    });
+    window.print();
   };
 
   return (
     <div>
       <div
+      className="no-print"
         style={{
           display: "flex",
           alignItems: "center",
@@ -125,13 +104,12 @@ export function Contract({ headers }: HeadersProps) {
         </span>
       </div>
       <div
-        style={{ fontSize: "12px", padding: "1rem 3rem" }}
+        style={{ fontSize: "11px", padding: "1rem" }}
         id="contract-content"
       >
         <h1 style={{ textAlign: "center" }}>Contrato de Aulas Particulares</h1>
         <h2
           style={{
-            marginTop: "1rem",
             paddingBottom: "2rem 0",
             textAlign: "center",
           }}
@@ -305,11 +283,11 @@ export function Contract({ headers }: HeadersProps) {
             gap: "5rem",
           }}
         >
-          <p style={topSignature}> { name} (ou RESPONSÁVEL) ___/___/___</p>
+          <p style={topSignature}> {name} (ou RESPONSÁVEL) ___/___/___</p>
           <div>
             <img
               style={{
-                maxWidth: "9rem",
+                maxWidth: "7rem",
                 borderBottom: "solid 2px",
               }}
               src="https://ik.imagekit.io/vjz75qw96/assets/signature.png?updatedAt=1717680390615"
@@ -319,6 +297,7 @@ export function Contract({ headers }: HeadersProps) {
           </div>
         </div>
       </div>
+      <Helmets text={`Contrato de Aulas Particulares | ${name}`} />
     </div>
   );
 }
