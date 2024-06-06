@@ -69,7 +69,7 @@ export function Contract({ headers }: HeadersProps) {
     fetchStudents();
   }, []);
 
-  const generateImage = () => {
+  const generatePDF = () => {
     window.print();
   };
 
@@ -100,7 +100,7 @@ export function Contract({ headers }: HeadersProps) {
           })}
         </select>
         <span className="no-print">
-          <MyButton onClick={generateImage}>Gerar PDF</MyButton>
+          <MyButton onClick={generatePDF}>Gerar PDF</MyButton>
         </span>
       </div>
       <div

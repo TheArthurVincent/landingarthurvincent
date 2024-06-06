@@ -4,21 +4,28 @@ import {
   DivModal,
   Xp,
   backDomain,
-  formatNumber,
+  formatDateBr,
 } from "../../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab, Button, CircularProgress } from "@mui/material";
-import { Link } from "react-router-dom";
 import {
-  alwaysBlack,
-  alwaysWhite,
-  lightGreyColor,
+  Box,
+  Tab,
+  CircularProgress,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@mui/material";
+import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
 } from "../../../../Styles/Styles";
-import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
+import { HOne } from "../../../../Resources/Components/RouteBox";
+import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
@@ -45,10 +52,6 @@ export function FindStudent({ uploadStatus, headers }) {
   const [weeklyClasses, setWeeklyClasses] = useState(1);
   const [totalScore, setTotalScore] = useState(0);
   const [monthlyScore, setMonthlyScore] = useState(0);
-  const [disabled, setDisabled] = useState(false);
-  const [loadingScore, setLoadingScore] = useState(false);
-  const [plusScore, setPlusScore] = useState(0);
-  const [descSpecial, setDescSpecial] = useState("");
 
   const handleChangeEdit = (event, newValue) => {
     setValue(newValue);
@@ -59,6 +62,8 @@ export function FindStudent({ uploadStatus, headers }) {
   };
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
+    setValue("1");
+    setSeeConfirmDelete(false);
   };
 
   const handleConfirmDelete = () => {
@@ -66,8 +71,6 @@ export function FindStudent({ uploadStatus, headers }) {
   };
 
   const seeEdition = async (id) => {
-    setDisabled(true);
-    setLoadingScore(true);
     handleSeeModal();
     try {
       const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
@@ -153,8 +156,6 @@ export function FindStudent({ uploadStatus, headers }) {
           ? response.data.formattedStudentData.address
           : ""
       );
-      setLoadingScore(false);
-      setDisabled(false);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -284,31 +285,7 @@ export function FindStudent({ uploadStatus, headers }) {
       console.error(error);
     }
   };
-
-  const changePlusScore = (score) => {
-    setPlusScore(score);
-  };
-
-  const submitPlusScore = async (id, score, description, type) => {
-    setLoadingScore(true);
-    setDisabled(true);
-    try {
-      const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
-        headers,
-        score,
-        description,
-        type,
-      });
-
-      updateScoreNow(id);
-      setDisabled(false);
-      setLoadingScore(false);
-    } catch (error) {
-      alert("Erro ao somar pontuação");
-      setDisabled(false);
-    }
-  };
-
+  const [searchTerm, setSearchTerm] = useState("");
   const [hasReset, setHasReset] = useState(false);
   const [resetVisible, setResetVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
@@ -332,216 +309,213 @@ export function FindStudent({ uploadStatus, headers }) {
   const handleShowResetMonth = () => {
     setIsConfirmVisible(!isConfirmVisible);
   };
-
+  const cellTable = {
+    whiteSpace: "nowrap",
+  };
   return (
     <>
       <HOne>{UniversalTexts.myStudents}</HOne>
-      <div style={{ display: hasReset ? "none" : "block" }}>
-        {" "}
-        <Button
-          style={{ display: isConfirmVisible ? "none" : "block" }}
-          onDoubleClick={() => handleShowResetMonth()}
-        >
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          marginBottom: "1rem",
+        }}
+      >
+        <div style={{ display: hasReset ? "none" : "block" }}>
           {" "}
-          Resetar pontuações do mês
-        </Button>
-        <div style={{ display: isConfirmVisible ? "block" : "none" }}>
-          <p> Tem certeza que deseja resetar pontuações do mês?</p>
-          <Button onClick={() => handleResetMonth()}>Sim</Button>
-          <Button onClick={() => handleShowResetMonth()}>Não</Button>
-          <p
-            style={{
-              display: resetVisible ? "block" : "none",
-            }}
+          <MyButton
+            style={{ display: isConfirmVisible ? "none" : "block" }}
+            onDoubleClick={() => handleShowResetMonth()}
           >
-            Pontuações do mês resetadas
-          </p>
-        </div>
-      </div>
-      {!loading ? (
-        students.map((student, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "4rem",
-            }}
-          >
-            <div
+            {" "}
+            Resetar pontuações do mês
+          </MyButton>
+          <div style={{ display: isConfirmVisible ? "block" : "none" }}>
+            <p> Tem certeza que deseja resetar pontuações do mês?</p>
+            <MyButton
+              firstcolor="red"
+              secondcolor="#FA7A71"
+              textcolor="white"
+              onDoubleClick={() => handleResetMonth()}
+            >
+              Sim
+            </MyButton>
+            <MyButton
+              style={{ marginLeft: "1rem" }}
+              onMouseOver={() => handleShowResetMonth()}
+              onClick={() => handleShowResetMonth()}
+            >
+              Não
+            </MyButton>
+            <p
               style={{
-                padding: "0.6rem",
-                color: alwaysBlack(),
+                display: resetVisible ? "block" : "none",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "0.2rem 0.5rem",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "1rem",
-                  backgroundColor: lightGreyColor(),
-                }}
-              >
-                <img
-                  style={{
-                    width: "3rem",
-                    height: "3rem",
-                    objectFit: "cover",
-                    margin: "5px",
-                    borderRadius: "50%",
-                  }}
-                  src={student.picture}
-                  alt=""
-                />
-                <h1
-                  style={{
-                    fontSize: "1.2rem",
-                    textAlign: "left",
-                  }}
-                >
-                  {student.fullname}
-                </h1>
-                <Button
-                  style={{
-                    color: secondaryColor(),
-                  }}
-                  onClick={() => seeEdition(student.id)}
-                >
-                  Editar
-                </Button>
-              </div>
-              <ul>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.username}
-                  </span>
-                  : {student.username}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.document}
-                  </span>
-                  : {student.doc}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.dateOfBirth}
-                  </span>
-                  : {student.dateOfBirth}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.email}
-                  </span>
-                  : {student.email}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.phoneNumber}
-                  </span>
-                  : {student.phoneNumber}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.permissions}
-                  </span>
-                  : {student.permissions}
-                </li>{" "}
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.fee}
-                  </span>
-                  : R$ {student.fee}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.ankiEmail}
-                  </span>
-                  : {student.ankiEmail}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.ankiPassword}
-                  </span>
-                  : {student.ankiPassword}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.weeklyClasses}
-                  </span>
-                  : {student.weeklyClasses}
-                </li>
-                <li>
-                  <span
-                    style={{
-                      fontWeight: 600,
-                    }}
-                  >
-                    {UniversalTexts.googleDriveLink}
-                  </span>
-                  :
-                  <Link
-                    style={{
-                      color: primaryColor(),
-                      padding: "0.3rem",
-                    }}
-                    to={
-                      student.googleDriveLink
-                        ? student.googleDriveLink
-                        : "http://www.google.com/"
-                    }
-                    target="_blank"
-                  >
-                    {UniversalTexts.clickHere}
-                  </Link>
-                </li>
-              </ul>
-            </div>
+              Pontuações do mês resetadas
+            </p>
           </div>
-        ))
+        </div>
+        <input
+          className="inputs-style"
+          type="text"
+          placeholder="Pesquisar aluno"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+      {!loading ? (
+        <div
+          style={{
+            backgroundColor: "#fff",
+            margin: "auto",
+            width: "95%",
+          }}
+        >
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell></TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.name}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.username}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.document}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.dateOfBirth}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.email}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.phoneNumber}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.permissions}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.fee}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.totalScore}</span>
+                  </TableCell>{" "}
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.monthlyScore}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.address}</span>
+                  </TableCell>{" "}
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.ankiEmail}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>{UniversalTexts.ankiPassword}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>
+                      {UniversalTexts.weeklyClasses}
+                    </span>
+                  </TableCell>
+                  <TableCell>
+                    <span style={cellTable}>
+                      {UniversalTexts.googleDriveLink}
+                    </span>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {students
+                  .filter((student) =>
+                    student.fullname
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())
+                  )
+                  .map((student, index) => (
+                    <TableRow
+                      className="the-hover"
+                      key={index}
+                      onClick={() => seeEdition(student.id)}
+                    >
+                      <TableCell>
+                        <img
+                          style={{
+                            width: "2.5rem",
+                            borderRadius: "50%",
+                            height: "2.5rem",
+                            objectFit: "cover",
+                          }}
+                          src={student.picture}
+                          alt=""
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.fullname}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.username}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.doc}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>
+                          {formatDateBr(student.dateOfBirth)}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.email}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.phoneNumber}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.permissions}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>R$ {student.fee}</span>
+                      </TableCell>{" "}
+                      <TableCell>
+                        <span style={cellTable}>{student.totalScore}</span>
+                      </TableCell>{" "}
+                      <TableCell>
+                        <span style={cellTable}>{student.monthlyScore}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.address}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.ankiEmail}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.ankiPassword}</span>
+                      </TableCell>
+                      <TableCell>
+                        <span style={cellTable}>{student.weeklyClasses}</span>
+                      </TableCell>
+                      <TableCell>
+                        <a
+                          style={{ color: primaryColor() }}
+                          href={
+                            student.googleDriveLink || "http://www.google.com/"
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {UniversalTexts.clickHere}
+                        </a>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       ) : (
         <div
           style={{
@@ -556,6 +530,7 @@ export function FindStudent({ uploadStatus, headers }) {
           <CircularProgress style={{ color: secondaryColor() }} />
         </div>
       )}
+
       <div
         onClick={() => handleSeeModal()}
         className="modal"
@@ -594,7 +569,7 @@ export function FindStudent({ uploadStatus, headers }) {
             <TabList
               onChange={handleChangeEdit}
               variant="scrollable"
-              scrollButtons="auto"
+              scrollMyButtons="auto"
               aria-label="scrollable auto tabs example"
             >
               <Tab label="Dados gerais" value="1" />
@@ -710,33 +685,23 @@ export function FindStudent({ uploadStatus, headers }) {
                 gap: "0.5rem",
               }}
             >
-              <Button
-                style={{
-                  color: "#fff",
-                  backgroundColor: "#ba3c3c",
-                }}
+              <MyButton
+                firstcolor="#FF1400"
+                secondcolor="#F01400"
+                textcolor="white"
                 onClick={() => handleConfirmDelete()}
               >
                 Excluir
-              </Button>
-              <Button
-                style={{
-                  color: "#fff",
-                  backgroundColor: "#194169",
-                }}
-                onClick={() => handleSeeModal()}
-              >
-                Cancelar
-              </Button>
-              <Button
-                style={{
-                  color: "#fff",
-                  backgroundColor: "#138017",
-                }}
+              </MyButton>
+              <MyButton onClick={() => handleSeeModal()}>Cancelar</MyButton>
+              <MyButton
+                firstcolor="#138017"
+                secondcolor="#139417"
+                textcolor="white"
                 onClick={() => editStudent(ID)}
               >
                 Salvar
-              </Button>
+              </MyButton>
             </div>
             <div
               style={{
@@ -772,25 +737,14 @@ export function FindStudent({ uploadStatus, headers }) {
                   justifyContent: "space-evenly",
                 }}
               >
-                <Button
-                  style={{
-                    color: "#fff",
-                    backgroundColor: "#194169",
-                  }}
-                  onClick={() => handleConfirmDelete()}
-                >
-                  Não!!
-                </Button>
-                <Button
-                  style={{
-                    color: "#fff",
-
-                    backgroundColor: "#ba3c3c",
-                  }}
+                <MyButton onClick={() => handleConfirmDelete()}>Não!!</MyButton>
+                <MyButton
+                  firstcolor="#FF1400"
+                  secondcolor="#F01400"
                   onClick={() => deleteStudent(ID)}
                 >
                   Sim...
-                </Button>
+                </MyButton>
               </div>
             </div>
           </TabPanel>
@@ -829,7 +783,7 @@ export function FindStudent({ uploadStatus, headers }) {
                   marginTop: "2rem",
                 }}
               >
-                <Button
+                <MyButton
                   style={{
                     color: "#fff",
                     width: "8rem",
@@ -838,17 +792,14 @@ export function FindStudent({ uploadStatus, headers }) {
                   onClick={() => handleSeeModal()}
                 >
                   Cancelar
-                </Button>
-                <Button
-                  style={{
-                    color: "#fff",
-                    width: "8rem",
-                    backgroundColor: "#138017",
-                  }}
+                </MyButton>
+                <MyButton
+                  firstcolor="#138017"
+                  secondcolor="#139417"
                   onClick={() => editStudentPermissions(ID)}
                 >
                   Salvar
-                </Button>
+                </MyButton>
               </div>
             </div>
           </TabPanel>
@@ -882,26 +833,14 @@ export function FindStudent({ uploadStatus, headers }) {
                   marginTop: "2rem",
                 }}
               >
-                <Button
-                  style={{
-                    color: "#fff",
-                    width: "8rem",
-                    backgroundColor: "#194169",
-                  }}
-                  onClick={() => handleSeeModal()}
-                >
-                  Cancelar
-                </Button>
-                <Button
-                  style={{
-                    color: "#fff",
-                    width: "8rem",
-                    backgroundColor: "#138017",
-                  }}
+                <MyButton onClick={() => handleSeeModal()}>Cancelar</MyButton>
+                <MyButton
+                  firstcolor="#138017"
+                  secondcolor="#139417"
                   onClick={() => editStudentPassword(ID)}
                 >
                   Salvar
-                </Button>
+                </MyButton>
               </div>
             </div>
           </TabPanel>

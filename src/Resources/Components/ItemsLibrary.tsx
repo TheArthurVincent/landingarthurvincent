@@ -10,7 +10,7 @@ interface ButtonProps {
 
 export const MyButton = styled.button<ButtonProps>`
   background: linear-gradient(
-    to bottom,
+    to left,
     ${(props) => props.firstcolor || primaryColor()} 0%,
     ${(props) => props.secondcolor || props.firstcolor || primaryColor2()} 80%
   );
@@ -23,9 +23,15 @@ export const MyButton = styled.button<ButtonProps>`
   display: inline;
   max-width: fit-content;
   font-weight: 600;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
   &:hover {
-    border-radius: 18px;
+    background: linear-gradient(
+      to bottom,
+      ${(props) => props.firstcolor || primaryColor()} 0%,
+      ${(props) => props.secondcolor || props.firstcolor || primaryColor2()} 90%
+    );
+  
+    border-radius: 12px;
   }
 
   &:active {
