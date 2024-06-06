@@ -17,6 +17,7 @@ export function Invoice({ headers }: HeadersProps) {
   const [today, setDate] = useState<any>(new Date());
   const [thisMonth, setThisMonth] = useState<string>("Janeiro/1999");
   const [fee, setFee] = useState<number>(1000);
+  const [comments, setComments] = useState<string>("");
   const handleStudentChange = async (event: any) => {
     setNewID(event.target.value);
 
@@ -103,9 +104,18 @@ export function Invoice({ headers }: HeadersProps) {
           className="no-print"
           value={fee}
           type="number"
-          // onChange={(e) => {
-          //   setFee(Number(e.target.value));
-          // }}
+          onChange={(e) => {
+            setFee(Number(e.target.value));
+          }}
+        />
+        <input
+          className="no-print"
+          value={comments}
+          placeholder="comments"
+          type="text"
+          onChange={(e) => {
+            setComments(e.target.value);
+          }}
         />
         <span className="no-print">
           <MyButton onClick={generatePDF}>Gerar PDF</MyButton>
@@ -128,6 +138,11 @@ export function Invoice({ headers }: HeadersProps) {
             {thisMonth}. Este valor compreende as aulas particulares + aulas em
             grupo.
           </p>
+          {comments && (
+            <div>
+              <p>{comments}</p>
+            </div>
+          )}
           <img
             style={{
               margin: "auto",
