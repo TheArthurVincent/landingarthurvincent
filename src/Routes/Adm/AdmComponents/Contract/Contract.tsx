@@ -305,7 +305,7 @@ export function Contract({ headers }: HeadersProps) {
             gap: "5rem",
           }}
         >
-          <p style={topSignature}> {name} (ou RESPONSÁVEL): ___/___/___</p>
+          <p style={topSignature}> { name} (ou RESPONSÁVEL) ___/___/___</p>
           <div>
             <img
               style={{
