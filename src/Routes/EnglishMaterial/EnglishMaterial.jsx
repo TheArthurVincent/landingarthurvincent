@@ -6,11 +6,7 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
 import { CourseCard } from "./EnglishMaterial.Styled";
-import {
-  BackToHomePage,
-  Xp,
-  backDomain,
-} from "../../Resources/UniversalComponents";
+import { Xp, backDomain } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -213,7 +209,6 @@ export default function EnglishMaterial({ headers }) {
               >
                 <i className="fa fa-plus" aria-hidden="true" />
               </Button>
-              <BackToHomePage />{" "}
             </div>
             {lists.map((item, index) => {
               return (

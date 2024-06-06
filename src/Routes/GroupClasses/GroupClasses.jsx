@@ -7,7 +7,6 @@ import {
 } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
 import {
-  BackToHomePage,
   DivFlex,
   IFrameVideo,
   backDomain,
@@ -189,8 +188,6 @@ export default function GroupClasses({ headers }) {
                     <i className="fa fa-calendar" aria-hidden="true" />
                     {UniversalTexts.calendar}
                   </Link>
-
-                  <BackToHomePage />
                 </span>
                 <GroupClassesSideBar />
                 {currentClasses.map((item, index) => (

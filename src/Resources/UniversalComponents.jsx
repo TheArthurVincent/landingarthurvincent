@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import { levels } from "../Routes/Ranking/RankingComponents/ranking.json";
 import { Helmet } from "react-helmet";
+import { MyButton } from "./Components/ItemsLibrary";
 
 // Função que verifica o nível do aluno
 export function updateScore(totalScore) {
@@ -537,14 +538,7 @@ export const DisapearOnMobile = styled.div`
 
 export const BackToHomePage = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "1rem",
-        justifyContent: "right",
-      }}
-    >
+    <MyButton>
       <Link
         style={{
           ...linkReset,
@@ -559,7 +553,7 @@ export const BackToHomePage = () => {
       >
         Voltar à página inicial
       </Link>
-    </div>
+    </MyButton>
   );
 };
 
