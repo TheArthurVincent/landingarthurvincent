@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  HOne,
-  HTwo,
-  RouteDiv,
-} from "../../../../Resources/Components/RouteBox";
-import { backDomain } from "../../../../Resources/UniversalComponents";
 import { HeadersProps } from "../../../../Resources/types.universalInterfaces";
+import {
+  backDomain,
+  formatDateBr,
+} from "../../../../Resources/UniversalComponents";
+import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 
 export function Contract({ headers }: HeadersProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
@@ -57,113 +56,270 @@ export function Contract({ headers }: HeadersProps) {
     }
   };
 
+  const liStyle = { listStyle: "upper-roman inside", marginBottom: "6px" };
+  const ulStyle = { padding: " 0 1rem" };
+  const topSignature = {
+    width: "20rem",
+    borderTop: "2px solid",
+    paddingTop: "5px",
+  };
+
   useEffect(() => {
     fetchStudents();
   }, []);
+
+  const generateImage = () => {
+    import("html-to-image").then((htmlToImage) => {
+      const element: any = document.getElementById("contract-content");
+      htmlToImage
+        .toPng(element)
+        .then(function (dataUrl) {
+          const img = new Image();
+          img.src = dataUrl;
+
+          // Cria um novo elemento de imagem para exibir a imagem na página
+          const imageContainer = document.createElement("div");
+          imageContainer.appendChild(img);
+          document.body.appendChild(imageContainer);
+
+          // Após a imagem ser carregada, abre a caixa de diálogo de impressão
+          img.onload = function () {
+            window.print();
+            // Remove a imagem da página após a impressão
+            document.body.removeChild(imageContainer);
+          };
+        })
+        .catch(function (error) {
+          console.error("Erro ao gerar imagem:", error);
+        });
+    });
+  };
+
   return (
-    <RouteDiv style={{ fontSize: "12px" }}>
-      <select
-        className="no-print"
-        onChange={handleStudentChange}
-        name="students"
-        id=""
-        value={newID}
+    <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 5rem",
+        }}
       >
-        {studentsList.map((student: any, index: number) => {
-          return (
-            <option key={index} value={student.id}>
-              {student.name + " " + student.lastname}
-            </option>
-          );
-        })}
-      </select>
-      <HOne>Contrato de Aulas Particulares</HOne>
-      <h3>Dados do Aluno</h3>
-      <p>
-        <strong>Nome do aluno:</strong> {name}
-      </p>
-      <p>
-        <strong>Data de nascimento:</strong> {dateOfBirth}
-      </p>
-      <p>
-        <strong>Telefone:</strong> {phoneNumber}
-      </p>
-      <p>
-        <strong>E-mail:</strong> {email}
-      </p>
-      <p>
-        <strong>CPF:</strong> {doc}
-      </p>{" "}
-      <h3>Detalhes do Contrato</h3>
-      <p>
-        <strong>Número de aulas semanais (55min):</strong> {weeklyClasses}
-      </p>
-      <p>
-        <strong>Valor acordado:</strong> R$ {fee}
-      </p>
-      <p>
-        <strong>Data de assinatura do contrato:</strong> ___/___/___
-      </p>
-      <h3>Termos do Contrato</h3>
-      <p>
-        As aulas terão duração de 55min, e o professor deve enviar ao aluno o
-        link de acesso com, no mínimo, 5 minutos de antecedência;
-      </p>
-      <p>
-        O aluno também terá o direito de participar das aulas extras semanais,
-        que são coletivas, além das aulas particulares contratadas;
-      </p>
-      <p>
-        Esta aula extra é considerada como aula de compensação por aulas
-        perdidas pelo aluno, e pelos feriados, nos quais o professor não
-        ministrará aulas;
-      </p>
-      <p>
-        Se o aluno, por qualquer motivo, não puder comparecer à aula, deve
-        informar o professor com, no máximo, 24h de antecedência, para poder
-        repor a aula particular conforme a disponibilidade do professor;
-      </p>
-      <p>
-        Se o aluno não avisar ao professor com tal antecedência, o professor não
-        terá a obrigação de fazer a reposição da aula particular;
-      </p>
-      <p>
-        Os dias para reposição de aula são estabelecidos pelo professor, a quem
-        caberá encaixar o aluno na próxima janela disponível;
-      </p>
-      <p>
-        Em caso de cancelamento do curso, o aluno deve avisar o professor com
-        pelo menos 1 mês de antecedência;
-      </p>
-      <p>
-        O aluno terá uma semana para baixar todo o material produzido nas aulas.
-        Após este prazo, o mesmo será definitivamente excluído.
-      </p>
-      <p>
-        O aluno deve se comprometer a realizar as atividades propostas pelo
-        professor para melhor desenvolvimento do curso;
-      </p>
-      <p>
-        Em caso de falta do professor, este reporá a aula ao aluno em horário
-        combinado por ambos.
-      </p>
-      <h3>Assinaturas</h3>
-      <div style={{ display: "flex", margin: "auto", gap: "3rem" }}>
-        <div>
-          <p>_____________________________</p>
-          <p>{name}</p>
+        <select
+          onChange={handleStudentChange}
+          name="students"
+          className="no-print"
+          id=""
+          value={newID}
+        >
+          {studentsList.map((student: any, index: number) => {
+            return (
+              <option key={index} value={student.id}>
+                {student.name + " " + student.lastname}
+              </option>
+            );
+          })}
+        </select>
+        <span className="no-print">
+          <MyButton onClick={generateImage}>Gerar PDF</MyButton>
+        </span>
+      </div>
+      <div
+        style={{ fontSize: "12px", padding: "1rem 3rem" }}
+        id="contract-content"
+      >
+        <h1 style={{ textAlign: "center" }}>Contrato de Aulas Particulares</h1>
+        <h2
+          style={{
+            marginTop: "1rem",
+            paddingBottom: "2rem 0",
+            textAlign: "center",
+          }}
+        >
+          Dados do Aluno
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            textAlign: "center",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <p>
-            <strong>ASSINATURA DO (A) ALUNO (A)</strong>
+            <strong>Nome do aluno:</strong> {name}
+          </p>
+          <p>
+            <strong>Data de nascimento:</strong> {formatDateBr(dateOfBirth)}
+          </p>
+          <p>
+            <strong>Telefone:</strong> {phoneNumber}
+          </p>
+          <p>
+            <strong>E-mail:</strong> {email}
+          </p>
+          <p>
+            <strong>CPF:</strong> {doc}
+          </p>{" "}
+        </div>
+        <h2
+          style={{
+            marginTop: "1rem",
+            paddingBottom: "2rem 0",
+            textAlign: "center",
+          }}
+        >
+          Detalhes do Contrato
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            textAlign: "center",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <p>
+            <strong>Número de aulas semanais (55min):</strong> {weeklyClasses}
+          </p>
+          <p>
+            <strong>Valor acordado:</strong> R$ {fee}
           </p>
         </div>
-        <div>
-          <p>__________________________</p>
-          <p>
-            <strong>ASSINATURA DO PROFESSOR</strong>
-          </p>
+        <h2
+          style={{
+            marginTop: "1rem",
+            paddingBottom: "1rem 0",
+            textAlign: "center",
+          }}
+        >
+          Termos do Contrato
+        </h2>
+        <ul style={ulStyle}>
+          <li style={{ listStyle: "none" }}>
+            <h3>Sobre as aulas</h3>
+            <ul style={ulStyle}>
+              <li style={liStyle}>
+                As aulas terão duração de 55 minutos, e os links para as aulas
+                estão disponíveis no Portal do Aluno;
+              </li>
+              <li style={liStyle}>
+                O aluno também terá o direito de participar de aulas coletivas,
+                além das aulas particulares contratadas;
+                <p
+                  style={{
+                    fontStyle: "italic",
+                    listStyle: "square",
+                    padding: "0 2rem",
+                  }}
+                >
+                  Esta aula extra é considerada compensação por aulas perdidas
+                  pelo aluno, e pelos feriados, nos quais não haverá aulas;
+                </p>
+              </li>
+              <li style={liStyle}>
+                Se o aluno não puder comparecer à aula, deve informar o
+                professor com, no máximo, 24 horas de antecedência;
+              </li>
+              <li style={liStyle}>
+                Se o aluno não avisar ao professor com tal antecedência, o
+                professor não terá a obrigação de fazer a reposição da aula
+                particular;
+              </li>
+              <li style={liStyle}>
+                Em caso de falta <strong>do professor</strong>, este reporá a
+                aula ao aluno em horário combinado por ambos.
+              </li>
+              <li style={liStyle}>
+                Os dias para reposição de aula são estabelecidos pelo professor,
+                a quem caberá encaixar o aluno na próxima janela disponível;
+              </li>
+            </ul>
+          </li>
+          <li style={{ listStyle: "none" }}>
+            <h3>Sobre os descontos</h3>
+            <ul style={ulStyle}>
+              <li style={liStyle}>
+                O aluno terá direito aos descontos oferecidos na aba "Ranking",
+                por avanço de níveis ou posição no ranking de alunos, conforme o
+                critério estabelecido no mês anterior à reivindicação do
+                desconto.
+              </li>
+              <li style={liStyle}>
+                Caso o aluno faça uma recomendação ao professor, e esta resulte
+                em fechamento de contrato, o aluno receberá um desconto de 10%
+                em relação à mensalidade do aluno recomendado. Este desconto
+                ocorrerá uma vez, no mês seguinte ao fechamento do contrato do
+                aluno recomendado.
+              </li>
+            </ul>
+          </li>
+          <li style={{ listStyle: "none" }}>
+            <h3>Sobre cancelamento do curso</h3>
+            <ul style={ulStyle}>
+              <li style={liStyle}>
+                Em caso de cancelamento do curso, o aluno deve avisar o
+                professor com pelo menos <strong>1 mês de antecedência</strong>,
+                o que significa que se o aluno decidir encerrar o curso em
+                março, por exemplo, este deverá ainda pagar a parcela de abril;
+              </li>
+              <li style={liStyle}>
+                Este mês extra também representa mais um mês de aula, caso o
+                aluno deseje. Conforme o exemplo anterior, o aluno poderá fazer
+                as aulas de abril.
+              </li>
+              <li style={liStyle}>
+                Após a finalização oficial do curso, o aluno terá uma semana
+                para baixar todo o material produzido nas aulas. Após este
+                prazo, o mesmo será definitivamente excluído.
+              </li>
+            </ul>
+          </li>
+          <li style={{ listStyle: "none" }}>
+            <h3>Sobre as atividades</h3>
+            <ul style={ulStyle}>
+              <li style={liStyle}>
+                O aluno deve se comprometer a realizar as atividades propostas
+                pelo professor para melhor desenvolvimento do curso;
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h2
+          style={{
+            marginTop: "1rem",
+            paddingBottom: "2rem 0",
+            textAlign: "center",
+          }}
+        >
+          Assinaturas
+        </h2>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            textAlign: "center",
+            justifyContent: "center",
+            gap: "5rem",
+          }}
+        >
+          <p style={topSignature}> { name} (ou RESPONSÁVEL) ___/___/___</p>
+          <div>
+            <img
+              style={{
+                maxWidth: "9rem",
+                borderBottom: "solid 2px",
+              }}
+              src="https://ik.imagekit.io/vjz75qw96/assets/signature.png?updatedAt=1717680390615"
+              alt="signatureArth"
+            />
+            <p>ASSINATURA DO PROFESSOR</p>
+          </div>
         </div>
       </div>
-    </RouteDiv>
+    </div>
   );
 }
 

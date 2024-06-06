@@ -579,6 +579,16 @@ export function formatDate(dateString) {
   return date.toLocaleDateString("en-US", options);
 }
 
+export function formatDateBr(dateString) {
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  };
+  const date = new Date(dateString);
+  return date.toLocaleDateString("pt-BR", options);
+}
+
 export function getVideoEmbedUrl(videoUrl) {
   let embedUrl = "";
   if (!videoUrl) {
