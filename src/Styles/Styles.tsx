@@ -1,8 +1,8 @@
 // Vincent --> Partner #1
-export const primaryColor = (): string => "#00132b";
+export const primaryColor = (): string => "#001e42";
+export const primaryColor2 = (): string => "#001E66";
 export const secondaryColor = (): string => "#54bf08";
-export const primaryColor2 = (): string => "#001e42";
-export const secondaryColor2 = (): string => "#61de08";
+export const secondaryColor2 = (): string => "#84DE08";
 
 
 
