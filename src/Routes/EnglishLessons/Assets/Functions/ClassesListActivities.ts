@@ -3384,7 +3384,7 @@ export const lessons = [
         sentences: [
           {
             english: "Is there?",
-            portuguese: "Tem? (para palavras que não podem ser plurarizadas / ou quando falamos de uma coisa específica)",
+            portuguese: "Tem? (para palavras que não podem ser pluralizadas / ou quando falamos de uma coisa específica)",
           },
           {
             english: "Are there?",
@@ -3392,7 +3392,7 @@ export const lessons = [
           },
           {
             english: "Is there any?",
-            portuguese: "Tem algum? (para palavras que não podem ser plurarizadas)",
+            portuguese: "Tem algum? (para palavras que não podem ser pluralizadas)",
           },
           {
             english: "Are there any?",
@@ -3400,7 +3400,7 @@ export const lessons = [
           },
           {
             english: "There is no.",
-            portuguese: "Não tem. (para palavras que não podem ser plurarizadas)",
+            portuguese: "Não tem. (para palavras que não podem ser pluralizadas)",
           },
           {
             english: "There are no.",
