@@ -18,6 +18,7 @@ import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
 import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
+import FlashCards from "./FlashCards/FlashCards";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -80,6 +81,10 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
+    },
+    {
+      title: "Flash Cards",
+      component: <FlashCards headers={headers} />,
     },
     {
       title: "My Calendar",

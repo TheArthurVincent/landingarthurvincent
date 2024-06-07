@@ -122,6 +122,7 @@ export const TopBar: FC = () => {
     { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
     { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
     { title: "Ranking", endpoint: "/ranking" },
+    { title: "Flash Cards", endpoint: "/flash-cards" },
   ];
 
   const toAdm: LinkItem[] = [
