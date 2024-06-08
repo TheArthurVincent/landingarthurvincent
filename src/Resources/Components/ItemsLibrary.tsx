@@ -18,6 +18,7 @@ interface ArvinButtonProps {
 }
 
 export const ArvinButton = styled.button<ArvinButtonProps>`
+  min-width: 80px;
   background: linear-gradient(
     to left,
     ${(props) =>
@@ -44,7 +45,6 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
   display: inline;
   max-width: fit-content;
   font-weight: 600;
-  transition: 0.2s ease-in-out;
 
   &:hover {
     background: linear-gradient(
@@ -69,7 +69,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
   }
 
   &:active {
-    box-shadow: inset 1px 1px 10px 1px #777;
+    font-weight: 500;
+    box-shadow: inset 1px 1px 10px 1px #ddd;
   }
 `;
 
@@ -88,12 +89,12 @@ export const MyButton = styled.button<ButtonProps>`
   display: inline;
   max-width: fit-content;
   font-weight: 600;
-  transition: 0.3s ease-in-out;
   &:hover {
     background: linear-gradient(
       to left,
       ${(props) => props.firstcolor || primaryColor()} 0%,
-      ${(props) => props.secondcolor || props.firstcolor || primaryColor2()} 100%
+      ${(props) => props.secondcolor || props.firstcolor || primaryColor2()}
+        100%
     );
 
     box-shadow: 1px 1px 10px 1px #aaa;
@@ -101,6 +102,7 @@ export const MyButton = styled.button<ButtonProps>`
   }
 
   &:active {
-    box-shadow: inset 1px 1px 10px 1px #333;
+    font-weight: 500;
+    box-shadow: inset 1px 1px 10px 1px #ddd;
   }
 `;
