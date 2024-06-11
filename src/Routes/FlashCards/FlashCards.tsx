@@ -69,8 +69,8 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const addNewCard = async () => {
     const newCards = [
       {
-        front: { text: frontCard, side: "front", language: languageFront },
-        back: { text: backCard, side: "back", language: languageBack },
+        front: { text: frontCard, language: languageFront },
+        back: { text: backCard,  language: languageBack },
       },
     ];
     try {

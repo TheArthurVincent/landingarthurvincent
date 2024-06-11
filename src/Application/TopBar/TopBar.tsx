@@ -149,6 +149,7 @@ export const TopBar: FC = () => {
         <div
           style={{
             display: "grid",
+            gap: "3px",
             alignItems: "center",
           }}
         >
@@ -163,6 +164,9 @@ export const TopBar: FC = () => {
           >
             <SpanHover
               style={{
+                fontWeight: 700,
+                fontSize: "1.1rem",
+                fontFamily: "Athiti",
                 textDecoration: "none",
               }}
             >
@@ -188,6 +192,9 @@ export const TopBar: FC = () => {
                 <SpanHover
                   style={{
                     textDecoration: "none",
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    fontFamily: "Athiti",
                   }}
                 >
                   {link.title}
@@ -217,7 +224,15 @@ export const TopBar: FC = () => {
                 key={index}
                 to={link.endpoint}
               >
-                <SpanHover style={{}}>{link.title}</SpanHover>
+                <SpanHover
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    fontFamily: "Athiti",
+                  }}
+                >
+                  {link.title}
+                </SpanHover>
               </NavLink>
             );
           })}
