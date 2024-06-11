@@ -15,6 +15,7 @@ interface ButtonProps {
 
 interface ArvinButtonProps {
   type?: string;
+  cursor?: string;
 }
 
 export const ArvinButton = styled.button<ArvinButtonProps>`
@@ -26,6 +27,18 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
           ? "red"
           : props.type === "green"
           ? secondaryColor()
+          : props.type === "blue"
+          ? "blue"
+          : props.type === "orange"
+          ? "orange"
+          : props.type === "purple"
+          ? "purple"
+          : props.type === "yellow"
+          ? "#FFD700"
+          : props.type === "pink"
+          ? "#FF69B4"
+          : props.type === "grey"
+          ? "#eee"
           : primaryColor()}
       0%,
     ${(props) =>
@@ -33,6 +46,18 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
           ? "#fa7a71"
           : props.type === "green"
           ? secondaryColor2()
+          : props.type === "blue"
+          ? "#87CEFA"
+          : props.type === "orange"
+          ? "#FFA500"
+          : props.type === "purple"
+          ? "#DDA0DD"
+          : props.type === "grey"
+          ? "#aaa"
+          : props.type === "yellow"
+          ? "#B8860B" // Yellow darker gradient
+          : props.type === "pink"
+          ? "#C71585" // Pink darker gradient
           : primaryColor2()}
       50%
   );
@@ -41,7 +66,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
   font-family: Athiti;
   border-radius: 10px;
   border: none;
-  cursor: pointer;
+  cursor: ${(props) =>
+    props.cursor === "not-allowed" ? "not-allowed" : "pointer"};
   display: inline;
   max-width: fit-content;
   font-weight: 600;
@@ -54,6 +80,16 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             ? "red"
             : props.type === "green"
             ? secondaryColor()
+            : props.type === "blue"
+            ? "blue"
+            : props.type === "orange"
+            ? "orange"
+            : props.type === "purple"
+            ? "purple"
+            : props.type === "yellow"
+            ? "#FFD700" // Yellow darker shade
+            : props.type === "pink"
+            ? "#FF69B4" // Pink darker shade
             : primaryColor()}
         0%,
       ${(props) =>
@@ -61,6 +97,16 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             ? "#FA7A71"
             : props.type === "green"
             ? secondaryColor2()
+            : props.type === "blue"
+            ? "#87CEFA"
+            : props.type === "orange"
+            ? "#FFA500"
+            : props.type === "purple"
+            ? "#DDA0DD"
+            : props.type === "yellow"
+            ? "#B8860B" // Yellow darker gradient
+            : props.type === "pink"
+            ? "#C71585" // Pink darker gradient
             : primaryColor2()}
         100%
     );
