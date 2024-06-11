@@ -26,6 +26,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [seeAddCards, setSeeAddCards] = useState<boolean>(false);
   const [cardsLength, setCardsLength] = useState<boolean>(true);
   const [cardsCount, setCardsCount] = useState<any>([]);
+  const [see, setSee] = useState<boolean>(false);
 
   const timerDisabled = () => {
     setIsDisabled(true);
@@ -108,6 +109,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const seeCardsToReview = async () => {
+    setSee(true);
     timerDisabled();
     setLoading(true);
     try {
@@ -219,153 +221,159 @@ const FlashCards = ({ headers }: HeadersProps) => {
             </ArvinButton>
           </div>
         )}
-        <div>
-          {loading ? (
-            <CircularProgress />
-          ) : (
-            <div
-              style={{
-                margin: "auto",
-                textAlign: "center",
-              }}
-            >
-              <div style={{ borderBottom: "1px solid #ccc", padding: "1rem" }}>
-                {!cardsLength ? (
-                  <>
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        paddingBottom: "1rem",
-                      }}
-                    >
-                      New cards:{" "}
-                      <span
+        {see && (
+          <div>
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <div
+                style={{
+                  margin: "auto",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{ borderBottom: "1px solid #ccc", padding: "1rem" }}
+                >
+                  {!cardsLength ? (
+                    <>
+                      <div
                         style={{
-                          color: "navy",
+                          fontSize: "12px",
+                          paddingBottom: "1rem",
                         }}
                       >
-                        {cardsCount.newCardsCount}
-                      </span>{" "}
-                      | Old cards:{" "}
-                      <span
-                        style={{
-                          color: "green",
-                        }}
-                      >
-                        {cardsCount.reviewedCardsCount}
-                      </span>{" "}
-                      | Total:{" "}
-                      <span
-                        style={{
-                          color: "black",
-                        }}
-                      >
-                        {cards.length}
-                      </span>{" "}
-                      |{" "}
-                    </div>{" "}
-                    {cards[0]?.front?.text || ""}
-                    <button
-                      className="audio-button"
-                      onClick={() =>
-                        readText(
-                          cards[0].front.text,
-                          true,
-                          cards[0].front.language
-                        )
-                      }
-                    >
-                      <i className="fa fa-volume-up" aria-hidden="true" />
-                    </button>
-                    <br />
-                    {!isDisabled && (
-                      <ArvinButton
-                        style={{
-                          marginTop: "2rem",
-                        }}
-                        disabled={isDisabled}
-                        cursor={isDisabled ? "not-allowed" : "pointer"}
-                        type={isDisabled ? "grey" : "navy"}
-                        onClick={() => {
-                          setAnswer(true);
-                          {
-                            cards.length > 0 && cards[0].back.language == "en"
-                              ? readText(cards[0].back.text, true)
-                              : null;
-                          }
-                        }}
-                      >
-                        Answer
-                      </ArvinButton>
-                    )}{" "}
-                    {answer && (
-                      <div style={{ padding: "1rem" }}>
-                        {cards[0]?.back?.text || ""}
-                        <button
-                          className="audio-button"
-                          onClick={() =>
-                            readText(
-                              cards[0].back.text,
-                              true,
-                              cards[0].back.language
-                            )
-                          }
-                        >
-                          <i className="fa fa-volume-up" aria-hidden="true" />
-                        </button>
-                        <div
+                        New cards:{" "}
+                        <span
                           style={{
-                            justifyContent: "center",
-                            display: "flex",
-                            gap: "5px",
-                            marginTop: "2rem",
+                            color: "navy",
                           }}
                         >
-                          <ArvinButton
-                            onClick={() => reviewCard(cards[0].id, "veryhard")}
-                            type="red"
+                          {cardsCount.newCardsCount}
+                        </span>{" "}
+                        | Old cards:{" "}
+                        <span
+                          style={{
+                            color: "green",
+                          }}
+                        >
+                          {cardsCount.reviewedCardsCount}
+                        </span>{" "}
+                        | Total:{" "}
+                        <span
+                          style={{
+                            color: "black",
+                          }}
+                        >
+                          {cards.length}
+                        </span>{" "}
+                        |{" "}
+                      </div>{" "}
+                      {cards[0]?.front?.text || ""}
+                      <button
+                        className="audio-button"
+                        onClick={() =>
+                          readText(
+                            cards[0].front.text,
+                            true,
+                            cards[0].front.language
+                          )
+                        }
+                      >
+                        <i className="fa fa-volume-up" aria-hidden="true" />
+                      </button>
+                      <br />
+                      {!isDisabled && (
+                        <ArvinButton
+                          style={{
+                            marginTop: "2rem",
+                          }}
+                          disabled={isDisabled}
+                          cursor={isDisabled ? "not-allowed" : "pointer"}
+                          type={isDisabled ? "grey" : "navy"}
+                          onClick={() => {
+                            setAnswer(true);
+                            {
+                              cards.length > 0 && cards[0].back.language == "en"
+                                ? readText(cards[0].back.text, true)
+                                : null;
+                            }
+                          }}
+                        >
+                          Answer
+                        </ArvinButton>
+                      )}{" "}
+                      {answer && (
+                        <div style={{ padding: "1rem" }}>
+                          {cards[0]?.back?.text || ""}
+                          <button
+                            className="audio-button"
+                            onClick={() =>
+                              readText(
+                                cards[0].back.text,
+                                true,
+                                cards[0].back.language
+                              )
+                            }
                           >
-                            Very hard!
-                          </ArvinButton>
-                          <ArvinButton
-                            onClick={() => reviewCard(cards[0].id, "hard")}
-                            type="pink"
+                            <i className="fa fa-volume-up" aria-hidden="true" />
+                          </button>
+                          <div
+                            style={{
+                              justifyContent: "center",
+                              display: "flex",
+                              gap: "5px",
+                              marginTop: "2rem",
+                            }}
                           >
-                            Hard
-                          </ArvinButton>
-                          <ArvinButton
-                            onClick={() => reviewCard(cards[0].id, "medium")}
-                            type="navy"
-                          >
-                            Medium
-                          </ArvinButton>
-                          <ArvinButton
-                            onClick={() => reviewCard(cards[0].id, "easy")}
-                            type="green"
-                          >
-                            Easy
-                          </ArvinButton>
+                            <ArvinButton
+                              onClick={() =>
+                                reviewCard(cards[0].id, "veryhard")
+                              }
+                              type="red"
+                            >
+                              Very hard!
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0].id, "hard")}
+                              type="pink"
+                            >
+                              Hard
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0].id, "medium")}
+                              type="navy"
+                            >
+                              Medium
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0].id, "easy")}
+                              type="green"
+                            >
+                              Easy
+                            </ArvinButton>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <p>
-                    <b>
-                      {" "}
-                      Congratulations! You've finished reviewing your cards! One
-                      step closer to fluency!
-                    </b>{" "}
-                    <br />
-                    <br />
-                    Parabéns, você terminou de revisar seus cards! Mais um passo
-                    rumo à fluência!
-                  </p>
-                )}
+                      )}
+                    </>
+                  ) : (
+                    <p>
+                      <b>
+                        {" "}
+                        Congratulations! You've finished reviewing your cards!
+                        One step closer to fluency!
+                      </b>{" "}
+                      <br />
+                      <br />
+                      Parabéns, você terminou de revisar seus cards! Mais um
+                      passo rumo à fluência!
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </RouteDiv>
     </RouteSizeControlBox>
   );
