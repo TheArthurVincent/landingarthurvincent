@@ -232,9 +232,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                   textAlign: "center",
                 }}
               >
-                <div
-                  style={{ borderBottom: "1px solid #ccc", padding: "1rem" }}
-                >
+                <div style={{ padding: "1rem" }}>
                   {!cardsLength ? (
                     <>
                       <div
@@ -269,40 +267,48 @@ const FlashCards = ({ headers }: HeadersProps) => {
                         </span>{" "}
                         |{" "}
                       </div>{" "}
-                      {cards[0]?.front?.text || ""}
-                      <button
-                        className="audio-button"
-                        onClick={() =>
-                          readText(
-                            cards[0].front.text,
-                            true,
-                            cards[0].front.language
-                          )
-                        }
+                      <div
+                        style={{
+                          borderBottom: "1px solid #ccc",
+                          paddingBottom: "1rem",
+                        }}
                       >
-                        <i className="fa fa-volume-up" aria-hidden="true" />
-                      </button>
-                      <br />
-                      {!isDisabled && (
-                        <ArvinButton
-                          style={{
-                            marginTop: "2rem",
-                          }}
-                          disabled={isDisabled}
-                          cursor={isDisabled ? "not-allowed" : "pointer"}
-                          type={isDisabled ? "grey" : "navy"}
-                          onClick={() => {
-                            setAnswer(true);
-                            {
-                              cards.length > 0 && cards[0].back.language == "en"
-                                ? readText(cards[0].back.text, true)
-                                : null;
-                            }
-                          }}
+                        {cards[0]?.front?.text || ""}
+                        <button
+                          className="audio-button"
+                          onClick={() =>
+                            readText(
+                              cards[0].front.text,
+                              true,
+                              cards[0].front.language
+                            )
+                          }
                         >
-                          Answer
-                        </ArvinButton>
-                      )}{" "}
+                          <i className="fa fa-volume-up" aria-hidden="true" />
+                        </button>
+                        <br />
+                        {!isDisabled && (
+                          <ArvinButton
+                            style={{
+                              marginTop: "2rem",
+                            }}
+                            disabled={isDisabled}
+                            cursor={isDisabled ? "not-allowed" : "pointer"}
+                            type={isDisabled ? "grey" : "navy"}
+                            onClick={() => {
+                              setAnswer(true);
+                              {
+                                cards.length > 0 &&
+                                cards[0].back.language == "en"
+                                  ? readText(cards[0].back.text, true)
+                                  : null;
+                              }
+                            }}
+                          >
+                            Answer
+                          </ArvinButton>
+                        )}{" "}
+                      </div>
                       {answer && (
                         <div style={{ padding: "1rem" }}>
                           {cards[0]?.back?.text || ""}
