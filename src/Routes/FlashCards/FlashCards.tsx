@@ -26,7 +26,6 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [seeAddCards, setSeeAddCards] = useState<boolean>(false);
   const [cardsLength, setCardsLength] = useState<boolean>(true);
   const [cardsCount, setCardsCount] = useState<any>([]);
-  const [seeReview, setSeeReview] = useState<boolean>(false);
 
   const timerDisabled = () => {
     setIsDisabled(true);
@@ -70,7 +69,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
     const newCards = [
       {
         front: { text: frontCard, language: languageFront },
-        back: { text: backCard,  language: languageBack },
+        back: { text: backCard, language: languageBack },
       },
     ];
     try {
