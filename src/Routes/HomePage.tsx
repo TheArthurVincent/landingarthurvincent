@@ -10,7 +10,6 @@ import EnglishMaterial from "./EnglishMaterial/EnglishMaterial";
 import Faq from "./Faq/Faq";
 import MyClasses from "./MyClasses/MyClasses";
 import MyCalendar from "./MyCalendar/MyCalendar";
-import AppFooter from "../Application/Footer/Footer";
 import Adm from "./Adm/Adm";
 import Blog from "./Blog/Blog";
 import { LevelCard } from "./LevelCard/LevelCard";
@@ -18,6 +17,8 @@ import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
 import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
+import FlashCards from "./FlashCards/FlashCards";
+import Homework from "./Homework/Homework";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -58,11 +59,19 @@ export function HomePage({ headers }: HeadersProps) {
       component: <Ranking headers={headers} />,
     },
     {
+      title: "Homework",
+      component: <Homework headers={headers} />,
+    },
+    {
       title: "My Profile",
       component: <MyProfile headers={headers} />,
     },
     {
       title: "Group Classes",
+      component: <GroupClasses headers={headers} />,
+    },
+    {
+      title: "Live Classes",
       component: <GroupClasses headers={headers} />,
     },
     {
@@ -80,6 +89,10 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
+    },
+    {
+      title: "Flash Cards",
+      component: <FlashCards headers={headers} />,
     },
     {
       title: "My Calendar",

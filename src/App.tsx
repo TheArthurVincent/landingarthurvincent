@@ -14,7 +14,7 @@ export const verifyToken = () => {
   return token;
 };
 const authorization: string = authorizationToken();
-const headers:MyHeadersType= {
+const headers: MyHeadersType = {
   Authorization: authorization,
 };
 

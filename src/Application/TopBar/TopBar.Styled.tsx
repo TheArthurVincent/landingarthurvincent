@@ -21,14 +21,14 @@ export const TopBarContainer = styled.header`
   @media print {
     display: none;
   }
-`;  
+`;
 
 export const TopBarNavigation = styled.div`
   text-align: center;
   gap: 2rem;
   display: flex;
   z-index: 4;
-  font-size:13px;
+  font-size: 13px;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
@@ -40,17 +40,18 @@ export const TopBarNavigation = styled.div`
 export const TopBarNavigationBurger = styled.div`
   position: fixed;
   flex-direction: column;
-  top: 0.1rem;
-  left: 0.1rem;
+  top: 0rem;
+  left: 0rem;
   z-index: 6000;
   list-style: none;
+  width: 50vw;
   gap: 1rem;
   text-align: left;
   background-color: ${alwaysWhite()};
   padding: 1rem 0.5rem;
   display: none;
   &.smooth {
-    animation-name: slideInLeft;
+    animation-name: slideInLeftNoOpacity;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
   }

@@ -110,18 +110,20 @@ export const TopBar: FC = () => {
   const classes: LinkItem[] = [
     { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
     { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
-    { title: "Lessons", endpoint: "/english-lessons" },
+    { title: "Homework", endpoint: "/homework" },
   ];
 
   const extras: LinkItem[] = [
     { title: UniversalTexts.myProfile, endpoint: "/my-profile" },
-    { title: UniversalTexts.faq, endpoint: "/faq" },
+    // { title: UniversalTexts.faq, endpoint: "/faq" },
   ];
 
   const topLinks: LinkItem[] = [
-    { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
     { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
+    { title: "Flashcards", endpoint: "/flash-cards" },
     { title: "Ranking", endpoint: "/ranking" },
+    { title: "Lessons", endpoint: "/english-lessons" },
+    { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
   ];
 
   const toAdm: LinkItem[] = [
@@ -148,6 +150,7 @@ export const TopBar: FC = () => {
         <div
           style={{
             display: "grid",
+            gap: "3px",
             alignItems: "center",
           }}
         >
@@ -162,6 +165,9 @@ export const TopBar: FC = () => {
           >
             <SpanHover
               style={{
+                fontWeight: 700,
+                fontSize: "1.1rem",
+                fontFamily: "Athiti",
                 textDecoration: "none",
               }}
             >
@@ -187,6 +193,9 @@ export const TopBar: FC = () => {
                 <SpanHover
                   style={{
                     textDecoration: "none",
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    fontFamily: "Athiti",
                   }}
                 >
                   {link.title}
@@ -216,7 +225,15 @@ export const TopBar: FC = () => {
                 key={index}
                 to={link.endpoint}
               >
-                <SpanHover style={{}}>{link.title}</SpanHover>
+                <SpanHover
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    fontFamily: "Athiti",
+                  }}
+                >
+                  {link.title}
+                </SpanHover>
               </NavLink>
             );
           })}

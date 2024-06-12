@@ -45,7 +45,7 @@ export const SpanDisapear = styled.span`
   font-size: 1rem;
   font-weight: 400;
   padding: "0.2rem 0.6rem";
-  @media (max-width: 750px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

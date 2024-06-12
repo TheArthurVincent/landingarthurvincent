@@ -1,18 +1,30 @@
-export const readText = (text: string, restart: boolean) => {
+export const readText = (text: string, restart: boolean, lang?: string) => {
+  console.log(text, restart, lang);
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    if (lang == "pt") {
+      utterance.lang = "pt-BR";
+    } else if (lang == "fr") {
+      utterance.lang = "fr-FR";
+    } else if (lang == "it") {
+      utterance.lang = "it-IT";
+    } else if (lang == "de") {
+      utterance.lang = "de-DE";
+    } else if (lang == "en") {
+      utterance.lang = "en-US";
+    } else if (!lang) {
+      utterance.lang = "en-US";
+    }
+
     if (restart) {
       synth.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US";
       synth.speak(utterance);
     } else if (synth.speaking) {
       synth.pause();
     } else if (synth.paused) {
       synth.resume();
     } else {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US";
       synth.speak(utterance);
     }
   } else {
@@ -20,7 +32,6 @@ export const readText = (text: string, restart: boolean) => {
     console.log("error", text);
   }
 };
-
 
 export const pauseSpeech = () => {
   if ("speechSynthesis" in window) {

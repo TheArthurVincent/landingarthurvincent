@@ -1,6 +1,7 @@
 import React from "react";
 import { alwaysBlack, alwaysWhite } from "../../Styles/Styles";
 import Helmets from "../../Resources/Helmets";
+import { BackToHomePage } from "../../Resources/UniversalComponents";
 
 export function MessageDrive() {
   return (
@@ -11,14 +12,16 @@ export function MessageDrive() {
         maxWidth: "400px",
         marginLeft: "auto",
         marginRight: "auto",
-        padding: "3rem 0",
+        padding: "2rem",
         marginTop: "180px",
         display: "grid",
         justifyContent: "center",
+        gap: "10px",
       }}
     >
       <Helmets text="Google Drive" />
-      Você ainda não tem uma pasta no Drive. Fale com o professor.
+      <BackToHomePage />
+      <p>Você ainda não tem uma pasta de arquivos. Fale com o professor.</p>
     </div>
   );
 }

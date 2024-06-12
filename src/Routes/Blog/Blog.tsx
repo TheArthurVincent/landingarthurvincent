@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
-  RouteSizeControlBox,
   BlogPostTitle,
-  HTwo,
   BackgroundClickBlog,
   HOne,
-  SpanIcon,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -24,7 +21,7 @@ import {
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
-import { Button, CircularProgress } from "@mui/material";
+import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   DivModal,
@@ -42,7 +39,6 @@ export function Blog({ headers }: HeadersProps) {
   const [newTitle, setNewTitle] = useState<string>("");
   const [_id, setID] = useState<string>("");
   const [_StudentId, setStudentId] = useState<string>("");
-  const [picture, setPicture] = useState<string>("");
   const [newText, setNewText] = useState<string>("");
   const [newImg, setNewImg] = useState<string>("");
   const [newUrlVideo, setNewUrlVideo] = useState<string>("");
@@ -60,13 +56,11 @@ export function Blog({ headers }: HeadersProps) {
     },
   ]);
 
-
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
-    setPicture(getLoggedUser.picture);
     setPermissions(getLoggedUser.permissions);
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
   }, []);
@@ -185,91 +179,155 @@ export function Blog({ headers }: HeadersProps) {
               gap: "1rem",
             }}
           >
-            <HTwo style={{ maxWidth: "100%", margin: 0 }}>
+            <i className="fa fa-user " aria-hidden="true" />
+
+            <h2>
               {UniversalTexts.hello}
               {name}!
-            </HTwo>
-
-            <div style={{ maxWidth: "100%", display: "flex" }}>
-              {[
-                {
-                  link: "https://ankiweb.net/decks",
-                  title: (
-                    <i
-                      style={{ maxWidth: "100%", transform: "rotate(-25deg)" }}
-                      className="fa fa-star-o"
-                      aria-hidden="true"
-                    />
-                  ),
-                  tooltip: "Anki",
-                  color: "#01BCFF",
-                },
-                {
-                  link: googleDriveLink,
-                  title: <i className="fa fa-folder" aria-hidden="true" />,
-                  tooltip: UniversalTexts.personalFolder,
-                  color: "brown",
-                },
-                {
-                  link: "https://wa.me/5511915857807",
-                  title: <i className="fa fa-whatsapp" aria-hidden="true" />,
-                  tooltip: UniversalTexts.talkToTheTeacher,
-                  color: "green",
-                },
-              ].map((item, index) => {
-                return (
-                  <Link
-                    key={index}
-                    style={{
-                      maxWidth: "100%",
-                      marginRight: "0.5rem",
-                      fontSize: "1.5rem",
-                      height: "1.5rem",
-                      textAlign: "center",
-                      color: item.color,
-                      gap: "0.2rem",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                    target="_blank"
-                    to={item.link}
-                  >
-                    <SpanIcon>
-                      <span
-                        style={{
-                          maxWidth: "100%",
-                          display: "block",
-                          color: item.color,
-                          fontSize: "1.4rem",
-                        }}
-                      >
-                        {item.title}
-                      </span>
-                      <span style={{ maxWidth: "100%", fontWeight: 600 }}>
-                        {item.tooltip}
-                      </span>
-                    </SpanIcon>
-                  </Link>
-                );
-              })}
-            </div>
+            </h2>
           </div>
-          <Link
-            style={{
-              maxWidth: "100%",
-              backgroundColor: secondaryColor(),
-              color: textSecondaryColorContrast(),
-              padding: "10px",
-              borderRadius: "5px",
-              display: "flex",
-              gap: "5px",
-              alignItems: "center",
-            }}
-            to="/my-calendar"
-          >
-            <i className="fa fa-calendar" aria-hidden="true" />
-            <SpanDisapear> {UniversalTexts.calendar}</SpanDisapear>
-          </Link>
+          <div style={{ display: "flex", gap: "5px" }}>
+            <Tooltip title={UniversalTexts.calendar}>
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  gap: "5px",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+                to="/my-calendar"
+              >
+                <span className="hover-link">
+                  <i
+                    style={{
+                      paddingRight: "5px",
+                    }}
+                    className="fa fa-calendar "
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear> {UniversalTexts.calendar}</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+            <Tooltip title={UniversalTexts.personalFolder}>
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  gap: "5px",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+                to={googleDriveLink}
+              >
+                <span className="hover-link">
+                  <i
+                    style={{
+                      paddingRight: "5px",
+                    }}
+                    className="fa fa-folder"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+            <Tooltip title="Homework">
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  gap: "5px",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+                to="/homework"
+              >
+                <span className="hover-link">
+                  <i
+                    style={{
+                      paddingRight: "5px",
+                    }}
+                    className="fa fa-book"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>Homework</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+            <Tooltip title="Flashcards">
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  textDecoration: "none",
+                  gap: "5px",
+                  alignItems: "center",
+                }}
+                to="/flash-cards"
+              >
+                <span className="hover-link">
+                  <i
+                    style={{
+                      paddingRight: "5px",
+                      maxWidth: "100%",
+                      transform: "rotate(-25deg)",
+                    }}
+                    className="fa fa-star-o hover-link"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>Flashcards</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+            <Tooltip title={UniversalTexts.talkToTheTeacher}>
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  textDecoration: "none",
+                  gap: "5px",
+                  alignItems: "center",
+                }}
+                to="https://wa.me/5511915857807"
+              >
+                <span className="hover-link">
+                  <i
+                    style={{ paddingRight: "5px", maxWidth: "100%" }}
+                    className="fa fa-whatsapp"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>{UniversalTexts.talkToTheTeacher}</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+          </div>
         </div>
         <HOne>{UniversalTexts.mural}</HOne>
         {posts.map((post: any, index: number) => (
@@ -282,6 +340,7 @@ export function Blog({ headers }: HeadersProps) {
               justifyContent: "center",
               border: `solid 1px ${lightGreyColor()} `,
               marginBottom: "1rem",
+              textDecoration: "none",
             }}
           >
             {post.title && (
