@@ -21,8 +21,8 @@ interface LevelCardProps {
   _StudentId: string;
   picture: string;
 }
-
 export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
+  const [pictureStudent, setPictureStudent] = useState<string>(picture);
   const [totalScore, setTotalScore] = useState<number>(0);
   const [monthlyScore, setMonthlyScore] = useState<number>(0);
   const [level, setLevel] = useState<number>(9);
@@ -40,7 +40,7 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
       });
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
-
+      setPictureStudent(response.data.picture);
       var newValue = updateScore(response.data.totalScore);
       const levelDone = newValue.level;
       setLevel(levelDone);
@@ -74,7 +74,7 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
           src={items[level].image}
           alt="card"
         />
-        <LevelCardPhotoLevel src={picture} alt="Profile Picture" />
+        <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />
       </DivCardLevel>
       <TextLevelCard>
         <div
