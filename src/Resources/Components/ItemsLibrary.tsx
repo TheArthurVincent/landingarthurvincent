@@ -14,7 +14,7 @@ interface ButtonProps {
 }
 
 interface ArvinButtonProps {
-  type?: string;
+  color?: string;
   cursor?: string;
 }
 
@@ -23,40 +23,40 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
   background: linear-gradient(
     to left,
     ${(props) =>
-        props.type === "red"
+        props.color === "red"
           ? "red"
-          : props.type === "green"
+          : props.color === "green"
           ? secondaryColor()
-          : props.type === "blue"
+          : props.color === "blue"
           ? "blue"
-          : props.type === "orange"
+          : props.color === "orange"
           ? "orange"
-          : props.type === "purple"
+          : props.color === "purple"
           ? "purple"
-          : props.type === "yellow"
+          : props.color === "yellow"
           ? "#FFD700"
-          : props.type === "pink"
+          : props.color === "pink"
           ? "#FF69B4"
-          : props.type === "grey"
+          : props.color === "grey"
           ? "#eee"
           : primaryColor()}
       0%,
     ${(props) =>
-        props.type === "red"
+        props.color === "red"
           ? "#fa7a71"
-          : props.type === "green"
+          : props.color === "green"
           ? secondaryColor2()
-          : props.type === "blue"
+          : props.color === "blue"
           ? "#87CEFA"
-          : props.type === "orange"
+          : props.color === "orange"
           ? "#FFA500"
-          : props.type === "purple"
+          : props.color === "purple"
           ? "#DDA0DD"
-          : props.type === "grey"
+          : props.color === "grey"
           ? "#aaa"
-          : props.type === "yellow"
+          : props.color === "yellow"
           ? "#B8860B" // Yellow darker gradient
-          : props.type === "pink"
+          : props.color === "pink"
           ? "#C71585" // Pink darker gradient
           : primaryColor2()}
       50%
@@ -76,36 +76,36 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
     background: linear-gradient(
       to left,
       ${(props) =>
-          props.type === "red"
+          props.color === "red"
             ? "red"
-            : props.type === "green"
+            : props.color === "green"
             ? secondaryColor()
-            : props.type === "blue"
+            : props.color === "blue"
             ? "blue"
-            : props.type === "orange"
+            : props.color === "orange"
             ? "orange"
-            : props.type === "purple"
+            : props.color === "purple"
             ? "purple"
-            : props.type === "yellow"
+            : props.color === "yellow"
             ? "#FFD700" // Yellow darker shade
-            : props.type === "pink"
+            : props.color === "pink"
             ? "#FF69B4" // Pink darker shade
             : primaryColor()}
         0%,
       ${(props) =>
-          props.type === "red"
+          props.color === "red"
             ? "#FA7A71"
-            : props.type === "green"
+            : props.color === "green"
             ? secondaryColor2()
-            : props.type === "blue"
+            : props.color === "blue"
             ? "#87CEFA"
-            : props.type === "orange"
+            : props.color === "orange"
             ? "#FFA500"
-            : props.type === "purple"
+            : props.color === "purple"
             ? "#DDA0DD"
-            : props.type === "yellow"
+            : props.color === "yellow"
             ? "#B8860B" // Yellow darker gradient
-            : props.type === "pink"
+            : props.color === "pink"
             ? "#C71585" // Pink darker gradient
             : primaryColor2()}
         100%

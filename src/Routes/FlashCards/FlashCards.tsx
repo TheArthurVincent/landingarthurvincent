@@ -10,25 +10,41 @@ import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import axios from "axios";
-import { CircularProgress } from "@mui/material";
-import { darkGreyColor, lightGreyColor } from "../../Styles/Styles";
+import { Box, CircularProgress, Tab } from "@mui/material";
+import {
+  alwaysWhite,
+  darkGreyColor,
+  lightGreyColor,
+  primaryColor,
+  textPrimaryColorContrast,
+} from "../../Styles/Styles";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 
 const FlashCards = ({ headers }: HeadersProps) => {
   const [studentsList, setStudentsList] = useState<any[]>([]);
   const [myId, setId] = useState<string>("");
   const [studentID, setStudentID] = useState<string>("");
+  const [cards, setCards] = useState<any[]>([]);
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [answer, setAnswer] = useState<boolean>(false);
+  const [cardsLength, setCardsLength] = useState<boolean>(true);
+  const [cardsCount, setCardsCount] = useState<any>([]);
+  const [see, setSee] = useState<boolean>(false);
+  const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(4);
+  const [value, setValue] = useState<string>("1");
+
   const [frontCard, setFrontCard] = useState<string>("");
   const [backCard, setBackCard] = useState<string>("");
   const [languageFront, setLanguageFront] = useState<string>("en");
   const [languageBack, setLanguageBack] = useState<string>("pt");
-  const [cards, setCards] = useState<any[]>([]);
-  const [isDisabled, setIsDisabled] = useState<boolean>(true);
-  const [answer, setAnswer] = useState<boolean>(false);
-  const [seeAddCards, setSeeAddCards] = useState<boolean>(false);
-  const [cardsLength, setCardsLength] = useState<boolean>(true);
-  const [cardsCount, setCardsCount] = useState<any>([]);
-  const [see, setSee] = useState<boolean>(false);
-  const [count, setCount] = useState<number>(4);
+
+  const handleChange = (event: any, newValue: string) => {
+    event.preventDefault();
+    setValue(newValue);
+  };
+
   const timerDisabled = () => {
     setCount(4);
     setIsDisabled(true);
@@ -46,7 +62,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
     }, 4000);
   };
   const fetchStudents = async () => {
-    setSeeAddCards(!seeAddCards);
+    setAddCardVisible(true);
     if (myId === "651311fac3d58753aa9281c5") {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`, {
@@ -152,276 +168,291 @@ const FlashCards = ({ headers }: HeadersProps) => {
     }
   };
 
-  return (
-    <RouteSizeControlBox className="smooth">
-      <RouteDiv>
-        <Helmets text="Flashcards" />
-        <HOne>Flash Cards</HOne>
-        <div
-          style={{
-            display: "flex",
-            gap: "5px",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "1rem",
-          }}
-        >
-          <ArvinButton onClick={seeCardsToReview}>Iniciar revisões</ArvinButton>
-          {myId === "651311fac3d58753aa9281c5" && (
-            <ArvinButton type="yellow" onClick={fetchStudents}>
-              Adicionar cartas
-            </ArvinButton>
-          )}
-        </div>
-        {myId === "651311fac3d58753aa9281c5" && seeAddCards && (
-          <div style={{ display: "grid" }}>
-            <select
-              onChange={handleStudentChange}
-              name="students"
-              id=""
-              value={studentID}
-            >
-              {studentsList.map((student, index) => (
-                <option key={index} value={student.id}>
-                  {student.name + " " + student.lastname}
-                </option>
-              ))}
-            </select>
-            <div>
-              {" "}
-              <input
-                value={frontCard}
-                onChange={(e) => setFrontCard(e.target.value)}
-                type="text"
-              />
-              <select
-                value={languageFront}
-                onChange={(e) => setLanguageFront(e.target.value)}
-              >
-                {languages.map((language, index) => {
-                  return (
-                    <option key={index} value={language}>
-                      {language}
-                    </option>
-                  );
-                })}
-              </select>{" "}
-            </div>
-            <div>
-              {" "}
-              <input
-                value={backCard}
-                onChange={(e) => setBackCard(e.target.value)}
-                type="text"
-              />
-              <select
-                value={languageBack}
-                onChange={(e) => setLanguageBack(e.target.value)}
-              >
-                {languages.map((language, index) => {
-                  return (
-                    <option key={index} value={language}>
-                      {language}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <ArvinButton type="green" onClick={addNewCard}>
-              Add card
-            </ArvinButton>
-          </div>
-        )}
-        {see && (
-          <div>
-            {loading ? (
-              <CircularProgress />
+  const componentsToRender = [
+    {
+      title: "Review",
+      value: "1",
+      adm: false,
+      component: (
+        <section id="review">
+          <ArvinButton
+            style={{
+              margin: "3rem auto",
+              display: "block",
+            }}
+            onClick={seeCardsToReview}
+          >
+            {!see ? (
+              "Iniciar revisões"
             ) : (
-              <div
-                style={{
-                  margin: "auto",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ padding: "1rem" }}>
-                  {!cardsLength ? (
-                    <>
-                      <div
-                        style={{
-                          fontSize: "12px",
-                          paddingBottom: "1rem",
-                        }}
-                      >
-                        New cards:{" "}
-                        <span
+              <i className="fa fa-refresh" aria-hidden="true" />
+            )}
+          </ArvinButton>
+          {see && (
+            <div>
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <div
+                  style={{
+                    margin: "auto",
+                    textAlign: "center",
+                  }}
+                >
+                  <div style={{ padding: "1rem" }}>
+                    {!cardsLength ? (
+                      <>
+                        <div
                           style={{
-                            color: "navy",
+                            fontSize: "12px",
+                            paddingBottom: "1rem",
                           }}
                         >
-                          {cardsCount.newCardsCount}
-                        </span>{" "}
-                        | Old cards:{" "}
-                        <span
-                          style={{
-                            color: "green",
-                          }}
-                        >
-                          {cardsCount.reviewedCardsCount}
-                        </span>{" "}
-                        | Total:{" "}
-                        <span
-                          style={{
-                            color: "black",
-                          }}
-                        >
-                          {cards.length}
-                        </span>{" "}
-                        |{" "}
-                      </div>{" "}
-                      <div
-                        style={{
-                          borderBottom: "1px solid #ccc",
-                          paddingBottom: "1rem",
-                        }}
-                      >
-                        {cards[0]?.front?.text || ""}
-                        <button
-                          className="audio-button"
-                          onClick={() =>
-                            readText(
-                              cards[0].front.text,
-                              true,
-                              cards[0].front.language
-                            )
-                          }
-                        >
-                          <i className="fa fa-volume-up" aria-hidden="true" />
-                        </button>
-                        <br />
-                        {!isDisabled ? (
-                          <ArvinButton
+                          New cards:{" "}
+                          <span
                             style={{
-                              marginTop: "2rem",
-                            }}
-                            disabled={isDisabled}
-                            cursor={isDisabled ? "not-allowed" : "pointer"}
-                            type={isDisabled ? "grey" : "navy"}
-                            onClick={() => {
-                              setAnswer(true);
-                              {
-                                cards.length > 0 &&
-                                cards[0].back.language == "en"
-                                  ? readText(cards[0].back.text, true)
-                                  : null;
-                              }
+                              color: "navy",
                             }}
                           >
-                            Answer
-                          </ArvinButton>
-                        ) : (
-                          <p
+                            {cardsCount.newCardsCount}
+                          </span>{" "}
+                          | Old cards:{" "}
+                          <span
                             style={{
-                              color: darkGreyColor(),
-                              paddingTop: "1rem",
+                              color: "green",
                             }}
                           >
-                            {count}
-                          </p>
-                        )}{" "}
-                      </div>
-                      {answer && (
-                        <div style={{ padding: "1rem" }}>
-                          {cards[0]?.back?.text || ""}
+                            {cardsCount.reviewedCardsCount}
+                          </span>{" "}
+                          | Total:{" "}
+                          <span
+                            style={{
+                              color: "black",
+                            }}
+                          >
+                            {cards.length}
+                          </span>{" "}
+                          |{" "}
+                        </div>{" "}
+                        <div
+                          style={{
+                            borderBottom: "1px solid #ccc",
+                            paddingBottom: "1rem",
+                          }}
+                        >
+                          {cards[0]?.front?.text || ""}
                           <button
                             className="audio-button"
                             onClick={() =>
                               readText(
-                                cards[0].back.text,
+                                cards[0].front.text,
                                 true,
-                                cards[0].back.language
+                                cards[0].front.language
                               )
                             }
                           >
                             <i className="fa fa-volume-up" aria-hidden="true" />
                           </button>
-                          <div
-                            style={{
-                              justifyContent: "center",
-                              display: "flex",
-                              gap: "5px",
-                              marginTop: "2rem",
-                            }}
-                          >
-                            <div style={{ display: "grid", gap: "5px" }}>
-                              <ArvinButton
-                                onClick={() =>
-                                  reviewCard(cards[0].id, "veryhard")
+                          <br />
+                          {!isDisabled ? (
+                            <ArvinButton
+                              style={{
+                                marginTop: "2rem",
+                              }}
+                              disabled={isDisabled}
+                              cursor={isDisabled ? "not-allowed" : "pointer"}
+                              color={isDisabled ? "grey" : "navy"}
+                              onClick={() => {
+                                setAnswer(true);
+                                {
+                                  cards.length > 0 &&
+                                  cards[0].back.language == "en"
+                                    ? readText(cards[0].back.text, true)
+                                    : null;
                                 }
-                                type="red"
-                              >
-                                Very hard!
-                              </ArvinButton>
-                              <p style={{ fontSize: "10px" }}>Today</p>
-                            </div>
-                            <div style={{ display: "grid", gap: "5px" }}>
-                              <ArvinButton
-                                onClick={() => reviewCard(cards[0].id, "hard")}
-                                type="pink"
-                              >
-                                Hard
-                              </ArvinButton>
-                              <p style={{ fontSize: "10px" }}>
-                                {formatDateBr(cards[0].hard)}
-                              </p>
-                            </div>
+                              }}
+                            >
+                              Answer
+                            </ArvinButton>
+                          ) : (
+                            <p
+                              style={{
+                                color: darkGreyColor(),
+                                paddingTop: "1rem",
+                              }}
+                            >
+                              {count}
+                            </p>
+                          )}{" "}
+                        </div>
+                        {answer && (
+                          <div style={{ padding: "1rem" }}>
+                            {cards[0]?.back?.text || ""}
+                            <button
+                              className="audio-button"
+                              onClick={() =>
+                                readText(
+                                  cards[0].back.text,
+                                  true,
+                                  cards[0].back.language
+                                )
+                              }
+                            >
+                              <i
+                                className="fa fa-volume-up"
+                                aria-hidden="true"
+                              />
+                            </button>
+                            <div
+                              style={{
+                                justifyContent: "center",
+                                display: "flex",
+                                gap: "5px",
+                                marginTop: "2rem",
+                              }}
+                            >
+                              <div style={{ display: "grid", gap: "5px" }}>
+                                <ArvinButton
+                                  onClick={() =>
+                                    reviewCard(cards[0].id, "veryhard")
+                                  }
+                                  color="red"
+                                >
+                                  Very hard!
+                                </ArvinButton>
+                                <p style={{ fontSize: "10px" }}>Today</p>
+                              </div>
+                              <div style={{ display: "grid", gap: "5px" }}>
+                                <ArvinButton
+                                  onClick={() =>
+                                    reviewCard(cards[0].id, "hard")
+                                  }
+                                  color="pink"
+                                >
+                                  Hard
+                                </ArvinButton>
+                                <p style={{ fontSize: "10px" }}>
+                                  {formatDateBr(cards[0].hard)}
+                                </p>
+                              </div>
 
-                            <div style={{ display: "grid", gap: "5px" }}>
-                              <ArvinButton
-                                onClick={() =>
-                                  reviewCard(cards[0].id, "medium")
-                                }
-                                type="navy"
-                              >
-                                Medium
-                              </ArvinButton>
-                              <p style={{ fontSize: "10px" }}>
-                                {formatDateBr(cards[0].medium)}
-                              </p>
-                            </div>
+                              <div style={{ display: "grid", gap: "5px" }}>
+                                <ArvinButton
+                                  onClick={() =>
+                                    reviewCard(cards[0].id, "medium")
+                                  }
+                                  color="navy"
+                                >
+                                  Medium
+                                </ArvinButton>
+                                <p style={{ fontSize: "10px" }}>
+                                  {formatDateBr(cards[0].medium)}
+                                </p>
+                              </div>
 
-                            <div style={{ display: "grid", gap: "5px" }}>
-                              <ArvinButton
-                                onClick={() => reviewCard(cards[0].id, "easy")}
-                                type="green"
-                              >
-                                Easy
-                              </ArvinButton>
-                              <p style={{ fontSize: "10px" }}>
-                                {formatDateBr(cards[0].easy)}
-                              </p>
+                              <div style={{ display: "grid", gap: "5px" }}>
+                                <ArvinButton
+                                  onClick={() =>
+                                    reviewCard(cards[0].id, "easy")
+                                  }
+                                  color="green"
+                                >
+                                  Easy
+                                </ArvinButton>
+                                <p style={{ fontSize: "10px" }}>
+                                  {formatDateBr(cards[0].easy)}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <p>
-                      <b>
-                        {" "}
-                        Congratulations! You've finished reviewing your cards!
-                        One step closer to fluency!
-                      </b>{" "}
-                      <br />
-                      <br />
-                      Parabéns, você terminou de revisar seus cards! Mais um
-                      passo rumo à fluência!
-                    </p>
-                  )}
+                        )}
+                      </>
+                    ) : (
+                      <p>
+                        <b>
+                          {" "}
+                          Congratulations! You've finished reviewing your cards!
+                          One step closer to fluency!
+                        </b>{" "}
+                        <br />
+                        <br />
+                        Parabéns, você terminou de revisar seus cards! Mais um
+                        passo rumo à fluência!
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          )}
+        </section>
+      ),
+    },
+    {
+      title: "Add",
+      value: "2",
+      adm: true,
+      component: <AddFlashCards headers={headers} />,
+    },
+  ];
+
+  const displayIsAdm = myId === "651311fac3d58753aa9281c5" ? "block" : "none";
+  useEffect(() => {
+    console.log(displayIsAdm);
+  }, []);
+
+  return (
+    <RouteSizeControlBox className="smooth">
+      <RouteDiv>
+        <Helmets text="Flashcards" />
+        <TabContext value={value}>
+          <Box
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: alwaysWhite(),
+              justifyContent: "space-between",
+            }}
+            sx={{ borderBottom: 1, borderColor: "divider" }}
+          >
+            <TabList
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
+            >
+              {componentsToRender.map((component, index) => {
+                return (
+                  <Tab
+                    key={index + component.value}
+                    style={{
+                      display: component.adm === false ? "block" : displayIsAdm,
+                      fontWeight: 500,
+                      backgroundColor: textPrimaryColorContrast(),
+                      color: primaryColor(),
+                    }}
+                    label={component.title}
+                    value={component.value}
+                  />
+                );
+              })}
+            </TabList>
+          </Box>
+          {componentsToRender.map((component, index) => {
+            return (
+              <TabPanel
+                style={{
+                  padding: 0,
+                  margin: "1rem auto",
+                }}
+                key={index + component.value}
+                value={component.value}
+              >
+                {component.component}
+              </TabPanel>
+            );
+          })}
+        </TabContext>
       </RouteDiv>
     </RouteSizeControlBox>
   );
