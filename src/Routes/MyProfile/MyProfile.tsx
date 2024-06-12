@@ -65,11 +65,26 @@ export function MyProfile({ headers }: HeadersProps) {
       const userInfo = response.data.formattedStudentData;
       setUser(userInfo);
       console.log(response.data.formattedStudentData);
+  
+
+      
+      const loggedIn = JSON.parse(localStorage.getItem('loggedIn') || '{}');
+  
+      Object.keys(userInfo).forEach(key => {
+        if (loggedIn.hasOwnProperty(key)) {
+          loggedIn[key] = userInfo[key];
+        }
+      });
+  
+      localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
+  
       setLoading(false);
     } catch (error) {
       console.log("Erro ao atualizar dados");
+      setLoading(false);
     }
   };
+  
 
   const myProfileList = [
     { title: UniversalTexts.name, data: user.name + " " + user.lastname },
