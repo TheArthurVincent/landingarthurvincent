@@ -85,6 +85,7 @@ export function Homework({ headers }: HeadersProps) {
       <RouteDiv>
         <Helmets text="Homework" />
         <HOne>Homework</HOne>
+        ** Este módulo ficará pronto em breve
         <SectionHW>
           <article>
             <HTwo>Tutorings</HTwo>

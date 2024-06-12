@@ -5,7 +5,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { backDomain } from "../../Resources/UniversalComponents";
+import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import { alwaysBlack } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
@@ -13,7 +13,7 @@ import axios from "axios";
 import { User } from "./types.MyProfile";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
-import { MyButton } from "../../Resources/Components/ItemsLibrary";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 export function MyProfile({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -52,6 +52,20 @@ export function MyProfile({ headers }: HeadersProps) {
     }
   };
 
+  const myProfileList = [
+    { title: UniversalTexts.name, data: user.name + " " + user.lastname },
+    { title: UniversalTexts.document, data: user.doc },
+    { title: UniversalTexts.phoneNumber, data: user.phoneNumber },
+    { title: UniversalTexts.email, data: user.email },
+    { title: UniversalTexts.username, data: user.username },
+    { title: UniversalTexts.dateOfBirth, data: formatDateBr(user.dateOfBirth) },
+    {
+      title: UniversalTexts.googleDriveLink,
+      data: user.googleDriveLink,
+      link: user.googleDriveLink,
+    },
+  ];
+
   return (
     <>
       {headers ? (
@@ -67,42 +81,24 @@ export function MyProfile({ headers }: HeadersProps) {
                 padding: "0.2rem",
               }}
             >
-              {/* <MyButton>oi</MyButton> */}
-              <li>
-                {UniversalTexts.name}: {user.name} {user.lastname}
-              </li>
-              <li>
-                {UniversalTexts.document}: {user.doc}
-              </li>
-              <li>
-                {UniversalTexts.phoneNumber}: {user.phoneNumber}
-              </li>
-              <li>
-                {UniversalTexts.dateOfBirth}: {user.dateOfBirth}
-              </li>
-              <li>
-                {UniversalTexts.email}: {user.email}
-              </li>
-              <li>
-                {UniversalTexts.username}: {user.username}
-              </li>
-              <li>
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                  }}
-                  target="_blank"
-                  to={user.googleDriveLink}
-                >
-                  <span>{UniversalTexts.googleDriveLink}</span>
-                </NavLink>
-              </li>
-              <li>
-                {UniversalTexts.ankiEmail}: {user.ankiEmail}
-              </li>
-              <li>
-                {UniversalTexts.ankiPassword}: {user.ankiPassword}
-              </li>
+              {/* <ArvinButton type="navy">oi</ArvinButton> */}
+              {myProfileList.map((item: any, index: number) => {
+                return (
+                  <li
+                    key={index + item}
+                    style={{
+                      listStyle: "none",
+                    }}
+                  >
+                    <b>{item.title}: </b>
+                    {item.link ? (
+                      <NavLink to={item.link}>{item.data}</NavLink>
+                    ) : (
+                      <span>{item.data}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </RouteDiv>
           <RouteDiv>

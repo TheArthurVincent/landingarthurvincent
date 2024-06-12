@@ -8,8 +8,6 @@ export interface User {
     email: string;
     username: string;
     googleDriveLink: string;
-    ankiEmail: string;
-    ankiPassword: string;
     monthlyScore: number;
     totalScore: number;
   }

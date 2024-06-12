@@ -115,7 +115,7 @@ export const TopBar: FC = () => {
 
   const extras: LinkItem[] = [
     { title: UniversalTexts.myProfile, endpoint: "/my-profile" },
-    { title: UniversalTexts.faq, endpoint: "/faq" },
+    // { title: UniversalTexts.faq, endpoint: "/faq" },
   ];
 
   const topLinks: LinkItem[] = [
