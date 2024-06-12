@@ -8,7 +8,7 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import { alwaysBlack } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import { User } from "./types.MyProfile";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
@@ -21,6 +21,7 @@ export function MyProfile({ headers }: HeadersProps) {
   const [user, setUser] = useState<User>({} as User);
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getLoggedUser: User = JSON.parse(
@@ -29,6 +30,8 @@ export function MyProfile({ headers }: HeadersProps) {
     setUser(getLoggedUser);
   }, []);
 
+  const actualHeaders = headers || {};
+
   const editStudentPassword = async (): Promise<void> => {
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -36,7 +39,6 @@ export function MyProfile({ headers }: HeadersProps) {
       alert("As senhas são diferentes");
       return;
     }
-    const actualHeaders = headers || {};
 
     try {
       const response = await axios.put(
@@ -49,6 +51,22 @@ export function MyProfile({ headers }: HeadersProps) {
       alert("Senha editada com sucesso!");
     } catch (error) {
       alert("Erro ao editar senha");
+    }
+  };
+
+  const updateInfo = async (): Promise<void> => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/student/${user.id}`,
+        { headers: actualHeaders }
+      );
+      const userInfo = response.data.formattedStudentData;
+      setUser(userInfo);
+      console.log(response.data.formattedStudentData);
+      setLoading(false);
+    } catch (error) {
+      console.log("Erro ao atualizar dados");
     }
   };
 
@@ -81,24 +99,32 @@ export function MyProfile({ headers }: HeadersProps) {
                 padding: "0.2rem",
               }}
             >
-              {/* <ArvinButton type="navy">oi</ArvinButton> */}
-              {myProfileList.map((item: any, index: number) => {
-                return (
-                  <li
-                    key={index + item}
-                    style={{
-                      listStyle: "none",
-                    }}
-                  >
-                    <b>{item.title}: </b>
-                    {item.link ? (
-                      <NavLink to={item.link}>{item.data}</NavLink>
-                    ) : (
-                      <span>{item.data}</span>
-                    )}
-                  </li>
-                );
-              })}
+              <ArvinButton onClick={updateInfo} type="navy">
+                oi
+              </ArvinButton>
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <div>
+                  {myProfileList.map((item: any, index: number) => {
+                    return (
+                      <li
+                        key={index + item}
+                        style={{
+                          listStyle: "none",
+                        }}
+                      >
+                        <b>{item.title}: </b>
+                        {item.link ? (
+                          <NavLink to={item.link}>{item.data}</NavLink>
+                        ) : (
+                          <span>{item.data}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </div>
+              )}
             </ul>
           </RouteDiv>
           <RouteDiv>
