@@ -14,6 +14,7 @@ import { User } from "./types.MyProfile";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { SpanDisapear } from "../Blog/Blog.Styled";
 
 export function MyProfile({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -100,29 +101,48 @@ export function MyProfile({ headers }: HeadersProps) {
               }}
             >
               <ArvinButton onClick={updateInfo} type="navy">
-                oi
+                <i className="fa fa-refresh" aria-hidden="true" />
               </ArvinButton>
               {loading ? (
                 <CircularProgress />
               ) : (
-                <div>
-                  {myProfileList.map((item: any, index: number) => {
-                    return (
-                      <li
-                        key={index + item}
-                        style={{
-                          listStyle: "none",
-                        }}
-                      >
-                        <b>{item.title}: </b>
-                        {item.link ? (
-                          <NavLink to={item.link}>{item.data}</NavLink>
-                        ) : (
-                          <span>{item.data}</span>
-                        )}
-                      </li>
-                    );
-                  })}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    style={{
+                      maxWidth: "7rem",
+                      paddingBottom: "1rem",
+                      borderRadius: "50%",
+                    }}
+                    src={user.picture}
+                    alt=""
+                  />
+                  <div>
+                    {myProfileList.map((item: any, index: number) => {
+                      return (
+                        <li
+                          key={index + item}
+                          style={{
+                            listStyle: "none",
+                          }}
+                        >
+                          <SpanDisapear>
+                            <b>{item.title}: </b>
+                          </SpanDisapear>
+                          {item.link ? (
+                            <NavLink to={item.link}>Click here</NavLink>
+                          ) : (
+                            <span>{item.data}</span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
             </ul>

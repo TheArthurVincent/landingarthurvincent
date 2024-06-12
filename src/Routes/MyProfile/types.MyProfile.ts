@@ -10,5 +10,6 @@ export interface User {
     googleDriveLink: string;
     monthlyScore: number;
     totalScore: number;
+    picture:string
   }
 
