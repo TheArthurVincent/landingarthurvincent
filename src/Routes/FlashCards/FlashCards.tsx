@@ -8,9 +8,10 @@ import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
-import { backDomain } from "../../Resources/UniversalComponents";
+import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
+import { darkGreyColor, lightGreyColor } from "../../Styles/Styles";
 
 const FlashCards = ({ headers }: HeadersProps) => {
   const [studentsList, setStudentsList] = useState<any[]>([]);
@@ -27,12 +28,22 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [cardsLength, setCardsLength] = useState<boolean>(true);
   const [cardsCount, setCardsCount] = useState<any>([]);
   const [see, setSee] = useState<boolean>(false);
-
+  const [count, setCount] = useState<number>(4);
   const timerDisabled = () => {
+    setCount(4);
     setIsDisabled(true);
     setTimeout(() => {
-      setIsDisabled(false);
+      setCount(3);
+    }, 1000);
+    setTimeout(() => {
+      setCount(2);
+    }, 2000);
+    setTimeout(() => {
+      setCount(1);
     }, 3000);
+    setTimeout(() => {
+      setIsDisabled(false);
+    }, 4000);
   };
   const fetchStudents = async () => {
     setSeeAddCards(!seeAddCards);
@@ -52,7 +63,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions, id } = JSON.parse(user);
+      const { id } = JSON.parse(user);
       setId(id);
     }
     setAnswer(false);
@@ -161,7 +172,6 @@ const FlashCards = ({ headers }: HeadersProps) => {
             </ArvinButton>
           )}
         </div>
-        {/* )} */}
         {myId === "651311fac3d58753aa9281c5" && seeAddCards && (
           <div style={{ display: "grid" }}>
             <select
@@ -287,7 +297,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                           <i className="fa fa-volume-up" aria-hidden="true" />
                         </button>
                         <br />
-                        {!isDisabled && (
+                        {!isDisabled ? (
                           <ArvinButton
                             style={{
                               marginTop: "2rem",
@@ -307,6 +317,15 @@ const FlashCards = ({ headers }: HeadersProps) => {
                           >
                             Answer
                           </ArvinButton>
+                        ) : (
+                          <p
+                            style={{
+                              color: darkGreyColor(),
+                              paddingTop: "1rem",
+                            }}
+                          >
+                            {count}
+                          </p>
                         )}{" "}
                       </div>
                       {answer && (
@@ -332,32 +351,54 @@ const FlashCards = ({ headers }: HeadersProps) => {
                               marginTop: "2rem",
                             }}
                           >
-                            <ArvinButton
-                              onClick={() =>
-                                reviewCard(cards[0].id, "veryhard")
-                              }
-                              type="red"
-                            >
-                              Very hard!
-                            </ArvinButton>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "hard")}
-                              type="pink"
-                            >
-                              Hard
-                            </ArvinButton>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "medium")}
-                              type="navy"
-                            >
-                              Medium
-                            </ArvinButton>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "easy")}
-                              type="green"
-                            >
-                              Easy
-                            </ArvinButton>
+                            <div style={{ display: "grid", gap: "5px" }}>
+                              <ArvinButton
+                                onClick={() =>
+                                  reviewCard(cards[0].id, "veryhard")
+                                }
+                                type="red"
+                              >
+                                Very hard!
+                              </ArvinButton>
+                              <p style={{ fontSize: "10px" }}>Today</p>
+                            </div>
+                            <div style={{ display: "grid", gap: "5px" }}>
+                              <ArvinButton
+                                onClick={() => reviewCard(cards[0].id, "hard")}
+                                type="pink"
+                              >
+                                Hard
+                              </ArvinButton>
+                              <p style={{ fontSize: "10px" }}>
+                                {formatDateBr(cards[0].hard)}
+                              </p>
+                            </div>
+
+                            <div style={{ display: "grid", gap: "5px" }}>
+                              <ArvinButton
+                                onClick={() =>
+                                  reviewCard(cards[0].id, "medium")
+                                }
+                                type="navy"
+                              >
+                                Medium
+                              </ArvinButton>
+                              <p style={{ fontSize: "10px" }}>
+                                {formatDateBr(cards[0].medium)}
+                              </p>
+                            </div>
+
+                            <div style={{ display: "grid", gap: "5px" }}>
+                              <ArvinButton
+                                onClick={() => reviewCard(cards[0].id, "easy")}
+                                type="green"
+                              >
+                                Easy
+                              </ArvinButton>
+                              <p style={{ fontSize: "10px" }}>
+                                {formatDateBr(cards[0].easy)}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       )}
