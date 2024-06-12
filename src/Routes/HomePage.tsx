@@ -71,6 +71,10 @@ export function HomePage({ headers }: HeadersProps) {
       component: <GroupClasses headers={headers} />,
     },
     {
+      title: "Live Classes",
+      component: <GroupClasses headers={headers} />,
+    },
+    {
       title: "English Material",
       component: <EnglishMaterial headers={headers} />,
     },

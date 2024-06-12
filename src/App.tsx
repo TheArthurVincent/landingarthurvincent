@@ -8,7 +8,6 @@ import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
 import { All, authorizationToken } from "./App.Styled";
 import { MyHeadersType } from "./Resources/types.universalInterfaces";
-import FlashCards from "./Routes/FlashCards/FlashCards";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");

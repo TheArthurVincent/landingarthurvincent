@@ -110,7 +110,6 @@ export const TopBar: FC = () => {
   const classes: LinkItem[] = [
     { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
     { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
-    { title: "Lessons", endpoint: "/english-lessons" },
     { title: "Homework", endpoint: "/homework" },
   ];
 
@@ -120,10 +119,11 @@ export const TopBar: FC = () => {
   ];
 
   const topLinks: LinkItem[] = [
-    { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
     { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
+    { title: "Flashcards", endpoint: "/flash-cards" },
     { title: "Ranking", endpoint: "/ranking" },
-    { title: "Flash Cards", endpoint: "/flash-cards" },
+    { title: "Lessons", endpoint: "/english-lessons" },
+    { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
   ];
 
   const toAdm: LinkItem[] = [
