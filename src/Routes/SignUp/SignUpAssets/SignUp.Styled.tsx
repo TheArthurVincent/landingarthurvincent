@@ -14,7 +14,6 @@ export function InputFieldSignUp({
       style={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         fontFamily: "Athiti",
         justifyContent: "center",
       }}
@@ -22,10 +21,10 @@ export function InputFieldSignUp({
       <p
         style={{
           margin: 0,
-          marginBottom: "3px",
-          fontWeight: 800,
+          fontSize:"15px",
+          paddingBottom: "2px",
+          fontWeight: 500,
           fontFamily: "Athiti",
-          textAlign: "center",
         }}
       >
         {placeholder}
@@ -33,9 +32,8 @@ export function InputFieldSignUp({
       <input
         style={{
           padding: "0.5rem",
-          margin: "0.3rem",
-          fontFamily: "Athiti",
-          fontSize: "1rem",
+          fontFamily: "Lato",
+          fontSize: "15px",
           fontWeight: 500,
           border: `1px solid ${secondaryColor()}`,
           width: "90%",

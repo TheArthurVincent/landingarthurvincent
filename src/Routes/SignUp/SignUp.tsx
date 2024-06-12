@@ -9,6 +9,7 @@ import {
 } from "../../Resources/Components/RouteBox";
 
 import {
+  lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -17,6 +18,7 @@ import {
 
 import { InputFieldSignUp } from "./SignUpAssets/SignUp.Styled";
 import Helmets from "../../Resources/Helmets";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 export function SignUp() {
   const [newName, setNewName] = useState<string>("");
@@ -24,7 +26,7 @@ export function SignUp() {
   const [newUsername, setNewUsername] = useState<string>("");
   const [newPhone, setNewPhone] = useState<string>("");
   const [newEmail, setNewEmail] = useState<string>("");
-  const [newDateOfBirth, setNewDateOfBirth] = useState<string>("2000-12-12");
+  const [newDateOfBirth, setNewDateOfBirth] = useState<string>("");
   const [newCPF, setNewCPF] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -38,7 +40,7 @@ export function SignUp() {
     setNewUsername("");
     setNewPhone("");
     setNewEmail("");
-    setNewDateOfBirth("2000-12-12");
+    setNewDateOfBirth("");
     setNewCPF("");
     setNewPassword("");
     setAddress("");
@@ -90,7 +92,14 @@ export function SignUp() {
       <Helmets text="Sign Up" />
       <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
         <HOne>Cadastro de Aluno</HOne>
-        <form style={{ display: "grid", gap: "10px" }} onSubmit={handleSubmit}>
+        <form
+          style={{
+            padding: "5px",
+            display: "grid",
+            gap: "10px",
+          }}
+          onSubmit={handleSubmit}
+        >
           <InputFieldSignUp
             value={newName}
             onChange={(event) => setNewName(event.target.value)}
@@ -149,8 +158,7 @@ export function SignUp() {
           />
           <div
             style={{
-              backgroundColor: primaryColor(),
-              color: textPrimaryColorContrast(),
+              backgroundColor: lightGreyColor(),
               padding: "1rem",
             }}
           >
@@ -169,21 +177,9 @@ export function SignUp() {
               id="confirmpassword"
             />
           </div>
-          <button
-            style={{
-              backgroundColor: secondaryColor(),
-              color: textSecondaryColorContrast(),
-              padding: "5px",
-              border: "none",
-              borderRadius: "5px",
-              marginTop: "10px",
-              cursor: "pointer",
-              marginLeft: "auto",
-            }}
-            type="submit"
-          >
+          <ArvinButton color="green" type="submit">
             {button}
-          </button>
+          </ArvinButton>
         </form>
       </RouteDiv>
     </RouteSizeControlBox>

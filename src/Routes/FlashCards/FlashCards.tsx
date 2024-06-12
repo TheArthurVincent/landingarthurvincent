@@ -168,7 +168,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
         >
           <ArvinButton onClick={seeCardsToReview}>Iniciar revisões</ArvinButton>
           {myId === "651311fac3d58753aa9281c5" && (
-            <ArvinButton type="yellow" onClick={fetchStudents}>
+            <ArvinButton color="yellow" onClick={fetchStudents}>
               Adicionar cartas
             </ArvinButton>
           )}
@@ -227,7 +227,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                 })}
               </select>
             </div>
-            <ArvinButton type="green" onClick={addNewCard}>
+            <ArvinButton color="green" onClick={addNewCard}>
               Add card
             </ArvinButton>
           </div>
@@ -305,7 +305,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             }}
                             disabled={isDisabled}
                             cursor={isDisabled ? "not-allowed" : "pointer"}
-                            type={isDisabled ? "grey" : "navy"}
+                            color={isDisabled ? "grey" : "navy"}
                             onClick={() => {
                               setAnswer(true);
                               {
@@ -357,7 +357,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                 onClick={() =>
                                   reviewCard(cards[0].id, "veryhard")
                                 }
-                                type="red"
+                                color="red"
                               >
                                 Very hard!
                               </ArvinButton>
@@ -366,7 +366,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             <div style={{ display: "grid", gap: "5px" }}>
                               <ArvinButton
                                 onClick={() => reviewCard(cards[0].id, "hard")}
-                                type="pink"
+                                color="pink"
                               >
                                 Hard
                               </ArvinButton>
@@ -380,7 +380,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                 onClick={() =>
                                   reviewCard(cards[0].id, "medium")
                                 }
-                                type="navy"
+                                color="navy"
                               >
                                 Medium
                               </ArvinButton>
@@ -392,7 +392,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             <div style={{ display: "grid", gap: "5px" }}>
                               <ArvinButton
                                 onClick={() => reviewCard(cards[0].id, "easy")}
-                                type="green"
+                                color="green"
                               >
                                 Easy
                               </ArvinButton>

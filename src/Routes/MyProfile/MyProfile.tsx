@@ -112,7 +112,7 @@ export function MyProfile({ headers }: HeadersProps) {
                 padding: "0.2rem",
               }}
             >
-              <ArvinButton onClick={updateInfo} type="navy">
+              <ArvinButton onClick={updateInfo} color="navy">
                 <i className="fa fa-refresh" aria-hidden="true" />
               </ArvinButton>
               {loading ? (
