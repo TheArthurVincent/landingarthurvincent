@@ -155,6 +155,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   return (
     <RouteSizeControlBox className="smooth">
       <RouteDiv>
+        <Helmets text="Flashcards" />
         <HOne>Flash Cards</HOne>
         <div
           style={{
