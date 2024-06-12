@@ -1,14 +1,7 @@
 import React, { FormEvent, useState } from "react";
 import axios from "axios";
 import { backDomain } from "../../Resources/UniversalComponents";
-
-import {
-  CircularProgress,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
-
+import { CircularProgress } from "@mui/material";
 import {
   HOne,
   RouteDiv,
@@ -35,22 +28,10 @@ export function SignUp() {
   const [newCPF, setNewCPF] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [newAnkiEmail, setNewAnkiEmail] = useState<string>("");
   const [address, setAddress] = useState<string>("");
-  const [newAnkiPassword, setNewAnkiPassword] = useState<string>("");
-  const [newGoogleDriveLink, setNewGoogleDriveLink] = useState<string>("");
   const [upload, setUpload] = useState<boolean>(true);
-  const [disabled, setDisabled] = useState<boolean>(true);
   const [button, setButton] = useState<any>("Cadastrar");
-  const [selectedOption, setSelectedOption] = useState<string>("nao");
 
-  const handleChange = (event: SelectChangeEvent<string>) => {
-    let value: string = event.target.value.toString();
-    var verify: boolean = event.target.value === "sim" ? false : true;
-
-    setSelectedOption(value);
-    setDisabled(verify);
-  };
   const reset = () => {
     setNewName("");
     setNewLastName("");
@@ -62,9 +43,6 @@ export function SignUp() {
     setNewPassword("");
     setAddress("");
     setConfirmPassword("");
-    setNewAnkiEmail("");
-    setNewAnkiPassword("");
-    setNewGoogleDriveLink("");
     setButton("Sucesso");
     setUpload(!upload);
     setButton("Cadastrar");
@@ -79,11 +57,10 @@ export function SignUp() {
       password: newPassword,
       phoneNumber: newPhone,
       email: newEmail,
+      googleDriveLink: "https://portal.arthurvincent.com.br/message",
       dateOfBirth: newDateOfBirth,
       doc: newCPF,
       address: address,
-      ankiEmail: newAnkiEmail,
-      ankiPassword: newAnkiPassword,
     };
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -169,68 +146,7 @@ export function SignUp() {
             placeholder="Endereço"
             id="address"
             type="text"
-          />{" "}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "#eee",
-              padding: "2rem",
-              gap: "2rem",
-            }}
-          >
-            <img src="https://ankiweb.net/logo.png" alt="level" />
-            <p
-              style={{
-                textAlign: "center",
-              }}
-            >
-              Clique aqui para criar uma conta no
-              <a target="_blank" href="https://ankiweb.net/account/signup">
-                {" "}
-                https://ankiweb.net/account/signup
-              </a>{" "}
-              e registre abaixo o E-Mail e a Senha [não esqueça de fazer a
-              validação do E-mail]
-            </p>
-            <p>Confirmou seu e-mail do Anki?</p>
-            <Select
-              labelId="anki"
-              id="anki"
-              name="anki"
-              value={selectedOption}
-              onChange={(e) => handleChange(e)}
-            >
-              <MenuItem value="sim">Sim</MenuItem>
-              <MenuItem value="nao">Não</MenuItem>
-            </Select>
-            <div
-              style={{
-                display: "grid",
-              }}
-            >
-              <input
-                className="inputs-style"
-                value={newAnkiEmail}
-                onChange={(event) => setNewAnkiEmail(event.target.value)}
-                placeholder="E-mail do Anki"
-                type="text"
-                disabled={disabled}
-                required
-              />
-              <input
-                className="inputs-style"
-                value={newAnkiPassword}
-                onChange={(event) => setNewAnkiPassword(event.target.value)}
-                placeholder="Senha do Anki"
-                type="text"
-                disabled={disabled}
-                required
-              />
-            </div>
-          </div>
+          />
           <div
             style={{
               backgroundColor: primaryColor(),
