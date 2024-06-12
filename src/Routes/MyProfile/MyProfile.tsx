@@ -24,13 +24,6 @@ export function MyProfile({ headers }: HeadersProps) {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    const getLoggedUser: User = JSON.parse(
-      localStorage.getItem("loggedIn") || ""
-    );
-    setUser(getLoggedUser);
-  }, []);
-
   const actualHeaders = headers || {};
 
   const editStudentPassword = async (): Promise<void> => {
@@ -65,11 +58,30 @@ export function MyProfile({ headers }: HeadersProps) {
       const userInfo = response.data.formattedStudentData;
       setUser(userInfo);
       console.log(response.data.formattedStudentData);
+
+      const loggedIn = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+
+      Object.keys(userInfo).forEach((key) => {
+        if (loggedIn.hasOwnProperty(key)) {
+          loggedIn[key] = userInfo[key];
+        }
+      });
+
+      localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+
       setLoading(false);
     } catch (error) {
       console.log("Erro ao atualizar dados");
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const getLoggedUser: User = JSON.parse(
+      localStorage.getItem("loggedIn") || ""
+    );
+    setUser(getLoggedUser);
+  }, []);
 
   const myProfileList = [
     { title: UniversalTexts.name, data: user.name + " " + user.lastname },
