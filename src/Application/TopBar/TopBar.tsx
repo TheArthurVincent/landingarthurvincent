@@ -111,6 +111,7 @@ export const TopBar: FC = () => {
     { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
     { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
     { title: "Lessons", endpoint: "/english-lessons" },
+    { title: "Homework", endpoint: "/homework" },
   ];
 
   const extras: LinkItem[] = [

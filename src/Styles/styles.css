@@ -170,6 +170,10 @@ li {
   display: none;
 }
 
+.hover-link:hover {
+  color: #011042;
+}
+
 @keyframes slideInLeft {
   from {
     transform: translateX(-1%);
@@ -187,6 +191,7 @@ li {
     transform: translateX(-50%);
     opacity: 0.8;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
