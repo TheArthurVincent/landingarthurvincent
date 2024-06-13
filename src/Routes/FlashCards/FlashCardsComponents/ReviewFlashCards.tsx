@@ -3,11 +3,13 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 import {
+  Xp,
   backDomain,
   formatDateBr,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { languages } from "./AddFlashONEFlashCard";
 
 const ReviewFlashCards = ({ headers }: HeadersProps) => {
   useState<number>(0);
@@ -359,6 +361,69 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
           )}
         </div>
       )}
+      <div
+        style={{
+          backgroundColor: "rgba(0,0,0,0.8)",
+          top: 0,
+          left: 0,
+          width: "1000000px",
+          height: "1000000px",
+          position: "fixed",
+        }}
+      />
+      <div
+        style={{
+          backgroundColor: "white",
+          padding: "1rem",
+          position: "fixed",
+          top: "40%",
+          left: "40%",
+          boxShadow: "1px 1px 10px black",
+        }}
+        id="modal"
+      >
+        <Xp>x</Xp>
+        <article id="front">
+          <input
+            style={{ maxWidth: "120px" }}
+            // value={frontCard}
+            // onChange={(e) => {
+            //   handleFrontCardChange(index, e.target.value);
+            // }}
+            type="text"
+          />
+          <select
+            style={{ maxWidth: "120px" }}
+            // value={languageFront}
+            // onChange={(e) => handleLanguageFrontChange(index, e.target.value)}
+          >
+            {languages.map((language, langIndex) => (
+              <option key={langIndex} value={language}>
+                {language}
+              </option>
+            ))}
+          </select>
+        </article>
+        <article id="back">
+          <input
+            style={{ maxWidth: "120px" }}
+            // value={backCard}
+            // onChange={(e) => handleBackCardChange(index, e.target.value)}
+            type="text"
+          />
+          <select
+            style={{ maxWidth: "120px" }}
+            // value={languageBack}
+            // onChange={(e) => handleLanguageBackChange(index, e.target.value)}
+          >
+            {languages.map((language, langIndex) => (
+              <option key={langIndex} value={language}>
+                {language}
+              </option>
+            ))}
+          </select>
+        </article>
+      </div>
     </section>
   );
 };

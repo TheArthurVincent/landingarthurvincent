@@ -20,6 +20,7 @@ import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
+import { SpanDisapear } from "./Blog/Blog.Styled";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -129,7 +130,9 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
-      <AddFlashCards headers={headers} display="fixed" />
+      <SpanDisapear>
+        <AddFlashCards headers={headers} display="fixed" />
+      </SpanDisapear>
       {/* <AppFooter /> */}
       <Outlet />
     </div>

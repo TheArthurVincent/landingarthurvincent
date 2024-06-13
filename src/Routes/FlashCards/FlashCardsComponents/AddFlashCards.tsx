@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { backDomain } from "../../../Resources/UniversalComponents";
-import { RouteSizeControlBox } from "../../../Resources/Components/RouteBox";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
-import {
-  HeadersProps,
-  MyHeadersType,
-} from "../../../Resources/types.universalInterfaces";
+import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import AddOneFlashCard from "./AddFlashONEFlashCard";
-import { SpanDisapear } from "../../Blog/Blog.Styled";
 
 interface Student {
   id: string;
@@ -120,86 +115,84 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
   };
 
   return (
-    <SpanDisapear>
-      <div
-        style={{
-          //@ts-ignore
-          position: display ? display : "block",
-          border: display ? "1px solid black" : "none",
-          borderRadius: "1rem",
-          zIndex: 10000,
-          bottom: 10,
-          right: 10,
-          backgroundColor: "white",
-          margin: "auto",
-          padding: "1rem",
-          maxWidth: display ? "fit-content" : "10px",
-        }}
-        className="smooth"
+    <div
+      style={{
+        //@ts-ignore
+        position: display ? display : "block",
+        border: display ? "1px solid black" : "none",
+        borderRadius: "1rem",
+        zIndex: 10000,
+        bottom: 10,
+        right: 10,
+        backgroundColor: "white",
+        margin: "auto",
+        padding: "1rem",
+        maxWidth: display ? "fit-content" : "10px",
+      }}
+      className="smooth"
+    >
+      <section
+        style={{ margin: "auto", maxWidth: "fit-content", display: "flex" }}
+        id="addcards"
       >
-        <section
-          style={{ margin: "auto", maxWidth: "fit-content", display: "flex" }}
-          id="addcards"
-        >
-          {myId === "651311fac3d58753aa9281c5" && (
-            <div style={{ display: "grid" }}>
-              <ArvinButton
-                style={{
-                  margin: " auto",
-                  display: "block",
-                }}
-                color="yellow"
-                onClick={fetchStudents}
-              >
-                Adicionar cartas
-              </ArvinButton>
-              <div
-                style={{
-                  marginTop: "1rem",
-                  display: addCardVisible ? "block" : "none",
-                }}
-              >
-                <div style={{ display: "flex" }}>
-                  <select
-                    style={{ maxWidth: "120px" }}
-                    onChange={handleStudentChange}
-                    value={studentID}
-                  >
-                    {studentsList.map((student, index) => (
-                      <option key={index} value={student.id}>
-                        {student.name + " " + student.lastname}
-                      </option>
-                    ))}
-                  </select>
-                  <ArvinButton color="navy" onClick={addNewCard}>
-                    +
-                  </ArvinButton>
-                </div>
-                <div>
-                  {cards.map((card, index) => (
-                    <AddOneFlashCard
-                      key={index}
-                      index={index}
-                      frontCard={card.frontCard}
-                      backCard={card.backCard}
-                      languageFront={card.languageFront}
-                      languageBack={card.languageBack}
-                      handleFrontCardChange={handleFrontCardChange}
-                      handleBackCardChange={handleBackCardChange}
-                      handleLanguageFrontChange={handleLanguageFrontChange}
-                      handleLanguageBackChange={handleLanguageBackChange}
-                    />
+        {myId === "651311fac3d58753aa9281c5" && (
+          <div style={{ display: "grid" }}>
+            <ArvinButton
+              style={{
+                margin: " auto",
+                display: "block",
+              }}
+              color="yellow"
+              onClick={fetchStudents}
+            >
+              Adicionar cartas
+            </ArvinButton>
+            <div
+              style={{
+                marginTop: "1rem",
+                display: addCardVisible ? "block" : "none",
+              }}
+            >
+              <div style={{ display: "flex" }}>
+                <select
+                  style={{ maxWidth: "120px" }}
+                  onChange={handleStudentChange}
+                  value={studentID}
+                >
+                  {studentsList.map((student, index) => (
+                    <option key={index} value={student.id}>
+                      {student.name + " " + student.lastname}
+                    </option>
                   ))}
-                </div>
-                <ArvinButton color="green" onClick={addNewCards}>
-                  Add cards
+                </select>
+                <ArvinButton color="navy" onClick={addNewCard}>
+                  +
                 </ArvinButton>
               </div>
+              <div>
+                {cards.map((card, index) => (
+                  <AddOneFlashCard
+                    key={index}
+                    index={index}
+                    frontCard={card.frontCard}
+                    backCard={card.backCard}
+                    languageFront={card.languageFront}
+                    languageBack={card.languageBack}
+                    handleFrontCardChange={handleFrontCardChange}
+                    handleBackCardChange={handleBackCardChange}
+                    handleLanguageFrontChange={handleLanguageFrontChange}
+                    handleLanguageBackChange={handleLanguageBackChange}
+                  />
+                ))}
+              </div>
+              <ArvinButton color="green" onClick={addNewCards}>
+                Add cards
+              </ArvinButton>
             </div>
-          )}
-        </section>
-      </div>
-    </SpanDisapear>
+          </div>
+        )}
+      </section>
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
-import HTMLEditor from "../../../Resources/Components/HTMLEditor";
 
-const languages = ["en", "pt", "it", "fr", "de"];
+export const languages = ["en", "pt", "it", "fr", "de"];
 
 interface AddOneFlashCardProps {
   index: number;
