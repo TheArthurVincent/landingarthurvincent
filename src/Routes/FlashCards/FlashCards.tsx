@@ -187,7 +187,12 @@ const FlashCards = ({ headers }: HeadersProps) => {
                           }}
                           className={`flashcard ${answer ? "flip" : ""}`}
                         >
-                          <div className="flashcard-front">
+                          <div
+                            style={{
+                              display: !backCardVisible ? "none" : "block",
+                            }}
+                            className="flashcard-front"
+                          >
                             <div>
                               <span
                                 style={{
