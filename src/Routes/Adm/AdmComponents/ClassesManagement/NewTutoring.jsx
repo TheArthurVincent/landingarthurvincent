@@ -12,11 +12,17 @@ import {
   secondaryColor,
   textPrimaryColorContrast,
 } from "../../../../Styles/Styles";
+import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
 
 export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newAttachments, setAttachments] = useState("");
+  const [newHWDescription, setNewHWDescription] = useState("");
+
+  const handleHWDescriptionChange = (htmlContent) => {
+    setNewHWDescription(htmlContent);
+  };
 
   const [selectedStudentID, setSelectedStudentID] = useState("");
   const [student, setStudent] = useState([]);
@@ -55,13 +61,14 @@ export function NewTutoring({ headers }) {
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/tutoring/`,
-        { tutorings },
+        { tutorings, description: newHWDescription },
         {
           headers,
         }
       );
       alert("Aulas criadas com sucesso!");
       setTutorings([]);
+      setNewHWDescription("");
       setButton("Criar");
       fetchStudents();
     } catch (error) {
@@ -168,6 +175,7 @@ export function NewTutoring({ headers }) {
                 setTutorings(newTutorings);
               }}
             />
+            <HTMLEditor onChange={handleHWDescriptionChange} />
             <input
               style={{
                 alignItems: "center",
