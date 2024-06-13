@@ -189,7 +189,6 @@ export function Blog({ headers }: HeadersProps) {
           <div style={{ display: "flex", gap: "5px" }}>
             <Tooltip title={UniversalTexts.calendar}>
               <Link
-                target="_blank"
                 style={{
                   maxWidth: "100%",
                   backgroundColor: secondaryColor(),
@@ -217,7 +216,6 @@ export function Blog({ headers }: HeadersProps) {
             </Tooltip>
             <Tooltip title={UniversalTexts.personalFolder}>
               <Link
-                target="_blank"
                 style={{
                   maxWidth: "100%",
                   backgroundColor: secondaryColor(),
@@ -245,7 +243,6 @@ export function Blog({ headers }: HeadersProps) {
             </Tooltip>
             <Tooltip title="Homework">
               <Link
-                target="_blank"
                 style={{
                   maxWidth: "100%",
                   backgroundColor: secondaryColor(),
@@ -273,7 +270,6 @@ export function Blog({ headers }: HeadersProps) {
             </Tooltip>
             <Tooltip title="Flashcards">
               <Link
-                target="_blank"
                 style={{
                   maxWidth: "100%",
                   backgroundColor: secondaryColor(),
@@ -303,7 +299,6 @@ export function Blog({ headers }: HeadersProps) {
             </Tooltip>
             <Tooltip title={UniversalTexts.talkToTheTeacher}>
               <Link
-                target="_blank"
                 style={{
                   maxWidth: "100%",
                   backgroundColor: secondaryColor(),
