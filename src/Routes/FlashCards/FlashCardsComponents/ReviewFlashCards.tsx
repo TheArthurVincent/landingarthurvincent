@@ -84,7 +84,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
         response.data.dueFlashcards.length > 0 &&
         response.data.dueFlashcards[0].front
           ? readText(
-              response.data.dueFlashcards[0].front.text,
+              response.data.dueFlashcards[0].front?.text,
               false,
               response.data.dueFlashcards[0].front.language
             )
@@ -221,14 +221,26 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                         <div>
                           <span>
                             {(
-                              <div
-                                style={{
-                                  marginBottom: "15px",
-                                }}
-                                dangerouslySetInnerHTML={{
-                                  __html: cards[0]?.back?.text,
-                                }}
-                              />
+                              <>
+                                {" "}
+                                <div
+                                  style={{
+                                    fontSize: "11px",
+                                    marginBottom: "15px",
+                                  }}
+                                  dangerouslySetInnerHTML={{
+                                    __html: cards[0]?.front?.text,
+                                  }}
+                                />
+                                <div
+                                  style={{
+                                    marginBottom: "15px",
+                                  }}
+                                  dangerouslySetInnerHTML={{
+                                    __html: cards[0]?.back?.text,
+                                  }}
+                                />
+                              </>
                             ) || " "}
                           </span>
                           <button
