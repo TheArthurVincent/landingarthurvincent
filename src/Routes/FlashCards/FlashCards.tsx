@@ -30,7 +30,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [value, setValue] = useState<string>("1");
-  const [whiteText, setWhiteText] = useState<string>("white");
+  const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
 
   const handleChange = (event: any, newValue: string) => {
     event.preventDefault();
@@ -38,8 +38,8 @@ const FlashCards = ({ headers }: HeadersProps) => {
   };
 
   const timerDisabled = () => {
-    setWhiteText("white");
     setCount(4);
+
     setIsDisabled(true);
     setTimeout(() => {
       setCount(3);
@@ -53,7 +53,6 @@ const FlashCards = ({ headers }: HeadersProps) => {
     setTimeout(() => {
       setIsDisabled(false);
     }, 4000);
-    setWhiteText("black");
   };
 
   useEffect(() => {
@@ -89,6 +88,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const seeCardsToReview = async () => {
+    setBackCardVisible(false);
     setSee(true);
     timerDisabled();
     setLoading(true);
@@ -116,6 +116,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
       setLoading(false);
+      setBackCardVisible(true);
     } catch (error) {
       alert("Erro ao enviar cards");
     }
@@ -242,14 +243,18 @@ const FlashCards = ({ headers }: HeadersProps) => {
                               </button>
                             </div>
                           </div>
-                          <div className="flashcard-back">
+                          <div
+                            style={{
+                              display: backCardVisible ? "none" : "block",
+                            }}
+                            className="flashcard-back"
+                          >
                             <div>
                               <span>
                                 {(
                                   <div
                                     style={{
                                       marginBottom: "15px",
-                                      color: whiteText,
                                     }}
                                     dangerouslySetInnerHTML={{
                                       __html:
