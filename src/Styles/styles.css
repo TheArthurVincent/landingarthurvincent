@@ -166,6 +166,45 @@ li {
   background-color: rgb(204, 204, 204);
 }
 
+.flashcard {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.flashcard.flip {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.flashcard-front {
+  background-color: white;
+  box-shadow: 5px 5px 10px var(--blue-arvin);
+  /* border: var(--blue-arvin) outset 1px; */
+}
+
+.flashcard-back {
+  /* border: var(--black-arvin) outset 1px; */
+  box-shadow: 5px 5px 10px var(--black-arvin);
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
 .hidden {
   display: none;
 }
