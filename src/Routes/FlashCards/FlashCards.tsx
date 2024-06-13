@@ -240,7 +240,26 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             paddingBottom: "1rem",
                           }}
                         >
-                          {cards[0]?.front?.text || ""}
+                          {cards[0]?.isNew && (
+                            <>
+                              <span
+                                style={{
+                                  color: "white",
+                                  fontSize: "10px",
+                                  borderRadius: "10px",
+                                  padding: "6px",
+                                  fontWeight: 600,
+                                  backgroundColor: "green",
+                                  marginBottom: "5px",
+                                }}
+                              >
+                                New Card
+                              </span>
+                              <br />
+                              <br />
+                            </>
+                          )}
+                          {cards[0]?.front?.text || " "}
                           <button
                             className="audio-button"
                             onClick={() =>
@@ -318,7 +337,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                   }
                                   color="red"
                                 >
-                                  Very hard!
+                                  Repeat!{" "}
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>Today</p>
                               </div>

@@ -218,8 +218,37 @@ const AddFlashCards = ({ headers }: HeadersProps) => {
         { newCards },
         { headers: actualHeaders }
       );
+      setNumberOfCards(0);
       setFrontCard("");
       setBackCard("");
+      setFrontCard1("");
+      setBackCard1("");
+      setFrontCard2("");
+      setBackCard2("");
+      setFrontCard3("");
+      setBackCard3("");
+      setFrontCard4("");
+      setBackCard4("");
+      setFrontCard5("");
+      setBackCard5("");
+      setFrontCard6("");
+      setBackCard6("");
+      setFrontCard7("");
+      setBackCard7("");
+      setFrontCard8("");
+      setBackCard8("");
+      setFrontCard9("");
+      setBackCard9("");
+      setFrontCard10("");
+      setBackCard10("");
+      setFrontCard11("");
+      setBackCard11("");
+      setFrontCard12("");
+      setBackCard12("");
+      setFrontCard13("");
+      setBackCard13("");
+      setFrontCard14("");
+      setBackCard14("");
       setLanguageFront("en");
       setLanguageBack("pt");
     } catch (error) {
