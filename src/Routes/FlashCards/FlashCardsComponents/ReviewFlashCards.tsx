@@ -151,7 +151,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                       >
                         {cardsCount.reviewedCardsCount}
                       </span>{" "}
-                      | Next Reviews:{" "}
+                      | Reviews for today:{" "}
                       <span
                         style={{
                           color: "black",
