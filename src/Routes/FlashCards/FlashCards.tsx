@@ -8,13 +8,16 @@ import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
-import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
+import {
+  backDomain,
+  formatDateBr,
+  formatDateBrContract,
+} from "../../Resources/UniversalComponents";
 import axios from "axios";
 import { Box, CircularProgress, Tab } from "@mui/material";
 import {
   alwaysWhite,
   darkGreyColor,
-  lightGreyColor,
   primaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
@@ -23,8 +26,9 @@ import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 
 const FlashCards = ({ headers }: HeadersProps) => {
   const [studentsList, setStudentsList] = useState<any[]>([]);
+  const [nextIndexIfItsVeryDifficult, setNextIndexIfItsVeryDifficult] =
+    useState<number>(0);
   const [myId, setId] = useState<string>("");
-  const [studentID, setStudentID] = useState<string>("");
   const [cards, setCards] = useState<any[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const [answer, setAnswer] = useState<boolean>(false);
@@ -34,11 +38,6 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [value, setValue] = useState<string>("1");
-
-  const [frontCard, setFrontCard] = useState<string>("");
-  const [backCard, setBackCard] = useState<string>("");
-  const [languageFront, setLanguageFront] = useState<string>("en");
-  const [languageBack, setLanguageBack] = useState<string>("pt");
 
   const handleChange = (event: any, newValue: string) => {
     event.preventDefault();
@@ -87,39 +86,12 @@ const FlashCards = ({ headers }: HeadersProps) => {
 
   const actualHeaders = headers || {};
 
-  const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedId = event.target.value;
-    setStudentID(selectedId);
-    console.log(selectedId);
-  };
-
-  const addNewCard = async () => {
-    const newCards = [
-      {
-        front: { text: frontCard, language: languageFront },
-        back: { text: backCard, language: languageBack },
-      },
-    ];
-    try {
-      const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${studentID}`,
-        { newCards },
-        { headers: actualHeaders }
-      );
-      setFrontCard("");
-      setBackCard("");
-      setLanguageFront("en");
-      setLanguageBack("pt");
-      setAnswer(false);
-
-      seeCardsToReview();
-    } catch (error) {
-      alert("Erro ao enviar cards");
-    }
-  };
-
-  const languages = ["en", "pt", "it", "fr", "de"];
   const reviewCard = async (id: string, difficulty: string) => {
+    if (difficulty == "veryhard" && cards.length > 3) {
+      setNextIndexIfItsVeryDifficult(1);
+    } else {
+      setNextIndexIfItsVeryDifficult(0);
+    }
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/reviewflashcard/${myId}`,
@@ -149,16 +121,16 @@ const FlashCards = ({ headers }: HeadersProps) => {
       const cardsCountFetch = response.data.cardsCount;
       {
         response.data.dueFlashcards.length > 0 &&
-        response.data.dueFlashcards[0].front
+        response.data.dueFlashcards[nextIndexIfItsVeryDifficult].front
           ? readText(
-              response.data.dueFlashcards[0].front.text,
+              response.data.dueFlashcards[nextIndexIfItsVeryDifficult].front
+                .text,
               false,
-              response.data.dueFlashcards[0].front.language
+              response.data.dueFlashcards[nextIndexIfItsVeryDifficult].front
+                .language
             )
           : null;
       }
-      console.log(thereAreCards);
-      console.log(response.data.dueFlashcards);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
@@ -240,88 +212,99 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             paddingBottom: "1rem",
                           }}
                         >
-                          {cards[0]?.isNew && (
-                            <>
-                              <span
-                                style={{
-                                  color: "white",
-                                  fontSize: "10px",
-                                  borderRadius: "10px",
-                                  padding: "6px",
-                                  fontWeight: 600,
-                                  backgroundColor: "green",
-                                  marginBottom: "5px",
-                                }}
-                              >
-                                New Card
-                              </span>
-                              <br />
-                              <br />
-                            </>
-                          )}
-                          {cards[0]?.front?.text || " "}
-                          <button
-                            className="audio-button"
-                            onClick={() =>
-                              readText(
-                                cards[0].front.text,
-                                true,
-                                cards[0].front.language
-                              )
-                            }
+                          <div
+                            style={{
+                              margin: "auto",
+                            }}
+                            className={`flashcard ${answer ? "flip" : ""}`}
                           >
-                            <i className="fa fa-volume-up" aria-hidden="true" />
-                          </button>
-                          <br />
-                          {!isDisabled ? (
-                            <ArvinButton
-                              style={{
-                                marginTop: "2rem",
-                              }}
-                              disabled={isDisabled}
-                              cursor={isDisabled ? "not-allowed" : "pointer"}
-                              color={isDisabled ? "grey" : "navy"}
-                              onClick={() => {
-                                setAnswer(true);
-                                {
-                                  cards.length > 0 &&
-                                  cards[0].back.language == "en"
-                                    ? readText(cards[0].back.text, true)
-                                    : null;
+                            <div className="flashcard-front">
+                              <div>
+                                <span
+                                  style={{
+                                    fontSize: "12px",
+                                  }}
+                                >
+                                  {cards[nextIndexIfItsVeryDifficult]
+                                    ?.numberOfReviews || "no"}{" "}
+                                  {cards[nextIndexIfItsVeryDifficult]
+                                    ?.numberOfReviews == 1
+                                    ? "review"
+                                    : "reviews"}
+                                </span>
+                                <br />
+                                <br />
+                                <span>
+                                  {cards[nextIndexIfItsVeryDifficult]?.front
+                                    ?.text || " "}
+                                </span>
+                                <button
+                                  className="audio-button"
+                                  onClick={() =>
+                                    readText(
+                                      cards[nextIndexIfItsVeryDifficult].front
+                                        .text,
+                                      true,
+                                      cards[nextIndexIfItsVeryDifficult].front
+                                        .language
+                                    )
+                                  }
+                                >
+                                  <i
+                                    className="fa fa-volume-up"
+                                    aria-hidden="true"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                            <div className="flashcard-back">
+                              <span>
+                                {cards[nextIndexIfItsVeryDifficult]?.back
+                                  ?.text || ""}
+                              </span>
+                              <button
+                                className="audio-button"
+                                onClick={() =>
+                                  readText(
+                                    cards[nextIndexIfItsVeryDifficult].back
+                                      .text,
+                                    true,
+                                    cards[nextIndexIfItsVeryDifficult].back
+                                      .language
+                                  )
                                 }
-                              }}
-                            >
-                              Answer
-                            </ArvinButton>
-                          ) : (
-                            <p
-                              style={{
-                                color: darkGreyColor(),
-                                paddingTop: "1rem",
-                              }}
-                            >
-                              {count}
-                            </p>
-                          )}{" "}
+                              >
+                                <i
+                                  className="fa fa-volume-up"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <ArvinButton
+                            style={{
+                              marginTop: "3rem",
+                            }}
+                            onClick={() => {
+                              setAnswer(!answer);
+                              {
+                                cards.length > 0 &&
+                                cards[nextIndexIfItsVeryDifficult].back
+                                  .language == "en"
+                                  ? readText(
+                                      cards[nextIndexIfItsVeryDifficult].back
+                                        .text,
+                                      true
+                                    )
+                                  : null;
+                              }
+                            }}
+                          >
+                            {answer ? "Back" : "Answer"}
+                          </ArvinButton>
                         </div>
                         {answer && (
                           <div style={{ padding: "1rem" }}>
-                            {cards[0]?.back?.text || ""}
-                            <button
-                              className="audio-button"
-                              onClick={() =>
-                                readText(
-                                  cards[0].back.text,
-                                  true,
-                                  cards[0].back.language
-                                )
-                              }
-                            >
-                              <i
-                                className="fa fa-volume-up"
-                                aria-hidden="true"
-                              />
-                            </button>
                             <div
                               style={{
                                 justifyContent: "center",
@@ -332,9 +315,12 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             >
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
-                                  onClick={() =>
-                                    reviewCard(cards[0].id, "veryhard")
-                                  }
+                                  onClick={() => {
+                                    reviewCard(
+                                      cards[nextIndexIfItsVeryDifficult].id,
+                                      "veryhard"
+                                    );
+                                  }}
                                   color="red"
                                 >
                                   Repeat!{" "}
@@ -344,42 +330,57 @@ const FlashCards = ({ headers }: HeadersProps) => {
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() =>
-                                    reviewCard(cards[0].id, "hard")
+                                    reviewCard(
+                                      cards[nextIndexIfItsVeryDifficult].id,
+                                      "hard"
+                                    )
                                   }
                                   color="pink"
                                 >
                                   Hard
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>
-                                  {formatDateBr(cards[0].hard)}
+                                  {formatDateBr(
+                                    cards[nextIndexIfItsVeryDifficult].hard
+                                  )}
                                 </p>
                               </div>
 
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() =>
-                                    reviewCard(cards[0].id, "medium")
+                                    reviewCard(
+                                      cards[nextIndexIfItsVeryDifficult].id,
+                                      "medium"
+                                    )
                                   }
                                   color="navy"
                                 >
                                   Medium
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>
-                                  {formatDateBr(cards[0].medium)}
+                                  {formatDateBr(
+                                    cards[nextIndexIfItsVeryDifficult].medium
+                                  )}
                                 </p>
                               </div>
 
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() =>
-                                    reviewCard(cards[0].id, "easy")
+                                    reviewCard(
+                                      cards[nextIndexIfItsVeryDifficult].id,
+                                      "easy"
+                                    )
                                   }
                                   color="green"
                                 >
                                   Easy
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>
-                                  {formatDateBr(cards[0].easy)}
+                                  {formatDateBr(
+                                    cards[nextIndexIfItsVeryDifficult].easy
+                                  )}
                                 </p>
                               </div>
                             </div>
@@ -416,9 +417,6 @@ const FlashCards = ({ headers }: HeadersProps) => {
   ];
 
   const displayIsAdm = myId === "651311fac3d58753aa9281c5" ? "block" : "none";
-  useEffect(() => {
-    console.log(displayIsAdm);
-  }, []);
 
   return (
     <RouteSizeControlBox className="smooth">
