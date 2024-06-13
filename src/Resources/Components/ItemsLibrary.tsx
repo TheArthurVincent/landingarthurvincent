@@ -86,6 +86,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             ? "orange"
             : props.color === "purple"
             ? "purple"
+            : props.color === "grey"
+            ? "grey"
             : props.color === "yellow"
             ? "#FFD700" // Yellow darker shade
             : props.color === "pink"
@@ -103,6 +105,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             ? "#FFA500"
             : props.color === "purple"
             ? "#DDA0DD"
+            : props.color === "grey"
+            ? "grey"
             : props.color === "yellow"
             ? "#B8860B" // Yellow darker gradient
             : props.color === "pink"

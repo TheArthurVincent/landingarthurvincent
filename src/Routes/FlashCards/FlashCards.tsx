@@ -208,59 +208,74 @@ const FlashCards = ({ headers }: HeadersProps) => {
                         </div>{" "}
                         <div
                           style={{
-                            borderBottom: "1px solid #ccc",
-                            paddingBottom: "1rem",
+                            margin: "auto",
                           }}
+                          className={`flashcard ${answer ? "flip" : ""}`}
                         >
-                          <div
-                            style={{
-                              margin: "auto",
-                            }}
-                            className={`flashcard ${answer ? "flip" : ""}`}
-                          >
-                            <div className="flashcard-front">
-                              <div>
-                                <span
-                                  style={{
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  {cards[nextIndexIfItsVeryDifficult]
-                                    ?.numberOfReviews || "no"}{" "}
-                                  {cards[nextIndexIfItsVeryDifficult]
-                                    ?.numberOfReviews == 1
-                                    ? "review"
-                                    : "reviews"}
-                                </span>
-                                <br />
-                                <br />
-                                <span>
-                                  {cards[nextIndexIfItsVeryDifficult]?.front
-                                    ?.text || " "}
-                                </span>
-                                <button
-                                  className="audio-button"
-                                  onClick={() =>
-                                    readText(
-                                      cards[nextIndexIfItsVeryDifficult].front
-                                        .text,
-                                      true,
-                                      cards[nextIndexIfItsVeryDifficult].front
-                                        .language
-                                    )
-                                  }
-                                >
-                                  <i
-                                    className="fa fa-volume-up"
-                                    aria-hidden="true"
-                                  />
-                                </button>
-                              </div>
-                            </div>
-                            <div className="flashcard-back">
+                          <div className="flashcard-front">
+                            <div>
+                              <span
+                                style={{
+                                  fontSize: "12px",
+                                }}
+                              >
+                                {cards[nextIndexIfItsVeryDifficult]
+                                  ?.numberOfReviews || "no"}{" "}
+                                {cards[nextIndexIfItsVeryDifficult]
+                                  ?.numberOfReviews == 1
+                                  ? "review"
+                                  : "reviews"}
+                              </span>
+                              <br />
+                              <br />
                               <span>
-                                {cards[nextIndexIfItsVeryDifficult]?.back
-                                  ?.text || ""}
+                                {(
+                                  <div
+                                    style={{
+                                      marginBottom: "15px",
+                                    }}
+                                    dangerouslySetInnerHTML={{
+                                      __html:
+                                        cards[nextIndexIfItsVeryDifficult]
+                                          ?.front?.text,
+                                    }}
+                                  />
+                                ) || " "}
+                              </span>
+                              <button
+                                className="audio-button"
+                                onClick={() =>
+                                  readText(
+                                    cards[nextIndexIfItsVeryDifficult].front
+                                      .text,
+                                    true,
+                                    cards[nextIndexIfItsVeryDifficult].front
+                                      .language
+                                  )
+                                }
+                              >
+                                <i
+                                  className="fa fa-volume-up"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <div className="flashcard-back">
+                            <div>
+                              <span>
+                                {(
+                                  <div
+                                    style={{
+                                      marginBottom: "15px",
+                                    }}
+                                    dangerouslySetInnerHTML={{
+                                      __html:
+                                        cards[nextIndexIfItsVeryDifficult]?.back
+                                          ?.text,
+                                    }}
+                                  />
+                                ) || " "}
                               </span>
                               <button
                                 className="audio-button"
@@ -281,28 +296,35 @@ const FlashCards = ({ headers }: HeadersProps) => {
                               </button>
                             </div>
                           </div>
-                          <ArvinButton
-                            style={{
-                              marginTop: "3rem",
-                            }}
-                            onClick={() => {
-                              setAnswer(!answer);
-                              {
-                                cards.length > 0 &&
-                                cards[nextIndexIfItsVeryDifficult].back
-                                  .language == "en"
-                                  ? readText(
-                                      cards[nextIndexIfItsVeryDifficult].back
-                                        .text,
-                                      true
-                                    )
-                                  : null;
-                              }
-                            }}
-                          >
-                            {answer ? "Back" : "Answer"}
-                          </ArvinButton>
                         </div>
+                        <ArvinButton
+                          disabled={isDisabled}
+                          cursor={isDisabled ? "not-allowed" : "pointer"}
+                          color={isDisabled ? "grey" : "navy"}
+                          style={{
+                            marginTop: "4rem",
+                          }}
+                          onClick={() => {
+                            setAnswer(!answer);
+                            {
+                              cards.length > 0 &&
+                              cards[nextIndexIfItsVeryDifficult].back
+                                .language == "en"
+                                ? readText(
+                                    cards[nextIndexIfItsVeryDifficult].back
+                                      .text,
+                                    true
+                                  )
+                                : null;
+                            }
+                          }}
+                        >
+                          {isDisabled ? (
+                            <span>{count}</span>
+                          ) : (
+                            <span> {answer ? "Back" : "Answer"}</span>
+                          )}
+                        </ArvinButton>
                         {answer && (
                           <div style={{ padding: "1rem" }}>
                             <div
