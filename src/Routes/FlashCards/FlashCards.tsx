@@ -19,8 +19,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 
 const FlashCards = ({ headers }: HeadersProps) => {
-  const [nextIndexIfItsVeryDifficult, setNextIndexIfItsVeryDifficult] =
-    useState<number>(0);
+  useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [cards, setCards] = useState<any[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -67,11 +66,6 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const actualHeaders = headers || {};
 
   const reviewCard = async (id: string, difficulty: string) => {
-    if (difficulty == "veryhard" && cards.length > 3) {
-      setNextIndexIfItsVeryDifficult(1);
-    } else {
-      setNextIndexIfItsVeryDifficult(0);
-    }
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/reviewflashcard/${myId}`,
@@ -88,6 +82,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const seeCardsToReview = async () => {
+    setAnswer(false);
     setBackCardVisible(false);
     setSee(true);
     timerDisabled();
@@ -102,13 +97,11 @@ const FlashCards = ({ headers }: HeadersProps) => {
       const cardsCountFetch = response.data.cardsCount;
       {
         response.data.dueFlashcards.length > 0 &&
-        response.data.dueFlashcards[nextIndexIfItsVeryDifficult].front
+        response.data.dueFlashcards[0].front
           ? readText(
-              response.data.dueFlashcards[nextIndexIfItsVeryDifficult].front
-                .text,
+              response.data.dueFlashcards[0].front.text,
               false,
-              response.data.dueFlashcards[nextIndexIfItsVeryDifficult].front
-                .language
+              response.data.dueFlashcards[0].front.language
             )
           : null;
       }
@@ -201,10 +194,8 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                   fontSize: "12px",
                                 }}
                               >
-                                {cards[nextIndexIfItsVeryDifficult]
-                                  ?.numberOfReviews || "no"}{" "}
-                                {cards[nextIndexIfItsVeryDifficult]
-                                  ?.numberOfReviews == 1
+                                {cards[0]?.numberOfReviews || "no"}{" "}
+                                {cards[0]?.numberOfReviews == 1
                                   ? "review"
                                   : "reviews"}
                               </span>
@@ -217,9 +208,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                       marginBottom: "15px",
                                     }}
                                     dangerouslySetInnerHTML={{
-                                      __html:
-                                        cards[nextIndexIfItsVeryDifficult]
-                                          ?.front?.text,
+                                      __html: cards[0]?.front?.text,
                                     }}
                                   />
                                 ) || " "}
@@ -228,11 +217,9 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                 className="audio-button"
                                 onClick={() =>
                                   readText(
-                                    cards[nextIndexIfItsVeryDifficult].front
-                                      .text,
+                                    cards[0].front.text,
                                     true,
-                                    cards[nextIndexIfItsVeryDifficult].front
-                                      .language
+                                    cards[0].front.language
                                   )
                                 }
                               >
@@ -257,9 +244,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                       marginBottom: "15px",
                                     }}
                                     dangerouslySetInnerHTML={{
-                                      __html:
-                                        cards[nextIndexIfItsVeryDifficult]?.back
-                                          ?.text,
+                                      __html: cards[0]?.back?.text,
                                     }}
                                   />
                                 ) || " "}
@@ -268,11 +253,9 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                 className="audio-button"
                                 onClick={() =>
                                   readText(
-                                    cards[nextIndexIfItsVeryDifficult].back
-                                      .text,
+                                    cards[0].back.text,
                                     true,
-                                    cards[nextIndexIfItsVeryDifficult].back
-                                      .language
+                                    cards[0].back.language
                                   )
                                 }
                               >
@@ -292,16 +275,11 @@ const FlashCards = ({ headers }: HeadersProps) => {
                             marginTop: "4rem",
                           }}
                           onClick={() => {
+                            setBackCardVisible(!backCardVisible);
                             setAnswer(!answer);
                             {
-                              cards.length > 0 &&
-                              cards[nextIndexIfItsVeryDifficult].back
-                                .language == "en"
-                                ? readText(
-                                    cards[nextIndexIfItsVeryDifficult].back
-                                      .text,
-                                    true
-                                  )
+                              cards.length > 0 && cards[0].back.language == "en"
+                                ? readText(cards[0].back.text, true)
                                 : null;
                             }
                           }}
@@ -325,10 +303,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() => {
-                                    reviewCard(
-                                      cards[nextIndexIfItsVeryDifficult].id,
-                                      "veryhard"
-                                    );
+                                    reviewCard(cards[0].id, "veryhard");
                                   }}
                                   color="red"
                                 >
@@ -339,57 +314,42 @@ const FlashCards = ({ headers }: HeadersProps) => {
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() =>
-                                    reviewCard(
-                                      cards[nextIndexIfItsVeryDifficult].id,
-                                      "hard"
-                                    )
+                                    reviewCard(cards[0].id, "hard")
                                   }
                                   color="pink"
                                 >
                                   Hard
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>
-                                  {formatDateBr(
-                                    cards[nextIndexIfItsVeryDifficult].hard
-                                  )}
+                                  {formatDateBr(cards[0].hard)}
                                 </p>
                               </div>
 
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() =>
-                                    reviewCard(
-                                      cards[nextIndexIfItsVeryDifficult].id,
-                                      "medium"
-                                    )
+                                    reviewCard(cards[0].id, "medium")
                                   }
                                   color="navy"
                                 >
                                   Medium
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>
-                                  {formatDateBr(
-                                    cards[nextIndexIfItsVeryDifficult].medium
-                                  )}
+                                  {formatDateBr(cards[0].medium)}
                                 </p>
                               </div>
 
                               <div style={{ display: "grid", gap: "5px" }}>
                                 <ArvinButton
                                   onClick={() =>
-                                    reviewCard(
-                                      cards[nextIndexIfItsVeryDifficult].id,
-                                      "easy"
-                                    )
+                                    reviewCard(cards[0].id, "easy")
                                   }
                                   color="green"
                                 >
                                   Easy
                                 </ArvinButton>
                                 <p style={{ fontSize: "10px" }}>
-                                  {formatDateBr(
-                                    cards[nextIndexIfItsVeryDifficult].easy
-                                  )}
+                                  {formatDateBr(cards[0].easy)}
                                 </p>
                               </div>
                             </div>
