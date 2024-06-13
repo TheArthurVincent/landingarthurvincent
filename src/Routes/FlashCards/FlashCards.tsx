@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  HOne,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
@@ -8,16 +7,11 @@ import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
-import {
-  backDomain,
-  formatDateBr,
-  formatDateBrContract,
-} from "../../Resources/UniversalComponents";
+import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import { Box, CircularProgress, Tab } from "@mui/material";
 import {
   alwaysWhite,
-  darkGreyColor,
   primaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
@@ -25,7 +19,6 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 
 const FlashCards = ({ headers }: HeadersProps) => {
-  const [studentsList, setStudentsList] = useState<any[]>([]);
   const [nextIndexIfItsVeryDifficult, setNextIndexIfItsVeryDifficult] =
     useState<number>(0);
   const [myId, setId] = useState<string>("");
@@ -35,9 +28,9 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const [cardsLength, setCardsLength] = useState<boolean>(true);
   const [cardsCount, setCardsCount] = useState<any>([]);
   const [see, setSee] = useState<boolean>(false);
-  const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [value, setValue] = useState<string>("1");
+  const [whiteText, setWhiteText] = useState<string>("white");
 
   const handleChange = (event: any, newValue: string) => {
     event.preventDefault();
@@ -45,6 +38,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
   };
 
   const timerDisabled = () => {
+    setWhiteText("white");
     setCount(4);
     setIsDisabled(true);
     setTimeout(() => {
@@ -59,22 +53,9 @@ const FlashCards = ({ headers }: HeadersProps) => {
     setTimeout(() => {
       setIsDisabled(false);
     }, 4000);
+    setWhiteText("black");
   };
-  const fetchStudents = async () => {
-    setAddCardVisible(true);
-    if (myId === "651311fac3d58753aa9281c5") {
-      try {
-        const response = await axios.get(`${backDomain}/api/v1/students/`, {
-          headers: actualHeaders,
-        });
-        setStudentsList(response.data.listOfStudents);
 
-        setAnswer(false);
-      } catch (error) {
-        alert("Erro ao encontrar alunos");
-      }
-    }
-  };
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
@@ -268,6 +249,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
                                   <div
                                     style={{
                                       marginBottom: "15px",
+                                      color: whiteText,
                                     }}
                                     dangerouslySetInnerHTML={{
                                       __html:
