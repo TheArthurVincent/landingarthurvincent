@@ -19,6 +19,7 @@ import { TopBar } from "../Application/TopBar/TopBar";
 import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
+import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -128,6 +129,7 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
+      <AddFlashCards headers={headers} display="fixed" />
       {/* <AppFooter /> */}
       <Outlet />
     </div>
