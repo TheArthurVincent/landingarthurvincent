@@ -134,12 +134,11 @@ export function Homework({ headers }: HeadersProps) {
                         listStyle: "none",
                         padding: "1rem",
                         border: `1px solid ${primaryColor()}`,
-                        // boxShadow: "1px 1px 10px 5px #eee",
                       }}
                     >
-                      <h3>Title: {homework.title}</h3>
+                      <h3>Title: {formatDateBr(homework.assignmentDate)}</h3>
                       <div style={{ display: "flex", gap: "5px" }}>
-                        <i
+                        {/* <i
                           className="fa fa-check-circle"
                           aria-hidden="true"
                           // onClick={() =>
@@ -164,17 +163,16 @@ export function Homework({ headers }: HeadersProps) {
                             color:
                               homework.status == "desmarcado" ? "red" : "grey",
                           }}
-                        />
+                        /> */}
                       </div>
                       <div style={{ width: "20rem" }}>
-                        Description:
                         <div
                           dangerouslySetInnerHTML={{
                             __html: homework.description,
                           }}
                         />
                       </div>
-                      <div>Due date:{formatDateBr(homework.dueDate)}</div>
+                      <div>Due date: {formatDateBr(homework.dueDate)}</div>
                       <Link to={homework.googleDriveLink}>
                         Access the class here
                       </Link>
@@ -197,12 +195,11 @@ export function Homework({ headers }: HeadersProps) {
                         listStyle: "none",
                         padding: "1rem",
                         border: `1px solid ${secondaryColor()}`,
-                        // boxShadow: "1px 1px 10px 5px #eee",
                       }}
                     >
-                      {/* <h3>Title: {homework.title}</h3> */}
+                      <h3>Title: {formatDateBr(homework.assignmentDate)}</h3>
                       <div style={{ display: "flex", gap: "5px" }}>
-                        <i
+                        {/* <i
                           className="fa fa-check-circle"
                           aria-hidden="true"
                           // onClick={() =>
@@ -227,10 +224,9 @@ export function Homework({ headers }: HeadersProps) {
                             color:
                               homework.status == "desmarcado" ? "red" : "grey",
                           }}
-                        />
+                        /> */}
                       </div>
                       <div style={{ width: "20rem" }}>
-                        Description:
                         <div
                           dangerouslySetInnerHTML={{
                             __html: homework.description,
