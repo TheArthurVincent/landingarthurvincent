@@ -203,12 +203,14 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                 textAlign: "center",
               }}
             >
-              <ArvinButton
-                onClick={() => handleSeeModal(cards[0].id)}
-                color="yellow"
-              >
-                <i className="fa fa-edit" aria-hidden="true" />
-              </ArvinButton>
+              {myId === "651311fac3d58753aa9281c5" && (
+                <ArvinButton
+                  onClick={() => handleSeeModal(cards[0].id)}
+                  color="yellow"
+                >
+                  <i className="fa fa-edit" aria-hidden="true" />
+                </ArvinButton>
+              )}
               <div style={{ padding: "1rem" }}>
                 {!cardsLength ? (
                   <>
@@ -521,6 +523,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
             >
               <i className="fa fa-trash" aria-hidden="true" />
             </ArvinButton>
+
             <ArvinButton
               onClick={() => handleEditCard(cardIdToEdit)}
               color="green"

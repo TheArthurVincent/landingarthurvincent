@@ -118,8 +118,8 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
     <div
       style={{
         //@ts-ignore
-        position: display ? display : "block",
-        border: display ? "1px solid black" : "none",
+        position: display,
+        border: display  == "fixed" ? "1px solid black" : "none",
         borderRadius: "1rem",
         zIndex: 10000,
         bottom: 10,

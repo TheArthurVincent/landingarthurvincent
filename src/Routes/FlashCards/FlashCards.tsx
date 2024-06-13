@@ -44,7 +44,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
       title: "Add",
       value: "2",
       adm: true,
-      component: <AddFlashCards headers={headers} />,
+      component: <AddFlashCards display="block" headers={headers} />,
     },
   ];
 
