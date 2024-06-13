@@ -19,7 +19,8 @@ interface ArvinButtonProps {
 }
 
 export const ArvinButton = styled.button<ArvinButtonProps>`
-  min-width: 80px;
+  min-width: 50px;
+  margin: 1px;
   background: linear-gradient(
     to left,
     ${(props) =>

@@ -102,6 +102,81 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
     }
   };
 
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [newFront, setNewFront] = useState<string>("");
+  const [newBack, setNewBack] = useState<string>("");
+  const [newLGFront, setNewLGFront] = useState<string>("");
+  const [newLGBack, setNewLGBack] = useState<string>("");
+  const [cardIdToEdit, setCardIdToEdit] = useState<string>("");
+
+  const handleSeeModal = async (cardId: string) => {
+    setShowModal(true);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/flashcardfindone/${myId}`,
+        {
+          params: { cardId },
+          headers: actualHeaders,
+        }
+      );
+      const newf = response.data.flashcard.front.text;
+      const newb = response.data.flashcard.back.text;
+      const newlf = response.data.flashcard.front.language;
+      const newlb = response.data.flashcard.back.language;
+      const newIDcard = response.data.flashcard.id;
+
+      setNewFront(newf);
+      setNewBack(newb);
+      setNewLGFront(newlf);
+      setNewLGBack(newlb);
+      setCardIdToEdit(newIDcard);
+      console.log(cardId, response.data.flashcard);
+    } catch (error) {
+      console.log(error, "Erro ao obter cards");
+    }
+    console.log(cardId);
+  };
+  const handleEditCard = async (cardId: string) => {
+    setShowModal(true);
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/flashcard/${myId}`,
+        {
+          newFront,
+          newBack,
+          newLGBack,
+          newLGFront,
+        },
+        {
+          params: { cardId }, // Enviar cardId como parâmetro de consulta
+        }
+      );
+      seeCardsToReview();
+      setShowModal(false);
+    } catch (error) {
+      console.log(error, "Erro ao obter cards");
+    }
+  };
+
+  const handleDeleteCard = async (cardId: string) => {
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/flashcard/${myId}`,
+        {
+          params: { cardId }, // Enviar cardId como parâmetro de consulta
+        }
+      );
+      seeCardsToReview();
+      setShowModal(false);
+    } catch (error) {
+      console.log(error, "Erro ao obter cards");
+    }
+  };
+
+  const handleHideModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <section id="review">
       <ArvinButton
@@ -128,6 +203,12 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                 textAlign: "center",
               }}
             >
+              <ArvinButton
+                onClick={() => handleSeeModal(cards[0].id)}
+                color="yellow"
+              >
+                <i className="fa fa-edit" aria-hidden="true" />
+              </ArvinButton>
               <div style={{ padding: "1rem" }}>
                 {!cardsLength ? (
                   <>
@@ -366,13 +447,16 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
           backgroundColor: "rgba(0,0,0,0.8)",
           top: 0,
           left: 0,
+          display: showModal ? "block" : "none",
           width: "1000000px",
           height: "1000000px",
           position: "fixed",
         }}
+        onClick={handleHideModal}
       />
       <div
         style={{
+          display: showModal ? "block" : "none",
           backgroundColor: "white",
           padding: "1rem",
           position: "fixed",
@@ -382,20 +466,20 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
         }}
         id="modal"
       >
-        <Xp>x</Xp>
+        <Xp onClick={handleHideModal}>X</Xp>
         <article id="front">
           <input
             style={{ maxWidth: "120px" }}
-            // value={frontCard}
-            // onChange={(e) => {
-            //   handleFrontCardChange(index, e.target.value);
-            // }}
+            value={newFront}
+            onChange={(e) => {
+              setNewFront(e.target.value);
+            }}
             type="text"
           />
           <select
             style={{ maxWidth: "120px" }}
-            // value={languageFront}
-            // onChange={(e) => handleLanguageFrontChange(index, e.target.value)}
+            value={newLGFront}
+            onChange={(e) => setNewLGFront(e.target.value)}
           >
             {languages.map((language, langIndex) => (
               <option key={langIndex} value={language}>
@@ -407,14 +491,14 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
         <article id="back">
           <input
             style={{ maxWidth: "120px" }}
-            // value={backCard}
-            // onChange={(e) => handleBackCardChange(index, e.target.value)}
+            value={newBack}
+            onChange={(e) => setNewBack(e.target.value)}
             type="text"
           />
           <select
             style={{ maxWidth: "120px" }}
-            // value={languageBack}
-            // onChange={(e) => handleLanguageBackChange(index, e.target.value)}
+            value={newLGBack}
+            onChange={(e) => setNewLGBack(e.target.value)}
           >
             {languages.map((language, langIndex) => (
               <option key={langIndex} value={language}>
@@ -422,6 +506,20 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
               </option>
             ))}
           </select>
+          <div>
+            <ArvinButton
+              onClick={() => handleDeleteCard(cardIdToEdit)}
+              color="red"
+            >
+              <i className="fa fa-trash" aria-hidden="true" />
+            </ArvinButton>
+            <ArvinButton
+              onClick={() => handleEditCard(cardIdToEdit)}
+              color="green"
+            >
+              <i className="fa fa-folder" aria-hidden="true" />
+            </ArvinButton>
+          </div>
         </article>
       </div>
     </section>

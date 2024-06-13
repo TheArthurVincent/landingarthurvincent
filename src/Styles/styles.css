@@ -168,7 +168,7 @@ li {
 
 .flashcard {
   position: relative;
-  width: 200px;
+  width: 250px;
   height: 180px;
   transform-style: preserve-3d;
   transition: transform 0.3s;
@@ -181,9 +181,9 @@ li {
 .flashcard-front,
 .flashcard-back {
   position: absolute;
-  /* width: 100%; */
-  /* border-radius: 5px; */
+  width: 100%;
   height: 100%;
+  border-radius: 5px;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
@@ -194,13 +194,13 @@ li {
 
 .flashcard-front {
   background-color: white;
-  box-shadow: 10px 10px 0px var(--blue-arvin);
-  border: var(--blue-arvin) outset 1px;
+  box-shadow: 5px 5px 10px var(--blue-arvin);
+  /* border: var(--blue-arvin) outset 1px; */
 }
 
 .flashcard-back {
-  border: var(--green-arvin) outset 1px;
-  box-shadow: 10px 10px 0px var(--green-arvin);
+  /* border: var(--black-arvin) outset 1px; */
+  box-shadow: 5px 5px 10px var(--black-arvin);
   background-color: #fff;
   transform: rotateY(180deg);
 }

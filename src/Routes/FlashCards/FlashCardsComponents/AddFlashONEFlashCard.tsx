@@ -30,7 +30,7 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
       <p>Card {index + 1}</p>
       <article id="front">
         <input
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "120px", margin: "1px" }}
           value={frontCard}
           onChange={(e) => {
             handleFrontCardChange(index, e.target.value);
@@ -38,7 +38,7 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
           type="text"
         />
         <select
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "120px", margin: "1px" }}
           value={languageFront}
           onChange={(e) => handleLanguageFrontChange(index, e.target.value)}
         >
@@ -51,13 +51,13 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
       </article>
       <article id="back">
         <input
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "120px", margin: "1px" }}
           value={backCard}
           onChange={(e) => handleBackCardChange(index, e.target.value)}
           type="text"
         />
         <select
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "120px", margin: "1px" }}
           value={languageBack}
           onChange={(e) => handleLanguageBackChange(index, e.target.value)}
         >
