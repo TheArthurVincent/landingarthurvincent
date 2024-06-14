@@ -13,15 +13,17 @@ import {
   textPrimaryColorContrast,
 } from "../../../../Styles/Styles";
 import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
+import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 
 export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newAttachments, setAttachments] = useState("");
   const [newHWDescription, setNewHWDescription] = useState("");
-
+  const [dueDate, setDueDate] = useState("");
   const handleHWDescriptionChange = (htmlContent) => {
     setNewHWDescription(htmlContent);
+    console.log(htmlContent)
   };
 
   const [selectedStudentID, setSelectedStudentID] = useState("");
@@ -61,7 +63,7 @@ export function NewTutoring({ headers }) {
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/tutoring/`,
-        { tutorings, description: newHWDescription },
+        { tutorings, description: newHWDescription, dueDate },
         {
           headers,
         }
@@ -136,46 +138,66 @@ export function NewTutoring({ headers }) {
           </div>
         </div>
         {tutorings.map((tutoring, index) => (
-          <DivGrid key={index}>
-            <input
-              style={{
-                alignItems: "center",
-                justifyContent: "space-around",
-                padding: "0.5rem",
-                margin: "0",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-              }}
-              required
-              type="text"
-              placeholder="Vídeo da Aula (YouTube ou Vimeo)"
-              value={tutoring.videoUrl}
-              onChange={(e) => {
-                const newTutorings = [...tutorings];
-                newTutorings[index].videoUrl = e.target.value;
-                setTutorings(newTutorings);
-              }}
-            />
-            <input
-              style={{
-                alignItems: "center",
-                justifyContent: "space-around",
-                padding: "0.5rem",
-                margin: "0",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-              }}
-              required
-              type="text"
-              placeholder="Pasta da Aula"
-              value={tutoring.attachments}
-              onChange={(e) => {
-                const newTutorings = [...tutorings];
-                newTutorings[index].attachments = e.target.value;
-                setTutorings(newTutorings);
-              }}
-            />
-            <HTMLEditor onChange={handleHWDescriptionChange} />
+          <div key={index}>
+            <DivGrid>
+              <input
+                style={{
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  padding: "0.5rem",
+                  margin: "0",
+                  fontSize: "1.1rem",
+                  fontWeight: 500,
+                }}
+                required
+                type="text"
+                placeholder="Vídeo da Aula (YouTube ou Vimeo)"
+                value={tutoring.videoUrl}
+                onChange={(e) => {
+                  const newTutorings = [...tutorings];
+                  newTutorings[index].videoUrl = e.target.value;
+                  setTutorings(newTutorings);
+                }}
+              />
+              <input
+                style={{
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  padding: "0.5rem",
+                  margin: "0",
+                  fontSize: "1.1rem",
+                  fontWeight: 500,
+                }}
+                required
+                type="text"
+                placeholder="Pasta da Aula"
+                value={tutoring.attachments}
+                onChange={(e) => {
+                  const newTutorings = [...tutorings];
+                  newTutorings[index].attachments = e.target.value;
+                  setTutorings(newTutorings);
+                }}
+              />
+              <input
+                style={{
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  padding: "0.5rem",
+                  margin: "0",
+                  fontSize: "1.1rem",
+                  fontWeight: 500,
+                }}
+                type="date"
+                placeholder="Data"
+                value={tutoring.date}
+                onChange={(e) => {
+                  const newTutorings = [...tutorings];
+                  newTutorings[index].date = e.target.value;
+                  setTutorings(newTutorings);
+                }}
+                required
+              />
+            </DivGrid>
             <input
               style={{
                 alignItems: "center",
@@ -187,26 +209,26 @@ export function NewTutoring({ headers }) {
               }}
               type="date"
               placeholder="Data"
-              value={tutoring.date}
+              value={dueDate}
               onChange={(e) => {
-                const newTutorings = [...tutorings];
-                newTutorings[index].date = e.target.value;
-                setTutorings(newTutorings);
+                setDueDate(e.target.value);
+                console.log(e.target.value, dueDate);
               }}
               required
             />
-          </DivGrid>
+            <ArvinButton
+              disabled={disabled}
+              style={{
+                marginLeft: "auto",
+                cursor: disabled ? "not-allowed" : "pointer",
+              }}
+              type="submit"
+            >
+              {button}
+            </ArvinButton>
+            <HTMLEditor onChange={handleHWDescriptionChange} />
+          </div>
         ))}
-        <Button
-          disabled={disabled}
-          style={{
-            marginLeft: "auto",
-            cursor: disabled ? "not-allowed" : "pointer",
-          }}
-          type="submit"
-        >
-          {button}
-        </Button>
       </form>
     </>
   );

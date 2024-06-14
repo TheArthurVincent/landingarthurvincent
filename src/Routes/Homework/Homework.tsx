@@ -15,68 +15,6 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
-// const grouphomeworklist = [
-//   {
-//     title: "Title 1Tutoring  ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 1Tutoring  Title 1Tutoring  Title 1Tutoring  Title 1Tutoring  Title 1Tutoring  Title 1</b>Title 1Title 1Title 1Title 1Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-//   {
-//     title: "Title 2Tutoring  ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 2Tutoring  Title 2Tutoring  Title 2Tutoring  Title 2Tutoring  Title 2Tutoring  Title 2</b>Title 2Title 2Title 2Title 1Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-//   {
-//     title: "Title 3Tutoring  ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 3Tutoring  Title 3Tutoring  Title 3Tutoring  Title 3Tutoring  Title 3Tutoring  Title 3</b>Title 3Title 3Title 3Title 1Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-//   {
-//     title: "Title 4Tutoring  ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 4Tutoring  Title 4Tutoring  Title 4Tutoring  Title 4Tutoring  Title 4Tutoring  Title 4</b>Title 4Title 4Title 4Title 4Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-// ];
-
-// const tutoringhomeworklist = [
-//   {
-//     title: "Title 1 2 ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 1 Group Title 1 Group Title 1 Group Title 1 Group Title 1 Group Title 1</b>Title 1Title 1Title 1Title 1Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-//   {
-//     title: "Title 2 Group ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 2 Group Title 2 Group Title 2 Group Title 2 Group Title 2 Group Title 2</b>Title 2Title 2Title 2Title 1Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-//   {
-//     title: "Title 3 Group ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 3 Group Title 3 Group Title 3 Group Title 3 Group Title 3 Group Title 3</b>Title 3Title 3Title 3Title 1Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-//   {
-//     title: "Title 4 Group ",
-//     date: new Date(),
-//     status: "done",
-//     html: "<b>Title 4 Group Title 4 Group Title 4 Group Title 4 Group Title 4 Group Title 4</b>Title 4Title 4Title 4Title 4Title 1Title 1Title 1<br/>",
-//     link: "http://www.google.com/",
-//   },
-// ];
-
 export function Homework({ headers }: HeadersProps) {
   const [groupList, setGroupList] = useState<any>([]);
   const [tutoringList, setTutoringList] = useState<any>([]);
@@ -122,12 +60,20 @@ export function Homework({ headers }: HeadersProps) {
           <SectionHW>
             <article>
               <HTwo>Tutorings</HTwo>
-              <ul>
+              <ul
+                style={{
+                  overflowY: "auto",
+                  maxHeight: "70vh",
+                  padding: "1px",
+                  border: "1px solid black",
+                }}
+              >
                 {tutoringList.map((homework: any, index: number) => {
                   return (
                     <li
                       key={index}
                       style={{
+                        marginBottom: "1px",
                         textDecoration: "none",
                         display: "grid",
                         gap: "8px",
@@ -136,7 +82,9 @@ export function Homework({ headers }: HeadersProps) {
                         border: `1px solid ${primaryColor()}`,
                       }}
                     >
-                      <h3>Title: {formatDateBr(homework.assignmentDate)}</h3>
+                      <HTwo>
+                        Title: {formatDateBr(homework.assignmentDate)}
+                      </HTwo>
                       <div style={{ display: "flex", gap: "5px" }}>
                         {/* <i
                           className="fa fa-check-circle"
@@ -167,6 +115,10 @@ export function Homework({ headers }: HeadersProps) {
                       </div>
                       <div style={{ width: "20rem" }}>
                         <div
+                          style={{
+                            backgroundColor: "#eee",
+                            padding: "1rem",
+                          }}
                           dangerouslySetInnerHTML={{
                             __html: homework.description,
                           }}
@@ -183,12 +135,20 @@ export function Homework({ headers }: HeadersProps) {
             </article>
             <article>
               <HTwo>Group Classes</HTwo>
-              <ul>
+              <ul
+                style={{
+                  overflowY: "auto",
+                  maxHeight: "70vh",
+                  padding: "1px",
+                  border: "1px solid black",
+                }}
+              >
                 {groupList.map((homework: any, index: number) => {
                   return (
                     <li
                       key={index}
                       style={{
+                        marginBottom: "1px",
                         textDecoration: "none",
                         display: "grid",
                         gap: "8px",
@@ -197,7 +157,9 @@ export function Homework({ headers }: HeadersProps) {
                         border: `1px solid ${secondaryColor()}`,
                       }}
                     >
-                      <h3>Title: {formatDateBr(homework.assignmentDate)}</h3>
+                      <HTwo>
+                        Title: {formatDateBr(homework.assignmentDate)}
+                      </HTwo>
                       <div style={{ display: "flex", gap: "5px" }}>
                         {/* <i
                           className="fa fa-check-circle"
@@ -228,6 +190,10 @@ export function Homework({ headers }: HeadersProps) {
                       </div>
                       <div style={{ width: "20rem" }}>
                         <div
+                          style={{
+                            backgroundColor: "#eee",
+                            padding: "1rem",
+                          }}
                           dangerouslySetInnerHTML={{
                             __html: homework.description,
                           }}
