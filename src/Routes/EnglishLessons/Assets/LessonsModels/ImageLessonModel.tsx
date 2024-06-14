@@ -85,23 +85,25 @@ export default function ImageLessonModel({
         {element.images &&
           element.images.map((image: any, i: number) => (
             <LiGridImageLessons key={i}>
-              <div>
-                {" "}
-                <ArvinButton
-                  color="white"
-                  onClick={() => addNewCards(image.english, image.portuguese)}
-                >
-                  en-pt
-                </ArvinButton>
-                <ArvinButton
-                  color="white"
-                  onClick={() =>
-                    addNewCardsInverted(image.english, image.portuguese)
-                  }
-                >
-                  pt-en
-                </ArvinButton>
-              </div>
+              {id === "651311fac3d58753aa9281c5" && (
+                <div>
+                  {" "}
+                  <ArvinButton
+                    color="white"
+                    onClick={() => addNewCards(image.english, image.portuguese)}
+                  >
+                    en-pt
+                  </ArvinButton>
+                  <ArvinButton
+                    color="white"
+                    onClick={() =>
+                      addNewCardsInverted(image.english, image.portuguese)
+                    }
+                  >
+                    pt-en
+                  </ArvinButton>
+                </div>
+              )}
               <ImgLesson src={image.img} />
               <span
                 style={{
