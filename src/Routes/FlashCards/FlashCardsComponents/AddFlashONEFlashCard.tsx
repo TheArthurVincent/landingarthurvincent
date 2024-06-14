@@ -8,6 +8,8 @@ interface AddOneFlashCardProps {
   backCard: string;
   languageFront: string;
   languageBack: string;
+  backComments: string;
+  handleCommentsBack: (index: number, value: string) => void;
   handleFrontCardChange: (index: number, value: string) => void;
   handleBackCardChange: (index: number, value: string) => void;
   handleLanguageFrontChange: (index: number, value: string) => void;
@@ -20,6 +22,8 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
   backCard,
   languageFront,
   languageBack,
+  backComments,
+  handleCommentsBack,
   handleFrontCardChange,
   handleBackCardChange,
   handleLanguageFrontChange,
@@ -32,6 +36,7 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
         <input
           style={{ maxWidth: "120px", margin: "1px" }}
           value={frontCard}
+          placeholder="front"
           onChange={(e) => {
             handleFrontCardChange(index, e.target.value);
           }}
@@ -52,6 +57,7 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
       <article id="back">
         <input
           style={{ maxWidth: "120px", margin: "1px" }}
+          placeholder="back"
           value={backCard}
           onChange={(e) => handleBackCardChange(index, e.target.value)}
           type="text"
@@ -68,6 +74,12 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
           ))}
         </select>
       </article>
+      <input
+        type="text"
+        placeholder="comments"
+        value={backComments}
+        onChange={(e: any) => handleCommentsBack(index, e.target.value)}
+      />
     </div>
   );
 };

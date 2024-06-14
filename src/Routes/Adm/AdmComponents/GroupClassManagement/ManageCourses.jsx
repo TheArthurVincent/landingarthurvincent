@@ -294,7 +294,7 @@ export function ManageGroupClasses({ headers }) {
             {" "}
             <div id="1">
               {" "}
-              <HTwo>Postar aula em um curso</HTwo>
+              <HTwo>Postar aula em grupo</HTwo>
               <div
                 style={{
                   display: "grid",

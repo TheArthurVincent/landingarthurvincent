@@ -16,6 +16,7 @@ interface FlashCard {
   backCard: string;
   languageFront: string;
   languageBack: string;
+  backComments: string;
 }
 
 interface AddFlashCardsProps {
@@ -62,7 +63,13 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
     console.log(cards);
     setCards([
       ...cards,
-      { frontCard: "", backCard: "", languageFront: "en", languageBack: "pt" },
+      {
+        frontCard: "",
+        backCard: "",
+        languageFront: "en",
+        languageBack: "pt",
+        backComments: "",
+      },
     ]);
   };
 
@@ -90,8 +97,15 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
     setCards(newCards);
   };
 
+  const handleCommentsBack = (index: number, value: string) => {
+    const newCards = [...cards];
+    newCards[index].backComments = value;
+    setCards(newCards);
+  };
+
   const addNewCards = async () => {
     const newCards = cards.map((card) => ({
+      backComments: card.backComments,
       front: {
         text: card.frontCard,
         language: card.languageFront,
@@ -119,7 +133,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
       style={{
         //@ts-ignore
         position: display,
-        border: display  == "fixed" ? "1px solid black" : "none",
+        border: display == "fixed" ? "1px solid black" : "none",
         borderRadius: "1rem",
         zIndex: 10000,
         bottom: 10,
@@ -176,12 +190,14 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
                     index={index}
                     frontCard={card.frontCard}
                     backCard={card.backCard}
+                    backComments={card.backComments}
                     languageFront={card.languageFront}
                     languageBack={card.languageBack}
                     handleFrontCardChange={handleFrontCardChange}
                     handleBackCardChange={handleBackCardChange}
                     handleLanguageFrontChange={handleLanguageFrontChange}
                     handleLanguageBackChange={handleLanguageBackChange}
+                    handleCommentsBack={handleCommentsBack}
                   />
                 ))}
               </div>

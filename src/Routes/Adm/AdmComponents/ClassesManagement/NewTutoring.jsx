@@ -21,6 +21,7 @@ export function NewTutoring({ headers }) {
   const [newAttachments, setAttachments] = useState("");
   const [newHWDescription, setNewHWDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
+  
   const handleHWDescriptionChange = (htmlContent) => {
     setNewHWDescription(htmlContent);
     console.log(htmlContent)
