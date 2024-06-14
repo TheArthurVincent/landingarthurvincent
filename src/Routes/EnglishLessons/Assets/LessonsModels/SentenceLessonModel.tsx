@@ -90,22 +90,28 @@ export default function SentenceLessonModel({
       {element.sentences &&
         element.sentences.map((sentence: any, i: number) => (
           <LiSentence key={i}>
-            <ArvinButton
-              color="white"
-              onClick={() => addNewCards(sentence.english, sentence.portuguese)}
-            >
-              En-Pt
-            </ArvinButton>
-            <ArvinButton
-              color="white"
-              onClick={() =>
-                addNewCardsInverted(sentence.english, sentence.portuguese)
-              }
-            >
-              Pt-En
-            </ArvinButton>
-            <br />
-            <br />
+            {id === "651311fac3d58753aa9281c5" && (
+              <>
+                <ArvinButton
+                  color="white"
+                  onClick={() =>
+                    addNewCards(sentence.english, sentence.portuguese)
+                  }
+                >
+                  En-Pt
+                </ArvinButton>
+                <ArvinButton
+                  color="white"
+                  onClick={() =>
+                    addNewCardsInverted(sentence.english, sentence.portuguese)
+                  }
+                >
+                  Pt-En
+                </ArvinButton>
+                <br />
+                <br />
+              </>
+            )}
             <strong
               style={{
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
