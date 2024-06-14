@@ -28,11 +28,11 @@ export default function ImageLessonModel({
       {
         front: {
           text: frontText,
-          language: "pt",
+          language: "en",
         },
         back: {
           text: backText,
-          language: "en",
+          language: "pt",
         },
       },
     ];
@@ -44,9 +44,30 @@ export default function ImageLessonModel({
         { newCards },
         { headers: actualHeaders }
       );
-      console.log(response);
+    } catch (error) {
+      alert("Erro ao enviar cards");
+    }
+  };
+  const addNewCardsInverted = async (frontText: string, backText: string) => {
+    const newCards = [
+      {
+        back: {
+          text: frontText,
+          language: "en",
+        },
+        front: {
+          text: backText,
+          language: "pt",
+        },
+      },
+    ];
 
-      console.log(newCards);
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/flashcard/${id}`,
+        { newCards },
+        { headers: actualHeaders }
+      );
     } catch (error) {
       alert("Erro ao enviar cards");
     }
@@ -64,12 +85,23 @@ export default function ImageLessonModel({
         {element.images &&
           element.images.map((image: any, i: number) => (
             <LiGridImageLessons key={i}>
-              <ArvinButton
-                color="white"
-                onClick={() => addNewCards(image.portuguese, image.english)}
-              >
-                <i className="fa fa-copy" aria-hidden="true" />
-              </ArvinButton>
+              <div>
+                {" "}
+                <ArvinButton
+                  color="white"
+                  onClick={() => addNewCards(image.english, image.portuguese)}
+                >
+                  en-pt
+                </ArvinButton>
+                <ArvinButton
+                  color="white"
+                  onClick={() =>
+                    addNewCardsInverted(image.english, image.portuguese)
+                  }
+                >
+                  pt-en
+                </ArvinButton>
+              </div>
               <ImgLesson src={image.img} />
               <span
                 style={{
