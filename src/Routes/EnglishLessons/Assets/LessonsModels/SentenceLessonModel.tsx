@@ -48,6 +48,33 @@ export default function SentenceLessonModel({
       alert("Erro ao enviar cards");
     }
   };
+  const addNewCardsInverted = async (frontText: string, backText: string) => {
+    const newCards = [
+      {
+        back: {
+          text: frontText,
+          language: "en",
+        },
+        front: {
+          text: backText,
+          language: "pt",
+        },
+      },
+    ];
+    console.log(newCards);
+
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/flashcard/${id}`,
+        { newCards },
+        { headers: actualHeaders }
+      );
+
+      console.log(response);
+    } catch (error) {
+      alert("Erro ao enviar cards");
+    }
+  };
 
   return (
     <UlSentences
@@ -67,7 +94,15 @@ export default function SentenceLessonModel({
               color="white"
               onClick={() => addNewCards(sentence.english, sentence.portuguese)}
             >
-              <i className="fa fa-copy" aria-hidden="true" />
+              En-Pt
+            </ArvinButton>
+            <ArvinButton
+              color="white"
+              onClick={() =>
+                addNewCardsInverted(sentence.english, sentence.portuguese)
+              }
+            >
+              Pt-En
             </ArvinButton>
             <br />
             <br />

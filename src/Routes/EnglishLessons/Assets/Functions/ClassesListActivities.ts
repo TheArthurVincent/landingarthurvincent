@@ -1,6 +1,6 @@
 export const lessons = [
   {
-    title: "Introducing Yourself / Basics",
+    title: "Introducing Yourself, Basics",
     order: 1,
     type: "1- Basic",
     description:
@@ -56,7 +56,7 @@ export const lessons = [
     ],
   },
   {
-    title: "The Alphabet / Spelling",
+    title: "The Alphabet, Spelling",
     order: 2,
     type: "1- Basic",
     description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
@@ -333,7 +333,7 @@ export const lessons = [
         comments:
           "Estes são os artigos indefinidos, ou seja, 'um' ou 'uma'. Você usa 'a' para palavras que antecedem consoantes, e 'an' para palavras que antecedem vogais.",
         order: 0,
-        grid: 2,
+        grid: 3,
         type: "sentences",
         sentences: [
           { english: "a house", portuguese: "uma casa" },
@@ -351,17 +351,17 @@ export const lessons = [
       },
       {
         subtitle: "The",
-        comments: "Este é o artigo indefinido, ou seja, 'o / a / os / as'.",
+        comments: "Este é o artigo indefinido, ou seja, 'o, a, os, as'.",
         order: 1,
-        grid: 2,
+        grid: 3,
         type: "sentences",
         sentences: [
-          { english: "the doctor", portuguese: "o médico / a médica" },
-          { english: "the nurse", portuguese: "o enfermeiro / a enfermeira" },
-          { english: "the teacher", portuguese: "o professor / a professora" },
+          { english: "the doctor", portuguese: "o médico, a médica" },
+          { english: "the nurse", portuguese: "o enfermeiro, a enfermeira" },
+          { english: "the teacher", portuguese: "o professor, a professora" },
           {
             english: "the engineer",
-            portuguese: "o engenheiro / a engenheira",
+            portuguese: "o engenheiro, a engenheira",
           },
           { english: "the ocean", portuguese: "o oceano" },
           { english: "the beach", portuguese: "a praia" },
@@ -381,7 +381,7 @@ export const lessons = [
           },
           {
             english: "There",
-            portuguese: "Lá / Aí",
+            portuguese: "Lá, Aí",
           },
           {
             english: "Friend",
@@ -438,8 +438,20 @@ export const lessons = [
             portuguese: "Eles são da França?",
           },
           {
+            english: "Will he be your brother?",
+            portuguese: "Ele será seu irmão?",
+          },
+          {
             english: "Mark is not a nice person.",
             portuguese: "Mark não é uma pessoa legal.",
+          },
+          {
+            english: "You will be my friend.",
+            portuguese: "Você será meu amigo.",
+          },
+          {
+            english: "We will be going to the park.",
+            portuguese: "Estaremos indo para o Parque.",
           },
           {
             english: "We are not on vacation.",
@@ -461,12 +473,111 @@ export const lessons = [
             english: "She isn't my friend.",
             portuguese: "Ela não é minha amiga.",
           },
+          {
+            english: "I will be a student.",
+            portuguese: "Eu serei um estudante.",
+          },
+          {
+            english: "Will you be coming to the party?",
+            portuguese: "Você estará vindo para a festa?",
+          },
+          {
+            english: "Will we be going to the movies tonight?",
+            portuguese: "Vamos ao cinema hoje à noite?",
+          },
+          {
+            english: "She will be a teacher.",
+            portuguese: "Ela será uma professora.",
+          },
+          {
+            english: "They will be studying for the exam.",
+            portuguese: "Eles estarão estudando para o exame.",
+          },
+          {
+            english: "Will I be late for the meeting?",
+            portuguese: "Estarei atrasado para a reunião?",
+          },
+          {
+            english: "Will they be from France?",
+            portuguese: "Eles serão da França?",
+          },
+          {
+            english: "They will not be aware of the changes.",
+            portuguese: "Eles não estarão cientes das mudanças.",
+          },
+          {
+            english: "I will not be interested in that!",
+            portuguese: "Eu não estarei interessado nisso!",
+          },
+          {
+            english: "You will not be allowed to enter.",
+            portuguese: "Você não terá permissão para entrar.",
+          },
+          {
+            english: "Mark will not be a nice person.",
+            portuguese: "Mark não será uma pessoa legal.",
+          },
+          {
+            english: "We will not be on vacation.",
+            portuguese: "Não estaremos de férias.",
+          },
+          { english: "I was a student.", portuguese: "Eu era um estudante." },
+          { english: "You were my friend.", portuguese: "Você era meu amigo." },
+          {
+            english: "She was a teacher.",
+            portuguese: "Ela era uma professora.",
+          },
+          {
+            english: "We were going to the park.",
+            portuguese: "Estávamos indo para o Parque.",
+          },
+          {
+            english: "They were studying for the exam.",
+            portuguese: "Eles estavam estudando para o exame.",
+          },
+          {
+            english: "Mark was not a nice person.",
+            portuguese: "Mark não era uma pessoa legal.",
+          },
+          {
+            english: "We were not on vacation.",
+            portuguese: "Não estávamos de férias.",
+          },
+          {
+            english: "They were not aware of the changes.",
+            portuguese: "Eles não estavam cientes das mudanças.",
+          },
+          {
+            english: "Was I late for the meeting?",
+            portuguese: "Estava atrasado para a reunião?",
+          },
+          {
+            english: "Were you coming to the party?",
+            portuguese: "Você estava vindo para a festa?",
+          },
+          {
+            english: "Were they from France?",
+            portuguese: "Eles eram da França?",
+          },
+          {
+            english: "I was not interested in that!",
+            portuguese: "Eu não estava interessado nisso!",
+          },
+          { english: "Was he your brother?", portuguese: "Ele era seu irmão?" },
+          {
+            english: "Were we going to the movies tonight?",
+            portuguese: "Íamos ao cinema hoje à noite?",
+          },
+          {
+            english: "You were not allowed to enter.",
+            portuguese: "Você não tinha permissão para entrar.",
+          },
         ],
       },
     ],
   },
   {
-    title: "To be - Present tense",
+    title: "To be",
     order: 9,
     type: "1- Basic",
     description:
@@ -479,15 +590,16 @@ export const lessons = [
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
         order: 0,
+        grid: 3,
         type: "sentences",
         sentences: [
-          { english: "I am", portuguese: "Eu sou / Eu estou" },
-          { english: "You are", portuguese: "Você é / Você está" },
-          { english: "He is", portuguese: "Ele é / Ele está" },
-          { english: "She is", portuguese: "Ela é / Ela está" },
-          { english: "It is", portuguese: "Ele/Ela é / Está" },
-          { english: "We are", portuguese: "Nós somos / Nós estamos" },
-          { english: "They are", portuguese: "Eles são / Eles estão" },
+          { english: "I am", portuguese: "Eu sou, Eu estou" },
+          { english: "You are", portuguese: "Você é, Você está" },
+          { english: "He is", portuguese: "Ele é, Ele está" },
+          { english: "She is", portuguese: "Ela é, Ela está" },
+          { english: "It is", portuguese: "Ele/Ela é, Está" },
+          { english: "We are", portuguese: "Nós somos, Nós estamos" },
+          { english: "They are", portuguese: "Eles são, Eles estão" },
         ],
       },
       {
@@ -495,27 +607,28 @@ export const lessons = [
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver negando!",
         order: 1,
+        grid: 3,
         type: "sentences",
         sentences: [
           {
-            english: "I am not / I'm not",
-            portuguese: "Eu não sou / Eu não estou",
+            english: "I am not, I'm not",
+            portuguese: "Eu não sou, Eu não estou",
           },
           {
-            english: "You are not / You aren't / You're not",
-            portuguese: "Você não é / Você não está",
+            english: "You are not, You aren't, You're not",
+            portuguese: "Você não é, Você não está",
           },
           {
-            english: "He is not / He isn't / He's not",
-            portuguese: "Ele não é / Ele não está",
+            english: "He is not, He isn't, He's not",
+            portuguese: "Ele não é, Ele não está",
           },
           {
-            english: "She is not / She isn't / She's not",
-            portuguese: "Ela não é / Ela não está",
+            english: "She is not, She isn't, She's not",
+            portuguese: "Ela não é, Ela não está",
           },
           {
-            english: "It is not / It isn't / It's not",
-            portuguese: "Ele/Ela não é / Está",
+            english: "It is not, It isn't, It's not",
+            portuguese: "Ele/Ela não é, Está",
           },
         ],
       },
@@ -523,54 +636,213 @@ export const lessons = [
         subtitle: "Interrogative Conjugations!",
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver perguntando!",
+        grid: 3,
         order: 2,
         type: "sentences",
         sentences: [
-          { english: "Am I?", portuguese: "Eu sou? / Eu estou?" },
-          { english: "Are you?", portuguese: "Você é? / Você está?" },
-          { english: "Is he?", portuguese: "Ele é? / Ele está?" },
-          { english: "Is she?", portuguese: "Ela é? / Ela está?" },
-          { english: "Is it?", portuguese: "Ele/Ela é? / Está?" },
-          { english: "Are we?", portuguese: "Nós somos? / Nós estamos?" },
-          { english: "Are they?", portuguese: "Eles são? / Eles estão?" },
+          { english: "Am I?", portuguese: "Eu sou?, Eu estou?" },
+          { english: "Are you?", portuguese: "Você é?, Você está?" },
+          { english: "Is he?", portuguese: "Ele é?, Ele está?" },
+          { english: "Is she?", portuguese: "Ela é?, Ela está?" },
+          { english: "Is it?", portuguese: "Ele/Ela é?, Está?" },
+          { english: "Are we?", portuguese: "Nós somos?, Nós estamos?" },
+          { english: "Are they?", portuguese: "Eles são?, Eles estão?" },
+        ],
+      },
+      {
+        subtitle: "Past Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês no passado!",
+        order: 3,
+        grid: 3,
+        type: "sentences",
+        sentences: [
+          { english: "I was", portuguese: "Eu era, Eu estava" },
+          { english: "You were", portuguese: "Você era, Você estava" },
+          { english: "He was", portuguese: "Ele era, Ele estava" },
+          { english: "She was", portuguese: "Ela era, Ela estava" },
+          { english: "It was", portuguese: "Ele/Ela era, Estava" },
+          { english: "We were", portuguese: "Nós éramos, Nós estávamos" },
+          { english: "They were", portuguese: "Eles eram, Eles estavam" },
+        ],
+      },
+      {
+        subtitle: "Negative Past Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês no passado, se estiver negando!",
+        order: 4,
+        grid: 3,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I was not, I wasn't",
+            portuguese: "Eu não era, Eu não estava",
+          },
+          {
+            english: "You were not, You weren't",
+            portuguese: "Você não era, Você não estava",
+          },
+          {
+            english: "He was not, He wasn't",
+            portuguese: "Ele não era, Ele não estava",
+          },
+          {
+            english: "She was not, She wasn't",
+            portuguese: "Ela não era, Ela não estava",
+          },
+          {
+            english: "It was not, It wasn't",
+            portuguese: "Ele/Ela não era, Estava",
+          },
+          {
+            english: "We were not, We weren't",
+            portuguese: "Nós não éramos, Nós não estávamos",
+          },
+          {
+            english: "They were not, They weren't",
+            portuguese: "Eles não eram, Eles não estavam",
+          },
+        ],
+      },
+      {
+        subtitle: "Interrogative Past Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês no passado, se estiver perguntando!",
+        grid: 3,
+        order: 5,
+        type: "sentences",
+        sentences: [
+          { english: "Was I?", portuguese: "Eu era?, Eu estava?" },
+          { english: "Were you?", portuguese: "Você era?, Você estava?" },
+          { english: "Was he?", portuguese: "Ele era?, Ele estava?" },
+          { english: "Was she?", portuguese: "Ela era?, Ela estava?" },
+          { english: "Was it?", portuguese: "Ele/Ela era?, Estava?" },
+          { english: "Were we?", portuguese: "Nós éramos?, Nós estávamos?" },
+          { english: "Were they?", portuguese: "Eles eram?, Eles estavam?" },
+        ],
+      },
+      {
+        subtitle: "Future Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês no futuro!",
+        grid: 3,
+        order: 6,
+        type: "sentences",
+        sentences: [
+          { english: "I will be", portuguese: "Eu serei, Eu estarei" },
+          { english: "You will be", portuguese: "Você será, Você estará" },
+          { english: "He will be", portuguese: "Ele será, Ele estará" },
+          { english: "She will be", portuguese: "Ela será, Ela estará" },
+          { english: "It will be", portuguese: "Ele/Ela será, Estará" },
+          { english: "We will be", portuguese: "Nós seremos, Nós estaremos" },
+          { english: "They will be", portuguese: "Eles serão, Eles estarão" },
+        ],
+      },
+      {
+        subtitle: "Negative Future Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês no futuro, se estiver negando!",
+        grid: 3,
+        order: 7,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I will not be, I won't be",
+            portuguese: "Eu não serei, Eu não estarei",
+          },
+          {
+            english: "You will not be, You won't be",
+            portuguese: "Você não será, Você não estará",
+          },
+          {
+            english: "He will not be, He won't be",
+            portuguese: "Ele não será, Ele não estará",
+          },
+          {
+            english: "She will not be, She won't be",
+            portuguese: "Ela não será, Ela não estará",
+          },
+          {
+            english: "It will not be, It won't be",
+            portuguese: "Ele/Ela não será, Estará",
+          },
+          {
+            english: "We will not be, We won't be",
+            portuguese: "Nós não seremos, Nós não estaremos",
+          },
+          {
+            english: "They will not be, They won't be",
+            portuguese: "Eles não serão, Eles não estarão",
+          },
+        ],
+      },
+      {
+        subtitle: "Interrogative Future Conjugations!",
+        comments:
+          "É assim que você conjuga 'ser' ou 'estar' em inglês no futuro, se estiver perguntando!",
+        grid: 3,
+        order: 8,
+        type: "sentences",
+        sentences: [
+          { english: "Will I be?", portuguese: "Eu serei?, Eu estarei?" },
+          { english: "Will you be?", portuguese: "Você será?, Você estará?" },
+          { english: "Will he be?", portuguese: "Ele será?, Ele estará?" },
+          { english: "Will she be?", portuguese: "Ela será?, Ela estará?" },
+          { english: "Will it be?", portuguese: "Ele/Ela será?, Estará?" },
+          {
+            english: "Will we be?",
+            portuguese: "Nós seremos?, Nós estaremos?",
+          },
+          {
+            english: "Will they be?",
+            portuguese: "Eles serão?, Eles estarão?",
+          },
         ],
       },
       {
         subtitle: "Vocabulary",
         comments: "Vocabulário para praticar",
-        order: 3,
+        grid: 3,
+        order: 9,
         type: "sentences",
         sentences: [
-          {
-            english: "Here",
-            portuguese: "Aqui",
-          },
-          {
-            english: "There",
-            portuguese: "Lá / Aí",
-          },
-          {
-            english: "Friend",
-            portuguese: "Amigo (a)",
-          },
-          {
-            english: "Enemy",
-            portuguese: "Inimigo (a)",
-          },
-          {
-            english: "Happy",
-            portuguese: "Feliz",
-          },
-          {
-            english: "Sad",
-            portuguese: "Triste",
-          },
+          { english: "Here", portuguese: "Aqui" },
+          { english: "Looking for", portuguese: "Procurando" },
+          { english: "Mall", portuguese: "Shopping" },
+          { english: "Parents", portuguese: "Pais (os 2)" },
+          { english: "Beach", portuguese: "Praia" },
+          { english: "Engineer", portuguese: "Engenheiro (a)" },
+          { english: "Close", portuguese: "Perto" },
+          { english: "Nurse", portuguese: "Enfermeiro (a)" },
+          { english: "Twins", portuguese: "Gêmeos" },
+          { english: "Expensive", portuguese: "Caro" },
+          { english: "Earlier", portuguese: "Mais cedo" },
+          { english: "Year", portuguese: "Ano" },
+          { english: "First", portuguese: "Primeiro" },
+          { english: "Second", portuguese: "Segundo" },
+        ],
+      },
+
+      {
+        subtitle: "Vocabulary",
+        comments: "Vocabulário para praticar",
+        grid: 3,
+        order: 10,
+        type: "sentences",
+        sentences: [
+          { english: "Here", portuguese: "Aqui" },
+          { english: "There", portuguese: "Lá, Aí" },
+          { english: "Friend", portuguese: "Amigo (a)" },
+          { english: "Enemy", portuguese: "Inimigo (a)" },
+          { english: "Happy", portuguese: "Feliz" },
+          { english: "Sad", portuguese: "Triste" },
         ],
       },
       {
         subtitle: "Examples in Sentences",
         comments: "Veja algumas frases abaixo que usam o verbo 'To be'",
-        order: 4,
+        order: 11,
+        grid: 2,
         image:
           "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/business.jpg?updatedAt=1697220823801",
         type: "sentences",
@@ -627,133 +899,192 @@ export const lessons = [
             english: "She isn't my friend.",
             portuguese: "Ela não é minha amiga.",
           },
+
+          // Future tense additions
+          {
+            english: "I will be a student.",
+            portuguese: "Eu serei um estudante.",
+          },
+          {
+            english: "You will be my friend.",
+            portuguese: "Você será meu amigo.",
+          },
+          {
+            english: "She will be a teacher.",
+            portuguese: "Ela será uma professora.",
+          },
+          {
+            english: "We will be going to the park.",
+            portuguese: "Estaremos indo para o Parque.",
+          },
+          {
+            english: "They will be studying for the exam.",
+            portuguese: "Eles estarão estudando para o exame.",
+          },
+
+          // Interrogative future tense additions
+          {
+            english: "Will I be late for the meeting?",
+            portuguese: "Estarei atrasado para a reunião?",
+          },
+          {
+            english: "Will you be coming to the party?",
+            portuguese: "Você estará vindo para a festa?",
+          },
+          {
+            english: "Will he be your brother?",
+            portuguese: "Ele será seu irmão?",
+          },
+          {
+            english: "Will we be going to the movies tonight?",
+            portuguese: "Vamos ao cinema hoje à noite?",
+          },
+          {
+            english: "Will they be from France?",
+            portuguese: "Eles serão da França?",
+          },
+
+          // Negative future tense additions
+          {
+            english: "Mark will not be a nice person.",
+            portuguese: "Mark não será uma pessoa legal.",
+          },
+          {
+            english: "We will not be on vacation.",
+            portuguese: "Não estaremos de férias.",
+          },
+          {
+            english: "They will not be aware of the changes.",
+            portuguese: "Eles não estarão cientes das mudanças.",
+          },
+          {
+            english: "I will not be interested in that!",
+            portuguese: "Eu não estarei interessado nisso!",
+          },
+          {
+            english: "You will not be allowed to enter.",
+            portuguese: "Você não terá permissão para entrar.",
+          },
+
+          // Past tense additions
+          { english: "I was a student.", portuguese: "Eu era um estudante." },
+          { english: "You were my friend.", portuguese: "Você era meu amigo." },
+          {
+            english: "She was a teacher.",
+            portuguese: "Ela era uma professora.",
+          },
+          {
+            english: "We were going to the park.",
+            portuguese: "Estávamos indo para o Parque.",
+          },
+          {
+            english: "They were studying for the exam.",
+            portuguese: "Eles estavam estudando para o exame.",
+          },
+
+          // Interrogative past tense additions
+          {
+            english: "Was I late for the meeting?",
+            portuguese: "Estava atrasado para a reunião?",
+          },
+          {
+            english: "Were you coming to the party?",
+            portuguese: "Você estava vindo para a festa?",
+          },
+          { english: "Was he your brother?", portuguese: "Ele era seu irmão?" },
+          {
+            english: "Were we going to the movies tonight?",
+            portuguese: "Íamos ao cinema hoje à noite?",
+          },
+          {
+            english: "Were they from France?",
+            portuguese: "Eles eram da França?",
+          },
+
+          // Negative past tense additions
+          {
+            english: "Mark was not a nice person.",
+            portuguese: "Mark não era uma pessoa legal.",
+          },
+          {
+            english: "We were not on vacation.",
+            portuguese: "Não estávamos de férias.",
+          },
+          {
+            english: "They were not aware of the changes.",
+            portuguese: "Eles não estavam cientes das mudanças.",
+          },
+          {
+            english: "I was not interested in that!",
+            portuguese: "Eu não estava interessado nisso!",
+          },
+          {
+            english: "You were not allowed to enter.",
+            portuguese: "Você não tinha permissão para entrar.",
+          },
         ],
       },
-      {
-        subtitle: "Vocabulary",
-        comments: "Vocabulário para praticar",
-        order: 5,
-        type: "sentences",
-        sentences: [
-          {
-            english: "Here",
-            portuguese: "Aqui",
-          },
-          {
-            english: "Looking for",
-            portuguese: "Procurando",
-          },
-          {
-            english: "Mall",
-            portuguese: "Shopping",
-          },
-          {
-            english: "Parents",
-            portuguese: "Pais (os 2)",
-          },
-          {
-            english: "Beach",
-            portuguese: "Praia",
-          },
-          {
-            english: "Engineer",
-            portuguese: "Engenheiro (a)",
-          },
-          {
-            english: "Close",
-            portuguese: "Perto",
-          },
-          {
-            english: "Nurse",
-            portuguese: "Enfermeiro (a)",
-          },
-          {
-            english: "Twins",
-            portuguese: "Gêmeos",
-          },
-          {
-            english: "Expensive",
-            portuguese: "Caro",
-          },
-          {
-            english: "Earlier",
-            portuguese: "Mais cedo",
-          },
-          {
-            english: "Year",
-            portuguese: "Ano",
-          },
-          {
-            english: "First",
-            portuguese: "Primeiro",
-          },
-          {
-            english: "Second",
-            portuguese: "Segundo",
-          },
-        ],
-      },
-      {
-        subtitle: "Dialogue Practice #1",
-        order: 6,
-        type: "dialogue",
-        dialogue: [
-          "Hi",
-          "Hello",
-          "How are you?",
-          "I am fine, thank you. And you?",
-          "I am good too, thank you.",
-          "Are you a student?",
-          "Yes, I am. Are you a teacher?",
-          "No, I am not. I am a student too.",
-          "Is this your first year?",
-          "Yes, it is. Is this your first year too?",
-          "No, it is not. It is my second year.",
-        ],
-      },
-      {
-        subtitle: "Dialogue Practice #2",
-        order: 6,
-        type: "dialogue",
-        dialogue: [
-          "Hey, Is Martha here? Tom is looking for her.",
-          "No, she isn't, she's at the mall.",
-        ],
-      },
-      {
-        subtitle: "Dialogue Practice #3",
-        order: 7,
-        type: "dialogue",
-        dialogue: [
-          "Who is she?",
-          "She is my sister.",
-          "Is she a doctor?",
-          "No, she is not. She is a nurse.",
-          "Where is he from?",
-          "He is from Brazil.",
-          "Are they siblings?",
-          "Yes, they are. They are twins.",
-          "Is it expensive?",
-          "Yes, it is. It is very expensive.",
-        ],
-      },
-      {
-        subtitle: "Dialogue Practice #4",
-        order: 8,
-        type: "dialogue",
-        dialogue: [
-          "Who are they?",
-          "They are my parents.",
-          "Are they teachers?",
-          "No, they are not. They are engineers.",
-          "Where are they going?",
-          "They are going to the beach.",
-          "Is it far?",
-          "No, it is not. It is quite close.",
-          "Are you sure?",
-          "Yes, I am. I asked them earlier.",
-        ],
-      },
+      // {
+      //   subtitle: "Dialogue Practice #1",
+      //   order: 12,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Hi",
+      //     "Hello",
+      //     "How are you?",
+      //     "I am fine, thank you. And you?",
+      //     "I am good too, thank you.",
+      //     "Are you a student?",
+      //     "Yes, I am. Are you a teacher?",
+      //     "No, I am not. I am a student too.",
+      //     "Is this your first year?",
+      //     "Yes, it is. Is this your first year too?",
+      //     "No, it is not. It is my second year.",
+      //   ],
+      // },
+      // {
+      //   subtitle: "Dialogue Practice #2",
+      //   order: 13,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Hey, Is Martha here? Tom is looking for her.",
+      //     "No, she isn't, she's at the mall.",
+      //   ],
+      // },
+      // {
+      //   subtitle: "Dialogue Practice #3",
+      //   order: 14,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Who is she?",
+      //     "She is my sister.",
+      //     "Is she a doctor?",
+      //     "No, she is not. She is a nurse.",
+      //     "Where is he from?",
+      //     "He is from Brazil.",
+      //     "Are they siblings?",
+      //     "Yes, they are. They are twins.",
+      //     "Is it expensive?",
+      //     "Yes, it is. It is very expensive.",
+      //   ],
+      // },
+      // {
+      //   subtitle: "Dialogue Practice #4",
+      //   order: 15,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Who are they?",
+      //     "They are my parents.",
+      //     "Are they teachers?",
+      //     "No, they are not. They are engineers.",
+      //     "Where are they going?",
+      //     "They are going to the beach.",
+      //     "Is it far?",
+      //     "No, it is not. It is quite close.",
+      //     "Are you sure?",
+      //     "Yes, I am. I asked them earlier.",
+      //   ],
+      // },
     ],
   },
   {
@@ -785,7 +1116,7 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "Preposition: For (por / para)",
+        subtitle: "Preposition: For (por, para)",
         order: 2,
         type: "sentences",
         comments:
@@ -890,7 +1221,7 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "Preposition: On (em / sobre)",
+        subtitle: "Preposition: On (em, sobre)",
         order: 7,
         type: "sentences",
         comments:
@@ -915,7 +1246,7 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "Preposition: At (em / às)",
+        subtitle: "Preposition: At (em, às)",
         order: 8,
         comments: "Used to indicate specific locations ou time. .",
         type: "sentences",
@@ -1176,7 +1507,8 @@ export const lessons = [
       {
         comments:
           "Estas são as question words, ou seja palavras que usamos em perguntas!",
-        order: 0,
+    grid: 3,
+    order: 0,
         type: "sentences",
         sentences: [
           { english: "Who", portuguese: "Quem" },
@@ -1192,9 +1524,10 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "What - O que / Qual",
+        subtitle: "What - O que, Qual",
         comments: "Qual - Sem opções",
-        order: 1,
+    grid: 2,
+    order: 1,
         type: "sentences",
         sentences: [
           {
@@ -1228,7 +1561,8 @@ export const lessons = [
         subtitle: "Who - Quem",
         comments:
           "'Who' é um pronome interrogativo em inglês usado para perguntar sobre pessoas. É utilizado quando se deseja saber quem realizou uma ação ou quem é o sujeito em questão. Por exemplo: Who is she? (Quem é ela?)",
-        order: 2,
+    grid: 2,
+    order: 2,
         type: "sentences",
 
         sentences: [
@@ -1286,7 +1620,8 @@ export const lessons = [
         subtitle: "When - Quando",
         comments:
           "'When' é um pronome interrogativo em inglês usado para perguntar sobre tempo. É utilizado quando se deseja saber em que momento algo aconteceu, acontece ou acontecerá. Por exemplo: When is your birthday? (Quando é o seu aniversário?)",
-        order: 3,
+    grid: 2,
+    order: 3,
         type: "sentences",
 
         sentences: [
@@ -1312,7 +1647,8 @@ export const lessons = [
         subtitle: "Where - Onde",
         comments:
           "'Where' é um pronome interrogativo em inglês usado para perguntar sobre localização ou lugar. É utilizado quando se deseja saber onde algo aconteceu, acontece ou acontecerá. Por exemplo: Where are you? (Onde você está?)",
-        order: 4,
+    grid: 2,
+    order: 4,
         type: "sentences",
         sentences: [
           {
@@ -1339,6 +1675,7 @@ export const lessons = [
           "'Why' é um pronome interrogativo em inglês usado para perguntar sobre razões ou motivos. É utilizado quando se deseja saber o motivo pelo qual algo aconteceu, acontece ou acontecerá. Por exemplo: Why are you late? (Por que você está atrasado?)",
         order: 5,
         type: "sentences",
+        grid: 2,
 
         sentences: [
           {
@@ -1360,11 +1697,12 @@ export const lessons = [
         ],
       },
       {
-        subtitle: "Whose - De quem / Cujo",
+        subtitle: "Whose - De quem, Cujo",
         comments:
           "'Whose' é um pronome interrogativo em inglês usado para perguntar sobre posse. É utilizado quando se deseja saber a quem algo pertence. Por exemplo: Whose book is this? (De quem é este livro?)",
         order: 6,
         type: "sentences",
+        grid: 2,
 
         sentences: [
           {
@@ -1388,8 +1726,9 @@ export const lessons = [
       {
         subtitle: "How - Como",
         comments:
-          "'How' é um question word em inglês usado para perguntar sobre a maneira ou o modo de fazer algo, ou sobre a quantidade ou grau de algo. Por exemplo: How are you? (Como você está?) / How much does it cost? (Quanto custa?)",
+          "'How' é um question word em inglês usado para perguntar sobre a maneira ou o modo de fazer algo, ou sobre a quantidade ou grau de algo. Por exemplo: How are you? (Como você está?), How much does it cost? (Quanto custa?)",
         order: 7,
+    grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1415,6 +1754,7 @@ export const lessons = [
         comments:
           "'How Many' é usado para perguntar sobre a quantidade de algo que pode ser contado em números inteiros. Por exemplo: How many apples do you have? (Quantas maçãs você tem?)",
         order: 8,
+    grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1440,6 +1780,7 @@ export const lessons = [
         comments:
           "'How Much' é usado para perguntar sobre a quantidade de algo que não pode ser contado facilmente em números inteiros. Por exemplo: How much does it weigh? (Quanto pesa?)",
         order: 9,
+    grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1460,59 +1801,59 @@ export const lessons = [
           },
         ],
       },
-      {
-        subtitle: "Dialogue 1",
-        image:
-          "https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg?auto=compress&cs=tinysrgb&w=600",
-        order: 10,
-        type: "dialogue",
-        dialogue: [
-          "Hi",
-          "Hello",
-          "How are you?",
-          "Fine",
-          "Who is your favorite actor?",
-          "Tom Hanks",
-          "What is your favorite color?",
-          "Blue",
-          "Which movie do you prefer, action or comedy?",
-          "I prefer action movies.",
-          "When is your birthday?",
-          "It's in September.",
-          "Where do you live?",
-          "I live in New York.",
-          "Why did you choose this career?",
-          "Because I love helping people.",
-          "Whose book is this?",
-          "It's Mary's book.",
-          "How did you learn to play the guitar?",
-          "I learned from YouTube tutorials.",
-          "How many siblings do you have?",
-          "I have two sisters.",
-          "How much does that painting cost?",
-          "It costs $2000.",
-        ],
-      },
-      {
-        subtitle: "Answer the questions below.",
-        order: 11,
-        type: "exercise",
-        items: [
-          "Who is your best friend?",
-          "What is your favorite food?",
-          "Where is your dream vacation destination?",
-          "When is your birthday?",
-          "How are you feeling today?",
-          "Why is music important to you?",
-          "Which book are you currently reading?",
-          "Whose birthday party are you attending next?",
-          "What is your favorite movie genre?",
-          "How far is your workplace from your home?",
-          "How much is your favorite car?",
-          "What is your favorite color?",
-          "In your opinion, who is the best actor alive?",
-        ],
-      },
+      // {
+      //   subtitle: "Dialogue 1",
+      //   image:
+      //     "https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg?auto=compress&cs=tinysrgb&w=600",
+      //   order: 10,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Hi",
+      //     "Hello",
+      //     "How are you?",
+      //     "Fine",
+      //     "Who is your favorite actor?",
+      //     "Tom Hanks",
+      //     "What is your favorite color?",
+      //     "Blue",
+      //     "Which movie do you prefer, action or comedy?",
+      //     "I prefer action movies.",
+      //     "When is your birthday?",
+      //     "It's in September.",
+      //     "Where do you live?",
+      //     "I live in New York.",
+      //     "Why did you choose this career?",
+      //     "Because I love helping people.",
+      //     "Whose book is this?",
+      //     "It's Mary's book.",
+      //     "How did you learn to play the guitar?",
+      //     "I learned from YouTube tutorials.",
+      //     "How many siblings do you have?",
+      //     "I have two sisters.",
+      //     "How much does that painting cost?",
+      //     "It costs $2000.",
+      //   ],
+      // },
+      // {
+      //   subtitle: "Answer the questions below.",
+      //   order: 11,
+      //   type: "exercise",
+      //   items: [
+      //     "Who is your best friend?",
+      //     "What is your favorite food?",
+      //     "Where is your dream vacation destination?",
+      //     "When is your birthday?",
+      //     "How are you feeling today?",
+      //     "Why is music important to you?",
+      //     "Which book are you currently reading?",
+      //     "Whose birthday party are you attending next?",
+      //     "What is your favorite movie genre?",
+      //     "How far is your workplace from your home?",
+      //     "How much is your favorite car?",
+      //     "What is your favorite color?",
+      //     "In your opinion, who is the best actor alive?",
+      //   ],
+      // },
     ],
   },
   {
@@ -2523,35 +2864,35 @@ export const lessons = [
         sentences: [
           {
             english: "I was.",
-            portuguese: "Eu era / estava.",
+            portuguese: "Eu era, estava.",
           },
           {
             english: "You were.",
-            portuguese: "Você era / estava.",
+            portuguese: "Você era, estava.",
           },
           {
             english: "He was.",
-            portuguese: "Ele era / estava.",
+            portuguese: "Ele era, estava.",
           },
           {
             english: "She was.",
-            portuguese: "Ela era / estava.",
+            portuguese: "Ela era, estava.",
           },
           {
             english: "It was.",
-            portuguese: "Ele/ela era / estava.",
+            portuguese: "Ele/ela era, estava.",
           },
           {
             english: "We were.",
-            portuguese: "Nós éramos / estávamos.",
+            portuguese: "Nós éramos, estávamos.",
           },
           {
             english: "You (plural) were.",
-            portuguese: "Vocês eram / estavam.",
+            portuguese: "Vocês eram, estavam.",
           },
           {
             english: "They were.",
-            portuguese: "Eles/Elas eram / estavam.",
+            portuguese: "Eles/Elas eram, estavam.",
           },
         ],
       },
@@ -2564,35 +2905,35 @@ export const lessons = [
         sentences: [
           {
             english: "Was I?",
-            portuguese: "Eu era / estava?",
+            portuguese: "Eu era, estava?",
           },
           {
             english: "Were you?",
-            portuguese: "Você era / estava?",
+            portuguese: "Você era, estava?",
           },
           {
             english: "Was he?",
-            portuguese: "Ele era / estava?",
+            portuguese: "Ele era, estava?",
           },
           {
             english: "Was she?",
-            portuguese: "Ela era / estava?",
+            portuguese: "Ela era, estava?",
           },
           {
             english: "Was it?",
-            portuguese: "Ele/ela era / estava?",
+            portuguese: "Ele/ela era, estava?",
           },
           {
             english: "Were we?",
-            portuguese: "Nós éramos / estávamos?",
+            portuguese: "Nós éramos, estávamos?",
           },
           {
             english: "Were you (plural)?",
-            portuguese: "Vocês eram / estavam?",
+            portuguese: "Vocês eram, estavam?",
           },
           {
             english: "Were they?",
-            portuguese: "Eles/Elas eram / estavam?",
+            portuguese: "Eles/Elas eram, estavam?",
           },
         ],
       },
@@ -2850,7 +3191,7 @@ export const lessons = [
     ],
   },
   {
-    title: "Don't / Doesn't",
+    title: "Don't, Doesn't",
     type: "1- Basic",
     order: 18,
     description:
@@ -3094,7 +3435,7 @@ export const lessons = [
     ],
   },
   {
-    title: "Do...? / Does...?",
+    title: "Do...?, Does...?",
     type: "1- Basic",
     order: 17,
     description:
@@ -3309,7 +3650,7 @@ export const lessons = [
     ],
   },
   {
-    title: "There is / There are",
+    title: "There is, There are",
     type: "1- Basic",
     order: 24,
     description:
@@ -3359,7 +3700,7 @@ export const lessons = [
           {
             english: "Is there?",
             portuguese:
-              "Tem? (para palavras que não podem ser pluralizadas / ou quando falamos de uma coisa específica)",
+              "Tem? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
           },
           {
             english: "Are there?",
