@@ -101,7 +101,7 @@ export default function RankingTimeline({
     >
       <span>
         {loading ? (
-          <CircularProgress style={{ color: secondaryColor() }} />
+          <></>
         ) : (
           <Button
             onClick={() => seeScore(id)}
@@ -120,8 +120,7 @@ export default function RankingTimeline({
             id=""
             value={newID}
           >
-            {studentsList.map(
-              (student:any, index:number) => {
+            {studentsList.map((student: any, index: number) => {
               return (
                 <option key={index} value={student.id}>
                   {student.name + " " + student.lastname}
@@ -159,24 +158,24 @@ export default function RankingTimeline({
               const variables = {
                 type:
                   item.type == "Anki"
-                    ? "fa fa-star-o"
+                    ? "fa fa-clone"
                     : item.type == "Homework"
-                    ? "fa fa-book"
-                    : item.type == "Extra activity"
-                    ? "fa fa-users"
-                    : item.type == "Live Class" || "Group Classes"
-                    ? "fa fa-graduation-cap"
-                    : "fa fa-pencil",
+                      ? "fa fa-book"
+                      : item.type == "Extra activity"
+                        ? "fa fa-users"
+                        : item.type == "Live Class" || "Group Classes"
+                          ? "fa fa-graduation-cap"
+                          : "fa fa-pencil",
                 color:
                   item.type == "Anki"
                     ? "#01BCFF"
                     : item.type == "Homework"
-                    ? "#E6A020"
-                    : item.type == "Extra activity"
-                    ? "#123"
-                    : item.type == "Live Class" || "Group Classes"
-                    ? "#753"
-                    : "#123",
+                      ? "#E6A020"
+                      : item.type == "Extra activity"
+                        ? "#123"
+                        : item.type == "Live Class" || "Group Classes"
+                          ? "#753"
+                          : "#123",
               };
 
               return (

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
 import HTMLEditor from "../../Resources/Components/HTMLEditor";
-import {
-  LessonSizeControlBox,
-  RouteDivNotes,
-} from "./Assets/Functions/EnglishActivities.Styled";
+import { RouteDivNotes } from "./Assets/Functions/EnglishActivities.Styled";
 
 export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
@@ -44,9 +45,79 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
   };
 
   return (
-    <LessonSizeControlBox className="smooth">
-      <Helmets text="Activities" />
-      <div className="do-print">
+    <RouteSizeControlBox>
+      <RouteDiv
+        style={{
+          minHeight: "90vh",
+        }}
+        className="smooth"
+      >
+        <Helmets text="Activities" />
+        <div
+          style={{
+            position: "fixed",
+            top: 80,
+            right: 90,
+            display: "grid",
+            alignItems:"center",
+            justifyContent:"center",
+            padding:"5px",
+          borderRadius:"5px",
+            backgroundColor: "black",
+          }}
+        >
+          <select
+            style={{
+              width: "8rem",
+              fontFamily: "Athiti",
+              margin: "3px",
+            }}
+            value={selectedDifficulty}
+            onChange={handleDifficultyChange}
+          >
+            <option hidden value="">
+              Select Category
+            </option>
+            {groupedLessons &&
+              Object.keys(groupedLessons).map((difficulty) => (
+                <option key={difficulty} value={difficulty}>
+                  {difficulty}
+                </option>
+              ))}
+          </select>
+          <select
+            value={selectedLesson?.title || ""}
+            onChange={handleLessonChange}
+            disabled={selectedDifficulty ? false : true}
+            style={{
+              backgroundColor: "white",
+              cursor: selectedDifficulty ? "auto" : "not-allowed",
+              width: "8rem",
+              fontFamily: "Athiti",
+            }}
+          >
+            <option hidden value="">
+              Select Lesson
+            </option>
+            {groupedLessons[selectedDifficulty] &&
+              groupedLessons[selectedDifficulty]
+                .sort((a: any, b: any) => a.order - b.order)
+                .map((lesson: any, index: number) => (
+                  <option key={index} value={lesson.title}>
+                    {lesson.order + "- " + lesson.title}
+                  </option>
+                ))}
+          </select>
+        </div>
+        {selectedLesson && (
+          <span id="pdf-content">
+            <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
+          </span>
+        )}
+      </RouteDiv>
+    </RouteSizeControlBox>
+  );
+  /* <div className="do-print">
         <HOne>Notes</HOne>
         <div
           style={{
@@ -64,69 +135,11 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
       </div>
       <div>
         <RouteDivNotes className="no-print">
-          <div
-            style={{
-              margin: "auto",
-              maxWidth: "fit-content",
-            }}
-          >
-            <select
-              style={{
-                backgroundColor: "white",
-                width: "10rem",
-                fontFamily: "Athiti",
-                margin: "3px",
-              }}
-              value={selectedDifficulty}
-              onChange={handleDifficultyChange}
-            >
-              <option hidden value="">
-                Select Category
-              </option>
-              {groupedLessons &&
-                Object.keys(groupedLessons).map((difficulty) => (
-                  <option key={difficulty} value={difficulty}>
-                    {difficulty}
-                  </option>
-                ))}
-            </select>
-            <select
-              value={selectedLesson?.title || ""}
-              onChange={handleLessonChange}
-              disabled={selectedDifficulty ? false : true}
-              style={{
-                backgroundColor: "white",
-                cursor: selectedDifficulty ? "auto" : "not-allowed",
-                width: "10rem",
-                fontFamily: "Athiti",
-              }}
-            >
-              <option hidden value="">
-                Select Lesson
-              </option>
-              {groupedLessons[selectedDifficulty] &&
-                groupedLessons[selectedDifficulty]
-                  .sort((a: any, b: any) => a.order - b.order)
-                  .map((lesson: any, index: number) => (
-                    <option key={index} value={lesson.title}>
-                      {lesson.order + "- " + lesson.title}
-                    </option>
-                  ))}
-            </select>
-          </div>
+    
           <HOne>Notes</HOne>
           <HTMLEditor onChange={handleDescriptionChange} />
           <HOne>Homework</HOne>
           <HTMLEditor onChange={handleHomeworkChange} />
         </RouteDivNotes>
-      </div>
-      <RouteDiv>
-        {selectedLesson && (
-          <span id="pdf-content">
-            <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
-          </span>
-        )}
-      </RouteDiv>
-    </LessonSizeControlBox>
-  );
+      </div> */
 }

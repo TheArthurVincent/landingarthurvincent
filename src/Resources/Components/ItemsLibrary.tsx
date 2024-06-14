@@ -40,6 +40,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
           ? "#FF69B4"
           : props.color === "grey"
           ? "#eee"
+          : props.color === "white"
+          ? "white"
           : primaryColor()}
       0%,
     ${(props) =>
@@ -51,6 +53,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
           ? "#87CEFA"
           : props.color === "orange"
           ? "#FFA500"
+          : props.color === "white"
+          ? "#eee"
           : props.color === "purple"
           ? "#DDA0DD"
           : props.color === "grey"
@@ -62,7 +66,7 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
           : primaryColor2()}
       50%
   );
-  color: ${alwaysWhite()};
+  color: ${(props) => (props.color === "white" ? "black" : alwaysWhite())};
   padding: 5px 1.2rem;
   font-family: Athiti;
   border-radius: 10px;
@@ -83,6 +87,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             ? secondaryColor()
             : props.color === "blue"
             ? "blue"
+            : props.color === "white"
+            ? "white"
             : props.color === "orange"
             ? "orange"
             : props.color === "purple"
@@ -98,6 +104,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
       ${(props) =>
           props.color === "red"
             ? "#FA7A71"
+            : props.color === "white"
+            ? "grey"
             : props.color === "green"
             ? secondaryColor2()
             : props.color === "blue"

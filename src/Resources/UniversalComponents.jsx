@@ -16,7 +16,7 @@ import { MyButton } from "./Components/ItemsLibrary";
 export function updateScore(totalScore) {
   var level = 1;
   var color = "#000";
-  var icon = "fa fa-star";
+  var icon = "fa fa-clone";
   var color = "#eee";
   var textcolor = "black";
   var text = "White Belt";

@@ -2,7 +2,7 @@
   "levels": [
     {
       "level": 1,
-      "icon": "fa fa-star",
+      "icon": "fa fa-clone",
       "color": "#eee",  
       "textcolor": "black",
       "backgroundcolor": "#EDEDED",

@@ -14,6 +14,7 @@ import {
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
+import AllCards from "./FlashCardsComponents/AllCards";
 
 const FlashCards = ({ headers }: HeadersProps) => {
   useState<number>(0);
@@ -45,6 +46,12 @@ const FlashCards = ({ headers }: HeadersProps) => {
       value: "2",
       adm: true,
       component: <AddFlashCards display="block" headers={headers} />,
+    },
+    {
+      title: "All cards",
+      value: "3",
+      adm: false,
+      component: <AllCards headers={headers} />,
     },
   ];
 

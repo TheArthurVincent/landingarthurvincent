@@ -47,7 +47,7 @@ export const listOfCriteria = [
   },
   {
     title: "Anki",
-    icon: "fa fa-star",
+    icon: "fa fa-clone",
     transform: "rotate(-25deg)",
     color: "rgb(1, 188, 255)",
     score: [

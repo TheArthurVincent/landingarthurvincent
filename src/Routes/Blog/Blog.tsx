@@ -290,7 +290,7 @@ export function Blog({ headers }: HeadersProps) {
                       maxWidth: "100%",
                       transform: "rotate(-25deg)",
                     }}
-                    className="fa fa-star-o hover-link"
+                    className="fa fa-clone hover-link"
                     aria-hidden="true"
                   />
                   <SpanDisapear>Flashcards</SpanDisapear>

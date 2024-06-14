@@ -92,6 +92,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
             )
           : null;
       }
+      console.log(response.data.dueFlashcards);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
@@ -108,6 +109,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
   const [newLGFront, setNewLGFront] = useState<string>("");
   const [newLGBack, setNewLGBack] = useState<string>("");
   const [cardIdToEdit, setCardIdToEdit] = useState<string>("");
+  const [newBackComments, setNewBackComments] = useState<string>("");
 
   const handleSeeModal = async (cardId: string) => {
     setShowModal(true);
@@ -124,7 +126,9 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
       const newlf = response.data.flashcard.front.language;
       const newlb = response.data.flashcard.back.language;
       const newIDcard = response.data.flashcard.id;
+      const newComments = response.data.flashcard.backComments;
 
+      setNewBackComments(newComments);
       setNewFront(newf);
       setNewBack(newb);
       setNewLGFront(newlf);
@@ -146,6 +150,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
           newBack,
           newLGBack,
           newLGFront,
+          newBackComments,
         },
         {
           params: { cardId }, // Enviar cardId como parâmetro de consulta
@@ -325,6 +330,16 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                                     __html: cards[0]?.back?.text,
                                   }}
                                 />
+                                <div
+                                  style={{
+                                    fontSize: "12px",
+                                    fontStyle: "italic",
+                                    marginBottom: "15px",
+                                  }}
+                                  dangerouslySetInnerHTML={{
+                                    __html: cards[0]?.backComments,
+                                  }}
+                                />
                               </>
                             ) || " "}
                           </span>
@@ -348,7 +363,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                       cursor={isDisabled ? "not-allowed" : "pointer"}
                       color={isDisabled ? "grey" : "navy"}
                       style={{
-                        marginTop: "4rem",
+                        marginTop: "3rem",
                       }}
                       onClick={() => {
                         setBackCardVisible(!backCardVisible);
@@ -516,6 +531,13 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
               </option>
             ))}
           </select>
+          <br />
+          <input
+            style={{ maxWidth: "120px" }}
+            value={newBackComments}
+            onChange={(e) => setNewBackComments(e.target.value)}
+            type="text"
+          />
           <div>
             <ArvinButton
               onClick={() => handleDeleteCard(cardIdToEdit)}

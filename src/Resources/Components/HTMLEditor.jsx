@@ -98,15 +98,17 @@ function HTMLEditor({ onChange }) {
 
   const memoizedEditor = useMemo(() => {
     return (
-      <div
-        ref={editorRef}
-        style={{
-          height: "98.5%",
-          marginTop: "1rem",
-          fontSize: "1.1rem",
-          width:"100%"
-        }}
-      />
+      <>
+        <div
+          ref={editorRef}
+          style={{
+            height: "98.5%",
+            marginTop: "1rem",
+            fontSize: "12px",
+            width: "100%",
+          }}
+        />
+      </>
     );
   }, []);
 
