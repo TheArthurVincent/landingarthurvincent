@@ -4,7 +4,7 @@ export const levels = () => {
   return [
     {
       level: 1,
-      icon: "fa fa-star",
+      icon: "fa fa-clone",
       color: "#f8f8f8",
       textcolor: "black",
       backgroundcolor: "#EDEDED",
