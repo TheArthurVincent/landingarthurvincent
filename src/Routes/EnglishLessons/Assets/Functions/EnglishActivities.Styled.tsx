@@ -79,13 +79,13 @@ export const UlGridImageLessons = styled.ul`
   }
 `;
 export const LessonSizeControlBox = styled.div`
-  max-width: 80vw;
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: 0.8fr 1fr;
-  justify-content: center;
+  display: block;
+  max-width: 90vw;
+  justify-content:center;
+  
   gap: 5px;
   margin-bottom: 9rem;
   &.smooth {

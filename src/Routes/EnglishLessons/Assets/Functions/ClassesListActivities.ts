@@ -1,57 +1,8 @@
 export const lessons = [
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
-  ///////////Basic
   {
     title: "Introducing Yourself / Basics",
     order: 1,
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     description:
       "Nesta aula, aprenderemos algumas expressões básicas, e maneiras comuns de se apresentar.",
     image:
@@ -59,7 +10,7 @@ export const lessons = [
     elements: [
       {
         subtitle: "Sentences 1",
-        comments: "Lorem Ipsun",
+        // comments: "Lorem Ipsun",
         order: 0,
         type: "sentences",
         sentences: [
@@ -107,7 +58,7 @@ export const lessons = [
   {
     title: "The Alphabet / Spelling",
     order: 2,
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
     image:
       "https://images.pexels.com/photos/1337382/pexels-photo-1337382.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -237,7 +188,7 @@ export const lessons = [
   {
     title: "Personal Pronouns",
     order: 7,
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     description:
       "Os pronomes pessoais em inglês são fundamentais para construir frases. Eles se dividem em 'subject pronouns' e 'object pronouns'.",
     image:
@@ -372,7 +323,7 @@ export const lessons = [
   {
     title: "Articles",
     order: 8,
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
@@ -517,7 +468,7 @@ export const lessons = [
   {
     title: "To be - Present tense",
     order: 9,
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     description:
       "O 'to be' é o principal verbo do inglês. Um verbo é uma ação, e este significa 'ser' ou 'estar'.",
     image:
@@ -807,7 +758,7 @@ export const lessons = [
   },
   {
     title: "Prepositions #1",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 10,
     image:
       "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/company.jpg?updatedAt=1688423305321",
@@ -1002,7 +953,7 @@ export const lessons = [
   },
   {
     title: "Possessions #1",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 11,
     image:
       "https://images.pexels.com/photos/2440530/pexels-photo-2440530.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -1217,7 +1168,7 @@ export const lessons = [
   },
   {
     title: "Question words",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 13,
     image:
       "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -1566,7 +1517,7 @@ export const lessons = [
   },
   {
     title: "Demonstrative Pronouns",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 14,
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_limit,h_384,dpr_1/https://assets.app.engoo.com/images/07uKbOO8vU2Msen2YRbijJ.jpeg",
@@ -1724,30 +1675,44 @@ export const lessons = [
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese1.jpg?updatedAt=1716320030598",
             text: "Do you think _______ dress is cute?",
+            portuguese: "Você acha que este vestido é bonito?",
+            english: "Do you think this dress is cute?",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese2.jpg?updatedAt=1716320030146",
             text: "Man, take a look at _______ shoes!",
+            portuguese: "Cara, olha estes sapatos!",
+            english: "Man, take a look at these shoes!",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese3.jpg?updatedAt=1716320030366",
             text: "_______ nose of yours is horrible!",
+            portuguese: "Esse seu nariz é horrível!",
+            english: "That nose of yours is horrible!",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese4.jpg?updatedAt=1716320030630",
             text: "________ birds over there are weird!",
+            portuguese: "Aqueles pássaros lá são estranhos!",
+            english: "those birds over there are weird!",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese5.jpg?updatedAt=1716320030473",
             text: "Can I borrow _______ pen?",
+            portuguese: "Posso pegar esta caneta emprestado?",
+            english: "Can I borrow that pen?",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese6.jpg?updatedAt=1716320030475",
             text: "_______ glasses are beautiful!",
+            portuguese: "Esses óculos são lindos!",
+            english: "Those glasses are beautiful!",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/exercisethese7.jpg?updatedAt=1716320030543",
             text: "_______ is my friend, Sarah!",
+            portuguese: "Esta é minha amiga, a Sarah!",
+            english: "This is my friend, Sarah!",
           },
         ],
       },
@@ -1807,7 +1772,7 @@ export const lessons = [
   },
   {
     title: "Numbers",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 15,
     image:
       "data:image/png;base64,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",
@@ -1972,7 +1937,7 @@ export const lessons = [
   },
   {
     title: "Verbs in General",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 16,
     image:
       "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
@@ -2251,7 +2216,7 @@ export const lessons = [
   },
   {
     title: "Dates and Days",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 12,
     image:
       "https://images.pexels.com/photos/273153/pexels-photo-273153.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -2466,7 +2431,7 @@ export const lessons = [
   },
   {
     title: "-ing | Objetivicando verbos",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 19,
     image:
       "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -2545,7 +2510,7 @@ export const lessons = [
   },
   {
     title: "To be (past tense)",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 20,
     image:
       "https://media.istockphoto.com/id/858917054/photo/happy-friends-travel-expedition-concept.jpg?b=1&s=612x612&w=0&k=20&c=2MeMqro7z7mI9qW_Bn5bhv2DA9zja6psLKYeKoB1eAA=",
@@ -2886,7 +2851,7 @@ export const lessons = [
   },
   {
     title: "Don't / Doesn't",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 18,
     description:
       "O 'don't (do not) e o 'doesn't (does not)' são usados para fazer negações com verbos em geral que não são o 'to be'. Funcionam como se fosse o 'não' do português.",
@@ -3130,7 +3095,7 @@ export const lessons = [
   },
   {
     title: "Do...? / Does...?",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 17,
     description:
       "O 'do' e o 'does'  são usados para fazer perguntas com verbos em geral que não são o 'to be'. Você deve por estas palavras antes do sujeito da frase para montar a pergunta.",
@@ -3262,7 +3227,7 @@ export const lessons = [
   },
   {
     title: "Empty 'it'",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 22,
     description: "",
     image:
@@ -3345,7 +3310,7 @@ export const lessons = [
   },
   {
     title: "There is / There are",
-    type: "#1.0 | Basic Grammar",
+    type: "1- Basic",
     order: 24,
     description:
       "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
@@ -3360,21 +3325,30 @@ export const lessons = [
           {
             img: "https://images.pexels.com/photos/4916680/pexels-photo-4916680.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "There is a dog in the car.",
+            english: "There is a dog in the car.",
+            portuguese: "Tem um cachorro no carro.",
           },
           {
             img: "https://media.istockphoto.com/id/1343268234/pt/foto/human-hands-put-chicken-eggs-in-the-egg-laying-compartment-in-the-refrigerator.jpg?b=1&s=612x612&w=0&k=20&c=FKENb_yGSLz_E6MHYM0q2Z69s948n1LqlZvaoPvOJRk=",
             text: "There is an egg in the fridge.",
+            english: "There is an egg in the fridge.",
+            portuguese: "Há um ovo na geladeira.",
           },
           {
             img: "data:image/jpeg;base64,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",
             text: "There are dogs in the car.",
+            english: "There are dogs in the car.",
+            portuguese: "Tem cachorros no carro.",
           },
           {
             img: "https://media.istockphoto.com/id/1094120062/pt/foto/healthy-bio-eggs-in-the-fridge.jpg?b=1&s=612x612&w=0&k=20&c=vDcYKrGIQFQbeHuOXvoQXQunlYhD-HmfH_Rj9bvI0R4=",
             text: "There are eggs in the fridge.",
+            english: "There are eggs in the fridge.",
+            portuguese: "Há ovos na geladeira.",
           },
         ],
       },
+
       {
         subtitle: "Negations and questions",
         // comments:
@@ -3384,7 +3358,8 @@ export const lessons = [
         sentences: [
           {
             english: "Is there?",
-            portuguese: "Tem? (para palavras que não podem ser pluralizadas / ou quando falamos de uma coisa específica)",
+            portuguese:
+              "Tem? (para palavras que não podem ser pluralizadas / ou quando falamos de uma coisa específica)",
           },
           {
             english: "Are there?",
@@ -3392,7 +3367,8 @@ export const lessons = [
           },
           {
             english: "Is there any?",
-            portuguese: "Tem algum? (para palavras que não podem ser pluralizadas)",
+            portuguese:
+              "Tem algum? (para palavras que não podem ser pluralizadas)",
           },
           {
             english: "Are there any?",
@@ -3400,7 +3376,8 @@ export const lessons = [
           },
           {
             english: "There is no.",
-            portuguese: "Não tem. (para palavras que não podem ser pluralizadas)",
+            portuguese:
+              "Não tem. (para palavras que não podem ser pluralizadas)",
           },
           {
             english: "There are no.",
@@ -3530,154 +3507,145 @@ export const lessons = [
       },
     ],
   },
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
-  ///////////////// Vocabulary Basics
   {
     title: "Animals",
     order: 3,
-    type: "#1.1 | Basic Vocabulary",
+    type: "1- Basic",
     elements: [
       {
-        subtitle: "Common Animals",
+        subtitle: "Examples",
         order: 0,
         type: "images",
         images: [
           {
             img: "https://media.istockphoto.com/id/1482199015/pt/foto/happy-puppy-welsh-corgi-14-weeks-old-dog-winking-panting-and-sitting-isolated-on-white.jpg?s=612x612&w=0&k=20&c=XI-fFXTXEU4UbQtGwM_vWzBB4F17W4dlPtXL4wr2dmE=",
             text: "Dog",
+            english: "Dog",
+            portuguese: "Cachorro",
           },
           {
             img: "https://media.istockphoto.com/id/1443562748/pt/foto/cute-ginger-cat.jpg?s=612x612&w=0&k=20&c=OqlMF3bysUX6cVux5kKc1gqCGMghQpGc5ukyw1qG82s=",
+            english: "Cat",
             text: "Cat",
+            portuguese: "Gato",
           },
           {
             img: "https://images.pexels.com/photos/2662434/pexels-photo-2662434.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Bird",
+            english: "Bird",
+            portuguese: "Pássaro",
           },
           {
             img: "https://media.istockphoto.com/id/1353747129/pt/foto/gold-fish-swimming-underwater.jpg?s=612x612&w=0&k=20&c=3cQZfHlKUMz-46FmzLfKTGw7jkqKKQJQBhtxtaoQb1M=",
+            english: "Fish",
             text: "Fish",
+            portuguese: "Peixe",
           },
           {
             img: "https://media.istockphoto.com/id/483797166/pt/foto/cavalo-andaluz.jpg?s=612x612&w=0&k=20&c=-aKexRd308c2Sp9pC_3cEINhU9PGG8rTqjWKfDTJhYg=",
             text: "Horse",
+            english: "Horse",
+            portuguese: "Cavalo",
           },
           {
             img: "https://media.istockphoto.com/id/1428640160/pt/foto/cow-isolated-on-white-standing-upright-black-and-white-full-length-and-front-view-and-copy.jpg?s=612x612&w=0&k=20&c=MwWpcK7CPz3lUDyCUnb6I5R3ScMK2sDpnwbI-Mj5vf8=",
+            english: "Cow",
             text: "Cow",
+            portuguese: "Vaca",
           },
           {
             img: "https://media.istockphoto.com/id/161953792/pt/foto/vista-lateral-de-uma-ovelha-olhando-para-longe-contra-o-fundo-branco.jpg?s=612x612&w=0&k=20&c=duXlJazhMNVPW7BaCTSlE9C9hdYpsfJUpXJ4V80Kpiw=",
             text: "Sheep",
+            english: "Sheep",
+            portuguese: "Ovelha",
           },
           {
             img: "https://media.istockphoto.com/id/140462837/pt/foto/porco-engra%C3%A7ado-inclinar-se-no-parapeito-da-sua-cot.jpg?s=612x612&w=0&k=20&c=ijUoPjQG4yE5cuRcKKxSZ7ztwPdYGGLLLU69d4pk96s=",
+            english: "Pig",
             text: "Pig",
+            portuguese: "Porco",
           },
           {
             img: "https://media.istockphoto.com/id/1354939778/pt/foto/close-up-of-a-roaring-lion.jpg?s=612x612&w=0&k=20&c=Og23ITwdHr6xRP_KTAD4x2a07pUbJ_OCNHtYnstg1rw=",
             text: "Lion",
+            english: "Lion",
+            portuguese: "Leão",
           },
           {
             img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi1poOoAdHji7CGS2pANtRkn5ZPCCjh5qD4hK3LfcQjQ&s",
+            english: "Tiger",
             text: "Tiger",
+            portuguese: "Tigre",
           },
           {
             img: "https://media.istockphoto.com/id/479667835/pt/foto/elefante-de-fundo.jpg?s=612x612&w=0&k=20&c=oIV_X_5GwkCzzFfrMbxXwooVeRrLc5IGA0lmlvFSv_o=",
+            english: "Elephant",
             text: "Elephant",
+            portuguese: "Elefante",
           },
           {
             img: "https://media.istockphoto.com/id/944271706/pt/foto/young-chimpanzee-sitting-simia-troglodytes-in-front-of-a-white-background.jpg?s=612x612&w=0&k=20&c=tVy-VkVaOmM8NY03u6PnkhGSZF9Z6soDSW8YdcmiulY=",
             text: "Monkey",
+            english: "Monkey",
+            portuguese: "Macaco",
           },
           {
             img: "https://media.istockphoto.com/id/488580536/pt/foto/girafa-na-frente-de-kilimanjaro-montanha.jpg?s=612x612&w=0&k=20&c=Q6vsFRLVbsQbJuAQqPsiPNTA9_5Lma57Vba0xF9FQqo=",
             text: "Giraffe",
+            english: "Giraffe",
+            portuguese: "Girafa",
           },
           {
             img: "https://media.istockphoto.com/id/170048830/pt/foto/rir-zebra.jpg?s=612x612&w=0&k=20&c=_FEMS1lCaJKqEtO6tttsMRzS4QGjWRtbdnXbBZry-SA=",
             text: "Zebra",
+            english: "Zebra",
+            portuguese: "Zebra",
           },
           {
             img: "https://media.istockphoto.com/id/163639080/pt/foto/urso-cinzento.jpg?s=612x612&w=0&k=20&c=XYwtapDQXQ66diZbrfwaP9_4BYmrgpBZ_YYGbRSZOyg=",
             text: "Bear",
+            english: "Bear",
+            portuguese: "Urso",
           },
           {
             img: "https://media.istockphoto.com/id/1359866154/pt/foto/little-red-fluffy-rabbit-on-light-green-background.jpg?s=612x612&w=0&k=20&c=fLnEnTm_OhAv6ZBVFH7ZqfaZlAkMaqBPupVp2romrGE=",
             text: "Rabbit",
+            english: "Rabbit",
+            portuguese: "Coelho",
           },
           {
             img: "https://media.istockphoto.com/id/516318760/pt/foto/raposa-vermelha-vulpes-vulpes.jpg?s=612x612&w=0&k=20&c=9YTCdFJghOt9Cz73wq0y3_zkcC5x5-NQCDe1yEUPAI8=",
             text: "Fox",
+            english: "Fox",
+            portuguese: "Raposa",
           },
           {
             img: "https://media.istockphoto.com/id/177794699/pt/foto/lobo-cinzento-retrato.jpg?s=612x612&w=0&k=20&c=iZHohTbptMVPjsS2l08tCX_LLoGVVyowGYUg4sI1yc4=",
             text: "Wolf",
+            english: "Wolf",
+            portuguese: "Lobo",
           },
           {
             img: "https://images.pexels.com/photos/106685/pexels-photo-106685.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Owl",
+            english: "Owl",
+            portuguese: "Coruja",
           },
           {
             img: "https://media.istockphoto.com/id/525733140/pt/foto/golfinho-recife-debaixo-de-%C3%A1gua-no-fundo.jpg?s=612x612&w=0&k=20&c=2b2AQ6wA85GQvnbVV8r8mIfTOVtqfF_2iN54EcxXA9A=",
             text: "Dolphin",
+            english: "Dolphin",
+            portuguese: "Golfinho",
           },
           {
             img: "https://media.istockphoto.com/id/1399799270/pt/foto/extreme-close-up-of-great-white-shark-looking-directly-at-camera-smiling.jpg?s=612x612&w=0&k=20&c=A3mOrWUFUHiubuytJinpn3S3rQRUP5tiIT6G1qDs39g=",
             text: "Shark",
+            english: "Shark",
+            portuguese: "Tubarão",
           },
         ],
       },
+
       {
         subtitle: "Additional Expressions",
         order: 1,
@@ -3686,10 +3654,14 @@ export const lessons = [
           {
             img: "https://media.istockphoto.com/id/483770579/pt/foto/cocker-cachorrinho-sentado-olhando-para-a-c%C3%A2mera-isolado-a-branco.jpg?s=612x612&w=0&k=20&c=YCs-x7NE2MwZgre1HV5yOaEtoZY3Rj-82-Nd--k2ZMs=",
             text: "Puppy",
+            english: "Puppy",
+            portuguese: "Cachorrinho (fillhote)",
           },
           {
             img: "https://media.istockphoto.com/id/1018078858/pt/foto/gorgeous-ginger-cat-on-isolated-black-background.jpg?s=612x612&w=0&k=20&c=CtTsSC8y35N4R9sneaSwlCbCWe8SsAHAgZmqSjZqsIU=",
             text: "Kitty",
+            english: "Kitty",
+            portuguese: "Gatinho (filhote)",
           },
         ],
       },
@@ -3698,7 +3670,7 @@ export const lessons = [
   {
     title: "Family",
     order: 4,
-    type: "#1.1 | Basic Vocabulary",
+    type: "1- Basic",
     description: "Vamos aprender a dizer os membros de família em inglês.",
     image:
       "https://mckinnon-legal.com/wp-content/uploads/2021/08/rajiv-perera-LCAbBV6-CbI-unsplash-scaled.jpg",
@@ -3846,7 +3818,7 @@ export const lessons = [
   {
     title: "Fruits",
     order: 5,
-    type: "#1.1 | Basic Vocabulary",
+    type: "1- Basic",
     // description: "Os artigos em inglês são 'A', 'An' e 'The'.",
     // image:
     //   "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/tobe..png?updatedAt=1716236209531",
@@ -3859,62 +3831,92 @@ export const lessons = [
           {
             img: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Apple",
+            english: "Apple",
+            portuguese: "Maçã",
           },
           {
             img: "https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Banana",
+            english: "Banana",
+            portuguese: "Banana",
           },
           {
             img: "https://images.pexels.com/photos/161559/background-bitter-breakfast-bright-161559.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Orange",
+            english: "Orange",
+            portuguese: "Laranja",
           },
           {
             img: "https://images.pexels.com/photos/23042/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
             text: "Grapes",
+            english: "Grapes",
+            portuguese: "Uvas",
           },
           {
             img: "https://images.pexels.com/photos/14821717/pexels-photo-14821717.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Strawberry",
+            english: "Strawberry",
+            portuguese: "Morango",
           },
           {
             img: "https://images.pexels.com/photos/568471/pexels-photo-568471.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Pear",
+            english: "Pear",
+            portuguese: "Pêra",
           },
           {
             img: "https://images.pexels.com/photos/947879/pexels-photo-947879.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Pineapple",
+            english: "Pineapple",
+            portuguese: "Abacaxi",
           },
           {
             img: "https://images.pexels.com/photos/3429784/pexels-photo-3429784.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Watermelon",
+            english: "Watermelon",
+            portuguese: "Melancia",
           },
           {
             img: "https://images.pexels.com/photos/142890/pexels-photo-142890.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Avocado",
+            english: "Avocado",
+            portuguese: "Abacate",
           },
           {
             img: "https://images.pexels.com/photos/39303/mango-tropical-fruit-juicy-sweet-39303.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Mango",
+            english: "Mango",
+            portuguese: "Manga",
           },
           {
             img: "https://images.pexels.com/photos/54370/pexels-photo-54370.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Kiwi",
+            english: "Kiwi",
+            portuguese: "Kiwi",
           },
           {
             img: "https://images.pexels.com/photos/19937268/pexels-photo-19937268/free-photo-of-comida-alimento-refeicao-jardim.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Peach",
+            english: "Peach",
+            portuguese: "Pêssego",
           },
           {
             img: "https://images.pexels.com/photos/768009/pexels-photo-768009.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Cherry",
+            english: "Cherry",
+            portuguese: "Cereja",
           },
           {
             img: "https://images.pexels.com/photos/1343537/pexels-photo-1343537.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Lemon",
+            english: "Lemon",
+            portuguese: "Limão",
           },
           {
             img: "https://images.pexels.com/photos/1047261/pexels-photo-1047261.jpeg?auto=compress&cs=tinysrgb&w=600",
             text: "Lime",
+            english: "Lime",
+            portuguese: "Limão",
           },
         ],
       },
@@ -3923,7 +3925,7 @@ export const lessons = [
   {
     title: "Colors",
     order: 6,
-    type: "#1.1 | Basic Vocabulary",
+    type: "1- Basic",
     elements: [
       {
         order: 0,
@@ -3932,50 +3934,74 @@ export const lessons = [
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACxCAMAAAAh3/JWAAAAA1BMVEUbqPBsarW2AAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIALA8UNAAFusnLHAAAAAElFTkSuQmCC",
             text: "Blue",
+            portuguese: "Azul",
+            english: "Blue",
           },
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEUAAIBKwr76AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC",
             text: "Navy Blue",
+            english: "Navy Blue",
+            portuguese: "Azul escuro",
           },
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEVcQDONdcQdAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=",
             text: "Brown",
+            portuguese: "Marrom",
+            english: "Brown",
           },
           {
             img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PDQ8PDw8PFRUPDw8PDw8VFRUPFQ8PFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQID/8QAGhABAQACAwAAAAAAAAAAAAAAAAHR8BExkf/EABYBAQEBAAAAAAAAAAAAAAAAAAADAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOKAoyAAAAAAAAIAAAAAAAAACACoAAAAAAgDYAAAAAAIAAAAAAAAAAACAAAAAAAIqAogDYAAAAICoAAAAAAAAACAAAAAAAAIAqAAADYICoAKgAAAAAIAKAACAAAAAAAAAgAAAAANAAAAAAAAIoCAAoigIAAAAAIKgCoAAAAAAA0AAAAAAAACAAAAAAAAAAgAAAAAAAACKgNgAAAAAAAgAAAAAAAAIAAAAAAAACAAAA2AACAqKgAAAAAAAACKAgAAAAAAICoAAAG9hyA2CAqAAAAAAAAAACAqAAAAAAgAAAAAAAeAgNgAAAAAAAgqAAAAAqAAAACAAAAAAAAgKgA2AAAAAAIAAAAAAAAACAAAAigAAgAKgAqADYAAAAIAAAAAAACAqAAAACAAAAAAAAAAA2AAAAIAAAIoAgAAAAAAAIqAAAAAAAAAioA6AAIoCAAAAAgKgAAAAAAAIAAAAAAAAICiKDZQBKtQAAAEAAAAAAAAASAAKgCoABAAMAAAAAD/2Q==",
+            portuguese: "Cinza",
             text: "Grey",
+            english: "Grey",
           },
           {
             img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDQ0NDw0NDw0PDQ0NDQ0NDw8NDw0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NEg4PFSsZFRkrKysrKysrKysrKys3KystLSsrKysrKysrKy0tKysrKysrKysrKysrKysrKysrKysrK//AABEIAKwBJgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAIRABAQEAAQMEAwAAAAAAAAAAAAERIWGBoQIxcfAiQVH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7iAAACW+3Hf+KAAAAJJgKAAAAAAAAAAAAAAAAz6rZfTkt25bx+My3fEndoAAAMAAAAACgAAAAAAAAAAAAAAAAAAACbz7d1AAAAAAAAAAACgAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL08qAAAAAEAAAAAAAAAAAAAAAAANABL96qAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAABLAUAAEBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAIoAAAAAAAAAAAACYoAAAACSqAAAAAAAAAAAAAAAAAAAAAAlgCgAAAAAJd/XHzN4UABKCgAAAAAAAAAAlBRMUAAAAAAAAEqgAAAAD/2Q==",
+            portuguese: "Branco",
             text: "White",
+            english: "White",
           },
           {
             img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0PDw8PDw0NDQ0PDxAPDQ0NDQ8NDQ0PFRIWFhURFRUYHSggGBolGxUVITEhJSk3Li4uFx8zOD8tNygtLisBCgoKDQ0NDw0NDisZFRkrKy0rKzcrKys3KystKystKys3KysrKysrLSstKysrKysrKysrKystKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAAIFBv/EABwQAQEAAgMBAQAAAAAAAAAAAAAB4fARodHBkf/EABgBAQEBAQEAAAAAAAAAAAAAAAABAwIF/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9OgmT3iRF4BIQhIIIggTBDAajTMaEREaBEFURBBGJCI72kCKIIhCFRGAiCCaZMBpBA4xBRqVPiUApRCGERATAYBhgagGNQQwQkGCIggikoiooiFJKEggikIrvaSAmAwERDAKXIEcdII2aQUBoskQwpQCUYCagMEaMEIEgqhMCApRURGAgYRCBSQhSQIwEEQQRBioUuEg4qBRsoYCBhEIhjUZjQGEGCEgqNQxmNQDCIRChCBSQiKhgJoERJICkgSRBJGKIwQiNSBWgHFSTlsTAYBhBEMajMaijRZhEJBAkECQRDCIQKBEJgQNEJUKBApIEolAKSEJEIGhVA4qgOXLYkGAcEQqhIhEaMBngEiECYEIY0yQaQINKAqhQIEhCEggUkCLJEKiUAwiECjADhkT6YjVQiGAWmeTAahjMaghMBAtRmGASCISEo1CIYI1EIQRCAkEQmBAVEgRBBGBQQtMwqFGJBw0lEakg7vQFKIDGmSo1DGYURpqMmKEgwDCIYIWt7ZhAmAqhSQEgiKEQgYggJCAqJCGGAg1EkI4aBctiYCCMBAkKKNQsmCNGMkGoWY0BIhEahEMUKSgjSiQhQIEskCkgSiQEgwQkKA1EohHDMZLls1CzvrQIgxREIGjGTBGiIYDUMEMVC0y0BLLUAoEQkQwREICQYBSQJRKATARDEkDQUQjhkGOWxhZjUUKSA1AgYYDBDGmYYo3CzGoIckZIEwECQlQkGCFAgSCBSQiiKgIpAYlDEFwjwBHDKTlsoclAUkooQgJiSo1u/piQNQpCGNRIFGklDFChEYkIikBhSEKKBGJCKFIFCkgQko//9k=",
             text: "Pink",
+            portuguese: "Rosa",
+            english: "Pink",
           },
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX//wCKxvRFAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC",
             text: "Yellow",
+            portuguese: "Amarelo",
+            english: "Yellow",
           },
           {
             img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFxUVFRcYFRUVFRUVFRUXFxUVFRUYHSggGB0lHRUXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQgNDg0HDisZHxkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAKBABAQEAAQMDBAICAwAAAAAAAAERAiExQWGh8FFxkcGB8bHhAxLR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOH55xAAhDAACgLZ87pFzp8+f0CWLGVBqcejNiKCxCwwAAFkShgIKSgsRZZ9EtAJAAMCAsrKwgAtQAAACgsS0ADFxANIAFKiyAYi1b7/AK8AiKgKABCrUAAARQDGrxyS9Ov5mMKAFADBaCSFAAIAAQF5Xbv1/ETSFBFRr1BAhoLIytAWT6MqYAtiGgai1Znn+AQEBbEUgLLiC0DfRABb2SDUzMyb33b+AZhgtmf3AReM36/PRCAtnXp28IigcovH1/wkgAQAAXlfPSek39ggvGfwlBdOV7d+2dUACUACABSUAKSryvW6mAAAUFtBIGLnT5np+wRbPn3QACLJ7AytLUBQAXGVKCKLx9fn0BAlz5poBSLIDK8ioCrUAVlTQAkWfPQGVABFSA1/17ebfHXUggLQAXlPnhF8JgFLd7mAFNKSXsBTTOgCKaAAAYAAQwAiKvt3BCosgAaAAUAKAaQKBAXfAIENAn3wW03t8wEgQoGGhgFRaaBCFiye4JSVqzPv1695/HuyC1lb6EgFoVZ7+3zsBeyUpoLOXT50QXAQKoIvHlnXz4ReOeQQMJAW1F5TL18JP6BfCKkBePLERcAgVYCLxufpNOOeQLTTDQRTCAjV5exYkoBKigYvhKgLpLfz39RAUF0EwggLTA0Axed39TvkQANNAkRv/j5Z16yzrLL2sZgAGgGLvj+fHj1TAFkSwAMXld9PsnKYAsQtAkF45/PhLdu/69p2AFzznRIAYtnz/wAQAAEa+VF3p89AQ1d9EoIpTj6+v+OgEABUAEXQBfHzz/SWIoC3l7e3zUANKEoGGABSBgBQoLc6e/z7IAGmgAAAYABiKAABEUAABZUxd92QUCgC8uOZ6/OqAvKzxM8d+9+rLVL9fPnx+AQwhgAABKi6CNT8IABgAEpKC8UC0CAAi2mkAWoAGBAOPzyLEADQC0XQECkgCLKgKs5Xr69L9kxAa5eLu/nomgBpCKCQtQBbQXwDIpQNBdA5Xrtu3v8AXugUDSIsAKjUoIBKABAXilpaACLAKYFBGsvRF4zfPyeASFLQBF0AA0AQBUAFAAAAAAAAAAkIAGmACNceO+/p0nUAQAAAAgAIALKAB4a2ADJQAwQBUAH/2Q==",
             text: "Black",
+            portuguese: "Preto",
+            english: "Black",
           },
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX/AAAZ4gk3AAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC",
             text: "Red",
+            portuguese: "Vermelho",
+            english: "Red",
           },
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAA1BMVEX/fyZjSOnzAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC3AcUIAAFkqh/QAAAAAElFTkSuQmCC",
             text: "Orange",
+            english: "Orange",
+            portuguese: "Laranja",
           },
           {
             img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAA1BMVEV9Js3dWPvwAAAASElEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC3AcUIAAFkqh/QAAAAAElFTkSuQmCC",
             text: "Purple",
+            english: "Purple",
+            portuguese: "Roxo",
           },
           {
             img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhMVFhUXFxgVFxcYGBcXGBoaGBcYGB0XGBoaHSggGholHRcYIjEiJSkrLi4uGB8zODMsNygtLisBCgoKDQ0NFQ8PFS0dFR0tLS0tLS0tLS0tLS0rKy0tKy0tLSstKy0tLS0tLS0tLS0tLS0tLTctLS0tLS0tLS0tK//AABEIALcBEwMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAAAAQIDBAf/xAAnEAEAAgEBBgcBAQAAAAAAAAAAAfARMSFBUWGBkQJxobHR4fHBEv/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMFBP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APocSJCw8x963iQuEVBY8SYUEzfxSb9oCwW4DPkCri7UhVQhcpLV3qBHzzvoFt3CGSbtACFzcooL37yRN+0wuVC8eJ4rYJvBADzvmQkAt3mT1TN0Aibt3r3TmYBoz8oAvhVnLUSqNZlE/wBRYkUeRYlIv4ve32cXRqJ9yJ5pE2wohIsGbd6hgzdkGL97iLewC4TN6l9wJUm6gLCxKZai6KiLCRey26WQAvEvO9FQlUIBRIXsCoE3VQlJJSLZBcEhm7ATK4RYv3AKhkAWEUGs+Ynf0VUeWCUVydFgjveaYWAVUIEFyQQoYC37Lxv2CkXUwAHcW3IhPFc3cgouSJ9DACpBgyAv8SFUIvyXcEAd7w5akIYuwFz5kzxIlMiAmfJYkVcBCX9VFVJMgd1Inz9VB5VTNlXJsWeKQKLEqkLAhErCLdALuIldqZ5KKJmAFyZS6qAZSTILgSYMWRGpXLJH8UaGZuWokDoRPn6AAGRQmTNupbtJAzchbIATP7tMk3cABNu8RJ6DWZuBR57cl0L6Dk2qswA1Ml+8QiqLlYt+WYIEXHJUiea5AmUkygNESgopm7MombeYKt0RQDHISIBpWZuuxRFhUyZUUSTIKXUM/iiQQGAWJEibsUASbeJkCZ5e6NZ5II4wQmDDm2q23cRJhQhcM3e0ARFykXutvIFkykcFzd3oIIEgSZTJILkyAEXDV1Yu5pQlUANip1IunuDWefssJnneoqCzsSbsjgoGAglQxcQXRMrhAIQUUQu4Fu/5RJkByuxZhFYaUi3chdoKrMSoGRJgjkDRIghi6BkFJkkyCLgyQXuBIYupIGPhQUAAaXy9kwQqB1JW8QS2CQyBCKSBkMmVATJdAWPFzx1Ex5egDlE3oqeGb/FhhowmFm3eSCBd14rgFv6ShMAuUybTw5v4CykyYtu0/wBAZu2/ixN+E/117Xgut/gLFgRYEJm7S3aqAYItgW71AC/fqCxFui39SDt10BSZRbcKBdSEEC6ABEkrACXcKX+Af58u0oYBXKLr8rnzZiFwwq/65etskz59SJXCjKxJhMAvhm2EzfwSQUMoC+Ged5jMTbq1ALb6nYu5e4EX4VIWAXCRC4FQLrhQEu8W3gRIKJkmfpQhUiSAMHIOogQFvEAEkFkmTKSCzMb/AOIuefuA5WLwVm27yLHww01eKwkTzMKLgI9/UiQLezMtJPUGUmL+9WkxewJlpMTfQhBqJvyrM342qoKkzdi5/AWFQxdVRSSLusLAEQevr/diJN0BvKZvFJhLwsg1k/Etz1McgIm3VUzdpFuFBUAUhIWIEInh8JlZhMgdIE6XuCuawQkW4ZVqCEysSAGbou3UEi+h1L5giSiyRIqYW8DCW8wVYRcAQsT5XZ8J3vFcgqxKRKqiRd6gBEmEXgARBm9ABJUyAHcUMXYAAYMgi90lUBoYuqiuc3ks5BlUjlzP9ACpEY3W+4KhBMKCpM7mPDNuoIN5SZ4/0AVeW8AJ2H+uHEAMtcgEIIUUJ2ewACRIAR4rtLdqgGCLtBUSZuqwAoTNvkALn4EBFiAFH//Z",
             text: "Beige",
+            english: "Beige",
+            portuguese: "Bege",
           },
         ],
       },
@@ -3983,8 +4009,8 @@ export const lessons = [
   },
   {
     title: "Professions",
-    order: 16,
-    type: "#1.1 | Basic Vocabulary",
+    order: 25,
+    type: "1- Basic",
     description: "Vamos aprender a dizer algumas profissões em inglês.",
     image:
       "https://static.mundoeducacao.uol.com.br/mundoeducacao/2019/11/professions.jpg",
@@ -4201,7 +4227,7 @@ export const lessons = [
   {
     title: "Weather",
     order: 23,
-    type: "#1.1 | Basic Vocabulary",
+    type: "1- Basic",
     description: "Vamos aprender a dizer algumas profissões em inglês.",
     image:
       "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem12.jpg?updatedAt=1716559355980",
@@ -4213,39 +4239,57 @@ export const lessons = [
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem14.jpg?updatedAt=1716559356469",
             text: "Hot",
+            english: "Hot",
+            portuguese: "Quente",
           },
           {
             img: "https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/319/319291/older-adults-cold-in-bed.jpg?w=1155&h=1537",
             text: "Cold",
+            portuguese: "Frio",
+            english: "Cold",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem12.jpg?updatedAt=1716559355980",
             text: "Sunny",
+            portuguese: "Ensolarado",
+            english: "Sunny",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem13.jpg?updatedAt=1716559356068",
             text: "Rainy",
+            portuguese: "Chuvoso",
+            english: "Rainy",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem11.jpg?updatedAt=1716559356293",
             text: "Cloudy",
+            portuguese: "Nublado",
+            english: "Cloudy",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem9.jpg?updatedAt=1716559355934",
             text: "Windy",
+            portuguese: "Ventoso ou Ventando",
+            english: "Windy",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem10.jpg?updatedAt=1716559355892",
             text: "Foggy",
+            portuguese: "Tempo com neblina",
+            english: "Foggy",
           },
 
           {
             img: "https://www.gannett-cdn.com/presto/2019/01/28/USAT/05f8e326-79b1-4d90-ac80-a7c3143b0d01-XXX_MAN_Winter_Storm_012819_JC0064.jpg?crop=3249,1828,x0,y266&width=3200&height=1801&format=pjpg&auto=webp",
             text: "Snowy",
+            portuguese: "Tempo com neve",
+            english: "Snowy",
           },
           {
             img: "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Imagem4.jpg?updatedAt=1716559355696",
+            portuguese: "Clima bom",
             text: "Nice",
+            english: "Nice weather",
           },
         ],
       },
@@ -4286,7 +4330,7 @@ export const lessons = [
 
   {
     title: "Saudi Money Helps Make Ronaldo Top Earning Athlete",
-    type: "#2.3 | Intermediate Texts",
+    type: "2- Intermediate Texts",
     order: 100,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
@@ -4359,7 +4403,7 @@ export const lessons = [
   },
   {
     title: "Man Arrested for Writing False Restaurant Reviews",
-    type: "#2.3 | Intermediate Texts",
+    type: "2- Intermediate Texts",
     order: 101,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
@@ -4411,13 +4455,9 @@ export const lessons = [
     ],
   },
 
-
-
-
-
   {
     title: "Life Expectancy Could Increase 5 Years by 2050",
-    type: "#2.3 | Intermediate Texts",
+    type: "2- Intermediate Texts",
     order: 102,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
@@ -4435,16 +4475,28 @@ export const lessons = [
           { english: "Average", portuguese: "Média" },
           { english: "Researchers", portuguese: "Pesquisadores" },
           { english: "Public health", portuguese: "Saúde pública" },
-          { english: "Communicable diseases", portuguese: "Doenças transmissíveis" },
-          { english: "Non-communicable diseases", portuguese: "Doenças não transmissíveis" },
+          {
+            english: "Communicable diseases",
+            portuguese: "Doenças transmissíveis",
+          },
+          {
+            english: "Non-communicable diseases",
+            portuguese: "Doenças não transmissíveis",
+          },
           { english: "Heart disease", portuguese: "Doença cardíaca" },
           { english: "Cancer", portuguese: "Câncer" },
           { english: "Diabetes", portuguese: "Diabetes" },
           { english: "High blood pressure", portuguese: "Pressão alta" },
           { english: "High blood sugar", portuguese: "Açúcar alto no sangue" },
           { english: "Obesity", portuguese: "Obesidade" },
-          { english: "Healthy life expectancy", portuguese: "Expectativa de vida saudável" },
-          { english: "Health inequalities", portuguese: "Desigualdades de saúde" },
+          {
+            english: "Healthy life expectancy",
+            portuguese: "Expectativa de vida saudável",
+          },
+          {
+            english: "Health inequalities",
+            portuguese: "Desigualdades de saúde",
+          },
         ],
       },
       {

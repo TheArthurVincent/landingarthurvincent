@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HOne, HTwo } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
@@ -10,7 +10,9 @@ import ExerciseLessonModel from "./LessonsModels/ExerciseLessonModel";
 import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
-import TextAreaLesson from "./Functions/TextAreaLessons";
+import axios from "axios";
+import { backDomain } from "../../../Resources/UniversalComponents";
+import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -21,6 +23,41 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
 }: EnglishLessonsRenderModelProps) {
+  const [studentsList, setStudentsList] = useState<any>([]);
+  const [studentID, setStudentID] = useState<string>("");
+  const [myId, setId] = useState<string>("");
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    const { id, permissions } = JSON.parse(user || "");
+    if (permissions == "superadmin") {
+      fetchStudents();
+    }
+
+    if (user) {
+      setId(id);
+      setStudentID(id);
+    }
+  }, []);
+
+  const actualHeaders = headers || {};
+
+  const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const theid = event.target.value;
+    setStudentID(theid);
+    console.log(event.target.value);
+  };
+  const fetchStudents = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
+        headers: actualHeaders,
+      });
+      setStudentsList(response.data.listOfStudents);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+
   return (
     <div
       style={{
@@ -29,7 +66,28 @@ export default function EnglishLessonsRender({
         backgroundColor: "white",
       }}
     >
-      <HOne>{theclass.title}</HOne>
+      <HOne style={{ marginTop: "3rem" }}>{theclass.title}</HOne>
+      {myId === "651311fac3d58753aa9281c5" && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+          }}
+        >
+          <select onChange={(e) => handleStudentChange(e)} value={studentID}>
+            {studentsList.map((student: any, index: number) => (
+              <option key={index} value={student.id}>
+                {student.name + " " + student.lastname}
+              </option>
+            ))}
+          </select>
+          <ArvinButton color="green" onClick={fetchStudents}>
+            <i className="fa fa-refresh" aria-hidden="true" />
+            <i className="fa fa-user" aria-hidden="true" />
+          </ArvinButton>
+        </div>
+      )}
       {theclass.image && (
         <ImgLesson src={theclass.image} alt={theclass.title} />
       )}
@@ -80,7 +138,11 @@ export default function EnglishLessonsRender({
               </p>
             )}
             {element.type === "sentences" ? (
-              <SentenceLessonModel element={element} headers={headers} />
+              <SentenceLessonModel
+                id={studentID}
+                element={element}
+                headers={headers}
+              />
             ) : element.type === "text" ? (
               <TextLessonModel
                 headers={headers}
@@ -89,7 +151,11 @@ export default function EnglishLessonsRender({
             ) : element.type === "multipletexts" ? (
               <MultipleTextsLessonModel headers={headers} element={element} />
             ) : element.type === "images" ? (
-              <ImageLessonModel headers={headers} element={element} />
+              <ImageLessonModel
+                id={studentID}
+                headers={headers}
+                element={element}
+              />
             ) : element.type === "exercise" ? (
               <ExerciseLessonModel headers={headers} item={element.items} />
             ) : element.type === "dialogue" ? (
@@ -105,8 +171,7 @@ export default function EnglishLessonsRender({
               <></>
             )}
           </div>
-        ))
-        }
+        ))}
     </div>
   );
 }

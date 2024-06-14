@@ -1,20 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
-import { pauseSpeech, readText } from "../Functions/FunctionLessons";
+import { readText } from "../Functions/FunctionLessons";
 import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 import TextAreaLesson from "../Functions/TextAreaLessons";
+import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
+import { backDomain } from "../../../../Resources/UniversalComponents";
+import axios from "axios";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
+  id: string;
 }
 
 export default function SentenceLessonModel({
   headers,
   element,
+  id,
 }: SentenceLessonModelProps) {
-  const [isPause, setIsPause] = useState<boolean>(true);
+  const actualHeaders = headers || {};
+
+  const addNewCards = async (frontText: string, backText: string) => {
+    const newCards = [
+      {
+        front: {
+          text: frontText,
+          language: "en",
+        },
+        back: {
+          text: backText,
+          language: "pt",
+        },
+      },
+    ];
+    console.log(newCards);
+
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/flashcard/${id}`,
+        { newCards },
+        { headers: actualHeaders }
+      );
+
+      console.log(response);
+    } catch (error) {
+      alert("Erro ao enviar cards");
+    }
+  };
+
   return (
     <UlSentences
       style={{
@@ -29,6 +63,14 @@ export default function SentenceLessonModel({
       {element.sentences &&
         element.sentences.map((sentence: any, i: number) => (
           <LiSentence key={i}>
+            <ArvinButton
+              color="white"
+              onClick={() => addNewCards(sentence.english, sentence.portuguese)}
+            >
+              <i className="fa fa-copy" aria-hidden="true" />
+            </ArvinButton>
+            <br />
+            <br />
             <strong
               style={{
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
