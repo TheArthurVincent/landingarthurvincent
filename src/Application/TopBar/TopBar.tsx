@@ -288,7 +288,6 @@ export const TopBar: FC = () => {
               <NavLink
                 key={index}
                 style={{
-                  fontSize: "1.1rem",
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
@@ -312,8 +311,6 @@ export const TopBar: FC = () => {
                 <NavLink
                   key={index}
                   style={{
-                    fontSize: "1.1rem",
-
                     color: location.pathname.includes(link.endpoint)
                       ? secondaryColor()
                       : alwaysBlack(),
