@@ -6,10 +6,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { alwaysWhite } from "../../Styles/Styles";
-import {
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import { RouteDiv } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
 
