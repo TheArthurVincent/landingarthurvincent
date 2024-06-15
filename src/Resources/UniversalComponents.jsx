@@ -308,7 +308,6 @@ export const ImgResponsive2 = styled.img`
 export const ButtonDisapear = styled.button`
   border: 1px solid ${primaryColor()};
   background-color: ${primaryColor()};
-
   cursor: pointer;
   color: ${textPrimaryColorContrast()};
   padding: 0.5rem;

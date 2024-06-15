@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import {
   RouteDiv,
   HOne,
-  RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
   BackToHomePage,
-  IFrameVideo,
+  IFrameVideoClass,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
 import { transparentWhite } from "../../Styles/Styles";
@@ -75,7 +74,7 @@ export function Faq() {
               <DivAppear>
                 {item.url && (
                   <div style={{ textAlign: "center" }}>
-                    <IFrameVideo
+                    <IFrameVideoClass
                       src={getVideoEmbedUrl(item.url)}
                       frameBorder="0"
                     />

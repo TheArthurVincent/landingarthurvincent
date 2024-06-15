@@ -5,26 +5,24 @@ import { linksInfo } from "./LinksManagementAssets/UsefulLinksList";
 
 export function UsefulLinks() {
   return (
-    <>
-      <ul
-        style={{
-          display: "flex",
-          padding: "1rem",
-          flexDirection: "column",
-          gap: "5px",
-        }}
-      >
-        {linksInfo.map((item, index) => {
-          return (
-            <li key={index}>
-              <Link to={item.link} target="_blank">
-                {item.text}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    <ul
+      style={{
+        display: "flex",
+        padding: "1rem",
+        flexDirection: "column",
+        gap: "5px",
+      }}
+    >
+      {linksInfo.map((item, index) => {
+        return (
+          <li key={index}>
+            <Link to={item.link} target="_blank">
+              {item.text}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 

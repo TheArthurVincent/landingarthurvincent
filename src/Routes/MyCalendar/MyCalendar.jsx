@@ -1235,7 +1235,6 @@ export default function MyCalendar({ headers, thePermissions }) {
               }}
               onClick={handleCloseModal}
             />
-
             <div
               className="modal"
               style={{

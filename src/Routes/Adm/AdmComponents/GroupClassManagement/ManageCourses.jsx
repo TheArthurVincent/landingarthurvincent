@@ -183,9 +183,8 @@ export function ManageGroupClasses({ headers }) {
                         key={index}
                         style={{
                           display: "grid",
-                          padding: "0.5rem",
-                          justifyContent: "space-between",
                           border: "1px solid #000",
+                          justifyContent: "space-between",
                           padding: "1rem",
                           margin: "1rem",
                           backgroundColor: lightGreyColor(),
