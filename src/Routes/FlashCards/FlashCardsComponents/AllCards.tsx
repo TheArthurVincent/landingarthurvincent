@@ -9,15 +9,15 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { CircularProgress } from "@mui/material";
 
 const AllCards = ({ headers }: HeadersProps) => {
-  const [studentsList, setStudentsList] = useState<any>([]);
   const [myId, setId] = useState<string>("");
-  const [studentID, setStudentID] = useState<string>("");
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
-
+  
   const actualHeaders = headers || {};
-
+  
+  const [studentsList, setStudentsList] = useState<any>([]);
+  const [studentID, setStudentID] = useState<string>("");
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStudentID(event.target.value);
     getNewCards(event.target.value);

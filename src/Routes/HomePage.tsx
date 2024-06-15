@@ -62,7 +62,9 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "Homework",
-      component: <Homework headers={headers} />,
+      component: (
+        <Homework change={change} setChange={setChange} headers={headers} />
+      ),
     },
     {
       title: "My Calendar",

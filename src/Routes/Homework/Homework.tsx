@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { HeadersProps } from "../../Resources/types.universalInterfaces";
-import {
-  HOne,
-  HTwo,
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
+import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { SectionHW } from "./Homework.Styled";
 import { Link } from "react-router-dom";
@@ -14,23 +9,47 @@ import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { listOfCriteria } from "../Ranking/RankingComponents/ListOfCriteria";
 
-export function Homework({ headers }: HeadersProps) {
+interface HWProps {
+  headers: MyHeadersType | null;
+  setChange: any;
+  change: boolean;
+}
+export function Homework({ headers, setChange, change }: HWProps) {
   const [groupList, setGroupList] = useState<any>([]);
   const [tutoringList, setTutoringList] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const actualHeaders = headers || {};
-
-  const fetchClasses = async () => {
-    setLoading(true);
-    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
-    //@ts-ignore
-    const { id } = getLoggedUser;
+  const [studentsList, setStudentsList] = useState<any>([]);
+  const [studentID, setStudentID] = useState<string>("");
+  const [myId, setMyId] = useState<string>("");
+  const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setStudentID(event.target.value);
+    fetchClasses(event.target.value);
+  };
+  const fetchStudents = async () => {
     try {
-      var response = await axios.get(`${backDomain}/api/v1/homework/${id}`, {
+      const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers: actualHeaders,
       });
+      setStudentsList(response.data.listOfStudents);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+
+  const actualHeaders = headers || {};
+
+  const fetchClasses = async (studentId: string) => {
+    // setLoading(true);
+    try {
+      var response = await axios.get(
+        `${backDomain}/api/v1/homework/${studentId}`,
+        {
+          headers: actualHeaders,
+        }
+      );
       const gc = response.data.groupClassHomeworkList;
       const tt = response.data.tutoringHomeworkList;
       setGroupList(gc);
@@ -39,20 +58,99 @@ export function Homework({ headers }: HeadersProps) {
       setLoading(false);
     } catch (error) {
       console.log(error, "erro ao listar homework");
-      setLoading(false);
+      // setLoading(false);
     }
   };
   useEffect(() => {
-    fetchClasses();
+    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    //@ts-ignore
+    const { id } = getLoggedUser;
+    setMyId(id);
+    fetchClasses(id);
+    fetchStudents();
   }, []);
+
+  const updateRealizedClass = async (tutoringId: string, score: number) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/homework/${studentID}`,
+        {
+          tutoringId,
+          score,
+        },
+        {
+          headers: actualHeaders,
+        }
+      );
+      setChange(!change);
+      fetchClasses(studentID);
+      console.log(response.data);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+  const pointsHW = (dueDate: string) => {
+    const pointsMadeHW = listOfCriteria[0].score[0].score;
+    const pointsLateHW = listOfCriteria[0].score[1].score;
+
+    const currentDate = new Date();
+    const dueDateObj = new Date(dueDate);
+
+    if (dueDateObj < currentDate) {
+      return pointsLateHW;
+    } else {
+      return pointsMadeHW;
+    }
+  };
+
+  const pointsGC = (dueDate: string) => {
+    const pointsMadeGC = listOfCriteria[2].score[0].score;
+    const pointsLateGC = listOfCriteria[2].score[1].score;
+
+    const currentDate = new Date();
+    const dueDateObj = new Date(dueDate);
+
+    if (dueDateObj < currentDate) {
+      return pointsLateGC;
+    } else {
+      return pointsMadeGC;
+    }
+  };
 
   return (
     <RouteDiv className="smooth">
       <Helmets text="Homework" />
       <HOne>Homework</HOne>
-      <ArvinButton onClick={fetchClasses}>
-        <i className="fa fa-refresh" aria-hidden="true" />
-      </ArvinButton>
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          justifyContent: "space-between",
+        }}
+      >
+        <ArvinButton onClick={() => fetchClasses(studentID)}>
+          <i className="fa fa-refresh" aria-hidden="true" />
+        </ArvinButton>
+        {myId === "651311fac3d58753aa9281c5" && (
+          <div
+            style={{
+              display: "inline",
+            }}
+          >
+            <select onChange={handleStudentChange} value={studentID}>
+              {studentsList.map((student: any, index: number) => (
+                <option key={index} value={student.id}>
+                  {student.name + " " + student.lastname}{" "}
+                </option>
+              ))}
+            </select>
+            <ArvinButton color="green" onClick={fetchStudents}>
+              <i className="fa fa-refresh" aria-hidden="true" />
+              <i className="fa fa-user" aria-hidden="true" />
+            </ArvinButton>
+          </div>
+        )}
+      </div>
       {loading ? (
         <CircularProgress />
       ) : (
@@ -81,34 +179,51 @@ export function Homework({ headers }: HeadersProps) {
                       border: `1px solid ${primaryColor()}`,
                     }}
                   >
-                    <HTwo>Title: {formatDateBr(homework.assignmentDate)}</HTwo>
+                    <h2
+                      style={{
+                        padding: "none",
+                        margin: "none",
+                      }}
+                    >
+                      Title: {formatDateBr(homework.assignmentDate)}
+                    </h2>
+                    <div>
+                      <i
+                        style={{
+                          display: "inline",
+                          color:
+                            homework?.status == "done" ? "green" : "orange",
+                        }}
+                        className={`fa fa-${
+                          homework?.status == "done"
+                            ? "check-circle"
+                            : "ellipsis-h"
+                        }`}
+                        aria-hidden="true"
+                      />{" "}
+                      Due date: {formatDateBr(homework.dueDate)}
+                    </div>
                     <div style={{ display: "flex", gap: "5px" }}>
-                      {/* <i
-                          className="fa fa-check-circle"
-                          aria-hidden="true"
-                          // onClick={() =>
-                          //   updateRealizedClass(homework._id)
-                          // }
-                          style={{
-                            cursor: "pointer",
-                            fontSize:
-                              homework.status == "realizada" ? "12px" : "10px",
-                            color:
-                              homework.status == "realizada" ? "green" : "grey",
-                          }}
-                        />
-                        <i
-                          className="fa fa-times-circle-o"
-                          aria-hidden="true"
-                          // onClick={() => updateUnscheduled(homework._id)}
-                          style={{
-                            cursor: "pointer",
-                            fontSize:
-                              homework.status == "desmarcado" ? "12px" : "10px",
-                            color:
-                              homework.status == "desmarcado" ? "red" : "grey",
-                          }}
-                        /> */}
+                      {homework.status && (
+                        <>
+                          {myId === "651311fac3d58753aa9281c5" &&
+                            homework.status !== "done" && (
+                              <ArvinButton
+                                onClick={() =>
+                                  updateRealizedClass(
+                                    homework._id,
+                                    pointsHW(homework.dueDate)
+                                  )
+                                }
+                              >
+                                <i
+                                  className="fa fa-check-circle"
+                                  aria-hidden="true"
+                                />
+                              </ArvinButton>
+                            )}
+                        </>
+                      )}
                     </div>
                     <div style={{ width: "20rem" }}>
                       <div
@@ -121,7 +236,7 @@ export function Homework({ headers }: HeadersProps) {
                         }}
                       />
                     </div>
-                    <div>Due date: {formatDateBr(homework.dueDate)}</div>
+
                     <Link to={homework.googleDriveLink}>
                       Access the class here
                     </Link>
@@ -155,34 +270,44 @@ export function Homework({ headers }: HeadersProps) {
                     }}
                   >
                     <HTwo>Title: {formatDateBr(homework.assignmentDate)}</HTwo>
-                    <div style={{ display: "flex", gap: "5px" }}>
-                      {/* <i
-                          className="fa fa-check-circle"
-                          aria-hidden="true"
-                          // onClick={() =>
-                          //   updateRealizedClass(homework._id)
-                          // }
-                          style={{
-                            cursor: "pointer",
-                            fontSize:
-                              homework.status == "realizada" ? "12px" : "10px",
-                            color:
-                              homework.status == "realizada" ? "green" : "grey",
-                          }}
-                        />
-                        <i
-                          className="fa fa-times-circle-o"
-                          aria-hidden="true"
-                          // onClick={() => updateUnscheduled(homework._id)}
-                          style={{
-                            cursor: "pointer",
-                            fontSize:
-                              homework.status == "desmarcado" ? "12px" : "10px",
-                            color:
-                              homework.status == "desmarcado" ? "red" : "grey",
-                          }}
-                        /> */}
+                    <div>
+                      <i
+                        style={{
+                          display: "inline",
+                          color:
+                            homework?.status == "done" ? "green" : "orange",
+                        }}
+                        className={`fa fa-${
+                          homework?.status == "done"
+                            ? "check-circle"
+                            : "ellipsis-h"
+                        }`}
+                        aria-hidden="true"
+                      />{" "}
+                      Due date: {formatDateBr(homework.dueDate)}
                     </div>
+                    {homework.status && (
+                      <>
+                        {myId === "651311fac3d58753aa9281c5" &&
+                          homework.status !== "done" && (
+                            <ArvinButton
+                              onClick={() =>
+                                updateRealizedClass(
+                                  homework._id,
+                                  pointsGC(homework.dueDate)
+                                )
+                              }
+                            >
+                              <i
+                                className="fa fa-check-circle"
+                                aria-hidden="true"
+                              />
+                            </ArvinButton>
+                          )}
+                      </>
+                    )}
+
+                    <div style={{ display: "flex", gap: "5px" }}></div>
                     <div style={{ width: "20rem" }}>
                       <div
                         style={{
@@ -194,7 +319,6 @@ export function Homework({ headers }: HeadersProps) {
                         }}
                       />
                     </div>
-                    <div>Due date:{formatDateBr(homework.dueDate)}</div>
                     <Link to={homework.googleDriveLink}>
                       Access the class here
                     </Link>
