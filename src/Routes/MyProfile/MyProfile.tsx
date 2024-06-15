@@ -100,9 +100,9 @@ export function MyProfile({ headers }: HeadersProps) {
   return (
     <>
       {headers ? (
-        <RouteSizeControlBox className="smooth grid-flex">
+        <RouteDiv className="smooth grid-flex">
           <Helmets text="My Profile" />
-          <RouteDiv>
+          <div>
             <HOne>{UniversalTexts.myProfile}</HOne>
             <ul
               style={{
@@ -125,7 +125,7 @@ export function MyProfile({ headers }: HeadersProps) {
                     alignItems: "center",
                   }}
                 >
-                  <img
+                  {/* <img
                     style={{
                       maxWidth: "7rem",
                       paddingBottom: "1rem",
@@ -133,7 +133,7 @@ export function MyProfile({ headers }: HeadersProps) {
                     }}
                     src={user.picture}
                     alt=""
-                  />
+                  /> */}
                   <div>
                     {myProfileList.map((item: any, index: number) => {
                       return (
@@ -158,8 +158,8 @@ export function MyProfile({ headers }: HeadersProps) {
                 </div>
               )}
             </ul>
-          </RouteDiv>
-          <RouteDiv>
+          </div>
+          <div>
             <HOne>{UniversalTexts.newPassword}</HOne>
             <form
               style={{
@@ -191,10 +191,10 @@ export function MyProfile({ headers }: HeadersProps) {
                 Salvar
               </Button>
             </form>
-          </RouteDiv>
-        </RouteSizeControlBox>
+          </div>
+        </RouteDiv>
       ) : (
-        <RouteSizeControlBox>Nenhum usuário logado</RouteSizeControlBox>
+        <RouteDiv>Nenhum usuário logado</RouteDiv>
       )}
     </>
   );

@@ -185,251 +185,260 @@ export default function EnglishMaterial({ headers }) {
     { title: UniversalTexts.thematicClasses, list: thematicClasses },
   ];
   return (
-    <>
+    <RouteDiv
+      style={{
+        maxWidth: "70vw",
+      }}
+    >
       {headers ? (
-        <RouteSizeControlBox className="smooth">
+        <>
           <Helmets text="Material" />
-          <RouteDiv>
-            <HOne>{UniversalTexts.englishMaterial}</HOne>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <Button onClick={() => fetchMaterial()}>
-                <i className="fa fa-refresh" aria-hidden="true" />
-              </Button>{" "}
-              <Button
-                onClick={() => handleSeeModalNew()}
-                style={{
-                  display: permissions == "superadmin" ? "block" : "none",
-                }}
-              >
-                <i className="fa fa-plus" aria-hidden="true" />
-              </Button>
-            </div>
-            {lists.map((item, index) => {
-              return (
-                <div key={index}>
-                  <HThree>{item.title}</HThree>
-                  {!loading ? (
-                    <div style={cardStyle}>
-                      {item.list.map((course, index) => {
-                        return (
-                          <div key={index}>
-                            <Button
-                              onClick={() => getOneMaterial(course.id)}
-                              style={{
-                                display:
-                                  permissions == "superadmin"
-                                    ? "block"
-                                    : "none",
-                              }}
-                            >
-                              <i className="fa fa-edit" aria-hidden="true" />
-                            </Button>
-                            <Link to={course.link} target="_blank">
-                              <CourseCard>
-                                <p>{course.title}</p>
-                                <img src={course.img} alt="" />
-                              </CourseCard>
-                            </Link>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <CircularProgress />
-                  )}
-                </div>
-              );
-            })}
-          </RouteDiv>
+          <HOne>{UniversalTexts.englishMaterial}</HOne>
           <div
             style={{
-              backgroundColor: transparentWhite(),
-              width: "10000px",
-              height: "10000px",
-              top: "0",
-              left: "0",
-              position: "fixed",
-              zIndex: 99,
-              display: isVisible ? "block" : "none",
-              padding: "1rem",
-            }}
-            onClick={() => handleSeeModal()}
-          />
-          <div
-            className="modal"
-            style={{
-              position: "fixed",
-              display: isVisible ? "block" : "none",
-              zIndex: 100,
-              backgroundColor: alwaysWhite(),
-              boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
-              padding: "1rem",
-              width: "20rem",
-              height: "30rem",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
-            <Xp onClick={() => handleSeeModal()}>X</Xp>
-            <h2
+            <Button onClick={() => fetchMaterial()}>
+              <i className="fa fa-refresh" aria-hidden="true" />
+            </Button>{" "}
+            <Button
+              onClick={() => handleSeeModalNew()}
               style={{
-                margin: "0.5rem 0",
+                display: permissions == "superadmin" ? "block" : "none",
               }}
             >
-              {postNew ? "New" : UniversalTexts.editPost}
-            </h2>
-            {loadingInfo ? (
-              <CircularProgress />
-            ) : (
-              <div
+              <i className="fa fa-plus" aria-hidden="true" />
+            </Button>
+          </div>
+          {lists.map((item, index) => {
+            return (
+              <div key={index}>
+                <HThree>{item.title}</HThree>
+                {!loading ? (
+                  <div style={cardStyle}>
+                    {item.list.map((course, index) => {
+                      return (
+                        <div key={index}>
+                          <Button
+                            onClick={() => getOneMaterial(course.id)}
+                            style={{
+                              display:
+                                permissions == "superadmin" ? "block" : "none",
+                            }}
+                          >
+                            <i className="fa fa-edit" aria-hidden="true" />
+                          </Button>
+                          <Link to={course.link} target="_blank">
+                            <CourseCard>
+                              <p>{course.title}</p>
+                              <img src={course.img} alt="" />
+                            </CourseCard>
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <CircularProgress />
+                )}
+              </div>
+            );
+          })}
+          <>
+            <div
+              style={{
+                backgroundColor: transparentWhite(),
+                width: "10000px",
+                height: "10000px",
+                top: "0",
+                left: "0",
+                position: "fixed",
+                zIndex: 99,
+                display: isVisible ? "block" : "none",
+                padding: "1rem",
+              }}
+              onClick={() => handleSeeModal()}
+            />
+            <div
+              className="modal"
+              style={{
+                position: "fixed",
+                display: isVisible ? "block" : "none",
+                zIndex: 100,
+                backgroundColor: alwaysWhite(),
+                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
+                padding: "1rem",
+                width: "20rem",
+                height: "30rem",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <Xp onClick={() => handleSeeModal()}>X</Xp>
+              <h2
                 style={{
-                  display: "grid",
-                  justifyItems: "center",
-                  gap: "0.5rem",
+                  margin: "0.5rem 0",
                 }}
               >
-                <input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Title"
-                  type="text"
-                  required
-                />
-                <input
-                  value={img}
-                  onChange={(e) => setImg(e.target.value)}
-                  placeholder="Image"
-                  type="text"
-                  required
-                />{" "}
-                <img style={{ maxWidth: "12rem" }} src={img} />
-                <input
-                  value={link}
-                  onChange={(e) => setLink(e.target.value)}
-                  placeholder="Link"
-                  type="text"
-                  required
-                />{" "}
-                <select required onChange={(e) => setCategory(e.target.value)}>
-                  <option style={{ cursor: "pointer" }} value={category} hidden>
-                    {category}
-                  </option>
+                {postNew ? "New" : UniversalTexts.editPost}
+              </h2>
+              {loadingInfo ? (
+                <CircularProgress />
+              ) : (
+                <div
+                  style={{
+                    display: "grid",
+                    justifyItems: "center",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Title"
+                    type="text"
+                    required
+                  />
+                  <input
+                    value={img}
+                    onChange={(e) => setImg(e.target.value)}
+                    placeholder="Image"
+                    type="text"
+                    required
+                  />{" "}
+                  <img style={{ maxWidth: "12rem" }} src={img} />
+                  <input
+                    value={link}
+                    onChange={(e) => setLink(e.target.value)}
+                    placeholder="Link"
+                    type="text"
+                    required
+                  />{" "}
+                  <select
+                    required
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option
+                      style={{ cursor: "pointer" }}
+                      value={category}
+                      hidden
+                    >
+                      {category}
+                    </option>
+                    {[
+                      "basicClasses",
+                      "intermediateClasses",
+                      "advancedClasses",
+                      "thematicClasses",
+                    ].map((option, index) => {
+                      return (
+                        <option
+                          style={{ cursor: "pointer" }}
+                          key={index}
+                          value={option}
+                        >
+                          {option}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              )}
+
+              {!deleteVisible ? (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "100%",
+                    justifyContent: "space-evenly",
+                  }}
+                >
                   {[
-                    "basicClasses",
-                    "intermediateClasses",
-                    "advancedClasses",
-                    "thematicClasses",
-                  ].map((option, index) => {
+                    {
+                      text: "Delete",
+                      backgroundColor: "red",
+                      onClick: seeDelete,
+                      visible: postNew ? false : true,
+                    },
+                    {
+                      text: "Cancel",
+                      backgroundColor: "navy",
+                      onClick: handleSeeModal,
+                      visible: true,
+                    },
+                    {
+                      text: "Save",
+                      backgroundColor: "green",
+                      onClick: !postNew ? editOneMaterial : postNewMaterial,
+                      visible: true,
+                    },
+                  ].map((item, index) => {
                     return (
-                      <option
-                        style={{ cursor: "pointer" }}
+                      <Button
                         key={index}
-                        value={option}
+                        onClick={item.onClick}
+                        style={{
+                          display: item.visible ? "block" : "none",
+                          marginTop: "1rem",
+                          color: "white",
+                          backgroundColor: item.backgroundColor,
+                        }}
                       >
-                        {option}
-                      </option>
+                        {item.text}
+                      </Button>
                     );
                   })}
-                </select>
-              </div>
-            )}
+                </div>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "100%",
+                    justifyContent: "space-evenly",
+                  }}
+                >
+                  <p>Are you Sure??</p>
+                  {[
+                    {
+                      text: "No!",
+                      backgroundColor: "navy",
+                      onClick: seeDelete,
+                    },
 
-            {!deleteVisible ? (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  width: "100%",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                {[
-                  {
-                    text: "Delete",
-                    backgroundColor: "red",
-                    onClick: seeDelete,
-                    visible: postNew ? false : true,
-                  },
-                  {
-                    text: "Cancel",
-                    backgroundColor: "navy",
-                    onClick: handleSeeModal,
-                    visible: true,
-                  },
-                  {
-                    text: "Save",
-                    backgroundColor: "green",
-                    onClick: !postNew ? editOneMaterial : postNewMaterial,
-                    visible: true,
-                  },
-                ].map((item, index) => {
-                  return (
-                    <Button
-                      key={index}
-                      onClick={item.onClick}
-                      style={{
-                        display: item.visible ? "block" : "none",
-                        marginTop: "1rem",
-                        color: "white",
-                        backgroundColor: item.backgroundColor,
-                      }}
-                    >
-                      {item.text}
-                    </Button>
-                  );
-                })}
-              </div>
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  width: "100%",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <p>Are you Sure??</p>
-                {[
-                  {
-                    text: "No!",
-                    backgroundColor: "navy",
-                    onClick: seeDelete,
-                  },
-
-                  {
-                    text: "Yes!",
-                    backgroundColor: "red",
-                    onClick: deleteOneMaterial,
-                  },
-                ].map((item, index) => {
-                  return (
-                    <Button
-                      key={index}
-                      onClick={item.onClick}
-                      style={{
-                        marginTop: "1rem",
-                        color: "white",
-                        backgroundColor: item.backgroundColor,
-                      }}
-                    >
-                      {item.text}
-                    </Button>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </RouteSizeControlBox>
+                    {
+                      text: "Yes!",
+                      backgroundColor: "red",
+                      onClick: deleteOneMaterial,
+                    },
+                  ].map((item, index) => {
+                    return (
+                      <Button
+                        key={index}
+                        onClick={item.onClick}
+                        style={{
+                          marginTop: "1rem",
+                          color: "white",
+                          backgroundColor: item.backgroundColor,
+                        }}
+                      >
+                        {item.text}
+                      </Button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </>
+        </>
       ) : (
-        <RouteSizeControlBox>Nenhum usuário logado</RouteSizeControlBox>
+        <>Nenhum usuário logado</>
       )}
-    </>
+    </RouteDiv>
   );
 }

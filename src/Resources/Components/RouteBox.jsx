@@ -30,7 +30,9 @@ export const RouteDiv = styled.div`
   color: ${alwaysBlack()};
   padding: 0.5rem;
   box-shadow: 1px 1px 5px 1px #777;
-  margin: 5px;
+  max-width: 60rem,
+  margin: auto,
+  margin: 5px,
   @media (max-width: 800px) {
     margin: 0;
   }
@@ -57,6 +59,7 @@ export const BlogRouteSizeControlBox = styled.div`
     max-width: 90vw;
     flex-direction: column-reverse;
     justify-content: center;
+    align-items: center;
   }
   &.smooth {
     animation-name: slideInLeft;

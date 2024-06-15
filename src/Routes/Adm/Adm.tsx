@@ -6,7 +6,10 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { alwaysWhite } from "../../Styles/Styles";
-import { RouteSizeControlBox } from "../../Resources/Components/RouteBox";
+import {
+  RouteDiv,
+  RouteSizeControlBox,
+} from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
 
@@ -84,64 +87,62 @@ export function Adm({ headers }: HeadersProps) {
   };
 
   return (
-    <>
-      <RouteSizeControlBox
-        style={{
-          backgroundColor: "#f9f9f9",
-          padding: "0.5rem",
-          borderRadius: "0.5rem",
-          maxWidth: "900px",
-        }}
-        className="smooth"
-      >
-        <Helmets text="Adm" />
-        <TabContext value={value}>
-          <span className="no-print">
-            {" "}
-            <Box
-              style={{
-                display: "flex",
-                alignItems: "center",
-                backgroundColor: alwaysWhite(),
-                justifyContent: "space-between",
-              }}
-              sx={{ borderBottom: 1, borderColor: "divider" }}
+    <RouteDiv
+      style={{
+        backgroundColor: "#f9f9f9",
+        padding: "0.5rem",
+        borderRadius: "0.5rem",
+        maxWidth: "900px",
+      }}
+      className="smooth"
+    >
+      <Helmets text="Adm" />
+      <TabContext value={value}>
+        <span className="no-print">
+          {" "}
+          <Box
+            style={{
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: alwaysWhite(),
+              justifyContent: "space-between",
+            }}
+            sx={{ borderBottom: 1, borderColor: "divider" }}
+          >
+            <TabList
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
             >
-              <TabList
-                onChange={handleChange}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-              >
-                {componentsToRender.map((component, index) => {
-                  return (
-                    <Tab
-                      key={index + component.value}
-                      style={{
-                        fontWeight: 500,
-                      }}
-                      label={component.title}
-                      value={component.value}
-                    />
-                  );
-                })}
-              </TabList>
-            </Box>
-          </span>
-          {componentsToRender.map((component, index) => {
-            return (
-              <TabPanel
-                style={{ padding: 0, margin: "1rem auto" }}
-                key={index + component.value}
-                value={component.value}
-              >
-                {component.component}
-              </TabPanel>
-            );
-          })}
-        </TabContext>
-      </RouteSizeControlBox>
-    </>
+              {componentsToRender.map((component, index) => {
+                return (
+                  <Tab
+                    key={index + component.value}
+                    style={{
+                      fontWeight: 500,
+                    }}
+                    label={component.title}
+                    value={component.value}
+                  />
+                );
+              })}
+            </TabList>
+          </Box>
+        </span>
+        {componentsToRender.map((component, index) => {
+          return (
+            <TabPanel
+              style={{ padding: 0, margin: "1rem auto" }}
+              key={index + component.value}
+              value={component.value}
+            >
+              {component.component}
+            </TabPanel>
+          );
+        })}
+      </TabContext>
+    </RouteDiv>
   );
 }
 

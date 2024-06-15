@@ -157,45 +157,41 @@ export function MyClasses({ headers }) {
   }
 
   return (
-    <>
-      <RouteSizeControlBox className="smooth">
-        <Helmets text="My Classes" />
-        <RouteDiv>
-          {!loading ? (
-            <>
-              <HOne>{UniversalTexts.myClasses}</HOne>
-              <ClassesSideBar />
-              {currentClasses.map((item, index) => (
-                <div key={index}>
-                  <ClassBox>
-                    <div style={{ textAlign: "center" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <HTwo>{item.date}</HTwo>{" "}
-                        {item.attachments && (
-                          <Link target="_blank" to={item.attachments}>
-                            Arquivos da aula
-                          </Link>
-                        )}
-                      </div>
-                      <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
-                    </div>
-                  </ClassBox>
+    <RouteDiv className="smooth">
+      <Helmets text="My Classes" />
+      {!loading ? (
+        <div>
+          <HOne>{UniversalTexts.myClasses}</HOne>
+          <ClassesSideBar />
+          {currentClasses.map((item, index) => (
+            <div key={index}>
+              <ClassBox>
+                <div style={{ textAlign: "center" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <HTwo>{item.date}</HTwo>{" "}
+                    {item.attachments && (
+                      <Link target="_blank" to={item.attachments}>
+                        Arquivos da aula
+                      </Link>
+                    )}
+                  </div>
+                  <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
                 </div>
-              ))}
-              {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
-            </>
-          ) : (
-            <CircularProgress style={{ color: secondaryColor() }} />
-          )}
-        </RouteDiv>
-      </RouteSizeControlBox>
-    </>
+              </ClassBox>
+            </div>
+          ))}
+          {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
+        </div>
+      ) : (
+        <CircularProgress style={{ color: secondaryColor() }} />
+      )}
+    </RouteDiv>
   );
 }
 

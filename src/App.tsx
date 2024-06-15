@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import Login from "./Routes/Login/Login";
@@ -19,6 +19,20 @@ const headers: MyHeadersType = {
 };
 
 function App() {
+  const [_StudentId, setStudentId] = useState<string>("");
+  const [picture, setPicture] = useState<string>("");
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    if (user) {
+      const { permissions, picture, id } = JSON.parse(user);
+      setStudentId(id || _StudentId);
+      setPicture(picture);
+    } else {
+      return;
+    }
+  }, []);
+
   const routes = [
     {
       path: "/login",

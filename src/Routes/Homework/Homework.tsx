@@ -47,7 +47,7 @@ export function Homework({ headers }: HeadersProps) {
   }, []);
 
   return (
-    <RouteSizeControlBox>
+    <div className="smooth">
       <RouteDiv>
         <Helmets text="Homework" />
         <HOne>Homework</HOne>
@@ -211,7 +211,7 @@ export function Homework({ headers }: HeadersProps) {
           </SectionHW>
         )}{" "}
       </RouteDiv>
-    </RouteSizeControlBox>
+    </div>
   );
 }
 

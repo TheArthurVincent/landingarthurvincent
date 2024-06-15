@@ -45,62 +45,53 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "Blog",
       path: "/",
-      component: (
-        <BlogRouteSizeControlBox style={{ gap: "1rem" }} className="smooth">
-          <Blog headers={headers} />
-          <LevelCard
-            headers={headers}
-            _StudentId={_StudentId}
-            picture={picture}
-          />
-        </BlogRouteSizeControlBox>
-      ),
-    },
-    {
-      title: "Ranking",
-      component: <Ranking headers={headers} />,
-    },
-    {
-      title: "Homework",
-      component: <Homework headers={headers} />,
-    },
-    {
-      title: "My Profile",
-      component: <MyProfile headers={headers} />,
-    },
-    {
-      title: "Group Classes",
-      component: <GroupClasses headers={headers} />,
-    },
-    {
-      title: "Live Classes",
-      component: <GroupClasses headers={headers} />,
-    },
-    {
-      title: "English Material",
-      component: <EnglishMaterial headers={headers} />,
-    },
-    {
-      title: "English Lessons",
-      component: <EnglishLessonsHome headers={headers} />,
-    },
-    {
-      title: "FAQ",
-      component: <Faq />,
+      component: <Blog headers={headers} />,
     },
     {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
     },
     {
-      title: "Flash Cards",
-      component: <FlashCards headers={headers} />,
+      title: "English Material",
+      component: <EnglishMaterial headers={headers} />,
+    },
+    {
+      title: "Group Classes",
+      component: <GroupClasses headers={headers} />,
+    },
+    {
+      title: "Homework",
+      component: <Homework headers={headers} />,
     },
     {
       title: "My Calendar",
       component: (
         <MyCalendar thePermissions={thePermissions} headers={headers} />
       ),
+    },
+    {
+      title: "Flash Cards",
+      component: <FlashCards headers={headers} />,
+    },
+    {
+      title: "Ranking",
+      component: <Ranking headers={headers} />,
+    },
+    {
+      title: "English Lessons",
+      component: <EnglishLessonsHome headers={headers} />,
+    },
+    {
+      title: "Live Classes",
+      component: <GroupClasses headers={headers} />,
+    },
+    {
+      title: "FAQ",
+      component: <Faq />,
+    },
+    {
+      title: "My Profile",
+      component: <MyProfile headers={headers} />,
     },
     {
       path: "/adm-businessmanagement",
@@ -125,7 +116,28 @@ export function HomePage({ headers }: HeadersProps) {
               path={
                 component.path ? component.path : pathGenerator(component.title)
               }
-              element={verifyToken() ? component.component : <Login />}
+              element={
+                verifyToken() ? (
+                  <BlogRouteSizeControlBox
+                    style={{ gap: "1rem" }}
+                    className="smooth"
+                  >
+                    {component.component}
+                    <LevelCard
+                      display={
+                        component.path == "adm-businessmanagement"
+                          ? "none"
+                          : "block"
+                      }
+                      headers={headers}
+                      _StudentId={_StudentId}
+                      picture={picture}
+                    />
+                  </BlogRouteSizeControlBox>
+                ) : (
+                  <Login />
+                )
+              }
             />
           );
         })}

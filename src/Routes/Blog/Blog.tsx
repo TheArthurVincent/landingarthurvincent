@@ -153,12 +153,7 @@ export function Blog({ headers }: HeadersProps) {
 
   return (
     <>
-      <RouteDiv
-        style={{
-          maxWidth: "60rem",
-          margin: "auto",
-        }}
-      >
+      <RouteDiv>
         <Helmets text="Home Page" />
         <div
           style={{

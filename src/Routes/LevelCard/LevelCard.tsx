@@ -20,8 +20,14 @@ interface LevelCardProps {
   headers: MyHeadersType | null;
   _StudentId: string;
   picture: string;
+  display: string;
 }
-export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
+export function LevelCard({
+  headers,
+  _StudentId,
+  picture,
+  display,
+}: LevelCardProps) {
   const [pictureStudent, setPictureStudent] = useState<string>(picture);
   const [totalScore, setTotalScore] = useState<number>(0);
   const [monthlyScore, setMonthlyScore] = useState<number>(0);
@@ -63,73 +69,76 @@ export function LevelCard({ headers, _StudentId, picture }: LevelCardProps) {
   }, []);
 
   return (
-    <NewLevelCardComponent
-      style={{
-        border: `double 5px ${items[level].color} `,
-      }}
-    >
-      <DivCardLevel>
-        <LevelCardLevel
-          style={{ display: showCard }}
-          src={items[level].image}
-          alt="card"
-        />
-        <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />
-      </DivCardLevel>
-      <TextLevelCard>
-        <div
-          style={{
-            display: showCard,
-          }}
-        >
-          <i
-            style={{
-              fontSize: "1.5rem",
-            }}
-            className={items[level].icon}
-            aria-hidden="true"
+    <div style={{ display: display }}>
+      <NewLevelCardComponent
+        style={{
+          border: `double 5px ${items[level].color} `,
+          // position:"fixed"
+        }}
+      >
+        <DivCardLevel>
+          <LevelCardLevel
+            style={{ display: showCard }}
+            src={items[level].image}
+            alt="card"
           />
+          <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />
+        </DivCardLevel>
+        <TextLevelCard>
           <div
             style={{
-              marginBottom: "1rem",
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
-              marginTop: "0.5rem",
+              display: showCard,
             }}
           >
             <i
-              onClick={() => seeScore(_StudentId)}
               style={{
-                display: showCard,
-                cursor: "pointer",
-                color: "#fff",
-                fontSize: "0.8rem",
-                margin: "0",
+                fontSize: "1.5rem",
               }}
-              className="fa fa-refresh"
+              className={items[level].icon}
               aria-hidden="true"
             />
-            {loading ? (
-              <CircularProgress
+            <div
+              style={{
+                marginBottom: "1rem",
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                marginTop: "0.5rem",
+              }}
+            >
+              <i
+                onClick={() => seeScore(_StudentId)}
                 style={{
-                  color: items[level].color,
+                  display: showCard,
+                  cursor: "pointer",
+                  color: "#fff",
+                  fontSize: "0.8rem",
+                  margin: "0",
                 }}
+                className="fa fa-refresh"
+                aria-hidden="true"
               />
-            ) : (
-              <div>
-                <p style={{ color: "#fff" }}>
-                  Total Score: {formatNumber(totalScore)}
-                </p>
-                <p style={{ color: "#fff" }}>
-                  Monthly Score: {formatNumber(monthlyScore)}
-                </p>
-              </div>
-            )}
+              {loading ? (
+                <CircularProgress
+                  style={{
+                    color: items[level].color,
+                  }}
+                />
+              ) : (
+                <div>
+                  <p style={{ color: "#fff" }}>
+                    Total Score: {formatNumber(totalScore)}
+                  </p>
+                  <p style={{ color: "#fff" }}>
+                    Monthly Score: {formatNumber(monthlyScore)}
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </TextLevelCard>
-    </NewLevelCardComponent>
+        </TextLevelCard>
+      </NewLevelCardComponent>
+    </div>
   );
 }
 
