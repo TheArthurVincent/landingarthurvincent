@@ -84,12 +84,12 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
       const cardsCountFetch = response.data.cardsCount;
       {
         response.data.dueFlashcards.length > 0 &&
-        response.data.dueFlashcards[0].front
+          response.data.dueFlashcards[0].front
           ? readText(
-              response.data.dueFlashcards[0].front?.text,
-              false,
-              response.data.dueFlashcards[0].front.language
-            )
+            response.data.dueFlashcards[0].front?.text,
+            false,
+            response.data.dueFlashcards[0].front.language
+          )
           : null;
       }
       console.log(response.data.dueFlashcards);
@@ -288,18 +288,23 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                               />
                             ) || " "}
                           </span>
-                          <button
-                            className="audio-button"
-                            onClick={() =>
-                              readText(
-                                cards[0].front.text,
-                                true,
-                                cards[0].front.language
-                              )
-                            }
-                          >
-                            <i className="fa fa-volume-up" aria-hidden="true" />
-                          </button>
+                          {cards[0].front.language !== "pt" && (
+                            <button
+                              className="audio-button"
+                              onClick={() =>
+                                readText(
+                                  cards[0].front.text,
+                                  true,
+                                  cards[0].front.language
+                                )
+                              }
+                            >
+                              <i
+                                className="fa fa-volume-up"
+                                aria-hidden="true"
+                              />
+                            </button>
+                          )}
                         </div>
                       </div>
                       <div
@@ -343,18 +348,23 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                               </>
                             ) || " "}
                           </span>
-                          <button
-                            className="audio-button"
-                            onClick={() =>
-                              readText(
-                                cards[0].back.text,
-                                true,
-                                cards[0].back.language
-                              )
-                            }
-                          >
-                            <i className="fa fa-volume-up" aria-hidden="true" />
-                          </button>
+                          {cards[0].back.language !== "pt" && (
+                            <button
+                              className="audio-button"
+                              onClick={() =>
+                                readText(
+                                  cards[0].back.text,
+                                  true,
+                                  cards[0].back.language
+                                )
+                              }
+                            >
+                              <i
+                                className="fa fa-volume-up"
+                                aria-hidden="true"
+                              />
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -371,14 +381,14 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
                         {
                           cards.length > 0 && cards[0].back.language == "en"
                             ? readText(
-                                backCardVisible
-                                  ? cards[0].back.text
-                                  : cards[0].front.text,
-                                true,
-                                backCardVisible
-                                  ? cards[0].back.language
-                                  : cards[0].front.language
-                              )
+                              backCardVisible
+                                ? cards[0].back.text
+                                : cards[0].front.text,
+                              true,
+                              backCardVisible
+                                ? cards[0].back.language
+                                : cards[0].front.language
+                            )
                             : null;
                         }
                       }}
