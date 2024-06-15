@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { alwaysBlack, alwaysWhite } from "../../Styles/Styles";
 
 export const SideLoginForm = styled.div`
-  background-color: ${alwaysWhite()};
+  // background-color: ${alwaysWhite()};
   display: grid;
   max-width: 400px;
   margin-left: auto;
