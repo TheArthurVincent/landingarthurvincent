@@ -180,7 +180,6 @@ export function Blog({ headers }: HeadersProps) {
             }}
           >
             <i className="fa fa-user " aria-hidden="true" />
-
             <h2>
               {UniversalTexts.hello}
               {name}!
@@ -214,33 +213,7 @@ export function Blog({ headers }: HeadersProps) {
                 </span>
               </Link>
             </Tooltip>
-            <Tooltip title={UniversalTexts.personalFolder}>
-              <Link
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  gap: "5px",
-                  alignItems: "center",
-                  textDecoration: "none",
-                }}
-                to={googleDriveLink}
-              >
-                <span className="hover-link">
-                  <i
-                    style={{
-                      paddingRight: "5px",
-                    }}
-                    className="fa fa-folder"
-                    aria-hidden="true"
-                  />
-                  <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
-                </span>
-              </Link>
-            </Tooltip>
+
             <Tooltip title="Homework">
               <Link
                 style={{
@@ -297,8 +270,37 @@ export function Blog({ headers }: HeadersProps) {
                 </span>
               </Link>
             </Tooltip>
+            <Tooltip title={UniversalTexts.personalFolder}>
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  gap: "5px",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+                to={googleDriveLink}
+              >
+                <span className="hover-link">
+                  <i
+                    style={{
+                      paddingRight: "5px",
+                    }}
+                    className="fa fa-folder"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
             <Tooltip title={UniversalTexts.talkToTheTeacher}>
               <Link
+                target="_blank"
                 style={{
                   maxWidth: "100%",
                   backgroundColor: secondaryColor(),
