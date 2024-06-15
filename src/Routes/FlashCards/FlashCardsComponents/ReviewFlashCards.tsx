@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
-import { HeadersProps, MyHeadersType } from "../../../Resources/types.universalInterfaces";
+import {
+  HeadersProps,
+  MyHeadersType,
+} from "../../../Resources/types.universalInterfaces";
 import {
   Xp,
   backDomain,
@@ -16,7 +19,7 @@ interface FlashCardsPropsRv {
   onChange: any;
   change: boolean;
 }
-const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
+const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [cards, setCards] = useState<any[]>([]);
@@ -67,7 +70,7 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
 
       setAnswer(false);
       seeCardsToReview();
-      onChange(!change)
+      onChange(!change);
     } catch (error) {
       alert("Erro ao enviar cards");
     }
@@ -90,12 +93,12 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
       const cardsCountFetch = response.data.cardsCount;
       {
         response.data.dueFlashcards.length > 0 &&
-          response.data.dueFlashcards[0].front
+        response.data.dueFlashcards[0].front
           ? readText(
-            response.data.dueFlashcards[0].front?.text,
-            false,
-            response.data.dueFlashcards[0].front.language
-          )
+              response.data.dueFlashcards[0].front?.text,
+              false,
+              response.data.dueFlashcards[0].front.language
+            )
           : null;
       }
       console.log(response.data.dueFlashcards);
@@ -190,19 +193,6 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
 
   return (
     <section id="review">
-      <ArvinButton
-        style={{
-          margin: "3rem auto",
-          display: "block",
-        }}
-        onClick={seeCardsToReview}
-      >
-        {!see ? (
-          "Iniciar revisões"
-        ) : (
-          <i className="fa fa-refresh" aria-hidden="true" />
-        )}
-      </ArvinButton>
       {see && (
         <div>
           {loading ? (
@@ -214,14 +204,6 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
                 textAlign: "center",
               }}
             >
-              {myId === "651311fac3d58753aa9281c5" && (
-                <ArvinButton
-                  onClick={() => handleSeeModal(cards[0].id)}
-                  color="yellow"
-                >
-                  <i className="fa fa-edit" aria-hidden="true" />
-                </ArvinButton>
-              )}
               <div style={{ padding: "1rem" }}>
                 {!cardsLength ? (
                   <>
@@ -374,6 +356,14 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
                         </div>
                       </div>
                     </div>
+                    {myId === "651311fac3d58753aa9281c5" && (
+                      <ArvinButton
+                        onClick={() => handleSeeModal(cards[0].id)}
+                        color="yellow"
+                      >
+                        <i className="fa fa-edit" aria-hidden="true" />
+                      </ArvinButton>
+                    )}
                     <ArvinButton
                       disabled={isDisabled}
                       cursor={isDisabled ? "not-allowed" : "pointer"}
@@ -387,14 +377,14 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
                         {
                           cards.length > 0 && cards[0].back.language == "en"
                             ? readText(
-                              backCardVisible
-                                ? cards[0].back.text
-                                : cards[0].front.text,
-                              true,
-                              backCardVisible
-                                ? cards[0].back.language
-                                : cards[0].front.language
-                            )
+                                backCardVisible
+                                  ? cards[0].back.text
+                                  : cards[0].front.text,
+                                true,
+                                backCardVisible
+                                  ? cards[0].back.language
+                                  : cards[0].front.language
+                              )
                             : null;
                         }
                       }}
@@ -402,11 +392,11 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
                       {isDisabled ? (
                         <span>{count}</span>
                       ) : (
-                        <span> {answer ? "Back" : "Answer"}</span>
+                        <span>{answer ? "Back" : "Answer"}</span>
                       )}
                     </ArvinButton>
                     {answer && (
-                      <div style={{ padding: "1rem" }}>
+                      <div >
                         <div
                           style={{
                             justifyContent: "center",
@@ -570,6 +560,23 @@ const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
             </ArvinButton>
           </div>
         </article>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "5px",
+          alignItems: "center",
+        }}
+      >
+        <ArvinButton
+          style={{
+            margin: "3rem auto",
+            display: "block",
+          }}
+          onClick={seeCardsToReview}
+        >
+          {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
+        </ArvinButton>
       </div>
     </section>
   );
