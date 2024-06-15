@@ -28,7 +28,7 @@ export function HomePage({ headers }: HeadersProps) {
   const [admin, setAdmin] = useState<boolean>(false);
   const [_StudentId, setStudentId] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
-
+  const [change, setChange] = useState<boolean>(true);
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
@@ -72,7 +72,9 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "Flash Cards",
-      component: <FlashCards headers={headers} />,
+      component: (
+        <FlashCards change={change} onChange={setChange} headers={headers} />
+      ),
     },
     {
       title: "Ranking",
@@ -130,6 +132,7 @@ export function HomePage({ headers }: HeadersProps) {
                           ? "none"
                           : "block"
                       }
+                      change={change}
                       headers={headers}
                       _StudentId={_StudentId}
                       picture={picture}
