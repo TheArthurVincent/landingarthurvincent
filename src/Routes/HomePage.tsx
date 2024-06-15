@@ -107,7 +107,7 @@ export function HomePage({ headers }: HeadersProps) {
   ];
 
   return (
-    <div style={{ marginTop: "3.5rem" }}>
+    <div>
       <TopBar />
       <Routes>
         {appRoutes.map((component, index) => {
@@ -146,7 +146,7 @@ export function HomePage({ headers }: HeadersProps) {
       <SpanDisapear>
         <AddFlashCards headers={headers} display="fixed" />
       </SpanDisapear>
-      <AppFooter />
+      {/* <AppFooter /> */}
       <Outlet />
     </div>
   );

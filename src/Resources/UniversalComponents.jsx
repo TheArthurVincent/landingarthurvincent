@@ -86,6 +86,10 @@ export const SpanHover = styled.span`
   padding: 0 8px;
   font-family: Lato;
   font-weight: 500;
+  gap:5px;
+  display:grid;
+  align-items:center; 
+  justify-content:center;
   border: solid #66666600 2px;
   &:hover {
     color: ${secondaryColor()};

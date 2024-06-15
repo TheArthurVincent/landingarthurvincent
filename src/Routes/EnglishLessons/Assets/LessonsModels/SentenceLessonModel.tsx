@@ -12,12 +12,14 @@ interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
   id: string;
+  studentId: string;
 }
 
 export default function SentenceLessonModel({
   headers,
   element,
   id,
+  studentId,
 }: SentenceLessonModelProps) {
   const actualHeaders = headers || {};
 
@@ -38,7 +40,7 @@ export default function SentenceLessonModel({
 
     try {
       const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${id}`,
+        `${backDomain}/api/v1/flashcard/${studentId}`,
         { newCards },
         { headers: actualHeaders }
       );
@@ -65,7 +67,7 @@ export default function SentenceLessonModel({
 
     try {
       const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${id}`,
+        `${backDomain}/api/v1/flashcard/${studentId}`,
         { newCards },
         { headers: actualHeaders }
       );
