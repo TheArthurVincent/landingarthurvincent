@@ -158,7 +158,7 @@ export default function RankingTimeline({
               const variables = {
                 type:
                   item.type == "Anki"
-                    ? "fa fa-clone"
+                    ? "fa fa-star"
                     : item.type == "Homework"
                       ? "fa fa-book"
                       : item.type == "Extra activity"
