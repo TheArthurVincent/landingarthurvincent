@@ -396,13 +396,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       )}
                     </ArvinButton>
                     {answer && (
-                      <div >
+                      <div>
                         <div
                           style={{
                             justifyContent: "center",
                             display: "flex",
                             gap: "5px",
-                            marginTop: "2rem",
+                            marginTop: "5px",
                           }}
                         >
                           <div style={{ display: "grid", gap: "5px" }}>
