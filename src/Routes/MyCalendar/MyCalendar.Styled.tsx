@@ -24,7 +24,7 @@ export const StyledDiv = styled.div`
   height: 61vh;
   overflow-y: auto;
   overflow-x: hidden;
-  @media (max-width: 1050px) {
+  @media (max-width: 1200px) {
     min-width: 25vw;
   }
   @media (max-width: 700px) {

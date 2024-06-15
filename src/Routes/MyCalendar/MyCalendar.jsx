@@ -914,7 +914,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               <div
                 style={{
                   display: "flex",
-                  gap: "1rem",
+                  gap: "5px",
                   overflowX: "auto",
                 }}
               >
