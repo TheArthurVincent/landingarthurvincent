@@ -845,12 +845,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   return (
     <>
       {headers ? (
-        <RouteDiv
-          style={{
-            maxWidth: "80vw",
-          }}
-          className="smooth"
-        >
+        <RouteDiv className="smooth">
           <Helmets text="Calendar" />
           <div>
             <HOne>{UniversalTexts.calendar}</HOne>

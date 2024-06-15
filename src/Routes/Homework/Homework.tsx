@@ -47,46 +47,43 @@ export function Homework({ headers }: HeadersProps) {
   }, []);
 
   return (
-    <div className="smooth">
-      <RouteDiv>
-        <Helmets text="Homework" />
-        <HOne>Homework</HOne>
-        <ArvinButton onClick={fetchClasses}>
-          <i className="fa fa-refresh" aria-hidden="true" />
-        </ArvinButton>
-        {loading ? (
-          <CircularProgress />
-        ) : (
-          <SectionHW>
-            <article>
-              <HTwo>Tutorings</HTwo>
-              <ul
-                style={{
-                  overflowY: "auto",
-                  maxHeight: "70vh",
-                  padding: "1px",
-                  border: "1px solid black",
-                }}
-              >
-                {tutoringList.map((homework: any, index: number) => {
-                  return (
-                    <li
-                      key={index}
-                      style={{
-                        marginBottom: "1px",
-                        textDecoration: "none",
-                        display: "grid",
-                        gap: "8px",
-                        listStyle: "none",
-                        padding: "1rem",
-                        border: `1px solid ${primaryColor()}`,
-                      }}
-                    >
-                      <HTwo>
-                        Title: {formatDateBr(homework.assignmentDate)}
-                      </HTwo>
-                      <div style={{ display: "flex", gap: "5px" }}>
-                        {/* <i
+    <RouteDiv className="smooth">
+      <Helmets text="Homework" />
+      <HOne>Homework</HOne>
+      <ArvinButton onClick={fetchClasses}>
+        <i className="fa fa-refresh" aria-hidden="true" />
+      </ArvinButton>
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <SectionHW>
+          <article>
+            <HTwo>Tutorings</HTwo>
+            <ul
+              style={{
+                overflowY: "auto",
+                maxHeight: "70vh",
+                padding: "1px",
+                border: "1px solid black",
+              }}
+            >
+              {tutoringList.map((homework: any, index: number) => {
+                return (
+                  <li
+                    key={index}
+                    style={{
+                      marginBottom: "1px",
+                      textDecoration: "none",
+                      display: "grid",
+                      gap: "8px",
+                      listStyle: "none",
+                      padding: "1rem",
+                      border: `1px solid ${primaryColor()}`,
+                    }}
+                  >
+                    <HTwo>Title: {formatDateBr(homework.assignmentDate)}</HTwo>
+                    <div style={{ display: "flex", gap: "5px" }}>
+                      {/* <i
                           className="fa fa-check-circle"
                           aria-hidden="true"
                           // onClick={() =>
@@ -112,56 +109,54 @@ export function Homework({ headers }: HeadersProps) {
                               homework.status == "desmarcado" ? "red" : "grey",
                           }}
                         /> */}
-                      </div>
-                      <div style={{ width: "20rem" }}>
-                        <div
-                          style={{
-                            backgroundColor: "#eee",
-                            padding: "1rem",
-                          }}
-                          dangerouslySetInnerHTML={{
-                            __html: homework.description,
-                          }}
-                        />
-                      </div>
-                      <div>Due date: {formatDateBr(homework.dueDate)}</div>
-                      <Link to={homework.googleDriveLink}>
-                        Access the class here
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </article>
-            <article>
-              <HTwo>Group Classes</HTwo>
-              <ul
-                style={{
-                  overflowY: "auto",
-                  maxHeight: "70vh",
-                  padding: "1px",
-                  border: "1px solid black",
-                }}
-              >
-                {groupList.map((homework: any, index: number) => {
-                  return (
-                    <li
-                      key={index}
-                      style={{
-                        marginBottom: "1px",
-                        textDecoration: "none",
-                        display: "grid",
-                        gap: "8px",
-                        listStyle: "none",
-                        padding: "1rem",
-                        border: `1px solid ${secondaryColor()}`,
-                      }}
-                    >
-                      <HTwo>
-                        Title: {formatDateBr(homework.assignmentDate)}
-                      </HTwo>
-                      <div style={{ display: "flex", gap: "5px" }}>
-                        {/* <i
+                    </div>
+                    <div style={{ width: "20rem" }}>
+                      <div
+                        style={{
+                          backgroundColor: "#eee",
+                          padding: "1rem",
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: homework.description,
+                        }}
+                      />
+                    </div>
+                    <div>Due date: {formatDateBr(homework.dueDate)}</div>
+                    <Link to={homework.googleDriveLink}>
+                      Access the class here
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </article>
+          <article>
+            <HTwo>Group Classes</HTwo>
+            <ul
+              style={{
+                overflowY: "auto",
+                maxHeight: "70vh",
+                padding: "1px",
+                border: "1px solid black",
+              }}
+            >
+              {groupList.map((homework: any, index: number) => {
+                return (
+                  <li
+                    key={index}
+                    style={{
+                      marginBottom: "1px",
+                      textDecoration: "none",
+                      display: "grid",
+                      gap: "8px",
+                      listStyle: "none",
+                      padding: "1rem",
+                      border: `1px solid ${secondaryColor()}`,
+                    }}
+                  >
+                    <HTwo>Title: {formatDateBr(homework.assignmentDate)}</HTwo>
+                    <div style={{ display: "flex", gap: "5px" }}>
+                      {/* <i
                           className="fa fa-check-circle"
                           aria-hidden="true"
                           // onClick={() =>
@@ -187,31 +182,30 @@ export function Homework({ headers }: HeadersProps) {
                               homework.status == "desmarcado" ? "red" : "grey",
                           }}
                         /> */}
-                      </div>
-                      <div style={{ width: "20rem" }}>
-                        <div
-                          style={{
-                            backgroundColor: "#eee",
-                            padding: "1rem",
-                          }}
-                          dangerouslySetInnerHTML={{
-                            __html: homework.description,
-                          }}
-                        />
-                      </div>
-                      <div>Due date:{formatDateBr(homework.dueDate)}</div>
-                      <Link to={homework.googleDriveLink}>
-                        Access the class here
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </article>
-          </SectionHW>
-        )}{" "}
-      </RouteDiv>
-    </div>
+                    </div>
+                    <div style={{ width: "20rem" }}>
+                      <div
+                        style={{
+                          backgroundColor: "#eee",
+                          padding: "1rem",
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: homework.description,
+                        }}
+                      />
+                    </div>
+                    <div>Due date:{formatDateBr(homework.dueDate)}</div>
+                    <Link to={homework.googleDriveLink}>
+                      Access the class here
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </article>
+        </SectionHW>
+      )}{" "}
+    </RouteDiv>
   );
 }
 

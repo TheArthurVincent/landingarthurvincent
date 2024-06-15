@@ -190,7 +190,15 @@ li {
   justify-content: center;
   text-align: center;
   padding: 1rem;
-}
+  }
+  
+  /* .flashcard-front{
+   margin-right: 50px; 
+  } */
+  /* .flashcard-back {
+    margin-right: 60px; 
+  
+  } */
 
 .flashcard-front {
   background-color: white;
@@ -278,7 +286,6 @@ li {
 @media (max-width: 800px) {
   .grid-flex {
     grid-template-columns: 1fr;
-
   }
 }
 

@@ -45,12 +45,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteDiv
-      style={{
-        minHeight: "90vh",
-      }}
-      className="smooth"
-    >
+    <RouteDiv className="smooth">
       <Helmets text="Activities" />
       <div
         style={{

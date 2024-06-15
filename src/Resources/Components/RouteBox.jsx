@@ -9,32 +9,28 @@ import {
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
-  max-width: 90vw;
+  max-width: 95vw;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 4rem;
+  margin-top: 3.5rem;
   margin-bottom: 9rem;
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
   }
-  @media (max-width: 1000px) {
-    max-width: 100vw;
-  }
 `;
 
 export const RouteDiv = styled.div`
   background-color: ${alwaysWhite()};
-  border-radius: 0.5rem;
   color: ${alwaysBlack()};
+  border-radius: 0.5rem;
   padding: 0.5rem;
   box-shadow: 1px 1px 5px 1px #777;
-  max-width: 60rem,
-  margin: auto,
-  margin: 5px,
+  width: 60rem;
+  margin: auto;
   @media (max-width: 800px) {
-    margin: 0;
+    width: 95vw;
   }
 `;
 
@@ -56,7 +52,7 @@ export const BlogRouteSizeControlBox = styled.div`
   gap: 0.2rem;
   @media (max-width: 1200px) {
     display: flex;
-    max-width: 90vw;
+    max-width: 100vw;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
@@ -65,9 +61,6 @@ export const BlogRouteSizeControlBox = styled.div`
     animation-name: slideInLeft;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
-  }
-  @media (max-width: 800px) {
-    max-width: 100vw;
   }
 `;
 

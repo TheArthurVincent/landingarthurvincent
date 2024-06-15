@@ -125,7 +125,7 @@ export function MyProfile({ headers }: HeadersProps) {
                     alignItems: "center",
                   }}
                 >
-                  {/* <img
+                  <img
                     style={{
                       maxWidth: "7rem",
                       paddingBottom: "1rem",
@@ -133,7 +133,7 @@ export function MyProfile({ headers }: HeadersProps) {
                     }}
                     src={user.picture}
                     alt=""
-                  /> */}
+                  />
                   <div>
                     {myProfileList.map((item: any, index: number) => {
                       return (

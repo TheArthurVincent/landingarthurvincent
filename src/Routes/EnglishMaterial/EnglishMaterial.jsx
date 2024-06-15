@@ -185,11 +185,7 @@ export default function EnglishMaterial({ headers }) {
     { title: UniversalTexts.thematicClasses, list: thematicClasses },
   ];
   return (
-    <RouteDiv
-      style={{
-        maxWidth: "70vw",
-      }}
-    >
+    <RouteDiv>
       {headers ? (
         <>
           <Helmets text="Material" />

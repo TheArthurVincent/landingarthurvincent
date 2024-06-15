@@ -8,19 +8,11 @@ import {
   LogoStyle,
   Hamburguer,
 } from "./TopBar.Styled";
-import {
-  Button,
-  LogoSVG,
-  SpanHover,
-} from "../../Resources/UniversalComponents";
+import { LogoSVG, SpanHover } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import {
-  textPrimaryColorContrast,
-  primaryColor,
-  secondaryColor,
-  alwaysBlack,
-} from "../../Styles/Styles";
+import { primaryColor, secondaryColor, alwaysBlack } from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -368,7 +360,10 @@ export const TopBar: FC = () => {
               <option value="pt">PT-BR</option>
             </select>
           </form>
-          <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
+          <ArvinButton onClick={onLoggOut}>
+            {" "}
+            {UniversalTexts.leaveButton}
+          </ArvinButton>
         </div>
       </div>
     </TopBarContainer>

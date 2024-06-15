@@ -85,12 +85,7 @@ export function Adm({ headers }: HeadersProps) {
 
   return (
     <RouteDiv
-      style={{
-        backgroundColor: "#f9f9f9",
-        padding: "0.5rem",
-        borderRadius: "0.5rem",
-        maxWidth: "900px",
-      }}
+   
       className="smooth"
     >
       <Helmets text="Adm" />
