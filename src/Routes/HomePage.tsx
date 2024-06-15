@@ -21,6 +21,7 @@ import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
 import { SpanDisapear } from "./Blog/Blog.Styled";
+import AppFooter from "../Application/Footer/Footer";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -145,7 +146,7 @@ export function HomePage({ headers }: HeadersProps) {
       <SpanDisapear>
         <AddFlashCards headers={headers} display="fixed" />
       </SpanDisapear>
-      {/* <AppFooter /> */}
+      <AppFooter />
       <Outlet />
     </div>
   );
