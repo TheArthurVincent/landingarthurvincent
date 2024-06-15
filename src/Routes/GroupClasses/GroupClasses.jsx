@@ -3,12 +3,11 @@ import {
   HOne,
   HTwo,
   RouteDiv,
-  RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import { Link } from "react-router-dom";
 import {
   DivFlex,
-  IFrameVideo,
+  IFrameVideoClass,
   backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
@@ -158,65 +157,59 @@ export default function GroupClasses({ headers }) {
   }
 
   return (
-    <>
-      <RouteSizeControlBox className="smooth">
-        <Helmets text="Group Classes" />
-        <RouteDiv>
+    <RouteDiv className="smooth">
+      <Helmets text="Group Classes" />
+      <>
+        {!loading ? (
           <>
-            {!loading ? (
-              <>
-                <HOne>{UniversalTexts.previousGroupClasses}</HOne>
-                <span
-                  style={{
-                    display: "flex",
-                    justifyContent: "right",
-                    alignItems: "center",
-                  }}
-                >
-                  <Link
-                    style={{
-                      backgroundColor: secondaryColor(),
-                      color: textSecondaryColorContrast(),
-                      padding: "10px",
-                      borderRadius: "5px",
-                      display: "flex",
-                      gap: "5px",
-                      alignItems: "center",
-                    }}
-                    to="/my-calendar"
-                  >
-                    <i className="fa fa-calendar" aria-hidden="true" />
-                    {UniversalTexts.calendar}
-                  </Link>
-                </span>
-                <GroupClassesSideBar />
-                {currentClasses.map((item, index) => (
-                  <div key={index}>
-                    <ClassBox>
-                      <div style={{ textAlign: "center" }}>
-                        <DivFlex>
-                          <HTwo>{item.classTitle}</HTwo>
-                          {item.googleDriveLink && (
-                            <Link to={item.googleDriveLink} target="_blank">
-                              {UniversalTexts.files}
-                            </Link>
-                          )}
-                        </DivFlex>{" "}
-                        <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
-                      </div>
-                    </ClassBox>
+            <HOne>{UniversalTexts.previousGroupClasses}</HOne>
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "right",
+                alignItems: "center",
+              }}
+            >
+              <Link
+                style={{
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  gap: "5px",
+                  alignItems: "center",
+                }}
+                to="/my-calendar"
+              >
+                <i className="fa fa-calendar" aria-hidden="true" />
+                {UniversalTexts.calendar}
+              </Link>
+            </span>
+            <GroupClassesSideBar />
+            {currentClasses.map((item, index) => (
+              <div key={index}>
+                <ClassBox>
+                  <div style={{ textAlign: "center" }}>
+                    <DivFlex>
+                      <HTwo>{item.classTitle}</HTwo>
+                      {item.googleDriveLink && (
+                        <Link to={item.googleDriveLink} target="_blank">
+                          {UniversalTexts.files}
+                        </Link>
+                      )}
+                    </DivFlex>{" "}
+                    <IFrameVideoClass src={getVideoEmbedUrl(item.videoUrl)} />
                   </div>
-                ))}
-                {itemsPerPage > 2 && classes.length > 2 && (
-                  <GroupClassesSideBar />
-                )}
-              </>
-            ) : (
-              <CircularProgress style={{ color: secondaryColor() }} />
-            )}
+                </ClassBox>
+              </div>
+            ))}
+            {itemsPerPage > 2 && classes.length > 2 && <GroupClassesSideBar />}
           </>
-        </RouteDiv>
-      </RouteSizeControlBox>
-    </>
+        ) : (
+          <CircularProgress style={{ color: secondaryColor() }} />
+        )}
+      </>
+    </RouteDiv>
   );
 }

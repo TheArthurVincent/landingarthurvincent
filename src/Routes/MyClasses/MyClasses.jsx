@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  RouteDiv,
-  HOne,
-  RouteSizeControlBox,
-  HTwo,
-} from "../../Resources/Components/RouteBox";
+import { RouteDiv, HOne, HTwo } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
-  IFrameVideo,
+  IFrameVideoClass,
   backDomain,
   getVideoEmbedUrl,
 } from "../../Resources/UniversalComponents";
@@ -155,47 +150,111 @@ export function MyClasses({ headers }) {
       </TransectionMenu>
     );
   }
+  const [googleDriveLink, setGoogleDriveLink] = useState("");
+
+  useEffect(() => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    setGoogleDriveLink(getLoggedUser.googleDriveLink);
+  }, []);
 
   return (
-    <>
-      <RouteSizeControlBox className="smooth">
-        <Helmets text="My Classes" />
-        <RouteDiv>
-          {!loading ? (
-            <>
-              <HOne>{UniversalTexts.myClasses}</HOne>
-              <ClassesSideBar />
-              {currentClasses.map((item, index) => (
-                <div key={index}>
-                  <ClassBox>
-                    <div style={{ textAlign: "center" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <HTwo>{item.date}</HTwo>{" "}
-                        {item.attachments && (
-                          <Link target="_blank" to={item.attachments}>
-                            Arquivos da aula
-                          </Link>
-                        )}
-                      </div>
-                      <IFrameVideo src={getVideoEmbedUrl(item.videoUrl)} />
-                    </div>
-                  </ClassBox>
+    <RouteDiv className="smooth">
+      <Helmets text="My Classes" />
+      {!loading ? (
+        <div>
+          <HOne>{UniversalTexts.myClasses}</HOne>
+
+          <ClassesSideBar />
+          {/* <div
+            style={{
+              display: "flex",
+              gap: "5px",
+            }}
+          >
+            <Tooltip title={UniversalTexts.personalFolder}>
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  gap: "5px",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+                to={googleDriveLink}
+              >
+                <span className="hover-link">
+                  <i
+                    style={{
+                      paddingRight: "5px",
+                    }}
+                    className="fa fa-folder"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+            <Tooltip title={UniversalTexts.talkToTheTeacher}>
+              <Link
+                target="_blank"
+                style={{
+                  maxWidth: "100%",
+                  backgroundColor: secondaryColor(),
+                  color: textSecondaryColorContrast(),
+                  padding: "10px",
+                  borderRadius: "5px",
+                  display: "flex",
+                  textDecoration: "none",
+                  gap: "5px",
+                  alignItems: "center",
+                }}
+                to="https://wa.me/5511915857807"
+              >
+                <span className="hover-link">
+                  <i
+                    style={{ paddingRight: "5px", maxWidth: "100%" }}
+                    className="fa fa-whatsapp"
+                    aria-hidden="true"
+                  />
+                  <SpanDisapear>{UniversalTexts.talkToTheTeacher}</SpanDisapear>
+                </span>
+              </Link>
+            </Tooltip>
+          </div> */}
+          {currentClasses.map((item, index) => (
+            <div key={index}>
+              <ClassBox>
+                <div style={{ textAlign: "center" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <HTwo>{item.date}</HTwo>{" "}
+                    {item.attachments && (
+                      <Link target="_blank" to={item.attachments}>
+                        Arquivos da aula
+                      </Link>
+                    )}
+                  </div>
+                  <IFrameVideoClass src={getVideoEmbedUrl(item.videoUrl)} />
                 </div>
-              ))}
-              {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
-            </>
-          ) : (
-            <CircularProgress style={{ color: secondaryColor() }} />
-          )}
-        </RouteDiv>
-      </RouteSizeControlBox>
-    </>
+              </ClassBox>
+            </div>
+          ))}
+          {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
+        </div>
+      ) : (
+        <CircularProgress style={{ color: secondaryColor() }} />
+      )}
+    </RouteDiv>
   );
 }
 

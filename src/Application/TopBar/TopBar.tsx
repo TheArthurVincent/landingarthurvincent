@@ -8,19 +8,11 @@ import {
   LogoStyle,
   Hamburguer,
 } from "./TopBar.Styled";
-import {
-  Button,
-  LogoSVG,
-  SpanHover,
-} from "../../Resources/UniversalComponents";
+import { LogoSVG, SpanHover } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import {
-  textPrimaryColorContrast,
-  primaryColor,
-  secondaryColor,
-  alwaysBlack,
-} from "../../Styles/Styles";
+import { primaryColor, secondaryColor, alwaysBlack } from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -107,30 +99,73 @@ export const TopBar: FC = () => {
     setPermissions(getLoggedUser.permissions);
   }, []);
 
-  const classes: LinkItem[] = [
-    { title: UniversalTexts.myClasses, endpoint: "/my-classes" },
-    { title: UniversalTexts.groupClasses, endpoint: "/group-classes" },
-    { title: "Homework", endpoint: "/homework" },
-  ];
-
-  const extras: LinkItem[] = [
-    { title: UniversalTexts.myProfile, endpoint: "/my-profile" },
-    // { title: UniversalTexts.faq, endpoint: "/faq" },
-  ];
-
-  const topLinks: LinkItem[] = [
-    { title: UniversalTexts.calendar, endpoint: "/my-calendar" },
-    { title: "Flashcards", endpoint: "/flash-cards" },
-    { title: "Ranking", endpoint: "/ranking" },
-    { title: "Lessons", endpoint: "/english-lessons" },
-    { title: UniversalTexts.englishMaterial, endpoint: "/english-material" },
-  ];
-
   const toAdm: LinkItem[] = [
-    { title: "Adm", endpoint: "/adm-businessmanagement" },
+    {
+      title: "Adm",
+      endpoint: "/adm-businessmanagement",
+      icon: "cog",
+      display: "none",
+    },
   ];
 
-  const allLinksForUser = [...topLinks, ...classes, ...extras];
+  const allLinksForUser = [
+    {
+      title: UniversalTexts.calendar,
+      endpoint: "/my-calendar",
+      icon: "calendar",
+      display: "block",
+    },
+    {
+      title: "Homework",
+      endpoint: "/homework",
+      icon: "book",
+      display: "block",
+    },
+    {
+      title: "Flashcards",
+      endpoint: "/flash-cards",
+      icon: "clone",
+      display: "block",
+    },
+    {
+      title: "Ranking",
+      endpoint: "/ranking",
+      icon: "th-list",
+      display: "block",
+    },
+    // { title: UniversalTexts.faq, endpoint: "/faq" ,icon:"question",  display: "block",  },
+    {
+      title: UniversalTexts.myClasses,
+      endpoint: "/my-classes",
+      icon: "user",
+      display: "block",
+    },
+    {
+      title: UniversalTexts.groupClasses,
+      endpoint: "/group-classes",
+      display: "block",
+      icon: "users",
+    },
+    {
+      title: "Lessons",
+      endpoint: "/english-lessons",
+      icon: "address-book-o",
+      display: "block",
+    },
+    {
+      title: UniversalTexts.englishMaterial,
+      endpoint: "/english-material",
+      icon: "sticky-note-o",
+      display: "block",
+    },
+
+    {
+      title: UniversalTexts.myProfile,
+      endpoint: "/my-profile",
+      display: "block",
+      icon: "user-o",
+    },
+  ];
 
   const handleVisible = () => {
     setVisible(visible === "flex" ? "none" : "flex");
@@ -213,7 +248,6 @@ export const TopBar: FC = () => {
             return (
               <NavLink
                 style={{
-                  display: link.display,
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
@@ -249,12 +283,12 @@ export const TopBar: FC = () => {
             gap: "1rem",
           }}
         >
-          <ItemTopBar title={UniversalTexts.classes} list={classes} />
-          {topLinks.map((link, index) => {
+          {allLinksForUser.map((link, index) => {
             return (
               <NavLink
                 key={index}
                 style={{
+                  fontSize: "1.1rem",
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
@@ -265,13 +299,42 @@ export const TopBar: FC = () => {
                 }}
                 to={link.endpoint}
               >
-                <SpanHover>{link.title}</SpanHover>
+                <SpanHover>
+                  <i className={`fa fa-${link.icon}`} />
+                  {link.title}
+                </SpanHover>
               </NavLink>
             );
           })}
-          <ItemTopBar title={UniversalTexts.extras} list={extras} />
+          {permissions === "superadmin" &&
+            toAdm.map((link, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  style={{
+                    fontSize: "1.1rem",
+
+                    color: location.pathname.includes(link.endpoint)
+                      ? secondaryColor()
+                      : alwaysBlack(),
+                    cursor: location.pathname.includes(link.endpoint)
+                      ? "default"
+                      : "pointer",
+                    textDecoration: "none",
+                  }}
+                  to={link.endpoint}
+                >
+                  <SpanHover>
+                    <i className={`fa fa-${link.icon}`} />
+                    {link.title}
+                  </SpanHover>
+                </NavLink>
+              );
+            })}
         </div>
-        <div
+        {/* <ItemTopBar title={UniversalTexts.classes} list={classes} /> */}
+        {/* <ItemTopBar title={UniversalTexts.extras} list={extras} /> */}
+        {/* <div
           style={{
             display: permissions == "superadmin" ? "flex" : "none",
             alignItems: "center",
@@ -280,26 +343,8 @@ export const TopBar: FC = () => {
           }}
         >
           <span style={{ color: secondaryColor(), fontWeight: 600 }}>|</span>
-          {toAdm.map((link, index) => {
-            return (
-              <NavLink
-                key={index}
-                style={{
-                  color: location.pathname.includes(link.endpoint)
-                    ? secondaryColor()
-                    : alwaysBlack(),
-                  cursor: location.pathname.includes(link.endpoint)
-                    ? "default"
-                    : "pointer",
-                  textDecoration: "none",
-                }}
-                to={link.endpoint}
-              >
-                <SpanHover> {link.title}</SpanHover>
-              </NavLink>
-            );
-          })}
-        </div>
+    
+        </div> */}
       </TopBarNavigation>
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
@@ -315,7 +360,10 @@ export const TopBar: FC = () => {
               <option value="pt">PT-BR</option>
             </select>
           </form>
-          <Button onClick={onLoggOut}> {UniversalTexts.leaveButton}</Button>
+          <ArvinButton onClick={onLoggOut}>
+            {" "}
+            {UniversalTexts.leaveButton}
+          </ArvinButton>
         </div>
       </div>
     </TopBarContainer>

@@ -68,7 +68,6 @@ export const DivAppear = styled.div`
 
 export const ClassBox = styled.div`
   display: grid;
-  // grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   justify-content: space-evenly;
   padding-bottom: 4rem;
@@ -83,7 +82,7 @@ export const TransectionMenu = styled.div`
   align-items: center;
   margin: 1rem;
   justify-content: space-between;
-  @media (max-width: 800px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
     gap: 0.5rem;
   }

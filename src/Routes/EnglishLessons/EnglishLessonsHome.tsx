@@ -45,77 +45,67 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteSizeControlBox>
-      <RouteDiv
+    <RouteDiv className="smooth">
+      <Helmets text="Activities" />
+      <div
         style={{
-          minHeight: "90vh",
+          display: "grid",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "5px",
+          minWidth: "50vw",
+          borderRadius: "5px",
         }}
-        className="smooth"
       >
-        <Helmets text="Activities" />
-        <div
+        <select
           style={{
-            position: "fixed",
-            top: 80,
-            right: 90,
-            display: "grid",
-            alignItems:"center",
-            justifyContent:"center",
-            padding:"5px",
-          borderRadius:"5px",
-            backgroundColor: "black",
+            width: "8rem",
+            fontFamily: "Athiti",
+            margin: "3px",
+          }}
+          value={selectedDifficulty}
+          onChange={handleDifficultyChange}
+        >
+          <option hidden value="">
+            Select Category
+          </option>
+          {groupedLessons &&
+            Object.keys(groupedLessons).map((difficulty) => (
+              <option key={difficulty} value={difficulty}>
+                {difficulty}
+              </option>
+            ))}
+        </select>
+        <select
+          value={selectedLesson?.title || ""}
+          onChange={handleLessonChange}
+          disabled={selectedDifficulty ? false : true}
+          style={{
+            backgroundColor: "white",
+            cursor: selectedDifficulty ? "auto" : "not-allowed",
+            width: "8rem",
+            fontFamily: "Athiti",
           }}
         >
-          <select
-            style={{
-              width: "8rem",
-              fontFamily: "Athiti",
-              margin: "3px",
-            }}
-            value={selectedDifficulty}
-            onChange={handleDifficultyChange}
-          >
-            <option hidden value="">
-              Select Category
-            </option>
-            {groupedLessons &&
-              Object.keys(groupedLessons).map((difficulty) => (
-                <option key={difficulty} value={difficulty}>
-                  {difficulty}
+          <option hidden value="">
+            Select Lesson
+          </option>
+          {groupedLessons[selectedDifficulty] &&
+            groupedLessons[selectedDifficulty]
+              .sort((a: any, b: any) => a.order - b.order)
+              .map((lesson: any, index: number) => (
+                <option key={index} value={lesson.title}>
+                  {lesson.order + "- " + lesson.title}
                 </option>
               ))}
-          </select>
-          <select
-            value={selectedLesson?.title || ""}
-            onChange={handleLessonChange}
-            disabled={selectedDifficulty ? false : true}
-            style={{
-              backgroundColor: "white",
-              cursor: selectedDifficulty ? "auto" : "not-allowed",
-              width: "8rem",
-              fontFamily: "Athiti",
-            }}
-          >
-            <option hidden value="">
-              Select Lesson
-            </option>
-            {groupedLessons[selectedDifficulty] &&
-              groupedLessons[selectedDifficulty]
-                .sort((a: any, b: any) => a.order - b.order)
-                .map((lesson: any, index: number) => (
-                  <option key={index} value={lesson.title}>
-                    {lesson.order + "- " + lesson.title}
-                  </option>
-                ))}
-          </select>
+        </select>
+      </div>
+      {selectedLesson && (
+        <div id="pdf-content">
+          <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
         </div>
-        {selectedLesson && (
-          <span id="pdf-content">
-            <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
-          </span>
-        )}
-      </RouteDiv>
-    </RouteSizeControlBox>
+      )}
+    </RouteDiv>
   );
   /* <div className="do-print">
         <HOne>Notes</HOne>

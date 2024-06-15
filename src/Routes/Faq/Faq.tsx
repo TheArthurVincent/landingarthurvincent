@@ -40,67 +40,63 @@ export function Faq() {
   };
 
   return (
-    <>
-      <RouteSizeControlBox className="smooth">
-        <Helmets text="FAQ" />
-        <RouteDiv>
-          <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
-          <Input
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "0 1rem",
-            }}
-            type="text"
-            placeholder="Pesquisar..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <div
-            style={{
-              height: "40rem",
-              overflow: "auto",
-            }}
-          >
-            {filteredContent.map((item, index) => (
-              <div key={index}>
-                {item.instruction && (
-                  <H3FAQ
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleItemClick(index)}
+    <RouteDiv className="smooth">
+      <Helmets text="FAQ" />
+      <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
+      <Input
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "0 1rem",
+        }}
+        type="text"
+        placeholder="Pesquisar..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <div
+        style={{
+          height: "40rem",
+          overflow: "auto",
+        }}
+      >
+        {filteredContent.map((item, index) => (
+          <div key={index}>
+            {item.instruction && (
+              <H3FAQ
+                style={{ cursor: "pointer" }}
+                onClick={() => handleItemClick(index)}
+              >
+                {item.instruction}
+              </H3FAQ>
+            )}
+            {expandedItem === index && (
+              <DivAppear>
+                {item.url && (
+                  <div style={{ textAlign: "center" }}>
+                    <IFrameVideo
+                      src={getVideoEmbedUrl(item.url)}
+                      frameBorder="0"
+                    />
+                  </div>
+                )}
+                {item.explanation && (
+                  <div
+                    style={{
+                      backgroundColor: transparentWhite(),
+                      padding: "1rem",
+                    }}
                   >
-                    {item.instruction}
-                  </H3FAQ>
+                    <div>{item.explanation}</div>
+                  </div>
                 )}
-                {expandedItem === index && (
-                  <DivAppear>
-                    {item.url && (
-                      <div style={{ textAlign: "center" }}>
-                        <IFrameVideo
-                          src={getVideoEmbedUrl(item.url)}
-                          frameBorder="0"
-                        />
-                      </div>
-                    )}
-                    {item.explanation && (
-                      <div
-                        style={{
-                          backgroundColor: transparentWhite(),
-                          padding: "1rem",
-                        }}
-                      >
-                        <div>{item.explanation}</div>
-                      </div>
-                    )}
-                  </DivAppear>
-                )}
-              </div>
-            ))}
+              </DivAppear>
+            )}
           </div>
-        </RouteDiv>
-      </RouteSizeControlBox>
-    </>
+        ))}
+      </div>
+    </RouteDiv>
   );
 }
 

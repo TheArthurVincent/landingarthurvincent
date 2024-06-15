@@ -153,12 +153,7 @@ export function Blog({ headers }: HeadersProps) {
 
   return (
     <>
-      <RouteDiv
-        style={{
-          maxWidth: "60rem",
-          margin: "auto",
-        }}
-      >
+      <RouteDiv>
         <Helmets text="Home Page" />
         <div
           style={{
@@ -186,7 +181,7 @@ export function Blog({ headers }: HeadersProps) {
             </h2>
           </div>
           <div style={{ display: "flex", gap: "5px" }}>
-            <Tooltip title={UniversalTexts.calendar}>
+            {/* <Tooltip title={UniversalTexts.calendar}>
               <Link
                 style={{
                   maxWidth: "100%",
@@ -269,7 +264,7 @@ export function Blog({ headers }: HeadersProps) {
                   <SpanDisapear>Flashcards</SpanDisapear>
                 </span>
               </Link>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip title={UniversalTexts.personalFolder}>
               <Link
                 target="_blank"

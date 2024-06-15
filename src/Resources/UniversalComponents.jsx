@@ -86,6 +86,10 @@ export const SpanHover = styled.span`
   padding: 0 8px;
   font-family: Lato;
   font-weight: 500;
+  gap: 5px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
   border: solid #66666600 2px;
   &:hover {
     color: ${secondaryColor()};
@@ -354,37 +358,13 @@ export const linkReset2 = {
   padding: "1px",
 };
 
-export const IFrameVideo = styled.iframe`
-  margin-top: 0;
-  width: 80vw;
-  height: 70vh;
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: none;
-`;
 export const IFrameVideoClass = styled.iframe`
-  min-width: 1600px;
-  min-height: 800px;
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
   border: none;
-  @media (max-width: 2200px) {
-    margin-top: 0;
-    min-width: 1300px;
-    min-height: 650px;
-  }
-  @media (max-width: 1800px) {
-    margin-top: 0;
-    min-width: 1100px;
-    min-height: 600px;
-  }
-  @media (max-width: 1510px) {
-    margin-top: 0;
-    min-width: 900px;
-    min-height: 450px;
-  }
+  min-width: 950px;
+  min-height: 500px;
   @media (max-width: 1150px) {
     margin-top: 0;
     min-width: 800px;

@@ -14,12 +14,15 @@ interface ImageLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
   id: string;
+  studentId: string;
+
 }
 
 export default function ImageLessonModel({
   headers,
   id,
   element,
+  studentId
 }: ImageLessonModelProps) {
   const actualHeaders = headers || {};
 
@@ -40,7 +43,7 @@ export default function ImageLessonModel({
 
     try {
       const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${id}`,
+        `${backDomain}/api/v1/flashcard/${studentId}`,
         { newCards },
         { headers: actualHeaders }
       );
@@ -64,7 +67,7 @@ export default function ImageLessonModel({
 
     try {
       const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${id}`,
+        `${backDomain}/api/v1/flashcard/${studentId}`,
         { newCards },
         { headers: actualHeaders }
       );

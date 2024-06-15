@@ -58,59 +58,57 @@ const FlashCards = ({ headers }: HeadersProps) => {
   const displayIsAdm = myId === "651311fac3d58753aa9281c5" ? "block" : "none";
 
   return (
-    <RouteSizeControlBox className="smooth">
-      <RouteDiv>
-        <Helmets text="Flashcards" />
-        <TabContext value={value}>
-          <Box
-            style={{
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: alwaysWhite(),
-              justifyContent: "space-between",
-            }}
-            sx={{ borderBottom: 1, borderColor: "divider" }}
+    <RouteDiv className="smooth">
+      <Helmets text="Flashcards" />
+      <TabContext value={value}>
+        <Box
+          style={{
+            display: "flex",
+            alignItems: "center",
+            backgroundColor: alwaysWhite(),
+            justifyContent: "space-between",
+          }}
+          sx={{ borderBottom: 1, borderColor: "divider" }}
+        >
+          <TabList
+            onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="scrollable auto tabs example"
           >
-            <TabList
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons="auto"
-              aria-label="scrollable auto tabs example"
+            {componentsToRender.map((component, index) => {
+              return (
+                <Tab
+                  key={index + component.value}
+                  style={{
+                    display: component.adm === false ? "block" : displayIsAdm,
+                    fontWeight: 500,
+                    backgroundColor: textPrimaryColorContrast(),
+                    color: primaryColor(),
+                  }}
+                  label={component.title}
+                  value={component.value}
+                />
+              );
+            })}
+          </TabList>
+        </Box>
+        {componentsToRender.map((component, index) => {
+          return (
+            <TabPanel
+              style={{
+                padding: 0,
+                margin: "1rem auto",
+              }}
+              key={index + component.value}
+              value={component.value}
             >
-              {componentsToRender.map((component, index) => {
-                return (
-                  <Tab
-                    key={index + component.value}
-                    style={{
-                      display: component.adm === false ? "block" : displayIsAdm,
-                      fontWeight: 500,
-                      backgroundColor: textPrimaryColorContrast(),
-                      color: primaryColor(),
-                    }}
-                    label={component.title}
-                    value={component.value}
-                  />
-                );
-              })}
-            </TabList>
-          </Box>
-          {componentsToRender.map((component, index) => {
-            return (
-              <TabPanel
-                style={{
-                  padding: 0,
-                  margin: "1rem auto",
-                }}
-                key={index + component.value}
-                value={component.value}
-              >
-                {component.component}
-              </TabPanel>
-            );
-          })}
-        </TabContext>
-      </RouteDiv>
-    </RouteSizeControlBox>
+              {component.component}
+            </TabPanel>
+          );
+        })}
+      </TabContext>
+    </RouteDiv>
   );
 };
 

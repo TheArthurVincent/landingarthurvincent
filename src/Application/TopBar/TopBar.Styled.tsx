@@ -29,6 +29,7 @@ export const TopBarNavigation = styled.div`
   display: flex;
   z-index: 4;
   font-size: 13px;
+  padding:5px;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;

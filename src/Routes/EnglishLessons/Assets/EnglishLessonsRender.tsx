@@ -45,7 +45,7 @@ export default function EnglishLessonsRender({
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const theid = event.target.value;
     setStudentID(theid);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
   const fetchStudents = async () => {
     try {
@@ -139,7 +139,8 @@ export default function EnglishLessonsRender({
             )}
             {element.type === "sentences" ? (
               <SentenceLessonModel
-                id={studentID}
+                id={myId}
+                studentId={studentID}
                 element={element}
                 headers={headers}
               />
@@ -152,7 +153,8 @@ export default function EnglishLessonsRender({
               <MultipleTextsLessonModel headers={headers} element={element} />
             ) : element.type === "images" ? (
               <ImageLessonModel
-                id={studentID}
+                studentId={studentID}
+                id={myId}
                 headers={headers}
                 element={element}
               />
