@@ -50,7 +50,7 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
           : props.color === "green"
           ? secondaryColor2()
           : props.color === "blue"
-          ? "#87CEFA"
+          ? "navy"
           : props.color === "orange"
           ? "#FFA500"
           : props.color === "white"
