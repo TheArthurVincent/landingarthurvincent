@@ -23,8 +23,8 @@ export const RouteSizeControlBox = styled.div`
 
 export const RouteDiv = styled.div`
   background-color: ${alwaysWhite()};
-  color: ${alwaysBlack()};
   border-radius: 0.5rem;
+  color: ${alwaysBlack()};
   padding: 0.5rem;
   box-shadow: 1px 1px 5px 1px #777;
   width: 60rem;
