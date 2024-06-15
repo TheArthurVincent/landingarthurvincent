@@ -4,7 +4,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
-import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import {  MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Box, Tab } from "@mui/material";
 import {
   alwaysWhite,
@@ -16,7 +16,12 @@ import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
 import AllCards from "./FlashCardsComponents/AllCards";
 
-const FlashCards = ({ headers }: HeadersProps) => {
+interface FlashCardsProps {
+  headers: MyHeadersType | null;
+  onChange: any;
+  change: boolean;
+}
+const FlashCards = ({ headers, onChange,change }: FlashCardsProps) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [value, setValue] = useState<string>("1");
@@ -39,7 +44,7 @@ const FlashCards = ({ headers }: HeadersProps) => {
       title: "Review",
       value: "1",
       adm: false,
-      component: <ReviewFlashCards headers={headers} />,
+      component: <ReviewFlashCards onChange={onChange}change={change} headers={headers} />,
     },
     {
       title: "Add",

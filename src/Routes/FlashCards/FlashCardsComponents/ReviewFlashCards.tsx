@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
-import { HeadersProps } from "../../../Resources/types.universalInterfaces";
+import { HeadersProps, MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
   Xp,
   backDomain,
@@ -11,7 +11,12 @@ import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons"
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { languages } from "./AddFlashONEFlashCard";
 
-const ReviewFlashCards = ({ headers }: HeadersProps) => {
+interface FlashCardsPropsRv {
+  headers: MyHeadersType | null;
+  onChange: any;
+  change: boolean;
+}
+const ReviewFlashCards = ({headers, onChange,change}: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [cards, setCards] = useState<any[]>([]);
@@ -62,6 +67,7 @@ const ReviewFlashCards = ({ headers }: HeadersProps) => {
 
       setAnswer(false);
       seeCardsToReview();
+      onChange(!change)
     } catch (error) {
       alert("Erro ao enviar cards");
     }

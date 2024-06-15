@@ -21,12 +21,14 @@ interface LevelCardProps {
   _StudentId: string;
   picture: string;
   display: string;
+  change: boolean;
 }
 export function LevelCard({
   headers,
   _StudentId,
   picture,
   display,
+  change,
 }: LevelCardProps) {
   const [pictureStudent, setPictureStudent] = useState<string>(picture);
   const [totalScore, setTotalScore] = useState<number>(0);
@@ -66,7 +68,7 @@ export function LevelCard({
     } else {
       window.location.assign("/login");
     }
-  }, []);
+  }, [change]);
 
   return (
     <div style={{ display: display }}>
