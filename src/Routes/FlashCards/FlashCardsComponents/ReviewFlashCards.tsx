@@ -566,7 +566,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           alignItems: "center",
         }}
       />
-      <ArvinButton onClick={seeCardsToReview}>
+      <ArvinButton
+        style={{
+          margin: "auto",
+          display: !see ? "block" : "none",
+        }}
+        onClick={seeCardsToReview}
+      >
         {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
       </ArvinButton>
     </section>
