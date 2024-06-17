@@ -24,6 +24,8 @@ export function Homework({ headers, setChange, change }: HWProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
   const [myId, setMyId] = useState<string>("");
+  const [permissions, setPermissions] = useState<string>("");
+
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStudentID(event.target.value);
     fetchClasses(event.target.value);
@@ -67,7 +69,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
     const { id, permissions } = getLoggedUser;
     setMyId(id);
     fetchClasses(id);
-
+    setPermissions(permissions);
     permissions == "superadmin" ? fetchStudents() : null;
   }, []);
 
@@ -132,7 +134,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
         <ArvinButton onClick={() => fetchClasses(studentID)}>
           <i className="fa fa-refresh" aria-hidden="true" />
         </ArvinButton>
-        {myId === "651311fac3d58753aa9281c5" && (
+        {permissions == "superadmin" && (
           <div
             style={{
               display: "inline",
@@ -207,8 +209,8 @@ export function Homework({ headers, setChange, change }: HWProps) {
                     <div style={{ display: "flex", gap: "5px" }}>
                       {homework.status && (
                         <>
-                          {myId === "651311fac3d58753aa9281c5" &&
-                            homework.status !== "done" && (
+                          {permissions == "superadmin" &&
+                            homework?.status == "pending" && (
                               <ArvinButton
                                 onClick={() =>
                                   updateRealizedClass(
