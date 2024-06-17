@@ -48,7 +48,7 @@ export const BlogRouteSizeControlBox = styled.div`
   grid-template-columns: 7fr 1fr;
   margin: 1rem auto;
   justify-content: center;
-  max-width: 50vw;
+  max-width: 70vw;
   gap: 0.2rem;
   @media (max-width: 1200px) {
     display: flex;
@@ -56,6 +56,9 @@ export const BlogRouteSizeControlBox = styled.div`
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+  }
+  @media (max-width: 800px) {
+    // overflow-x: hidden;
   }
   &.smooth {
     animation-name: slideInLeft;
