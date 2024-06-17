@@ -191,19 +191,23 @@ export function Homework({ headers, setChange, change }: HWProps) {
                       Title: {formatDateBr(homework.assignmentDate)}
                     </h2>
                     <div>
-                      <i
-                        style={{
-                          display: "inline",
-                          color:
-                            homework?.status == "done" ? "green" : "orange",
-                        }}
-                        className={`fa fa-${
-                          homework?.status == "done"
-                            ? "check-circle"
-                            : "ellipsis-h"
-                        }`}
-                        aria-hidden="true"
-                      />{" "}
+                      <span>
+                        <i
+                          style={{
+                            display: "inline",
+                            color:
+                              homework?.status == "done" ? "green" : "orange",
+                          }}
+                          className={`fa fa-${
+                            homework?.status == "done"
+                              ? "check-circle"
+                              : "ellipsis-h"
+                          }`}
+                          aria-hidden="true"
+                        />
+                        {" "}{homework?.status}
+                      </span>
+                      <br />
                       Due date: {formatDateBr(homework.dueDate)}
                     </div>
                     <div style={{ display: "flex", gap: "5px" }}>
