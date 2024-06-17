@@ -57,9 +57,6 @@ export const BlogRouteSizeControlBox = styled.div`
     justify-content: center;
     align-items: center;
   }
-  @media (max-width: 800px) {
-    // overflow-x: hidden;
-  }
   &.smooth {
     animation-name: slideInLeft;
     animation-duration: 0.3s;
