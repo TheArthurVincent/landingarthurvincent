@@ -158,24 +158,26 @@ export default function RankingTimeline({
               const variables = {
                 type:
                   item.type == "Anki"
-                    ? "fa fa-star"
+                    ? "fa fa-clone"
+                    : item.type == "Flashcards"
+                    ? "fa fa-clone"
                     : item.type == "Homework"
-                      ? "fa fa-book"
-                      : item.type == "Extra activity"
-                        ? "fa fa-users"
-                        : item.type == "Live Class" || "Group Classes"
-                          ? "fa fa-graduation-cap"
-                          : "fa fa-pencil",
+                    ? "fa fa-book"
+                    : item.type == "Extra activity"
+                    ? "fa fa-users"
+                    : item.type == "Live Class" || "Group Classes"
+                    ? "fa fa-graduation-cap"
+                    : "fa fa-pencil",
                 color:
                   item.type == "Anki"
                     ? "#01BCFF"
                     : item.type == "Homework"
-                      ? "#E6A020"
-                      : item.type == "Extra activity"
-                        ? "#123"
-                        : item.type == "Live Class" || "Group Classes"
-                          ? "#753"
-                          : "#123",
+                    ? "#E6A020"
+                    : item.type == "Extra activity"
+                    ? "#123"
+                    : item.type == "Live Class" || "Group Classes"
+                    ? "#753"
+                    : "#123",
               };
 
               return (
@@ -200,7 +202,9 @@ export default function RankingTimeline({
                       className={variables.type}
                       aria-hidden="true"
                     />
-                    <span>{item.type}</span>
+                    <span>
+                      {item.type == "Anki" ? "Flashcards" : item.type}
+                    </span>
                     <span
                       style={{
                         color: alwaysWhite(),

@@ -46,21 +46,26 @@ export const listOfCriteria = [
     ],
   },
   {
-    title: "Anki",
+    title: "Flashcards",
     icon: "fa fa-clone",
     transform: "rotate(-25deg)",
     color: "rgb(1, 188, 255)",
     score: [
-      { description: "6 dias em 7 (1x/semana)", score: 700, color: "green" },
-      { description: "3 dias em 7 (1x/semana)", score: 300, color: "green" },
       {
         description: "Chegou na aula com o Anki totalmente revisado",
         score: 50,
         color: "green",
       },
       {
-        description: "Enviou foto do Anki totalmente revisado",
+        description: "Revisou um card",
+        score: 3,
+        nobutton: true,
+        color: "green",
+      },
+      {
+        description: "Zerou as 30 revisões do dia",
         score: 80,
+        nobutton: true,
         color: "green",
       },
     ],
@@ -90,6 +95,7 @@ export const listOfCriteria = [
       {
         color: "green",
         score: 800,
+        nobutton: true,
         description: "Fez Apresentação",
         text: "Apresentação (pode fazer na aula particular)",
       },
@@ -156,10 +162,7 @@ export const listOfButtons: Button[] =
 export const GridRankingExplanation = styled.div`
   display: grid;
   gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  @media (max-width: 1600px) {
-    grid-template-columns: 1fr 1fr;
-  }
+  grid-template-columns: 1fr 1fr;
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }

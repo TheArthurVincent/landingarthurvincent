@@ -170,7 +170,7 @@ li {
 .flashcard {
   position: relative;
   width: 250px;
-  height: 150px;
+  height: 300px;
   transform-style: preserve-3d;
   transition: transform 0.3s;
 }
