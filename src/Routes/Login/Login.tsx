@@ -58,7 +58,7 @@ export function Login() {
   return (
     <div
       style={{
-        overflowX: "hidden",
+        overflow: "hidden",
         height: "100vh",
         display: "flex",
         justifyContent: "center",
