@@ -162,7 +162,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           newBackComments,
         },
         {
-          params: { cardId }, // Enviar cardId como parâmetro de consulta
+          params: { cardId },
         }
       );
       seeCardsToReview();
@@ -204,12 +204,12 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 textAlign: "center",
               }}
             >
-              <div style={{ padding: "1rem" }}>
+              <div>
                 {!cardsLength ? (
                   <>
                     <div
                       style={{
-                        fontSize: "12px",
+                        fontSize: "10px",
                         paddingBottom: "1rem",
                       }}
                     >
@@ -239,6 +239,102 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       </span>{" "}
                       |{" "}
                     </div>{" "}
+                    {myId === "651311fac3d58753aa9281c5" && (
+                      <ArvinButton
+                        onClick={() => handleSeeModal(cards[0].id)}
+                        color="yellow"
+                      >
+                        <i className="fa fa-edit" aria-hidden="true" />
+                      </ArvinButton>
+                    )}
+                    <ArvinButton
+                      disabled={isDisabled}
+                      cursor={isDisabled ? "not-allowed" : "pointer"}
+                      color={isDisabled ? "grey" : "navy"}
+                      onClick={() => {
+                        setBackCardVisible(!backCardVisible);
+                        setAnswer(!answer);
+                        {
+                          cards.length > 0 && cards[0].back.language == "en"
+                            ? readText(
+                                backCardVisible
+                                  ? cards[0].back.text
+                                  : cards[0].front.text,
+                                true,
+                                backCardVisible
+                                  ? cards[0].back.language
+                                  : cards[0].front.language
+                              )
+                            : null;
+                        }
+                      }}
+                    >
+                      {isDisabled ? (
+                        <span>{count}</span>
+                      ) : (
+                        <span>{answer ? "Back" : "Answer"}</span>
+                      )}
+                    </ArvinButton>
+                    <br />
+                    {answer && (
+                      <div>
+                        <div
+                          style={{
+                            justifyContent: "center",
+                            display: "flex",
+                            gap: "5px",
+                            marginTop: "5px",
+                          }}
+                        >
+                          <div style={{ display: "grid", gap: "5px" }}>
+                            <ArvinButton
+                              onClick={() => {
+                                reviewCard(cards[0].id, "veryhard");
+                              }}
+                              color="red"
+                            >
+                              Repeat!{" "}
+                            </ArvinButton>
+                            <p style={{ fontSize: "10px" }}>Today</p>
+                          </div>
+                          <div style={{ display: "grid", gap: "5px" }}>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0].id, "hard")}
+                              color="pink"
+                            >
+                              Hard
+                            </ArvinButton>
+                            <p style={{ fontSize: "10px" }}>
+                              {formatDateBr(cards[0].hard)}
+                            </p>
+                          </div>
+
+                          <div style={{ display: "grid", gap: "5px" }}>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0].id, "medium")}
+                              color="navy"
+                            >
+                              Medium
+                            </ArvinButton>
+                            <p style={{ fontSize: "10px" }}>
+                              {formatDateBr(cards[0].medium)}
+                            </p>
+                          </div>
+
+                          <div style={{ display: "grid", gap: "5px" }}>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0].id, "easy")}
+                              color="green"
+                            >
+                              Easy
+                            </ArvinButton>
+                            <p style={{ fontSize: "10px" }}>
+                              {formatDateBr(cards[0].easy)}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                     <div
                       style={{
                         margin: "auto",
@@ -356,104 +452,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         </div>
                       </div>
                     </div>
-                    {myId === "651311fac3d58753aa9281c5" && (
-                      <ArvinButton
-                        onClick={() => handleSeeModal(cards[0].id)}
-                        color="yellow"
-                      >
-                        <i className="fa fa-edit" aria-hidden="true" />
-                      </ArvinButton>
-                    )}
-                    <ArvinButton
-                      disabled={isDisabled}
-                      cursor={isDisabled ? "not-allowed" : "pointer"}
-                      color={isDisabled ? "grey" : "navy"}
-                      style={{
-                        marginTop: "3rem",
-                      }}
-                      onClick={() => {
-                        setBackCardVisible(!backCardVisible);
-                        setAnswer(!answer);
-                        {
-                          cards.length > 0 && cards[0].back.language == "en"
-                            ? readText(
-                                backCardVisible
-                                  ? cards[0].back.text
-                                  : cards[0].front.text,
-                                true,
-                                backCardVisible
-                                  ? cards[0].back.language
-                                  : cards[0].front.language
-                              )
-                            : null;
-                        }
-                      }}
-                    >
-                      {isDisabled ? (
-                        <span>{count}</span>
-                      ) : (
-                        <span>{answer ? "Back" : "Answer"}</span>
-                      )}
-                    </ArvinButton>
-                    {answer && (
-                      <div>
-                        <div
-                          style={{
-                            justifyContent: "center",
-                            display: "flex",
-                            gap: "5px",
-                            marginTop: "5px",
-                          }}
-                        >
-                          <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => {
-                                reviewCard(cards[0].id, "veryhard");
-                              }}
-                              color="red"
-                            >
-                              Repeat!{" "}
-                            </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>Today</p>
-                          </div>
-                          <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "hard")}
-                              color="pink"
-                            >
-                              Hard
-                            </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>
-                              {formatDateBr(cards[0].hard)}
-                            </p>
-                          </div>
-
-                          <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "medium")}
-                              color="navy"
-                            >
-                              Medium
-                            </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>
-                              {formatDateBr(cards[0].medium)}
-                            </p>
-                          </div>
-
-                          <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "easy")}
-                              color="green"
-                            >
-                              Easy
-                            </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>
-                              {formatDateBr(cards[0].easy)}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
                   </>
                 ) : (
                   <p>
@@ -567,17 +565,16 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           gap: "5px",
           alignItems: "center",
         }}
+      />
+      <ArvinButton
+        style={{
+          margin: "auto",
+          display: !see ? "block" : "none",
+        }}
+        onClick={seeCardsToReview}
       >
-        <ArvinButton
-          style={{
-            margin: "3rem auto",
-            display: "block",
-          }}
-          onClick={seeCardsToReview}
-        >
-          {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
-        </ArvinButton>
-      </div>
+        {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
+      </ArvinButton>
     </section>
   );
 };
