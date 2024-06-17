@@ -64,10 +64,11 @@ export function Homework({ headers, setChange, change }: HWProps) {
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     //@ts-ignore
-    const { id } = getLoggedUser;
+    const { id, permissions } = getLoggedUser;
     setMyId(id);
     fetchClasses(id);
-    fetchStudents();
+
+    permissions == "superadmin" ? fetchStudents() : null;
   }, []);
 
   const updateRealizedClass = async (tutoringId: string, score: number) => {

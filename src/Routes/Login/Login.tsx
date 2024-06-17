@@ -8,7 +8,6 @@ import {
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import { Alert, Button, CircularProgress } from "@mui/material";
-import { SideLoginForm, TextLoginPage } from "./Login.styled";
 import Helmets from "../../Resources/Helmets";
 
 export function Login() {
@@ -55,101 +54,110 @@ export function Login() {
   };
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
-  
+
   return (
-    <div style={{ display: "flex" }}>
+    <div
+      style={{
+        overflowX: "hidden",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Helmets text={"Login"} />
-      <TextLoginPage>Plataforma para alunos particulares!</TextLoginPage>
-      <SideLoginForm>
-        <div
-          style={{
-            alignItems: "center",
-            display: "grid",
-          }}
-        >
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              display: "grid",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "2rem",
-              padding: "0 5rem",
-            }}
-          >
-            <div style={{ margin: "0 auto" }}>{myLogo}</div>
-            <InputField
-              value={email}
-              onChange={(event: any) => setEmail(event.target.value)}
-              id="name"
-              placeholder="E-mail"
-              type="text"
-            />
-            <InputField
-              value={password}
-              onChange={(event: any) => setPassword(event.target.value)}
-              id="password"
-              placeholder="Senha"
-              type={passwordVisible ? "text" : "password"}
-            />
-            <div
+      <div style={{ width: "100vw" }}>
+        <div style={{ margin: "auto" }}>
+          <div style={{ alignItems: "center", display: "grid" }}>
+            <form
+              onSubmit={handleSubmit}
               style={{
-                display: "flex",
-                justifyContent: "space-between",
+                display: "grid",
                 alignItems: "center",
+                justifyContent: "center",
+                gap: "2rem",
+                padding: "5rem",
+                backgroundColor: "#fff",
+                maxWidth: "fit-content",
+                margin: "auto",
+                boxShadow: "3px 3px 8px rgba(0, 0, 0, 0.5)",
+                borderRadius: "10px",
               }}
             >
-              <p
-                onClick={handlePasswordVisible}
+              <div style={{ margin: "0 auto" }}>{myLogo}</div>
+              <InputField
+                value={email}
+                onChange={(event: any) => setEmail(event.target.value)}
+                id="name"
+                placeholder="E-mail"
+                type="text"
+              />
+              <InputField
+                value={password}
+                onChange={(event: any) => setPassword(event.target.value)}
+                id="password"
+                placeholder="Senha"
+                type={passwordVisible ? "text" : "password"}
+              />
+              <div
                 style={{
-                  fontSize: "1.2rem",
-                  display: "block",
-                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                {passwordVisible ? (
-                  <i
-                    style={{
-                      fontSize: "1.2rem",
-                      display: "block",
-                      cursor: "pointer",
-                    }}
-                    className="fa fa-eye-slash"
-                  />
-                ) : (
-                  <i
-                    style={{
-                      fontSize: "1.2rem",
-                      display: "block",
-                      cursor: "pointer",
-                    }}
-                    className="fa fa-eye"
-                  />
-                )}
-              </p>
-              <Button
-                style={{
-                  backgroundColor: "#eee",
-                  color: primaryColor(),
-                }}
-                type="submit"
-              >
-                {button}
-              </Button>
-            </div>
-          </form>
-          <Alert
-            style={{
-              maxWidth: "20rem",
-              margin: "auto",
-              display: fail ? "block" : "none",
-            }}
-            severity="error"
-          >
-            Credenciais inválidas!
-          </Alert>
+                <p
+                  onClick={handlePasswordVisible}
+                  style={{
+                    fontSize: "1.2rem",
+                    display: "block",
+                    cursor: "pointer",
+                  }}
+                >
+                  {passwordVisible ? (
+                    <i
+                      style={{
+                        fontSize: "1.2rem",
+                        display: "block",
+                        cursor: "pointer",
+                      }}
+                      className="fa fa-eye-slash"
+                    />
+                  ) : (
+                    <i
+                      style={{
+                        fontSize: "1.2rem",
+                        display: "block",
+                        cursor: "pointer",
+                      }}
+                      className="fa fa-eye"
+                    />
+                  )}
+                </p>
+                <Button
+                  style={{
+                    backgroundColor: "#eee",
+                    color: primaryColor(),
+                  }}
+                  type="submit"
+                >
+                  {button}
+                </Button>
+              </div>
+            </form>
+            <Alert
+              style={{
+                maxWidth: "20rem",
+                margin: "auto",
+                display: fail ? "block" : "none",
+              }}
+              severity="error"
+            >
+              Credenciais inválidas!
+            </Alert>
+          </div>
         </div>
-      </SideLoginForm>
+      </div>
     </div>
   );
 }
