@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import UniversalTexts from "../../../Resources/UniversalTexts.json";
 import { pathGenerator } from "../../../Resources/UniversalComponents";
 import {
@@ -33,20 +33,36 @@ function CoursesSideBar({ courses }) {
   useEffect(() => {
     console.log("courses", courses);
   }, []);
+  const truncateTitle = (title, maxWords) => {
+    const words = title.split(" ");
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(" ") + " ...";
+    }
+    return title;
+  };
+
+  const location = useLocation();
+  const currentPath = location.pathname
+    .split("/")
+    .filter((part) => part !== ""); // Obtém o caminho atual no navegador
+
+  useEffect(() => {
+    console.log(currentPath);
+  }, []);
+
+  const go = (e) => {
+    window.location.assign(pathGenerator(e));
+  };
 
   return (
     <CoursesListContainer
-      style={showCourses ? { left: "0rem" } : { left: "-20rem" }}
+      style={showCourses ? { left: "0rem" } : { left: "-14.5rem" }}
     >
       <CoursesListInnerContainer>
-        <div
-          onClick={handleShowCourses}
-          style={{
-            display: "grid",
-          }}
-        >
+        <div onClick={handleShowCourses}>
           <div
             style={{
+              maxHeight: "3rem",
               padding: "8px",
               alignItems: "center",
               backgroundColor: alwaysBlack(),
@@ -55,6 +71,7 @@ function CoursesSideBar({ courses }) {
               justifyContent: "space-between",
               cursor: "pointer",
               display: "flex",
+              gap: "9rem",
             }}
           >
             <h1>Modules</h1>
@@ -73,17 +90,23 @@ function CoursesSideBar({ courses }) {
             </h1>
           </div>
           {courses.map((course, index) => (
-            <div key={index}>
+            <div
+              style={{
+                paddingLeft: "1rem",
+              }}
+              key={index}
+            >
               <h2>{course.type}</h2>
               <CoursesList>
                 {course.lessons[0].lessons.map((lesson, idx) => {
                   return (
-                    <Link
+                    <div
                       key={idx}
                       style={{
                         textDecoration: "none",
                       }}
-                      to={pathGenerator(lesson.title)}
+                      onClick={() => go(lesson.title)}
+                      // to={pathGenerator(lesson.title)}
                     >
                       <CoursesListItem
                         className="hover-color"
@@ -98,18 +121,10 @@ function CoursesSideBar({ courses }) {
                         }}
                         onClick={handleHideCourses}
                       >
-                        <span>{lesson.title}</span>
-                        <span
-                          style={
-                            {
-                              // paddingRight: "0.4rem",
-                            }
-                          }
-                        >
-                          {UniversalTexts.specialCharacters.circle}
-                        </span>
+                        <span>{truncateTitle(lesson.title, 3)}</span>
+                        <span>{UniversalTexts.specialCharacters.circle}</span>
                       </CoursesListItem>
-                    </Link>
+                    </div>
                   );
                 })}
               </CoursesList>

@@ -6,15 +6,19 @@ import { pathGenerator } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "../EnglishMaterial/EnglishMaterial.Styled";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
+import { HOne, HTwo } from "../../Resources/Components/RouteBox";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 interface EnglishCourseHomeProps {
   headers: MyHeadersType | null;
   less: any | null;
+  back: any | null;
 }
 
 export default function EnglishCourse({
   headers,
   less,
+  back,
 }: EnglishCourseHomeProps) {
   const arr = Object.entries(
     less.groupedLessonsArray.reduce((acc: any, lesson: any) => {
@@ -32,6 +36,10 @@ export default function EnglishCourse({
     console.log("groupedLessonsArray", groupedLessonsArray);
   });
 
+  const backToCourses = () => {
+    window.location.assign(`/english-courses`);
+  };
+
   return (
     <div>
       <Routes>
@@ -42,6 +50,7 @@ export default function EnglishCourse({
               path={`${pathGenerator(cls.title)}`}
               element={
                 <EnglishLessonsRender
+                  back={back}
                   course={groupedLessonsArray}
                   theclass={cls}
                   headers={headers}
@@ -51,7 +60,9 @@ export default function EnglishCourse({
           ))
         )}
       </Routes>
-      <h1>Curso: {less.title}. Veja os módulos</h1>
+      <HOne>{less.title}</HOne>
+      <ArvinButton onClick={backToCourses}>Back to Courses</ArvinButton>
+      <HTwo>Modules</HTwo>
       {groupedLessonsArray.map((course: any, index: number) => (
         <div key={index}>
           <HThree>{course.type}</HThree>

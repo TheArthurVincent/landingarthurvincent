@@ -32,7 +32,7 @@ export const CoursesListTitleContainer = styled.div`
 export const CoursesList = styled.ul`
   overflow-y: auto;
   max-height: 99vh;
-  paddingleft: 10px;
+  // padding-left: 10px;
 `;
 
 export const CoursesListItem = styled.li`
@@ -53,7 +53,7 @@ export const CoursesListItem = styled.li`
 `;
 
 export const CoursesListInnerContainer = styled.div`
-  width: 350px;
+  width: fit-content;
   display: grid;
   flex-direction: column;
   background-color: ${lightGreyColor()};

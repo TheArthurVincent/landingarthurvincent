@@ -14,10 +14,11 @@
 
 }
 
-html{
+html {
   overflow-x: hidden;
 
 }
+
 body {
   margin-top: 5rem;
 }
@@ -190,8 +191,8 @@ li {
   justify-content: center;
   text-align: center;
   padding: 1rem;
-  }
-  
+}
+
 .flashcard-front {
   background-color: white;
   box-shadow: 5px 5px 10px var(--blue-arvin);
@@ -212,10 +213,19 @@ li {
 }
 
 .hover-color {
-  border:1px solid white;
+  border: 1px solid white;
 }
+
 .hover-color:hover {
-  border:1px solid black;
+  border: 1px solid black;
+}
+
+.hvr {
+  background-color: #ddd;
+}
+
+.hvr:hover {
+  background-color: #aaa;
 }
 
 @keyframes slideInLeft {
