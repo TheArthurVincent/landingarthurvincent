@@ -19,15 +19,20 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
+import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
   theclass: any;
+  course: any;
+  back: any;
 }
 
 export default function EnglishLessonsRender({
   headers,
   theclass,
+  course,
+  back,
 }: EnglishLessonsRenderModelProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
@@ -62,6 +67,9 @@ export default function EnglishLessonsRender({
       alert("Erro ao encontrar alunos");
     }
   };
+  const backToCourses = () => {
+    window.location.assign(`/english-courses/${back}`);
+  };
 
   return (
     <div
@@ -71,8 +79,10 @@ export default function EnglishLessonsRender({
         backgroundColor: "white",
       }}
     >
+      <CoursesSideBar courses={course} />
       <Helmets text={theclass.title} />
       <HOne style={{ marginTop: "3rem" }}>{theclass.title}</HOne>
+      <ArvinButton onClick={backToCourses}>Back to Course</ArvinButton>
       {myId === "651311fac3d58753aa9281c5" && (
         <div
           style={{

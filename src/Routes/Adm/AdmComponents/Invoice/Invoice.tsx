@@ -31,12 +31,9 @@ export function Invoice({ headers }: HeadersProps) {
       setName(response.data.formattedStudentData.fullname);
       setFee(response.data.formattedStudentData.fee);
       setDoc(response.data.formattedStudentData.doc);
-      console.log(response);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
-
-    console.log(event.target.value);
   };
 
   const actualHeaders = headers || {};

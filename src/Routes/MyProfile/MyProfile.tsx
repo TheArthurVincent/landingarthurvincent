@@ -57,7 +57,6 @@ export function MyProfile({ headers }: HeadersProps) {
       );
       const userInfo = response.data.formattedStudentData;
       setUser(userInfo);
-      console.log(response.data.formattedStudentData);
 
       const loggedIn = JSON.parse(localStorage.getItem("loggedIn") || "{}");
 

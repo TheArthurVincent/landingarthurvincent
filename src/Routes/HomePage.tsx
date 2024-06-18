@@ -6,7 +6,6 @@ import { verifyToken } from "../App";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { pathGenerator } from "../Resources/UniversalComponents";
 import MyProfile from "./MyProfile/MyProfile";
-import EnglishMaterial from "./EnglishMaterial/EnglishMaterial";
 import Faq from "./Faq/Faq";
 import MyClasses from "./MyClasses/MyClasses";
 import MyCalendar from "./MyCalendar/MyCalendar";
@@ -16,13 +15,13 @@ import { LevelCard } from "./LevelCard/LevelCard";
 import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
-import EnglishLessonsHome from "./EnglishLessons/EnglishLessonsHome";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
 import { SpanDisapear } from "./Blog/Blog.Styled";
 import AppFooter from "../Application/Footer/Footer";
-import { lessons } from "./EnglishLessons/Assets/Functions/ClassesListActivities";
+import EnglishCourse from "./EnglishLessons/EnglishCourse";
+import EnglishCourses from "./EnglishLessons/EnglishCourses";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -43,8 +42,6 @@ export function HomePage({ headers }: HeadersProps) {
     }
   }, []);
 
-  const allCourses = [lessons];
-
   const appRoutes = [
     {
       title: "Blog",
@@ -54,10 +51,6 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
-    },
-    {
-      title: "English Material",
-      component: <EnglishMaterial headers={headers} />,
     },
     {
       title: "Group Classes",
@@ -86,8 +79,8 @@ export function HomePage({ headers }: HeadersProps) {
       component: <Ranking headers={headers} />,
     },
     {
-      title: "English Lessons",
-      component: <EnglishLessonsHome less={lessons} headers={headers} />,
+      title: "English Courses",
+      component: <EnglishCourses headers={headers} />,
     },
     {
       title: "Live Classes",

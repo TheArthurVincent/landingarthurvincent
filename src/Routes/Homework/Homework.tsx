@@ -56,7 +56,6 @@ export function Homework({ headers, setChange, change }: HWProps) {
       const tt = response.data.tutoringHomeworkList;
       setGroupList(gc);
       setTutoringList(tt);
-      console.log(response);
       setLoading(false);
     } catch (error) {
       console.log(error, "erro ao listar homework");
@@ -87,7 +86,6 @@ export function Homework({ headers, setChange, change }: HWProps) {
       );
       setChange(!change);
       fetchClasses(studentID);
-      console.log(response.data);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }

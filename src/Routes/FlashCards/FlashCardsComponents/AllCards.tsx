@@ -31,7 +31,6 @@ const AllCards = ({ headers }: HeadersProps) => {
       });
       const list = response.data.allFlashCards;
       setCards(list);
-      console.log(response.data.allFlashCards);
       setLoading(false);
     } catch (error) {
       console.log("Erro ao obter cards");

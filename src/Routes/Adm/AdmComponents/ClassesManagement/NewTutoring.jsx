@@ -24,7 +24,6 @@ export function NewTutoring({ headers }) {
   
   const handleHWDescriptionChange = (htmlContent) => {
     setNewHWDescription(htmlContent);
-    console.log(htmlContent)
   };
 
   const [selectedStudentID, setSelectedStudentID] = useState("");
@@ -83,7 +82,6 @@ export function NewTutoring({ headers }) {
   };
 
   const setStudentList = (e) => {
-    console.log(e);
     setSelectedStudentID(e);
     setDisabled(false);
   };
@@ -213,7 +211,6 @@ export function NewTutoring({ headers }) {
               value={dueDate}
               onChange={(e) => {
                 setDueDate(e.target.value);
-                console.log(e.target.value, dueDate);
               }}
               required
             />

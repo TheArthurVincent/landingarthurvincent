@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import UniversalTexts from "../../../Resources/UniversalTexts.json";
 import { pathGenerator } from "../../../Resources/UniversalComponents";
 import {
@@ -31,22 +31,31 @@ function CoursesSideBar({ courses }) {
   };
 
   useEffect(() => {
-    console.log(courses);
+    console.log("courses", courses);
   }, []);
+  const truncateTitle = (title, maxWords) => {
+    const words = title.split(" ");
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(" ") + " ...";
+    }
+    return title;
+  };
+
+  const location = useLocation();
+
+  const go = (e) => {
+    window.location.assign(pathGenerator(e));
+  };
 
   return (
     <CoursesListContainer
-      style={showCourses ? { left: "0rem" } : { left: "-20rem" }}
+      style={showCourses ? { left: "0rem" } : { left: "-14.5rem" }}
     >
       <CoursesListInnerContainer>
-        <div
-          onClick={handleShowCourses}
-          style={{
-            display: "grid",
-          }}
-        >
+        <div onClick={handleShowCourses}>
           <div
             style={{
+              maxHeight: "3rem",
               padding: "8px",
               alignItems: "center",
               backgroundColor: alwaysBlack(),
@@ -55,6 +64,7 @@ function CoursesSideBar({ courses }) {
               justifyContent: "space-between",
               cursor: "pointer",
               display: "flex",
+              gap: "9rem",
             }}
           >
             <h1>Modules</h1>
@@ -64,7 +74,7 @@ function CoursesSideBar({ courses }) {
               }}
             >
               <i
-                class={`fa fa-arrow-${arrow ? "left" : "right"}`}
+                className={`fa fa-arrow-${arrow ? "left" : "right"}`}
                 style={{
                   fontSize: "16px",
                 }}
@@ -72,52 +82,47 @@ function CoursesSideBar({ courses }) {
               />
             </h1>
           </div>
-          <CoursesList>
-            {courses.map((course, index) => (
-              <div key={index}>
-                <h2>{course.type}</h2>
-                <CoursesList>
-                  {course.lessons.map((lesson, idx) => {
-                    return (
-                      <Link
-                        key={idx}
+          {courses.map((course, index) => (
+            <div
+              style={{
+                paddingLeft: "1rem",
+              }}
+              key={index}
+            >
+              <h2>{course.type}</h2>
+              <CoursesList>
+                {course.lessons[0].lessons.map((lesson, idx) => {
+                  return (
+                    <div
+                      key={idx}
+                      style={{
+                        textDecoration: "none",
+                      }}
+                      onClick={() => go(lesson.title)}
+                      // to={pathGenerator(lesson.title)}
+                    >
+                      <CoursesListItem
+                        className="hover-color"
                         style={{
-                          textDecoration: "none",
+                          borderRadius: "5px",
+                          color: primaryColor(),
+                          backgroundColor: location.pathname.includes(
+                            pathGenerator(lesson.title)
+                          )
+                            ? secondaryColor()
+                            : textPrimaryColorContrast(),
                         }}
-                        to={pathGenerator(lesson.title)}
+                        onClick={handleHideCourses}
                       >
-                        <CoursesListItem
-                          className="hover-color"
-                          style={{
-
-                            borderRadius: "5px",
-                            color: primaryColor(),
-                            backgroundColor: location.pathname.includes(
-                              pathGenerator(lesson.title)
-                            )
-                              ? secondaryColor()
-                              : textPrimaryColorContrast(),
-                          }}
-                          onClick={handleHideCourses}
-                        >
-                          <span>{lesson.title}</span>
-                          <span
-                            style={
-                              {
-                                // paddingRight: "0.4rem",
-                              }
-                            }
-                          >
-                            {UniversalTexts.specialCharacters.circle}
-                          </span>
-                        </CoursesListItem>
-                      </Link>
-                    );
-                  })}
-                </CoursesList>
-              </div>
-            ))}
-          </CoursesList>
+                        <span>{truncateTitle(lesson.title, 3)}</span>
+                        <span>{UniversalTexts.specialCharacters.circle}</span>
+                      </CoursesListItem>
+                    </div>
+                  );
+                })}
+              </CoursesList>
+            </div>
+          ))}
         </div>
       </CoursesListInnerContainer>
       <div
