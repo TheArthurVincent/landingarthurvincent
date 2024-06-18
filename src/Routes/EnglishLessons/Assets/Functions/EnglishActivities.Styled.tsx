@@ -3,7 +3,7 @@ import { alwaysBlack, alwaysWhite } from "../../../../Styles/Styles";
 
 export const ImgLesson = styled.img`
   width: 100%;
-  max-width: 20rem;
+  max-width: 15rem;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;

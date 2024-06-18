@@ -11,8 +11,14 @@ import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
 import axios from "axios";
-import { backDomain } from "../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  getVideoEmbedUrl,
+} from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
+import Helmets from "../../../Resources/Helmets";
+import VideoLessonModel from "./LessonsModels/VideoLessonModel";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -45,7 +51,6 @@ export default function EnglishLessonsRender({
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const theid = event.target.value;
     setStudentID(theid);
-    // console.log(event.target.value);
   };
   const fetchStudents = async () => {
     try {
@@ -66,13 +71,14 @@ export default function EnglishLessonsRender({
         backgroundColor: "white",
       }}
     >
+      <Helmets text={theclass.title} />
       <HOne style={{ marginTop: "3rem" }}>{theclass.title}</HOne>
       {myId === "651311fac3d58753aa9281c5" && (
         <div
           style={{
             position: "fixed",
-            bottom: 0,
-            left: 0,
+            bottom: 80,
+            right: 0,
           }}
         >
           <select onChange={(e) => handleStudentChange(e)} value={studentID}>
@@ -90,6 +96,11 @@ export default function EnglishLessonsRender({
       )}
       {theclass.image && (
         <ImgLesson src={theclass.image} alt={theclass.title} />
+      )}
+      {theclass.video && (
+        <div style={{ margin: "1rem auto 0 auto" }}>
+          <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
+        </div>
       )}
       {theclass.description && (
         <p
@@ -122,6 +133,9 @@ export default function EnglishLessonsRender({
             )}
             {element.image && element.subtitle && (
               <ImgLesson src={element.image} alt={element.subtitle} />
+            )}{" "}
+            {element.video && element.subtitle && (
+              <VideoLessonModel element={element} />
             )}
             {element.comments && (
               <p

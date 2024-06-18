@@ -6,7 +6,8 @@ import {
   transparentBlack,
   alwaysBlack,
   lightGreyColor,
-} from "../../Styles/Styles";
+  darkGreyColor,
+} from "../../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
   display: flex;
@@ -14,11 +15,11 @@ export const CoursesListContainer = styled.div`
   border-right: solid 1px ${lightGreyColor()};
   position: fixed;
   top: 0rem;
-  z-index: 2;
-  transition: left 0.2s ease-out;
+  z-index: 10000000000000000;
+  transition: left 0.3s ease-out;
 
-  @media (max-width: 1400px) {
-    display: none;
+  @media (max-width: 600px) {
+    // display: none;
   }
 `;
 
@@ -33,7 +34,7 @@ export const CoursesListTitleContainer = styled.div`
 `;
 
 export const CoursesList = styled.ul`
-  padding: 0;
+  paddingleft: 10px;
 `;
 
 export const CoursesListItem = styled.li`
@@ -48,23 +49,22 @@ export const CoursesListItem = styled.li`
   justify-content: space-between;
   cursor: pointer;
   &:hover {
-    background-color: ${primaryColor()};
-    color: ${textPrimaryColorContrast()};
+    background-color: ${alwaysWhite()};
+    color: ${alwaysBlack()};
   }
 `;
 
 export const CoursesListInnerContainer = styled.div`
-  width: 250px;
+  width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  max-height: 99vh;
   background-color: ${lightGreyColor()};
+  overflow-y: auto;
+  padding: 2px;
+  justify-content: space-between;
 `;
 
-export const Mask = styled.div`
-  background-color: ${transparentBlack()};
-  width: 10000px;
-`;
 export const ArrowStyle = styled.span`
   font-weight: 900;
   font-size: 1.2rem;

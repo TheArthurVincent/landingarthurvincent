@@ -118,9 +118,9 @@ export function HomePage({ headers }: HeadersProps) {
           return (
             <Route
               key={index}
-              path={
+              path={`${
                 component.path ? component.path : pathGenerator(component.title)
-              }
+              }/*`}
               element={
                 verifyToken() ? (
                   <BlogRouteSizeControlBox

@@ -1,6 +1,109 @@
 export const lessons = [
   {
-    title: "Introducing Yourself, Basics",
+    title: "Verbos no Passado",
+    type: "1- Basic",
+    description:
+      "Veja alguns exemplos de verbos regulares e irregulares no passado",
+    order: 20,
+    image:
+      "https://www.oldcarsweekly.com/review/wp-content/uploads/2022/09/rear-view-mirror-oldcarsweekly.jpg",
+    elements: [
+      {
+        type: "sentences",
+        order: 3,
+        grid: 2,
+        subtitle: "Verbos Regulares",
+        sentences: [
+          {
+            english: "played",
+            portuguese: "jogar, jogou - passado do verbo to play",
+          },
+          {
+            english: "walked",
+            portuguese: "andar, andou - passado do verbo to walk",
+          },
+          {
+            english: "watched",
+            portuguese: "assistir, assistiu - passado do verbo to watch",
+          },
+          {
+            english: "cooked",
+            portuguese: "cozinhar, cozinhou - passado do verbo to cook",
+          },
+          {
+            english: "cleaned",
+            portuguese: "limpar, limpo - passado do verbo to cleanu",
+          },
+        ],
+      },
+      {
+        type: "sentences",
+        order: 3,
+        grid: 2,
+        subtitle: "Verbos Irregulares",
+        sentences: [
+          { english: "Went", portuguese: "ir, foi - passado do verbo To Go" },
+          {
+            english: "Had",
+            portuguese: "ter, teve - passado do verbo To Have",
+          },
+          { english: "Saw", portuguese: "ver, viu - pasado do verbo To see" },
+          {
+            english: "took",
+            portuguese: "pegar, pegou - passado do verbo to take",
+          },
+          {
+            english: "came",
+            portuguese: "vir, veio - passado do verbo to come",
+          },
+        ],
+      },
+      {
+        order: 3,
+        grid: 2,
+        type: "sentences",
+        subtitle: "Verbos Irregulares",
+        sentences: [
+          {
+            english: "I played soccer yesterday.",
+            portuguese: "Eu joguei futebol ontem.",
+          },
+          {
+            english: "She walked to the store.",
+            portuguese: "Ela andou até a loja.",
+          },
+          {
+            english: "We watched a movie last night.",
+            portuguese: "Assistimos a um filme ontem à noite.",
+          },
+          {
+            english: "He cooked dinner for us.",
+            portuguese: "Ele cozinhou o jantar para nós.",
+          },
+          {
+            english: "They cleaned the house.",
+            portuguese: "Eles limparam a casa.",
+          },
+          { english: "I went to the beach.", portuguese: "Eu fui à praia." },
+          {
+            english: "She had a great time.",
+            portuguese: "Ela se divertiu muito.",
+          },
+          {
+            english: "We saw a beautiful sunset.",
+            portuguese: "Nós vimos um pôr do sol lindo.",
+          },
+          { english: "He took a picture.", portuguese: "Ele tirou uma foto." },
+          {
+            english: "They came to the party.",
+            portuguese: "Eles vieram para a festa.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Introducing Yourself and Basics",
     order: 1,
     type: "1- Basic",
     description:
@@ -37,26 +140,26 @@ export const lessons = [
           { english: "Excuse me.", portuguese: "Com licença." },
         ],
       },
-      {
-        subtitle: "Dialogue Practice #1",
-        order: 1,
-        type: "dialogue",
-        dialogue: [
-          "What is your name?",
-          "My name is John. What is your name?",
-          "My name is Mary. How old are you?",
-          "I am twenty years old. How old are you?",
-          "I am nineteen. Where are you from?",
-          "I am from Canada. Where are you from?",
-          "I am from Australia.",
-          "Is it nice there?",
-          "Yes, it is. It is very beautiful.",
-        ],
-      },
+      // {
+      //   subtitle: "Dialogue Practice #1",
+      //   order: 1,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "What is your name?",
+      //     "My name is John. What is your name?",
+      //     "My name is Mary. How old are you?",
+      //     "I am twenty years old. How old are you?",
+      //     "I am nineteen. Where are you from?",
+      //     "I am from Canada. Where are you from?",
+      //     "I am from Australia.",
+      //     "Is it nice there?",
+      //     "Yes, it is. It is very beautiful.",
+      //   ],
+      // },
     ],
   },
   {
-    title: "The Alphabet, Spelling",
+    title: "The Alphabet and Spelling",
     order: 2,
     type: "1- Basic",
     description: "Nesta aula, você aprende as letras do alfabeto e a soletrar.",
@@ -64,12 +167,18 @@ export const lessons = [
       "https://images.pexels.com/photos/1337382/pexels-photo-1337382.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
       {
+        order: -1,
+        subtitle:"Video",
+        type: "video",
+        video: "https://www.youtube.com/watch?v=kDdg2M1_EuE",
+      },
+      {
         // subtitle: "",
         comments:
           "Veja abaixo as letras do alfabeto em inglês e suas respectivas pronúncias",
         order: 0,
         type: "sentences",
-        grid: 3,
+        grid: 2,
         sentences: [
           { english: "A", portuguese: "êi" },
           { english: "B", portuguese: "bí" },
@@ -197,7 +306,7 @@ export const lessons = [
       {
         subtitle: "Subject Pronouns",
         comments: "Esses pronomes são usados como sujeito da frase.",
-        grid: 3,
+        grid: 2,
         order: 0,
         type: "sentences",
         sentences: [
@@ -215,7 +324,7 @@ export const lessons = [
         subtitle: "Object Pronouns",
         comments: "Esses pronomes são usados como objeto da frase.",
         order: 1,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "Me", portuguese: "Me/Mim" },
@@ -232,7 +341,7 @@ export const lessons = [
         subtitle: "Practice Vocabulary",
         comments: "Vocabulário adicional para prática.",
         order: 2,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "Friend", portuguese: "Amigo(a)" },
@@ -333,7 +442,7 @@ export const lessons = [
         comments:
           "Estes são os artigos indefinidos, ou seja, 'um' ou 'uma'. Você usa 'a' para palavras que antecedem consoantes, e 'an' para palavras que antecedem vogais.",
         order: 0,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "a house", portuguese: "uma casa" },
@@ -353,7 +462,7 @@ export const lessons = [
         subtitle: "The",
         comments: "Este é o artigo indefinido, ou seja, 'o, a, os, as'.",
         order: 1,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "the doctor", portuguese: "o médico, a médica" },
@@ -576,6 +685,7 @@ export const lessons = [
       },
     ],
   },
+
   {
     title: "To be",
     order: 9,
@@ -590,7 +700,7 @@ export const lessons = [
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver afirmando!",
         order: 0,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "I am", portuguese: "Eu sou, Eu estou" },
@@ -607,7 +717,7 @@ export const lessons = [
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver negando!",
         order: 1,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -636,7 +746,7 @@ export const lessons = [
         subtitle: "Interrogative Conjugations!",
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês, se estiver perguntando!",
-        grid: 3,
+        grid: 2,
         order: 2,
         type: "sentences",
         sentences: [
@@ -654,7 +764,7 @@ export const lessons = [
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês no passado!",
         order: 3,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "I was", portuguese: "Eu era, Eu estava" },
@@ -671,7 +781,7 @@ export const lessons = [
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês no passado, se estiver negando!",
         order: 4,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -708,7 +818,7 @@ export const lessons = [
         subtitle: "Interrogative Past Conjugations!",
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês no passado, se estiver perguntando!",
-        grid: 3,
+        grid: 2,
         order: 5,
         type: "sentences",
         sentences: [
@@ -725,7 +835,7 @@ export const lessons = [
         subtitle: "Future Conjugations!",
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês no futuro!",
-        grid: 3,
+        grid: 2,
         order: 6,
         type: "sentences",
         sentences: [
@@ -742,7 +852,7 @@ export const lessons = [
         subtitle: "Negative Future Conjugations!",
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês no futuro, se estiver negando!",
-        grid: 3,
+        grid: 2,
         order: 7,
         type: "sentences",
         sentences: [
@@ -780,7 +890,7 @@ export const lessons = [
         subtitle: "Interrogative Future Conjugations!",
         comments:
           "É assim que você conjuga 'ser' ou 'estar' em inglês no futuro, se estiver perguntando!",
-        grid: 3,
+        grid: 2,
         order: 8,
         type: "sentences",
         sentences: [
@@ -802,7 +912,7 @@ export const lessons = [
       {
         subtitle: "Vocabulary",
         comments: "Vocabulário para praticar",
-        grid: 3,
+        grid: 2,
         order: 9,
         type: "sentences",
         sentences: [
@@ -826,7 +936,7 @@ export const lessons = [
       {
         subtitle: "Vocabulary",
         comments: "Vocabulário para praticar",
-        grid: 3,
+        grid: 2,
         order: 10,
         type: "sentences",
         sentences: [
@@ -1089,11 +1199,52 @@ export const lessons = [
   },
   {
     title: "Prepositions #1",
+    // video:"https://www.youtube.com/watch?v=bUDIfbtNos0",
     type: "1- Basic",
     order: 10,
     image:
       "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/company.jpg?updatedAt=1688423305321",
     elements: [
+      {
+        subtitle: "Prepositions",
+        order: 0,
+        type: "sentences",
+        grid: 3,
+        sentences: [
+          {
+            english: "To",
+            portuguese: "Para",
+          },
+          {
+            english: "For",
+            portuguese: "Por",
+          },
+          {
+            english: "From",
+            portuguese: "De (quando se fala de origem)",
+          },
+          {
+            english: "About",
+            portuguese: "'Sobre' ou 'à respeito de'",
+          },
+          {
+            english: "Of",
+            portuguese: "De (quando se fala de composição ou posse)",
+          },
+          {
+            english: "In",
+            portuguese: "Em (dentro de algo)",
+          },
+          {
+            english: "On",
+            portuguese: "Em (sobre alto)",
+          },
+          {
+            english: "At",
+            portuguese: "Em (em um local específico)",
+          },
+        ],
+      },
       {
         subtitle: "Preposition: To (para)",
         order: 1,
@@ -1263,23 +1414,23 @@ export const lessons = [
           },
         ],
       },
-      {
-        subtitle: "Dialogue Practice",
-        order: 9,
-        type: "dialogue",
-        dialogue: [
-          "Where are you going?",
-          "I am going to the bookstore.",
-          "Why?",
-          "Because I need to buy a book.",
-          "What is the book about?",
-          "It is about the history of art.",
-          "Is it for you?",
-          "No, it's for my sister.",
-          "Where is she now?",
-          "She is at home.",
-        ],
-      },
+      // {
+      //   subtitle: "Dialogue Practice",
+      //   order: 9,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Where are you going?",
+      //     "I am going to the bookstore.",
+      //     "Why?",
+      //     "Because I need to buy a book.",
+      //     "What is the book about?",
+      //     "It is about the history of art.",
+      //     "Is it for you?",
+      //     "No, it's for my sister.",
+      //     "Where is she now?",
+      //     "She is at home.",
+      //   ],
+      // },
     ],
   },
   {
@@ -1290,19 +1441,39 @@ export const lessons = [
       "https://images.pexels.com/photos/2440530/pexels-photo-2440530.jpeg?auto=compress&cs=tinysrgb&w=600",
     elements: [
       {
-        subtitle: "Possessive Pronouns",
-        comments: "Estas são as palavras que usamos para falar de posses!",
+        subtitle: "List 1",
+        comments:
+          "Estas são as palavras que usamos para falar de posses! Estas palavras sempre precisam acompanhar a posse.",
         order: 0,
+        grid: 3,
         type: "sentences",
         sentences: [
-          { english: "My", portuguese: "Meu" },
-          { english: "Your", portuguese: "Teu/tua" },
+          { english: "My", portuguese: "Meu, minha, meus ou minhas" },
+          { english: "Your", portuguese: "Teu, tua, teus ou tuas" },
           { english: "Her", portuguese: "Dela" },
           { english: "His", portuguese: "Dele" },
           { english: "Its", portuguese: "Dele/dela (não humanos)" },
-          { english: "Our", portuguese: "Nosso" },
-          { english: "Your", portuguese: "Teus/tuas" },
+          { english: "Our", portuguese: "Nosso, nossa, nossos ou nossas" },
+          { english: "Your", portuguese: "De vocês (seu, sua, seus ou suas)" },
           { english: "Their", portuguese: "Deles/delas" },
+        ],
+      },
+      {
+        subtitle: "List 2",
+        comments:
+          "Estas são as palavras que usamos para falar de posses! Estas palavras não acompanham a posse.",
+        order: 0,
+        grid: 3,
+        type: "sentences",
+        sentences: [
+          { english: "Mine", portuguese: "Meu, minha, meus ou minhas" },
+          { english: "Yours", portuguese: "Teu, tua, teus ou tuas" },
+          { english: "Hers", portuguese: "Dela" },
+          { english: "His", portuguese: "Dele" },
+          { english: "Its", portuguese: "Dele/dela (não humanos)" },
+          { english: "Ours", portuguese: "Nosso, nossa, nossos ou nossas" },
+          { english: "Yours", portuguese: "De vocês (seu, sua, seus ou suas)" },
+          { english: "Theirs", portuguese: "Deles/delas" },
         ],
       },
 
@@ -1313,24 +1484,36 @@ export const lessons = [
         type: "sentences",
         sentences: [
           {
-            english: "The login is necessary to access your email.",
-            portuguese: "O login é necessário para acessar seu email.",
+            english: "I need to access my email.",
+            portuguese: "Eu preciso acessar meu email.",
           },
           {
-            english: "It is important to be nice to your colleagues.",
-            portuguese: "É importante ser gentil com seus colegas.",
+            english: "This computer is mine.",
+            portuguese: "Este computador é meu.",
           },
           {
-            english: "The boy is rather tall for his age.",
-            portuguese: "O menino é bastante alto para a idade dele.",
+            english: "Be nice to your colleagues.",
+            portuguese: "Seja gentil com teus colegas.",
           },
           {
-            english: "He is a caring father for his children.",
-            portuguese: "Ele é um pai carinhoso para seus filhos.",
+            english: "This car is yours.",
+            portuguese: "Este carro é teu.",
           },
           {
-            english: "Is her cousin 32 years old or not?",
-            portuguese: "O primo dela tem 32 anos ou não?",
+            english: "The boy is tall for his age.",
+            portuguese: "O menino é alto para a idade dele.",
+          },
+          {
+            english: "The bottle is his.",
+            portuguese: "A garrafa é dele.",
+          },
+          {
+            english: "She is a good mother for her children.",
+            portuguese: "Ela é uma boa mãe para seus filhos.",
+          },
+          {
+            english: "My children are old, but hers are young.",
+            portuguese: "Meus filhos são velhos, mas os dela são jovens.",
           },
           {
             english: "This car is amazing, its engine is very good!",
@@ -1341,8 +1524,12 @@ export const lessons = [
             portuguese: "As contas bancárias deles estão vazias.",
           },
           {
-            english: "Dogs are always faithful to their masters.",
-            portuguese: "Os cachorros são sempre fiéis aos seus mestres.",
+            english: "My computer is broken, I need theirs.",
+            portuguese: "Meu computador está quebrado, eu preciso do deles.",
+          },
+          {
+            english: "Dogs are faithful to their masters.",
+            portuguese: "Os cachorros são fiéis aos seus mestres.",
           },
         ],
       },
@@ -1507,8 +1694,8 @@ export const lessons = [
       {
         comments:
           "Estas são as question words, ou seja palavras que usamos em perguntas!",
-    grid: 3,
-    order: 0,
+        grid: 2,
+        order: 0,
         type: "sentences",
         sentences: [
           { english: "Who", portuguese: "Quem" },
@@ -1526,8 +1713,8 @@ export const lessons = [
       {
         subtitle: "What - O que, Qual",
         comments: "Qual - Sem opções",
-    grid: 2,
-    order: 1,
+        grid: 2,
+        order: 1,
         type: "sentences",
         sentences: [
           {
@@ -1561,8 +1748,8 @@ export const lessons = [
         subtitle: "Who - Quem",
         comments:
           "'Who' é um pronome interrogativo em inglês usado para perguntar sobre pessoas. É utilizado quando se deseja saber quem realizou uma ação ou quem é o sujeito em questão. Por exemplo: Who is she? (Quem é ela?)",
-    grid: 2,
-    order: 2,
+        grid: 2,
+        order: 2,
         type: "sentences",
 
         sentences: [
@@ -1620,8 +1807,8 @@ export const lessons = [
         subtitle: "When - Quando",
         comments:
           "'When' é um pronome interrogativo em inglês usado para perguntar sobre tempo. É utilizado quando se deseja saber em que momento algo aconteceu, acontece ou acontecerá. Por exemplo: When is your birthday? (Quando é o seu aniversário?)",
-    grid: 2,
-    order: 3,
+        grid: 2,
+        order: 3,
         type: "sentences",
 
         sentences: [
@@ -1647,8 +1834,8 @@ export const lessons = [
         subtitle: "Where - Onde",
         comments:
           "'Where' é um pronome interrogativo em inglês usado para perguntar sobre localização ou lugar. É utilizado quando se deseja saber onde algo aconteceu, acontece ou acontecerá. Por exemplo: Where are you? (Onde você está?)",
-    grid: 2,
-    order: 4,
+        grid: 2,
+        order: 4,
         type: "sentences",
         sentences: [
           {
@@ -1728,7 +1915,7 @@ export const lessons = [
         comments:
           "'How' é um question word em inglês usado para perguntar sobre a maneira ou o modo de fazer algo, ou sobre a quantidade ou grau de algo. Por exemplo: How are you? (Como você está?), How much does it cost? (Quanto custa?)",
         order: 7,
-    grid: 2,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1754,7 +1941,7 @@ export const lessons = [
         comments:
           "'How Many' é usado para perguntar sobre a quantidade de algo que pode ser contado em números inteiros. Por exemplo: How many apples do you have? (Quantas maçãs você tem?)",
         order: 8,
-    grid: 2,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1780,7 +1967,7 @@ export const lessons = [
         comments:
           "'How Much' é usado para perguntar sobre a quantidade de algo que não pode ser contado facilmente em números inteiros. Por exemplo: How much does it weigh? (Quanto pesa?)",
         order: 9,
-    grid: 2,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1801,59 +1988,6 @@ export const lessons = [
           },
         ],
       },
-      // {
-      //   subtitle: "Dialogue 1",
-      //   image:
-      //     "https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg?auto=compress&cs=tinysrgb&w=600",
-      //   order: 10,
-      //   type: "dialogue",
-      //   dialogue: [
-      //     "Hi",
-      //     "Hello",
-      //     "How are you?",
-      //     "Fine",
-      //     "Who is your favorite actor?",
-      //     "Tom Hanks",
-      //     "What is your favorite color?",
-      //     "Blue",
-      //     "Which movie do you prefer, action or comedy?",
-      //     "I prefer action movies.",
-      //     "When is your birthday?",
-      //     "It's in September.",
-      //     "Where do you live?",
-      //     "I live in New York.",
-      //     "Why did you choose this career?",
-      //     "Because I love helping people.",
-      //     "Whose book is this?",
-      //     "It's Mary's book.",
-      //     "How did you learn to play the guitar?",
-      //     "I learned from YouTube tutorials.",
-      //     "How many siblings do you have?",
-      //     "I have two sisters.",
-      //     "How much does that painting cost?",
-      //     "It costs $2000.",
-      //   ],
-      // },
-      // {
-      //   subtitle: "Answer the questions below.",
-      //   order: 11,
-      //   type: "exercise",
-      //   items: [
-      //     "Who is your best friend?",
-      //     "What is your favorite food?",
-      //     "Where is your dream vacation destination?",
-      //     "When is your birthday?",
-      //     "How are you feeling today?",
-      //     "Why is music important to you?",
-      //     "Which book are you currently reading?",
-      //     "Whose birthday party are you attending next?",
-      //     "What is your favorite movie genre?",
-      //     "How far is your workplace from your home?",
-      //     "How much is your favorite car?",
-      //     "What is your favorite color?",
-      //     "In your opinion, who is the best actor alive?",
-      //   ],
-      // },
     ],
   },
   {
@@ -2285,6 +2419,7 @@ export const lessons = [
     elements: [
       {
         subtitle: "List of Verbs",
+        grid: 3,
         comments: "Vamos aprender alguns verbos no ingles",
         order: 0,
         type: "sentences",
@@ -2339,6 +2474,7 @@ export const lessons = [
         subtitle: "Conjugations of EAT and DRINK",
         comments: "Veja abaixo a conjugação de dois desses verbos no presente",
         order: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "To eat", portuguese: "" },
@@ -2850,347 +2986,6 @@ export const lessons = [
     ],
   },
   {
-    title: "To be (past tense)",
-    type: "1- Basic",
-    order: 20,
-    image:
-      "https://media.istockphoto.com/id/858917054/photo/happy-friends-travel-expedition-concept.jpg?b=1&s=612x612&w=0&k=20&c=2MeMqro7z7mI9qW_Bn5bhv2DA9zja6psLKYeKoB1eAA=",
-    elements: [
-      {
-        subtitle: "Affirmations",
-        comments: "Vamos aprender o verbo To be em inglês no passado",
-        order: 0,
-        type: "sentences",
-        sentences: [
-          {
-            english: "I was.",
-            portuguese: "Eu era, estava.",
-          },
-          {
-            english: "You were.",
-            portuguese: "Você era, estava.",
-          },
-          {
-            english: "He was.",
-            portuguese: "Ele era, estava.",
-          },
-          {
-            english: "She was.",
-            portuguese: "Ela era, estava.",
-          },
-          {
-            english: "It was.",
-            portuguese: "Ele/ela era, estava.",
-          },
-          {
-            english: "We were.",
-            portuguese: "Nós éramos, estávamos.",
-          },
-          {
-            english: "You (plural) were.",
-            portuguese: "Vocês eram, estavam.",
-          },
-          {
-            english: "They were.",
-            portuguese: "Eles/Elas eram, estavam.",
-          },
-        ],
-      },
-      {
-        subtitle: "Questions",
-        comments:
-          "Vamos aprender o verbo To be em inglês no passado em perguntas",
-        order: 1,
-        type: "sentences",
-        sentences: [
-          {
-            english: "Was I?",
-            portuguese: "Eu era, estava?",
-          },
-          {
-            english: "Were you?",
-            portuguese: "Você era, estava?",
-          },
-          {
-            english: "Was he?",
-            portuguese: "Ele era, estava?",
-          },
-          {
-            english: "Was she?",
-            portuguese: "Ela era, estava?",
-          },
-          {
-            english: "Was it?",
-            portuguese: "Ele/ela era, estava?",
-          },
-          {
-            english: "Were we?",
-            portuguese: "Nós éramos, estávamos?",
-          },
-          {
-            english: "Were you (plural)?",
-            portuguese: "Vocês eram, estavam?",
-          },
-          {
-            english: "Were they?",
-            portuguese: "Eles/Elas eram, estavam?",
-          },
-        ],
-      },
-      {
-        subtitle: "Vocabulary",
-        comments: "Vamos aprender algumas palavras para estudar frases.",
-        order: 2,
-        grid: 3,
-        type: "sentences",
-        sentences: [
-          {
-            english: "policy",
-            portuguese: "política",
-          },
-          {
-            english: "meeting",
-            portuguese: "reunião",
-          },
-          {
-            english: "results",
-            portuguese: "resultados",
-          },
-          {
-            english: "visitors",
-            portuguese: "visitantes",
-          },
-          {
-            english: "idea",
-            portuguese: "ideia",
-          },
-          {
-            english: "storm",
-            portuguese: "tempestade",
-          },
-          {
-            english: "schedule",
-            portuguese: "horário",
-          },
-          {
-            english: "rules",
-            portuguese: "regras",
-          },
-          {
-            english: "exam",
-            portuguese: "exame",
-          },
-          {
-            english: "events",
-            portuguese: "eventos",
-          },
-          {
-            english: "mood",
-            portuguese: "clima",
-          },
-          {
-            english: "celebrations",
-            portuguese: "comemorações",
-          },
-          {
-            english: "meeting",
-            portuguese: "reunião",
-          },
-          {
-            english: "events",
-            portuguese: "eventos",
-          },
-          {
-            english: "service",
-            portuguese: "serviço",
-          },
-          {
-            english: "attention",
-            portuguese: "atenção",
-          },
-          {
-            english: "decision",
-            portuguese: "decisão",
-          },
-        ],
-      },
-      {
-        subtitle: "Sentences",
-        comments: "Vamos ver algumas frases",
-        order: 3,
-        type: "sentences",
-        sentences: [
-          {
-            english: "I was not aware of the new policy.",
-            portuguese: "Eu não estava ciente da nova política.",
-          },
-          {
-            english: "You were not invited to the meeting.",
-            portuguese: "Você não foi convidado para a reunião.",
-          },
-          {
-            english: "He was not happy with the results.",
-            portuguese: "Ele não estava feliz com os resultados.",
-          },
-          {
-            english: "She was not expecting visitors today.",
-            portuguese: "Ela não estava esperando visitantes hoje.",
-          },
-          {
-            english: "It was not a good idea to go out in the storm.",
-            portuguese: "Não foi uma boa ideia sair na tempestade.",
-          },
-          {
-            english: "We were not informed about the schedule change.",
-            portuguese: "Nós não fomos informados sobre a mudança de horário.",
-          },
-          {
-            english: "You (plural) were not following the rules.",
-            portuguese: "Vocês não estavam seguindo as regras.",
-          },
-          {
-            english: "They were not ready for the exam.",
-            portuguese: "Eles não estavam prontos para o exame.",
-          },
-
-          {
-            english: "You were not invited to the meeting.",
-            portuguese: "Você não foi convidado para a reunião.",
-          },
-          {
-            english: "He was not happy with the results.",
-            portuguese: "Ele não estava feliz com os resultados.",
-          },
-          {
-            english: "She was not expecting visitors today.",
-            portuguese: "Ela não estava esperando visitantes hoje.",
-          },
-          {
-            english: "It wasn't a good idea to go out in the storm.",
-            portuguese: "Não foi uma boa ideia sair na tempestade.",
-          },
-          {
-            english: "We weren'o't informed about the schedule change.",
-            portuguese: "Nós não fomos informados sobre a mudança de horário.",
-          },
-          {
-            english: "You (plural) were not following the rules.",
-            portuguese: "Vocês não estavam seguindo as regras.",
-          },
-          {
-            english: "They were not ready for the exam.",
-            portuguese: "Eles não estavam prontos para o exame.",
-          },
-          {
-            english: "I wasn't expecting such a turn of events.",
-            portuguese: "Eu não estava esperando uma virada de eventos assim.",
-          },
-          {
-            english: "You were not supposed to arrive late.",
-            portuguese: "Você não deveria chegar atrasado.",
-          },
-          {
-            english: "He wasn't in the mood for celebrations.",
-            portuguese: "Ele não estava no clima para comemorações.",
-          },
-          {
-            english: "She was not available for a meeting yesterday.",
-            portuguese: "Ela não estava disponível para uma reunião ontem.",
-          },
-          {
-            english: "It was not what I expected to find.",
-            portuguese: "Não era o que eu esperava encontrar.",
-          },
-          {
-            english: "We were not satisfied with the service.",
-            portuguese: "Nós não ficamos satisfeitos com o serviço.",
-          },
-          {
-            english: "You (plural) were not paying attention.",
-            portuguese: "Vocês não estavam prestando atenção.",
-          },
-          {
-            english: "They were not sure about their decision.",
-            portuguese: "Eles não estavam certos sobre sua decisão.",
-          },
-        ],
-      },
-      {
-        subtitle: "Listen and translate",
-        order: 4,
-        type: "listenandtranslate",
-        audios: [
-          {
-            ptbrText: "Ele estava lá.",
-            enusAudio: "He was there.",
-          },
-          {
-            ptbrText: "Nós não estávamos prontos.",
-            enusAudio: "We were not ready.",
-          },
-          {
-            ptbrText: "Eles não eram amigos.",
-            enusAudio: "They were not friends.",
-          },
-          {
-            ptbrText: "Eu não estava cansado.",
-            enusAudio: "I was not tired.",
-          },
-          {
-            ptbrText: "Você estava ocupado.",
-            enusAudio: "You were busy.",
-          },
-          {
-            ptbrText: "Ele não estava feliz.",
-            enusAudio: "He was not happy.",
-          },
-          {
-            ptbrText: "Ela estava nervosa.",
-            enusAudio: "She was nervous.",
-          },
-          {
-            ptbrText: "Nós não estávamos juntos.",
-            enusAudio: "We were not together.",
-          },
-          {
-            ptbrText: "Vocês não estavam certos.",
-            enusAudio: "You were not right.",
-          },
-          {
-            ptbrText: "Eles estavam perdidos.",
-            enusAudio: "They were lost.",
-          },
-          {
-            ptbrText: "Eu estava confuso.",
-            enusAudio: "I was confused.",
-          },
-          {
-            ptbrText: "Ele não estava em casa.",
-            enusAudio: "He was not at home.",
-          },
-          {
-            ptbrText: "Você não era minha amiga.",
-            enusAudio: "You were not my friend.",
-          },
-          {
-            ptbrText: "Ela não estava em casa.",
-            enusAudio: "She was not at home.",
-          },
-        ],
-      },
-      {
-        subtitle: "Answer the questions below.",
-        order: 5,
-        type: "exercise",
-        items: [
-          "What was the most important figure in your life?",
-          "What was your last trip?",
-          "Was your childhood in Brazil?",
-        ],
-      },
-    ],
-  },
-  {
     title: "Don't, Doesn't",
     type: "1- Basic",
     order: 18,
@@ -3533,25 +3328,25 @@ export const lessons = [
         ],
       },
 
-      {
-        subtitle: "Answer the questions below.",
-        order: 3,
-        type: "dialogue",
-        dialogue: [
-          "Do you watch TV often?",
-          "No, I don't watch TV often. I prefer to read books in my free time.",
-          "Does she speak French fluently?",
-          "Yes, she does. She lived in France for several years, so she became fluent in French.",
-          "Do your parents live nearby?",
-          "No, they don't. They live in another city, but we visit each other often.",
-          "Does your brother play any musical instruments?",
-          "Yes, he does. He plays the guitar and the piano.",
-          "Do you enjoy cooking?",
-          "No, I don't. I prefer to eat out or order takeout instead of cooking.",
-          "Does your friend know how to swim?",
-          "No, he doesn't. He's afraid of water, so he never learned how to swim.",
-        ],
-      },
+      // {
+      //   subtitle: "Answer the questions below.",
+      //   order: 3,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Do you watch TV often?",
+      //     "No, I don't watch TV often. I prefer to read books in my free time.",
+      //     "Does she speak French fluently?",
+      //     "Yes, she does. She lived in France for several years, so she became fluent in French.",
+      //     "Do your parents live nearby?",
+      //     "No, they don't. They live in another city, but we visit each other often.",
+      //     "Does your brother play any musical instruments?",
+      //     "Yes, he does. He plays the guitar and the piano.",
+      //     "Do you enjoy cooking?",
+      //     "No, I don't. I prefer to eat out or order takeout instead of cooking.",
+      //     "Does your friend know how to swim?",
+      //     "No, he doesn't. He's afraid of water, so he never learned how to swim.",
+      //   ],
+      // },
 
       {
         subtitle: "Answer the questions below.",
@@ -3660,6 +3455,33 @@ export const lessons = [
     elements: [
       {
         subtitle: "Examples",
+        order: -1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "There is",
+            portuguese: "Tem, há, existe",
+          },
+          {
+            english: "There are",
+            portuguese: "Tem, há, existe",
+          },
+          {
+            english: "There was",
+            portuguese: "Tinha, havia, existiam",
+          },
+          {
+            english: "There were",
+            portuguese: "Tinha, havia, existiam",
+          },
+          {
+            english: "There will be",
+            portuguese: "Terá, haverá, existirá",
+          },
+        ],
+      },
+      {
+        subtitle: "Examples",
         order: 0,
         type: "images",
         images: [
@@ -3724,13 +3546,63 @@ export const lessons = [
             english: "There are no.",
             portuguese: "Não tem. (para palavras que têm plural)",
           },
+
+          {
+            english: "Was there?",
+            portuguese:
+              "Tinha, havia, existia? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
+          },
+          {
+            english: "Were there?",
+            portuguese: "Tinha, havia, existia? (para palavras que têm plural)",
+          },
+          {
+            english: "Was there any?",
+            portuguese:
+              "Tinha, havia, existia algum? (para palavras que não podem ser pluralizadas)",
+          },
+          {
+            english: "Were there any?",
+            portuguese:
+              "Tinha, havia, existia algum? (para palavras que têm plural)",
+          },
+          {
+            english: "There was no.",
+            portuguese:
+              "Não tinha, havia, existia. (para palavras que não podem ser pluralizadas)",
+          },
+          {
+            english: "There were no.",
+            portuguese:
+              "Não tinha, havia, existia. (para palavras que têm plural)",
+          },
+
+          {
+            english: "Will there be?",
+            portuguese:
+              "Terá, haverá, existirá? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
+          },
+          {
+            english: "Will there be any?",
+            portuguese:
+              "Terá, haverá, existirá algum? (para palavras que não podem ser pluralizadas)",
+          },
+          {
+            english: "Will there be any?",
+            portuguese:
+              "Terá, haverá, existirá algum? (para palavras que têm plural)",
+          },
+          {
+            english: "There will be no.",
+            portuguese:
+              "Não terá, haverá, existirá. (para palavras que não podem ser pluralizadas)",
+          },
         ],
       },
       {
         subtitle: "Examples in sentences",
-        // comments:
-        //   "'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
         order: 2,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -3738,13 +3610,35 @@ export const lessons = [
             portuguese: "Não tem consulta com o dentista marcada para hoje.",
           },
           {
+            english:
+              "There was no dentist appointment scheduled for yesterday.",
+            portuguese: "Não havia consulta com o dentista marcada para hoje.",
+          },
+          {
             english: "Is there a navy blue backpack on the table?",
             portuguese: "Tem uma mochila azul marinho na mesa?",
+          },
+          {
+            english: "Was there a navy blue backpack on the table?",
+            portuguese: "Tinha uma mochila azul marinho na mesa?",
           },
           {
             english: "There are no plumbers available for emergency repairs.",
             portuguese:
               "Não tem encanadores disponíveis para reparos de emergência.",
+          },
+
+          {
+            english:
+              "Will there be any plumbers available for emergency repairs?",
+            portuguese:
+              "Terá algum encanador disponível para reparos de emergência?",
+          },
+          {
+            english:
+              "There will be no plumbers available for emergency repairs.",
+            portuguese:
+              "Não terá encanadores disponíveis para reparos de emergência.",
           },
           {
             english:
@@ -3753,13 +3647,13 @@ export const lessons = [
               "Tem cortinas suficientes nesta sala de estar? Está tão escuro!",
           },
           {
-            english: "Are there any purple flowers in the garden?",
-            portuguese: "Tem flores roxas no jardim?",
+            english: "Were there any purple flowers in the garden?",
+            portuguese: "Havia flores roxas no jardim?",
           },
           {
-            english: "There are five blue cars parked in the lot.",
+            english: "There will be five blue cars parked in the lot.",
             portuguese:
-              "Tem cinco carros azuis estacionados no estacionamento.",
+              "Terá cinco carros azuis estacionados no estacionamento.",
           },
           {
             english: "Is there a yellow pencil on your desk?",
@@ -3770,24 +3664,24 @@ export const lessons = [
             portuguese: "Não tem cadeiras verdes na sala de conferências.",
           },
           {
-            english: "There is no black cat in the living room.",
-            portuguese: "Não tem gato preto na sala de estar.",
+            english: "There was a black cat in the living room.",
+            portuguese: "Tinha um gato preto na sala de estar.",
           },
           {
             english: "There are three red apples in the basket.",
             portuguese: "Tem três maçãs vermelhas na cesta.",
           },
           {
-            english: "Is there a brown briefcase under the table?",
-            portuguese: "Tem uma maleta marrom embaixo da mesa?",
+            english: "Was there a brown briefcase under the table?",
+            portuguese: "Tinha uma maleta marrom embaixo da mesa?",
           },
           {
             english: "There is one orange shirt on the bed.",
             portuguese: "Tem uma camisa laranja na cama.",
           },
           {
-            english: "There are no gray laptops available in stock.",
-            portuguese: "Não tem laptops cinza disponíveis em estoque.",
+            english: "There were no gray laptops available in stock.",
+            portuguese: "Não tinha laptops cinza disponíveis em estoque.",
           },
           {
             english: "There is no chef in the kitchen right now.",
@@ -3806,8 +3700,8 @@ export const lessons = [
             portuguese: "Tem quatro ternos pretos pendurados no armário.",
           },
           {
-            english: "There is one electrician working on the wiring.",
-            portuguese: "Tem um eletricista trabalhando na fiação.",
+            english: "There will be no electricians working on the wiring.",
+            portuguese: "Não haverá eletricistas trabalhando na fiação.",
           },
           {
             english: "There are no architects present at the meeting.",
@@ -3819,33 +3713,32 @@ export const lessons = [
           },
         ],
       },
-
-      {
-        subtitle: "Dialogue Practice #1",
-        order: 3,
-        type: "dialogue",
-        dialogue: [
-          "Hey Thomas! What is your favorite weather?",
-          "Hey Sarah! My favorite weather? I really enjoy sunny days. How about you?",
-          "Oh, interesting choice! I'm more of a fan of cloudy weather myself. It just feels cozy and calm to me. And I have to say, I like foggy days as well.",
-          "Foggy days have this mysterious vibe, right? It's like the world becomes a bit more intriguing.",
-          "Exactly! And what about snowy weather?",
-          "Oh I love snowy days! There's something magical about watching the snowfall. But I have to admit, the cold that comes with it is not so good.",
-          "I totally get that. While I appreciate the beauty of snow, I prefer warmer temperatures. Hot weather is my favorite! There's nothing like enjoying outdoor activities on a beach.",
-          "Ah, I see! So you're a summer person then. Well, it's true that warm weather has its charms too.",
-        ],
-      },
-      {
-        subtitle: "Questions",
-        comments: "Tente responder estas pergunta usando o que você aprendeu.",
-        order: 3,
-        type: "exercise",
-        items: [
-          "Is there a particular place you dream to visit?",
-          "Are there any hobbies you’re interested in?",
-          "Is there a favorite childhood memory that you love?",
-        ],
-      },
+      // {
+      //   subtitle: "Dialogue Practice #1",
+      //   order: 3,
+      //   type: "dialogue",
+      //   dialogue: [
+      //     "Hey Thomas! What is your favorite weather?",
+      //     "Hey Sarah! My favorite weather? I really enjoy sunny days. How about you?",
+      //     "Oh, interesting choice! I'm more of a fan of cloudy weather myself. It just feels cozy and calm to me. And I have to say, I like foggy days as well.",
+      //     "Foggy days have this mysterious vibe, right? It's like the world becomes a bit more intriguing.",
+      //     "Exactly! And what about snowy weather?",
+      //     "Oh I love snowy days! There's something magical about watching the snowfall. But I have to admit, the cold that comes with it is not so good.",
+      //     "I totally get that. While I appreciate the beauty of snow, I prefer warmer temperatures. Hot weather is my favorite! There's nothing like enjoying outdoor activities on a beach.",
+      //     "Ah, I see! So you're a summer person then. Well, it's true that warm weather has its charms too.",
+      //   ],
+      // },
+      // {
+      //   subtitle: "Questions",
+      //   comments: "Tente responder estas pergunta usando o que você aprendeu.",
+      //   order: 3,
+      //   type: "exercise",
+      //   items: [
+      //     "Is there a particular place you dream to visit?",
+      //     "Are there any hobbies you’re interested in?",
+      //     "Is there a favorite childhood memory that you love?",
+      //   ],
+      // },
     ],
   },
   {
@@ -4350,7 +4243,7 @@ export const lessons = [
   },
   {
     title: "Professions",
-    order: 25,
+    order: 20,
     type: "1- Basic",
     description: "Vamos aprender a dizer algumas profissões em inglês.",
     image:
@@ -4682,7 +4575,7 @@ export const lessons = [
         subtitle: "Practice Vocabulary",
         comments: "Vocabulário adicional para prática.",
         order: 0,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "Athlete", portuguese: "Atleta" },
@@ -4755,7 +4648,7 @@ export const lessons = [
         subtitle: "Practice Vocabulary",
         comments: "Vocabulário adicional para prática.",
         order: 0,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "Arrested", portuguese: "Preso(a)" },
@@ -4809,7 +4702,7 @@ export const lessons = [
         subtitle: "Practice Vocabulary",
         comments: "Vocabulário adicional para prática.",
         order: 0,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           { english: "Life expectancy", portuguese: "Expectativa de vida" },
