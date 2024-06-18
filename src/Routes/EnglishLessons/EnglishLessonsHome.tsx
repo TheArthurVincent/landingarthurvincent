@@ -1,40 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
-import { HeadersProps } from "../../Resources/types.universalInterfaces";
-import { lessons } from "./Assets/Functions/ClassesListActivities";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
-import {
-  DisapearOnWeb,
-  pathGenerator,
-} from "../../Resources/UniversalComponents";
+import { pathGenerator } from "../../Resources/UniversalComponents";
 import CoursesSideBar from "./CoursesSideBar/CoursesSideBar";
 import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../Styles/Styles";
-export default function EnglishLessonsHome({ headers }: HeadersProps) {
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
-  const [displayClasses, setdisplayClasses] = useState<boolean>(false);
-  const [showClasses, setShowClasses] = useState<boolean>(false);
 
-  const changeDisplayClasses = () => {
-    setdisplayClasses(!displayClasses);
-  };
-  //@ts-ignore
-  const groupedLessons = lessons.reduce((acc: any, lesson: any) => {
-    if (!acc[lesson.type]) {
-      acc[lesson.type] = [];
-    }
-    acc[lesson.type].push(lesson);
-    return acc;
-  }, {});
+interface EnglishLessonsHomeProps {
+  headers: MyHeadersType | null;
+  less: any | null;
+}
 
+export default function EnglishLessonsHome({
+  headers,
+  less,
+}: EnglishLessonsHomeProps) {
   const groupedLessonsArray = Object.entries(
-    lessons.reduce((acc: any, lesson: any) => {
+    less.reduce((acc: any, lesson: any) => {
       if (!acc[lesson.type]) {
         acc[lesson.type] = [];
       }
@@ -43,150 +31,68 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
     }, {})
   ).map(([type, lessons]) => ({ type, lessons }));
 
-  const handleDifficultyChange = (event: any) => {
-    setSelectedDifficulty(event.target.value);
-    setShowClasses(true);
-  };
-
   return (
-    <>
+    <RouteDiv
+      style={{
+        maxWidth: "85vw",
+      }}
+      className="smooth"
+    >
+      <Helmets text="Course" />
+      <CoursesSideBar courses={groupedLessonsArray} />
+
+      <Routes>
+        {less.map((lesson: any, index: number) => {
+          return (
+            <Route
+              key={index}
+              path={pathGenerator(lesson.title)}
+              element={
+                <EnglishLessonsRender theclass={lesson} headers={headers} />
+              }
+            />
+          );
+        })}
+      </Routes>
+      <Outlet />
       <RouteDiv
         style={{
           maxWidth: "85vw",
+          overflowY: "auto",
         }}
-        className="smooth"
       >
-        <Helmets text="Course" />
-        <CoursesSideBar courses={groupedLessonsArray} />
-        {/* <DisapearOnWeb>
-        <select
-          style={{
-            width: "8rem",
-            fontFamily: "Athiti",
-            margin: "3px",
-          }}
-          value={selectedDifficulty}
-          onChange={handleDifficultyChange}
-        >
-          <option hidden value="">
-            Select Course
-          </option>
-          {groupedLessons &&
-            Object.keys(groupedLessons).map((difficulty) => (
-              <option key={difficulty} value={difficulty}>
-                {difficulty}
-              </option>
-            ))}
-        </select>
-        {showClasses && (
-          <div
-            style={{
-              padding: "1rem",
-              borderRadius: "1rem",
-              backgroundColor: "white",
-              border: "1px solid #ddd",
-            }}
-          >
-            <p
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={changeDisplayClasses}
-            >
-              {!displayClasses ? "Show Classes" : "Hide Classes"}
-            </p>
-            <nav
-              style={{
-                display: displayClasses ? "grid" : "none",
-                gap: "2px",
-                overflowY: "auto",
-                maxHeight: "20rem",
-              }}
-            >
-              {groupedLessons[selectedDifficulty] &&
-                groupedLessons[selectedDifficulty]
-                  .sort((a: any, b: any) => a.order - b.order)
-                  .map((lesson: any, index: number) => (
-                    <Link
-                      onClick={changeDisplayClasses}
-                      key={index}
+        {groupedLessonsArray.map((course: any, index: number) => (
+          <div key={index}>
+            <h2>{course.type}</h2>
+            <div>
+              {course.lessons.map((lesson: any, idx: number) => {
+                return (
+                  <Link
+                    key={idx}
+                    style={{
+                      textDecoration: "none",
+                    }}
+                    to={pathGenerator(lesson.title)}
+                  >
+                    <div
                       style={{
-                        textDecoration: "none",
-                        padding: "5px",
-
-                        color: location.pathname.includes(
-                          pathGenerator(lesson.title)
-                        )
-                          ? textPrimaryColorContrast()
-                          : textSecondaryColorContrast(),
+                        color: primaryColor(),
                         backgroundColor: location.pathname.includes(
                           pathGenerator(lesson.title)
                         )
-                          ? primaryColor()
-                          : secondaryColor(),
+                          ? secondaryColor()
+                          : textPrimaryColorContrast(),
                       }}
-                      to={pathGenerator(lesson.title)}
                     >
-                      {lesson.order + "- " + lesson.title}
-                    </Link>
-                  ))}
-            </nav>
-          </div>
-        )}
-      </DisapearOnWeb> */}
-        <Routes>
-          {lessons.map((lesson: any, index: number) => {
-            return (
-              <Route
-                key={index}
-                path={pathGenerator(lesson.title)}
-                element={
-                  <EnglishLessonsRender theclass={lesson} headers={headers} />
-                }
-              />
-            );
-          })}
-        </Routes>
-        <Outlet />
-        <RouteDiv
-          style={{
-            maxWidth: "85vw",
-            overflowY: "auto",
-          }}
-        >
-          {groupedLessonsArray.map((course: any, index: number) => (
-            <div key={index}>
-              <h2>{course.type}</h2>
-              <div>
-                {course.lessons.map((lesson: any, idx: number) => {
-                  return (
-                    <Link
-                      key={idx}
-                      style={{
-                        textDecoration: "none",
-                      }}
-                      to={pathGenerator(lesson.title)}
-                    >
-                      <div
-                        style={{
-                          color: primaryColor(),
-                          backgroundColor: location.pathname.includes(
-                            pathGenerator(lesson.title)
-                          )
-                            ? secondaryColor()
-                            : textPrimaryColorContrast(),
-                        }}
-                      >
-                        <span>{lesson.title}</span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+                      <span>{lesson.title}</span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
-          ))}
-        </RouteDiv>
+          </div>
+        ))}
       </RouteDiv>
-    </>
+    </RouteDiv>
   );
 }

@@ -22,6 +22,7 @@ import Homework from "./Homework/Homework";
 import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
 import { SpanDisapear } from "./Blog/Blog.Styled";
 import AppFooter from "../Application/Footer/Footer";
+import { lessons } from "./EnglishLessons/Assets/Functions/ClassesListActivities";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -41,6 +42,8 @@ export function HomePage({ headers }: HeadersProps) {
       return;
     }
   }, []);
+
+  const allCourses = [lessons];
 
   const appRoutes = [
     {
@@ -84,7 +87,7 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "English Lessons",
-      component: <EnglishLessonsHome headers={headers} />,
+      component: <EnglishLessonsHome less={lessons} headers={headers} />,
     },
     {
       title: "Live Classes",
@@ -139,6 +142,7 @@ export function HomePage({ headers }: HeadersProps) {
                       _StudentId={_StudentId}
                       picture={picture}
                     />
+                    <AppFooter />
                   </BlogRouteSizeControlBox>
                 ) : (
                   <Login />
@@ -151,7 +155,6 @@ export function HomePage({ headers }: HeadersProps) {
       <SpanDisapear>
         <AddFlashCards headers={headers} display="fixed" />
       </SpanDisapear>
-      {/* <AppFooter /> */}
       <Outlet />
     </div>
   );
