@@ -1159,6 +1159,532 @@ export const talkingBusiness = [
       },
     ],
   },
+  {
+    title: "Management Levels #1",
+    order: 4,
+    type: "1- Business Essentials",
+    description: "Learn the most common management levels.",
+    image:
+      "https://www.islandtaxi.co/wp-content/uploads/2020/12/waiting-for-passengers-with-name-sign-on-paper-at-airport-welcome-board-scaled-1.jpg",
+    elements: [
+      {
+        subtitle: "Supervisor /Overseer (Responsibilities)",
+        order: 0,
+        type: "listenandtranslate",
+        audios: [
+          {
+            ptbrText:
+              "Applying the decisions of management and overseeing the team",
+            enusAudio:
+              "Applying the decisions of management and overseeing the team",
+          },
+          {
+            ptbrText: "Delegating tasks to employees and managing workload.",
+            enusAudio: "Delegating tasks to employees and managing workload.",
+          },
+          {
+            enusAudio: "Addressing immediate issues of employees.",
+            ptbrText: "Addressing immediate issues of employees.",
+          },
+          {
+            ptbrText: "Reporting issues and challenges to managers.",
+            enusAudio: "Reporting issues and challenges to managers.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (Supervisor)",
+        order: 1,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Each team will be guided by a supervisor.",
+            portuguese: "Cada equipe será orientada por um supervisor.",
+          },
+          {
+            english: "If you suspect there is a problem, call your supervisor.",
+            portuguese:
+              "Se você suspeitar que há um problema, chame seu supervisor.",
+          },
+          {
+            english:
+              "The kitchen supervisor has to control, maintain and manage kitchen inventory and food supplies.",
+            portuguese:
+              "O supervisor da cozinha deve controlar, manter e gerenciar o estoque da cozinha e os suprimentos de alimentos.",
+          },
+          {
+            english:
+              "The project overseer ensured that all tasks were completed on schedule.",
+            portuguese:
+              "O supervisor do projeto garantiu que todas as tarefas fossem concluídas dentro do prazo.",
+          },
+          {
+            english:
+              "The overseer of the construction site inspected the work daily to maintain quality standards.",
+            portuguese:
+              "O supervisor do canteiro de obras inspecionava o trabalho diariamente para manter os padrões de qualidade.",
+          },
+          {
+            english:
+              "The financial overseer reviewed the budget proposals before presenting them to the board.",
+            portuguese:
+              "O supervisor financeiro revisou as propostas de orçamento antes de apresentá-las ao conselho.",
+          },
+        ],
+      },
 
+      {
+        subtitle: "Manager (Responsibilities)",
+        order: 2,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Planning and coordinating operations in the department.",
+            ptbrText: "Planning and coordinating operations in the department.",
+          },
+          {
+            enusAudio: "Supervising staff and monitoring their performance.",
+            ptbrText: "Supervising staff and monitoring their performance.",
+          },
+          {
+            enusAudio: "Setting goals and objectives for the team.",
+            ptbrText: "Setting goals and objectives for the team.",
+          },
+          {
+            enusAudio:
+              "Reviewing financial reports and making strategic decisions.",
+            ptbrText:
+              "Reviewing financial reports and making strategic decisions.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (Manager)",
+        order: 3,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The store manager is responsible for inventory and sales targets.",
+            portuguese:
+              "O gerente da loja é responsável pelo estoque e metas de vendas.",
+          },
+          {
+            english:
+              "Our project manager ensures that deadlines are met and resources are allocated efficiently.",
+            portuguese:
+              "Nosso gerente de projeto garante que os prazos sejam cumpridos e os recursos alocados de forma eficiente.",
+          },
+          {
+            english:
+              "The marketing manager oversees advertising campaigns and market research.",
+            portuguese:
+              "O gerente de marketing supervisiona campanhas publicitárias e pesquisas de mercado.",
+          },
+          {
+            english:
+              "The HR manager conducts interviews and manages employee relations.",
+            portuguese:
+              "O gerente de RH conduz entrevistas e gerencia as relações com os funcionários.",
+          },
+          {
+            english:
+              "The IT manager ensures the security and functionality of our network.",
+            portuguese:
+              "O gerente de TI garante a segurança e funcionalidade de nossa rede.",
+          },
+          {
+            english:
+              "The operations manager oversees day-to-day activities to optimize productivity.",
+            portuguese:
+              "O gerente de operações supervisiona as atividades diárias para otimizar a produtividade.",
+          },
+        ],
+      },
+      {
+        subtitle: "Director (Responsibilities)",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Setting overall goals and strategies for the organization.",
+            ptbrText:
+              "Setting overall goals and strategies for the organization.",
+          },
+          {
+            enusAudio:
+              "Leading and directing departments to achieve company objectives.",
+            ptbrText:
+              "Leading and directing departments to achieve company objectives.",
+          },
+          {
+            enusAudio: "Reporting to the board of directors and stakeholders.",
+            ptbrText: "Reporting to the board of directors and stakeholders.",
+          },
+          {
+            enusAudio:
+              "Ensuring compliance with legal and regulatory requirements.",
+            ptbrText:
+              "Ensuring compliance with legal and regulatory requirements.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (Director)",
+        order: 5,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The director of finance manages budget planning and financial strategy.",
+            portuguese:
+              "O diretor financeiro gerencia o planejamento orçamentário e a estratégia financeira.",
+          },
+          {
+            english:
+              "The artistic director oversees creative projects and artistic direction.",
+            portuguese:
+              "O diretor artístico supervisiona projetos criativos e direção artística.",
+          },
+          {
+            english:
+              "Our executive director drives organizational growth and development.",
+            portuguese:
+              "Nosso diretor executivo impulsiona o crescimento e desenvolvimento organizacional.",
+          },
+          {
+            english:
+              "The managing director ensures operational efficiency and business expansion.",
+            portuguese:
+              "O diretor geral garante eficiência operacional e expansão do negócio.",
+          },
+          {
+            english:
+              "The director of human resources implements HR policies and strategic initiatives.",
+            portuguese:
+              "O diretor de recursos humanos implementa políticas de RH e iniciativas estratégicas.",
+          },
+          {
+            english:
+              "The marketing director oversees brand management and marketing campaigns.",
+            portuguese:
+              "O diretor de marketing supervisiona gestão de marca e campanhas de marketing.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Management Levels #2",
+    order: 5,
+    type: "1- Business Essentials",
+    description: "Keep learning about management levels.",
+    image:
+      "https://www.islandtaxi.co/wp-content/uploads/2020/12/waiting-for-passengers-with-name-sign-on-paper-at-airport-welcome-board-scaled-1.jpg",
+    elements: [
+      {
+        subtitle: "Team Lead / Team Supervisor (Responsibilities)",
+        order: 0,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Directly managing a small team within a department or project.",
+            ptbrText:
+              "Directly managing a small team within a department or project.",
+          },
+          {
+            enusAudio: "Assigning tasks and ensuring their completion.",
+            ptbrText: "Assigning tasks and ensuring their completion.",
+          },
+          {
+            enusAudio: "Reporting team progress to upper management.",
+            ptbrText: "Reporting team progress to upper management.",
+          },
+        ],
+      },
 
+      {
+        subtitle: "Sentences (Team Lead)",
+        order: 1,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The team lead oversees daily operations and coordinates team activities.",
+            portuguese:
+              "O líder de equipe supervisiona as operações diárias e coordena as atividades da equipe.",
+          },
+          {
+            english:
+              "Each team supervisor is responsible for ensuring team performance meets targets.",
+            portuguese:
+              "Cada supervisor de equipe é responsável por garantir que o desempenho da equipe atinja as metas.",
+          },
+          {
+            english:
+              "Our project team lead ensures effective communication and collaboration among team members.",
+            portuguese:
+              "Nosso líder de equipe de projeto garante comunicação e colaboração eficazes entre os membros da equipe.",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Assistant Manager (Responsibilities)",
+        order: 2,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "Supporting the manager in daily operations.",
+            ptbrText: "Supporting the manager in daily operations.",
+          },
+          {
+            enusAudio: "Handling specific projects or operational areas.",
+            ptbrText: "Handling specific projects or operational areas.",
+          },
+          {
+            enusAudio: "Assisting in decision-making and problem-solving.",
+            ptbrText: "Assisting in decision-making and problem-solving.",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Sentences (Assistant Manager)",
+        order: 3,
+        grid: 1,
+        type: "sentences",
+
+        sentences: [
+          {
+            english:
+              "The assistant manager coordinates scheduling and staffing for the department.",
+            portuguese:
+              "O gerente assistente coordena programação e pessoal para o departamento.",
+          },
+          {
+            english:
+              "Each assistant manager ensures compliance with company policies and procedures.",
+            portuguese:
+              "Cada gerente assistente garante conformidade com políticas e procedimentos da empresa.",
+          },
+          {
+            english:
+              "Our assistant manager handles customer inquiries and resolves service issues promptly.",
+            portuguese:
+              "Nosso gerente assistente cuida de consultas de clientes e resolve problemas de serviço prontamente.",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Division Manager (Responsibilities)",
+        order: 4,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio: "Managing an entire division or large department.",
+            ptbrText: "Managing an entire division or large department.",
+          },
+          {
+            enusAudio: "Setting divisional goals and performance targets.",
+            ptbrText: "Setting divisional goals and performance targets.",
+          },
+          {
+            enusAudio: "Monitoring divisional financial performance.",
+            ptbrText: "Monitoring divisional financial performance.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (Division Manager)",
+        order: 5,
+        grid: 1,
+        type: "sentences",
+
+        sentences: [
+          {
+            english:
+              "The division manager oversees product development and market expansion strategies.",
+            portuguese:
+              "O gerente da divisão supervisiona estratégias de desenvolvimento de produtos e expansão de mercado.",
+          },
+          {
+            english:
+              "Each division manager implements operational efficiencies to reduce costs and improve profitability.",
+            portuguese:
+              "Cada gerente de divisão implementa eficiências operacionais para reduzir custos e melhorar a lucratividade.",
+          },
+          {
+            english:
+              "Our division manager collaborates with senior leadership to develop long-term strategic plans.",
+            portuguese:
+              "Nosso gerente de divisão colabora com a liderança sênior para desenvolver planos estratégicos de longo prazo.",
+          },
+        ],
+      },
+      {
+        subtitle: "Vice President (Responsibilities)",
+        order: 6,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Overseeing a significant area such as finance, operations, or marketing.",
+            ptbrText:
+              "Overseeing a significant area such as finance, operations, or marketing.",
+          },
+          {
+            enusAudio:
+              "Developing long-term strategies for their respective areas.",
+            ptbrText:
+              "Developing long-term strategies for their respective areas.",
+          },
+          {
+            enusAudio:
+              "Ensuring departmental goals align with organizational objectives.",
+            ptbrText:
+              "Ensuring departmental goals align with organizational objectives.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (Vice President)",
+        order: 7,
+        grid: 1,
+        type: "sentences",
+
+        sentences: [
+          {
+            english:
+              "The vice president of marketing drives brand awareness and customer engagement strategies.",
+            portuguese:
+              "O vice-presidente de marketing impulsiona estratégias de conscientização da marca e engajamento do cliente.",
+          },
+          {
+            english:
+              "Each vice president collaborates with senior management to set departmental budgets.",
+            portuguese:
+              "Cada vice-presidente colabora com a alta administração para definir orçamentos departamentais.",
+          },
+          {
+            english:
+              "Our vice president of operations implements process improvements to streamline workflow.",
+            portuguese:
+              "Nosso vice-presidente de operações implementa melhorias de processos para otimizar o fluxo de trabalho.",
+          },
+        ],
+      },
+      {
+        subtitle: "Chief Officer (Responsibilities)",
+        order: 8,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Leading a specific functional area across the organization.",
+            ptbrText:
+              "Leading a specific functional area across the organization.",
+          },
+          {
+            enusAudio:
+              "Developing and implementing strategies to achieve organizational goals.",
+            ptbrText:
+              "Developing and implementing strategies to achieve organizational goals.",
+          },
+          {
+            enusAudio:
+              "Ensuring compliance with industry regulations and standards.",
+            ptbrText:
+              "Ensuring compliance with industry regulations and standards.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (Chief Officer)",
+        order: 9,
+        grid: 1,
+        type: "sentences",
+
+        sentences: [
+          {
+            english:
+              "The chief financial officer oversees financial planning and investment strategies.",
+            portuguese:
+              "O diretor financeiro supervisiona o planejamento financeiro e estratégias de investimento.",
+          },
+          {
+            english:
+              "Each chief officer collaborates with legal counsel to mitigate organizational risks.",
+            portuguese:
+              "Cada diretor colabora com advogados para mitigar os riscos organizacionais.",
+          },
+          {
+            english:
+              "Our chief technology officer drives innovation and technological advancements.",
+            portuguese:
+              "Nosso diretor de tecnologia impulsiona inovação e avanços tecnológicos.",
+          },
+        ],
+      },
+      {
+        subtitle:
+          "President / Chief Executive Officer (CEO) (Responsibilities)",
+        order: 10,
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Setting overall strategic direction and goals for the organization.",
+            ptbrText:
+              "Setting overall strategic direction and goals for the organization.",
+          },
+          {
+            enusAudio:
+              "Overseeing all aspects of organizational performance and operations.",
+            ptbrText:
+              "Overseeing all aspects of organizational performance and operations.",
+          },
+          {
+            enusAudio: "Reporting to the board of directors and shareholders.",
+            ptbrText: "Reporting to the board of directors and shareholders.",
+          },
+        ],
+      },
+      {
+        subtitle: "Sentences (CEO)",
+        order: 11,
+        grid: 1,
+        type: "sentences",
+
+        sentences: [
+          {
+            english:
+              "The CEO drives corporate vision and mission to guide company growth.",
+            portuguese:
+              "O CEO impulsiona visão e missão corporativas para orientar o crescimento da empresa.",
+          },
+          {
+            english:
+              "Each CEO communicates organizational strategies and objectives to internal stakeholders.",
+            portuguese:
+              "Cada CEO comunica estratégias e objetivos organizacionais para partes interessadas internas.",
+          },
+          {
+            english:
+              "Our CEO fosters a culture of transparency and accountability across the organization.",
+            portuguese:
+              "Nosso CEO fomenta uma cultura de transparência e responsabilidade em toda a organização.",
+          },
+        ],
+      },
+    ],
+  },
 ];
