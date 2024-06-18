@@ -32,7 +32,7 @@ export default function EnglishLessonsHome({
   ).map(([type, lessons]) => ({ type, lessons }));
 
   return (
-    <RouteDiv
+    <div
       style={{
         maxWidth: "85vw",
       }}
@@ -55,13 +55,13 @@ export default function EnglishLessonsHome({
         })}
       </Routes>
       <Outlet />
-      <RouteDiv
+      <div
         style={{
           maxWidth: "85vw",
           overflowY: "auto",
         }}
       >
-        {groupedLessonsArray.map((course: any, index: number) => (
+        {/* {groupedLessonsArray.map((course: any, index: number) => (
           <div key={index}>
             <h2>{course.type}</h2>
             <div>
@@ -91,8 +91,8 @@ export default function EnglishLessonsHome({
               })}
             </div>
           </div>
-        ))}
-      </RouteDiv>
-    </RouteDiv>
+        ))} */}
+      </div>
+    </div>
   );
 }

@@ -147,18 +147,11 @@ export const TopBar: FC = () => {
       icon: "users",
     },
     {
-      title: "Lessons",
-      endpoint: "/english-lessons",
+      title: "Courses",
+      endpoint: "/english-courses",
       icon: "address-book-o",
       display: "block",
     },
-    {
-      title: UniversalTexts.englishMaterial,
-      endpoint: "/english-material",
-      icon: "sticky-note-o",
-      display: "block",
-    },
-
     {
       title: UniversalTexts.myProfile,
       endpoint: "/my-profile",

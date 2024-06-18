@@ -1,108 +1,5 @@
 export const lessons = [
   {
-    title: "Verbos no Passado",
-    type: "1- Basic",
-    description:
-      "Veja alguns exemplos de verbos regulares e irregulares no passado",
-    order: 20,
-    image:
-      "https://www.oldcarsweekly.com/review/wp-content/uploads/2022/09/rear-view-mirror-oldcarsweekly.jpg",
-    elements: [
-      {
-        type: "sentences",
-        order: 3,
-        grid: 2,
-        subtitle: "Verbos Regulares",
-        sentences: [
-          {
-            english: "played",
-            portuguese: "jogar, jogou - passado do verbo to play",
-          },
-          {
-            english: "walked",
-            portuguese: "andar, andou - passado do verbo to walk",
-          },
-          {
-            english: "watched",
-            portuguese: "assistir, assistiu - passado do verbo to watch",
-          },
-          {
-            english: "cooked",
-            portuguese: "cozinhar, cozinhou - passado do verbo to cook",
-          },
-          {
-            english: "cleaned",
-            portuguese: "limpar, limpo - passado do verbo to cleanu",
-          },
-        ],
-      },
-      {
-        type: "sentences",
-        order: 3,
-        grid: 2,
-        subtitle: "Verbos Irregulares",
-        sentences: [
-          { english: "Went", portuguese: "ir, foi - passado do verbo To Go" },
-          {
-            english: "Had",
-            portuguese: "ter, teve - passado do verbo To Have",
-          },
-          { english: "Saw", portuguese: "ver, viu - pasado do verbo To see" },
-          {
-            english: "took",
-            portuguese: "pegar, pegou - passado do verbo to take",
-          },
-          {
-            english: "came",
-            portuguese: "vir, veio - passado do verbo to come",
-          },
-        ],
-      },
-      {
-        order: 3,
-        grid: 2,
-        type: "sentences",
-        subtitle: "Verbos Irregulares",
-        sentences: [
-          {
-            english: "I played soccer yesterday.",
-            portuguese: "Eu joguei futebol ontem.",
-          },
-          {
-            english: "She walked to the store.",
-            portuguese: "Ela andou até a loja.",
-          },
-          {
-            english: "We watched a movie last night.",
-            portuguese: "Assistimos a um filme ontem à noite.",
-          },
-          {
-            english: "He cooked dinner for us.",
-            portuguese: "Ele cozinhou o jantar para nós.",
-          },
-          {
-            english: "They cleaned the house.",
-            portuguese: "Eles limparam a casa.",
-          },
-          { english: "I went to the beach.", portuguese: "Eu fui à praia." },
-          {
-            english: "She had a great time.",
-            portuguese: "Ela se divertiu muito.",
-          },
-          {
-            english: "We saw a beautiful sunset.",
-            portuguese: "Nós vimos um pôr do sol lindo.",
-          },
-          { english: "He took a picture.", portuguese: "Ele tirou uma foto." },
-          {
-            english: "They came to the party.",
-            portuguese: "Eles vieram para a festa.",
-          },
-        ],
-      },
-    ],
-  },
-  {
     title: "Introducing Yourself and Basics",
     order: 1,
     type: "1- Basic",
@@ -168,7 +65,7 @@ export const lessons = [
     elements: [
       {
         order: -1,
-        subtitle:"Video",
+        subtitle: "Video",
         type: "video",
         video: "https://www.youtube.com/watch?v=kDdg2M1_EuE",
       },
@@ -3359,6 +3256,109 @@ export const lessons = [
       },
 
       {},
+    ],
+  },
+  {
+    title: "Verbos no Passado",
+    type: "1- Basic",
+    description:
+      "Veja alguns exemplos de verbos regulares e irregulares no passado",
+    order: 20,
+    image:
+      "https://www.oldcarsweekly.com/review/wp-content/uploads/2022/09/rear-view-mirror-oldcarsweekly.jpg",
+    elements: [
+      {
+        type: "sentences",
+        order: 3,
+        grid: 2,
+        subtitle: "Verbos Regulares",
+        sentences: [
+          {
+            english: "played",
+            portuguese: "jogar, jogou - passado do verbo to play",
+          },
+          {
+            english: "walked",
+            portuguese: "andar, andou - passado do verbo to walk",
+          },
+          {
+            english: "watched",
+            portuguese: "assistir, assistiu - passado do verbo to watch",
+          },
+          {
+            english: "cooked",
+            portuguese: "cozinhar, cozinhou - passado do verbo to cook",
+          },
+          {
+            english: "cleaned",
+            portuguese: "limpar, limpo - passado do verbo to cleanu",
+          },
+        ],
+      },
+      {
+        type: "sentences",
+        order: 3,
+        grid: 2,
+        subtitle: "Verbos Irregulares",
+        sentences: [
+          { english: "Went", portuguese: "ir, foi - passado do verbo To Go" },
+          {
+            english: "Had",
+            portuguese: "ter, teve - passado do verbo To Have",
+          },
+          { english: "Saw", portuguese: "ver, viu - pasado do verbo To see" },
+          {
+            english: "took",
+            portuguese: "pegar, pegou - passado do verbo to take",
+          },
+          {
+            english: "came",
+            portuguese: "vir, veio - passado do verbo to come",
+          },
+        ],
+      },
+      {
+        order: 3,
+        grid: 2,
+        type: "sentences",
+        subtitle: "Verbos Irregulares",
+        sentences: [
+          {
+            english: "I played soccer yesterday.",
+            portuguese: "Eu joguei futebol ontem.",
+          },
+          {
+            english: "She walked to the store.",
+            portuguese: "Ela andou até a loja.",
+          },
+          {
+            english: "We watched a movie last night.",
+            portuguese: "Assistimos a um filme ontem à noite.",
+          },
+          {
+            english: "He cooked dinner for us.",
+            portuguese: "Ele cozinhou o jantar para nós.",
+          },
+          {
+            english: "They cleaned the house.",
+            portuguese: "Eles limparam a casa.",
+          },
+          { english: "I went to the beach.", portuguese: "Eu fui à praia." },
+          {
+            english: "She had a great time.",
+            portuguese: "Ela se divertiu muito.",
+          },
+          {
+            english: "We saw a beautiful sunset.",
+            portuguese: "Nós vimos um pôr do sol lindo.",
+          },
+          { english: "He took a picture.", portuguese: "Ele tirou uma foto." },
+          {
+            english: "They came to the party.",
+            portuguese: "Eles vieram para a festa.",
+          },
+        ],
+      },
     ],
   },
   {
