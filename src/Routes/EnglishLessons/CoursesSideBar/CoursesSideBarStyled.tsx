@@ -19,7 +19,7 @@ export const CoursesListContainer = styled.div`
   transition: left 0.3s ease-out;
 
   @media (max-width: 600px) {
-    display: none;
+    // display: none;
   }
 `;
 

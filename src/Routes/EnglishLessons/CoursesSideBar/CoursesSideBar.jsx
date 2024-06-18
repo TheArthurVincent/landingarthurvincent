@@ -9,18 +9,18 @@ import {
   CoursesListItem,
 } from "./CoursesSideBarStyled";
 import {
-primaryColor,  secondaryColor,
+  primaryColor,
+  secondaryColor,
   textPrimaryColorContrast,
 } from "../../../Styles/Styles";
 
 function CoursesSideBar({ courses }) {
   const [showCourses, setShowCourses] = useState(false);
   const [arrow, setArrow] = useState(false);
-  const [classes, setClasses] = useState([]);
 
   const handleShowCourses = () => {
     setShowCourses(!showCourses);
-    setArrow(true);
+    setArrow(!arrow);
   };
 
   const handleHideCourses = () => {
@@ -34,7 +34,7 @@ function CoursesSideBar({ courses }) {
 
   return (
     <CoursesListContainer
-      style={showCourses ? { left: "0rem" } : { left: "-22rem" }}
+      style={showCourses ? { left: "0rem" } : { left: "-23.5rem" }}
     >
       <CoursesListInnerContainer>
         <div style={{ display: "flex" }}>
@@ -43,7 +43,7 @@ function CoursesSideBar({ courses }) {
               onClick={handleShowCourses}
               style={{
                 display: "flex",
-                padding: "0 10px ",
+                padding: "2px ",
                 alignItems: "center",
                 justifyContent: "space-between",
               }}
@@ -51,17 +51,21 @@ function CoursesSideBar({ courses }) {
               <h1>Modules</h1>
               <h1
                 style={{
+                  fontSize: "10px",
                   cursor: "pointer",
                 }}
               >
                 <i
                   class={`fa fa-arrow-${arrow ? "left" : "right"}`}
+                  style={{
+                    fontSize: "16px",
+                  }}
                   aria-hidden="true"
                 />
               </h1>
             </div>
             {courses.map((course, index) => (
-              <div key={index} onClick={() => setClasses(course.lessons)}>
+              <div key={index}>
                 <h2>{course.type}</h2>
                 <CoursesList>
                   {course.lessons.map((lesson, idx) => {
@@ -72,7 +76,6 @@ function CoursesSideBar({ courses }) {
                           textDecoration: "none",
                         }}
                         to={pathGenerator(lesson.title)}
-                        key={index}
                       >
                         <CoursesListItem
                           style={{
@@ -87,9 +90,11 @@ function CoursesSideBar({ courses }) {
                         >
                           <span>{lesson.title}</span>
                           <span
-                            style={{
-                              paddingRight: "0.4rem",
-                            }}
+                            style={
+                              {
+                                // paddingRight: "0.4rem",
+                              }
+                            }
                           >
                             {UniversalTexts.specialCharacters.circle}
                           </span>
