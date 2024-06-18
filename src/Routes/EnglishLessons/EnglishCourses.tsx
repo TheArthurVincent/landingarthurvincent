@@ -42,10 +42,6 @@ export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps
     (a: any, b: any) => a.order - b.order
   );
 
-  useEffect(() => {
-    console.log("Transformed Lessons Array:", arr);
-    console.log("Transformed English Grammar Array:", englishClassesArray);
-  }, [arr, englishClassesArray]);
 
   const listOfCourses = [
     {
@@ -67,11 +63,6 @@ export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps
         "https://ik.imagekit.io/vjz75qw96/assets/courses/3.jpg?updatedAt=1718734643966",
     },
   ];
-
-  useEffect(() => {
-    console.log(listOfCourses);
-  }, []);
-
   return (
     <RouteDiv>
       <Routes>

@@ -32,10 +32,6 @@ export default function EnglishCourse({
 
   const groupedLessonsArray = arr.sort((a: any, b: any) => a.order - b.order);
 
-  useEffect(() => {
-    console.log("groupedLessonsArray", groupedLessonsArray);
-  });
-
   const backToCourses = () => {
     window.location.assign(`/english-courses`);
   };

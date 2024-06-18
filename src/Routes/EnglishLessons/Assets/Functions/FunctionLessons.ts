@@ -1,5 +1,4 @@
 export const readText = (text: string, restart: boolean, lang?: string) => {
-  console.log(text, restart, lang);
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text);

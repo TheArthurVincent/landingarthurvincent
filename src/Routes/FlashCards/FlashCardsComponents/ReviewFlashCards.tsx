@@ -101,7 +101,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )
           : null;
       }
-      console.log(response.data.dueFlashcards);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
@@ -143,11 +142,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       setNewLGFront(newlf);
       setNewLGBack(newlb);
       setCardIdToEdit(newIDcard);
-      console.log(cardId, response.data.flashcard);
     } catch (error) {
       console.log(error, "Erro ao obter cards");
     }
-    console.log(cardId);
   };
   const handleEditCard = async (cardId: string) => {
     setShowModal(true);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import UniversalTexts from "../../../Resources/UniversalTexts.json";
 import { pathGenerator } from "../../../Resources/UniversalComponents";
 import {
@@ -42,13 +42,6 @@ function CoursesSideBar({ courses }) {
   };
 
   const location = useLocation();
-  const currentPath = location.pathname
-    .split("/")
-    .filter((part) => part !== ""); // Obtém o caminho atual no navegador
-
-  useEffect(() => {
-    console.log(currentPath);
-  }, []);
 
   const go = (e) => {
     window.location.assign(pathGenerator(e));
@@ -81,7 +74,7 @@ function CoursesSideBar({ courses }) {
               }}
             >
               <i
-                class={`fa fa-arrow-${arrow ? "left" : "right"}`}
+                className={`fa fa-arrow-${arrow ? "left" : "right"}`}
                 style={{
                   fontSize: "16px",
                 }}

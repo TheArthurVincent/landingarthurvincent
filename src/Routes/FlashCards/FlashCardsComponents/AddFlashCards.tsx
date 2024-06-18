@@ -60,7 +60,6 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
   };
 
   const addNewCard = () => {
-    console.log(cards);
     setCards([
       ...cards,
       {
@@ -115,7 +114,6 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
         language: card.languageBack,
       },
     }));
-    console.log(newCards);
     try {
       await axios.post(
         `${backDomain}/api/v1/flashcard/${studentID}`,
