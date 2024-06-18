@@ -211,6 +211,13 @@ li {
   color: #011042;
 }
 
+.hover-color {
+  border:1px solid white;
+}
+.hover-color:hover {
+  border:1px solid black;
+}
+
 @keyframes slideInLeft {
   from {
     transform: translateX(-1%);

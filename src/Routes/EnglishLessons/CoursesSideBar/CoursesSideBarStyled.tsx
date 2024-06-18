@@ -17,10 +17,6 @@ export const CoursesListContainer = styled.div`
   top: 0rem;
   z-index: 10000000000000000;
   transition: left 0.3s ease-out;
-
-  @media (max-width: 600px) {
-    // display: none;
-  }
 `;
 
 export const CoursesListTitleContainer = styled.div`
@@ -34,6 +30,8 @@ export const CoursesListTitleContainer = styled.div`
 `;
 
 export const CoursesList = styled.ul`
+  overflow-y: auto;
+  max-height: 99vh;
   paddingleft: 10px;
 `;
 
@@ -55,12 +53,10 @@ export const CoursesListItem = styled.li`
 `;
 
 export const CoursesListInnerContainer = styled.div`
-  width: 400px;
-  display: flex;
+  width: 350px;
+  display: grid;
   flex-direction: column;
-  max-height: 99vh;
   background-color: ${lightGreyColor()};
-  overflow-y: auto;
   padding: 2px;
   justify-content: space-between;
 `;

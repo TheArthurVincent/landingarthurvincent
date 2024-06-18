@@ -9,6 +9,8 @@ import {
   CoursesListItem,
 } from "./CoursesSideBarStyled";
 import {
+  alwaysBlack,
+  alwaysWhite,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
@@ -34,36 +36,43 @@ function CoursesSideBar({ courses }) {
 
   return (
     <CoursesListContainer
-      style={showCourses ? { left: "0rem" } : { left: "-23.5rem" }}
+      style={showCourses ? { left: "0rem" } : { left: "-20rem" }}
     >
       <CoursesListInnerContainer>
-        <div style={{ display: "flex" }}>
-          <CoursesList>
-            <div
-              onClick={handleShowCourses}
+        <div
+          onClick={handleShowCourses}
+          style={{
+            display: "grid",
+          }}
+        >
+          <div
+            style={{
+              padding: "8px",
+              alignItems: "center",
+              backgroundColor: alwaysBlack(),
+              borderRadius: "10px",
+              color: alwaysWhite(),
+              justifyContent: "space-between",
+              cursor: "pointer",
+              display: "flex",
+            }}
+          >
+            <h1>Modules</h1>
+            <h1
               style={{
-                display: "flex",
-                padding: "2px ",
-                alignItems: "center",
-                justifyContent: "space-between",
+                fontSize: "10px",
               }}
             >
-              <h1>Modules</h1>
-              <h1
+              <i
+                class={`fa fa-arrow-${arrow ? "left" : "right"}`}
                 style={{
-                  fontSize: "10px",
-                  cursor: "pointer",
+                  fontSize: "16px",
                 }}
-              >
-                <i
-                  class={`fa fa-arrow-${arrow ? "left" : "right"}`}
-                  style={{
-                    fontSize: "16px",
-                  }}
-                  aria-hidden="true"
-                />
-              </h1>
-            </div>
+                aria-hidden="true"
+              />
+            </h1>
+          </div>
+          <CoursesList>
             {courses.map((course, index) => (
               <div key={index}>
                 <h2>{course.type}</h2>
@@ -78,7 +87,10 @@ function CoursesSideBar({ courses }) {
                         to={pathGenerator(lesson.title)}
                       >
                         <CoursesListItem
+                          className="hover-color"
                           style={{
+
+                            borderRadius: "5px",
                             color: primaryColor(),
                             backgroundColor: location.pathname.includes(
                               pathGenerator(lesson.title)
