@@ -9,6 +9,7 @@ import { lessons } from "./Assets/Functions/ClassesListActivities";
 import { englishGrammar } from "./Assets/CoursesLists/EnglishGrammar";
 import { textsCourse } from "./Assets/CoursesLists/Texts";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { talkingBusiness } from "./Assets/CoursesLists/TalkingBusiness";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
@@ -28,11 +29,11 @@ export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps
     ).map(([type, lessons]) => ({ type, lessons }));
   };
 
-  const arr = transformLessons(lessons);
+  const talkingB = transformLessons(talkingBusiness);
   const englishClassesArray = transformLessons(englishGrammar);
   const textsArray = transformLessons(textsCourse);
 
-  const groupedLessonsTest1Array = arr.sort(
+  const talkingBArray = talkingB.sort(
     (a: any, b: any) => a.order - b.order
   );
   const groupedEnglishLessonsArray = englishClassesArray.sort(
@@ -58,7 +59,7 @@ export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps
     },
     {
       title: "Talking Business",
-      groupedLessonsArray: groupedTextsLessonsArray,
+      groupedLessonsArray: talkingBArray,
       image:
         "https://ik.imagekit.io/vjz75qw96/assets/courses/3.jpg?updatedAt=1718734643966",
     },

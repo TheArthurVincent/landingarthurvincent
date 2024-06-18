@@ -36,22 +36,23 @@ export const CourseCard = styled.div`
   text-align: center;
   gap: 0.5rem;
   font-size: 9px;
+  border-radius:10px;
   font-weight: 800;
   display: flex;
   background-color: ${lightGreyColor()};
-  height: 16rem;
-  width: 14rem;
+  height: 8rem;
+  width: 7rem;
   padding: 1rem 0.2rem;
   flex-direction: column;
   transition: 0.3s;
   img {
+    filter: grayscale(100%);
     transition: 0.3s;
-    filter: grayscale(0%);
-  }
-  &:hover {
-    box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
-    img {
-      filter: grayscale(100%);
+    }
+    &:hover {
+      box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
+      img {
+        filter: grayscale(0%);
     }
   }
 `;

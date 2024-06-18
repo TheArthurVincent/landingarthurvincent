@@ -22,9 +22,9 @@ export const ImgLesson = styled.img`
 export const LiSentence = styled.li`
   list-style: none;
   margin-bottom: 10px;
-  box-shadow: 1px 1px 10px 1px #ddd;
-  padding: 5px;
-
+  padding: 10px;
+  border: solid 1px #ddd;
+  border-radius: 10px;
   @media print {
     box-shadow: 1px 1px 12px 3px white;
   }
@@ -36,8 +36,8 @@ export const RouteDivNotes = styled.div`
   color: ${alwaysBlack()};
   padding: 0.5rem;
   position: sticky;
-  top: 50px; 
-  left: 0; 
+  top: 50px;
+  left: 0;
   box-shadow: 1px 1px 5px 1px #777;
   background-color: white;
   transition: right 0.3s ease;
@@ -84,8 +84,8 @@ export const LessonSizeControlBox = styled.div`
   margin-right: auto;
   display: block;
   max-width: 90vw;
-  justify-content:center;
-  
+  justify-content: center;
+
   gap: 5px;
   margin-bottom: 9rem;
   &.smooth {

@@ -6,7 +6,7 @@ export const englishGrammar = [
     description:
       "Nesta aula, aprenderemos algumas expressões básicas, e maneiras comuns de se apresentar.",
     image:
-      "https://images.pexels.com/photos/5668834/pexels-photo-5668834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/05/introduce-yourself.jpg",
     elements: [
       {
         subtitle: "Sentences 1",

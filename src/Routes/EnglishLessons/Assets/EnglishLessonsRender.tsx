@@ -75,6 +75,7 @@ export default function EnglishLessonsRender({
     <div
       style={{
         borderRadius: "10px",
+        marginBottom:"50rem",
         padding: "1rem ",
         backgroundColor: "white",
       }}
