@@ -1,20 +1,30 @@
-import React, { useState } from "react";
-import {
-  HOne,
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import React, { useEffect, useState } from "react";
+import { RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import { lessons } from "./Assets/Functions/ClassesListActivities";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
-import HTMLEditor from "../../Resources/Components/HTMLEditor";
-import { RouteDivNotes } from "./Assets/Functions/EnglishActivities.Styled";
-
+import { Link, Outlet, Route, Routes } from "react-router-dom";
+import {
+  DisapearOnWeb,
+  pathGenerator,
+} from "../../Resources/UniversalComponents";
+import CoursesSideBar from "./CoursesSideBar/CoursesSideBar";
+import {
+  primaryColor,
+  secondaryColor,
+  textPrimaryColorContrast,
+  textSecondaryColorContrast,
+} from "../../Styles/Styles";
 export default function EnglishLessonsHome({ headers }: HeadersProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
-  const [selectedLesson, setSelectedLesson] = useState<any>(null);
+  const [displayClasses, setdisplayClasses] = useState<boolean>(false);
+  const [showClasses, setShowClasses] = useState<boolean>(false);
 
+  const changeDisplayClasses = () => {
+    setdisplayClasses(!displayClasses);
+  };
+  //@ts-ignore
   const groupedLessons = lessons.reduce((acc: any, lesson: any) => {
     if (!acc[lesson.type]) {
       acc[lesson.type] = [];
@@ -23,40 +33,31 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
     return acc;
   }, {});
 
+  const groupedLessonsArray = Object.entries(
+    lessons.reduce((acc: any, lesson: any) => {
+      if (!acc[lesson.type]) {
+        acc[lesson.type] = [];
+      }
+      acc[lesson.type].push(lesson);
+      return acc;
+    }, {})
+  ).map(([type, lessons]) => ({ type, lessons }));
+
   const handleDifficultyChange = (event: any) => {
     setSelectedDifficulty(event.target.value);
-    setSelectedLesson(null);
-  };
-
-  const handleLessonChange = (event: any) => {
-    const lesson = groupedLessons[selectedDifficulty].find(
-      (lesson: any) => lesson.title === event.target.value
-    );
-    setSelectedLesson(lesson);
-  };
-  const [newDescription, setNewDescription] = useState<string>("");
-  const handleDescriptionChange = (htmlContent: string) => {
-    setNewDescription(htmlContent);
-  };
-
-  const [homework, setHomework] = useState<string>("");
-  const handleHomeworkChange = (htmlContent: string) => {
-    setHomework(htmlContent);
+    setShowClasses(true);
   };
 
   return (
-    <RouteDiv className="smooth">
-      <Helmets text="Activities" />
-      <div
-        style={{
-          display: "grid",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "5px",
-          minWidth: "50vw",
-          borderRadius: "5px",
-        }}
-      >
+    <div
+      style={{
+        maxWidth: "85vw",
+      }}
+      className="smooth"
+    >
+      <Helmets text="Course" />
+      <CoursesSideBar courses={groupedLessonsArray} />
+      <DisapearOnWeb>
         <select
           style={{
             width: "8rem",
@@ -67,7 +68,7 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
           onChange={handleDifficultyChange}
         >
           <option hidden value="">
-            Select Category
+            Select Course
           </option>
           {groupedLessons &&
             Object.keys(groupedLessons).map((difficulty) => (
@@ -76,60 +77,76 @@ export default function EnglishLessonsHome({ headers }: HeadersProps) {
               </option>
             ))}
         </select>
-        <select
-          value={selectedLesson?.title || ""}
-          onChange={handleLessonChange}
-          disabled={selectedDifficulty ? false : true}
-          style={{
-            backgroundColor: "white",
-            cursor: selectedDifficulty ? "auto" : "not-allowed",
-            width: "8rem",
-            fontFamily: "Athiti",
-          }}
-        >
-          <option hidden value="">
-            Select Lesson
-          </option>
-          {groupedLessons[selectedDifficulty] &&
-            groupedLessons[selectedDifficulty]
-              .sort((a: any, b: any) => a.order - b.order)
-              .map((lesson: any, index: number) => (
-                <option key={index} value={lesson.title}>
-                  {lesson.order + "- " + lesson.title}
-                </option>
-              ))}
-        </select>
-      </div>
-      {selectedLesson && (
-        <div id="pdf-content">
-          <EnglishLessonsRender theclass={selectedLesson} headers={headers} />
-        </div>
-      )}
-    </RouteDiv>
+        {showClasses && (
+          <div
+            style={{
+              padding: "1rem",
+              borderRadius: "1rem",
+              backgroundColor: "white",
+              border: "1px solid #ddd",
+            }}
+          >
+            <p
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={changeDisplayClasses}
+            >
+              {!displayClasses ? "Show Classes" : "Hide Classes"}
+            </p>
+            <nav
+              style={{
+                display: displayClasses ? "grid" : "none",
+                gap: "2px",
+                overflowY: "auto",
+                maxHeight: "20rem",
+              }}
+            >
+              {groupedLessons[selectedDifficulty] &&
+                groupedLessons[selectedDifficulty]
+                  .sort((a: any, b: any) => a.order - b.order)
+                  .map((lesson: any, index: number) => (
+                    <Link
+                      onClick={changeDisplayClasses}
+                      key={index}
+                      style={{
+                        textDecoration: "none",
+                        padding: "5px",
+
+                        color: location.pathname.includes(
+                          pathGenerator(lesson.title)
+                        )
+                          ? textPrimaryColorContrast()
+                          : textSecondaryColorContrast(),
+                        backgroundColor: location.pathname.includes(
+                          pathGenerator(lesson.title)
+                        )
+                          ? primaryColor()
+                          : secondaryColor(),
+                      }}
+                      to={pathGenerator(lesson.title)}
+                    >
+                      {lesson.order + "- " + lesson.title}
+                    </Link>
+                  ))}
+            </nav>
+          </div>
+        )}
+      </DisapearOnWeb>
+      <Routes>
+        {lessons.map((lesson: any, index: number) => {
+          return (
+            <Route
+              key={index}
+              path={pathGenerator(lesson.title)}
+              element={
+                <EnglishLessonsRender theclass={lesson} headers={headers} />
+              }
+            />
+          );
+        })}
+      </Routes>
+      <Outlet />
+    </div>
   );
-  /* <div className="do-print">
-        <HOne>Notes</HOne>
-        <div
-          style={{
-            padding: "2rem",
-          }}
-          dangerouslySetInnerHTML={{ __html: newDescription }}
-        />
-        <HOne>Homework</HOne>
-        <div
-          style={{
-            padding: "2rem",
-          }}
-          dangerouslySetInnerHTML={{ __html: homework }}
-        />
-      </div>
-      <div>
-        <RouteDivNotes className="no-print">
-    
-          <HOne>Notes</HOne>
-          <HTMLEditor onChange={handleDescriptionChange} />
-          <HOne>Homework</HOne>
-          <HTMLEditor onChange={handleHomeworkChange} />
-        </RouteDivNotes>
-      </div> */
 }

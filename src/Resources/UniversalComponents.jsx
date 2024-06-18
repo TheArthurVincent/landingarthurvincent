@@ -474,7 +474,8 @@ export const SpanCourseResponsive = styled.span`
 `;
 
 export const pathGenerator = (text) => {
-  const spacelessText = text.replace(/\s+/g, "-");
+  const cleanText = text.replace(/[^a-zA-Z0-9\s]/g, "");
+  const spacelessText = cleanText.replace(/\s+/g, "-");
   const lowerCase = spacelessText.toLowerCase();
 
   return lowerCase;
@@ -510,8 +511,15 @@ export const DivModal = styled.div`
 
 export const DisapearOnMobile = styled.div`
   display: block;
-  @media (max-width: 920px) {
+  @media (max-width: 600px) {
     display: none;
+  }
+`;
+
+export const DisapearOnWeb = styled.div`
+  display: none;
+  @media (max-width: 600px) {
+    display:block;
   }
 `;
 

@@ -113,7 +113,7 @@ export default function GroupClassesTemplate({
 
   return (
     <div>
-      <CoursesSideBar courses={courses} />
+      {/* <CoursesSideBar courses={courses} /> */}
       <TopBar />
       <RouteSizeControlBox>
         <RouteDiv>
