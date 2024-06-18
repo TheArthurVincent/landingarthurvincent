@@ -37,7 +37,11 @@ export default function EnglishCourse({
   };
 
   return (
-    <div>
+    <div
+      style={{
+        marginBottom: "50rem",
+      }}
+    >
       <Routes>
         {groupedLessonsArray.map((course: any, index: number) =>
           course.lessons[0].lessons.map((cls: any, idx: number) => (
@@ -61,7 +65,7 @@ export default function EnglishCourse({
       <HTwo>Modules</HTwo>
       {groupedLessonsArray.map((course: any, index: number) => (
         <div key={index}>
-          <HThree>{course.type}</HThree>
+          <HThree>{course.type}: Classes</HThree>
           <div
             style={{
               display: "flex",
