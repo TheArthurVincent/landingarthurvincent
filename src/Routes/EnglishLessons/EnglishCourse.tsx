@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { RouteDiv } from "../../Resources/Components/RouteBox";
+import React, { useEffect } from "react";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import { pathGenerator } from "../../Resources/UniversalComponents";
-import EnglishLessonsHome from "./EnglishLessonsHome";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "../EnglishMaterial/EnglishMaterial.Styled";
+import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
 
 interface EnglishCourseHomeProps {
   headers: MyHeadersType | null;
@@ -30,23 +29,27 @@ export default function EnglishCourse({
   const groupedLessonsArray = arr.sort((a: any, b: any) => a.order - b.order);
 
   useEffect(() => {
-    console.log(groupedLessonsArray);
+    console.log("groupedLessonsArray", groupedLessonsArray);
   });
+
   return (
     <div>
       <Routes>
-        {/* {groupedLessonsArray.map((course: any, index: number) => (
-       
-       return     {course.lessons[0].lessons.map((cls: any, idx: number) => (
-        <Route
-        key={idx}
-        path={`${pathGenerator(cls.title)}`}
-        element={
-          <EnglishLessonsHome less={course} headers={headers} />
-        }
-      />
-            ))}}
- */}
+        {groupedLessonsArray.map((course: any, index: number) =>
+          course.lessons[0].lessons.map((cls: any, idx: number) => (
+            <Route
+              key={idx}
+              path={`${pathGenerator(cls.title)}`}
+              element={
+                <EnglishLessonsRender
+                  course={groupedLessonsArray}
+                  theclass={cls}
+                  headers={headers}
+                />
+              }
+            />
+          ))
+        )}
       </Routes>
       <h1>Curso: {less.title}. Veja os módulos</h1>
       {groupedLessonsArray.map((course: any, index: number) => (

@@ -23,11 +23,16 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   ).map(([type, lessons]) => ({ type, lessons }));
 
   const groupedLessonsArray = arr.sort((a: any, b: any) => a.order - b.order);
-  const arrsee = [{ title: "English Grammar", groupedLessonsArray }];
+  const arrsee = [
+    { title: "English Grammar", groupedLessonsArray },
+    { title: "English Grammar 2", groupedLessonsArray },
+    { title: "English Grammar 3", groupedLessonsArray },
+    { title: "English Grammar 4", groupedLessonsArray },
+  ];
 
   useEffect(() => {
     console.log(arrsee);
-  }, [groupedLessonsArray]);
+  }, []);
 
   return (
     <RouteDiv>
@@ -41,12 +46,14 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         ))}
       </Routes>
       <Helmets text="Courses" />
-      <p>Escolha um curso</p>
-      {arrsee.map((route: any, idx: number) => (
-        <Link key={idx} to={pathGenerator(route.title)}>
-          {route.title}
-        </Link>
-      ))}
+      <h1>Escolha um curso</h1>
+      <ul style={{ display: "grid", gap: "1rem" }}>
+        {arrsee.map((route: any, idx: number) => (
+          <Link key={idx} to={pathGenerator(route.title)}>
+            {route.title}
+          </Link>
+        ))}
+      </ul>
       <Outlet />
     </RouteDiv>
   );

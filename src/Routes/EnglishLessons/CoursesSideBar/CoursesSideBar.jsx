@@ -76,7 +76,7 @@ function CoursesSideBar({ courses }) {
             <div key={index}>
               <h2>{course.type}</h2>
               <CoursesList>
-                {course.lessons[0].lessons[0].lessons.map((lesson, idx) => {
+                {course.lessons[0].lessons.map((lesson, idx) => {
                   return (
                     <Link
                       key={idx}
