@@ -31,7 +31,7 @@ function CoursesSideBar({ courses }) {
   };
 
   useEffect(() => {
-    console.log(courses);
+    console.log("courses", courses);
   }, []);
 
   return (
@@ -72,52 +72,49 @@ function CoursesSideBar({ courses }) {
               />
             </h1>
           </div>
-          <CoursesList>
-            {courses.map((course, index) => (
-              <div key={index}>
-                <h2>{course.type}</h2>
-                <CoursesList>
-                  {course.lessons.map((lesson, idx) => {
-                    return (
-                      <Link
-                        key={idx}
+          {courses.map((course, index) => (
+            <div key={index}>
+              <h2>{course.type}</h2>
+              <CoursesList>
+                {course.lessons[0].lessons[0].lessons.map((lesson, idx) => {
+                  return (
+                    <Link
+                      key={idx}
+                      style={{
+                        textDecoration: "none",
+                      }}
+                      to={pathGenerator(lesson.title)}
+                    >
+                      <CoursesListItem
+                        className="hover-color"
                         style={{
-                          textDecoration: "none",
+                          borderRadius: "5px",
+                          color: primaryColor(),
+                          backgroundColor: location.pathname.includes(
+                            pathGenerator(lesson.title)
+                          )
+                            ? secondaryColor()
+                            : textPrimaryColorContrast(),
                         }}
-                        to={pathGenerator(lesson.title)}
+                        onClick={handleHideCourses}
                       >
-                        <CoursesListItem
-                          className="hover-color"
-                          style={{
-
-                            borderRadius: "5px",
-                            color: primaryColor(),
-                            backgroundColor: location.pathname.includes(
-                              pathGenerator(lesson.title)
-                            )
-                              ? secondaryColor()
-                              : textPrimaryColorContrast(),
-                          }}
-                          onClick={handleHideCourses}
-                        >
-                          <span>{lesson.title}</span>
-                          <span
-                            style={
-                              {
-                                // paddingRight: "0.4rem",
-                              }
+                        <span>{lesson.title}</span>
+                        <span
+                          style={
+                            {
+                              // paddingRight: "0.4rem",
                             }
-                          >
-                            {UniversalTexts.specialCharacters.circle}
-                          </span>
-                        </CoursesListItem>
-                      </Link>
-                    );
-                  })}
-                </CoursesList>
-              </div>
-            ))}
-          </CoursesList>
+                          }
+                        >
+                          {UniversalTexts.specialCharacters.circle}
+                        </span>
+                      </CoursesListItem>
+                    </Link>
+                  );
+                })}
+              </CoursesList>
+            </div>
+          ))}
         </div>
       </CoursesListInnerContainer>
       <div

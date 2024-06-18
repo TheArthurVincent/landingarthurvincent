@@ -31,7 +31,11 @@ export default function EnglishLessonsHome({
     }, {})
   ).map(([type, lessons]) => ({ type, lessons }));
 
-  return (
+  useEffect(() => {
+    console.log("homeee", less);
+  }, []);
+
+  return   (
     <div
       style={{
         maxWidth: "85vw",
@@ -40,7 +44,7 @@ export default function EnglishLessonsHome({
     >
       <Helmets text="Course" />
       <CoursesSideBar courses={groupedLessonsArray} />
-
+{/* 
       <Routes>
         {less.map((lesson: any, index: number) => {
           return (
@@ -53,7 +57,7 @@ export default function EnglishLessonsHome({
             />
           );
         })}
-      </Routes>
+      </Routes> */}
       <Outlet />
       <div
         style={{
