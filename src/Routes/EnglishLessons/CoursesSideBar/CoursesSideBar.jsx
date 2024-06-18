@@ -33,10 +33,9 @@ function CoursesSideBar({ courses }) {
   useEffect(() => {
     console.log("courses", courses);
   }, []);
-  const truncateTitle = (title, maxWords) => {
-    const words = title.split(" ");
-    if (words.length > maxWords) {
-      return words.slice(0, maxWords).join(" ") + " ...";
+  const truncateTitle = (title, maxChars) => {
+    if (title.length > maxChars) {
+      return title.substring(0, maxChars).trim() + " ...";
     }
     return title;
   };
@@ -99,7 +98,6 @@ function CoursesSideBar({ courses }) {
                         textDecoration: "none",
                       }}
                       onClick={() => go(lesson.title)}
-                      // to={pathGenerator(lesson.title)}
                     >
                       <CoursesListItem
                         className="hover-color"
@@ -114,7 +112,9 @@ function CoursesSideBar({ courses }) {
                         }}
                         onClick={handleHideCourses}
                       >
-                        <span>{truncateTitle(lesson.title, 3)}</span>
+                        <span>
+                          {idx + 1 + "- " + truncateTitle(lesson.title, 20)}
+                        </span>
                         <span>{UniversalTexts.specialCharacters.circle}</span>
                       </CoursesListItem>
                     </div>

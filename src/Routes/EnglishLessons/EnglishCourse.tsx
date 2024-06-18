@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import Helmets from "../../Resources/Helmets";
-import { MyHeadersType } from "../../Resources/types.universalInterfaces";
+import React, { useState } from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import { pathGenerator } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
@@ -8,6 +6,8 @@ import { CourseCard } from "../EnglishMaterial/EnglishMaterial.Styled";
 import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
 import { HOne, HTwo } from "../../Resources/Components/RouteBox";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import Helmets from "../../Resources/Helmets";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 
 interface EnglishCourseHomeProps {
   headers: MyHeadersType | null;
@@ -20,6 +20,8 @@ export default function EnglishCourse({
   less,
   back,
 }: EnglishCourseHomeProps) {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const arr = Object.entries(
     less.groupedLessonsArray.reduce((acc: any, lesson: any) => {
       if (!acc[lesson.type]) {
@@ -36,15 +38,25 @@ export default function EnglishCourse({
     window.location.assign(`/english-courses`);
   };
 
+  // Filter lessons based on searchQuery
+  const filteredLessons = groupedLessonsArray.map((course: any) => ({
+    ...course,
+    lessons: course.lessons[0].lessons.filter((cls: any) =>
+      cls.title.toLowerCase().includes(searchQuery.toLowerCase())
+    ),
+  }));
+
   return (
     <div
       style={{
         marginBottom: "50rem",
+        backgroundColor: "#f1f1f1",
+        padding: "1rem",
       }}
     >
       <Routes>
-        {groupedLessonsArray.map((course: any, index: number) =>
-          course.lessons[0].lessons.map((cls: any, idx: number) => (
+        {filteredLessons.map((course: any, index: number) =>
+          course.lessons.map((cls: any, idx: number) => (
             <Route
               key={idx}
               path={`${pathGenerator(cls.title)}`}
@@ -63,7 +75,14 @@ export default function EnglishCourse({
       <HOne>{less.title}</HOne>
       <ArvinButton onClick={backToCourses}>Back to Courses</ArvinButton>
       <HTwo>Modules</HTwo>
-      {groupedLessonsArray.map((course: any, index: number) => (
+      <input
+        type="text"
+        placeholder="Search classes by name..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        style={{ marginBottom: "1rem", padding: "0.5rem" }}
+      />
+      {filteredLessons.map((course: any, index: number) => (
         <div key={index}>
           <HThree>{course.type}: Classes</HThree>
           <div
@@ -79,7 +98,7 @@ export default function EnglishCourse({
               padding: "1rem",
             }}
           >
-            {course.lessons[0].lessons.map((cls: any, idx: number) => (
+            {course.lessons.map((cls: any, idx: number) => (
               <div key={idx}>
                 <Link to={pathGenerator(cls.title)}>
                   <CourseCard>
