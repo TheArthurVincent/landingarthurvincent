@@ -2199,7 +2199,6 @@ export const talkingBusiness = [
           },
         ],
       },
-
       {
         subtitle: "Purchase",
         order: 1,
@@ -2222,7 +2221,6 @@ export const talkingBusiness = [
           },
         ],
       },
-
       {
         subtitle: "Goods",
         order: 2,
@@ -2294,8 +2292,24 @@ export const talkingBusiness = [
         ],
       },
       {
-        subtitle: "Items",
+        subtitle: "Warehouse",
         order: 5,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The warehouse is full of various goods.",
+            portuguese: "O armazém está cheio de vários produtos.",
+          },
+          {
+            english: "They moved the inventory to a larger warehouse.",
+            portuguese: "Eles moveram o inventário para um armazém maior.",
+          },
+        ],
+      },
+      {
+        subtitle: "Items",
+        order: 7,
         grid: 2,
         type: "sentences",
         sentences: [
@@ -2326,25 +2340,10 @@ export const talkingBusiness = [
           },
         ],
       },
-      {
-        subtitle: "Warehouse",
-        order: 9,
-        grid: 2,
-        type: "sentences",
-        sentences: [
-          {
-            english: "The warehouse is full of various goods.",
-            portuguese: "O armazém está cheio de vários produtos.",
-          },
-          {
-            english: "They moved the inventory to a larger warehouse.",
-            portuguese: "Eles moveram o inventário para um armazém maior.",
-          },
-        ],
-      },
+
       {
         subtitle: "Supplies",
-        order: 5,
+        order: 9,
         grid: 2,
         type: "sentences",
         sentences: [
@@ -2360,7 +2359,7 @@ export const talkingBusiness = [
       },
       {
         subtitle: "Inventory",
-        order: 6,
+        order: 10,
         grid: 2,
         type: "sentences",
         sentences: [
@@ -2376,7 +2375,7 @@ export const talkingBusiness = [
       },
       {
         subtitle: "Stock",
-        order: 7,
+        order: 11,
         grid: 2,
         type: "sentences",
         sentences: [
@@ -2392,7 +2391,7 @@ export const talkingBusiness = [
       },
       {
         subtitle: "Units",
-        order: 8,
+        order: 12,
         grid: 2,
         type: "sentences",
         sentences: [
@@ -2644,7 +2643,7 @@ export const talkingBusiness = [
       {
         subtitle: "Mission Statement",
         order: 1,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         comments:
           "A Mission Statement defines the purpose and primary objectives of an organization. It articulates the reason for its existence and describes what it aims to achieve.",
@@ -2667,7 +2666,7 @@ export const talkingBusiness = [
       {
         subtitle: "Vision Statement",
         order: 2,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         comments:
           "A Vision Statement outlines the aspirations and long-term goals of an organization. It describes what the organization aims to become or achieve in the future.",
@@ -2690,7 +2689,7 @@ export const talkingBusiness = [
       {
         subtitle: "Best Practices - Melhores Práticas",
         order: 3,
-        grid: 2,
+        grid: 1,
         comments:
           "Best practices refer to methods or techniques recognized as most effective and efficient in achieving a desired result in a given area.",
         type: "sentences",
@@ -2712,7 +2711,7 @@ export const talkingBusiness = [
       {
         subtitle: "Benchmarking - Comparação de Desempenho",
         order: 4,
-        grid: 2,
+        grid: 1,
         comments:
           "Benchmarking is the process of comparing the performance of a product, service or process against the best in the industry to identify opportunities for improvement.",
         type: "sentences",
