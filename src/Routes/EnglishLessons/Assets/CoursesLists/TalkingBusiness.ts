@@ -2696,7 +2696,8 @@ export const talkingBusiness = [
     order: 0,
     type: "2- General Business English",
     description:
-      "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
+      "In this introductory chapter of General Business English, we explore fundamental business concepts essential for effective communication in the corporate world. Covering topics such as the distinction between 'Job vs. Work', 'Debit vs. Credit', 'Success vs. Failure', 'To Buy vs. To Sell', 'To Borrow vs. To Lend', 'To Promote vs. To Demote', 'Short-term vs. Long-term', and 'Gross vs. Net', this chapter provides a foundational understanding of key terminology and distinctions that play a crucial role in business interactions. Join us to enhance your business vocabulary and comprehension of these fundamental concepts.",
+
     elements: [],
   },
   // Important vocabulary for the course #2
@@ -3389,7 +3390,7 @@ export const talkingBusiness = [
     type: "3- Financial Concepts",
 
     description:
-      "Welcome to the Business Essentials module! This comprehensive series covers fundamental aspects of business communication, professional etiquette, management structures, company operations, and essential vocabulary. Whether you're new to business environments or seeking to enhance your professional skills, these classes will equip you with the knowledge and language proficiency needed to thrive in various business scenarios. Explore topics ranging from effective communication strategies to understanding corporate structures and navigating business interactions with confidence.",
+      "This module provides an essential overview of the principles governing assets and liabilities in financial contexts. Covering the core concepts of 'Assets vs. Liabilities', this chapter delves into understanding assets as valuable resources owned by individuals or entities and liabilities as financial obligations or debts. Gain insights into their significance in personal finance and business operations, laying the groundwork for deeper exploration into financial management and decision-making. Join us to build a solid foundation in financial literacy and understanding.",
     elements: [],
   },
   {
