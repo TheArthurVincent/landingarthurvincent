@@ -48,21 +48,28 @@ function CoursesSideBar({ courses }) {
 
   return (
     <CoursesListContainer
-      style={showCourses ? { left: "0rem" } : { left: "-14.5rem" }}
+      style={showCourses ? { left: "0rem" } : { left: "-19rem" }}
     >
       <CoursesListInnerContainer>
         <div onClick={handleShowCourses}>
           <div
             style={{
-              maxHeight: "3rem",
-              padding: "8px",
+              maxHeight: "1rem",
+              padding: "7px",
+              zIndex: -1,
               alignItems: "center",
               backgroundColor: alwaysBlack(),
               borderRadius: "10px",
+              transition: "left 0.3s ease-out",
               color: alwaysWhite(),
+              position: "fixed",
+              left: showCourses ? 3 : "-17.3rem",
+              top: 405,
               justifyContent: "space-between",
               cursor: "pointer",
+              width: "18rem",
               display: "flex",
+              boxShadow: "1px 1px 10px 2px grey",
               gap: "9rem",
             }}
           >
@@ -84,7 +91,7 @@ function CoursesSideBar({ courses }) {
           {courses.map((course, index) => (
             <div
               style={{
-                paddingLeft: "1rem",
+                paddingTop: " 3rem",
               }}
               key={index}
             >
@@ -113,7 +120,7 @@ function CoursesSideBar({ courses }) {
                         onClick={handleHideCourses}
                       >
                         <span>
-                          {idx + 1 + "- " + truncateTitle(lesson.title, 20)}
+                          {idx + 1 + "- " + truncateTitle(lesson.title, 30)}
                         </span>
                         <span>{UniversalTexts.specialCharacters.circle}</span>
                       </CoursesListItem>

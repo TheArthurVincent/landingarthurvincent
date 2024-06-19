@@ -1,24 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import { pathGenerator } from "../../Resources/UniversalComponents";
 import EnglishCourse from "./EnglishCourse";
-import { lessons } from "./Assets/Functions/ClassesListActivities";
 import { englishGrammar } from "./Assets/CoursesLists/EnglishGrammar";
 import { textsCourse } from "./Assets/CoursesLists/Texts";
-import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { talkingBusiness } from "./Assets/CoursesLists/TalkingBusiness";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
-  back: any | null;
+  // back: any | null;
 }
 
 export default function EnglishCourses({
   headers,
-  back,
+  // back,
 }: EnglishCoursesHomeProps) {
   const transformLessons = (lessons: any): any[] => {
     return Object.entries(

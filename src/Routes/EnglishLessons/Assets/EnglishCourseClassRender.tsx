@@ -20,12 +20,19 @@ import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
 import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
+import {
+  alwaysWhite,
+  primaryColor,
+  textPrimaryColorContrast,
+} from "../../../Styles/Styles";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
   theclass: any;
   course: any;
+  courseTitle: string;
   back: any;
+  order: number | any;
 }
 
 export default function EnglishLessonsRender({
@@ -33,6 +40,8 @@ export default function EnglishLessonsRender({
   theclass,
   course,
   back,
+  order,
+  courseTitle,
 }: EnglishLessonsRenderModelProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
@@ -71,6 +80,14 @@ export default function EnglishLessonsRender({
     window.location.assign(`/english-courses/${back}`);
   };
 
+  const [showCourses, setShowCourses] = useState(false);
+  const [arrow, setArrow] = useState(false);
+
+  const handleShowCourses = () => {
+    setShowCourses(!showCourses);
+    setArrow(!arrow);
+  };
+
   return (
     <div
       style={{
@@ -84,13 +101,36 @@ export default function EnglishLessonsRender({
       <ArvinButton onClick={backToCourses}>Back to Course</ArvinButton>
       <CoursesSideBar courses={course} />
       <Helmets text={theclass.title} />
-      <HOne style={{ marginTop: "3rem" }}>{theclass.title}</HOne>
+      <HOne
+        style={{
+          marginBottom: "0",
+          marginTop: "3rem",
+        }}
+      >{`${order}- ${theclass.title}`}</HOne>
+      <p
+        style={{
+          textAlign: "center",
+          fontStyle: "italic",
+          borderRadius: "5px",
+          paddingTop: "0",
+          paddingBottom: "20px",
+          color: primaryColor(),
+        }}
+      >
+        {courseTitle}
+      </p>
       {myId === "651311fac3d58753aa9281c5" && (
         <div
           style={{
+            height: "2rem",
+            backgroundColor: alwaysWhite(),
+            boxShadow: "1px 1px 10px 2px grey",
             position: "fixed",
-            bottom: 80,
-            right: 0,
+            cursor: "pointer",
+            minWidth: "100px",
+            bottom: 445,
+            left: showCourses ? -339 : 3,
+            borderRadius: "10px",
           }}
         >
           <select onChange={(e) => handleStudentChange(e)} value={studentID}>
@@ -104,6 +144,23 @@ export default function EnglishLessonsRender({
             <i className="fa fa-refresh" aria-hidden="true" />
             <i className="fa fa-user" aria-hidden="true" />
           </ArvinButton>
+
+          <span
+            style={{
+              fontSize: "10px",
+              marginLeft: "16px",
+            }}
+          >
+            <i
+              className={`fa fa-arrow-${!arrow ? "left" : "right"}`}
+              style={{
+                margin: "5px",
+                fontSize: "16px",
+              }}
+              onClick={handleShowCourses}
+              aria-hidden="true"
+            />
+          </span>
         </div>
       )}
       {theclass.image && (

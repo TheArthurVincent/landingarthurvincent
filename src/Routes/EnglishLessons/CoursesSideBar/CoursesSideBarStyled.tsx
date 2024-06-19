@@ -15,7 +15,7 @@ export const CoursesListContainer = styled.div`
   border-right: solid 1px ${lightGreyColor()};
   position: fixed;
   top: 0rem;
-  z-index: 10000000000000000;
+  z-index: 10;
   transition: left 0.3s ease-out;
 `;
 
