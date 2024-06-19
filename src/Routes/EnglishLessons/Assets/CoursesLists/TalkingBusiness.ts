@@ -718,7 +718,7 @@ export const talkingBusiness = [
         comments:
           "List of professions mentioned in the sentences, with their names in English and Portuguese.",
         order: 0,
-        grid: 3,
+        grid: 2,
         type: "sentences",
         sentences: [
           {

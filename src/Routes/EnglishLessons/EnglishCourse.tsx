@@ -47,6 +47,27 @@ export default function EnglishCourse({
   }));
 
   return (
+    <>
+    <Routes>
+      {filteredLessons.map((course: any, index: number) =>
+        course.lessons.map((cls: any, idx: number) => (
+          <Route
+            key={idx}
+            path={`${pathGenerator(cls.title)}`}
+            element={
+              <EnglishLessonsRender
+                courseTitle={less.title}
+                order={idx}
+                back={back}
+                course={groupedLessonsArray}
+                theclass={cls}
+                headers={headers}
+              />
+            }
+          />
+        ))
+      )}
+    </Routes>
     <div
       style={{
         backgroundColor: "#f1f1f1",
@@ -56,26 +77,6 @@ export default function EnglishCourse({
         borderBottom: "solid #000 1px",
       }}
     >
-      <Routes>
-        {filteredLessons.map((course: any, index: number) =>
-          course.lessons.map((cls: any, idx: number) => (
-            <Route
-              key={idx}
-              path={`${pathGenerator(cls.title)}`}
-              element={
-                <EnglishLessonsRender
-                  courseTitle={less.title}
-                  order={idx}
-                  back={back}
-                  course={groupedLessonsArray}
-                  theclass={cls}
-                  headers={headers}
-                />
-              }
-            />
-          ))
-        )}
-      </Routes>
       <HOne>{less.title}</HOne>
       <div
         style={{
@@ -142,5 +143,6 @@ export default function EnglishCourse({
       <Helmets text="Courses" />
       <Outlet />
     </div>
+    </>
   );
 }
