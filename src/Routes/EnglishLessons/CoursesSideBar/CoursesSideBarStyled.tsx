@@ -50,7 +50,7 @@ export const CoursesListItem = styled.li`
 `;
 
 export const CoursesListInnerContainer = styled.div`
-  width: fit-content;
+  width: 290px;
   border-radius:0 20px 20px 0 ;
   display: grid;
   padding:1px;
