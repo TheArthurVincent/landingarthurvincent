@@ -7,7 +7,7 @@ export const talkingBusiness = [
     type: "1- Business Essentials",
     description:
       "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
-    elements: []
+    elements: [],
   }, // PROFESSIONAL COMMUNICATION SKILLS
   {
     title: "Professional Communication Skills",
@@ -2747,37 +2747,143 @@ export const talkingBusiness = [
     type: "2- General Business English",
     description:
       "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
-    elements: []
+    elements: [],
   },
   // Important vocabulary for the course #2
   {
-    title: "Contrasting Nouns",
+    title: "Job vs. Work",
     order: 1,
     type: "2- General Business English",
     description:
-      "Let's continue to learn general concepts and words, and see important corporate words being used.",
+      "In this section, we will discuss the differences between 'job' and 'work.' While both terms are often used interchangeably, they have distinct meanings.",
     image:
-      "https://images.pexels.com/photos/5238126/pexels-photo-5238126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/845451/pexels-photo-845451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
-        subtitle: "Benchmarking - Comparação de Desempenho",
-        order: 4,
+        subtitle: "The verb is always 'Work'",
+        order: 0,
         grid: 1,
         comments:
-          "Benchmarking is the process of comparing the performance of a product, service or process against the best in the industry to identify opportunities for improvement.",
+          "If your intention is to use the verb, NEVER use 'job', always 'work'.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "He works as a teacher at that school.",
+            portuguese: "Ele trabalha como professor naquela escola.",
+          },
+          {
+            english: "I am working on a new project.",
+            portuguese: "Estou trabalhando em um novo projeto.",
+          },
+          {
+            english: "They worked together on the assignment.",
+            portuguese: "Eles trabalharam juntos na tarefa.",
+          },
+          {
+            english: "We were working late last night.",
+            portuguese: "Nós estávamos trabalhando até tarde ontem à noite.",
+          },
+          {
+            english: "She has worked here for five years.",
+            portuguese: "Ela trabalha aqui há cinco anos.",
+          },
+          {
+            english: "He will work on the report tomorrow.",
+            portuguese: "Ele trabalhará no relatório amanhã.",
+          },
+          {
+            english:
+              "By then, I will have been working for ten hours straight.",
+            portuguese: "Até lá, eu terei trabalhado por dez horas seguidas.",
+          },
+        ],
+      },
+      {
+        subtitle: "Job as Employment",
+        order: 1,
+        grid: 1,
+        comments: "Refers to employment or position.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "After studying literature, he got a job as a teacher.",
+            portuguese:
+              "Após estudar literatura, ele conseguiu um trabalho como professor.",
+          },
+          {
+            english: "I am hopeful that I will get the job.",
+            portuguese: "Estou esperançoso de que conseguirei o emprego.",
+          },
+          {
+            english: "For me, being a teacher is an inspiring job.",
+            portuguese: "Para mim, ser professor é uma profissão inspiradora.",
+          },
+          {
+            english: "The applicant meets the requirements of the job.",
+            portuguese: "O candidato atende aos requisitos do emprego.",
+          },
+          {
+            english: "There are many jobs in the retail sector.",
+            portuguese: "Há muitos empregos no setor do varejo.",
+          },
+        ],
+      },
+      {
+        subtitle: "Job as Task",
+        order: 2,
+        grid: 1,
+        comments: "Refers to a specific task or responsibility.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "Being a mother is not an easy job.",
+            portuguese: "Ser mãe não é uma tarefa fácil.",
+          },
+          {
+            english: "Cleaning the house is a tough job.",
+            portuguese: "Limpar a casa é um trabalho difícil.",
+          },
+          {
+            english: "Managing finances is an important job in any household.",
+            portuguese:
+              "Gerenciar as finanças é um trabalho importante em qualquer lar.",
+          },
+          {
+            english:
+              "Teaching young children requires a lot of patience; it's a demanding job.",
+            portuguese:
+              "Ensinar crianças pequenas requer muita paciência; é um trabalho exigente.",
+          },
+          {
+            english:
+              "Writing a novel is a job that demands creativity and dedication.",
+            portuguese:
+              "Escrever um romance é um trabalho que exige criatividade e dedicação.",
+          },
+          {
+            english:
+              "Repairing cars is not just a job, it's a passion for him.",
+            portuguese:
+              "Consertar carros não é apenas um trabalho, é uma paixão para ele.",
+          },
+        ],
+      },
+      {
+        subtitle: "Work (Noun Usage)",
+        order: 1,
+        grid: 1,
+        comments: "Refers to tasks completed or to be done.",
         type: "sentences",
         sentences: [
           {
             english:
-              "Our company conducts regular benchmarking against industry leaders to stay competitive.",
+              "I congratulated my employees on the excellent work they did.",
             portuguese:
-              "Nossa empresa realiza benchmarking regularmente contra os líderes da indústria para se manter competitiva.",
+              "Eu parabenizei meus funcionários pelo excelente trabalho que eles fizeram.",
           },
           {
-            english:
-              "Benchmarking revealed that our website loading speed was slower compared to our main competitors.",
-            portuguese:
-              "O benchmarking revelou que a velocidade de carregamento de nosso site estava mais lenta em comparação com nossos principais concorrentes.",
+            english: "I need to go home because I have work to do.",
+            portuguese: "Preciso ir para casa porque tenho trabalho a fazer.",
           },
         ],
       },

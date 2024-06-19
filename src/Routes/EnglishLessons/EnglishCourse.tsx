@@ -91,7 +91,7 @@ export default function EnglishCourse({
           placeholder="Search classes by name..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ borderRadius: "0.5rem", padding: "0.5rem" }}
+          style={{ borderRadius: "0.3rem", padding: "0.3rem" }}
         />
       </div>
       <HTwo>Modules</HTwo>
