@@ -46,17 +46,22 @@ export const CoursesListItem = styled.li`
   }
 `;
 
+export const CoursesListInnerInnerContainer = styled.div`
+  max-height: 95vh;
+  overflow-y: auto;
+`;
 export const CoursesListInnerContainer = styled.div`
   width: 290px;
   border-radius: 0 20px 20px 0;
   display: grid;
-  max-height: 99.5vh;
+  max-height: 99.9vh;
   overflow-y: auto;
   padding: 1px;
   flex-direction: column;
   background-color: ${lightGreyColor()};
   padding: 2px;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const ArrowStyle = styled.span`
