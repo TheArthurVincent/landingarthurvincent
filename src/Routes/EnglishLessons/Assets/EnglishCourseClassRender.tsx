@@ -122,13 +122,15 @@ export default function EnglishLessonsRender({
       {myId === "651311fac3d58753aa9281c5" && (
         <div
           style={{
-            height: "2rem",
+            height: "3rem",
             backgroundColor: alwaysWhite(),
             boxShadow: "1px 1px 10px 2px grey",
             position: "fixed",
             cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
             minWidth: "100px",
-            bottom: 445,
+            bottom: 5,
             left: showCourses ? -339 : 3,
             borderRadius: "10px",
           }}
