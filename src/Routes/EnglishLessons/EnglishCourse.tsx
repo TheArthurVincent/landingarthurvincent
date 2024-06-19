@@ -64,7 +64,7 @@ export default function EnglishCourse({
               path={`${pathGenerator(cls.title)}`}
               element={
                 <EnglishLessonsRender
-                courseTitle={less.title}
+                  courseTitle={less.title}
                   order={idx}
                   back={back}
                   course={groupedLessonsArray}
@@ -118,8 +118,9 @@ export default function EnglishCourse({
                     <p>{cls.title}</p>
                     <img
                       style={{
-                        width: "100%",
-                        height: "100%",
+                        margin: "auto",
+                        width: "8rem",
+                        height: "8rem",
                         objectFit: "cover",
                         objectPosition: "center center",
                       }}

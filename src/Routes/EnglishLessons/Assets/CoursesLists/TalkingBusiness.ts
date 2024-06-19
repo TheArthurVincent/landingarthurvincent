@@ -1,5 +1,14 @@
 export const talkingBusiness = [
-  // PROFESSIONAL COMMUNICATION SKILLS
+  /////////// #1
+  // Introuction
+  {
+    title: "Introduction",
+    order: 0,
+    type: "1- Business Essentials",
+    description:
+      "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
+    elements: []
+  }, // PROFESSIONAL COMMUNICATION SKILLS
   {
     title: "Professional Communication Skills",
     order: 0,
@@ -694,7 +703,6 @@ export const talkingBusiness = [
       },
     ],
   },
-
   // PROFESSIONS
   {
     title: "Professions",
@@ -1161,7 +1169,6 @@ export const talkingBusiness = [
       },
     ],
   },
-
   // MANAGEMENT LEVELS #1
   {
     title: "Management Levels #1",
@@ -1383,7 +1390,6 @@ export const talkingBusiness = [
       },
     ],
   },
-
   // MANAGEMENT LEVELS #2
   {
     title: "Management Levels #2",
@@ -1693,7 +1699,6 @@ export const talkingBusiness = [
       },
     ],
   },
-
   // Companies and Important Verbs
   {
     title: "Companies and Important Verbs",
@@ -2177,7 +2182,7 @@ export const talkingBusiness = [
     description:
       "Let's learn general concepts and words, and see important corporate words being used.",
     image:
-      "https://media.istockphoto.com/id/133313561/pt/foto/livro-e-vidro-de-lupa.jpg?s=2048x2048&w=is&k=20&c=E2pQPcHf4hgIPGecknrovxMGG-VD9XKMmNsjCg8nAPI=",
+      "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
         subtitle: "Groceries",
@@ -2415,7 +2420,7 @@ export const talkingBusiness = [
     description:
       "Let's learn general concepts and words, and see important corporate words being used.",
     image:
-      "https://media.istockphoto.com/id/133313561/pt/foto/livro-e-vidro-de-lupa.jpg?s=2048x2048&w=is&k=20&c=E2pQPcHf4hgIPGecknrovxMGG-VD9XKMmNsjCg8nAPI=",
+      "https://images.pexels.com/photos/4567484/pexels-photo-4567484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
         subtitle: "Company",
@@ -2638,7 +2643,8 @@ export const talkingBusiness = [
     type: "1- Business Essentials",
     description:
       "Let's continue to learn general concepts and words, and see important corporate words being used.",
-    image: "https://images.pexels.com/photos/5439373/pexels-photo-5439373.jpeg",
+    image:
+      "https://images.pexels.com/photos/5238126/pexels-photo-5238126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
         subtitle: "Mission Statement",
@@ -2708,6 +2714,51 @@ export const talkingBusiness = [
           },
         ],
       },
+      {
+        subtitle: "Benchmarking - Comparação de Desempenho",
+        order: 4,
+        grid: 1,
+        comments:
+          "Benchmarking is the process of comparing the performance of a product, service or process against the best in the industry to identify opportunities for improvement.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Our company conducts regular benchmarking against industry leaders to stay competitive.",
+            portuguese:
+              "Nossa empresa realiza benchmarking regularmente contra os líderes da indústria para se manter competitiva.",
+          },
+          {
+            english:
+              "Benchmarking revealed that our website loading speed was slower compared to our main competitors.",
+            portuguese:
+              "O benchmarking revelou que a velocidade de carregamento de nosso site estava mais lenta em comparação com nossos principais concorrentes.",
+          },
+        ],
+      },
+    ],
+  },
+  //////// #2
+  //Introduction
+
+  {
+    title: "Introduction",
+    order: 0,
+    type: "2- General Business English",
+    description:
+      "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
+    elements: []
+  },
+  // Important vocabulary for the course #2
+  {
+    title: "Contrasting Nouns",
+    order: 1,
+    type: "2- General Business English",
+    description:
+      "Let's continue to learn general concepts and words, and see important corporate words being used.",
+    image:
+      "https://images.pexels.com/photos/5238126/pexels-photo-5238126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
       {
         subtitle: "Benchmarking - Comparação de Desempenho",
         order: 4,

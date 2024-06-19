@@ -26,7 +26,7 @@ export const CoursesListTitleContainer = styled.div`
 `;
 
 export const CoursesList = styled.ul`
-  height: 100vh;
+  height: fit-content;
 `;
 
 export const CoursesListItem = styled.li`
@@ -61,7 +61,6 @@ export const CoursesListInnerContainer = styled.div`
   background-color: ${lightGreyColor()};
   padding: 2px;
   justify-content: space-between;
-  align-items: center;
 `;
 
 export const ArrowStyle = styled.span`
