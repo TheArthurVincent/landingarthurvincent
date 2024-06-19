@@ -91,11 +91,17 @@ function CoursesSideBar({ courses }) {
           {courses.map((course, index) => (
             <div
               style={{
-                paddingTop: " 3rem",
+                padding: "1rem 0",
               }}
               key={index}
             >
-              <h2>{course.type}</h2>
+              <h2
+                style={{
+                  padding: "0 1rem ",
+                }}
+              >
+                {course.type}
+              </h2>
               <CoursesList>
                 {course.lessons[0].lessons.map((lesson, idx) => {
                   return (
