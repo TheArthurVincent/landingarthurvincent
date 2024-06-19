@@ -1,5 +1,5 @@
 import React from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv, RouteDivUp, RouteSizeControlBox } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
@@ -16,8 +16,8 @@ interface EnglishCoursesHomeProps {
 
 export default function EnglishCourses({
   headers,
-  // back,
-}: EnglishCoursesHomeProps) {
+}: // back,
+EnglishCoursesHomeProps) {
   const transformLessons = (lessons: any): any[] => {
     return Object.entries(
       lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
@@ -63,7 +63,7 @@ export default function EnglishCourses({
     },
   ];
   return (
-    <RouteDiv>
+    <RouteDivUp>
       <Routes>
         {listOfCourses.map((route: any, idx: number) => (
           <Route
@@ -79,50 +79,52 @@ export default function EnglishCourses({
           />
         ))}
       </Routes>
-      <Helmets text="Courses" />
-      <HOne>Escolha um curso</HOne>
-      <ul
-        style={{
-          display: "grid",
-          gap: "1rem",
-        }}
-      >
-        {listOfCourses.map((route: any, idx: number) => (
-          <Link
-            style={{
-              textDecoration: "none",
-            }}
-            key={idx}
-            to={pathGenerator(route.title)}
-          >
-            <div
-              className="hvr"
+      <RouteDiv>
+        <Helmets text="Courses" />
+        <HOne>Escolha um curso</HOne>
+        <ul
+          style={{
+            display: "grid",
+            gap: "1rem",
+          }}
+        >
+          {listOfCourses.map((route: any, idx: number) => (
+            <Link
               style={{
-                display: "flex",
-                gap: "1rem",
-                padding: "1rem",
-                borderRadius: "1rem",
-                alignItems: "center",
-                justifyContent: "space-between",
+                textDecoration: "none",
               }}
+              key={idx}
+              to={pathGenerator(route.title)}
             >
-              <img
+              <div
+                className="hvr"
                 style={{
-                  maxWidth: "10rem",
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center center",
+                  display: "flex",
+                  gap: "1rem",
+                  padding: "1rem",
+                  borderRadius: "1rem",
+                  alignItems: "center",
+                  justifyContent: "space-between",
                 }}
-                src={route.image}
-                alt={`${route.title}img`}
-              />
-              <h2>{route.title}</h2>
-            </div>
-          </Link>
-        ))}
-      </ul>
-      <Outlet />
-    </RouteDiv>
+              >
+                <img
+                  style={{
+                    maxWidth: "10rem",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center center",
+                  }}
+                  src={route.image}
+                  alt={`${route.title}img`}
+                />
+                <h2>{route.title}</h2>
+              </div>
+            </Link>
+          ))}
+        </ul>
+        <Outlet />
+      </RouteDiv>
+    </RouteDivUp>
   );
 }

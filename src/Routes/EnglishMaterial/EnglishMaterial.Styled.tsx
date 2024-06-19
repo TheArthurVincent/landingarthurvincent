@@ -40,8 +40,8 @@ export const CourseCard = styled.div`
   font-weight: 800;
   display: flex;
   background-color: ${lightGreyColor()};
-  height: 8rem;
-  width: 7rem;
+  height: 10rem;
+  width: 8rem;
   padding: 1rem 0.2rem;
   flex-direction: column;
   transition: 0.3s;

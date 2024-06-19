@@ -47,6 +47,27 @@ export default function EnglishCourse({
   }));
 
   return (
+    <>
+    <Routes>
+      {filteredLessons.map((course: any, index: number) =>
+        course.lessons.map((cls: any, idx: number) => (
+          <Route
+            key={idx}
+            path={`${pathGenerator(cls.title)}`}
+            element={
+              <EnglishLessonsRender
+                courseTitle={less.title}
+                order={idx}
+                back={back}
+                course={groupedLessonsArray}
+                theclass={cls}
+                headers={headers}
+              />
+            }
+          />
+        ))
+      )}
+    </Routes>
     <div
       style={{
         backgroundColor: "#f1f1f1",
@@ -56,26 +77,6 @@ export default function EnglishCourse({
         borderBottom: "solid #000 1px",
       }}
     >
-      <Routes>
-        {filteredLessons.map((course: any, index: number) =>
-          course.lessons.map((cls: any, idx: number) => (
-            <Route
-              key={idx}
-              path={`${pathGenerator(cls.title)}`}
-              element={
-                <EnglishLessonsRender
-                courseTitle={less.title}
-                  order={idx}
-                  back={back}
-                  course={groupedLessonsArray}
-                  theclass={cls}
-                  headers={headers}
-                />
-              }
-            />
-          ))
-        )}
-      </Routes>
       <HOne>{less.title}</HOne>
       <div
         style={{
@@ -91,7 +92,7 @@ export default function EnglishCourse({
           placeholder="Search classes by name..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ borderRadius: "0.5rem", padding: "0.5rem" }}
+          style={{ borderRadius: "0.3rem", padding: "0.3rem" }}
         />
       </div>
       <HTwo>Modules</HTwo>
@@ -118,8 +119,9 @@ export default function EnglishCourse({
                     <p>{cls.title}</p>
                     <img
                       style={{
-                        width: "100%",
-                        height: "100%",
+                        margin: "auto",
+                        width: "8rem",
+                        height: "8rem",
                         objectFit: "cover",
                         objectPosition: "center center",
                       }}
@@ -141,5 +143,6 @@ export default function EnglishCourse({
       <Helmets text="Courses" />
       <Outlet />
     </div>
+    </>
   );
 }

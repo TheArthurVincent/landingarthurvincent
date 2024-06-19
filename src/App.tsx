@@ -6,7 +6,7 @@ import HomePage from "./Routes/HomePage";
 import NotFound from "./Routes/NotFound/NotFound";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
-import { All, authorizationToken } from "./App.Styled";
+import { authorizationToken } from "./App.Styled";
 import { MyHeadersType } from "./Resources/types.universalInterfaces";
 
 export const verifyToken = () => {
@@ -57,7 +57,7 @@ function App() {
   ];
 
   return (
-    <All>
+    <div>
       <UserProvider>
         <Router>
           <Routes>
@@ -67,7 +67,7 @@ function App() {
           </Routes>
         </Router>
       </UserProvider>
-    </All>
+    </div>
   );
 }
 

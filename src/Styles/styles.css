@@ -21,6 +21,22 @@ html {
 
 body {
   margin-top: 5rem;
+
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--blue-arvin);
+  border-radius: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: var(--green-arvin2);
 }
 
 * {

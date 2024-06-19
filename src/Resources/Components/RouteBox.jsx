@@ -34,6 +34,12 @@ export const RouteDiv = styled.div`
   }
 `;
 
+export const RouteDivUp = styled.div`
+  width: 60rem;
+  @media (max-width: 800px) {
+    width: 95vw;
+  }
+`;
 export const OverFlow = styled.div`
   max-height: 15rem,
   overflow: auto,
