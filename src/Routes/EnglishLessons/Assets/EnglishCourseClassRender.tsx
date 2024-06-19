@@ -80,7 +80,7 @@ export default function EnglishLessonsRender({
     window.location.assign(`/english-courses/${back}`);
   };
 
-  const [showCourses, setShowCourses] = useState(false);
+  const [showCourses, setShowCourses] = useState(true);
   const [arrow, setArrow] = useState(false);
 
   const handleShowCourses = () => {
