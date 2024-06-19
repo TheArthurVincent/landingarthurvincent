@@ -21,15 +21,11 @@ export const CoursesListTitleContainer = styled.div`
   background-color: ${alwaysWhite()};
   display: flex;
   align-items: center;
+  height: 98vh;
+  overflow-y: auto;
   justify-content: space-between;
   min-height: 63px;
   cursor: pointer;
-`;
-
-export const CoursesList = styled.ul`
-  overflow-y: auto;
-  max-height: 99vh;
-  // padding-left: 10px;
 `;
 
 export const CoursesListItem = styled.li`
@@ -51,9 +47,9 @@ export const CoursesListItem = styled.li`
 
 export const CoursesListInnerContainer = styled.div`
   width: 290px;
-  border-radius:0 20px 20px 0 ;
+  border-radius: 0 20px 20px 0;
   display: grid;
-  padding:1px;
+  padding: 1px;
   flex-direction: column;
   background-color: ${lightGreyColor()};
   padding: 2px;
