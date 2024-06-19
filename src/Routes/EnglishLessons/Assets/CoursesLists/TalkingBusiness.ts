@@ -2169,10 +2169,249 @@ export const talkingBusiness = [
       },
     ],
   },
+  // Navigating Products
+  {
+    title: "Navigating Products",
+    order: 6,
+    type: "1- Business Essentials",
+    description:
+      "Let's learn general concepts and words, and see important corporate words being used.",
+    image:
+      "https://media.istockphoto.com/id/133313561/pt/foto/livro-e-vidro-de-lupa.jpg?s=2048x2048&w=is&k=20&c=E2pQPcHf4hgIPGecknrovxMGG-VD9XKMmNsjCg8nAPI=",
+    elements: [
+      {
+        subtitle: "Groceries",
+        order: 0, // get the order right
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Thank you for bagging my groceries for me.",
+            portuguese: "Obrigado por embalar minhas compras para mim.",
+          },
+          {
+            english: "She went to the supermarket to buy groceries.",
+            portuguese: "Ela foi ao supermercado para comprar mantimentos.",
+          },
+          {
+            english: "I bought bread, coffee and milk at the grocery store.",
+            portuguese: "Eu comprei pão, café e leite na mercearia.",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Purchase",
+        order: 1,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "I’m not in a position to make a major purchase like a car.",
+            portuguese:
+              "Não estou em posição de fazer uma compra importante, como um carro.",
+          },
+          {
+            english: "The couple is very happy with the purchase of the house.",
+            portuguese: "O casal está muito feliz com a compra da casa.",
+          },
+          {
+            english: "We made the purchase directly with the vendor.",
+            portuguese: "Fizemos a compra diretamente com o fornecedor.",
+          },
+        ],
+      },
+
+      {
+        subtitle: "Goods",
+        order: 2,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "There’s a sale on home goods this week.",
+            portuguese: "Há uma liquidação de produtos domésticos esta semana.",
+          },
+          {
+            english: "The goods have to match the samples.",
+            portuguese: "Os produtos têm de corresponder às amostras.",
+          },
+          {
+            english: "Global trade enables a wider exchange of goods.",
+            portuguese:
+              "O comércio global possibilita uma troca maior de produtos.",
+          },
+        ],
+      },
+      {
+        subtitle: "Merchandise",
+        order: 3,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Half of our merchandise is for export.",
+            portuguese: "Metade da nossa mercadoria é para exportação.",
+          },
+          {
+            english: "A carrier will deliver the merchandise.",
+            portuguese: "Uma transportadora entregará a mercadoria.",
+          },
+        ],
+      },
+      {
+        subtitle: "Materials",
+        order: 3,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "We need more materials to complete the project.",
+            portuguese: "Precisamos de mais materiais para concluir o projeto.",
+          },
+          {
+            english: "The quality of the materials affects the final product.",
+            portuguese: "A qualidade dos materiais afeta o produto final.",
+          },
+        ],
+      },
+      {
+        subtitle: "Wares",
+        order: 4,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The market was filled with a variety of wares.",
+            portuguese:
+              "O mercado estava cheio de uma variedade de mercadorias.",
+          },
+          {
+            english: "She displayed her wares at the local fair.",
+            portuguese: "Ela exibiu suas mercadorias na feira local.",
+          },
+        ],
+      },
+      {
+        subtitle: "Items",
+        order: 5,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "We need to inventory all the items in the warehouse.",
+            portuguese:
+              "Precisamos fazer o inventário de todos os itens no armazém.",
+          },
+          {
+            english: "These items are on sale this week.",
+            portuguese: "Estes itens estão em promoção esta semana.",
+          },
+        ],
+      },
+      {
+        subtitle: "Commodities",
+        order: 6,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The prices of commodities fluctuate daily.",
+            portuguese: "Os preços das commodities flutuam diariamente.",
+          },
+          {
+            english: "Oil and gold are valuable commodities.",
+            portuguese: "Petróleo e ouro são commodities valiosas.",
+          },
+        ],
+      },
+      {
+        subtitle: "Warehouse",
+        order: 9,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The warehouse is full of various goods.",
+            portuguese: "O armazém está cheio de vários produtos.",
+          },
+          {
+            english: "They moved the inventory to a larger warehouse.",
+            portuguese: "Eles moveram o inventário para um armazém maior.",
+          },
+        ],
+      },
+      {
+        subtitle: "Supplies",
+        order: 5,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "We need to order more office supplies.",
+            portuguese: "Precisamos encomendar mais suprimentos de escritório.",
+          },
+          {
+            english: "The medical supplies were delivered on time.",
+            portuguese: "Os suprimentos médicos foram entregues a tempo.",
+          },
+        ],
+      },
+      {
+        subtitle: "Inventory",
+        order: 6,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "The inventory needs to be updated regularly.",
+            portuguese: "O inventário precisa ser atualizado regularmente.",
+          },
+          {
+            english: "They conducted a thorough inventory of the store.",
+            portuguese: "Eles realizaram um inventário completo da loja.",
+          },
+        ],
+      },
+      {
+        subtitle: "Stock",
+        order: 7,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "We have a large stock of winter clothing.",
+            portuguese: "Temos um grande estoque de roupas de inverno.",
+          },
+          {
+            english: "The stock levels are checked every week.",
+            portuguese: "Os níveis de estoque são verificados toda semana.",
+          },
+        ],
+      },
+      {
+        subtitle: "Units",
+        order: 8,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Each unit is individually packaged.",
+            portuguese: "Cada unidade é embalada individualmente.",
+          },
+          {
+            english: "The factory produces 1000 units per day.",
+            portuguese: "A fábrica produz 1000 unidades por dia.",
+          },
+        ],
+      },
+    ],
+  },
   // Important vocabulary for the course
   {
     title: "Important Vocabulary for the Course #1",
-    order: 6,
+    order: 7,
     type: "1- Business Essentials",
     description:
       "Let's learn general concepts and words, and see important corporate words being used.",
@@ -2396,7 +2635,7 @@ export const talkingBusiness = [
   // Important vocabulary for the course #2
   {
     title: "Important Vocabulary for the Course #2",
-    order: 7,
+    order: 8,
     type: "1- Business Essentials",
     description:
       "Let's continue to learn general concepts and words, and see important corporate words being used.",
