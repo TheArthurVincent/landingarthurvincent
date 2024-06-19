@@ -49,9 +49,11 @@ export default function EnglishCourse({
   return (
     <div
       style={{
-        marginBottom: "50rem",
         backgroundColor: "#f1f1f1",
-        padding: "1rem",
+        padding: "0.5rem",
+        marginBottom: "10rem",
+        paddingBottom: "1rem",
+        borderBottom: "solid #000 1px",
       }}
     >
       <Routes>
@@ -104,7 +106,7 @@ export default function EnglishCourse({
               overflowY: "auto",
               overflowX: "scroll",
               maxWidth: "100%",
-              padding: "1rem",
+              padding: "0.5rem",
             }}
           >
             {course.lessons.map((cls: any, idx: number) => (
