@@ -24,8 +24,15 @@ import {
 } from "../../../Styles/Styles";
 
 import { listOfButtons } from "./ListOfCriteria";
-import { HeadersProps } from "../../../Resources/types.universalInterfaces";
-export default function StudentsRanking({ headers }: HeadersProps) {
+import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
+
+
+interface StudentsRankingProps {
+  headers: MyHeadersType | null;
+  monthNow: string;
+}
+
+export default function StudentsRanking({ headers,monthNow }: StudentsRankingProps) {
   interface StudentsType {
     id: string;
     lastname: string;
@@ -312,8 +319,8 @@ export default function StudentsRanking({ headers }: HeadersProps) {
           <i className="fa fa-refresh" aria-hidden="true"></i>
         </Button>
         <p>
-          Apenas os primeiros 5 colocados no Monthly Score são mostrados na
-          lista!
+          {`Apenas os primeiros 5 colocados em ${monthNow} são mostrados na
+          lista!`}
         </p>
       </div>
       {loading ? (
@@ -477,7 +484,7 @@ export default function StudentsRanking({ headers }: HeadersProps) {
                   <div
                     style={{
                       fontSize: "1rem",
-                      display: "grid",
+                      display: isAdm ? "grid" : "none",
                       textAlign: "center",
                       justifyContent: "center",
                       alignItems: "center",
@@ -489,12 +496,10 @@ export default function StudentsRanking({ headers }: HeadersProps) {
                       style={{
                         backgroundColor: theItems[levelNumber].textcolor,
                         color: theItems[levelNumber].color,
-                        display: isAdm ? "block" : "none",
                       }}
                     >
                       Pontuar
                     </Button>
-
                     <p
                       style={{
                         fontFamily: "Athiti",

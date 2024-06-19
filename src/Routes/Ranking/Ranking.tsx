@@ -18,23 +18,36 @@ import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
+import {
+  formatDate,
+  formatDateBr,
+  formatDateBrContract,
+} from "../../Resources/UniversalComponents";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
 
   const [value, setValue] = useState<string>("1");
   const [user, setUser] = useState<any>({});
+  const [monthInQuestion, setMonthInQuestion] = useState<string>("");
 
   useEffect(() => {
+    const d = new Date();
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(theuser);
+    const monthNow = (
+      formatDate(d).split(" ")[0] +
+      "/" +
+      formatDate(d).split(" ")[2]
+    ).split(",")[0];
+    setMonthInQuestion(monthNow);
   }, []);
 
   const componentsToRender = [
     {
-      title: UniversalTexts.monthlyRanking,
+      title: monthInQuestion,
       value: "1",
-      component: <StudentsRanking headers={headers} />,
+      component: <StudentsRanking monthNow={monthInQuestion} headers={headers} />,
     },
     {
       title: UniversalTexts.totalRanking,
