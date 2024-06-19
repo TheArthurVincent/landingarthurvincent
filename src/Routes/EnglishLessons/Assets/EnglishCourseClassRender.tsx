@@ -123,6 +123,7 @@ export default function EnglishLessonsRender({
         <div
           style={{
             height: "3rem",
+            padding: "0 10px ",
             backgroundColor: alwaysWhite(),
             boxShadow: "1px 1px 10px 2px grey",
             position: "fixed",
@@ -131,7 +132,8 @@ export default function EnglishLessonsRender({
             alignItems: "center",
             minWidth: "100px",
             bottom: 5,
-            left: showCourses ? -339 : 3,
+
+            left: showCourses ? -338 : 3,
             borderRadius: "10px",
           }}
         >
@@ -144,7 +146,6 @@ export default function EnglishLessonsRender({
           </select>
           <ArvinButton color="green" onClick={fetchStudents}>
             <i className="fa fa-refresh" aria-hidden="true" />
-            <i className="fa fa-user" aria-hidden="true" />
           </ArvinButton>
 
           <span
@@ -154,7 +155,7 @@ export default function EnglishLessonsRender({
             }}
           >
             <i
-              className={`fa fa-arrow-${!arrow ? "left" : "right"}`}
+              className={`fa fa-arrow-${arrow ? "left" : "right"}`}
               style={{
                 margin: "5px",
                 fontSize: "16px",
