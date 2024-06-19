@@ -73,15 +73,24 @@ export default function EnglishCourse({
         )}
       </Routes>
       <HOne>{less.title}</HOne>
-      <ArvinButton onClick={backToCourses}>Back to Courses</ArvinButton>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "left",
+          gap: "1rem",
+        }}
+      >
+        <ArvinButton onClick={backToCourses}>Back to Courses</ArvinButton>
+        <input
+          type="text"
+          placeholder="Search classes by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ borderRadius: "0.5rem", padding: "0.5rem" }}
+        />
+      </div>
       <HTwo>Modules</HTwo>
-      <input
-        type="text"
-        placeholder="Search classes by name..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ marginBottom: "1rem", padding: "0.5rem" }}
-      />
       {filteredLessons.map((course: any, index: number) => (
         <div key={index}>
           <HThree>{course.type}: Classes</HThree>
