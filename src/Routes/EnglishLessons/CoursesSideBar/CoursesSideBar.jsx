@@ -100,7 +100,8 @@ function CoursesSideBar({ courses }) {
                   style={{
                     padding: "0 1rem ",
                   }}
-                >{course.type}
+                >
+                  {course.type}
                 </h2>
                 <CoursesList>
                   {course.lessons[0].lessons.map((lesson, idx) => {
@@ -126,9 +127,8 @@ function CoursesSideBar({ courses }) {
                           onClick={handleHideCourses}
                         >
                           <span>
-                            {idx + 1 + "- " + truncateTitle(lesson.title, 30)}
+                            {idx + "- " + truncateTitle(lesson.title, 30)}
                           </span>
-                          {/* <span>{UniversalTexts.specialCharacters.circle}</span> */}
                         </CoursesListItem>
                       </div>
                     );

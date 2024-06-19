@@ -25,6 +25,7 @@ import {
   primaryColor,
   textPrimaryColorContrast,
 } from "../../../Styles/Styles";
+import TextsWithTranslateLessonModel from "./LessonsModels/TextWithNoAudio";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -252,6 +253,11 @@ export default function EnglishLessonsRender({
               <SingleImageLessonModel headers={headers} element={element} />
             ) : element.type === "listenandtranslate" ? (
               <ListenAndTranslateLessonModel
+                headers={headers}
+                element={element}
+              />
+            ) : element.type === "textswithnoaudio" ? (
+              <TextsWithTranslateLessonModel
                 headers={headers}
                 element={element}
               />

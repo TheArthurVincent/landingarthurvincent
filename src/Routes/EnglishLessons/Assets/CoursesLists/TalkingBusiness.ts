@@ -2,11 +2,12 @@ export const talkingBusiness = [
   /////////// #1
   // Introuction
   {
-    title: "Introduction",
+    title: "Introduction 1",
     order: 0,
     type: "1- Business Essentials",
+
     description:
-      "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
+      "Welcome to the Business Essentials module! This comprehensive series covers fundamental aspects of business communication, professional etiquette, management structures, company operations, and essential vocabulary. Whether you're new to business environments or seeking to enhance your professional skills, these classes will equip you with the knowledge and language proficiency needed to thrive in various business scenarios. Explore topics ranging from effective communication strategies to understanding corporate structures and navigating business interactions with confidence.",
     elements: [],
   }, // PROFESSIONAL COMMUNICATION SKILLS
   {
@@ -1181,24 +1182,19 @@ export const talkingBusiness = [
       {
         subtitle: "Supervisor /Overseer (Responsibilities)",
         order: 0,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
-            ptbrText:
-              "Applying the decisions of management and overseeing the team",
             enusAudio:
               "Applying the decisions of management and overseeing the team",
           },
           {
-            ptbrText: "Delegating tasks to employees and managing workload.",
             enusAudio: "Delegating tasks to employees and managing workload.",
           },
           {
             enusAudio: "Addressing immediate issues of employees.",
-            ptbrText: "Addressing immediate issues of employees.",
           },
           {
-            ptbrText: "Reporting issues and challenges to managers.",
             enusAudio: "Reporting issues and challenges to managers.",
           },
         ],
@@ -1248,25 +1244,20 @@ export const talkingBusiness = [
       {
         subtitle: "Manager (Responsibilities)",
         order: 2,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
               "Planning and coordinating operations in the department.",
-            ptbrText: "Planning and coordinating operations in the department.",
           },
           {
             enusAudio: "Supervising staff and monitoring their performance.",
-            ptbrText: "Supervising staff and monitoring their performance.",
           },
           {
             enusAudio: "Setting goals and objectives for the team.",
-            ptbrText: "Setting goals and objectives for the team.",
           },
           {
             enusAudio:
-              "Reviewing financial reports and making strategic decisions.",
-            ptbrText:
               "Reviewing financial reports and making strategic decisions.",
           },
         ],
@@ -1318,28 +1309,21 @@ export const talkingBusiness = [
       {
         subtitle: "Director (Responsibilities)",
         order: 4,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
               "Setting overall goals and strategies for the organization.",
-            ptbrText:
-              "Setting overall goals and strategies for the organization.",
           },
           {
             enusAudio:
-              "Leading and directing departments to achieve company objectives.",
-            ptbrText:
               "Leading and directing departments to achieve company objectives.",
           },
           {
             enusAudio: "Reporting to the board of directors and stakeholders.",
-            ptbrText: "Reporting to the board of directors and stakeholders.",
           },
           {
             enusAudio:
-              "Ensuring compliance with legal and regulatory requirements.",
-            ptbrText:
               "Ensuring compliance with legal and regulatory requirements.",
           },
         ],
@@ -1402,21 +1386,17 @@ export const talkingBusiness = [
       {
         subtitle: "Team Lead / Team Supervisor (Responsibilities)",
         order: 0,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
               "Directly managing a small team within a department or project.",
-            ptbrText:
-              "Directly managing a small team within a department or project.",
           },
           {
             enusAudio: "Assigning tasks and ensuring their completion.",
-            ptbrText: "Assigning tasks and ensuring their completion.",
           },
           {
             enusAudio: "Reporting team progress to upper management.",
-            ptbrText: "Reporting team progress to upper management.",
           },
         ],
       },
@@ -1451,19 +1431,16 @@ export const talkingBusiness = [
       {
         subtitle: "Assistant Manager (Responsibilities)",
         order: 2,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio: "Supporting the manager in daily operations.",
-            ptbrText: "Supporting the manager in daily operations.",
           },
           {
             enusAudio: "Handling specific projects or operational areas.",
-            ptbrText: "Handling specific projects or operational areas.",
           },
           {
             enusAudio: "Assisting in decision-making and problem-solving.",
-            ptbrText: "Assisting in decision-making and problem-solving.",
           },
         ],
       },
@@ -1499,19 +1476,16 @@ export const talkingBusiness = [
       {
         subtitle: "Division Manager (Responsibilities)",
         order: 4,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio: "Managing an entire division or large department.",
-            ptbrText: "Managing an entire division or large department.",
           },
           {
             enusAudio: "Setting divisional goals and performance targets.",
-            ptbrText: "Setting divisional goals and performance targets.",
           },
           {
             enusAudio: "Monitoring divisional financial performance.",
-            ptbrText: "Monitoring divisional financial performance.",
           },
         ],
       },
@@ -1545,24 +1519,18 @@ export const talkingBusiness = [
       {
         subtitle: "Vice President (Responsibilities)",
         order: 6,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
               "Overseeing a significant area such as finance, operations, or marketing.",
-            ptbrText:
-              "Overseeing a significant area such as finance, operations, or marketing.",
           },
           {
             enusAudio:
               "Developing long-term strategies for their respective areas.",
-            ptbrText:
-              "Developing long-term strategies for their respective areas.",
           },
           {
             enusAudio:
-              "Ensuring departmental goals align with organizational objectives.",
-            ptbrText:
               "Ensuring departmental goals align with organizational objectives.",
           },
         ],
@@ -1597,24 +1565,18 @@ export const talkingBusiness = [
       {
         subtitle: "Chief Officer (Responsibilities)",
         order: 8,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
               "Leading a specific functional area across the organization.",
-            ptbrText:
-              "Leading a specific functional area across the organization.",
           },
           {
             enusAudio:
               "Developing and implementing strategies to achieve organizational goals.",
-            ptbrText:
-              "Developing and implementing strategies to achieve organizational goals.",
           },
           {
             enusAudio:
-              "Ensuring compliance with industry regulations and standards.",
-            ptbrText:
               "Ensuring compliance with industry regulations and standards.",
           },
         ],
@@ -1650,23 +1612,18 @@ export const talkingBusiness = [
         subtitle:
           "President / Chief Executive Officer (CEO) (Responsibilities)",
         order: 10,
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
               "Setting overall strategic direction and goals for the organization.",
-            ptbrText:
-              "Setting overall strategic direction and goals for the organization.",
           },
           {
             enusAudio:
               "Overseeing all aspects of organizational performance and operations.",
-            ptbrText:
-              "Overseeing all aspects of organizational performance and operations.",
           },
           {
             enusAudio: "Reporting to the board of directors and shareholders.",
-            ptbrText: "Reporting to the board of directors and shareholders.",
           },
         ],
       },
@@ -1780,12 +1737,10 @@ export const talkingBusiness = [
         order: 1,
         image:
           "https://podcast.brasildefato.com.br/wp-content/uploads/2019/05/Embraer-Divulgacao-868x500.jpg",
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
-              "Embraer is a Brazilian company. They make and sell airplanes. They have factories in Brazil and sales offices all over the world. In the factories, they build airplanes. They also design new products by computer in the R&D Department. They export products to China, the USA and Europe..",
-            ptbrText:
               "Embraer is a Brazilian company. They make and sell airplanes. They have factories in Brazil and sales offices all over the world. In the factories, they build airplanes. They also design new products by computer in the R&D Department. They export products to China, the USA and Europe..",
           },
         ],
@@ -1941,12 +1896,10 @@ export const talkingBusiness = [
         order: 2,
         image:
           "https://japan-forward.com/wp-content/uploads/2020/01/Interview-with-Tadashi-Yanai-UNIQLO-Founder-003.jpg",
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
-              "Uniqlo is a Japanese company. They sell clothes. They have stores in 13 countries around the world. Customers visit the stores and buy the products. They also have an online store. Customers order products online. Then, they deliver the products to the customer.",
-            ptbrText:
               "Uniqlo is a Japanese company. They sell clothes. They have stores in 13 countries around the world. Customers visit the stores and buy the products. They also have an online store. Customers order products online. Then, they deliver the products to the customer.",
           },
         ],
@@ -2030,12 +1983,10 @@ export const talkingBusiness = [
         order: 5,
         image:
           "http://www.pixelstalk.net/wp-content/uploads/2015/12/Nike-Classic-Logo-Wallpaper-Pics.jpg",
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
-              "Nike is renowned for acquiring cutting-edge technologies to innovate athletic wear. The company coordinates global marketing campaigns adeptly, maintaining a strong brand identity worldwide. Nike assesses market trends meticulously, ensuring their products resonate with diverse consumer segments and maintain leadership in the sportswear industry.",
-            ptbrText:
               "Nike is renowned for acquiring cutting-edge technologies to innovate athletic wear. The company coordinates global marketing campaigns adeptly, maintaining a strong brand identity worldwide. Nike assesses market trends meticulously, ensuring their products resonate with diverse consumer segments and maintain leadership in the sportswear industry.",
           },
         ],
@@ -2162,12 +2113,10 @@ export const talkingBusiness = [
         order: 7,
         image:
           "https://wallup.net/wp-content/uploads/2018/09/25/607713-Tesla_Motors-logo.jpg",
-        type: "listenandtranslate",
+        type: "textswithnoaudio",
         audios: [
           {
             enusAudio:
-              "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
-            ptbrText:
               "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
           },
         ],
@@ -2742,7 +2691,7 @@ export const talkingBusiness = [
   //Introduction
 
   {
-    title: "Introduction",
+    title: "Introduction 2",
     order: 0,
     type: "2- General Business English",
     description:
@@ -2884,6 +2833,548 @@ export const talkingBusiness = [
           {
             english: "I need to go home because I have work to do.",
             portuguese: "Preciso ir para casa porque tenho trabalho a fazer.",
+          },
+        ],
+      },
+    ],
+  },
+  // Debit vs. Credit
+  {
+    title: "Debit vs. Credit",
+    order: 2,
+    type: "2- General Business English",
+    description:
+      "In this class, we will explore the fundamental concepts of credit and debit. We'll discuss how credit allows immediate access to goods and services with deferred payment, contrasting it with debit, which deducts funds directly from an account. Join us to delve into their impacts on personal finances and economic dynamics.",
+    image:
+      "https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Examples in sentences'",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Buying something on credit means receiving goods or services straight away and paying for them later.",
+            portuguese:
+              "‘Comprar a crédito’ significa receber bens ou serviços imediatamente e pagá-los posteriormente.",
+          },
+          {
+            english: "She decided to purchase the laptop on credit.",
+            portuguese: "Ela decidiu comprar o laptop a crédito.",
+          },
+          {
+            english: "Many people prefer to pay for vacations on credit.",
+            portuguese: "Muitas pessoas preferem pagar as férias a crédito.",
+          },
+          {
+            english: "He always uses his credit card for online purchases.",
+            portuguese:
+              "Ele sempre usa seu cartão de crédito para compras online.",
+          },
+          {
+            english: "I prefer to pay with debit rather than credit.",
+            portuguese: "Eu prefiro pagar com débito em vez de crédito.",
+          },
+          {
+            english: "They offer discounts if you pay by direct debit.",
+            portuguese:
+              "Eles oferecem descontos se você pagar por débito direto.",
+          },
+          {
+            english: "Using a debit card ensures you spend within your means.",
+            portuguese:
+              "Usar um cartão de débito garante que você gaste dentro dos seus limites.",
+          },
+          {
+            english: "He bought the furniture on credit.",
+            portuguese: "Ele comprou os móveis a crédito.",
+          },
+          {
+            english: "We bought the dishwasher on credit.",
+            portuguese: "Compramos a máquina de lavar louça a crédito.",
+          },
+          {
+            english: "56% of new cars were bought on credit.",
+            portuguese: "56% dos carros novos foram comprados a crédito.",
+          },
+          {
+            english:
+              "If they buy on credit, are they likely to encounter difficulties in repaying the loan?",
+            portuguese:
+              "Se comprarem a crédito, é provável que tenham dificuldades para pagar o empréstimo?",
+          },
+          {
+            english: "I paid with my debit card.",
+            portuguese: "Paguei com meu cartão de débito.",
+          },
+          {
+            english: "I pay my electricity bill by direct debit.",
+            portuguese: "Eu pago minha conta de luz por débito direto.",
+          },
+        ],
+      },
+    ],
+  },
+  // Success vs. Failure
+  {
+    title: "Success vs. Failure",
+    order: 3,
+    type: "2- General Business English",
+    description:
+      "In this class, we will explore the contrasting concepts of success and failure. Success is achieving desired goals or outcomes, often through perseverance and strategic planning. Conversely, failure denotes the absence or non-achievement of goals, presenting opportunities for learning and growth. Join us to delve into their impacts on personal development and professional endeavors.",
+    image:
+      "https://images.pexels.com/photos/262333/pexels-photo-262333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Examples in sentences",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Her hard work and dedication led to great success in her career.",
+            portuguese:
+              "Seu trabalho árduo e dedicação levaram a grandes sucessos em sua carreira.",
+          },
+          {
+            english:
+              "Success in business often requires risk-taking and innovation.",
+            portuguese:
+              "O sucesso nos negócios frequentemente requer tomar riscos e inovação.",
+          },
+          {
+            english:
+              "He viewed the setback not as failure but as a stepping stone to future success.",
+            portuguese:
+              "Ele viu o contratempo não como falha, mas como um trampolim para o sucesso futuro.",
+          },
+          {
+            english:
+              "Failure teaches us valuable lessons that success often cannot.",
+            portuguese:
+              "A falha nos ensina lições valiosas que o sucesso muitas vezes não pode.",
+          },
+          {
+            english:
+              "They learned from their failures and emerged stronger and more resilient.",
+            portuguese:
+              "Eles aprenderam com seus fracassos e emergiram mais fortes e resilientes.",
+          },
+          {
+            english:
+              "Not achieving the expected results doesn't mean you're a failure.",
+            portuguese:
+              "Não alcançar os resultados esperados não significa que você é um fracasso.",
+          },
+          {
+            english:
+              "Success is not always measured by monetary gains but by personal satisfaction.",
+            portuguese:
+              "O sucesso nem sempre é medido por ganhos monetários, mas pela satisfação pessoal.",
+          },
+          {
+            english:
+              "They celebrated their team's success with a well-deserved party.",
+            portuguese:
+              "Eles celebraram o sucesso de sua equipe com uma festa merecida.",
+          },
+          {
+            english:
+              "The project's failure led to a reevaluation of their approach.",
+            portuguese:
+              "O fracasso do projeto levou a uma reavaliação de sua abordagem.",
+          },
+          {
+            english:
+              "Success often requires persistence in the face of challenges.",
+            portuguese:
+              "O sucesso frequentemente requer persistência diante dos desafios.",
+          },
+          {
+            english:
+              "She experienced both success and failure in her entrepreneurial journey.",
+            portuguese:
+              "Ela experimentou tanto o sucesso quanto o fracasso em sua jornada empreendedora.",
+          },
+          {
+            english:
+              "Learning from past failures is key to achieving future success.",
+            portuguese:
+              "Aprender com fracassos passados é fundamental para alcançar o sucesso futuro.",
+          },
+        ],
+      },
+    ],
+  },
+  // Buy vs. sell
+  {
+    title: "To Buy vs. To Sell",
+    order: 4,
+    type: "2- General Business English",
+    description:
+      "In this class, we will explore the actions of buying and selling. 'To buy' refers to acquiring goods or services in exchange for payment, while 'to sell' involves transferring goods or services to another party in exchange for money. Join us to examine their roles in commerce and the dynamics of markets.",
+    image:
+      "https://images.pexels.com/photos/696205/pexels-photo-696205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Examples in sentences",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Next year, the company will have enough money to buy a new facility.",
+            portuguese:
+              "No ano que vem, a empresa terá dinheiro suficiente para comprar uma nova unidade.",
+          },
+          {
+            english: "Buying a house is a good strategy against inflation.",
+            portuguese:
+              "Comprar uma casa é uma boa estratégia contra a inflação.",
+          },
+          {
+            english:
+              "The manager bought the furniture for the office on credit.",
+            portuguese:
+              "O gerente comprou os móveis para o escritório a crédito.",
+          },
+          {
+            english: "The perfume is the birthday gift I bought for my wife.",
+            portuguese:
+              "O perfume é o presente de aniversário que comprei para minha esposa.",
+          },
+          {
+            english: "The company sells products solely via the Internet.",
+            portuguese: "A empresa vende produtos exclusivamente via Internet.",
+          },
+          {
+            english:
+              "The company believes the products will sell well in the run-up to Christmas.",
+            portuguese:
+              "A empresa acredita que os produtos venderão bem no período que antecede o Natal.",
+          },
+          {
+            english: "The investor sold a parcel of shares.",
+            portuguese: "O investidor vendeu uma parcela de ações.",
+          },
+          {
+            english: "The painting was sold to a private collector.",
+            portuguese: "A pintura foi vendida a um colecionador particular.",
+          },
+        ],
+      },
+    ],
+  },
+  // Borrow vs. Lend
+  {
+    title: "To Borrow vs. To Lend",
+    order: 5,
+    type: "2- General Business English",
+    description:
+      "In this class, we will explore the actions of borrowing and lending. 'To borrow' refers to obtaining something temporarily with the intention of returning it, especially money or items. 'To lend' involves granting temporary use of something, typically money or possessions, with the expectation of its return. Join us to understand the dynamics of lending and borrowing in personal and professional contexts.",
+    image:
+      "https://images.pexels.com/photos/20746510/pexels-photo-20746510/free-photo-of-homem-livros-sentado-mesa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Examples in sentences",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Don’t lend money to that company.",
+            portuguese: "Não empreste dinheiro àquela empresa.",
+          },
+          {
+            english: "Lend your money and lose your friend.",
+            portuguese: "Empreste dinheiro e perca seu amigo.",
+          },
+          {
+            english: "If you lend me $10, I’ll repay it tomorrow.",
+            portuguese:
+              "Se você me emprestar $10, eu te pago novamente amanhã.",
+          },
+          {
+            english: "I lent him money.",
+            portuguese: "Eu emprestei dinheiro a ele.",
+          },
+          {
+            english: "He lent me money without asking for interest.",
+            portuguese: "Ele me emprestou dinheiro sem pedir juros.",
+          },
+          {
+            english: "I never got back the money I lent him without interest.",
+            portuguese:
+              "Nunca recebi de volta o dinheiro que emprestei a ele sem juros.",
+          },
+          {
+            english: "I want to borrow a book from the library.",
+            portuguese: "Eu quero pegar um livro emprestado da biblioteca.",
+          },
+          {
+            english: "Can I borrow your pen for a minute?",
+            portuguese: "Posso pegar sua caneta emprestada por um minuto?",
+          },
+          {
+            english: "Of course you should be ashamed to borrow money often.",
+            portuguese:
+              "É claro que você deveria ter vergonha de pegar dinheiro emprestado com frequência.",
+          },
+          {
+            english:
+              "We do not inherit the Earth from our Ancestors; we borrow it from our Children.",
+            portuguese:
+              "Não herdamos a Terra de nossos ancestrais; nós a pegamos emprestada de nossos filhos.",
+          },
+          {
+            english: "Borrowed garments never fit well.",
+            portuguese: "Roupas emprestadas nunca caem bem.",
+          },
+          {
+            english: "He borrowed heavily to set the company up.",
+            portuguese: "Ele fez muitos empréstimos para montar a empresa.",
+          },
+          {
+            english: "Japanese has borrowed heavily from English.",
+            portuguese: "O japonês emprestou muito do inglês.",
+          },
+        ],
+      },
+    ],
+  },
+  // Promotion vs. Demotion
+  {
+    title: "To Promote vs. To Demote",
+    order: 6,
+    type: "2- General Business English",
+    description:
+      "In this class, we will explore the actions of promoting and demoting individuals within an organizational context. 'To promote' refers to advancing someone to a higher position or rank, typically as a reward for performance or merit. Conversely, 'to demote' involves lowering someone's rank or position due to poor performance or other reasons. Join us to understand the dynamics of career progression and management decisions.",
+    image:
+      "https://images.pexels.com/photos/1181469/pexels-photo-1181469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    elements: [
+      {
+        subtitle: "Verbs (to promote and to demote)",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "I was promoted.",
+            portuguese: "Fui promovido.",
+          },
+          {
+            english: "I was promoted to a new position.",
+            portuguese: "Fui promovido a um novo cargo.",
+          },
+          {
+            english: "The director promoted her to head of department.",
+            portuguese: "O diretor a promoveu a chefe de departamento.",
+          },
+          {
+            english:
+              "In this year he was promoted to master, and in the following year was made lieutenant.",
+            portuguese:
+              "Nesse ano foi promovido a mestre e, no ano seguinte, a tenente.",
+          },
+          {
+            english:
+              "If you don’t finish this report in time, the manager will never promote you.",
+            portuguese:
+              "Se você não terminar este relatório a tempo, o gerente nunca irá promovê-lo.",
+          },
+          {
+            english: "He was demoted.",
+            portuguese: "Ele foi rebaixado.",
+          },
+          {
+            english: "He was demoted from his position.",
+            portuguese: "Ele foi rebaixado de sua posição.",
+          },
+          {
+            english:
+              "The boss demoted the employee who made a serious mistake.",
+            portuguese:
+              "O chefe rebaixou o funcionário que cometeu um erro grave.",
+          },
+          {
+            english:
+              "Three teams are promoted, and three teams demoted from each division each year, depending on the circumstances.",
+            portuguese:
+              "Três equipes são promovidas e três equipes rebaixadas de cada divisão a cada ano, dependendo das circunstâncias.",
+          },
+          {
+            english:
+              "Those staff not successful would be effectively demoted (albeit with conserved salaries).",
+            portuguese:
+              "O pessoal sem sucesso seria efetivamente rebaixado (embora com salários conservados).",
+          },
+        ],
+      },
+      {
+        subtitle: "Promotion vs. Demotion",
+        order: 1,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Sarah’s promotion to Sales Manager took everyone by surprise.",
+            portuguese:
+              "A promoção de Sarah a gerente de vendas pegou todos de surpresa.",
+          },
+          {
+            english: "It’s just not realistic to expect a promotion so soon.",
+            portuguese: "Não é realista esperar uma promoção tão cedo.",
+          },
+          {
+            english: "He got a promotion.",
+            portuguese: "Ele ganhou uma promoção.",
+          },
+          {
+            english: "The team now almost certainlyfaces demotion.",
+            portuguese:
+              "A equipe agora quase certamente enfrenta rebaixamento.",
+          },
+          {
+            english:
+              "After the poor sales performance, the manager feared demotion.",
+            portuguese:
+              "Após o fraco desempenho de vendas, o gerente temia um rebaixamento.",
+          },
+          {
+            english:
+              "His demotion to a lower position was a shock to everyone in the department.",
+            portuguese:
+              "Seu rebaixamento para um cargo inferior foi um choque para todos no departamento.",
+          },
+          {
+            english:
+              "The demotion came as a consequence of consistent underperformance.",
+            portuguese:
+              "O rebaixamento veio como consequência de desempenho abaixo do esperado de forma consistente.",
+          },
+        ],
+      },
+    ],
+  },
+
+  // Short-term vs. Long-term
+
+  {
+    title: "Short-term vs. Long-term",
+    order: 7,
+    type: "2- General Business English",
+    description:
+      "This class explores the differences between short-term and long-term perspectives in business and personal finance. We'll discuss the implications of short-term decisions on cash flow and contracts, contrasting them with the strategic focus and implications of long-term investments and projects.",
+    image:
+      "https://ik.imagekit.io/vjz75qw96/default-image.jpg?updatedAt=1687268681177",
+    elements: [
+      {
+        subtitle: "Short-term",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Small traders often have short-term cash-flow problems.",
+            portuguese:
+              "Os pequenos operadores frequentemente têm problemas de fluxo de caixa de curto prazo.",
+          },
+          {
+            english: "Most of the staff are on short-term contracts.",
+            portuguese:
+              "A maior parte do pessoal tem contratos de curto prazo.",
+          },
+          {
+            english: "They sold the company purely for short-term gain.",
+            portuguese:
+              "Eles venderam a empresa puramente para obter ganhos de curto prazo.",
+          },
+        ],
+      },
+      {
+        subtitle: "Long-term",
+        order: 1,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "All their money was tied up in long-term investments.",
+            portuguese:
+              "Todo o dinheiro deles estava vinculado a investimentos de longo prazo.",
+          },
+          {
+            english:
+              "A new training scheme to help the long-term unemployed is expected.",
+            portuguese:
+              "É esperado um novo esquema de formação para ajudar os desempregados de longo prazo.",
+          },
+          {
+            english:
+              "She is very negative about the long-term viability of the project.",
+            portuguese:
+              "Ela é muito negativa sobre a viabilidade do projeto a longo prazo.",
+          },
+        ],
+      },
+    ],
+  },
+
+  // Gross vs. Net
+  {
+    title: "Gross vs. Net",
+    order: 8,
+    type: "2- General Business English",
+    description:
+      "This class explores the concepts of gross and net in financial contexts. We'll discuss how gross refers to total amounts before deductions, contrasting with net, which represents amounts after deductions such as taxes and expenses. Join us to understand their significance in business and personal finance.",
+    image:
+      "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Examples in sentences",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The company’s gross revenue from selling electronics on a daily basis is impressive.",
+            portuguese:
+              "A receita bruta da empresa da venda de eletrônicos diariamente é impressionante.",
+          },
+          {
+            english:
+              "She earned a gross income of $5,000 per month before taxes and expenses.",
+            portuguese:
+              "Ela ganhava uma renda bruta de $5.000 por mês antes de impostos e custos.",
+          },
+          {
+            english:
+              "The gross weight of the shipment, including packaging, was 500 kilograms.",
+            portuguese:
+              "O peso bruto da remessa, incluindo a embalagem, foi de 500kg.",
+          },
+          {
+            english:
+              "After deducting all costs and taxes, the net profit from the real estate deal was substantial.",
+            portuguese:
+              "Depois de deduzir todos os custos e impostos, o lucro líquido do negócio imobiliário foi substancial.",
+          },
+          {
+            english:
+              "Despite selling products on a regular basis, the net profit margin was lower than expected due to high operational expenses.",
+            portuguese:
+              "Apesar de vender produtos regularmente, a margem de lucro líquido foi mais baixa do que o esperado devido a altas despesas operacionais.",
+          },
+          {
+            english:
+              "After the discount and other charges were applied, the net amount to buy the laptop was $800.",
+            portuguese:
+              "Depois que o desconto e que outras cobranças foram aplicadas, o montante líquido para comprar o notebook foi $800.",
           },
         ],
       },
