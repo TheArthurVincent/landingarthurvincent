@@ -13,10 +13,13 @@ import { talkingBusiness } from "./Assets/CoursesLists/TalkingBusiness";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
-  back:any | null
+  back: any | null;
 }
 
-export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps) {
+export default function EnglishCourses({
+  headers,
+  back,
+}: EnglishCoursesHomeProps) {
   const transformLessons = (lessons: any): any[] => {
     return Object.entries(
       lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
@@ -33,16 +36,13 @@ export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps
   const englishClassesArray = transformLessons(englishGrammar);
   const textsArray = transformLessons(textsCourse);
 
-  const talkingBArray = talkingB.sort(
-    (a: any, b: any) => a.order - b.order
-  );
+  const talkingBArray = talkingB.sort((a: any, b: any) => a.order - b.order);
   const groupedEnglishLessonsArray = englishClassesArray.sort(
     (a: any, b: any) => a.order - b.order
   );
   const groupedTextsLessonsArray = textsArray.sort(
     (a: any, b: any) => a.order - b.order
   );
-
 
   const listOfCourses = [
     {
@@ -71,14 +71,18 @@ export default function EnglishCourses({ headers,back }: EnglishCoursesHomeProps
           <Route
             key={idx}
             path={`${pathGenerator(route.title)}/*`}
-            element={<EnglishCourse back={pathGenerator(route.title)} less={route} headers={headers} />}
+            element={
+              <EnglishCourse
+                back={pathGenerator(route.title)}
+                less={route}
+                headers={headers}
+              />
+            }
           />
         ))}
       </Routes>
       <Helmets text="Courses" />
       <HOne>Escolha um curso</HOne>
-
-    
       <ul
         style={{
           display: "grid",
