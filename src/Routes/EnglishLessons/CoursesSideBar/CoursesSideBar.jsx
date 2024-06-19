@@ -63,7 +63,7 @@ function CoursesSideBar({ courses }) {
               transition: "left 0.3s ease-out",
               color: alwaysWhite(),
               position: "fixed",
-              left: showCourses ? -70 : "-17.3rem",
+              left: showCourses ? -150 : "-17.3rem",
               top: 405,
               justifyContent: "space-between",
               cursor: "pointer",
@@ -128,7 +128,7 @@ function CoursesSideBar({ courses }) {
                         <span>
                           {idx + 1 + "- " + truncateTitle(lesson.title, 30)}
                         </span>
-                        <span>{UniversalTexts.specialCharacters.circle}</span>
+                        {/* <span>{UniversalTexts.specialCharacters.circle}</span> */}
                       </CoursesListItem>
                     </div>
                   );
@@ -142,9 +142,8 @@ function CoursesSideBar({ courses }) {
         onClick={handleHideCourses}
         style={{
           display: showCourses ? "block" : "none",
-          backgroundColor: "rgba(255, 255, 255, 0.2)",
-          width: "100vw",
-          height: "100vw",
+          width: "1000vw",
+          height: "1000vw",
         }}
       />
     </CoursesListContainer>
