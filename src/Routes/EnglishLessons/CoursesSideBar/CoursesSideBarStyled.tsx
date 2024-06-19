@@ -21,11 +21,12 @@ export const CoursesListTitleContainer = styled.div`
   background-color: ${alwaysWhite()};
   display: flex;
   align-items: center;
-  height: 98vh;
-  overflow-y: auto;
   justify-content: space-between;
-  min-height: 63px;
   cursor: pointer;
+`;
+
+export const CoursesList = styled.ul`
+  height: 100vh;
 `;
 
 export const CoursesListItem = styled.li`
@@ -49,6 +50,8 @@ export const CoursesListInnerContainer = styled.div`
   width: 290px;
   border-radius: 0 20px 20px 0;
   display: grid;
+  max-height: 99.5vh;
+  overflow-y: auto;
   padding: 1px;
   flex-direction: column;
   background-color: ${lightGreyColor()};
