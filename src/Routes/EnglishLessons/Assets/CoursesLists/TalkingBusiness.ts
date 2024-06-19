@@ -1,4 +1,5 @@
 export const talkingBusiness = [
+  // PROFESSIONAL COMMUNICATION SKILLS
   {
     title: "Professional Communication Skills",
     order: 0,
@@ -262,7 +263,7 @@ export const talkingBusiness = [
       },
     ],
   },
-
+  // introducing yourself
   {
     title: "Introducing Yourself Professionally",
     order: 1,
@@ -603,7 +604,7 @@ export const talkingBusiness = [
       },
     ],
   },
-
+  // Meeting Visitors at Arrival
   {
     title: "Meeting Visitors at Arrival",
     order: 2,
@@ -694,6 +695,7 @@ export const talkingBusiness = [
     ],
   },
 
+  // PROFESSIONS
   {
     title: "Professions",
     order: 3,
@@ -701,7 +703,7 @@ export const talkingBusiness = [
     description:
       "Learn to present yourself effectively when meeting visitors upon their arrival.",
     image:
-      "https://www.islandtaxi.co/wp-content/uploads/2020/12/waiting-for-passengers-with-name-sign-on-paper-at-airport-welcome-board-scaled-1.jpg",
+      "http://www.bmmagazine.co.uk/wp/wp-content/uploads/2017/03/shutterstock_79335553-e1489503022534.jpg",
     elements: [
       {
         subtitle: "Professions Names",
@@ -1159,13 +1161,15 @@ export const talkingBusiness = [
       },
     ],
   },
+
+  // MANAGEMENT LEVELS #1
   {
     title: "Management Levels #1",
     order: 4,
     type: "1- Business Essentials",
     description: "Learn the most common management levels.",
     image:
-      "https://www.islandtaxi.co/wp-content/uploads/2020/12/waiting-for-passengers-with-name-sign-on-paper-at-airport-welcome-board-scaled-1.jpg",
+      "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
         subtitle: "Supervisor /Overseer (Responsibilities)",
@@ -1379,13 +1383,15 @@ export const talkingBusiness = [
       },
     ],
   },
+
+  // MANAGEMENT LEVELS #2
   {
     title: "Management Levels #2",
     order: 5,
     type: "1- Business Essentials",
     description: "Keep learning about management levels.",
     image:
-      "https://www.islandtaxi.co/wp-content/uploads/2020/12/waiting-for-passengers-with-name-sign-on-paper-at-airport-welcome-board-scaled-1.jpg",
+      "https://images.pexels.com/photos/1586996/pexels-photo-1586996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
         subtitle: "Team Lead / Team Supervisor (Responsibilities)",
@@ -1682,6 +1688,481 @@ export const talkingBusiness = [
               "Our CEO fosters a culture of transparency and accountability across the organization.",
             portuguese:
               "Nosso CEO fomenta uma cultura de transparência e responsabilidade em toda a organização.",
+          },
+        ],
+      },
+    ],
+  },
+
+  // MANAGEMENT LEVELS #2
+  {
+    title: "Companies and Important Verbs",
+    order: 5,
+    type: "1- Business Essentials",
+    description: "Keep learning about management levels.",
+    image:
+      "https://images.pexels.com/photos/1586996/pexels-photo-1586996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Important Verbs #1",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "To make",
+            portuguese: "Fazer/Fabricar/Produzir.",
+          },
+          {
+            english: "The company makes cardboard boxes.",
+            portuguese: "A empresa fabrica caixas de papelão.",
+          },
+          {
+            english: "This company makes bicycle parts.",
+            portuguese: "Esta empresa fabrica peças para bicicletas.",
+          },
+          {
+            english: "The factory keeps the raw materials in a large store.",
+            portuguese:
+              "A fábrica guarda as matérias-primas em um grande armazém.",
+          },
+          {
+            english: "To build",
+            portuguese: "Montar/Construir",
+          },
+          {
+            english: "I used recycled wood to build a new bookcase.",
+            portuguese:
+              "Eu usei madeira reciclada para montar uma estante nova.",
+          },
+          {
+            english: "The worker stacked the bricks to build the wall.",
+            portuguese:
+              "O trabalhador empilhou os tijolos para construir a parede.",
+          },
+          {
+            english: "To design",
+            portuguese: "Projetar",
+          },
+          {
+            english: "There are impressively designed buildings in the city.",
+            portuguese:
+              "Há edifícios projetados de forma impressionante na cidade.",
+          },
+          {
+            english: "The architect designed a new house for the family.",
+            portuguese: "O arquiteto projetou uma casa nova para a família.",
+          },
+          {
+            english: "The company commissioned me to design its new logo.",
+            portuguese:
+              "A empresa me delegou para projetar o seu novo logotipo.",
+          },
+          {
+            english: "To export",
+            portuguese: "Exportar",
+          },
+          {
+            english: "My company exports products to Europe and Asia.",
+            portuguese:
+              "Minha empresa exporta produtos para a Europa e a Ásia.",
+          },
+        ],
+      },
+      {
+        subtitle: "Company #1 - Embraer",
+        order: 1,
+        image:
+          "https://podcast.brasildefato.com.br/wp-content/uploads/2019/05/Embraer-Divulgacao-868x500.jpg",
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Embraer is a Brazilian company. They make and sell airplanes. They have factories in Brazil and sales offices all over the world. In the factories, they build airplanes. They also design new products by computer in the R&D Department. They export products to China, the USA and Europe..",
+            ptbrText:
+              "Embraer is a Brazilian company. They make and sell airplanes. They have factories in Brazil and sales offices all over the world. In the factories, they build airplanes. They also design new products by computer in the R&D Department. They export products to China, the USA and Europe..",
+          },
+        ],
+      },
+      {
+        subtitle: "Important Verbs #2",
+        order: 2,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "To sell",
+            portuguese: "Vender",
+          },
+          {
+            english: "The company sells products solely via the Internet.",
+            portuguese: "A empresa vende produtos exclusivamente via Internet.",
+          },
+
+          {
+            english:
+              "The company sells software solutions to international markets.",
+            portuguese:
+              "A empresa vende soluções de software para mercados internacionais.",
+          },
+
+          {
+            english:
+              "She sells financial services to high-net-worth individuals.",
+            portuguese:
+              "Ela vende serviços financeiros para indivíduos de alto patrimônio.",
+          },
+
+          {
+            english: "The retailer sells luxury goods online and in stores.",
+            portuguese:
+              "O varejista vende produtos de luxo online e nas lojas físicas.",
+          },
+
+          {
+            english:
+              "Our team sells advertising space across multiple platforms.",
+            portuguese:
+              "Nossa equipe vende espaço publicitário em várias plataformas.",
+          },
+
+          {
+            english: "The investor sold a parcel of shares.",
+            portuguese: "O investidor vendeu uma parcela de ações.",
+          },
+          {
+            english: "To buy",
+            portuguese: "Comprar",
+          },
+
+          {
+            english: "The company bought a controlling stake in a competitor.",
+            portuguese:
+              "A empresa comprou uma participação controladora em um concorrente.",
+          },
+
+          {
+            english: "They bought new office space in the city center.",
+            portuguese:
+              "Eles compraram um novo espaço de escritório no centro da cidade.",
+          },
+
+          {
+            english: "Investors bought shares in the IPO.",
+            portuguese:
+              "Os investidores compraram ações na oferta pública inicial (IPO).",
+          },
+
+          {
+            english:
+              "The real estate developer bought land for a new housing project.",
+            portuguese:
+              "O incorporador imobiliário comprou terrenos para um novo projeto habitacional.",
+          },
+
+          {
+            english:
+              "Next year, the CEO will have enough money to buy new facilities.",
+            portuguese:
+              "No próximo ano, o CEO terá dinheiro suficiente para adquirir novas instalações.",
+          },
+          {
+            english: "To order",
+            portuguese: "Pedir",
+          },
+          {
+            english:
+              "The company ordered a large batch of custom-made components for the new product line.",
+            portuguese:
+              "A empresa pediu um grande lote de componentes sob medida para a nova linha de produtos.",
+          },
+
+          {
+            english:
+              "They ordered a comprehensive market analysis from a leading consultancy.",
+            portuguese:
+              "Eles pediram uma análise de mercado abrangente de uma consultoria líder.",
+          },
+
+          {
+            english:
+              "The board of directors ordered a review of the strategic plan before final approval.",
+            portuguese:
+              "O conselho de administração pediu uma revisão do plano estratégico antes da aprovação final.",
+          },
+
+          {
+            english:
+              "The client ordered a full suite of software solutions to streamline their operations.",
+            portuguese:
+              "O cliente pediu um conjunto completo de soluções de software para otimizar suas operações.",
+          },
+
+          {
+            english:
+              "The logistics team ordered additional inventory to meet the increased demand.",
+            portuguese:
+              "A equipe de logística pediu estoque adicional para atender à demanda crescente.",
+          },
+          {
+            english: "To deliver",
+            portuguese: "Entregar",
+          },
+
+          {
+            english: "The supplier delivered the prototype ahead of schedule.",
+            portuguese:
+              "O fornecedor entregou o protótipo antes do prazo previsto.",
+          },
+
+          {
+            english:
+              "Our partner delivered a detailed presentation on the new partnership opportunities.",
+            portuguese:
+              "Nosso parceiro fez uma apresentação detalhada sobre as novas oportunidades de parceria.",
+          },
+
+          {
+            english:
+              "The IT department delivered the software update across all company branches simultaneously.",
+            portuguese:
+              "O departamento de TI entregou a atualização de software simultaneamente em todas as filiais da empresa.",
+          },
+        ],
+      },
+      {
+        subtitle: "Company #2 - Uniqlo",
+        order: 2,
+        image:
+          "https://japan-forward.com/wp-content/uploads/2020/01/Interview-with-Tadashi-Yanai-UNIQLO-Founder-003.jpg",
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Uniqlo is a Japanese company. They sell clothes. They have stores in 13 countries around the world. Customers visit the stores and buy the products. They also have an online store. Customers order products online. Then, they deliver the products to the customer.",
+            ptbrText:
+              "Uniqlo is a Japanese company. They sell clothes. They have stores in 13 countries around the world. Customers visit the stores and buy the products. They also have an online store. Customers order products online. Then, they deliver the products to the customer.",
+          },
+        ],
+      },
+      {
+        subtitle: "Important Verbs #3",
+        order: 4,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "To acquire",
+            portuguese: "Adquirir",
+          },
+          {
+            english:
+              "Nike acquires cutting-edge technologies to innovate athletic wear.",
+            portuguese:
+              "A Nike adquire tecnologias de ponta para inovar no vestuário esportivo.",
+          },
+          {
+            english:
+              "They acquired a startup specializing in sustainable fabric development.",
+            portuguese:
+              "Eles adquiriram uma startup especializada no desenvolvimento de tecidos sustentáveis.",
+          },
+          {
+            english:
+              "The company has acquired multiple patents for new shoe designs.",
+            portuguese:
+              "A empresa adquiriu várias patentes para novos designs de sapatos.",
+          },
+          {
+            english: "To coordinate",
+            portuguese: "Coordenar",
+          },
+          {
+            english:
+              "Nike coordinates global marketing campaigns to maintain brand identity.",
+            portuguese:
+              "A Nike coordena campanhas de marketing global para manter a identidade da marca.",
+          },
+          {
+            english:
+              "The team coordinated efforts across departments for the new product launch.",
+            portuguese:
+              "A equipe coordenou esforços entre os departamentos para o lançamento do novo produto.",
+          },
+          {
+            english:
+              "They coordinate logistics for major sporting events sponsored by Nike.",
+            portuguese:
+              "Eles coordenam a logística para grandes eventos esportivos patrocinados pela Nike.",
+          },
+          {
+            english: "To assess",
+            portuguese: "Avaliar",
+          },
+          {
+            english:
+              "Nike assesses market trends meticulously before launching new products.",
+            portuguese:
+              "A Nike avalia tendências de mercado meticulosamente antes de lançar novos produtos.",
+          },
+          {
+            english:
+              "They assessed customer feedback to improve shoe comfort and durability.",
+            portuguese:
+              "Eles avaliaram o feedback dos clientes para melhorar o conforto e durabilidade dos sapatos.",
+          },
+          {
+            english:
+              "The company assesses environmental impact in their manufacturing processes.",
+            portuguese:
+              "A empresa avalia o impacto ambiental em seus processos de fabricação.",
+          },
+        ],
+      },
+      {
+        subtitle: "Company #3 - Nike",
+        order: 5,
+        image:
+          "http://www.pixelstalk.net/wp-content/uploads/2015/12/Nike-Classic-Logo-Wallpaper-Pics.jpg",
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Nike is renowned for acquiring cutting-edge technologies to innovate athletic wear. The company coordinates global marketing campaigns adeptly, maintaining a strong brand identity worldwide. Nike assesses market trends meticulously, ensuring their products resonate with diverse consumer segments and maintain leadership in the sportswear industry.",
+            ptbrText:
+              "Nike is renowned for acquiring cutting-edge technologies to innovate athletic wear. The company coordinates global marketing campaigns adeptly, maintaining a strong brand identity worldwide. Nike assesses market trends meticulously, ensuring their products resonate with diverse consumer segments and maintain leadership in the sportswear industry.",
+          },
+        ],
+      },
+      {
+        subtitle: "Important Verbs #4",
+        order: 6,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english: "To enhance",
+            portuguese: "Aprimorar",
+          },
+          {
+            english:
+              "The software house enhances conversational capabilities through advanced AI algorithms.",
+            portuguese:
+              "A software house aprimora capacidades de conversação por meio de algoritmos avançados de IA.",
+          },
+          {
+            english:
+              "It enhanced its ability to understand context in complex sentences.",
+            portuguese:
+              "Ele aprimorou sua capacidade de entender o contexto em frases complexas.",
+          },
+          {
+            english:
+              "The developers are enhancing the software's integration with voice recognition technology.",
+            portuguese:
+              "Os desenvolvedores estão aprimorando a integração do software com tecnologia de reconhecimento de voz.",
+          },
+          {
+            english: "To develop",
+            portuguese: "Desenvolver",
+          },
+          {
+            english:
+              "Nike develops innovative athletic wear using cutting-edge technologies.",
+            portuguese:
+              "A Nike desenvolve vestuário esportivo inovador utilizando tecnologias de ponta.",
+          },
+          {
+            english: "They developed a new line of sustainable sneakers.",
+            portuguese:
+              "Eles desenvolveram uma nova linha de tênis sustentáveis.",
+          },
+          {
+            english:
+              "The company is developing a strategic plan for market expansion.",
+            portuguese:
+              "A empresa está desenvolvendo um plano estratégico para expansão de mercado.",
+          },
+          {
+            english: "To adapt",
+            portuguese: "Adaptar",
+          },
+          {
+            english:
+              "Tesla adapts its production methods to meet global regulatory standards.",
+            portuguese:
+              "A Tesla adapta seus métodos de produção para atender aos padrões regulatórios globais.",
+          },
+          {
+            english:
+              "They adapted their marketing strategy for different cultural markets.",
+            portuguese:
+              "Eles adaptaram sua estratégia de marketing para diferentes mercados culturais.",
+          },
+          {
+            english:
+              "The team adapted quickly to remote work during the pandemic.",
+            portuguese:
+              "A equipe se adaptou rapidamente ao trabalho remoto durante a pandemia.",
+          },
+          {
+            english: "To improve",
+            portuguese: "Melhorar",
+          },
+          {
+            english:
+              "Nike improves product quality based on customer feedback.",
+            portuguese:
+              "A Nike melhora a qualidade dos produtos com base no feedback dos clientes.",
+          },
+          {
+            english:
+              "They improved manufacturing processes to reduce environmental impact.",
+            portuguese:
+              "Eles melhoraram os processos de fabricação para reduzir o impacto ambiental.",
+          },
+          {
+            english:
+              "The company continuously improves customer service to enhance satisfaction.",
+            portuguese:
+              "A empresa melhora continuamente o serviço ao cliente para aumentar a satisfação.",
+          },
+          {
+            english: "To remain",
+            portuguese: "Permanecer",
+          },
+          {
+            english:
+              "Tesla remains committed to sustainability in all aspects of its operations.",
+            portuguese:
+              "A Tesla permanece comprometida com a sustentabilidade em todos os aspectos de suas operações.",
+          },
+          {
+            english:
+              "They remain competitive in the global market through innovation.",
+            portuguese:
+              "Eles permanecem competitivos no mercado global por meio da inovação.",
+          },
+          {
+            english:
+              "The company aims to remain a leader in electric vehicle technology.",
+            portuguese:
+              "A empresa visa permanecer líder em tecnologia de veículos elétricos.",
+          },
+        ],
+      },
+      {
+        subtitle: "Company #4 - Tesla",
+        order: 7,
+        image:
+          "https://wallup.net/wp-content/uploads/2018/09/25/607713-Tesla_Motors-logo.jpg",
+        type: "listenandtranslate",
+        audios: [
+          {
+            enusAudio:
+              "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
+            ptbrText:
+              "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
           },
         ],
       },

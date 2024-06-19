@@ -135,7 +135,7 @@ export function HomePage({ headers }: HeadersProps) {
                       _StudentId={_StudentId}
                       picture={picture}
                     />
-                    <AppFooter />
+                    {/* <AppFooter /> */}
                   </BlogRouteSizeControlBox>
                 ) : (
                   <Login />
@@ -145,9 +145,9 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
-      <SpanDisapear>
+      {/* <SpanDisapear>
         <AddFlashCards headers={headers} display="fixed" />
-      </SpanDisapear>
+      </SpanDisapear> */}
       <Outlet />
     </div>
   );

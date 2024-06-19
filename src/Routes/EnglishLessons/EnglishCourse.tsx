@@ -3,7 +3,7 @@ import { Link, Outlet, Route, Routes } from "react-router-dom";
 import { pathGenerator } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "../EnglishMaterial/EnglishMaterial.Styled";
-import EnglishLessonsRender from "./Assets/EnglishLessonsRender";
+import EnglishLessonsRender from "./Assets/EnglishCourseClassRender";
 import { HOne, HTwo } from "../../Resources/Components/RouteBox";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import Helmets from "../../Resources/Helmets";
@@ -64,6 +64,8 @@ export default function EnglishCourse({
               path={`${pathGenerator(cls.title)}`}
               element={
                 <EnglishLessonsRender
+                courseTitle={less.title}
+                  order={idx}
                   back={back}
                   course={groupedLessonsArray}
                   theclass={cls}
