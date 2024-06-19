@@ -75,15 +75,16 @@ export default function EnglishLessonsRender({
     <div
       style={{
         borderRadius: "10px",
-        marginBottom:"50rem",
-        padding: "1rem ",
+        padding: "0.5rem",
+        marginBottom: "10rem",
+        paddingBottom: "1rem",
         backgroundColor: "white",
       }}
     >
+      <ArvinButton onClick={backToCourses}>Back to Course</ArvinButton>
       <CoursesSideBar courses={course} />
       <Helmets text={theclass.title} />
       <HOne style={{ marginTop: "3rem" }}>{theclass.title}</HOne>
-      <ArvinButton onClick={backToCourses}>Back to Course</ArvinButton>
       {myId === "651311fac3d58753aa9281c5" && (
         <div
           style={{
