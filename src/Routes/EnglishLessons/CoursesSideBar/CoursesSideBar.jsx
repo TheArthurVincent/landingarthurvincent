@@ -55,15 +55,15 @@ function CoursesSideBar({ courses }) {
           <div
             style={{
               maxHeight: "1rem",
-              padding: "7px",
+              padding: "1rem",
               zIndex: -1,
               alignItems: "center",
               backgroundColor: alwaysBlack(),
-              borderRadius: "10px",
+              borderRadius: "50px",
               transition: "left 0.3s ease-out",
               color: alwaysWhite(),
               position: "fixed",
-              left: showCourses ? -40 : "-17.3rem",
+              left: showCourses ? -70 : "-17.3rem",
               top: 405,
               justifyContent: "space-between",
               cursor: "pointer",

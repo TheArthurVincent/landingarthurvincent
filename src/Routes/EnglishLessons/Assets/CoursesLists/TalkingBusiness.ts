@@ -14,7 +14,7 @@ export const talkingBusiness = [
         comments:
           "Below is a list of professional titles and their translations between English and Portuguese. These titles are used to address individuals in a respectful and formal manner in various professional settings. Understanding and using these titles correctly can enhance your communication skills in the workplace and other formal environments.",
         order: 0,
-        grid: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -278,7 +278,7 @@ export const talkingBusiness = [
         comments:
           "When referring to someone's job or profession in English, we use the articles 'a' or 'an' before the noun describing the occupation. The choice between 'a' and 'an' depends on the sound that begins the occupation's name:",
         order: 0,
-        grid: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -337,7 +337,7 @@ export const talkingBusiness = [
         comments:
           "When referring to the jobs or professions of multiple people in English, we do not use the articles 'a' or 'an.' Instead, we simply state the plural form of the profession:",
         order: 1,
-        grid: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -371,7 +371,7 @@ export const talkingBusiness = [
         comments:
           "In English, 'for' and 'at' are prepositions used to describe someone's role or position in relation to a company or organization:      'At' is used to indicate the specific location or company where someone works:      'For' is used to indicate the organization or entity that someone works on behalf of or represents:",
         order: 2,
-        grid: 1,
+        grid: 2,
         type: "sentences",
         sentences: [
           {
@@ -1694,14 +1694,15 @@ export const talkingBusiness = [
     ],
   },
 
-  // MANAGEMENT LEVELS #2
+  // Companies and Important Verbs
   {
     title: "Companies and Important Verbs",
     order: 5,
     type: "1- Business Essentials",
-    description: "Keep learning about management levels.",
+    description:
+      "Let's learn about a few companies, and see important corporate verbs being used.",
     image:
-      "https://images.pexels.com/photos/1586996/pexels-photo-1586996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/140945/pexels-photo-140945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     elements: [
       {
         subtitle: "Important Verbs #1",
@@ -2163,6 +2164,331 @@ export const talkingBusiness = [
               "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
             ptbrText:
               "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
+          },
+        ],
+      },
+    ],
+  },
+  // Important vocabulary for the course
+  {
+    title: "Important Vocabulary for the Course #1",
+    order: 6,
+    type: "1- Business Essentials",
+    description:
+      "Let's learn general concepts and words, and see important corporate words being used.",
+    image:
+      "https://media.istockphoto.com/id/133313561/pt/foto/livro-e-vidro-de-lupa.jpg?s=2048x2048&w=is&k=20&c=E2pQPcHf4hgIPGecknrovxMGG-VD9XKMmNsjCg8nAPI=",
+    elements: [
+      {
+        subtitle: "Company",
+        order: 0,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Our company specializes in innovative solutions for digital marketing.",
+            portuguese:
+              "Nossa empresa é especializada em soluções inovadoras para marketing digital.",
+          },
+          {
+            english:
+              "We have been recognized globally for our commitment to sustainable practices.",
+            portuguese:
+              "Somos reconhecidos globalmente pelo nosso compromisso com práticas sustentáveis.",
+          },
+        ],
+      },
+      {
+        subtitle: "Schedule",
+        order: 1,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "I need to check my schedule before committing to another meeting.",
+            portuguese:
+              "Preciso verificar minha agenda antes de me comprometer com outra reunião.",
+          },
+          {
+            english:
+              "Let's find a time that works for everyone and schedule the meeting for next week.",
+            portuguese:
+              "Vamos encontrar um horário que funcione para todos e agendar a reunião para a próxima semana.",
+          },
+        ],
+      },
+      {
+        subtitle: "Revenue",
+        order: 2,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Our innovative product launch contributed to a 20% increase in revenue last quarter.",
+            portuguese:
+              "Nosso lançamento de produto inovador contribuiu para um aumento de 20% na receita no último trimestre.",
+          },
+          {
+            english:
+              "Analyzing revenue trends helps us make informed decisions about future investments.",
+            portuguese:
+              "Analisar as tendências de receita nos ajuda a tomar decisões informadas sobre investimentos futuros.",
+          },
+        ],
+      },
+      {
+        subtitle: "Meeting",
+        order: 3,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The weekly team meeting is scheduled for Monday mornings.",
+            portuguese:
+              "A reunião semanal da equipe está agendada para as manhãs de segunda-feira.",
+          },
+          {
+            english:
+              "Our project kickoff meeting went smoothly and set a positive tone for the upcoming work.",
+            portuguese:
+              "Nossa reunião de início de projeto foi tranquila e estabeleceu um tom positivo para o trabalho que está por vir.",
+          },
+        ],
+      },
+      {
+        subtitle: "Goals or Objectives",
+        order: 4,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Setting ambitious yet achievable goals is crucial for driving our company's growth strategy.",
+            portuguese:
+              "Estabelecer metas ambiciosas, mas alcançáveis, é crucial para impulsionar a estratégia de crescimento da nossa empresa.",
+          },
+          {
+            english:
+              "Our team celebrated achieving our quarterly goals ahead of schedule.",
+            portuguese:
+              "Nossa equipe comemorou alcançar nossas metas trimestrais antes do prazo previsto.",
+          },
+          {
+            english:
+              "The marketing department's objectives include increasing brand awareness by 30% within the next fiscal year.",
+            portuguese:
+              "Os objetivos do departamento de marketing incluem aumentar a conscientização da marca em 30% no próximo ano fiscal.",
+          },
+          {
+            english:
+              "Clearly defined objectives help us stay focused and measure our progress effectively.",
+            portuguese:
+              "Objetivos claramente definidos nos ajudam a manter o foco e medir nosso progresso de forma eficaz.",
+          },
+        ],
+      },
+      {
+        subtitle: "Strategy",
+        order: 5,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Our new market entry strategy involves strategic partnerships and localized marketing campaigns.",
+            portuguese:
+              "Nossa nova estratégia de entrada no mercado envolve parcerias estratégicas e campanhas de marketing localizadas.",
+          },
+          {
+            english:
+              "Revising our pricing strategy boosted customer retention and profitability.",
+            portuguese:
+              "Rever nossa estratégia de preços impulsionou a retenção de clientes e a lucratividade.",
+          },
+        ],
+      },
+      {
+        subtitle: "Tactics",
+        order: 6,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Digital marketing tactics such as SEO and social media campaigns have significantly boosted our online presence.",
+            portuguese:
+              "Táticas de marketing digital como SEO e campanhas de mídia social aumentaram significativamente nossa presença online.",
+          },
+          {
+            english:
+              "Implementing cost-cutting tactics helped streamline our operations and improve efficiency.",
+            portuguese:
+              "Implementar táticas de corte de custos ajudou a otimizar nossas operações e melhorar a eficiência.",
+          },
+        ],
+      },
+      {
+        subtitle: "Core Values",
+        order: 7,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Integrity and transparency are core values that guide every decision we make as a company.",
+            portuguese:
+              "Integridade e transparência são valores essenciais que guiam cada decisão que tomamos como empresa.",
+          },
+          {
+            english:
+              "We hire employees who align with our core values to maintain a positive workplace culture.",
+            portuguese:
+              "Contratamos funcionários que estão alinhados com nossos valores essenciais para manter uma cultura de trabalho positiva.",
+          },
+        ],
+      },
+      {
+        subtitle: "Profit",
+        order: 8,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Despite challenges, the company reported record profits for the fiscal year.",
+            portuguese:
+              "Apesar dos desafios, a empresa relatou lucros recordes para o ano fiscal.",
+          },
+          {
+            english:
+              "Implementing cost-saving measures resulted in higher profit margins.",
+            portuguese:
+              "A implementação de medidas de economia resultou em margens de lucro mais altas.",
+          },
+        ],
+      },
+      {
+        subtitle: "Loss",
+        order: 9,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The unexpected market downturn led to a temporary loss in revenue for the company.",
+            portuguese:
+              "A queda inesperada do mercado levou a uma perda temporária de receita para a empresa.",
+          },
+          {
+            english:
+              "Cutting-edge research projects sometimes incur initial losses before yielding long-term gains.",
+            portuguese:
+              "Projetos de pesquisa de ponta às vezes geram perdas iniciais antes de gerar ganhos a longo prazo.",
+          },
+        ],
+      },
+    ],
+  },
+  // Important vocabulary for the course #2
+  {
+    title: "Important Vocabulary for the Course #2",
+    order: 7,
+    type: "1- Business Essentials",
+    description:
+      "Let's continue to learn general concepts and words, and see important corporate words being used.",
+    image: "https://images.pexels.com/photos/5439373/pexels-photo-5439373.jpeg",
+    elements: [
+      {
+        subtitle: "Mission Statement",
+        order: 1,
+        grid: 2,
+        type: "sentences",
+        comments:
+          "A Mission Statement defines the purpose and primary objectives of an organization. It articulates the reason for its existence and describes what it aims to achieve.",
+
+        sentences: [
+          {
+            english:
+              "Our company's mission statement emphasizes sustainability and innovation in every aspect of our operations.",
+            portuguese:
+              "A declaração de missão da nossa empresa enfatiza a sustentabilidade e a inovação em todos os aspectos das nossas operações.",
+          },
+          {
+            english:
+              "Developing a clear mission statement helped align our team's efforts towards a common goal.",
+            portuguese:
+              "O desenvolvimento de uma declaração de missão clara ajudou a alinhar os esforços da nossa equipe em direção a um objetivo comum.",
+          },
+        ],
+      },
+      {
+        subtitle: "Vision Statement",
+        order: 2,
+        grid: 2,
+        type: "sentences",
+        comments:
+          "A Vision Statement outlines the aspirations and long-term goals of an organization. It describes what the organization aims to become or achieve in the future.",
+
+        sentences: [
+          {
+            english:
+              "The CEO's inspiring vision statement motivates us to strive for excellence and market leadership.",
+            portuguese:
+              "A declaração de visão inspiradora do CEO nos motiva a buscar a excelência e a liderança de mercado.",
+          },
+          {
+            english:
+              "Crafting a compelling vision statement requires foresight and understanding of industry trends.",
+            portuguese:
+              "Elaborar uma declaração de visão convincente requer visão de futuro e entendimento das tendências do setor.",
+          },
+        ],
+      },
+      {
+        subtitle: "Best Practices - Melhores Práticas",
+        order: 3,
+        grid: 2,
+        comments:
+          "Best practices refer to methods or techniques recognized as most effective and efficient in achieving a desired result in a given area.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "In our company, following cybersecurity best practices is mandatory.",
+            portuguese:
+              "Em nossa empresa, seguir as melhores práticas de segurança cibernética é obrigatório.",
+          },
+          {
+            english:
+              "Implementing agile methodologies is considered one of the best practices for software development.",
+            portuguese:
+              "Implementar metodologias ágeis é considerado uma das melhores práticas para desenvolvimento de software.",
+          },
+        ],
+      },
+      {
+        subtitle: "Benchmarking - Comparação de Desempenho",
+        order: 4,
+        grid: 2,
+        comments:
+          "Benchmarking is the process of comparing the performance of a product, service or process against the best in the industry to identify opportunities for improvement.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Our company conducts regular benchmarking against industry leaders to stay competitive.",
+            portuguese:
+              "Nossa empresa realiza benchmarking regularmente contra os líderes da indústria para se manter competitiva.",
+          },
+          {
+            english:
+              "Benchmarking revealed that our website loading speed was slower compared to our main competitors.",
+            portuguese:
+              "O benchmarking revelou que a velocidade de carregamento de nosso site estava mais lenta em comparação com nossos principais concorrentes.",
           },
         ],
       },
