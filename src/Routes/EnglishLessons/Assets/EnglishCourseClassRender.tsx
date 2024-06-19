@@ -256,7 +256,7 @@ export default function EnglishLessonsRender({
                 headers={headers}
                 element={element}
               />
-            ) : element.type === "textswithnoaudio" ? (
+            ) : element.type === "listinenglish" ? (
               <TextsWithTranslateLessonModel
                 headers={headers}
                 element={element}

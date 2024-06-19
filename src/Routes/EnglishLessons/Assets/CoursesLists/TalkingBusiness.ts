@@ -9,7 +9,8 @@ export const talkingBusiness = [
     description:
       "Welcome to the Business Essentials module! This comprehensive series covers fundamental aspects of business communication, professional etiquette, management structures, company operations, and essential vocabulary. Whether you're new to business environments or seeking to enhance your professional skills, these classes will equip you with the knowledge and language proficiency needed to thrive in various business scenarios. Explore topics ranging from effective communication strategies to understanding corporate structures and navigating business interactions with confidence.",
     elements: [],
-  }, // PROFESSIONAL COMMUNICATION SKILLS
+  },
+  // PROFESSIONAL COMMUNICATION SKILLS
   {
     title: "Professional Communication Skills",
     order: 0,
@@ -1182,7 +1183,7 @@ export const talkingBusiness = [
       {
         subtitle: "Supervisor /Overseer (Responsibilities)",
         order: 0,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1244,7 +1245,7 @@ export const talkingBusiness = [
       {
         subtitle: "Manager (Responsibilities)",
         order: 2,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1309,7 +1310,7 @@ export const talkingBusiness = [
       {
         subtitle: "Director (Responsibilities)",
         order: 4,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1386,7 +1387,7 @@ export const talkingBusiness = [
       {
         subtitle: "Team Lead / Team Supervisor (Responsibilities)",
         order: 0,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1431,7 +1432,7 @@ export const talkingBusiness = [
       {
         subtitle: "Assistant Manager (Responsibilities)",
         order: 2,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio: "Supporting the manager in daily operations.",
@@ -1476,7 +1477,7 @@ export const talkingBusiness = [
       {
         subtitle: "Division Manager (Responsibilities)",
         order: 4,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio: "Managing an entire division or large department.",
@@ -1519,7 +1520,7 @@ export const talkingBusiness = [
       {
         subtitle: "Vice President (Responsibilities)",
         order: 6,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1565,7 +1566,7 @@ export const talkingBusiness = [
       {
         subtitle: "Chief Officer (Responsibilities)",
         order: 8,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1612,7 +1613,7 @@ export const talkingBusiness = [
         subtitle:
           "President / Chief Executive Officer (CEO) (Responsibilities)",
         order: 10,
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1737,7 +1738,7 @@ export const talkingBusiness = [
         order: 1,
         image:
           "https://podcast.brasildefato.com.br/wp-content/uploads/2019/05/Embraer-Divulgacao-868x500.jpg",
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1896,7 +1897,7 @@ export const talkingBusiness = [
         order: 2,
         image:
           "https://japan-forward.com/wp-content/uploads/2020/01/Interview-with-Tadashi-Yanai-UNIQLO-Founder-003.jpg",
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -1983,7 +1984,7 @@ export const talkingBusiness = [
         order: 5,
         image:
           "http://www.pixelstalk.net/wp-content/uploads/2015/12/Nike-Classic-Logo-Wallpaper-Pics.jpg",
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -2113,7 +2114,7 @@ export const talkingBusiness = [
         order: 7,
         image:
           "https://wallup.net/wp-content/uploads/2018/09/25/607713-Tesla_Motors-logo.jpg",
-        type: "textswithnoaudio",
+        type: "listinenglish",
         audios: [
           {
             enusAudio:
@@ -3375,6 +3376,239 @@ export const talkingBusiness = [
               "After the discount and other charges were applied, the net amount to buy the laptop was $800.",
             portuguese:
               "Depois que o desconto e que outras cobranças foram aplicadas, o montante líquido para comprar o notebook foi $800.",
+          },
+        ],
+      },
+    ],
+  },
+  //// #3
+  // Financial Concepts
+  {
+    title: "Introduction 1",
+    order: 0,
+    type: "3- Financial Concepts",
+
+    description:
+      "Welcome to the Business Essentials module! This comprehensive series covers fundamental aspects of business communication, professional etiquette, management structures, company operations, and essential vocabulary. Whether you're new to business environments or seeking to enhance your professional skills, these classes will equip you with the knowledge and language proficiency needed to thrive in various business scenarios. Explore topics ranging from effective communication strategies to understanding corporate structures and navigating business interactions with confidence.",
+    elements: [],
+  },
+  {
+    title: "Assets vs. Liabilities",
+    order: 1,
+    type: "3- Financial Concepts",
+    description:
+      "This class explores the fundamental concepts of assets and liabilities in financial contexts. We'll discuss how assets represent valuable resources owned by an individual or entity, contrasting with liabilities, which are financial obligations or debts. Join us to understand their significance in personal finance and business operations.",
+    image:
+      "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    elements: [
+      {
+        subtitle: "Examples in sentences",
+        order: 0,
+        grid: 1,
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Real estate properties and investment portfolios are examples of assets.",
+            portuguese:
+              "Propriedades imobiliárias e carteiras de investimento são exemplos de ativos.",
+          },
+          {
+            english:
+              "His car and jewelry collection contribute to his overall assets.",
+            portuguese:
+              "Seu carro e coleção de joias contribuem para seus ativos totais.",
+          },
+          {
+            english:
+              "The company's assets include cash, inventory, and intellectual property.",
+            portuguese:
+              "Os ativos da empresa incluem dinheiro, inventário e propriedade intelectual.",
+          },
+          {
+            english:
+              "Student loans and credit card debt are common liabilities for young professionals.",
+            portuguese:
+              "Empréstimos estudantis e dívidas de cartão de crédito são passivos comuns para jovens profissionais.",
+          },
+          {
+            english: "The mortgage on their house is their largest liability.",
+            portuguese: "A hipoteca da casa deles é seu maior passivo.",
+          },
+          {
+            english:
+              "Business loans and accounts payable are considered significant liabilities for the company.",
+            portuguese:
+              "Empréstimos comerciais e contas a pagar são considerados passivos significativos para a empresa.",
+          },
+          {
+            english:
+              "Understanding the difference between assets and liabilities is crucial for financial planning.",
+            portuguese:
+              "Entender a diferença entre ativos e passivos é crucial para o planejamento financeiro.",
+          },
+          {
+            english:
+              "Increasing assets while managing liabilities is a key strategy for wealth accumulation.",
+            portuguese:
+              "Aumentar os ativos enquanto gerencia os passivos é uma estratégia chave para acumulação de riqueza.",
+          },
+        ],
+      },
+      {
+        subtitle: "Types of Assets",
+        order: 2,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Cash and Cash Equivalents",
+            portuguese: "Dinheiro e equivalentes de caixa",
+          },
+          {
+            english: "Accounts Receivable",
+            portuguese: "Contas a receber",
+          },
+          {
+            english: "Inventory",
+            portuguese: "Inventário",
+          },
+          {
+            english: "Investments (Stocks, Bonds, etc.)",
+            portuguese: "Investimentos (Ações, Títulos, etc.)",
+          },
+          {
+            english: "Real Estate Properties",
+            portuguese: "Propriedades imobiliárias",
+          },
+          {
+            english: "Vehicles and Machinery",
+            portuguese: "Veículos e máquinas",
+          },
+          {
+            english: "Intellectual Property (Patents, Trademarks, Copyrights)",
+            portuguese:
+              "Propriedade intelectual (Patentes, Marcas Registradas, Direitos Autorais)",
+          },
+          {
+            english: "Goodwill",
+            portuguese: "Valor intangível (Goodwill)",
+          },
+        ],
+      },
+      {
+        subtitle: "Types of Assets",
+        order: 3,
+        type: "listinenglish",
+        audios: [
+          {
+            enusAudio:
+              "Cash and Cash Equivalents: Includes currency, coins, and short-term investments that can be easily converted into cash.",
+          },
+          {
+            enusAudio:
+              "Accounts Receivable: Amounts owed to a business for goods or services provided on credit, expected to be collected in the near future.",
+          },
+          {
+            enusAudio:
+              "Inventory: Goods held by a company for sale or production, including raw materials, work-in-progress, and finished goods.",
+          },
+          {
+            enusAudio:
+              "Investments (Stocks, Bonds, etc.): Securities purchased by a company or individual with the expectation of earning a return.",
+          },
+          {
+            enusAudio:
+              "Real Estate Properties: Land and buildings owned by a business or individual for use or investment purposes.",
+          },
+          {
+            enusAudio:
+              "Vehicles and Machinery: Tangible assets used in business operations, such as cars, trucks, and manufacturing equipment.",
+          },
+          {
+            enusAudio:
+              "Intellectual Property (Patents, Trademarks, Copyrights): Intangible assets that provide exclusive rights to ideas or creations, often resulting in economic benefits.",
+          },
+          {
+            enusAudio:
+              "Goodwill: Represents the premium paid for a business over its fair market value, reflecting the reputation, customer loyalty, and brand value.",
+          },
+        ],
+      },
+      {
+        subtitle: "Types of Liabilities",
+        order: 4,
+        type: "sentences",
+        sentences: [
+          {
+            english: "Accounts Payable",
+            portuguese: "Contas a pagar",
+          },
+          {
+            english: "Short-term Loans",
+            portuguese: "Empréstimos de curto prazo",
+          },
+          {
+            english: "Long-term Loans",
+            portuguese: "Empréstimos de longo prazo",
+          },
+          {
+            english: "Bonds Payable",
+            portuguese: "Títulos a pagar (Obrigações)",
+          },
+          {
+            english: "Mortgages",
+            portuguese: "Hipotecas",
+          },
+          {
+            english: "Accrued Expenses",
+            portuguese: "Despesas acumuladas",
+          },
+          {
+            english: "Deferred Revenues",
+            portuguese: "Receitas diferidas",
+          },
+          {
+            english: "Income Taxes Payable",
+            portuguese: "Impostos a pagar",
+          },
+        ],
+      },
+      {
+        subtitle: "Types of Liabilities",
+        order: 5,
+        type: "listinenglish",
+        audios: [
+          {
+            enusAudio:
+              "Accounts Payable: Debts owed to suppliers or vendors for goods or services purchased on credit.",
+          },
+          {
+            enusAudio:
+              "Short-term Loans: Borrowings that are expected to be repaid within one year.",
+          },
+          {
+            enusAudio:
+              "Long-term Loans: Loans that are due more than one year ahead from the reporting date.",
+          },
+          {
+            enusAudio:
+              "Bonds Payable: Debt securities issued by corporations or governments to raise capital, with specific repayment terms and interest rates.",
+          },
+          {
+            enusAudio:
+              "Mortgages: Loans taken to finance the purchase of real estate, secured by the property itself.",
+          },
+          {
+            enusAudio:
+              "Accrued Expenses: Costs that have been incurred but not yet paid, such as wages, taxes, and interest.",
+          },
+          {
+            enusAudio:
+              "Deferred Revenues: Income received but not yet earned, such as advance payments from customers.",
+          },
+          {
+            enusAudio:
+              "Income Taxes Payable: Amounts owed to tax authorities based on taxable income, to be paid within a specified period.",
           },
         ],
       },
