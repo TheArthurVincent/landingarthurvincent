@@ -2,11 +2,8 @@ import { styled } from "styled-components";
 import {
   primaryColor,
   alwaysWhite,
-  textPrimaryColorContrast,
-  transparentBlack,
   alwaysBlack,
   lightGreyColor,
-  darkGreyColor,
 } from "../../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
@@ -54,7 +51,9 @@ export const CoursesListItem = styled.li`
 
 export const CoursesListInnerContainer = styled.div`
   width: fit-content;
+  border-radius:0 20px 20px 0 ;
   display: grid;
+  padding:1px;
   flex-direction: column;
   background-color: ${lightGreyColor()};
   padding: 2px;

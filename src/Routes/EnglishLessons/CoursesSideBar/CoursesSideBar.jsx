@@ -63,7 +63,7 @@ function CoursesSideBar({ courses }) {
               transition: "left 0.3s ease-out",
               color: alwaysWhite(),
               position: "fixed",
-              left: showCourses ? 3 : "-17.3rem",
+              left: showCourses ? -40 : "-17.3rem",
               top: 405,
               justifyContent: "space-between",
               cursor: "pointer",
