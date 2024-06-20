@@ -93,6 +93,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       const cardsCountFetch = response.data.cardsCount;
       {
         response.data.dueFlashcards.length > 0 &&
+        response.data.dueFlashcards[0].front.language &&
         response.data.dueFlashcards[0].front
           ? readText(
               response.data.dueFlashcards[0].front?.text,
