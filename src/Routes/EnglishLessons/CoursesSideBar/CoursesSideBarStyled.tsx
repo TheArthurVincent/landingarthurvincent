@@ -4,12 +4,13 @@ import {
   alwaysWhite,
   alwaysBlack,
   lightGreyColor,
+  secondaryColor,
 } from "../../../Styles/Styles";
 
 export const CoursesListContainer = styled.div`
   display: flex;
   height: 100vh;
-  border-right: solid 1px ${lightGreyColor()};
+  border-right: ridge 5px ${secondaryColor()};
   position: fixed;
   top: 0rem;
   z-index: 10;
