@@ -3380,7 +3380,7 @@ export const talkingBusiness = [
       {
         title: "Important Financial Verbs #1",
         order: 9,
-        type: "3- Financial Concepts",
+        type: "2- General Business English",
 
         description:
           "This module provides an essential overview of some the financial verbs.",
