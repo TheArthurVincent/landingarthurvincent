@@ -8,6 +8,11 @@ import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
+import {
+  darkGreyColor,
+  primaryColor,
+  secondaryColor,
+} from "../../Styles/Styles";
 
 interface EnglishCourseHomeProps {
   headers: MyHeadersType | null;
@@ -34,11 +39,6 @@ export default function EnglishCourse({
 
   const groupedLessonsArray = arr.sort((a: any, b: any) => a.order - b.order);
 
-  const backToCourses = () => {
-    window.location.assign(`/english-courses`);
-  };
-
-  // Filter lessons based on searchQuery
   const filteredLessons = groupedLessonsArray.map((course: any) => ({
     ...course,
     lessons: course.lessons[0].lessons.filter((cls: any) =>
@@ -76,6 +76,7 @@ export default function EnglishCourse({
                   course={groupedLessonsArray}
                   theclass={cls}
                   headers={headers}
+                  module={less.title}
                 />
               }
             />
@@ -88,20 +89,40 @@ export default function EnglishCourse({
           style={{
             display: "flex",
             alignItems: "center",
+            marginBottom: "1rem",
             justifyContent: "left",
             gap: "1rem",
           }}
         >
-          <ArvinButton onClick={backToCourses}>Back to Courses</ArvinButton>
-          <input
-            type="text"
-            placeholder="Search classes by name..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            style={{ borderRadius: "0.3rem", padding: "0.3rem" }}
-          />
+          <Link
+            style={{
+              fontSize: "10px",
+              textDecoration: "none",
+              color: secondaryColor(),
+            }}
+            to="/english-courses"
+          >
+            English Courses
+          </Link>
+          <span style={{ color: darkGreyColor() }}>🢒</span>
+          <span
+            style={{
+              fontSize: "10px",
+              fontStyle: "italic",
+              textDecoration: "none",
+              color: primaryColor(),
+            }}
+          >
+            {less.title}
+          </span>
         </div>
-        <HTwo>Modules</HTwo>
+        <input
+          type="text"
+          placeholder="Search classes by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ borderRadius: "0.3rem", padding: "0.3rem" }}
+        />
         {filteredLessons.map((course: any, index: number) => (
           <div key={index}>
             <HThree>{course.type}: Classes</HThree>

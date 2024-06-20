@@ -14,14 +14,21 @@ import axios from "axios";
 import {
   backDomain,
   getVideoEmbedUrl,
+  pathGenerator,
 } from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
 import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
-import { alwaysWhite, primaryColor } from "../../../Styles/Styles";
+import {
+  alwaysWhite,
+  darkGreyColor,
+  primaryColor,
+  secondaryColor,
+} from "../../../Styles/Styles";
 import TextsWithTranslateLessonModel from "./LessonsModels/TextWithNoAudio";
+import { Link } from "react-router-dom";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -29,7 +36,8 @@ interface EnglishLessonsRenderModelProps {
   course: any;
   courseTitle: string;
   back: any;
-  pthtt:string;
+  module: string;
+  pthtt: string;
   order: number | any;
 }
 
@@ -37,7 +45,9 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
   course,
-  back,pthtt,
+  module,
+  back,
+  pthtt,
   order,
   courseTitle,
 }: EnglishLessonsRenderModelProps) {
@@ -88,7 +98,49 @@ export default function EnglishLessonsRender({
 
   return (
     <RouteDiv>
-      <ArvinButton onClick={backToCourses}>Back to Course</ArvinButton>
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          alignItems: "center",
+        }}
+      >
+        <Link
+          style={{
+            textDecoration: "none",
+            fontSize: "10px",
+            color: secondaryColor(),
+          }}
+          to="/english-courses"
+        >
+          English Courses
+        </Link>{" "}
+        <span style={{ color: darkGreyColor() }}>🢒</span>
+        <span
+          style={{
+            textDecoration: "none",
+            fontStyle: "italic",
+            fontSize: "10px",
+            color: secondaryColor(),
+            cursor: "pointer",
+          }}
+          onClick={backToCourses}
+          // to={`/english-courses/${pathGenerator(module)}`}
+        >
+          {module}
+        </span>{" "}
+        <span style={{ color: darkGreyColor() }}>🢒</span>
+        <span
+          style={{
+            textDecoration: "none",
+            fontSize: "10px",
+            color: primaryColor(),
+          }}
+        >
+          {theclass.title}
+        </span>
+      </div>
+
       <CoursesSideBar courses={course} />
       <Helmets text={theclass.title} />
       <HOne
@@ -190,7 +242,7 @@ export default function EnglishLessonsRender({
                   alignItems: "center",
                 }}
               >
-                <HTwo>{element.subtitle}</HTwo>
+                <HTwo>{index + 1 + "- " + element.subtitle}</HTwo>
               </div>
             )}
             {element.image && element.subtitle && (
