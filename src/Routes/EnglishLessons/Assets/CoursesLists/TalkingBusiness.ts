@@ -3403,7 +3403,7 @@ export const talkingBusiness = [
           {
             english: "They agreed to invest $1 million in the startup.",
             portuguese:
-              "O capitalista de risco concordou em investir US$ 1 milhão na startup.",
+              "Eles concordaram em investir US$ 1 milhão na startup.",
           },
         ],
       },
