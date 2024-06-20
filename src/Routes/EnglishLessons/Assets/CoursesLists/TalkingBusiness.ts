@@ -3322,6 +3322,7 @@ export const talkingBusiness = [
       },
     ],
   },
+
   // Gross vs. Net
   {
     title: "Gross vs. Net",
@@ -3376,228 +3377,218 @@ export const talkingBusiness = [
           },
         ],
       },
-      /////  "Important Financial Verbs #1",
+    ],
+  }, /////  "Important Financial Verbs #1",
+  {
+    title: "Important Financial Verbs #1",
+    type: "2- General Business English",
+    order: 9,
+    description:
+      "This module provides an essential overview of some the financial verbs.",
+    elements: [
       {
-        title: "Important Financial Verbs #1",
+        subtitle: "To invest",
+        order: 0,
+        grid: 1,
+        comments:
+          "To allocate money in the expectation of some benefit in the future.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "He decided to invest in stocks for retirement income.",
+            portuguese:
+              "Ele decidiu investir em ações para obter renda de aposentadoria.",
+          },
+
+          {
+            english: "They agreed to invest $1 million in the startup.",
+            portuguese:
+              "O capitalista de risco concordou em investir US$ 1 milhão na startup.",
+          },
+        ],
+      },
+      {
+        subtitle: "To save",
+        order: 1,
+        grid: 1,
+        comments: "To set aside money for future use.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "She tries to save a portion of her salary every month.",
+            portuguese:
+              "Ela tenta economizar uma parte do salário todos os meses.",
+          },
+          {
+            english:
+              "Saving up for a down payment on a house is his current financial goal.",
+            portuguese:
+              "Economizar para a entrada de uma casa é seu objetivo financeiro atual.",
+          },
+        ],
+      },
+      {
+        subtitle: "To spend",
+        order: 2,
+        grid: 1,
+        comments: "To use money to purchase goods or services.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They spent their vacation budget on a trip to Europe.",
+            portuguese:
+              "Eles gastaram o orçamento de férias em uma viagem para a Europa.",
+          },
+          {
+            english:
+              "She spends wisely by using coupons and shopping during sales.",
+            portuguese:
+              "Ela gasta com sabedoria usando cupons e fazendo compras durante as promoções.",
+          },
+        ],
+      },
+      {
+        subtitle: "To borrow",
+        order: 3,
+        grid: 1,
+        comments: "To take and use money with the intention of returning it.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They had to borrow money from the bank to expand their business.",
+            portuguese:
+              "Eles tiveram que pegar dinheiro emprestado do banco para expandir o negócio.",
+          },
+          {
+            english:
+              "She borrowed $200 from her friend to cover unexpected expenses.",
+            portuguese:
+              "Ela pegou emprestado $200 de seu amigo para cobrir despesas inesperadas.",
+          },
+        ],
+      },
+      {
+        subtitle: "To lend",
+        order: 4,
+        grid: 1,
+        comments:
+          "To give money to someone under an agreement to get it back later.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The bank agreed to lend them $50,000 for the home renovation.",
+            portuguese:
+              "O banco concordou em emprestar $50.000 para a renovação da casa.",
+          },
+          {
+            english: "He often lends money to his siblings during emergencies.",
+            portuguese:
+              "Ele frequentemente empresta dinheiro para seus irmãos em emergências.",
+          },
+        ],
+      },
+      {
+        subtitle: "To earn",
+        order: 5,
+        grid: 1,
+        comments: "To receive money in return for work or services provided.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "She earns a good salary working in finance.",
+            portuguese: "Ela ganha um bom salário trabalhando em finanças.",
+          },
+          {
+            english: "He earned a bonus for exceeding his sales targets.",
+            portuguese:
+              "Ele recebeu um bônus por ultrapassar suas metas de vendas.",
+          },
+        ],
+      },
+      {
+        subtitle: "To forecast",
+        order: 6,
+        grid: 1,
+        comments: "To predict future financial trends.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "Economists forecasted a downturn in the housing market.",
+            portuguese:
+              "Os economistas previram uma queda no mercado imobiliário.",
+          },
+          {
+            english: "He forecasted increased sales for the upcoming quarter.",
+            portuguese:
+              "Ele previu um aumento nas vendas para o próximo trimestre.",
+          },
+        ],
+      },
+      {
+        subtitle: "To audit",
+        order: 7,
+        grid: 1,
+        comments: "To examine financial records to ensure accuracy.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The IRS audited their tax returns for the past three years.",
+            portuguese:
+              "A Receita Federal auditou suas declarações de impostos dos últimos três anos.",
+          },
+          {
+            english:
+              "They conducted an internal audit to review financial discrepancies.",
+            portuguese:
+              "Eles realizaram uma auditoria interna para revisar discrepâncias financeiras.",
+          },
+        ],
+      },
+      {
+        subtitle: "To insure",
+        order: 8,
+        grid: 1,
+        comments: "To arrange for compensation in case of loss or damage.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They insured their home against fire and theft.",
+            portuguese: "Eles seguraram sua casa contra incêndio e roubo.",
+          },
+          {
+            english: "He insured his new car with comprehensive coverage.",
+            portuguese: "Ele segurou seu carro novo com cobertura completa.",
+          },
+        ],
+      },
+      {
+        subtitle: "To diversify",
         order: 9,
-        type: "2- General Business English",
-
-        description:
-          "This module provides an essential overview of some the financial verbs.",
-        elements: [
+        grid: 1,
+        comments:
+          "To spread investments across different assets to reduce risk.",
+        type: "sentences",
+        sentences: [
           {
-            subtitle: "To invest",
-            order: 0,
-            grid: 1,
-            comments:
-              "To allocate money in the expectation of some benefit in the future.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "He decided to invest in stocks for retirement income.",
-                portuguese:
-                  "Ele decidiu investir em ações para obter renda de aposentadoria.",
-              },
-
-              {
-                english: "They agreed to invest $1 million in the startup.",
-                portuguese:
-                  "O capitalista de risco concordou em investir US$ 1 milhão na startup.",
-              },
-            ],
+            english:
+              "They diversified their investment portfolio by investing in stocks, bonds, and real estate.",
+            portuguese:
+              "Eles diversificaram seu portfólio de investimentos investindo em ações, títulos e imóveis.",
           },
           {
-            subtitle: "To save",
-            order: 1,
-            grid: 1,
-            comments: "To set aside money for future use.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "She tries to save a portion of her salary every month.",
-                portuguese:
-                  "Ela tenta economizar uma parte do salário todos os meses.",
-              },
-              {
-                english:
-                  "Saving up for a down payment on a house is his current financial goal.",
-                portuguese:
-                  "Economizar para a entrada de uma casa é seu objetivo financeiro atual.",
-              },
-            ],
-          },
-          {
-            subtitle: "To spend",
-            order: 2,
-            grid: 1,
-            comments: "To use money to purchase goods or services.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "They spent their vacation budget on a trip to Europe.",
-                portuguese:
-                  "Eles gastaram o orçamento de férias em uma viagem para a Europa.",
-              },
-              {
-                english:
-                  "She spends wisely by using coupons and shopping during sales.",
-                portuguese:
-                  "Ela gasta com sabedoria usando cupons e fazendo compras durante as promoções.",
-              },
-            ],
-          },
-          {
-            subtitle: "To borrow",
-            order: 3,
-            grid: 1,
-            comments:
-              "To take and use money with the intention of returning it.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "They had to borrow money from the bank to expand their business.",
-                portuguese:
-                  "Eles tiveram que pegar dinheiro emprestado do banco para expandir o negócio.",
-              },
-              {
-                english:
-                  "She borrowed $200 from her friend to cover unexpected expenses.",
-                portuguese:
-                  "Ela pegou emprestado $200 de seu amigo para cobrir despesas inesperadas.",
-              },
-            ],
-          },
-          {
-            subtitle: "To lend",
-            order: 4,
-            grid: 1,
-            comments:
-              "To give money to someone under an agreement to get it back later.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "The bank agreed to lend them $50,000 for the home renovation.",
-                portuguese:
-                  "O banco concordou em emprestar $50.000 para a renovação da casa.",
-              },
-              {
-                english:
-                  "He often lends money to his siblings during emergencies.",
-                portuguese:
-                  "Ele frequentemente empresta dinheiro para seus irmãos em emergências.",
-              },
-            ],
-          },
-          {
-            subtitle: "To earn",
-            order: 5,
-            grid: 1,
-            comments:
-              "To receive money in return for work or services provided.",
-            type: "sentences",
-            sentences: [
-              {
-                english: "She earns a good salary working in finance.",
-                portuguese: "Ela ganha um bom salário trabalhando em finanças.",
-              },
-              {
-                english: "He earned a bonus for exceeding his sales targets.",
-                portuguese:
-                  "Ele recebeu um bônus por ultrapassar suas metas de vendas.",
-              },
-            ],
-          },
-          {
-            subtitle: "To forecast",
-            order: 6,
-            grid: 1,
-            comments: "To predict future financial trends.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "Economists forecasted a downturn in the housing market.",
-                portuguese:
-                  "Os economistas previram uma queda no mercado imobiliário.",
-              },
-              {
-                english:
-                  "He forecasted increased sales for the upcoming quarter.",
-                portuguese:
-                  "Ele previu um aumento nas vendas para o próximo trimestre.",
-              },
-            ],
-          },
-          {
-            subtitle: "To audit",
-            order: 7,
-            grid: 1,
-            comments: "To examine financial records to ensure accuracy.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "The IRS audited their tax returns for the past three years.",
-                portuguese:
-                  "A Receita Federal auditou suas declarações de impostos dos últimos três anos.",
-              },
-              {
-                english:
-                  "They conducted an internal audit to review financial discrepancies.",
-                portuguese:
-                  "Eles realizaram uma auditoria interna para revisar discrepâncias financeiras.",
-              },
-            ],
-          },
-          {
-            subtitle: "To insure",
-            order: 8,
-            grid: 1,
-            comments: "To arrange for compensation in case of loss or damage.",
-            type: "sentences",
-            sentences: [
-              {
-                english: "They insured their home against fire and theft.",
-                portuguese: "Eles seguraram sua casa contra incêndio e roubo.",
-              },
-              {
-                english: "He insured his new car with comprehensive coverage.",
-                portuguese:
-                  "Ele segurou seu carro novo com cobertura completa.",
-              },
-            ],
-          },
-          {
-            subtitle: "To diversify",
-            order: 9,
-            grid: 1,
-            comments:
-              "To spread investments across different assets to reduce risk.",
-            type: "sentences",
-            sentences: [
-              {
-                english:
-                  "They diversified their investment portfolio by investing in stocks, bonds, and real estate.",
-                portuguese:
-                  "Eles diversificaram seu portfólio de investimentos investindo em ações, títulos e imóveis.",
-              },
-              {
-                english:
-                  "He believes in diversifying his skills to remain competitive in the job market.",
-                portuguese:
-                  "Ele acredita em diversificar suas habilidades para permanecer competitivo no mercado de trabalho.",
-              },
-            ],
+            english:
+              "He believes in diversifying his skills to remain competitive in the job market.",
+            portuguese:
+              "Ele acredita em diversificar suas habilidades para permanecer competitivo no mercado de trabalho.",
           },
         ],
       },
     ],
   },
+
   //// #3
   // Financial Concepts
   {
