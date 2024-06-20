@@ -25,7 +25,7 @@ export const talkingBusiness = [
         comments:
           "Below is a list of professional titles and their translations between English and Portuguese. These titles are used to address individuals in a respectful and formal manner in various professional settings. Understanding and using these titles correctly can enhance your communication skills in the workplace and other formal environments.",
         order: 0,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -289,7 +289,7 @@ export const talkingBusiness = [
         comments:
           "When referring to someone's job or profession in English, we use the articles 'a' or 'an' before the noun describing the occupation. The choice between 'a' and 'an' depends on the sound that begins the occupation's name:",
         order: 0,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -348,7 +348,7 @@ export const talkingBusiness = [
         comments:
           "When referring to the jobs or professions of multiple people in English, we do not use the articles 'a' or 'an.' Instead, we simply state the plural form of the profession:",
         order: 1,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -382,7 +382,7 @@ export const talkingBusiness = [
         comments:
           "In English, 'for' and 'at' are prepositions used to describe someone's role or position in relation to a company or organization:      'At' is used to indicate the specific location or company where someone works:      'For' is used to indicate the organization or entity that someone works on behalf of or represents:",
         order: 2,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -630,7 +630,7 @@ export const talkingBusiness = [
         comments:
           "These phrases are used when meeting visitors upon their arrival.",
         order: 0,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -720,7 +720,7 @@ export const talkingBusiness = [
         comments:
           "List of professions mentioned in the sentences, with their names in English and Portuguese.",
         order: 0,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2137,7 +2137,7 @@ export const talkingBusiness = [
       {
         subtitle: "Groceries",
         order: 0, // get the order right
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2157,7 +2157,7 @@ export const talkingBusiness = [
       {
         subtitle: "Purchase",
         order: 1,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2179,7 +2179,7 @@ export const talkingBusiness = [
       {
         subtitle: "Goods",
         order: 2,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2200,7 +2200,7 @@ export const talkingBusiness = [
       {
         subtitle: "Merchandise",
         order: 3,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2216,7 +2216,7 @@ export const talkingBusiness = [
       {
         subtitle: "Materials",
         order: 3,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2232,7 +2232,7 @@ export const talkingBusiness = [
       {
         subtitle: "Wares",
         order: 4,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2249,7 +2249,7 @@ export const talkingBusiness = [
       {
         subtitle: "Warehouse",
         order: 5,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2265,7 +2265,7 @@ export const talkingBusiness = [
       {
         subtitle: "Items",
         order: 7,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2282,7 +2282,7 @@ export const talkingBusiness = [
       {
         subtitle: "Commodities",
         order: 6,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2299,7 +2299,7 @@ export const talkingBusiness = [
       {
         subtitle: "Supplies",
         order: 9,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2315,7 +2315,7 @@ export const talkingBusiness = [
       {
         subtitle: "Inventory",
         order: 10,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2331,7 +2331,7 @@ export const talkingBusiness = [
       {
         subtitle: "Stock",
         order: 11,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2347,7 +2347,7 @@ export const talkingBusiness = [
       {
         subtitle: "Units",
         order: 12,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2375,7 +2375,7 @@ export const talkingBusiness = [
       {
         subtitle: "Company",
         order: 0,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2395,7 +2395,7 @@ export const talkingBusiness = [
       {
         subtitle: "Schedule",
         order: 1,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2415,7 +2415,7 @@ export const talkingBusiness = [
       {
         subtitle: "Revenue",
         order: 2,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2435,7 +2435,7 @@ export const talkingBusiness = [
       {
         subtitle: "Meeting",
         order: 3,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2455,7 +2455,7 @@ export const talkingBusiness = [
       {
         subtitle: "Goals or Objectives",
         order: 4,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2487,7 +2487,7 @@ export const talkingBusiness = [
       {
         subtitle: "Strategy",
         order: 5,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2507,7 +2507,7 @@ export const talkingBusiness = [
       {
         subtitle: "Tactics",
         order: 6,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2527,7 +2527,7 @@ export const talkingBusiness = [
       {
         subtitle: "Core Values",
         order: 7,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2547,7 +2547,7 @@ export const talkingBusiness = [
       {
         subtitle: "Profit",
         order: 8,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {
@@ -2567,7 +2567,7 @@ export const talkingBusiness = [
       {
         subtitle: "Loss",
         order: 9,
-        grid: 2,
+        grid: 1,
         type: "sentences",
         sentences: [
           {

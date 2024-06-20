@@ -46,16 +46,8 @@ EnglishCoursesHomeProps) {
     (a: any, b: any) => a.order - b.order
   );
 
-  const [display, setDisplay] = useState<string>("block");
   const location = useLocation();
   const isRootPath = location.pathname === "/english-courses";
-  useEffect(() => {
-    if (isRootPath) {
-      setDisplay("block");
-    } else {
-      setDisplay("none");
-    }
-  }, []);
 
   const listOfCourses = [
     {
@@ -94,7 +86,7 @@ EnglishCoursesHomeProps) {
           />
         ))}
       </Routes>
-      <RouteDiv style={{ display: display }}>
+      <RouteDiv style={{ display: isRootPath ? "block" : "none" }}>
         <Helmets text="Courses" />
         <HOne>Escolha um curso</HOne>
         <ul
@@ -110,9 +102,6 @@ EnglishCoursesHomeProps) {
               }}
               key={idx}
               to={pathGenerator(route.title)}
-              onClick={() => {
-                setDisplay("none");
-              }}
             >
               <div
                 className="hvr"
