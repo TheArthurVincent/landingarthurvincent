@@ -1,8 +1,12 @@
-import React from "react";
-import { HOne, RouteDiv, RouteDivUp, RouteSizeControlBox } from "../../Resources/Components/RouteBox";
+import React, { useEffect, useState } from "react";
+import {
+  HOne,
+  RouteDiv,
+  RouteDivUp,
+} from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { pathGenerator } from "../../Resources/UniversalComponents";
 import EnglishCourse from "./EnglishCourse";
 import { englishGrammar } from "./Assets/CoursesLists/EnglishGrammar";
@@ -42,6 +46,17 @@ EnglishCoursesHomeProps) {
     (a: any, b: any) => a.order - b.order
   );
 
+  const [display, setDisplay] = useState<string>("block");
+  const location = useLocation();
+  const isRootPath = location.pathname === "/english-courses";
+  useEffect(() => {
+    if (isRootPath) {
+      setDisplay("block");
+    } else {
+      setDisplay("none");
+    }
+  }, []);
+
   const listOfCourses = [
     {
       title: "English Grammar",
@@ -79,7 +94,7 @@ EnglishCoursesHomeProps) {
           />
         ))}
       </Routes>
-      <RouteDiv>
+      <RouteDiv style={{ display: display }}>
         <Helmets text="Courses" />
         <HOne>Escolha um curso</HOne>
         <ul
@@ -95,6 +110,9 @@ EnglishCoursesHomeProps) {
               }}
               key={idx}
               to={pathGenerator(route.title)}
+              onClick={() => {
+                setDisplay("none");
+              }}
             >
               <div
                 className="hvr"

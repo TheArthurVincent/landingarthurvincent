@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HOne, HTwo } from "../../../Resources/Components/RouteBox";
+import { HOne, HTwo, RouteDiv } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import TextLessonModel from "./LessonsModels/TextLessonModel";
@@ -20,11 +20,7 @@ import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
 import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
-import {
-  alwaysWhite,
-  primaryColor,
-  textPrimaryColorContrast,
-} from "../../../Styles/Styles";
+import { alwaysWhite, primaryColor } from "../../../Styles/Styles";
 import TextsWithTranslateLessonModel from "./LessonsModels/TextWithNoAudio";
 
 interface EnglishLessonsRenderModelProps {
@@ -33,6 +29,7 @@ interface EnglishLessonsRenderModelProps {
   course: any;
   courseTitle: string;
   back: any;
+  pthtt:string;
   order: number | any;
 }
 
@@ -40,7 +37,7 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
   course,
-  back,
+  back,pthtt,
   order,
   courseTitle,
 }: EnglishLessonsRenderModelProps) {
@@ -90,15 +87,7 @@ export default function EnglishLessonsRender({
   };
 
   return (
-    <div
-      style={{
-        borderRadius: "10px",
-        padding: "0.5rem",
-        marginBottom: "10rem",
-        paddingBottom: "1rem",
-        backgroundColor: "white",
-      }}
-    >
+    <RouteDiv>
       <ArvinButton onClick={backToCourses}>Back to Course</ArvinButton>
       <CoursesSideBar courses={course} />
       <Helmets text={theclass.title} />
@@ -266,7 +255,7 @@ export default function EnglishLessonsRender({
             )}
           </div>
         ))}
-    </div>
+    </RouteDiv>
   );
 }
 //
