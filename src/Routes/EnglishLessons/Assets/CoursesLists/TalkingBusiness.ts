@@ -2690,7 +2690,6 @@ export const talkingBusiness = [
   },
   //////// #2
   //Introduction
-
   {
     title: "Introduction 2",
     order: 0,
@@ -3263,9 +3262,7 @@ export const talkingBusiness = [
       },
     ],
   },
-
   // Short-term vs. Long-term
-
   {
     title: "Short-term vs. Long-term",
     order: 7,
@@ -3325,7 +3322,6 @@ export const talkingBusiness = [
       },
     ],
   },
-
   // Gross vs. Net
   {
     title: "Gross vs. Net",
@@ -3380,19 +3376,442 @@ export const talkingBusiness = [
           },
         ],
       },
+      /////  "Important Financial Verbs #1",
+      {
+        title: "Important Financial Verbs #1",
+        order: 9,
+        type: "3- Financial Concepts",
+
+        description:
+          "This module provides an essential overview of some the financial verbs.",
+        elements: [
+          {
+            subtitle: "To invest",
+            order: 0,
+            grid: 1,
+            comments:
+              "To allocate money in the expectation of some benefit in the future.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "He decided to invest in stocks for retirement income.",
+                portuguese:
+                  "Ele decidiu investir em ações para obter renda de aposentadoria.",
+              },
+
+              {
+                english: "They agreed to invest $1 million in the startup.",
+                portuguese:
+                  "O capitalista de risco concordou em investir US$ 1 milhão na startup.",
+              },
+            ],
+          },
+          {
+            subtitle: "To save",
+            order: 1,
+            grid: 1,
+            comments: "To set aside money for future use.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "She tries to save a portion of her salary every month.",
+                portuguese:
+                  "Ela tenta economizar uma parte do salário todos os meses.",
+              },
+              {
+                english:
+                  "Saving up for a down payment on a house is his current financial goal.",
+                portuguese:
+                  "Economizar para a entrada de uma casa é seu objetivo financeiro atual.",
+              },
+            ],
+          },
+          {
+            subtitle: "To spend",
+            order: 2,
+            grid: 1,
+            comments: "To use money to purchase goods or services.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "They spent their vacation budget on a trip to Europe.",
+                portuguese:
+                  "Eles gastaram o orçamento de férias em uma viagem para a Europa.",
+              },
+              {
+                english:
+                  "She spends wisely by using coupons and shopping during sales.",
+                portuguese:
+                  "Ela gasta com sabedoria usando cupons e fazendo compras durante as promoções.",
+              },
+            ],
+          },
+          {
+            subtitle: "To borrow",
+            order: 3,
+            grid: 1,
+            comments:
+              "To take and use money with the intention of returning it.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "They had to borrow money from the bank to expand their business.",
+                portuguese:
+                  "Eles tiveram que pegar dinheiro emprestado do banco para expandir o negócio.",
+              },
+              {
+                english:
+                  "She borrowed $200 from her friend to cover unexpected expenses.",
+                portuguese:
+                  "Ela pegou emprestado $200 de seu amigo para cobrir despesas inesperadas.",
+              },
+            ],
+          },
+          {
+            subtitle: "To lend",
+            order: 4,
+            grid: 1,
+            comments:
+              "To give money to someone under an agreement to get it back later.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "The bank agreed to lend them $50,000 for the home renovation.",
+                portuguese:
+                  "O banco concordou em emprestar $50.000 para a renovação da casa.",
+              },
+              {
+                english:
+                  "He often lends money to his siblings during emergencies.",
+                portuguese:
+                  "Ele frequentemente empresta dinheiro para seus irmãos em emergências.",
+              },
+            ],
+          },
+          {
+            subtitle: "To earn",
+            order: 5,
+            grid: 1,
+            comments:
+              "To receive money in return for work or services provided.",
+            type: "sentences",
+            sentences: [
+              {
+                english: "She earns a good salary working in finance.",
+                portuguese: "Ela ganha um bom salário trabalhando em finanças.",
+              },
+              {
+                english: "He earned a bonus for exceeding his sales targets.",
+                portuguese:
+                  "Ele recebeu um bônus por ultrapassar suas metas de vendas.",
+              },
+            ],
+          },
+          {
+            subtitle: "To forecast",
+            order: 6,
+            grid: 1,
+            comments: "To predict future financial trends.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "Economists forecasted a downturn in the housing market.",
+                portuguese:
+                  "Os economistas previram uma queda no mercado imobiliário.",
+              },
+              {
+                english:
+                  "He forecasted increased sales for the upcoming quarter.",
+                portuguese:
+                  "Ele previu um aumento nas vendas para o próximo trimestre.",
+              },
+            ],
+          },
+          {
+            subtitle: "To audit",
+            order: 7,
+            grid: 1,
+            comments: "To examine financial records to ensure accuracy.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "The IRS audited their tax returns for the past three years.",
+                portuguese:
+                  "A Receita Federal auditou suas declarações de impostos dos últimos três anos.",
+              },
+              {
+                english:
+                  "They conducted an internal audit to review financial discrepancies.",
+                portuguese:
+                  "Eles realizaram uma auditoria interna para revisar discrepâncias financeiras.",
+              },
+            ],
+          },
+          {
+            subtitle: "To insure",
+            order: 8,
+            grid: 1,
+            comments: "To arrange for compensation in case of loss or damage.",
+            type: "sentences",
+            sentences: [
+              {
+                english: "They insured their home against fire and theft.",
+                portuguese: "Eles seguraram sua casa contra incêndio e roubo.",
+              },
+              {
+                english: "He insured his new car with comprehensive coverage.",
+                portuguese:
+                  "Ele segurou seu carro novo com cobertura completa.",
+              },
+            ],
+          },
+          {
+            subtitle: "To diversify",
+            order: 9,
+            grid: 1,
+            comments:
+              "To spread investments across different assets to reduce risk.",
+            type: "sentences",
+            sentences: [
+              {
+                english:
+                  "They diversified their investment portfolio by investing in stocks, bonds, and real estate.",
+                portuguese:
+                  "Eles diversificaram seu portfólio de investimentos investindo em ações, títulos e imóveis.",
+              },
+              {
+                english:
+                  "He believes in diversifying his skills to remain competitive in the job market.",
+                portuguese:
+                  "Ele acredita em diversificar suas habilidades para permanecer competitivo no mercado de trabalho.",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   //// #3
   // Financial Concepts
   {
-    title: "Introduction 1",
+    title: "Introduction 3",
     order: 0,
     type: "3- Financial Concepts",
 
     description:
-      "This module provides an essential overview of the principles governing assets and liabilities in financial contexts. Covering the core concepts of 'Assets vs. Liabilities', this chapter delves into understanding assets as valuable resources owned by individuals or entities and liabilities as financial obligations or debts. Gain insights into their significance in personal finance and business operations, laying the groundwork for deeper exploration into financial management and decision-making. Join us to build a solid foundation in financial literacy and understanding.",
+      "This module provides an essential overview of the financial principles.",
     elements: [],
   },
+
+  /////  "Important Financial Verbs #2",
+  {
+    title: "Important Financial Verbs #2",
+    order: 2,
+    type: "3- Financial Concepts",
+
+    description:
+      "This module provides an extra essential overview of some the financial verbs.",
+    elements: [
+      {
+        subtitle: "To deposit",
+        order: 0,
+        grid: 1,
+        comments: "To put money into a bank account.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "He made a deposit of $500 into his savings account.",
+            portuguese: "Ele fez um depósito de $500 em sua conta poupança.",
+          },
+          {
+            english: "The customer made a cash deposit at the ATM.",
+            portuguese:
+              "O cliente fez um depósito em dinheiro no caixa eletrônico.",
+          },
+        ],
+      },
+      {
+        subtitle: "To withdraw",
+        order: 1,
+        grid: 1,
+        comments: "To take money out of a bank account.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "She needed to withdraw cash to pay for the concert tickets.",
+            portuguese:
+              "Ela precisava sacar dinheiro para pagar pelos ingressos do concerto.",
+          },
+          {
+            english: "He withdrew $100 from the ATM for lunch with friends.",
+            portuguese:
+              "Ele sacou $100 do caixa eletrônico para almoçar com amigos.",
+          },
+        ],
+      },
+      {
+        subtitle: "To transfer",
+        order: 2,
+        grid: 1,
+        comments: "To move money from one account to another.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They transferred funds from their checking account to their savings account.",
+            portuguese:
+              "Eles transferiram fundos de sua conta corrente para sua conta poupança.",
+          },
+          {
+            english:
+              "He transferred money to his sister's account for her birthday gift.",
+            portuguese:
+              "Ele transferiu dinheiro para a conta da sua irmã como presente de aniversário.",
+          },
+        ],
+      },
+      {
+        subtitle: "To budget",
+        order: 3,
+        grid: 1,
+        comments: "To plan and allocate financial resources.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They created a monthly budget to track their expenses.",
+            portuguese:
+              "Eles criaram um orçamento mensal para controlar seus gastos.",
+          },
+          {
+            english: "He budgets carefully to save for a new car.",
+            portuguese:
+              "Ele faz um orçamento cuidadoso para economizar para um carro novo.",
+          },
+        ],
+      },
+      {
+        subtitle: "To trade",
+        order: 4,
+        grid: 1,
+        comments: "To buy and sell assets, such as stocks or goods.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "He trades stocks and bonds on the stock market.",
+            portuguese: "Ele negocia ações e títulos no mercado de ações.",
+          },
+          {
+            english:
+              "She trades her old textbooks for new ones with her classmates.",
+            portuguese:
+              "Ela troca seus livros didáticos antigos por novos com seus colegas de classe.",
+          },
+        ],
+      },
+      {
+        subtitle: "To repay",
+        order: 5,
+        grid: 1,
+        comments: "To pay back borrowed money or credit.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They are repaying their mortgage over 30 years.",
+            portuguese: "Eles estão pagando sua hipoteca ao longo de 30 anos.",
+          },
+          {
+            english:
+              "She repaid her friend for covering her dinner bill last night.",
+            portuguese:
+              "Ela reembolsou seu amigo por cobrir a conta do jantar de ontem à noite.",
+          },
+        ],
+      },
+      {
+        subtitle: "To owe",
+        order: 6,
+        grid: 1,
+        comments: "To have an obligation to pay money.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They owe $10,000 on their student loans.",
+            portuguese: "Eles devem $10.000 em empréstimos estudantis.",
+          },
+          {
+            english:
+              "She owes her brother $50 for buying her groceries last week.",
+            portuguese:
+              "Ela deve $50 ao seu irmão por ter comprado seus mantimentos na semana passada.",
+          },
+        ],
+      },
+      {
+        subtitle: "To purchase",
+        order: 7,
+        grid: 1,
+        comments: "To buy goods or services by paying money.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They purchased a new laptop for school.",
+            portuguese: "Eles compraram um novo laptop para a escola.",
+          },
+          {
+            english: "She purchased concert tickets online.",
+            portuguese: "Ela comprou ingressos para o show online.",
+          },
+        ],
+      },
+      {
+        subtitle: "To sell",
+        order: 8,
+        grid: 1,
+        comments: "To exchange goods or services for money.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "He sold his old car to buy a new one.",
+            portuguese: "Ele vendeu seu carro antigo para comprar um novo.",
+          },
+          {
+            english: "She sells handmade crafts at the local market.",
+            portuguese: "Ela vende artesanato feito à mão no mercado local.",
+          },
+        ],
+      },
+      {
+        subtitle: "To fund",
+        order: 9,
+        grid: 1,
+        comments: "To provide financial resources for a project or initiative.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The government provided funds for the new highway construction project.",
+            portuguese:
+              "O governo forneceu fundos para o novo projeto de construção de rodovias.",
+          },
+          {
+            english:
+              "Investors pooled their funds to launch a new tech startup.",
+            portuguese:
+              "Investidores reuniram seus fundos para lançar uma nova startup de tecnologia.",
+          },
+        ],
+      },
+    ],
+  },
+  // Assets vs. Liabilities
   {
     title: "Assets vs. Liabilities",
     order: 1,
@@ -3497,8 +3916,47 @@ export const talkingBusiness = [
         ],
       },
       {
-        subtitle: "Types of Assets",
+        subtitle: "Categories of Assets",
         order: 3,
+        type: "listinenglish",
+        audios: [
+          {
+            enusAudio:
+              "Current Assets: Assets that are expected to be converted into cash or used up within one year, including cash, accounts receivable, and inventory.",
+          },
+          {
+            enusAudio:
+              "Non-Current Assets: Long-term investments and property that are not expected to be converted into cash within a year, such as property, plant, and equipment (PP&E), and intangible assets.",
+          },
+          {
+            enusAudio:
+              "Fixed Assets: Long-term tangible assets used in the operation of a business, like machinery, buildings, and land.",
+          },
+          {
+            enusAudio:
+              "Intangible Assets: Non-physical assets with economic value, including intellectual property like patents, trademarks, and goodwill.",
+          },
+          {
+            enusAudio:
+              "Operating Assets: Assets used in the day-to-day operations of a business, including cash, inventory, and accounts receivable.",
+          },
+          {
+            enusAudio:
+              "Non-Operating Assets: Assets not essential to the primary business activities but may generate income, such as investments and unused land.",
+          },
+          {
+            enusAudio:
+              "Tangible Assets: Physical assets that can be touched and seen, including buildings, machinery, and vehicles.",
+          },
+          {
+            enusAudio:
+              "Financial Assets: Assets that derive value from a contractual claim, such as stocks, bonds, and bank deposits.",
+          },
+        ],
+      },
+      {
+        subtitle: "Types of Assets",
+        order: 4,
         type: "listinenglish",
         audios: [
           {
@@ -3535,9 +3993,10 @@ export const talkingBusiness = [
           },
         ],
       },
+
       {
-        subtitle: "Types of Liabilities",
-        order: 4,
+        subtitle: "List of Liabilities",
+        order: 5,
         type: "sentences",
         sentences: [
           {
@@ -3576,7 +4035,7 @@ export const talkingBusiness = [
       },
       {
         subtitle: "Types of Liabilities",
-        order: 5,
+        order: 6,
         type: "listinenglish",
         audios: [
           {
@@ -3613,6 +4072,515 @@ export const talkingBusiness = [
           },
         ],
       },
+      {
+        subtitle: "Categories of Liabilities",
+        order: 5,
+        type: "listinenglish",
+        audios: [
+          {
+            enusAudio:
+              "Current Liabilities: Obligations that are expected to be settled within one year, including accounts payable, short-term loans, and accrued expenses.",
+          },
+          {
+            enusAudio:
+              "Non-Current Liabilities: Long-term obligations not due within one year, such as long-term loans, bonds payable, and lease obligations.",
+          },
+          {
+            enusAudio:
+              "Operating Liabilities: Liabilities that arise from the primary business operations, including accounts payable, wages payable, and taxes payable.",
+          },
+          {
+            enusAudio:
+              "Non-Operating Liabilities: Liabilities not directly tied to primary business operations, such as long-term loans and bonds payable.",
+          },
+          {
+            enusAudio:
+              "Contingent Liabilities: Potential obligations that may occur depending on the outcome of a future event, such as lawsuits or guarantees.",
+          },
+          {
+            enusAudio:
+              "Secured Liabilities: Liabilities backed by collateral, giving the lender a claim on the asset if the borrower defaults.",
+          },
+          {
+            enusAudio:
+              "Unsecured Liabilities: Liabilities not backed by collateral, including most accounts payable and some forms of long-term debt.",
+          },
+          {
+            enusAudio:
+              "Financial Liabilities: Obligations that arise from borrowing funds, such as loans, bonds, and lines of credit.",
+          },
+        ],
+      },
     ],
   },
+  /////  "Important Financial Verbs #3",
+  {
+    title: "Important Financial Verbs #3",
+    order: 4,
+    type: "3- Financial Concepts",
+
+    description:
+      "This module provides an extra essential overview of some the financial verbs.",
+    elements: [
+      {
+        subtitle: "To hedge",
+        order: 0,
+        grid: 1,
+        comments:
+          "To make an investment to reduce the risk of adverse price movements.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "He hedged his investment in oil with a position in renewable energy stocks.",
+            portuguese:
+              "Ele fez um hedge em seu investimento em petróleo com uma posição em ações de energia renovável.",
+          },
+          {
+            english:
+              "They hedged against currency fluctuations by investing in foreign exchange options.",
+            portuguese:
+              "Eles se protegeram contra flutuações cambiais investindo em opções de câmbio estrangeiro.",
+          },
+        ],
+      },
+      {
+        subtitle: "To lease",
+        order: 1,
+        grid: 1,
+        comments:
+          "To grant the use of an asset for a specified period in exchange for payment.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They leased office space in the city center for their startup.",
+            portuguese:
+              "Eles alugaram espaço de escritório no centro da cidade para sua startup.",
+          },
+          {
+            english: "He leased a car instead of buying one outright.",
+            portuguese: "Ele alugou um carro em vez de comprá-lo diretamente.",
+          },
+        ],
+      },
+      {
+        subtitle: "To appraise",
+        order: 3,
+        grid: 1,
+        comments: "To assess the value of an asset.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The appraiser assessed the value of the antique vase at $5,000.",
+            portuguese: "O avaliador avaliou o valor do vaso antigo em $5.000.",
+          },
+          {
+            english: "They appraised the property before listing it for sale.",
+            portuguese:
+              "Eles avaliaram a propriedade antes de listá-la para venda.",
+          },
+        ],
+      },
+      {
+        subtitle: "To refinance",
+        order: 4,
+        grid: 1,
+        comments: "To revise the terms of an existing loan agreement.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They decided to refinance their mortgage to get a lower interest rate.",
+            portuguese:
+              "Eles decidiram refinanciar sua hipoteca para obter uma taxa de juros mais baixa.",
+          },
+          {
+            english:
+              "He refinanced his student loans to extend the repayment period.",
+            portuguese:
+              "Ele refinanciou seus empréstimos estudantis para estender o período de pagamento.",
+          },
+        ],
+      },
+      {
+        subtitle: "To amortize",
+        order: 5,
+        grid: 1,
+        comments: "To gradually pay off a debt over a period of time.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They amortize the cost of the new equipment over five years.",
+            portuguese:
+              "Eles amortizam o custo do novo equipamento ao longo de cinco anos.",
+          },
+          {
+            english: "She amortizes the mortgage payments over 30 years.",
+            portuguese:
+              "Ela amortiza os pagamentos da hipoteca ao longo de 30 anos.",
+          },
+        ],
+      },
+      {
+        subtitle: "To allocate",
+        order: 6,
+        grid: 1,
+        comments: "To distribute resources for a specific purpose.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They allocated funds for research and development of new products.",
+            portuguese:
+              "Eles alocaram fundos para pesquisa e desenvolvimento de novos produtos.",
+          },
+          {
+            english:
+              "He allocated time each day to study for his upcoming exams.",
+            portuguese:
+              "Ele reservou tempo todos os dias para estudar para suas próximas provas.",
+          },
+        ],
+      },
+      {
+        subtitle: "To underwrite",
+        order: 7,
+        grid: 1,
+        comments: "To guarantee financial support for a project or investment.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The bank agreed to underwrite the construction of the new office building.",
+            portuguese:
+              "O banco concordou em garantir o financiamento da construção do novo edifício de escritórios.",
+          },
+          {
+            english:
+              "They underwrote the insurance policy for the large corporate client.",
+            portuguese:
+              "Eles garantiram a apólice de seguro para o grande cliente corporativo.",
+          },
+        ],
+      },
+      {
+        subtitle: "To liquidate",
+        order: 8,
+        grid: 1,
+        comments: "To convert assets into cash.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They had to liquidate their investments to pay off their debts.",
+            portuguese:
+              "Eles tiveram que liquidar seus investimentos para pagar suas dívidas.",
+          },
+          {
+            english:
+              "He liquidated his antique collection to raise funds for his daughter's education.",
+            portuguese:
+              "Ele liquidou sua coleção de antiguidades para arrecadar fundos para a educação de sua filha.",
+          },
+        ],
+      },
+      {
+        subtitle: "To leverage",
+        order: 9,
+        grid: 1,
+        comments:
+          "To use borrowed capital for investment, expecting the profits to be greater than the interest payable.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "He used leverage to buy more shares than he could afford with cash alone.",
+            portuguese:
+              "Ele usou alavancagem para comprar mais ações do que poderia pagar apenas com dinheiro.",
+          },
+          {
+            english:
+              "They leveraged their brand's popularity to launch a new product line.",
+            portuguese:
+              "Eles aproveitaram a popularidade de sua marca para lançar uma nova linha de produtos.",
+          },
+        ],
+      },
+    ],
+  },
+  /////  "Profit and Related Terms",
+  {
+    title: "Profit and Related Terms",
+    order: 5,
+    type: "3- Financial Concepts",
+    description:
+      "In this class, we'll learn how to use profit and related terms.",
+    elements: [],
+  },
+  /////  "Important Financial Verbs #4",
+  {
+    title: "Important Financial Verbs #4",
+    order: 6,
+    type: "3- Financial Concepts",
+
+    description:
+      "This module provides an extra essential overview of some the financial verbs.",
+    elements: [
+      {
+        subtitle: "To capitalize",
+        order: 0,
+        grid: 1,
+        comments: "To provide a company with the capital needed for growth.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The company capitalized on the growing demand for eco-friendly products.",
+            portuguese:
+              "A empresa se capitalizou com a crescente demanda por produtos ecológicos.",
+          },
+          {
+            english:
+              "Investors capitalized the startup with $1 million in seed funding.",
+            portuguese:
+              "Os investidores capitalizaram a startup com $1 milhão em financiamento inicial.",
+          },
+        ],
+      },
+      {
+        subtitle: "To speculate",
+        order: 1,
+        grid: 1,
+        comments:
+          "To invest in risky financial ventures in the hope of significant returns.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "He speculated on the cryptocurrency market and made a substantial profit.",
+            portuguese:
+              "Ele especulou no mercado de criptomoedas e obteve um lucro substancial.",
+          },
+          {
+            english:
+              "They speculate on the future price of gold by buying futures contracts.",
+            portuguese:
+              "Eles especulam sobre o preço futuro do ouro comprando contratos futuros.",
+          },
+        ],
+      },
+      {
+        subtitle: "To yield",
+        order: 2,
+        grid: 1,
+        comments: "To produce a return on an investment.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Their investment in bonds yielded a steady income stream.",
+            portuguese:
+              "Seu investimento em títulos gerou um fluxo de renda estável.",
+          },
+          {
+            english: "The farm yielded a bumper crop this season.",
+            portuguese:
+              "A fazenda produziu uma safra abundante nesta temporada.",
+          },
+        ],
+      },
+      {
+        subtitle: "To accrue",
+        order: 3,
+        grid: 1,
+        comments: "To accumulate or receive payments over time.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Interest accrues on the savings account balance every month.",
+            portuguese:
+              "Os juros acumulam-se sobre o saldo da conta poupança todos os meses.",
+          },
+          {
+            english: "He accrued vacation days over the course of the year.",
+            portuguese: "Ele acumulou dias de férias ao longo do ano.",
+          },
+        ],
+      },
+      {
+        subtitle: "To appreciate",
+        order: 4,
+        grid: 1,
+        comments: "To increase in value over time.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The value of their property appreciated significantly over the past decade.",
+            portuguese:
+              "O valor de sua propriedade valorizou significativamente ao longo da última década.",
+          },
+          {
+            english: "She appreciates her investments in the stock market.",
+            portuguese: "Ela valoriza seus investimentos no mercado de ações.",
+          },
+        ],
+      },
+      {
+        subtitle: "To depreciate",
+        order: 5,
+        grid: 1,
+        comments: "To decrease in value over time.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "The car depreciated in value after three years of use.",
+            portuguese: "O carro depreciou em valor após três anos de uso.",
+          },
+          {
+            english:
+              "Equipment tends to depreciate over time due to wear and tear.",
+            portuguese:
+              "Equipamentos tendem a depreciar ao longo do tempo devido ao desgaste.",
+          },
+        ],
+      },
+      {
+        subtitle: "To incur",
+        order: 6,
+        grid: 1,
+        comments:
+          "To become subject to (usually something unwelcome, like debt or expense).",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They incurred substantial debt while expanding their business.",
+            portuguese:
+              "Eles contraíram uma dívida substancial ao expandir seu negócio.",
+          },
+          {
+            english: "He incurred travel expenses during his business trip.",
+            portuguese:
+              "Ele incorreu em despesas de viagem durante sua viagem de negócios.",
+          },
+        ],
+      },
+      {
+        subtitle: "To pay",
+        order: 7,
+        grid: 1,
+        comments: "To give money in exchange for goods or services.",
+        type: "sentences",
+        sentences: [
+          {
+            english: "They paid the contractor for renovating their kitchen.",
+            portuguese:
+              "Eles pagaram o empreiteiro pela reforma de sua cozinha.",
+          },
+          {
+            english: "She pays her credit card bill in full every month.",
+            portuguese:
+              "Ela paga a fatura do cartão de crédito integralmente todos os meses.",
+          },
+        ],
+      },
+      {
+        subtitle: "To reconcile",
+        order: 8,
+        grid: 1,
+        comments: "To ensure financial accounts are accurate and consistent.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They reconciled the bank statement with their accounting records.",
+            portuguese:
+              "Eles conciliaram o extrato bancário com seus registros contábeis.",
+          },
+          {
+            english:
+              "He reconciled the discrepancies in the inventory records.",
+            portuguese:
+              "Ele conciliou as discrepâncias nos registros de inventário.",
+          },
+        ],
+      },
+      {
+        subtitle: "To optimize",
+        order: 9,
+        grid: 1,
+        comments: "To make the best or most effective use of resources.",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They optimized their website to improve user experience and increase sales.",
+            portuguese:
+              "Eles otimizaram seu site para melhorar a experiência do usuário e aumentar as vendas.",
+          },
+          {
+            english:
+              "He optimized his investment strategy to minimize risks and maximize returns.",
+            portuguese:
+              "Ele otimizou sua estratégia de investimento para minimizar riscos e maximizar retornos.",
+          },
+        ],
+      },
+    ],
+  },
+  /////  "Types of Taxes",
+  {
+    title: "Types of Taxes",
+    order: 7,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Bankruptcy",
+  {
+    title: "Bankruptcy",
+    order: 8,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Cash Flow",
+  {
+    title: "Cash Flow",
+    order: 8,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Accounts Payable and Receivable",
+  {
+    title: "Accounts Payable and Receivable",
+    order: 9,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Stocks and Shares",
+  {
+    title: "Stocks and Shares",
+    order: 10,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
 ];
+
+/////  "Profit and Related Terms",
+//  {
+//   title: "Profit and Related Terms",
+//   order: 5,
+//   type: "3- Financial Concepts",
+
+//   description: "This class will be ready soon.",
+//   elements: []
+// },

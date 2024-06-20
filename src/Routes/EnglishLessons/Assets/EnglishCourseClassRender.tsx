@@ -29,7 +29,7 @@ interface EnglishLessonsRenderModelProps {
   course: any;
   courseTitle: string;
   back: any;
-  pthtt:string;
+  pthtt: string;
   order: number | any;
 }
 
@@ -37,7 +37,8 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
   course,
-  back,pthtt,
+  back,
+  pthtt,
   order,
   courseTitle,
 }: EnglishLessonsRenderModelProps) {
@@ -190,7 +191,7 @@ export default function EnglishLessonsRender({
                   alignItems: "center",
                 }}
               >
-                <HTwo>{element.subtitle}</HTwo>
+                <HTwo>{index + 1 + "- " + element.subtitle}</HTwo>
               </div>
             )}
             {element.image && element.subtitle && (
