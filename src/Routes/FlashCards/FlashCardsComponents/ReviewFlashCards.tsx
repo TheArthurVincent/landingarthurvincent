@@ -369,23 +369,24 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                               />
                             ) || " "}
                           </span>
-                          {cards[0].front.language !== "pt" && (
-                            <button
-                              className="audio-button"
-                              onClick={() =>
-                                readText(
-                                  cards[0].front.text,
-                                  true,
-                                  cards[0].front.language
-                                )
-                              }
-                            >
-                              <i
-                                className="fa fa-volume-up"
-                                aria-hidden="true"
-                              />
-                            </button>
-                          )}
+                          {cards[0].front.language &&
+                            cards[0].front.language !== "pt" && (
+                              <button
+                                className="audio-button"
+                                onClick={() =>
+                                  readText(
+                                    cards[0].front.text,
+                                    true,
+                                    cards[0].front.language
+                                  )
+                                }
+                              >
+                                <i
+                                  className="fa fa-volume-up"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            )}
                         </div>
                       </div>
                       <div
@@ -429,23 +430,24 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                               </>
                             ) || " "}
                           </span>
-                          {cards[0].back.language !== "pt" && (
-                            <button
-                              className="audio-button"
-                              onClick={() =>
-                                readText(
-                                  cards[0].back.text,
-                                  true,
-                                  cards[0].back.language
-                                )
-                              }
-                            >
-                              <i
-                                className="fa fa-volume-up"
-                                aria-hidden="true"
-                              />
-                            </button>
-                          )}
+                          {cards[0].back.language &&
+                            cards[0].back.language !== "pt" && (
+                              <button
+                                className="audio-button"
+                                onClick={() =>
+                                  readText(
+                                    cards[0].back.text,
+                                    true,
+                                    cards[0].back.language
+                                  )
+                                }
+                              >
+                                <i
+                                  className="fa fa-volume-up"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            )}
                         </div>
                       </div>
                     </div>
