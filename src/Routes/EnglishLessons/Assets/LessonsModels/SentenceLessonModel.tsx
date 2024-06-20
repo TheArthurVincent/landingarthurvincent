@@ -122,6 +122,7 @@ export default function SentenceLessonModel({
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
             <TextAreaLesson />
+            <textarea className="comments" name="comments"></textarea>
             <br />
           </LiSentence>
         ))}
