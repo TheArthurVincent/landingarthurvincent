@@ -3378,7 +3378,8 @@ export const talkingBusiness = [
         ],
       },
     ],
-  }, /////  "Important Financial Verbs #1",
+  },
+  /////  "Important Financial Verbs #1",
   {
     title: "Important Financial Verbs #1",
     type: "2- General Business English",
@@ -3402,8 +3403,7 @@ export const talkingBusiness = [
 
           {
             english: "They agreed to invest $1 million in the startup.",
-            portuguese:
-              "Eles concordaram em investir US$ 1 milhão na startup.",
+            portuguese: "Eles concordaram em investir US$ 1 milhão na startup.",
           },
         ],
       },
@@ -4560,6 +4560,30 @@ export const talkingBusiness = [
   {
     title: "Stocks and Shares",
     order: 10,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Installment Payment",
+  {
+    title: "Installment Payment",
+    order: 11,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Liquidity",
+  {
+    title: "Liquidity",
+    order: 11,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Remittances",
+  {
+    title: "Remittances",
+    order: 12,
     type: "3- Financial Concepts",
     description: "This class will be ready soon.",
     elements: [],
