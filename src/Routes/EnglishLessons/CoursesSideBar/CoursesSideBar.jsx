@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { pathGenerator } from "../../../Resources/UniversalComponents";
-import {
-  CoursesList,
-  CoursesListContainer,
-  CoursesListInnerContainer,
-  CoursesListInnerInnerContainer,
-  CoursesListItem,
-} from "./CoursesSideBarStyled";
-import {
-  alwaysWhite,
-  primaryColor,
-  secondaryColor,
-  textPrimaryColorContrast,
-} from "../../../Styles/Styles";
+import { CoursesList, CoursesListContainer, CoursesListInnerContainer, CoursesListInnerInnerContainer, CoursesListItem, } from "./CoursesSideBarStyled";
+import { alwaysWhite, primaryColor, secondaryColor, textPrimaryColorContrast, } from "../../../Styles/Styles";
 
 function CoursesSideBar({ courses }) {
   const [showCourses, setShowCourses] = useState(false);
@@ -48,23 +37,9 @@ function CoursesSideBar({ courses }) {
           <div onClick={handleShowCourses}>
             <div
               style={{
-                maxHeight: "1rem",
-                padding: "1rem",
-                zIndex: -1,
-                alignItems: "center",
-                backgroundColor: secondaryColor(),
-                border: `ridge 5px ${secondaryColor()}`,
-                borderRadius: "50px",
-                transition: "left 0.3s ease-out",
-                color: alwaysWhite(),
-                position: "fixed",
-                left: showCourses ? -150 : "-17.8rem",
-                top: 405,
-                justifyContent: "space-between",
-                cursor: "pointer",
-                width: "18rem",
-                display: "flex",
-                gap: "9rem",
+                maxHeight: "1rem", padding: "1rem", zIndex: -1, alignItems: "center", backgroundColor: secondaryColor(), border: `ridge 5px ${secondaryColor()}`, borderRadius: "50px",
+                transition: "left 0.3s ease-out", color: alwaysWhite(), position: "fixed", left: showCourses ? -150 : "-17.8rem", top: 405, justifyContent: "space-between", cursor: "pointer",
+                width: "18rem", display: "flex", gap: "9rem",
               }}
             >
               <h1>Modules</h1>
