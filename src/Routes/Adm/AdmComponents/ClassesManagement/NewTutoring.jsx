@@ -21,7 +21,7 @@ export function NewTutoring({ headers }) {
   const [newAttachments, setAttachments] = useState("");
   const [newHWDescription, setNewHWDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
-  
+
   const handleHWDescriptionChange = (htmlContent) => {
     setNewHWDescription(htmlContent);
   };
@@ -122,19 +122,7 @@ export function NewTutoring({ headers }) {
               );
             })}
           </select>
-          <div
-            style={{
-              backgroundColor: primaryColor(),
-              color: textPrimaryColorContrast(),
-              display: "inline-block",
-              padding: "0.5rem",
-              cursor: "pointer",
-              textAlign: "center",
-            }}
-            onClick={handleAddTutoring}
-          >
-            + Aula
-          </div>
+          <ArvinButton onClick={handleAddTutoring}>+ Aula</ArvinButton>
         </div>
         {tutorings.map((tutoring, index) => (
           <div key={index}>

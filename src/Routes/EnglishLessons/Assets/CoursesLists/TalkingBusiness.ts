@@ -4,7 +4,7 @@ export const talkingBusiness = [
 {
 title: "Introduction 1",
 order: 0,
-type: "1- Business Essentials",
+type: "Business Essentials",
 
 description:
 "Welcome to the Business Essentials module! This comprehensive series covers fundamental aspects of business communication, professional etiquette, management structures, company operations, and essential vocabulary. Whether you're new to business environments or seeking to enhance your professional skills, these classes will equip you with the knowledge and language proficiency needed to thrive in various business scenarios. Explore topics ranging from effective communication strategies to understanding corporate structures and navigating business interactions with confidence.",
@@ -14,7 +14,7 @@ elements: [],
 {
 title: "Professional Communication Skills",
 order: 0,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "This class focuses on the correct usage of professional titles and pronouns in both English and Portuguese. It provides examples of common phrases used in professional settings, highlighting how to address individuals respectfully and appropriately. The lesson aims to enhance communication skills in formal environments by teaching the proper use of titles such as Mr., Ms., Dr., and others in both languages.",
 image:
@@ -278,7 +278,7 @@ dialogue: [
 {
 title: "Introducing Yourself Professionally",
 order: 1,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Learn to present yourself effectively in professional settings, mastering essential communication skills for success.",
 image:
@@ -619,7 +619,7 @@ dialogue: [
 {
 title: "Meeting Visitors at Arrival",
 order: 2,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Learn to present yourself effectively when meeting visitors upon their arrival.",
 image:
@@ -709,7 +709,7 @@ dialogue: [
 {
 title: "Professions",
 order: 3,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Learn to present yourself effectively when meeting visitors upon their arrival.",
 image:
@@ -1175,7 +1175,7 @@ portuguese: "O fazendeiro vende as frutas e legumes que cultiva.",
 {
 title: "Management Levels #1",
 order: 4,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description: "Learn the most common management levels.",
 image:
 "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -1379,7 +1379,7 @@ portuguese:
 {
 title: "Management Levels #2",
 order: 5,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description: "Keep learning about management levels.",
 image:
 "https://images.pexels.com/photos/1586996/pexels-photo-1586996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -1661,7 +1661,7 @@ portuguese:
 {
 title: "Companies and Important Verbs",
 order: 5,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Let's learn about a few companies, and see important corporate verbs being used.",
 image:
@@ -2128,7 +2128,7 @@ enusAudio:
 {
 title: "Navigating Products",
 order: 6,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Let's learn general concepts and words, and see important corporate words being used.",
 image:
@@ -2366,7 +2366,7 @@ portuguese: "A fábrica produz 1000 unidades por dia.",
 {
 title: "Important Vocabulary for the Course #1",
 order: 7,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Let's learn general concepts and words, and see important corporate words being used.",
 image:
@@ -2590,7 +2590,7 @@ portuguese:
 {
 title: "Important Vocabulary for the Course #2",
 order: 8,
-type: "1- Business Essentials",
+type: "Business Essentials",
 description:
 "Let's continue to learn general concepts and words, and see important corporate words being used.",
 image:
@@ -2693,7 +2693,7 @@ portuguese:
 {
 title: "Introduction 2",
 order: 0,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this introductory chapter of General Business English, we explore fundamental business concepts essential for effective communication in the corporate world. Covering topics such as the distinction between 'Job vs. Work', 'Debit vs. Credit', 'Success vs. Failure', 'To Buy vs. To Sell', 'To Borrow vs. To Lend', 'To Promote vs. To Demote', 'Short-term vs. Long-term', and 'Gross vs. Net', this chapter provides a foundational understanding of key terminology and distinctions that play a crucial role in business interactions. Join us to enhance your business vocabulary and comprehension of these fundamental concepts.",
 
@@ -2703,7 +2703,7 @@ elements: [],
 {
 title: "Job vs. Work",
 order: 1,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this section, we will discuss the differences between 'job' and 'work.' While both terms are often used interchangeably, they have distinct meanings.",
 image:
@@ -2843,7 +2843,7 @@ portuguese: "Preciso ir para casa porque tenho trabalho a fazer.",
 {
 title: "Debit vs. Credit",
 order: 2,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this class, we will explore the fundamental concepts of credit and debit. We'll discuss how credit allows immediate access to goods and services with deferred payment, contrasting it with debit, which deducts funds directly from an account. Join us to delve into their impacts on personal finances and economic dynamics.",
 image:
@@ -2922,7 +2922,7 @@ portuguese: "Eu pago minha conta de luz por débito direto.",
 {
 title: "Success vs. Failure",
 order: 3,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this class, we will explore the contrasting concepts of success and failure. Success is achieving desired goals or outcomes, often through perseverance and strategic planning. Conversely, failure denotes the absence or non-achievement of goals, presenting opportunities for learning and growth. Join us to delve into their impacts on personal development and professional endeavors.",
 image:
@@ -3014,7 +3014,7 @@ portuguese:
 {
 title: "To Buy vs. To Sell",
 order: 4,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this class, we will explore the actions of buying and selling. 'To buy' refers to acquiring goods or services in exchange for payment, while 'to sell' involves transferring goods or services to another party in exchange for money. Join us to examine their roles in commerce and the dynamics of markets.",
 image:
@@ -3074,7 +3074,7 @@ portuguese: "A pintura foi vendida a um colecionador particular.",
 {
 title: "To Borrow vs. To Lend",
 order: 5,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this class, we will explore the actions of borrowing and lending. 'To borrow' refers to obtaining something temporarily with the intention of returning it, especially money or items. 'To lend' involves granting temporary use of something, typically money or possessions, with the expectation of its return. Join us to understand the dynamics of lending and borrowing in personal and professional contexts.",
 image:
@@ -3151,7 +3151,7 @@ portuguese: "O japonês emprestou muito do inglês.",
 {
 title: "To Promote vs. To Demote",
 order: 6,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "In this class, we will explore the actions of promoting and demoting individuals within an organizational context. 'To promote' refers to advancing someone to a higher position or rank, typically as a reward for performance or merit. Conversely, 'to demote' involves lowering someone's rank or position due to poor performance or other reasons. Join us to understand the dynamics of career progression and management decisions.",
 image:
@@ -3266,7 +3266,7 @@ portuguese:
 {
 title: "Short-term vs. Long-term",
 order: 7,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "This class explores the differences between short-term and long-term perspectives in business and personal finance. We'll discuss the implications of short-term decisions on cash flow and contracts, contrasting them with the strategic focus and implications of long-term investments and projects.",
 image:
@@ -3322,12 +3322,11 @@ portuguese:
 },
 ],
 },
-
 // Gross vs. Net
 {
 title: "Gross vs. Net",
 order: 8,
-type: "2- General Business English",
+type: "General Business English",
 description:
 "This class explores the concepts of gross and net in financial contexts. We'll discuss how gross refers to total amounts before deductions, contrasting with net, which represents amounts after deductions such as taxes and expenses. Join us to understand their significance in business and personal finance.",
 image:
@@ -3386,8 +3385,7 @@ portuguese:
 {
 title: "Introduction 3",
 order: 0,
-type: "3- Business Expressions",
-
+type: "Business Expressions",
 description: "Welcome to the Business Expressions module!",
 elements: [],
 },
@@ -3395,7 +3393,7 @@ elements: [],
 {
 title: "Mastering Business Expressions",
 order: 1,
-type: "3- Business Expressions",
+type: "Business Expressions",
 description: "This class will be ready soon.",
 elements: [
 {
@@ -3552,7 +3550,7 @@ portuguese:
 {
 title: "Mastering Business Idioms",
 order: 2,
-type: "3- Business Expressions",
+type: "Business Expressions",
 description: "This class will be ready soon.",
 elements: [
 {
@@ -3775,7 +3773,7 @@ portuguese:
 {
 title: "Introduction 4",
 order: 0,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description:
 "This module provides an essential overview of the financial principles.",
 elements: [],
@@ -3783,7 +3781,7 @@ elements: [],
 /////  "Important Financial Verbs #1",
 {
 title: "Important Financial Verbs #1",
-type: "2- General Business English",
+type: "General Business English",
 order: 1,
 description:
 "This module provides an essential overview of some the financial verbs.",
@@ -3992,7 +3990,7 @@ portuguese:
 {
 title: "Important Financial Verbs #2",
 order: 2,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 
 description:
 "This module provides an extra essential overview of some the financial verbs.",
@@ -4199,7 +4197,7 @@ portuguese:
 {
 title: "Important Financial Verbs #2",
 order: 2,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 
 description:
 "This module provides an extra essential overview of some the financial verbs.",
@@ -4400,7 +4398,7 @@ portuguese:
 {
 title: "Important Financial Verbs #3",
 order: 3,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 
 description:
 "This module provides an extra essential overview of some the financial verbs.",
@@ -4598,7 +4596,7 @@ portuguese:
 {
 title: "Important Financial Verbs #4",
 order: 4,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 
 description:
 "This module provides an extra essential overview of some the financial verbs.",
@@ -4811,7 +4809,7 @@ portuguese:
 {
 title: "Assets vs. Liabilities",
 order: 5,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description:
 "This class explores the fundamental concepts of assets and liabilities in financial contexts. We'll discuss how assets represent valuable resources owned by an individual or entity, contrasting with liabilities, which are financial obligations or debts. Join us to understand their significance in personal finance and business operations.",
 image:
@@ -5113,7 +5111,7 @@ enusAudio:
 {
 title: "Profit and Related Terms",
 order: 6,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description:
 "In this class, we'll learn how to use profit and related terms.",
 elements: [],
@@ -5122,7 +5120,7 @@ elements: [],
 {
 title: "Types of Taxes",
 order: 7,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5130,7 +5128,7 @@ elements: [],
 {
 title: "Bankruptcy",
 order: 8,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5138,7 +5136,7 @@ elements: [],
 {
 title: "Cash Flow",
 order: 9,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5146,7 +5144,7 @@ elements: [],
 {
 title: "Accounts Payable and Receivable",
 order: 10,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5154,7 +5152,7 @@ elements: [],
 {
 title: "Stocks and Shares",
 order: 11,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5162,7 +5160,7 @@ elements: [],
 {
 title: "Installment Payment",
 order: 12,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5170,7 +5168,7 @@ elements: [],
 {
 title: "Liquidity",
 order: 13,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5178,7 +5176,7 @@ elements: [],
 {
 title: "Remittances",
 order: 14,
-type: "4- Financial Concepts",
+type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
@@ -5189,7 +5187,7 @@ elements: [],
 //  {
 //   title: "Profit and Related Terms",
 //   order: 5,
-//   type: "4- Financial Concepts",
+//   type: "Financial Concepts",
 
 //   description: "This class will be ready soon.",
 //   elements: []
