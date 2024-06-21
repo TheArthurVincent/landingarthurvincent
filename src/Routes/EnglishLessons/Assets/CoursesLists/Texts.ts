@@ -46,7 +46,7 @@ text: "I live in a house near the mountains. I have two brothers and one sister,
 subtitle: "Questions",
 comments: "Tente responder estas perguntas usando o que você aprendeu.",
 order: 2,
-type: "text",
+type: "exercise",
 items: [
 "How many siblings does the author have?",
 "What does the author's father do for a living?",
@@ -100,7 +100,7 @@ text: "Every year we go to Florida. We like to go to the beach. My favorite beac
 subtitle: "Questions",
 comments: "Tente responder estas perguntas usando o que você aprendeu.",
 order: 2,
-type: "text",
+type: "exercise",
 items: [
 "Where does the author go every year?",
 "What is the name of the author's favorite beach?",
@@ -162,7 +162,7 @@ text: "Jack was hungry. He walked to the kitchen. He got out some eggs. He took 
 subtitle: "Questions",
 comments: "Tente responder estas perguntas usando o que você aprendeu.",
 order: 2,
-type: "text",
+type: "exercise",
 items: [
 "Why did Jack go to the kitchen?",
 "What did Jack do first after getting to the kitchen?",
@@ -209,33 +209,9 @@ sentences: [
 ],
 },
 {
-subtitle: "Text",
-order: 1,
-type: "text",
-text: "You might have read that the average age adults stop being cool is 39! Try telling that to Cristiano Ronaldo. The 39-year-old has just been named as the world's highest-paid athlete, for the fourth time in his career. And his fans will tell you that he's as cool as ever!  According to Forbes, the business magazine that publishes a list of the 10 highest-paid athletes, the Portuguese soccer star has earned $260 million over the last 12 months. That's about $8 every second!  Ronaldo moved to play for the Saudi Arabian team Al Nassr in December 2022 and this helped him increase his earnings from $136 million the previous year.  Spanish golfer Jon Rahm is second on the list, and he's also been helped by Saudi Arabian money.  He joined the Saudi-funded LIV Golf tour in December 2023 and he's earned $218 million in the last 12 months.  Soccer players Neymar and Karim Benzema, who both play in Saudi Arabia, are also in the top 10 — in seventh and eighth place.  Saudi Arabia has spent large amounts on bringing some of sport's top events and best athletes to the country.  Some have called it 'sportswashing' — using sport to improve a country's reputation and take attention away from social or environmental problems.  Saudi Arabia doesn't agree. Also in the list of highest earners is Ronaldo's long-time rival, Lionel Messi. He's third with earnings of $135 million. French star Kylian Mbappé is sixth, while there are three basketball players in the top 10: LeBron James, Giannis Antetokounmpo and Stephen Curry.",
-},
-{
 subtitle: "Questions",
 comments: "Tente responder estas pergunta usando o que você aprendeu.",
 order: 2,
-type: "text",
-items: [
-"What are your thoughts on Forbes' list of highest-paid athletes?",
-"Are you a fan of Cristiano Ronaldo? Do you find it surprising that he's the world's highest-paid athlete?",
-"Do you think professional athletes are paid too much?",
-"Who do you imagine are your country's highest-paid athletes?",
-"Which of the athletes mentioned in the article would you most like to meet?",
-"Are you more into soccer, golf, or basketball?",
-"In your opinion, who are the greatest athletes of all time?",
-"Are there any famous athletes that you dislike?",
-"What do you imagine are the hardest things about being a professional athlete?",
-"If you don't believe you are the best, then you will never achieve all that you are capable of. — Cristiano Ronaldo. What do you make of this quote?",
-],
-},
-{
-subtitle: "Questions",
-comments: "Tente responder estas pergunta usando o que você aprendeu.",
-order: 3,
 type: "exercise",
 items: [
 "What are your thoughts on Forbes' list of highest-paid athletes?",
@@ -253,7 +229,6 @@ items: [
 ],
 },
 // title: "Man Arrested for Writing False Restaurant Reviews",
-
 {
 title: "Man Arrested for Writing False Restaurant Reviews",
 type: "2- Intermediate Texts",
