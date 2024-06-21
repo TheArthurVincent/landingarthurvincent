@@ -22,7 +22,7 @@ export default function TextLessonModel({
     >
       <div>
         {text}
-        <button
+        {/* <button
           className="audio-button"
           onClick={() => {
             readText(text, true);
@@ -33,7 +33,7 @@ export default function TextLessonModel({
             className={!isPaused ? "fa fa-volume-up" : "fa fa-pause"}
             aria-hidden="true"
           />
-        </button>
+        </button> */}
         <TextAreaLesson />
       </div>
     </div>

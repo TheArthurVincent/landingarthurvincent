@@ -3378,7 +3378,8 @@ export const talkingBusiness = [
         ],
       },
     ],
-  }, /////  "Important Financial Verbs #1",
+  },
+  /////  "Important Financial Verbs #1",
   {
     title: "Important Financial Verbs #1",
     type: "2- General Business English",
@@ -3402,8 +3403,7 @@ export const talkingBusiness = [
 
           {
             english: "They agreed to invest $1 million in the startup.",
-            portuguese:
-              "O capitalista de risco concordou em investir US$ 1 milhão na startup.",
+            portuguese: "Eles concordaram em investir US$ 1 milhão na startup.",
           },
         ],
       },
@@ -4563,6 +4563,411 @@ export const talkingBusiness = [
     type: "3- Financial Concepts",
     description: "This class will be ready soon.",
     elements: [],
+  },
+  /////  "Installment Payment",
+  {
+    title: "Installment Payment",
+    order: 11,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Liquidity",
+  {
+    title: "Liquidity",
+    order: 11,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  /////  "Remittances",
+  {
+    title: "Remittances",
+    order: 12,
+    type: "3- Financial Concepts",
+    description: "This class will be ready soon.",
+    elements: [],
+  },
+  ////// Business
+  ////// Mastering Business Expressions
+
+  {
+    title: "Mastering Business Expressions",
+    order: 0,
+    type: "4- Business Idioms",
+    description: "This class will be ready soon.",
+    elements: [
+      {
+        subtitle: "To hit the target",
+        order: 0,
+        grid: 1,
+        comments: "To achieve the target established",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "After months of preparation and practice, the archer finally hit the target dead center with her final arrow.",
+            portuguese:
+              "Após meses de preparação e prática, a arqueira finalmente acertou o alvo bem no centro com sua flecha final.",
+          },
+          {
+            english:
+              "The marketing campaign was a resounding success, as it hit the target audience precisely with its compelling message.",
+            portuguese:
+              "A campanha de marketing foi um sucesso retumbante, pois atingiu precisamente o público-alvo com sua mensagem persuasiva.",
+          },
+        ],
+      },
+      {
+        subtitle: "To meet the deadline",
+        order: 1,
+        grid: 1,
+        comments: "To complete tasks on or before the specified time",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Despite setbacks, the team worked tirelessly to meet the deadline for project delivery.",
+            portuguese:
+              "Apesar dos contratempos, a equipe trabalhou incansavelmente para cumprir o prazo de entrega do projeto.",
+          },
+          {
+            english:
+              "The contractor assured the client that they would meet the deadline for construction completion.",
+            portuguese:
+              "O empreiteiro assegurou ao cliente que cumpriria o prazo para a conclusão da construção.",
+          },
+        ],
+      },
+      {
+        subtitle: "To stay on budget",
+        order: 2,
+        grid: 1,
+        comments: "To adhere to the allocated financial resources",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The event organizers managed to stay on budget despite unexpected costs.",
+            portuguese:
+              "Os organizadores do evento conseguiram permanecer dentro do orçamento, apesar dos custos inesperados.",
+          },
+          {
+            english:
+              "The company implemented cost-saving measures to ensure they would stay on budget for the fiscal.",
+            portuguese:
+              "A empresa implementou medidas de economia para garantir que permanecessem dentro do orçamento para o ano fiscal.",
+          },
+        ],
+      },
+      {
+        subtitle: "To exceed expectations",
+        order: 3,
+        grid: 1,
+        comments: "To surpass what is anticipated or required",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The new product launch exceeded expectations, resulting in record-breaking sales.",
+            portuguese:
+              "O lançamento do novo produto superou as expectativas, resultando em vendas que quebraram recordes.",
+          },
+          {
+            english:
+              "The team's performance in the project review exceeded all expectations set by the management.",
+            portuguese:
+              "O desempenho da equipe na revisão do projeto superou todas as expectativas estabelecidas pela gerência.",
+          },
+        ],
+      },
+      {
+        subtitle: "To drive results",
+        order: 4,
+        grid: 1,
+        comments: "To take actions that lead to successful outcomes",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The CEO's leadership style was focused on driving results through effective decision-making.",
+            portuguese:
+              "O estilo de liderança do CEO estava focado em impulsionar resultados por meio de tomadas de decisão eficazes.",
+          },
+          {
+            english:
+              "The marketing team's innovative campaign strategies drove exceptional results in customer engagement.",
+            portuguese:
+              "As estratégias de campanha inovadoras da equipe de marketing impulsionaram resultados excepcionais no engajamento do cliente.",
+          },
+        ],
+      },
+      {
+        subtitle: "To maintain quality standards",
+        order: 5,
+        grid: 1,
+        comments:
+          "To uphold established levels of quality in products or services",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The company prides itself on maintaining high quality standards across all its products.",
+            portuguese:
+              "A empresa se orgulha de manter altos padrões de qualidade em todos os seus produtos.",
+          },
+          {
+            english:
+              "The restaurant consistently maintains its quality standards to ensure customer satisfaction.",
+            portuguese:
+              "O restaurante mantém consistentemente seus padrões de qualidade para garantir a satisfação do cliente.",
+          },
+        ],
+      },
+      {
+        subtitle: "To increase market share",
+        order: 5,
+        grid: 1,
+        comments: "To grow the portion of market sales relative to competitors",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The company implemented aggressive marketing strategies to increase market share in the competitive industry.",
+            portuguese:
+              "A empresa implementou estratégias de marketing agressivas para aumentar a participação de mercado na indústria competitiva.",
+          },
+          {
+            english:
+              "The new product launch successfully increased the company's market share in the region.",
+            portuguese:
+              "O lançamento do novo produto aumentou com sucesso a participação de mercado da empresa na região.",
+          },
+        ],
+      },
+    ],
+  },
+  ////// Mastering Business Idioms
+  {
+    title: "Mastering Business Idioms",
+    order: 1,
+    type: "4- Business Idioms",
+    description: "This class will be ready soon.",
+    elements: [
+      {
+        subtitle: "To think outside the box",
+        order: 0,
+        grid: 1,
+        comments: "To think creatively or unconventionally",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The company encouraged its employees to think outside the box to come up with innovative solutions.",
+            portuguese:
+              "A empresa incentivou seus funcionários a pensar fora da caixa para encontrar soluções inovadoras.",
+          },
+          {
+            english:
+              "To succeed in this competitive market, we need to think outside the box and explore new strategies.",
+            portuguese:
+              "Para ter sucesso neste mercado competitivo, precisamos pensar fora da caixa e explorar novas estratégias.",
+          },
+        ],
+      },
+      {
+        subtitle: "To give a ballpark figure",
+        order: 1,
+        grid: 1,
+        comments: "To provide an approximate estimate",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The contractor gave us a ballpark figure for the renovation costs, but we need a detailed breakdown.",
+            portuguese:
+              "O empreiteiro nos deu uma estimativa aproximada dos custos de renovação, mas precisamos de um detalhamento completo.",
+          },
+          {
+            english:
+              "Can you give me a ballpark figure of how much the project will cost?",
+            portuguese:
+              "Você pode me dar uma estimativa aproximada de quanto custará o projeto?",
+          },
+        ],
+      },
+      {
+        subtitle: "To be cutting-edge",
+        order: 2,
+        grid: 1,
+        comments: "To be innovative or leading-edge",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "The company prides itself on developing cutting-edge technology that sets it apart from competitors.",
+            portuguese:
+              "A empresa se orgulha de desenvolver tecnologia de ponta que a diferencia dos concorrentes.",
+          },
+          {
+            english:
+              "Their research team is known for its cutting-edge discoveries in medical science.",
+            portuguese:
+              "Sua equipe de pesquisa é conhecida por suas descobertas inovadoras na ciência médica.",
+          },
+        ],
+      },
+      {
+        subtitle: "To focus on the bottom line",
+        order: 3,
+        grid: 1,
+        comments: "To focus on the final result or key outcome",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "When making decisions, we always need to focus on the bottom line and consider profitability.",
+            portuguese:
+              "Ao tomar decisões, sempre precisamos focar no resultado final e considerar a lucratividade.",
+          },
+          {
+            english:
+              "The bottom line is that we need to reduce costs if we want to remain competitive.",
+            portuguese:
+              "O ponto principal é que precisamos reduzir custos se quisermos permanecer competitivos.",
+          },
+        ],
+      },
+      {
+        subtitle: "To get the ball rolling",
+        order: 4,
+        grid: 1,
+        comments: "To start or initiate something",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Let's schedule a meeting to get the ball rolling on this new project.",
+            portuguese:
+              "Vamos agendar uma reunião para iniciar este novo projeto.",
+          },
+          {
+            english:
+              "She proposed a few ideas to get the ball rolling on the fundraising campaign.",
+            portuguese:
+              "Ela propôs algumas ideias para começar a campanha de captação de recursos.",
+          },
+        ],
+      },
+      {
+        subtitle: "To be on the same page",
+        order: 5,
+        grid: 1,
+        comments: "To be in agreement or understanding the same information",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Before moving forward, let's make sure everyone is on the same page regarding the project timeline.",
+            portuguese:
+              "Antes de avançarmos, vamos garantir que todos estejam alinhados com o cronograma do projeto.",
+          },
+          {
+            english:
+              "It's important that our team and the client are on the same page regarding project expectations.",
+            portuguese:
+              "É importante que nossa equipe e o cliente estejam alinhados com as expectativas do projeto.",
+          },
+        ],
+      },
+      {
+        subtitle: "To take the plunge",
+        order: 6,
+        grid: 1,
+        comments: "To make a risky or significant decision",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "After careful consideration, she decided to take the plunge and start her own business.",
+            portuguese:
+              "Depois de considerar cuidadosamente, ela decidiu dar o mergulho e abrir seu próprio negócio.",
+          },
+          {
+            english:
+              "Taking the plunge into international markets requires thorough market research and strategic planning.",
+            portuguese:
+              "Dar o mergulho nos mercados internacionais requer pesquisa de mercado detalhada e planejamento estratégico.",
+          },
+        ],
+      },
+      {
+        subtitle: "To do something under the table",
+        order: 7,
+        grid: 1,
+        comments:
+          "To do something secretly or illegally, especially concerning payments or agreements",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "They were accused of making payments under the table to avoid taxes.",
+            portuguese:
+              "Eles foram acusados de fazer pagamentos por baixo dos panos para evitar impostos.",
+          },
+          {
+            english:
+              "He offered to pay me under the table for the extra work I did, but I refused.",
+            portuguese:
+              "Ele ofereceu pagar por fora pelo trabalho extra que fiz, mas eu recusei.",
+          },
+        ],
+      },
+      {
+        subtitle: "To engage in blue-sky thinking",
+        order: 8,
+        grid: 1,
+        comments:
+          "To brainstorm without limits, often focusing on creative and ambitious ideas",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "We need some blue-sky thinking to come up with new product concepts for the next quarter.",
+            portuguese:
+              "Precisamos de um pensamento criativo para desenvolver novos conceitos de produtos para o próximo trimestre.",
+          },
+          {
+            english:
+              "Their team session was all about blue-sky thinking to solve the company's long-term challenges.",
+            portuguese:
+              "A sessão da equipe deles foi toda focada em um pensamento criativo para resolver os desafios de longo prazo da empresa.",
+          },
+        ],
+      },
+      {
+        subtitle: "To touch base",
+        order: 9,
+        grid: 1,
+        comments:
+          "To make contact or reconnect briefly, typically regarding progress or updates",
+        type: "sentences",
+        sentences: [
+          {
+            english:
+              "Let's touch base next week to discuss the project status.",
+            portuguese:
+              "Vamos nos falar na semana que vem para discutir o status do projeto.",
+          },
+          {
+            english:
+              "I just wanted to touch base with you to see how things are progressing.",
+            portuguese:
+              "Eu só queria falar rapidamente com você para ver como as coisas estão progredindo.",
+          },
+        ],
+      },
+    ],
   },
 ];
 
