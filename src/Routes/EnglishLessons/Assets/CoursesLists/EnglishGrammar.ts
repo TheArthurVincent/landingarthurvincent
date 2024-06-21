@@ -3524,19 +3524,18 @@ export const englishGrammar = [
 
       {
         subtitle: "Negations and questions",
-        // comments:
-        //   "'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
+        // comments:"'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
         order: 1,
         type: "sentences",
         sentences: [
           {
             english: "Is there?",
             portuguese:
-              "Tem? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
+              "Tem/há? (quando falamos de uma coisa específica)",
           },
           {
             english: "Are there?",
-            portuguese: "Tem? (para palavras que têm plural)",
+            portuguese: "Tem/há? (quando falamos de coisas específicas)",
           },
           {
             english: "Is there any?",
@@ -3590,22 +3589,12 @@ export const englishGrammar = [
           {
             english: "Will there be?",
             portuguese:
-              "Terá, haverá, existirá? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
+              "Terá, haverá, existirá?",
           },
           {
             english: "Will there be any?",
             portuguese:
-              "Terá, haverá, existirá algum? (para palavras que não podem ser pluralizadas)",
-          },
-          {
-            english: "Will there be any?",
-            portuguese:
-              "Terá, haverá, existirá algum? (para palavras que têm plural)",
-          },
-          {
-            english: "There will be no.",
-            portuguese:
-              "Não terá, haverá, existirá. (para palavras que não podem ser pluralizadas)",
+              "Terá, haverá, existirá algum?",
           },
         ],
       },
@@ -3707,7 +3696,7 @@ export const englishGrammar = [
           },
           {
             english: "There are four black suits hanging in the closet.",
-            portuguese: "Tem quatro ternos pretos pendurados no armário.",
+            portuguese: "Tem quatro ternos pretos pendurados no closet.",
           },
           {
             english: "There will be no electricians working on the wiring.",
@@ -4539,4 +4528,118 @@ export const englishGrammar = [
       },
     ],
   },
+  ////////////////////////////////////////////
+  ////////////////////////////////////////////
+  ////////////////////////////////////////////
+  ////////////////////////////////////////////
+  // title: "Introduction 2",
+  {
+    title: "Introduction 2",
+    order: 0,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Directions",
+  {
+    title: "Directions",
+    order: 1,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Verbs tenses review",
+  {
+    title: "Verbs tenses review",
+    order: 2,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Frequent actions in the past",
+  {
+    title: "Frequent actions in the past",
+    order: 3,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Less vs. ful",
+  {
+    title: "Less vs. ful",
+    order: 4,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Ly",
+  {
+    title: "Ly",
+    order: 5,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "There [to be] Advanced",
+  {
+    title: "There [to be] Advanced",
+    order: 6,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Personality (vocabulary)",
+  {
+    title: "Personality (vocabulary)",
+    order: 7,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Supermarket (vocabulary)",
+  {
+    title: "Supermarket (vocabulary)",
+    order: 8,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Additional verbs",
+  {
+    title: "Additional verbs",
+    order: 9,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },  // title: "Past perfect",
+  {
+    title: "Past perfect",
+    order: 10,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  }, // title: "Past perfect continuous",
+  {
+    title: "Past perfect continuous",
+    order: 11,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  }, // title: "Irregular plurals",
+  {
+    title: "Irregular plurals",
+    order: 12,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+
 ];
