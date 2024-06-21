@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HOne, HTwo, RouteDiv } from "../../../Resources/Components/RouteBox";
+import { HTwo, RouteDiv } from "../../../Resources/Components/RouteBox";
 import { ImgLesson } from "./Functions/EnglishActivities.Styled";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import TextLessonModel from "./LessonsModels/TextLessonModel";
@@ -62,6 +62,7 @@ export default function EnglishLessonsRender({
   const [studentID, setStudentID] = useState<string>("");
   const [myId, setId] = useState<string>("");
   const [thePermissions, setPermissions] = useState<string>("");
+  const [seeSlides, setSeeSlides] = useState<boolean>(false);
 
   const PC = previousclass ? pathGenerator(previousclass.title) : null;
   const NC = nextclass ? pathGenerator(nextclass.title) : null;
@@ -348,27 +349,25 @@ export default function EnglishLessonsRender({
               )}
             </div>
           ))}
+        {thePermissions === "superadmin" && (
+          <ArvinButton
+            onClick={() => {
+              setSeeSlides(!seeSlides);
+            }}
+          >
+            See slides
+          </ArvinButton>
+        )}
       </RouteDiv>
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {/* Teacher */}
-      {thePermissions === "superadmin" && (
+      {thePermissions === "superadmin" && seeSlides && (
         <RouteDiv
           style={{
+            maxWidth: "95vw",
             padding: "2.2rem",
             marginTop: "20rem",
           }}
