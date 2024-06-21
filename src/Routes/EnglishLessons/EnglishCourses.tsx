@@ -71,7 +71,7 @@ EnglishCoursesHomeProps) {
       title: "When English contrasts with Portuguese",
       groupedLessonsArray: groupedConstrastsArray,
       image:
-        "https://ik.imagekit.io/vjz75qw96/assets/courses/3.jpg?updatedAt=1718734643966",
+        "https://ik.imagekit.io/vjz75qw96/assets/courses/4.png?updatedAt=1718973560787",
     },
     
   ];
