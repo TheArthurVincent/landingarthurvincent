@@ -71,6 +71,16 @@ export default function EnglishCourse({
               element={
                 <EnglishLessonsRender
                   courseTitle={less.title}
+                  previousclass={
+                    filteredLessons[index].lessons[idx - 1]
+                      ? filteredLessons[index].lessons[idx - 1]
+                      : null
+                  }
+                  nextclass={
+                    filteredLessons[index].lessons[idx + 1]
+                      ? filteredLessons[index].lessons[idx + 1]
+                      : null
+                  }
                   order={idx}
                   back={back}
                   pthtt={pathGenerator(cls.title)}

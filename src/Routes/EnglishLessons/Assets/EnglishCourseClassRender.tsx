@@ -11,13 +11,22 @@ import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
 import axios from "axios";
-import { backDomain, getVideoEmbedUrl, } from "../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  getVideoEmbedUrl,
+  pathGenerator,
+} from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
 import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
-import { alwaysWhite, darkGreyColor, primaryColor, secondaryColor, } from "../../../Styles/Styles";
+import {
+  alwaysWhite,
+  darkGreyColor,
+  primaryColor,
+  secondaryColor,
+} from "../../../Styles/Styles";
 import TextsWithTranslateLessonModel from "./LessonsModels/TextWithNoAudio";
 import { Link } from "react-router-dom";
 import SentenceLessonModelSlide from "./SlideModels/SentenceLessonModelSlide";
@@ -33,6 +42,8 @@ interface EnglishLessonsRenderModelProps {
   back: any;
   module: string;
   pthtt: string;
+  previousclass: any;
+  nextclass: any;
   order: number | any;
 }
 
@@ -40,6 +51,8 @@ export default function EnglishLessonsRender({
   headers,
   theclass,
   course,
+  previousclass,
+  nextclass,
   module,
   back,
   order,
@@ -49,6 +62,9 @@ export default function EnglishLessonsRender({
   const [studentID, setStudentID] = useState<string>("");
   const [myId, setId] = useState<string>("");
   const [thePermissions, setPermissions] = useState<string>("");
+
+  const PC = previousclass ? pathGenerator(previousclass.title) : null;
+  const NC = nextclass ? pathGenerator(nextclass.title) : null;
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
@@ -80,10 +96,21 @@ export default function EnglishLessonsRender({
       alert("Erro ao encontrar alunos");
     }
   };
+
   const backToCourses = () => {
     window.location.assign(`/english-courses/${back}`);
   };
 
+  const previousClass = () => {
+    window.location.assign(
+      `/english-courses/${pathGenerator(courseTitle)}/${PC}`
+    );
+  };
+  const nextClass = () => {
+    window.location.assign(
+      `/english-courses/${pathGenerator(courseTitle)}/${NC}`
+    );
+  };
   const [showCourses, setShowCourses] = useState(true);
   const [arrow, setArrow] = useState(false);
 
@@ -121,7 +148,7 @@ export default function EnglishLessonsRender({
               cursor: "pointer",
             }}
             onClick={backToCourses}
-          // to={`/english-courses/${pathGenerator(module)}`}
+            // to={`/english-courses/${pathGenerator(module)}`}
           >
             {module}
           </span>{" "}
@@ -137,27 +164,45 @@ export default function EnglishLessonsRender({
             {theclass.title}
           </span>
         </div>
-
         <CoursesSideBar courses={course} />
         <Helmets text={theclass.title} />
-        <HOne
+        <div
           style={{
-            marginBottom: "0",
-            marginTop: "3rem",
-          }}
-        >{`${order}- ${theclass.title}`}</HOne>
-        <p
-          style={{
-            textAlign: "center",
-            fontStyle: "italic",
-            borderRadius: "5px",
-            paddingTop: "0",
-            paddingBottom: "20px",
-            color: primaryColor(),
+            display: "flex",
+            margin: "1rem auto",
+            padding: "0 1rem",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          {courseTitle}
-        </p>
+          {previousclass ? (
+            <span
+              style={{
+                color: secondaryColor(),
+                cursor: "pointer",
+              }}
+              onClick={previousClass}
+            >
+              Previous Class
+            </span>
+          ) : (
+            <span>No previous class</span>
+          )}
+          <h1 style={{}}>{`${order}- ${theclass.title}`}</h1>
+          {nextclass ? (
+            <span
+              style={{
+                color: secondaryColor(),
+                cursor: "pointer",
+              }}
+              onClick={nextClass}
+            >
+              Next Class
+            </span>
+          ) : (
+            <span>No next class</span>
+          )}
+        </div>
         {thePermissions === "superadmin" && (
           <div
             style={{
