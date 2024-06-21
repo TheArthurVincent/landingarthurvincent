@@ -102,6 +102,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )
           : null;
       }
+      console.log("Look here", response.data);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);

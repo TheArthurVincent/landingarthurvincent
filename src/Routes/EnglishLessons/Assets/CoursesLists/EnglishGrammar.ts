@@ -4528,4 +4528,118 @@ export const englishGrammar = [
       },
     ],
   },
+  ////////////////////////////////////////////
+  ////////////////////////////////////////////
+  ////////////////////////////////////////////
+  ////////////////////////////////////////////
+  // title: "Introduction 2",
+  {
+    title: "Introduction 2",
+    order: 0,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Directions",
+  {
+    title: "Directions",
+    order: 1,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Verbs tenses review",
+  {
+    title: "Verbs tenses review",
+    order: 2,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Frequent actions in the past",
+  {
+    title: "Frequent actions in the past",
+    order: 3,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Less vs. ful",
+  {
+    title: "Less vs. ful",
+    order: 4,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "Ly",
+  {
+    title: "Ly",
+    order: 5,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },// title: "There [to be] Advanced",
+  {
+    title: "There [to be] Advanced",
+    order: 6,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Personality (vocabulary)",
+  {
+    title: "Personality (vocabulary)",
+    order: 7,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Supermarket (vocabulary)",
+  {
+    title: "Supermarket (vocabulary)",
+    order: 8,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+  // title: "Additional verbs",
+  {
+    title: "Additional verbs",
+    order: 9,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },  // title: "Past perfect",
+  {
+    title: "Past perfect",
+    order: 10,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  }, // title: "Past perfect continuous",
+  {
+    title: "Past perfect continuous",
+    order: 11,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  }, // title: "Irregular plurals",
+  {
+    title: "Irregular plurals",
+    order: 12,
+    type: "1- Intermediate",
+    description: "Esta aula estará pronta em breve.",
+    elements: [
+    ],
+  },
+
 ];
