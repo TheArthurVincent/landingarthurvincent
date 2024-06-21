@@ -181,86 +181,6 @@ export function Blog({ headers }: HeadersProps) {
             </h2>
           </div>
           <div style={{ display: "flex", gap: "5px" }}>
-            {/* <Tooltip title={UniversalTexts.calendar}>
-              <Link
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  gap: "5px",
-                  alignItems: "center",
-                  textDecoration: "none",
-                }}
-                to="/my-calendar"
-              >
-                <span className="hover-link">
-                  <i
-                    
-                    className="fa fa-calendar "
-                    aria-hidden="true"
-                  />
-                  <SpanDisapear> {UniversalTexts.calendar}</SpanDisapear>
-                </span>
-              </Link>
-            </Tooltip>
-
-            <Tooltip title="Homework">
-              <Link
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  gap: "5px",
-                  alignItems: "center",
-                  textDecoration: "none",
-                }}
-                to="/homework"
-              >
-                <span className="hover-link">
-                  <i
-                    
-                    className="fa fa-book"
-                    aria-hidden="true"
-                  />
-                  <SpanDisapear>Homework</SpanDisapear>
-                </span>
-              </Link>
-            </Tooltip>
-            <Tooltip title="Flashcards">
-              <Link
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  textDecoration: "none",
-                  gap: "5px",
-                  alignItems: "center",
-                }}
-                to="/flash-cards"
-              >
-                <span className="hover-link">
-                  <i
-                    style={{
-                      paddingRight: "5px",
-                      maxWidth: "100%",
-                      transform: "rotate(-25deg)",
-                    }}
-                    className="fa fa-clone hover-link"
-                    aria-hidden="true"
-                  />
-                  <SpanDisapear>Flashcards</SpanDisapear>
-                </span>
-              </Link>
-            </Tooltip> */}
             <Tooltip title={UniversalTexts.personalFolder}>
               <Link
                 target="_blank"
@@ -499,6 +419,6 @@ export function Blog({ headers }: HeadersProps) {
       />
     </>
   );
-}
+} 
 
 export default Blog;
