@@ -32,6 +32,7 @@ import SentenceLessonModelSlide from "./SlideModels/SentenceLessonModelSlide";
 import TextLessonModelSlide from "./SlideModels/TextLessonModelSlide";
 import TextsWithTranslateSlideLessonModel from "./SlideModels/TextWithNoAudio";
 import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
+import { permission } from "process";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -179,7 +180,6 @@ export default function EnglishLessonsRender({
               alignItems: "center",
               minWidth: "100px",
               bottom: 5,
-
               left: showCourses ? -338 : 3,
               borderRadius: "10px",
             }}
@@ -314,7 +314,7 @@ export default function EnglishLessonsRender({
           ))}
       </RouteDiv>
       {/* Teacher */}
-      {
+      {thePermissions === "superadmin" && (
         <RouteDiv
           style={{
             padding: "2.2rem",
@@ -325,26 +325,6 @@ export default function EnglishLessonsRender({
             .sort((a: any, b: any) => a.order - b.order)
             .map((element: any, index: number) => (
               <div key={index} style={{ margin: "10px 0" }}>
-                {element.subtitle && (
-                  <div
-                    style={{
-                      display: "flex",
-                      fontSize: "3.5rem",
-                      alignItems: "center",
-                    }}
-                  >
-                    <h2
-                      style={{
-                        fontSize: "5rem",
-                        marginTop: "18rem",
-                        textAlign: "center",
-                      }}
-                    >
-                      {index + 1 + "- " + element.subtitle}
-                    </h2>
-                  </div>
-                )}
-
                 {element.type === "sentences" ? (
                   <SentenceLessonModelSlide
                     id={myId}
@@ -359,18 +339,16 @@ export default function EnglishLessonsRender({
                   <TextsWithTranslateSlideLessonModel
                     headers={headers}
                     element={element}
-                  />   ) : element.type === "images" ? (
-                    <ImageLessonModelSlide
-                      headers={headers}
-                      element={element}
-                    />
+                  />
+                ) : element.type === "images" ? (
+                  <ImageLessonModelSlide headers={headers} element={element} />
                 ) : (
                   <></>
                 )}
               </div>
             ))}
         </RouteDiv>
-      }
+      )}
     </>
   );
 }
