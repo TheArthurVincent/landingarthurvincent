@@ -18,6 +18,8 @@ import { TopBar } from "../Application/TopBar/TopBar";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import EnglishCourses from "./EnglishLessons/EnglishCourses";
+import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
+import AppFooter from "../Application/Footer/Footer";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -106,7 +108,14 @@ export function HomePage({ headers }: HeadersProps) {
   ];
 
   return (
-    <div>
+    <div
+    
+    style={{
+
+display:"flex",flexDirection:"column", height:"100%",justifyContent:"space-between"
+
+    }}
+    >
       <TopBar />
       <Routes>
         {appRoutes.map((component, index) => {
@@ -146,9 +155,7 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
-      {/* <SpanDisapear>
-        <AddFlashCards headers={headers} display="fixed" />
-      </SpanDisapear> */}
+      <AppFooter/>
       <Outlet />
     </div>
   );
