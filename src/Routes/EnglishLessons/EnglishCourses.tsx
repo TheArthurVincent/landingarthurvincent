@@ -12,6 +12,7 @@ import EnglishCourse from "./EnglishCourse";
 import { englishGrammar } from "./Assets/CoursesLists/EnglishGrammar";
 import { textsCourse } from "./Assets/CoursesLists/Texts";
 import { talkingBusiness } from "./Assets/CoursesLists/TalkingBusiness";
+import { contrasts } from "./Assets/CoursesLists/Contrasts";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
@@ -37,14 +38,12 @@ EnglishCoursesHomeProps) {
   const talkingB = transformLessons(talkingBusiness);
   const englishClassesArray = transformLessons(englishGrammar);
   const textsArray = transformLessons(textsCourse);
+  const constrastsArray = transformLessons(contrasts);
 
-  const talkingBArray = talkingB.sort((a: any, b: any) => a.order - b.order);
-  const groupedEnglishLessonsArray = englishClassesArray.sort(
-    (a: any, b: any) => a.order - b.order
-  );
-  const groupedTextsLessonsArray = textsArray.sort(
-    (a: any, b: any) => a.order - b.order
-  );
+  const groupedTalkingBArray = talkingB.sort((a: any, b: any) => a.order - b.order);
+  const groupedEnglishLessonsArray = englishClassesArray.sort((a: any, b: any) => a.order - b.order);
+  const groupedTextsLessonsArray = textsArray.sort((a: any, b: any) => a.order - b.order);
+  const groupedConstrastsArray = constrastsArray.sort((a: any, b: any) => a.order - b.order);
 
   const location = useLocation();
   const isRootPath = location.pathname === "/english-courses";
@@ -64,10 +63,17 @@ EnglishCoursesHomeProps) {
     },
     {
       title: "Talking Business",
-      groupedLessonsArray: talkingBArray,
+      groupedLessonsArray: groupedTalkingBArray,
       image:
         "https://ik.imagekit.io/vjz75qw96/assets/courses/3.jpg?updatedAt=1718734643966",
     },
+    {
+      title: "When English contrasts with Portuguese",
+      groupedLessonsArray: groupedConstrastsArray,
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/courses/3.jpg?updatedAt=1718734643966",
+    },
+    
   ];
   return (
     <RouteDivUp>
