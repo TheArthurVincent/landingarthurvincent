@@ -4589,12 +4589,22 @@ export const talkingBusiness = [
     elements: [],
   },
   ////// Business
+  //  "Introduction 4",
+
+  {
+    title: "Introduction 4",
+    order: 0,
+    type: "4- Business Expressions",
+
+    description: "Welcome to the Business Expressions module!",
+    elements: [],
+  },
   ////// Mastering Business Expressions
 
   {
     title: "Mastering Business Expressions",
-    order: 0,
-    type: "4- Business Idioms",
+    order: 1,
+    type: "4- Business Expressions",
     description: "This class will be ready soon.",
     elements: [
       {
@@ -4750,8 +4760,8 @@ export const talkingBusiness = [
   ////// Mastering Business Idioms
   {
     title: "Mastering Business Idioms",
-    order: 1,
-    type: "4- Business Idioms",
+    order: 2,
+    type: "4- Business Expressions",
     description: "This class will be ready soon.",
     elements: [
       {
