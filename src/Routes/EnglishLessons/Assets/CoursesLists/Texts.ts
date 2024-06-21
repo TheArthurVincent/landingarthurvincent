@@ -5,7 +5,7 @@ export const textsCourse = [
 title: "My Wonderful Family",
 type: "1- Basic Texts",
 order: 1,
-image: "https://example.com/family_image.jpg",
+image: "https://cf.ltkcdn.net/family/images/std/200821-800x533r1-family.jpg",
 elements: [
 {
 subtitle: "Practice Vocabulary",
@@ -65,7 +65,7 @@ items: [
 title: "Our Vacation",
 type: "1- Basic Texts",
 order: 2,
-image: "https://example.com/beach_image.jpg",
+image: "https://www.tcbrasil.com.br/wp-content/uploads/2021/12/Saiba-se-Vacation-Club-vale-a-pena-para-o-seu-negocio.jpg",
 elements: [
 {
 subtitle: "Practice Vocabulary",
@@ -116,12 +116,11 @@ items: [
 ],
 },
 // "title": "Preparing Food",
-
 {
 title: "Preparing Food",
 type: "1- Basic Texts",
 order: 3,
-image: "https://example.com/kitchen_image.jpg",
+image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
 elements: [
 {
 subtitle: "Practice Vocabulary",

@@ -17,10 +17,6 @@ import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
-import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
-import { SpanDisapear } from "./Blog/Blog.Styled";
-import AppFooter from "../Application/Footer/Footer";
-import EnglishCourse from "./EnglishLessons/EnglishCourse";
 import EnglishCourses from "./EnglishLessons/EnglishCourses";
 
 export function HomePage({ headers }: HeadersProps) {
@@ -46,6 +42,7 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "Blog",
       path: "/",
+      levelcard: true,
       component: <Blog headers={headers} />,
     },
     {
@@ -70,12 +67,14 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "Flash Cards",
+      levelcard: true,
       component: (
         <FlashCards change={change} onChange={setChange} headers={headers} />
       ),
     },
     {
       title: "Ranking",
+      levelcard: true,
       component: <Ranking headers={headers} />,
     },
     {
@@ -120,21 +119,23 @@ export function HomePage({ headers }: HeadersProps) {
               element={
                 verifyToken() ? (
                   <BlogRouteSizeControlBox
-                    style={{ gap: "1rem" }}
+                    style={{ gap: "1rem", marginTop: "5rem" }}
                     className="smooth"
                   >
                     {component.component}
-                    <LevelCard
-                      display={
-                        component.path == "adm-businessmanagement"
-                          ? "none"
-                          : "block"
-                      }
-                      change={change}
-                      headers={headers}
-                      _StudentId={_StudentId}
-                      picture={picture}
-                    />
+                    {component.levelcard && (
+                      <LevelCard
+                        display={
+                          component.path == "adm-businessmanagement"
+                            ? "none"
+                            : "block"
+                        }
+                        change={change}
+                        headers={headers}
+                        _StudentId={_StudentId}
+                        picture={picture}
+                      />
+                    )}
                     {/* <AppFooter /> */}
                   </BlogRouteSizeControlBox>
                 ) : (
