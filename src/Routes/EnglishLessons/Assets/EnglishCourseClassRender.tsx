@@ -11,28 +11,19 @@ import DialogueLessonModel from "./LessonsModels/DialogueLessonModel";
 import ListenAndTranslateLessonModel from "./LessonsModels/ListenAndTranslateLessonModel";
 import SingleImageLessonModel from "./LessonsModels/SingleImageLessonModel";
 import axios from "axios";
-import {
-  backDomain,
-  getVideoEmbedUrl,
-} from "../../../Resources/UniversalComponents";
+import { backDomain, getVideoEmbedUrl, } from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
 import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
-import {
-  alwaysWhite,
-  darkGreyColor,
-  primaryColor,
-  secondaryColor,
-} from "../../../Styles/Styles";
+import { alwaysWhite, darkGreyColor, primaryColor, secondaryColor, } from "../../../Styles/Styles";
 import TextsWithTranslateLessonModel from "./LessonsModels/TextWithNoAudio";
 import { Link } from "react-router-dom";
 import SentenceLessonModelSlide from "./SlideModels/SentenceLessonModelSlide";
 import TextLessonModelSlide from "./SlideModels/TextLessonModelSlide";
 import TextsWithTranslateSlideLessonModel from "./SlideModels/TextWithNoAudio";
 import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
-import { permission } from "process";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -130,7 +121,7 @@ export default function EnglishLessonsRender({
               cursor: "pointer",
             }}
             onClick={backToCourses}
-            // to={`/english-courses/${pathGenerator(module)}`}
+          // to={`/english-courses/${pathGenerator(module)}`}
           >
             {module}
           </span>{" "}
@@ -313,6 +304,22 @@ export default function EnglishLessonsRender({
             </div>
           ))}
       </RouteDiv>
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
+      {/* Teacher */}
       {/* Teacher */}
       {thePermissions === "superadmin" && (
         <RouteDiv
