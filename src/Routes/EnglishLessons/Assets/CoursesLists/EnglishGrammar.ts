@@ -3524,19 +3524,18 @@ export const englishGrammar = [
 
       {
         subtitle: "Negations and questions",
-        // comments:
-        //   "'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
+        // comments:"'It' é usado como sujeito aparente para indicar tempo, clima e condições gerais. Em frases como 'It is hot' ou 'It’s 4pm', 'it' não se refere a nada específico, mas é necessário gramaticalmente.",
         order: 1,
         type: "sentences",
         sentences: [
           {
             english: "Is there?",
             portuguese:
-              "Tem? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
+              "Tem/há? (quando falamos de uma coisa específica)",
           },
           {
             english: "Are there?",
-            portuguese: "Tem? (para palavras que têm plural)",
+            portuguese: "Tem/há? (quando falamos de coisas específicas)",
           },
           {
             english: "Is there any?",
@@ -3590,22 +3589,12 @@ export const englishGrammar = [
           {
             english: "Will there be?",
             portuguese:
-              "Terá, haverá, existirá? (para palavras que não podem ser pluralizadas, ou quando falamos de uma coisa específica)",
+              "Terá, haverá, existirá?",
           },
           {
             english: "Will there be any?",
             portuguese:
-              "Terá, haverá, existirá algum? (para palavras que não podem ser pluralizadas)",
-          },
-          {
-            english: "Will there be any?",
-            portuguese:
-              "Terá, haverá, existirá algum? (para palavras que têm plural)",
-          },
-          {
-            english: "There will be no.",
-            portuguese:
-              "Não terá, haverá, existirá. (para palavras que não podem ser pluralizadas)",
+              "Terá, haverá, existirá algum?",
           },
         ],
       },
@@ -3707,7 +3696,7 @@ export const englishGrammar = [
           },
           {
             english: "There are four black suits hanging in the closet.",
-            portuguese: "Tem quatro ternos pretos pendurados no armário.",
+            portuguese: "Tem quatro ternos pretos pendurados no closet.",
           },
           {
             english: "There will be no electricians working on the wiring.",
