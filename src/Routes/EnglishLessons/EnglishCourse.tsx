@@ -10,6 +10,7 @@ import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import {
   darkGreyColor,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
 } from "../../Styles/Styles";
@@ -98,19 +99,25 @@ export default function EnglishCourse({
             style={{
               fontSize: "10px",
               textDecoration: "none",
-              color: secondaryColor(),
+              color: darkGreyColor(),
             }}
             to="/english-courses"
           >
             English Courses
           </Link>
-          <span style={{ color: darkGreyColor() }}>🢒</span>
           <span
             style={{
+              color: darkGreyColor(),
+            }}
+          >
+            -
+          </span>
+          <span
+            style={{
+              color: secondaryColor(),
               fontSize: "10px",
               fontStyle: "italic",
               textDecoration: "none",
-              color: primaryColor(),
             }}
           >
             {less.title}

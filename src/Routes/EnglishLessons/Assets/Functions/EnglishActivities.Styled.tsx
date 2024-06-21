@@ -3,10 +3,8 @@ import { alwaysBlack, alwaysWhite } from "../../../../Styles/Styles";
 
 export const ImgLesson = styled.img`
   width: 100%;
-  max-width: 15rem;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  display: block;
   margin: auto;
   object-position: center;
   border-radius: 10px;
