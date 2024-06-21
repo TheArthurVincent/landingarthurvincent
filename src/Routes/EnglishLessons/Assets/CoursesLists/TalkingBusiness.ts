@@ -31,12 +31,12 @@ sentences: [
 {
 english: "Mrs.",
 portuguese:
-"Senhora (usa-se, geralmente, para falar sobre mulheres casadas)",
+    "Senhora (usa-se, geralmente, para falar sobre mulheres casadas)",
 },
 {
 english: "Miss",
 portuguese:
-"Senhora (usa-se, geralmente, para falar sobre mulheres que não são casadas)",
+    "Senhora (usa-se, geralmente, para falar sobre mulheres que não são casadas)",
 },
 {
 english: "Ms.",
@@ -61,7 +61,7 @@ sentences: [
 {
 english: "Ms. Jensen is absent due to unforeseen circumstances.",
 portuguese:
-"A Sra. Jensen está ausente devido a circunstâncias imprevistas.",
+    "A Sra. Jensen está ausente devido a circunstâncias imprevistas.",
 },
 {
 english: "Dr. Davis will be the one hosting this event.",
@@ -70,7 +70,7 @@ portuguese: "Dr. Davis será o anfitrião deste evento.",
 {
 english: "We hired Mr. Thompson as the new sales manager.",
 portuguese:
-"Contratamos o Sr. Thompson como o novo gerente de vendas.",
+    "Contratamos o Sr. Thompson como o novo gerente de vendas.",
 },
 { english: "Excuse me, sir.", portuguese: "Com licença, senhor." },
 {
@@ -94,7 +94,7 @@ portuguese: "A Sra. Clark liderará a equipe de marketing.",
 {
 english: "Dr. Taylor has joined our research department.",
 portuguese:
-"O Dr. Taylor se juntou ao nosso departamento de pesquisa.",
+    "O Dr. Taylor se juntou ao nosso departamento de pesquisa.",
 },
 {
 english: "Please, send the report to Mr. Martinez.",
@@ -119,7 +119,7 @@ portuguese: "A Sra. Davis foi promovida a gerente sênior.",
 {
 english: "Please, contact Mr. Wilson for further details.",
 portuguese:
-"Por favor, entre em contato com o Sr. Wilson para mais detalhes.",
+    "Por favor, entre em contato com o Sr. Wilson para mais detalhes.",
 },
 {
 english: "Dr. Green will oversee the clinical trials.",
@@ -408,7 +408,7 @@ portuguese: "Ela é a visual merchandiser da ABC S.A.",
 {
 english: "I am the sales manager for a tech company.",
 portuguese:
-"Eu sou o gerente de vendas de uma empresa de tecnologia.",
+    "Eu sou o gerente de vendas de uma empresa de tecnologia.",
 },
 ],
 },
@@ -943,9 +943,9 @@ portuguese: "O motorista do ônibus me ajudou com a bagagem.",
 },
 {
 english:
-"As an economist, I say that every economic rule must be applied intelligently rather than dogmatically and bureaucratically.",
+    "As an economist, I say that every economic rule must be applied intelligently rather than dogmatically and bureaucratically.",
 portuguese:
-"Como economista, digo que toda regra econômica deve ser aplicada de maneira inteligente, e não dogmática e burocrática.",
+    "Como economista, digo que toda regra econômica deve ser aplicada de maneira inteligente, e não dogmática e burocrática.",
 },
 {
 english: "The electrician wired the power socket.",
@@ -981,15 +981,15 @@ portuguese: "O professor prontamente respondeu à minha pergunta.",
 },
 {
 english:
-"Some biochemists have built up quite elaborate blueprints for forms of life utterly different from our own.",
+    "Some biochemists have built up quite elaborate blueprints for forms of life utterly different from our own.",
 portuguese:
-"Alguns bioquímicos construíram modelos bastante elaborados para formas de vida totalmente diferentes da nossa.",
+    "Alguns bioquímicos construíram modelos bastante elaborados para formas de vida totalmente diferentes da nossa.",
 },
 {
 english:
-"Your dentist is the best person to evaluate whether or not dental implants are a viable solution for you.",
+    "Your dentist is the best person to evaluate whether or not dental implants are a viable solution for you.",
 portuguese:
-"O seu dentista é a melhor pessoa para avaliar se os implantes dentários são uma solução viável para você ou não.",
+    "O seu dentista é a melhor pessoa para avaliar se os implantes dentários são uma solução viável para você ou não.",
 },
 {
 english: "The doctors reduced the dose of the medication.",
@@ -997,9 +997,9 @@ portuguese: "Os doutores reduziram a dose da medicação.",
 },
 {
 english:
-"The physician noted an improvement in the patient’s condition.",
+    "The physician noted an improvement in the patient’s condition.",
 portuguese:
-"O médico notou uma melhoria nas condições do paciente.",
+    "O médico notou uma melhoria nas condições do paciente.",
 },
 {
 english: "The nurse flushed the wound with an antiseptic.",
@@ -1007,21 +1007,21 @@ portuguese: "A enfermeira enxaguou a ferida com antisséptico.",
 },
 {
 english:
-"The pediatrician is a medical practitioner specializing in children and their diseases.",
+    "The pediatrician is a medical practitioner specializing in children and their diseases.",
 portuguese:
-"O pediatra é um médico especializado em crianças e suas doenças.",
+    "O pediatra é um médico especializado em crianças e suas doenças.",
 },
 {
 english:
-"The pharmacist is a person who is professionally qualified to prepare and dispense medicinal drugs.",
+    "The pharmacist is a person who is professionally qualified to prepare and dispense medicinal drugs.",
 portuguese:
-"O farmacêutico é a pessoa profissionalmente habilitada para preparar e dispensar medicamentos.",
+    "O farmacêutico é a pessoa profissionalmente habilitada para preparar e dispensar medicamentos.",
 },
 {
 english:
-"According to psychiatrist Martha Smith in the Psychiatric Times, nearly 40 percent of psychiatrists in the United States are sued for negligence.",
+    "According to psychiatrist Martha Smith in the Psychiatric Times, nearly 40 percent of psychiatrists in the United States are sued for negligence.",
 portuguese:
-"De acordo com a psiquiatra Martha Smith no Psychiatric Times, quase 40% dos psiquiatras nos Estados Unidos são processados por negligência.",
+    "De acordo com a psiquiatra Martha Smith no Psychiatric Times, quase 40% dos psiquiatras nos Estados Unidos são processados por negligência.",
 },
 {
 english: "Some psychologists carry out behavior analysis.",
@@ -1033,15 +1033,15 @@ portuguese: "O enfermeiro auxiliou a cirurgiã durante a operação.",
 },
 {
 english:
-"A therapist is a person skilled in a particular kind of therapy.",
+    "A therapist is a person skilled in a particular kind of therapy.",
 portuguese:
-"Um terapeuta é uma pessoa habilidosa em um tipo específico de terapia.",
+    "Um terapeuta é uma pessoa habilidosa em um tipo específico de terapia.",
 },
 {
 english:
-"Before slaughter, animals must be presented to a veterinarian designated by the competent authority in order to be submitted to an ante-mortem inspection.",
+    "Before slaughter, animals must be presented to a veterinarian designated by the competent authority in order to be submitted to an ante-mortem inspection.",
 portuguese:
-"Antes do abate, os animais devem ser apresentados a um veterinário designado pela autoridade competente para serem submetidos a uma inspeção ante mortem.",
+    "Antes do abate, os animais devem ser apresentados a um veterinário designado pela autoridade competente para serem submetidos a uma inspeção ante mortem.",
 },
 {
 english: "The actress received an award for her life’s work.",
@@ -1061,9 +1061,9 @@ portuguese: "Você é um bom dançarino.",
 },
 {
 english:
-"David studied fashion before moving to Hong Kong to work as a fashion illustrator.",
+    "David studied fashion before moving to Hong Kong to work as a fashion illustrator.",
 portuguese:
-"David estudou moda antes de se mudar para Hong Kong para trabalhar como ilustrador de moda.",
+    "David estudou moda antes de se mudar para Hong Kong para trabalhar como ilustrador de moda.",
 },
 {
 english: "The magician was a master of deception and illusion.",
@@ -1079,9 +1079,9 @@ portuguese: "O pintor fez uma fortuna vendendo os seus quadros.",
 },
 {
 english:
-"It was a wonderful, glorious song, and it won the blind poet an immortal crown, the admiration of all ages.",
+    "It was a wonderful, glorious song, and it won the blind poet an immortal crown, the admiration of all ages.",
 portuguese:
-"Era uma canção maravilhosa e gloriosa, que rendeu ao poeta cego uma coroa imortal, a admiração de todas as idades.",
+    "Era uma canção maravilhosa e gloriosa, que rendeu ao poeta cego uma coroa imortal, a admiração de todas as idades.",
 },
 {
 english: "He was thrilled with the singer’s voice.",
@@ -1089,18 +1089,18 @@ portuguese: "Ele ficou emocionado com a voz da cantora.",
 },
 {
 english:
-"The outstanding work of the writer received a lot of praise.",
+    "The outstanding work of the writer received a lot of praise.",
 portuguese: "A excelente obra do escritor recebeu muitos elogios.",
 },
 {
 english:
-"The attendant kept the customer on hold for five minutes.",
+    "The attendant kept the customer on hold for five minutes.",
 portuguese:
-"A atendente manteve o cliente na espera por cinco minutos.",
+    "A atendente manteve o cliente na espera por cinco minutos.",
 },
 {
 english:
-"The cashier voided the transaction and gave me back the money.",
+    "The cashier voided the transaction and gave me back the money.",
 portuguese: "O caixa anulou a transação e me devolveu o dinheiro.",
 },
 {
@@ -1113,9 +1113,9 @@ portuguese: "Eu relatei meu caso ao balconista no guichê.",
 },
 {
 english:
-"The receptionist said he was out on a call so she left a message for him to call her when he got back.",
+    "The receptionist said he was out on a call so she left a message for him to call her when he got back.",
 portuguese:
-"A recepcionista disse que ele estava atendendo uma ligação, então ela deixou uma mensagem para que ele ligasse quando voltasse.",
+    "A recepcionista disse que ele estava atendendo uma ligação, então ela deixou uma mensagem para que ele ligasse quando voltasse.",
 },
 {
 english: "The secretary advised us of the date of the meeting.",
@@ -1124,23 +1124,23 @@ portuguese: "O secretário nos informou sobre a data da reunião.",
 {
 english: "The salesman filed a suit against his employer.",
 portuguese:
-"O vendedor moveu uma ação judicial contra o patrão dele.",
+    "O vendedor moveu uma ação judicial contra o patrão dele.",
 },
 {
 english:
-"I went to a bookstore and asked the saleswoman, Where ‘s the self help section?",
+    "I went to a bookstore and asked the saleswoman, Where ‘s the self help section?",
 portuguese:
-"Fui a uma livraria e perguntei à vendedora: Onde fica a seção de autoajuda?",
+    "Fui a uma livraria e perguntei à vendedora: Onde fica a seção de autoajuda?",
 },
 {
 english:
-"Hannah looked up as the butler let her in, her smile turning to a frown.",
+    "Hannah looked up as the butler let her in, her smile turning to a frown.",
 portuguese:
-"Hannah ergueu os olhos quando o mordomo a deixou entrar, seu sorriso se transformando em uma carranca.",
+    "Hannah ergueu os olhos quando o mordomo a deixou entrar, seu sorriso se transformando em uma carranca.",
 },
 {
 english:
-"The janitor of my building also takes care of the garden.",
+    "The janitor of my building also takes care of the garden.",
 portuguese: "O zelador do meu prédio também cuida do jardim.",
 },
 {
@@ -1149,9 +1149,9 @@ portuguese: "A empregada fez o jantar para os convidados.",
 },
 {
 english:
-"Learning how to become a good anthropologist often involves learning what questions to ask.",
+    "Learning how to become a good anthropologist often involves learning what questions to ask.",
 portuguese:
-"Aprender como se tornar um bom antropólogo geralmente envolve aprender que perguntas fazer.",
+    "Aprender como se tornar um bom antropólogo geralmente envolve aprender que perguntas fazer.",
 },
 {
 english: "He looks like an athlete, very lean and fit.",
@@ -1159,9 +1159,9 @@ portuguese: "Ele parece um atleta, muito enxuto e em forma.",
 },
 {
 english:
-"The ecologist advocates environmentally friendly policies.",
+    "The ecologist advocates environmentally friendly policies.",
 portuguese:
-"A ecologista defende políticas favoráveis ao meio ambiente.",
+    "A ecologista defende políticas favoráveis ao meio ambiente.",
 },
 {
 english: "The farmer sells the fruit and vegetables that he grows.",
@@ -1187,7 +1187,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Applying the decisions of management and overseeing the team",
+    "Applying the decisions of management and overseeing the team",
 },
 {
 enusAudio: "Delegating tasks to employees and managing workload.",
@@ -1213,31 +1213,31 @@ portuguese: "Cada equipe será orientada por um supervisor.",
 {
 english: "If you suspect there is a problem, call your supervisor.",
 portuguese:
-"Se você suspeitar que há um problema, chame seu supervisor.",
+    "Se você suspeitar que há um problema, chame seu supervisor.",
 },
 {
 english:
-"The kitchen supervisor has to control, maintain and manage kitchen inventory and food supplies.",
+    "The kitchen supervisor has to control, maintain and manage kitchen inventory and food supplies.",
 portuguese:
-"O supervisor da cozinha deve controlar, manter e gerenciar o estoque da cozinha e os suprimentos de alimentos.",
+    "O supervisor da cozinha deve controlar, manter e gerenciar o estoque da cozinha e os suprimentos de alimentos.",
 },
 {
 english:
-"The project overseer ensured that all tasks were completed on schedule.",
+    "The project overseer ensured that all tasks were completed on schedule.",
 portuguese:
-"O supervisor do projeto garantiu que todas as tarefas fossem concluídas dentro do prazo.",
+    "O supervisor do projeto garantiu que todas as tarefas fossem concluídas dentro do prazo.",
 },
 {
 english:
-"The overseer of the construction site inspected the work daily to maintain quality standards.",
+    "The overseer of the construction site inspected the work daily to maintain quality standards.",
 portuguese:
-"O supervisor do canteiro de obras inspecionava o trabalho diariamente para manter os padrões de qualidade.",
+    "O supervisor do canteiro de obras inspecionava o trabalho diariamente para manter os padrões de qualidade.",
 },
 {
 english:
-"The financial overseer reviewed the budget proposals before presenting them to the board.",
+    "The financial overseer reviewed the budget proposals before presenting them to the board.",
 portuguese:
-"O supervisor financeiro revisou as propostas de orçamento antes de apresentá-las ao conselho.",
+    "O supervisor financeiro revisou as propostas de orçamento antes de apresentá-las ao conselho.",
 },
 ],
 },
@@ -1249,7 +1249,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Planning and coordinating operations in the department.",
+    "Planning and coordinating operations in the department.",
 },
 {
 enusAudio: "Supervising staff and monitoring their performance.",
@@ -1259,7 +1259,7 @@ enusAudio: "Setting goals and objectives for the team.",
 },
 {
 enusAudio:
-"Reviewing financial reports and making strategic decisions.",
+    "Reviewing financial reports and making strategic decisions.",
 },
 ],
 },
@@ -1271,39 +1271,39 @@ type: "sentences",
 sentences: [
 {
 english:
-"The store manager is responsible for inventory and sales targets.",
+    "The store manager is responsible for inventory and sales targets.",
 portuguese:
-"O gerente da loja é responsável pelo estoque e metas de vendas.",
+    "O gerente da loja é responsável pelo estoque e metas de vendas.",
 },
 {
 english:
-"Our project manager ensures that deadlines are met and resources are allocated efficiently.",
+    "Our project manager ensures that deadlines are met and resources are allocated efficiently.",
 portuguese:
-"Nosso gerente de projeto garante que os prazos sejam cumpridos e os recursos alocados de forma eficiente.",
+    "Nosso gerente de projeto garante que os prazos sejam cumpridos e os recursos alocados de forma eficiente.",
 },
 {
 english:
-"The marketing manager oversees advertising campaigns and market research.",
+    "The marketing manager oversees advertising campaigns and market research.",
 portuguese:
-"O gerente de marketing supervisiona campanhas publicitárias e pesquisas de mercado.",
+    "O gerente de marketing supervisiona campanhas publicitárias e pesquisas de mercado.",
 },
 {
 english:
-"The HR manager conducts interviews and manages employee relations.",
+    "The HR manager conducts interviews and manages employee relations.",
 portuguese:
-"O gerente de RH conduz entrevistas e gerencia as relações com os funcionários.",
+    "O gerente de RH conduz entrevistas e gerencia as relações com os funcionários.",
 },
 {
 english:
-"The IT manager ensures the security and functionality of our network.",
+    "The IT manager ensures the security and functionality of our network.",
 portuguese:
-"O gerente de TI garante a segurança e funcionalidade de nossa rede.",
+    "O gerente de TI garante a segurança e funcionalidade de nossa rede.",
 },
 {
 english:
-"The operations manager oversees day-to-day activities to optimize productivity.",
+    "The operations manager oversees day-to-day activities to optimize productivity.",
 portuguese:
-"O gerente de operações supervisiona as atividades diárias para otimizar a produtividade.",
+    "O gerente de operações supervisiona as atividades diárias para otimizar a produtividade.",
 },
 ],
 },
@@ -1314,18 +1314,18 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Setting overall goals and strategies for the organization.",
+    "Setting overall goals and strategies for the organization.",
 },
 {
 enusAudio:
-"Leading and directing departments to achieve company objectives.",
+    "Leading and directing departments to achieve company objectives.",
 },
 {
 enusAudio: "Reporting to the board of directors and stakeholders.",
 },
 {
 enusAudio:
-"Ensuring compliance with legal and regulatory requirements.",
+    "Ensuring compliance with legal and regulatory requirements.",
 },
 ],
 },
@@ -1337,39 +1337,39 @@ type: "sentences",
 sentences: [
 {
 english:
-"The director of finance manages budget planning and financial strategy.",
+    "The director of finance manages budget planning and financial strategy.",
 portuguese:
-"O diretor financeiro gerencia o planejamento orçamentário e a estratégia financeira.",
+    "O diretor financeiro gerencia o planejamento orçamentário e a estratégia financeira.",
 },
 {
 english:
-"The artistic director oversees creative projects and artistic direction.",
+    "The artistic director oversees creative projects and artistic direction.",
 portuguese:
-"O diretor artístico supervisiona projetos criativos e direção artística.",
+    "O diretor artístico supervisiona projetos criativos e direção artística.",
 },
 {
 english:
-"Our executive director drives organizational growth and development.",
+    "Our executive director drives organizational growth and development.",
 portuguese:
-"Nosso diretor executivo impulsiona o crescimento e desenvolvimento organizacional.",
+    "Nosso diretor executivo impulsiona o crescimento e desenvolvimento organizacional.",
 },
 {
 english:
-"The managing director ensures operational efficiency and business expansion.",
+    "The managing director ensures operational efficiency and business expansion.",
 portuguese:
-"O diretor geral garante eficiência operacional e expansão do negócio.",
+    "O diretor geral garante eficiência operacional e expansão do negócio.",
 },
 {
 english:
-"The director of human resources implements HR policies and strategic initiatives.",
+    "The director of human resources implements HR policies and strategic initiatives.",
 portuguese:
-"O diretor de recursos humanos implementa políticas de RH e iniciativas estratégicas.",
+    "O diretor de recursos humanos implementa políticas de RH e iniciativas estratégicas.",
 },
 {
 english:
-"The marketing director oversees brand management and marketing campaigns.",
+    "The marketing director oversees brand management and marketing campaigns.",
 portuguese:
-"O diretor de marketing supervisiona gestão de marca e campanhas de marketing.",
+    "O diretor de marketing supervisiona gestão de marca e campanhas de marketing.",
 },
 ],
 },
@@ -1391,7 +1391,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Directly managing a small team within a department or project.",
+    "Directly managing a small team within a department or project.",
 },
 {
 enusAudio: "Assigning tasks and ensuring their completion.",
@@ -1410,21 +1410,21 @@ type: "sentences",
 sentences: [
 {
 english:
-"The team lead oversees daily operations and coordinates team activities.",
+    "The team lead oversees daily operations and coordinates team activities.",
 portuguese:
-"O líder de equipe supervisiona as operações diárias e coordena as atividades da equipe.",
+    "O líder de equipe supervisiona as operações diárias e coordena as atividades da equipe.",
 },
 {
 english:
-"Each team supervisor is responsible for ensuring team performance meets targets.",
+    "Each team supervisor is responsible for ensuring team performance meets targets.",
 portuguese:
-"Cada supervisor de equipe é responsável por garantir que o desempenho da equipe atinja as metas.",
+    "Cada supervisor de equipe é responsável por garantir que o desempenho da equipe atinja as metas.",
 },
 {
 english:
-"Our project team lead ensures effective communication and collaboration among team members.",
+    "Our project team lead ensures effective communication and collaboration among team members.",
 portuguese:
-"Nosso líder de equipe de projeto garante comunicação e colaboração eficazes entre os membros da equipe.",
+    "Nosso líder de equipe de projeto garante comunicação e colaboração eficazes entre os membros da equipe.",
 },
 ],
 },
@@ -1455,21 +1455,21 @@ type: "sentences",
 sentences: [
 {
 english:
-"The assistant manager coordinates scheduling and staffing for the department.",
+    "The assistant manager coordinates scheduling and staffing for the department.",
 portuguese:
-"O gerente assistente coordena programação e pessoal para o departamento.",
+    "O gerente assistente coordena programação e pessoal para o departamento.",
 },
 {
 english:
-"Each assistant manager ensures compliance with company policies and procedures.",
+    "Each assistant manager ensures compliance with company policies and procedures.",
 portuguese:
-"Cada gerente assistente garante conformidade com políticas e procedimentos da empresa.",
+    "Cada gerente assistente garante conformidade com políticas e procedimentos da empresa.",
 },
 {
 english:
-"Our assistant manager handles customer inquiries and resolves service issues promptly.",
+    "Our assistant manager handles customer inquiries and resolves service issues promptly.",
 portuguese:
-"Nosso gerente assistente cuida de consultas de clientes e resolve problemas de serviço prontamente.",
+    "Nosso gerente assistente cuida de consultas de clientes e resolve problemas de serviço prontamente.",
 },
 ],
 },
@@ -1499,21 +1499,21 @@ type: "sentences",
 sentences: [
 {
 english:
-"The division manager oversees product development and market expansion strategies.",
+    "The division manager oversees product development and market expansion strategies.",
 portuguese:
-"O gerente da divisão supervisiona estratégias de desenvolvimento de produtos e expansão de mercado.",
+    "O gerente da divisão supervisiona estratégias de desenvolvimento de produtos e expansão de mercado.",
 },
 {
 english:
-"Each division manager implements operational efficiencies to reduce costs and improve profitability.",
+    "Each division manager implements operational efficiencies to reduce costs and improve profitability.",
 portuguese:
-"Cada gerente de divisão implementa eficiências operacionais para reduzir custos e melhorar a lucratividade.",
+    "Cada gerente de divisão implementa eficiências operacionais para reduzir custos e melhorar a lucratividade.",
 },
 {
 english:
-"Our division manager collaborates with senior leadership to develop long-term strategic plans.",
+    "Our division manager collaborates with senior leadership to develop long-term strategic plans.",
 portuguese:
-"Nosso gerente de divisão colabora com a liderança sênior para desenvolver planos estratégicos de longo prazo.",
+    "Nosso gerente de divisão colabora com a liderança sênior para desenvolver planos estratégicos de longo prazo.",
 },
 ],
 },
@@ -1524,15 +1524,15 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Overseeing a significant area such as finance, operations, or marketing.",
+    "Overseeing a significant area such as finance, operations, or marketing.",
 },
 {
 enusAudio:
-"Developing long-term strategies for their respective areas.",
+    "Developing long-term strategies for their respective areas.",
 },
 {
 enusAudio:
-"Ensuring departmental goals align with organizational objectives.",
+    "Ensuring departmental goals align with organizational objectives.",
 },
 ],
 },
@@ -1545,21 +1545,21 @@ type: "sentences",
 sentences: [
 {
 english:
-"The vice president of marketing drives brand awareness and customer engagement strategies.",
+    "The vice president of marketing drives brand awareness and customer engagement strategies.",
 portuguese:
-"O vice-presidente de marketing impulsiona estratégias de conscientização da marca e engajamento do cliente.",
+    "O vice-presidente de marketing impulsiona estratégias de conscientização da marca e engajamento do cliente.",
 },
 {
 english:
-"Each vice president collaborates with senior management to set departmental budgets.",
+    "Each vice president collaborates with senior management to set departmental budgets.",
 portuguese:
-"Cada vice-presidente colabora com a alta administração para definir orçamentos departamentais.",
+    "Cada vice-presidente colabora com a alta administração para definir orçamentos departamentais.",
 },
 {
 english:
-"Our vice president of operations implements process improvements to streamline workflow.",
+    "Our vice president of operations implements process improvements to streamline workflow.",
 portuguese:
-"Nosso vice-presidente de operações implementa melhorias de processos para otimizar o fluxo de trabalho.",
+    "Nosso vice-presidente de operações implementa melhorias de processos para otimizar o fluxo de trabalho.",
 },
 ],
 },
@@ -1570,15 +1570,15 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Leading a specific functional area across the organization.",
+    "Leading a specific functional area across the organization.",
 },
 {
 enusAudio:
-"Developing and implementing strategies to achieve organizational goals.",
+    "Developing and implementing strategies to achieve organizational goals.",
 },
 {
 enusAudio:
-"Ensuring compliance with industry regulations and standards.",
+    "Ensuring compliance with industry regulations and standards.",
 },
 ],
 },
@@ -1591,21 +1591,21 @@ type: "sentences",
 sentences: [
 {
 english:
-"The chief financial officer oversees financial planning and investment strategies.",
+    "The chief financial officer oversees financial planning and investment strategies.",
 portuguese:
-"O diretor financeiro supervisiona o planejamento financeiro e estratégias de investimento.",
+    "O diretor financeiro supervisiona o planejamento financeiro e estratégias de investimento.",
 },
 {
 english:
-"Each chief officer collaborates with legal counsel to mitigate organizational risks.",
+    "Each chief officer collaborates with legal counsel to mitigate organizational risks.",
 portuguese:
-"Cada diretor colabora com advogados para mitigar os riscos organizacionais.",
+    "Cada diretor colabora com advogados para mitigar os riscos organizacionais.",
 },
 {
 english:
-"Our chief technology officer drives innovation and technological advancements.",
+    "Our chief technology officer drives innovation and technological advancements.",
 portuguese:
-"Nosso diretor de tecnologia impulsiona inovação e avanços tecnológicos.",
+    "Nosso diretor de tecnologia impulsiona inovação e avanços tecnológicos.",
 },
 ],
 },
@@ -1617,11 +1617,11 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Setting overall strategic direction and goals for the organization.",
+    "Setting overall strategic direction and goals for the organization.",
 },
 {
 enusAudio:
-"Overseeing all aspects of organizational performance and operations.",
+    "Overseeing all aspects of organizational performance and operations.",
 },
 {
 enusAudio: "Reporting to the board of directors and shareholders.",
@@ -1637,21 +1637,21 @@ type: "sentences",
 sentences: [
 {
 english:
-"The CEO drives corporate vision and mission to guide company growth.",
+    "The CEO drives corporate vision and mission to guide company growth.",
 portuguese:
-"O CEO impulsiona visão e missão corporativas para orientar o crescimento da empresa.",
+    "O CEO impulsiona visão e missão corporativas para orientar o crescimento da empresa.",
 },
 {
 english:
-"Each CEO communicates organizational strategies and objectives to internal stakeholders.",
+    "Each CEO communicates organizational strategies and objectives to internal stakeholders.",
 portuguese:
-"Cada CEO comunica estratégias e objetivos organizacionais para partes interessadas internas.",
+    "Cada CEO comunica estratégias e objetivos organizacionais para partes interessadas internas.",
 },
 {
 english:
-"Our CEO fosters a culture of transparency and accountability across the organization.",
+    "Our CEO fosters a culture of transparency and accountability across the organization.",
 portuguese:
-"Nosso CEO fomenta uma cultura de transparência e responsabilidade em toda a organização.",
+    "Nosso CEO fomenta uma cultura de transparência e responsabilidade em toda a organização.",
 },
 ],
 },
@@ -1688,7 +1688,7 @@ portuguese: "Esta empresa fabrica peças para bicicletas.",
 {
 english: "The factory keeps the raw materials in a large store.",
 portuguese:
-"A fábrica guarda as matérias-primas em um grande armazém.",
+    "A fábrica guarda as matérias-primas em um grande armazém.",
 },
 {
 english: "To build",
@@ -1697,12 +1697,12 @@ portuguese: "Montar/Construir",
 {
 english: "I used recycled wood to build a new bookcase.",
 portuguese:
-"Eu usei madeira reciclada para montar uma estante nova.",
+    "Eu usei madeira reciclada para montar uma estante nova.",
 },
 {
 english: "The worker stacked the bricks to build the wall.",
 portuguese:
-"O trabalhador empilhou os tijolos para construir a parede.",
+    "O trabalhador empilhou os tijolos para construir a parede.",
 },
 {
 english: "To design",
@@ -1711,7 +1711,7 @@ portuguese: "Projetar",
 {
 english: "There are impressively designed buildings in the city.",
 portuguese:
-"Há edifícios projetados de forma impressionante na cidade.",
+    "Há edifícios projetados de forma impressionante na cidade.",
 },
 {
 english: "The architect designed a new house for the family.",
@@ -1720,7 +1720,7 @@ portuguese: "O arquiteto projetou uma casa nova para a família.",
 {
 english: "The company commissioned me to design its new logo.",
 portuguese:
-"A empresa me delegou para projetar o seu novo logotipo.",
+    "A empresa me delegou para projetar o seu novo logotipo.",
 },
 {
 english: "To export",
@@ -1729,7 +1729,7 @@ portuguese: "Exportar",
 {
 english: "My company exports products to Europe and Asia.",
 portuguese:
-"Minha empresa exporta produtos para a Europa e a Ásia.",
+    "Minha empresa exporta produtos para a Europa e a Ásia.",
 },
 ],
 },
@@ -1742,7 +1742,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Embraer is a Brazilian company. They make and sell airplanes. They have factories in Brazil and sales offices all over the world. In the factories, they build airplanes. They also design new products by computer in the R&D Department. They export products to China, the USA and Europe..",
+    "Embraer is a Brazilian company. They make and sell airplanes. They have factories in Brazil and sales offices all over the world. In the factories, they build airplanes. They also design new products by computer in the R&D Department. They export products to China, the USA and Europe..",
 },
 ],
 },
@@ -1763,29 +1763,29 @@ portuguese: "A empresa vende produtos exclusivamente via Internet.",
 
 {
 english:
-"The company sells software solutions to international markets.",
+    "The company sells software solutions to international markets.",
 portuguese:
-"A empresa vende soluções de software para mercados internacionais.",
+    "A empresa vende soluções de software para mercados internacionais.",
 },
 
 {
 english:
-"She sells financial services to high-net-worth individuals.",
+    "She sells financial services to high-net-worth individuals.",
 portuguese:
-"Ela vende serviços financeiros para indivíduos de alto patrimônio.",
+    "Ela vende serviços financeiros para indivíduos de alto patrimônio.",
 },
 
 {
 english: "The retailer sells luxury goods online and in stores.",
 portuguese:
-"O varejista vende produtos de luxo online e nas lojas físicas.",
+    "O varejista vende produtos de luxo online e nas lojas físicas.",
 },
 
 {
 english:
-"Our team sells advertising space across multiple platforms.",
+    "Our team sells advertising space across multiple platforms.",
 portuguese:
-"Nossa equipe vende espaço publicitário em várias plataformas.",
+    "Nossa equipe vende espaço publicitário em várias plataformas.",
 },
 
 {
@@ -1800,33 +1800,33 @@ portuguese: "Comprar",
 {
 english: "The company bought a controlling stake in a competitor.",
 portuguese:
-"A empresa comprou uma participação controladora em um concorrente.",
+    "A empresa comprou uma participação controladora em um concorrente.",
 },
 
 {
 english: "They bought new office space in the city center.",
 portuguese:
-"Eles compraram um novo espaço de escritório no centro da cidade.",
+    "Eles compraram um novo espaço de escritório no centro da cidade.",
 },
 
 {
 english: "Investors bought shares in the IPO.",
 portuguese:
-"Os investidores compraram ações na oferta pública inicial (IPO).",
+    "Os investidores compraram ações na oferta pública inicial (IPO).",
 },
 
 {
 english:
-"The real estate developer bought land for a new housing project.",
+    "The real estate developer bought land for a new housing project.",
 portuguese:
-"O incorporador imobiliário comprou terrenos para um novo projeto habitacional.",
+    "O incorporador imobiliário comprou terrenos para um novo projeto habitacional.",
 },
 
 {
 english:
-"Next year, the CEO will have enough money to buy new facilities.",
+    "Next year, the CEO will have enough money to buy new facilities.",
 portuguese:
-"No próximo ano, o CEO terá dinheiro suficiente para adquirir novas instalações.",
+    "No próximo ano, o CEO terá dinheiro suficiente para adquirir novas instalações.",
 },
 {
 english: "To order",
@@ -1834,37 +1834,37 @@ portuguese: "Pedir",
 },
 {
 english:
-"The company ordered a large batch of custom-made components for the new product line.",
+    "The company ordered a large batch of custom-made components for the new product line.",
 portuguese:
-"A empresa pediu um grande lote de componentes sob medida para a nova linha de produtos.",
+    "A empresa pediu um grande lote de componentes sob medida para a nova linha de produtos.",
 },
 
 {
 english:
-"They ordered a comprehensive market analysis from a leading consultancy.",
+    "They ordered a comprehensive market analysis from a leading consultancy.",
 portuguese:
-"Eles pediram uma análise de mercado abrangente de uma consultoria líder.",
+    "Eles pediram uma análise de mercado abrangente de uma consultoria líder.",
 },
 
 {
 english:
-"The board of directors ordered a review of the strategic plan before final approval.",
+    "The board of directors ordered a review of the strategic plan before final approval.",
 portuguese:
-"O conselho de administração pediu uma revisão do plano estratégico antes da aprovação final.",
+    "O conselho de administração pediu uma revisão do plano estratégico antes da aprovação final.",
 },
 
 {
 english:
-"The client ordered a full suite of software solutions to streamline their operations.",
+    "The client ordered a full suite of software solutions to streamline their operations.",
 portuguese:
-"O cliente pediu um conjunto completo de soluções de software para otimizar suas operações.",
+    "O cliente pediu um conjunto completo de soluções de software para otimizar suas operações.",
 },
 
 {
 english:
-"The logistics team ordered additional inventory to meet the increased demand.",
+    "The logistics team ordered additional inventory to meet the increased demand.",
 portuguese:
-"A equipe de logística pediu estoque adicional para atender à demanda crescente.",
+    "A equipe de logística pediu estoque adicional para atender à demanda crescente.",
 },
 {
 english: "To deliver",
@@ -1874,21 +1874,21 @@ portuguese: "Entregar",
 {
 english: "The supplier delivered the prototype ahead of schedule.",
 portuguese:
-"O fornecedor entregou o protótipo antes do prazo previsto.",
+    "O fornecedor entregou o protótipo antes do prazo previsto.",
 },
 
 {
 english:
-"Our partner delivered a detailed presentation on the new partnership opportunities.",
+    "Our partner delivered a detailed presentation on the new partnership opportunities.",
 portuguese:
-"Nosso parceiro fez uma apresentação detalhada sobre as novas oportunidades de parceria.",
+    "Nosso parceiro fez uma apresentação detalhada sobre as novas oportunidades de parceria.",
 },
 
 {
 english:
-"The IT department delivered the software update across all company branches simultaneously.",
+    "The IT department delivered the software update across all company branches simultaneously.",
 portuguese:
-"O departamento de TI entregou a atualização de software simultaneamente em todas as filiais da empresa.",
+    "O departamento de TI entregou a atualização de software simultaneamente em todas as filiais da empresa.",
 },
 ],
 },
@@ -1901,7 +1901,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Uniqlo is a Japanese company. They sell clothes. They have stores in 13 countries around the world. Customers visit the stores and buy the products. They also have an online store. Customers order products online. Then, they deliver the products to the customer.",
+    "Uniqlo is a Japanese company. They sell clothes. They have stores in 13 countries around the world. Customers visit the stores and buy the products. They also have an online store. Customers order products online. Then, they deliver the products to the customer.",
 },
 ],
 },
@@ -1917,21 +1917,21 @@ portuguese: "Adquirir",
 },
 {
 english:
-"Nike acquires cutting-edge technologies to innovate athletic wear.",
+    "Nike acquires cutting-edge technologies to innovate athletic wear.",
 portuguese:
-"A Nike adquire tecnologias de ponta para inovar no vestuário esportivo.",
+    "A Nike adquire tecnologias de ponta para inovar no vestuário esportivo.",
 },
 {
 english:
-"They acquired a startup specializing in sustainable fabric development.",
+    "They acquired a startup specializing in sustainable fabric development.",
 portuguese:
-"Eles adquiriram uma startup especializada no desenvolvimento de tecidos sustentáveis.",
+    "Eles adquiriram uma startup especializada no desenvolvimento de tecidos sustentáveis.",
 },
 {
 english:
-"The company has acquired multiple patents for new shoe designs.",
+    "The company has acquired multiple patents for new shoe designs.",
 portuguese:
-"A empresa adquiriu várias patentes para novos designs de sapatos.",
+    "A empresa adquiriu várias patentes para novos designs de sapatos.",
 },
 {
 english: "To coordinate",
@@ -1939,21 +1939,21 @@ portuguese: "Coordenar",
 },
 {
 english:
-"Nike coordinates global marketing campaigns to maintain brand identity.",
+    "Nike coordinates global marketing campaigns to maintain brand identity.",
 portuguese:
-"A Nike coordena campanhas de marketing global para manter a identidade da marca.",
+    "A Nike coordena campanhas de marketing global para manter a identidade da marca.",
 },
 {
 english:
-"The team coordinated efforts across departments for the new product launch.",
+    "The team coordinated efforts across departments for the new product launch.",
 portuguese:
-"A equipe coordenou esforços entre os departamentos para o lançamento do novo produto.",
+    "A equipe coordenou esforços entre os departamentos para o lançamento do novo produto.",
 },
 {
 english:
-"They coordinate logistics for major sporting events sponsored by Nike.",
+    "They coordinate logistics for major sporting events sponsored by Nike.",
 portuguese:
-"Eles coordenam a logística para grandes eventos esportivos patrocinados pela Nike.",
+    "Eles coordenam a logística para grandes eventos esportivos patrocinados pela Nike.",
 },
 {
 english: "To assess",
@@ -1961,21 +1961,21 @@ portuguese: "Avaliar",
 },
 {
 english:
-"Nike assesses market trends meticulously before launching new products.",
+    "Nike assesses market trends meticulously before launching new products.",
 portuguese:
-"A Nike avalia tendências de mercado meticulosamente antes de lançar novos produtos.",
+    "A Nike avalia tendências de mercado meticulosamente antes de lançar novos produtos.",
 },
 {
 english:
-"They assessed customer feedback to improve shoe comfort and durability.",
+    "They assessed customer feedback to improve shoe comfort and durability.",
 portuguese:
-"Eles avaliaram o feedback dos clientes para melhorar o conforto e durabilidade dos sapatos.",
+    "Eles avaliaram o feedback dos clientes para melhorar o conforto e durabilidade dos sapatos.",
 },
 {
 english:
-"The company assesses environmental impact in their manufacturing processes.",
+    "The company assesses environmental impact in their manufacturing processes.",
 portuguese:
-"A empresa avalia o impacto ambiental em seus processos de fabricação.",
+    "A empresa avalia o impacto ambiental em seus processos de fabricação.",
 },
 ],
 },
@@ -1988,7 +1988,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Nike is renowned for acquiring cutting-edge technologies to innovate athletic wear. The company coordinates global marketing campaigns adeptly, maintaining a strong brand identity worldwide. Nike assesses market trends meticulously, ensuring their products resonate with diverse consumer segments and maintain leadership in the sportswear industry.",
+    "Nike is renowned for acquiring cutting-edge technologies to innovate athletic wear. The company coordinates global marketing campaigns adeptly, maintaining a strong brand identity worldwide. Nike assesses market trends meticulously, ensuring their products resonate with diverse consumer segments and maintain leadership in the sportswear industry.",
 },
 ],
 },
@@ -2004,21 +2004,21 @@ portuguese: "Aprimorar",
 },
 {
 english:
-"The software house enhances conversational capabilities through advanced AI algorithms.",
+    "The software house enhances conversational capabilities through advanced AI algorithms.",
 portuguese:
-"A software house aprimora capacidades de conversação por meio de algoritmos avançados de IA.",
+    "A software house aprimora capacidades de conversação por meio de algoritmos avançados de IA.",
 },
 {
 english:
-"It enhanced its ability to understand context in complex sentences.",
+    "It enhanced its ability to understand context in complex sentences.",
 portuguese:
-"Ele aprimorou sua capacidade de entender o contexto em frases complexas.",
+    "Ele aprimorou sua capacidade de entender o contexto em frases complexas.",
 },
 {
 english:
-"The developers are enhancing the software's integration with voice recognition technology.",
+    "The developers are enhancing the software's integration with voice recognition technology.",
 portuguese:
-"Os desenvolvedores estão aprimorando a integração do software com tecnologia de reconhecimento de voz.",
+    "Os desenvolvedores estão aprimorando a integração do software com tecnologia de reconhecimento de voz.",
 },
 {
 english: "To develop",
@@ -2026,20 +2026,20 @@ portuguese: "Desenvolver",
 },
 {
 english:
-"Nike develops innovative athletic wear using cutting-edge technologies.",
+    "Nike develops innovative athletic wear using cutting-edge technologies.",
 portuguese:
-"A Nike desenvolve vestuário esportivo inovador utilizando tecnologias de ponta.",
+    "A Nike desenvolve vestuário esportivo inovador utilizando tecnologias de ponta.",
 },
 {
 english: "They developed a new line of sustainable sneakers.",
 portuguese:
-"Eles desenvolveram uma nova linha de tênis sustentáveis.",
+    "Eles desenvolveram uma nova linha de tênis sustentáveis.",
 },
 {
 english:
-"The company is developing a strategic plan for market expansion.",
+    "The company is developing a strategic plan for market expansion.",
 portuguese:
-"A empresa está desenvolvendo um plano estratégico para expansão de mercado.",
+    "A empresa está desenvolvendo um plano estratégico para expansão de mercado.",
 },
 {
 english: "To adapt",
@@ -2047,21 +2047,21 @@ portuguese: "Adaptar",
 },
 {
 english:
-"Tesla adapts its production methods to meet global regulatory standards.",
+    "Tesla adapts its production methods to meet global regulatory standards.",
 portuguese:
-"A Tesla adapta seus métodos de produção para atender aos padrões regulatórios globais.",
+    "A Tesla adapta seus métodos de produção para atender aos padrões regulatórios globais.",
 },
 {
 english:
-"They adapted their marketing strategy for different cultural markets.",
+    "They adapted their marketing strategy for different cultural markets.",
 portuguese:
-"Eles adaptaram sua estratégia de marketing para diferentes mercados culturais.",
+    "Eles adaptaram sua estratégia de marketing para diferentes mercados culturais.",
 },
 {
 english:
-"The team adapted quickly to remote work during the pandemic.",
+    "The team adapted quickly to remote work during the pandemic.",
 portuguese:
-"A equipe se adaptou rapidamente ao trabalho remoto durante a pandemia.",
+    "A equipe se adaptou rapidamente ao trabalho remoto durante a pandemia.",
 },
 {
 english: "To improve",
@@ -2069,21 +2069,21 @@ portuguese: "Melhorar",
 },
 {
 english:
-"Nike improves product quality based on customer feedback.",
+    "Nike improves product quality based on customer feedback.",
 portuguese:
-"A Nike melhora a qualidade dos produtos com base no feedback dos clientes.",
+    "A Nike melhora a qualidade dos produtos com base no feedback dos clientes.",
 },
 {
 english:
-"They improved manufacturing processes to reduce environmental impact.",
+    "They improved manufacturing processes to reduce environmental impact.",
 portuguese:
-"Eles melhoraram os processos de fabricação para reduzir o impacto ambiental.",
+    "Eles melhoraram os processos de fabricação para reduzir o impacto ambiental.",
 },
 {
 english:
-"The company continuously improves customer service to enhance satisfaction.",
+    "The company continuously improves customer service to enhance satisfaction.",
 portuguese:
-"A empresa melhora continuamente o serviço ao cliente para aumentar a satisfação.",
+    "A empresa melhora continuamente o serviço ao cliente para aumentar a satisfação.",
 },
 {
 english: "To remain",
@@ -2091,21 +2091,21 @@ portuguese: "Permanecer",
 },
 {
 english:
-"Tesla remains committed to sustainability in all aspects of its operations.",
+    "Tesla remains committed to sustainability in all aspects of its operations.",
 portuguese:
-"A Tesla permanece comprometida com a sustentabilidade em todos os aspectos de suas operações.",
+    "A Tesla permanece comprometida com a sustentabilidade em todos os aspectos de suas operações.",
 },
 {
 english:
-"They remain competitive in the global market through innovation.",
+    "They remain competitive in the global market through innovation.",
 portuguese:
-"Eles permanecem competitivos no mercado global por meio da inovação.",
+    "Eles permanecem competitivos no mercado global por meio da inovação.",
 },
 {
 english:
-"The company aims to remain a leader in electric vehicle technology.",
+    "The company aims to remain a leader in electric vehicle technology.",
 portuguese:
-"A empresa visa permanecer líder em tecnologia de veículos elétricos.",
+    "A empresa visa permanecer líder em tecnologia de veículos elétricos.",
 },
 ],
 },
@@ -2118,7 +2118,7 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
+    "Tesla is at the forefront of acquiring advanced electric vehicle technology, solidifying its position as a leader in sustainable transportation. The company coordinates production efforts across multiple continents, optimizing efficiency and scale in its mission to accelerate the world's transition to sustainable energy. Tesla assesses consumer feedback rigorously, iterating on designs to meet evolving expectations for performance, safety, and environmental impact.",
 },
 ],
 },
@@ -2162,9 +2162,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"I’m not in a position to make a major purchase like a car.",
+    "I’m not in a position to make a major purchase like a car.",
 portuguese:
-"Não estou em posição de fazer uma compra importante, como um carro.",
+    "Não estou em posição de fazer uma compra importante, como um carro.",
 },
 {
 english: "The couple is very happy with the purchase of the house.",
@@ -2193,7 +2193,7 @@ portuguese: "Os produtos têm de corresponder às amostras.",
 {
 english: "Global trade enables a wider exchange of goods.",
 portuguese:
-"O comércio global possibilita uma troca maior de produtos.",
+    "O comércio global possibilita uma troca maior de produtos.",
 },
 ],
 },
@@ -2238,7 +2238,7 @@ sentences: [
 {
 english: "The market was filled with a variety of wares.",
 portuguese:
-"O mercado estava cheio de uma variedade de mercadorias.",
+    "O mercado estava cheio de uma variedade de mercadorias.",
 },
 {
 english: "She displayed her wares at the local fair.",
@@ -2271,7 +2271,7 @@ sentences: [
 {
 english: "We need to inventory all the items in the warehouse.",
 portuguese:
-"Precisamos fazer o inventário de todos os itens no armazém.",
+    "Precisamos fazer o inventário de todos os itens no armazém.",
 },
 {
 english: "These items are on sale this week.",
@@ -2380,15 +2380,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Our company specializes in innovative solutions for digital marketing.",
+    "Our company specializes in innovative solutions for digital marketing.",
 portuguese:
-"Nossa empresa é especializada em soluções inovadoras para marketing digital.",
+    "Nossa empresa é especializada em soluções inovadoras para marketing digital.",
 },
 {
 english:
-"We have been recognized globally for our commitment to sustainable practices.",
+    "We have been recognized globally for our commitment to sustainable practices.",
 portuguese:
-"Somos reconhecidos globalmente pelo nosso compromisso com práticas sustentáveis.",
+    "Somos reconhecidos globalmente pelo nosso compromisso com práticas sustentáveis.",
 },
 ],
 },
@@ -2400,15 +2400,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"I need to check my schedule before committing to another meeting.",
+    "I need to check my schedule before committing to another meeting.",
 portuguese:
-"Preciso verificar minha agenda antes de me comprometer com outra reunião.",
+    "Preciso verificar minha agenda antes de me comprometer com outra reunião.",
 },
 {
 english:
-"Let's find a time that works for everyone and schedule the meeting for next week.",
+    "Let's find a time that works for everyone and schedule the meeting for next week.",
 portuguese:
-"Vamos encontrar um horário que funcione para todos e agendar a reunião para a próxima semana.",
+    "Vamos encontrar um horário que funcione para todos e agendar a reunião para a próxima semana.",
 },
 ],
 },
@@ -2420,15 +2420,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Our innovative product launch contributed to a 20% increase in revenue last quarter.",
+    "Our innovative product launch contributed to a 20% increase in revenue last quarter.",
 portuguese:
-"Nosso lançamento de produto inovador contribuiu para um aumento de 20% na receita no último trimestre.",
+    "Nosso lançamento de produto inovador contribuiu para um aumento de 20% na receita no último trimestre.",
 },
 {
 english:
-"Analyzing revenue trends helps us make informed decisions about future investments.",
+    "Analyzing revenue trends helps us make informed decisions about future investments.",
 portuguese:
-"Analisar as tendências de receita nos ajuda a tomar decisões informadas sobre investimentos futuros.",
+    "Analisar as tendências de receita nos ajuda a tomar decisões informadas sobre investimentos futuros.",
 },
 ],
 },
@@ -2440,15 +2440,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The weekly team meeting is scheduled for Monday mornings.",
+    "The weekly team meeting is scheduled for Monday mornings.",
 portuguese:
-"A reunião semanal da equipe está agendada para as manhãs de segunda-feira.",
+    "A reunião semanal da equipe está agendada para as manhãs de segunda-feira.",
 },
 {
 english:
-"Our project kickoff meeting went smoothly and set a positive tone for the upcoming work.",
+    "Our project kickoff meeting went smoothly and set a positive tone for the upcoming work.",
 portuguese:
-"Nossa reunião de início de projeto foi tranquila e estabeleceu um tom positivo para o trabalho que está por vir.",
+    "Nossa reunião de início de projeto foi tranquila e estabeleceu um tom positivo para o trabalho que está por vir.",
 },
 ],
 },
@@ -2460,27 +2460,27 @@ type: "sentences",
 sentences: [
 {
 english:
-"Setting ambitious yet achievable goals is crucial for driving our company's growth strategy.",
+    "Setting ambitious yet achievable goals is crucial for driving our company's growth strategy.",
 portuguese:
-"Estabelecer metas ambiciosas, mas alcançáveis, é crucial para impulsionar a estratégia de crescimento da nossa empresa.",
+    "Estabelecer metas ambiciosas, mas alcançáveis, é crucial para impulsionar a estratégia de crescimento da nossa empresa.",
 },
 {
 english:
-"Our team celebrated achieving our quarterly goals ahead of schedule.",
+    "Our team celebrated achieving our quarterly goals ahead of schedule.",
 portuguese:
-"Nossa equipe comemorou alcançar nossas metas trimestrais antes do prazo previsto.",
+    "Nossa equipe comemorou alcançar nossas metas trimestrais antes do prazo previsto.",
 },
 {
 english:
-"The marketing department's objectives include increasing brand awareness by 30% within the next fiscal year.",
+    "The marketing department's objectives include increasing brand awareness by 30% within the next fiscal year.",
 portuguese:
-"Os objetivos do departamento de marketing incluem aumentar a conscientização da marca em 30% no próximo ano fiscal.",
+    "Os objetivos do departamento de marketing incluem aumentar a conscientização da marca em 30% no próximo ano fiscal.",
 },
 {
 english:
-"Clearly defined objectives help us stay focused and measure our progress effectively.",
+    "Clearly defined objectives help us stay focused and measure our progress effectively.",
 portuguese:
-"Objetivos claramente definidos nos ajudam a manter o foco e medir nosso progresso de forma eficaz.",
+    "Objetivos claramente definidos nos ajudam a manter o foco e medir nosso progresso de forma eficaz.",
 },
 ],
 },
@@ -2492,15 +2492,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Our new market entry strategy involves strategic partnerships and localized marketing campaigns.",
+    "Our new market entry strategy involves strategic partnerships and localized marketing campaigns.",
 portuguese:
-"Nossa nova estratégia de entrada no mercado envolve parcerias estratégicas e campanhas de marketing localizadas.",
+    "Nossa nova estratégia de entrada no mercado envolve parcerias estratégicas e campanhas de marketing localizadas.",
 },
 {
 english:
-"Revising our pricing strategy boosted customer retention and profitability.",
+    "Revising our pricing strategy boosted customer retention and profitability.",
 portuguese:
-"Rever nossa estratégia de preços impulsionou a retenção de clientes e a lucratividade.",
+    "Rever nossa estratégia de preços impulsionou a retenção de clientes e a lucratividade.",
 },
 ],
 },
@@ -2512,15 +2512,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Digital marketing tactics such as SEO and social media campaigns have significantly boosted our online presence.",
+    "Digital marketing tactics such as SEO and social media campaigns have significantly boosted our online presence.",
 portuguese:
-"Táticas de marketing digital como SEO e campanhas de mídia social aumentaram significativamente nossa presença online.",
+    "Táticas de marketing digital como SEO e campanhas de mídia social aumentaram significativamente nossa presença online.",
 },
 {
 english:
-"Implementing cost-cutting tactics helped streamline our operations and improve efficiency.",
+    "Implementing cost-cutting tactics helped streamline our operations and improve efficiency.",
 portuguese:
-"Implementar táticas de corte de custos ajudou a otimizar nossas operações e melhorar a eficiência.",
+    "Implementar táticas de corte de custos ajudou a otimizar nossas operações e melhorar a eficiência.",
 },
 ],
 },
@@ -2532,15 +2532,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Integrity and transparency are core values that guide every decision we make as a company.",
+    "Integrity and transparency are core values that guide every decision we make as a company.",
 portuguese:
-"Integridade e transparência são valores essenciais que guiam cada decisão que tomamos como empresa.",
+    "Integridade e transparência são valores essenciais que guiam cada decisão que tomamos como empresa.",
 },
 {
 english:
-"We hire employees who align with our core values to maintain a positive workplace culture.",
+    "We hire employees who align with our core values to maintain a positive workplace culture.",
 portuguese:
-"Contratamos funcionários que estão alinhados com nossos valores essenciais para manter uma cultura de trabalho positiva.",
+    "Contratamos funcionários que estão alinhados com nossos valores essenciais para manter uma cultura de trabalho positiva.",
 },
 ],
 },
@@ -2552,15 +2552,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Despite challenges, the company reported record profits for the fiscal year.",
+    "Despite challenges, the company reported record profits for the fiscal year.",
 portuguese:
-"Apesar dos desafios, a empresa relatou lucros recordes para o ano fiscal.",
+    "Apesar dos desafios, a empresa relatou lucros recordes para o ano fiscal.",
 },
 {
 english:
-"Implementing cost-saving measures resulted in higher profit margins.",
+    "Implementing cost-saving measures resulted in higher profit margins.",
 portuguese:
-"A implementação de medidas de economia resultou em margens de lucro mais altas.",
+    "A implementação de medidas de economia resultou em margens de lucro mais altas.",
 },
 ],
 },
@@ -2572,15 +2572,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The unexpected market downturn led to a temporary loss in revenue for the company.",
+    "The unexpected market downturn led to a temporary loss in revenue for the company.",
 portuguese:
-"A queda inesperada do mercado levou a uma perda temporária de receita para a empresa.",
+    "A queda inesperada do mercado levou a uma perda temporária de receita para a empresa.",
 },
 {
 english:
-"Cutting-edge research projects sometimes incur initial losses before yielding long-term gains.",
+    "Cutting-edge research projects sometimes incur initial losses before yielding long-term gains.",
 portuguese:
-"Projetos de pesquisa de ponta às vezes geram perdas iniciais antes de gerar ganhos a longo prazo.",
+    "Projetos de pesquisa de ponta às vezes geram perdas iniciais antes de gerar ganhos a longo prazo.",
 },
 ],
 },
@@ -2607,15 +2607,15 @@ comments:
 sentences: [
 {
 english:
-"Our company's mission statement emphasizes sustainability and innovation in every aspect of our operations.",
+    "Our company's mission statement emphasizes sustainability and innovation in every aspect of our operations.",
 portuguese:
-"A declaração de missão da nossa empresa enfatiza a sustentabilidade e a inovação em todos os aspectos das nossas operações.",
+    "A declaração de missão da nossa empresa enfatiza a sustentabilidade e a inovação em todos os aspectos das nossas operações.",
 },
 {
 english:
-"Developing a clear mission statement helped align our team's efforts towards a common goal.",
+    "Developing a clear mission statement helped align our team's efforts towards a common goal.",
 portuguese:
-"O desenvolvimento de uma declaração de missão clara ajudou a alinhar os esforços da nossa equipe em direção a um objetivo comum.",
+    "O desenvolvimento de uma declaração de missão clara ajudou a alinhar os esforços da nossa equipe em direção a um objetivo comum.",
 },
 ],
 },
@@ -2630,15 +2630,15 @@ comments:
 sentences: [
 {
 english:
-"The CEO's inspiring vision statement motivates us to strive for excellence and market leadership.",
+    "The CEO's inspiring vision statement motivates us to strive for excellence and market leadership.",
 portuguese:
-"A declaração de visão inspiradora do CEO nos motiva a buscar a excelência e a liderança de mercado.",
+    "A declaração de visão inspiradora do CEO nos motiva a buscar a excelência e a liderança de mercado.",
 },
 {
 english:
-"Crafting a compelling vision statement requires foresight and understanding of industry trends.",
+    "Crafting a compelling vision statement requires foresight and understanding of industry trends.",
 portuguese:
-"Elaborar uma declaração de visão convincente requer visão de futuro e entendimento das tendências do setor.",
+    "Elaborar uma declaração de visão convincente requer visão de futuro e entendimento das tendências do setor.",
 },
 ],
 },
@@ -2652,15 +2652,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"In our company, following cybersecurity best practices is mandatory.",
+    "In our company, following cybersecurity best practices is mandatory.",
 portuguese:
-"Em nossa empresa, seguir as melhores práticas de segurança cibernética é obrigatório.",
+    "Em nossa empresa, seguir as melhores práticas de segurança cibernética é obrigatório.",
 },
 {
 english:
-"Implementing agile methodologies is considered one of the best practices for software development.",
+    "Implementing agile methodologies is considered one of the best practices for software development.",
 portuguese:
-"Implementar metodologias ágeis é considerado uma das melhores práticas para desenvolvimento de software.",
+    "Implementar metodologias ágeis é considerado uma das melhores práticas para desenvolvimento de software.",
 },
 ],
 },
@@ -2674,15 +2674,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Our company conducts regular benchmarking against industry leaders to stay competitive.",
+    "Our company conducts regular benchmarking against industry leaders to stay competitive.",
 portuguese:
-"Nossa empresa realiza benchmarking regularmente contra os líderes da indústria para se manter competitiva.",
+    "Nossa empresa realiza benchmarking regularmente contra os líderes da indústria para se manter competitiva.",
 },
 {
 english:
-"Benchmarking revealed that our website loading speed was slower compared to our main competitors.",
+    "Benchmarking revealed that our website loading speed was slower compared to our main competitors.",
 portuguese:
-"O benchmarking revelou que a velocidade de carregamento de nosso site estava mais lenta em comparação com nossos principais concorrentes.",
+    "O benchmarking revelou que a velocidade de carregamento de nosso site estava mais lenta em comparação com nossos principais concorrentes.",
 },
 ],
 },
@@ -2743,7 +2743,7 @@ portuguese: "Ele trabalhará no relatório amanhã.",
 },
 {
 english:
-"By then, I will have been working for ten hours straight.",
+    "By then, I will have been working for ten hours straight.",
 portuguese: "Até lá, eu terei trabalhado por dez horas seguidas.",
 },
 ],
@@ -2758,7 +2758,7 @@ sentences: [
 {
 english: "After studying literature, he got a job as a teacher.",
 portuguese:
-"Após estudar literatura, ele conseguiu um trabalho como professor.",
+    "Após estudar literatura, ele conseguiu um trabalho como professor.",
 },
 {
 english: "I am hopeful that I will get the job.",
@@ -2796,25 +2796,25 @@ portuguese: "Limpar a casa é um trabalho difícil.",
 {
 english: "Managing finances is an important job in any household.",
 portuguese:
-"Gerenciar as finanças é um trabalho importante em qualquer lar.",
+    "Gerenciar as finanças é um trabalho importante em qualquer lar.",
 },
 {
 english:
-"Teaching young children requires a lot of patience; it's a demanding job.",
+    "Teaching young children requires a lot of patience; it's a demanding job.",
 portuguese:
-"Ensinar crianças pequenas requer muita paciência; é um trabalho exigente.",
+    "Ensinar crianças pequenas requer muita paciência; é um trabalho exigente.",
 },
 {
 english:
-"Writing a novel is a job that demands creativity and dedication.",
+    "Writing a novel is a job that demands creativity and dedication.",
 portuguese:
-"Escrever um romance é um trabalho que exige criatividade e dedicação.",
+    "Escrever um romance é um trabalho que exige criatividade e dedicação.",
 },
 {
 english:
-"Repairing cars is not just a job, it's a passion for him.",
+    "Repairing cars is not just a job, it's a passion for him.",
 portuguese:
-"Consertar carros não é apenas um trabalho, é uma paixão para ele.",
+    "Consertar carros não é apenas um trabalho, é uma paixão para ele.",
 },
 ],
 },
@@ -2827,9 +2827,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"I congratulated my employees on the excellent work they did.",
+    "I congratulated my employees on the excellent work they did.",
 portuguese:
-"Eu parabenizei meus funcionários pelo excelente trabalho que eles fizeram.",
+    "Eu parabenizei meus funcionários pelo excelente trabalho que eles fizeram.",
 },
 {
 english: "I need to go home because I have work to do.",
@@ -2857,9 +2857,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"Buying something on credit means receiving goods or services straight away and paying for them later.",
+    "Buying something on credit means receiving goods or services straight away and paying for them later.",
 portuguese:
-"‘Comprar a crédito’ significa receber bens ou serviços imediatamente e pagá-los posteriormente.",
+    "‘Comprar a crédito’ significa receber bens ou serviços imediatamente e pagá-los posteriormente.",
 },
 {
 english: "She decided to purchase the laptop on credit.",
@@ -2872,7 +2872,7 @@ portuguese: "Muitas pessoas preferem pagar as férias a crédito.",
 {
 english: "He always uses his credit card for online purchases.",
 portuguese:
-"Ele sempre usa seu cartão de crédito para compras online.",
+    "Ele sempre usa seu cartão de crédito para compras online.",
 },
 {
 english: "I prefer to pay with debit rather than credit.",
@@ -2881,12 +2881,12 @@ portuguese: "Eu prefiro pagar com débito em vez de crédito.",
 {
 english: "They offer discounts if you pay by direct debit.",
 portuguese:
-"Eles oferecem descontos se você pagar por débito direto.",
+    "Eles oferecem descontos se você pagar por débito direto.",
 },
 {
 english: "Using a debit card ensures you spend within your means.",
 portuguese:
-"Usar um cartão de débito garante que você gaste dentro dos seus limites.",
+    "Usar um cartão de débito garante que você gaste dentro dos seus limites.",
 },
 {
 english: "He bought the furniture on credit.",
@@ -2902,9 +2902,9 @@ portuguese: "56% dos carros novos foram comprados a crédito.",
 },
 {
 english:
-"If they buy on credit, are they likely to encounter difficulties in repaying the loan?",
+    "If they buy on credit, are they likely to encounter difficulties in repaying the loan?",
 portuguese:
-"Se comprarem a crédito, é provável que tenham dificuldades para pagar o empréstimo?",
+    "Se comprarem a crédito, é provável que tenham dificuldades para pagar o empréstimo?",
 },
 {
 english: "I paid with my debit card.",
@@ -2936,75 +2936,75 @@ type: "sentences",
 sentences: [
 {
 english:
-"Her hard work and dedication led to great success in her career.",
+    "Her hard work and dedication led to great success in her career.",
 portuguese:
-"Seu trabalho árduo e dedicação levaram a grandes sucessos em sua carreira.",
+    "Seu trabalho árduo e dedicação levaram a grandes sucessos em sua carreira.",
 },
 {
 english:
-"Success in business often requires risk-taking and innovation.",
+    "Success in business often requires risk-taking and innovation.",
 portuguese:
-"O sucesso nos negócios frequentemente requer tomar riscos e inovação.",
+    "O sucesso nos negócios frequentemente requer tomar riscos e inovação.",
 },
 {
 english:
-"He viewed the setback not as failure but as a stepping stone to future success.",
+    "He viewed the setback not as failure but as a stepping stone to future success.",
 portuguese:
-"Ele viu o contratempo não como falha, mas como um trampolim para o sucesso futuro.",
+    "Ele viu o contratempo não como falha, mas como um trampolim para o sucesso futuro.",
 },
 {
 english:
-"Failure teaches us valuable lessons that success often cannot.",
+    "Failure teaches us valuable lessons that success often cannot.",
 portuguese:
-"A falha nos ensina lições valiosas que o sucesso muitas vezes não pode.",
+    "A falha nos ensina lições valiosas que o sucesso muitas vezes não pode.",
 },
 {
 english:
-"They learned from their failures and emerged stronger and more resilient.",
+    "They learned from their failures and emerged stronger and more resilient.",
 portuguese:
-"Eles aprenderam com seus fracassos e emergiram mais fortes e resilientes.",
+    "Eles aprenderam com seus fracassos e emergiram mais fortes e resilientes.",
 },
 {
 english:
-"Not achieving the expected results doesn't mean you're a failure.",
+    "Not achieving the expected results doesn't mean you're a failure.",
 portuguese:
-"Não alcançar os resultados esperados não significa que você é um fracasso.",
+    "Não alcançar os resultados esperados não significa que você é um fracasso.",
 },
 {
 english:
-"Success is not always measured by monetary gains but by personal satisfaction.",
+    "Success is not always measured by monetary gains but by personal satisfaction.",
 portuguese:
-"O sucesso nem sempre é medido por ganhos monetários, mas pela satisfação pessoal.",
+    "O sucesso nem sempre é medido por ganhos monetários, mas pela satisfação pessoal.",
 },
 {
 english:
-"They celebrated their team's success with a well-deserved party.",
+    "They celebrated their team's success with a well-deserved party.",
 portuguese:
-"Eles celebraram o sucesso de sua equipe com uma festa merecida.",
+    "Eles celebraram o sucesso de sua equipe com uma festa merecida.",
 },
 {
 english:
-"The project's failure led to a reevaluation of their approach.",
+    "The project's failure led to a reevaluation of their approach.",
 portuguese:
-"O fracasso do projeto levou a uma reavaliação de sua abordagem.",
+    "O fracasso do projeto levou a uma reavaliação de sua abordagem.",
 },
 {
 english:
-"Success often requires persistence in the face of challenges.",
+    "Success often requires persistence in the face of challenges.",
 portuguese:
-"O sucesso frequentemente requer persistência diante dos desafios.",
+    "O sucesso frequentemente requer persistência diante dos desafios.",
 },
 {
 english:
-"She experienced both success and failure in her entrepreneurial journey.",
+    "She experienced both success and failure in her entrepreneurial journey.",
 portuguese:
-"Ela experimentou tanto o sucesso quanto o fracasso em sua jornada empreendedora.",
+    "Ela experimentou tanto o sucesso quanto o fracasso em sua jornada empreendedora.",
 },
 {
 english:
-"Learning from past failures is key to achieving future success.",
+    "Learning from past failures is key to achieving future success.",
 portuguese:
-"Aprender com fracassos passados é fundamental para alcançar o sucesso futuro.",
+    "Aprender com fracassos passados é fundamental para alcançar o sucesso futuro.",
 },
 ],
 },
@@ -3028,25 +3028,25 @@ type: "sentences",
 sentences: [
 {
 english:
-"Next year, the company will have enough money to buy a new facility.",
+    "Next year, the company will have enough money to buy a new facility.",
 portuguese:
-"No ano que vem, a empresa terá dinheiro suficiente para comprar uma nova unidade.",
+    "No ano que vem, a empresa terá dinheiro suficiente para comprar uma nova unidade.",
 },
 {
 english: "Buying a house is a good strategy against inflation.",
 portuguese:
-"Comprar uma casa é uma boa estratégia contra a inflação.",
+    "Comprar uma casa é uma boa estratégia contra a inflação.",
 },
 {
 english:
-"The manager bought the furniture for the office on credit.",
+    "The manager bought the furniture for the office on credit.",
 portuguese:
-"O gerente comprou os móveis para o escritório a crédito.",
+    "O gerente comprou os móveis para o escritório a crédito.",
 },
 {
 english: "The perfume is the birthday gift I bought for my wife.",
 portuguese:
-"O perfume é o presente de aniversário que comprei para minha esposa.",
+    "O perfume é o presente de aniversário que comprei para minha esposa.",
 },
 {
 english: "The company sells products solely via the Internet.",
@@ -3054,9 +3054,9 @@ portuguese: "A empresa vende produtos exclusivamente via Internet.",
 },
 {
 english:
-"The company believes the products will sell well in the run-up to Christmas.",
+    "The company believes the products will sell well in the run-up to Christmas.",
 portuguese:
-"A empresa acredita que os produtos venderão bem no período que antecede o Natal.",
+    "A empresa acredita que os produtos venderão bem no período que antecede o Natal.",
 },
 {
 english: "The investor sold a parcel of shares.",
@@ -3097,7 +3097,7 @@ portuguese: "Empreste dinheiro e perca seu amigo.",
 {
 english: "If you lend me $10, I’ll repay it tomorrow.",
 portuguese:
-"Se você me emprestar $10, eu te pago novamente amanhã.",
+    "Se você me emprestar $10, eu te pago novamente amanhã.",
 },
 {
 english: "I lent him money.",
@@ -3110,7 +3110,7 @@ portuguese: "Ele me emprestou dinheiro sem pedir juros.",
 {
 english: "I never got back the money I lent him without interest.",
 portuguese:
-"Nunca recebi de volta o dinheiro que emprestei a ele sem juros.",
+    "Nunca recebi de volta o dinheiro que emprestei a ele sem juros.",
 },
 {
 english: "I want to borrow a book from the library.",
@@ -3123,13 +3123,13 @@ portuguese: "Posso pegar sua caneta emprestada por um minuto?",
 {
 english: "Of course you should be ashamed to borrow money often.",
 portuguese:
-"É claro que você deveria ter vergonha de pegar dinheiro emprestado com frequência.",
+    "É claro que você deveria ter vergonha de pegar dinheiro emprestado com frequência.",
 },
 {
 english:
-"We do not inherit the Earth from our Ancestors; we borrow it from our Children.",
+    "We do not inherit the Earth from our Ancestors; we borrow it from our Children.",
 portuguese:
-"Não herdamos a Terra de nossos ancestrais; nós a pegamos emprestada de nossos filhos.",
+    "Não herdamos a Terra de nossos ancestrais; nós a pegamos emprestada de nossos filhos.",
 },
 {
 english: "Borrowed garments never fit well.",
@@ -3177,15 +3177,15 @@ portuguese: "O diretor a promoveu a chefe de departamento.",
 },
 {
 english:
-"In this year he was promoted to master, and in the following year was made lieutenant.",
+    "In this year he was promoted to master, and in the following year was made lieutenant.",
 portuguese:
-"Nesse ano foi promovido a mestre e, no ano seguinte, a tenente.",
+    "Nesse ano foi promovido a mestre e, no ano seguinte, a tenente.",
 },
 {
 english:
-"If you don’t finish this report in time, the manager will never promote you.",
+    "If you don’t finish this report in time, the manager will never promote you.",
 portuguese:
-"Se você não terminar este relatório a tempo, o gerente nunca irá promovê-lo.",
+    "Se você não terminar este relatório a tempo, o gerente nunca irá promovê-lo.",
 },
 {
 english: "He was demoted.",
@@ -3197,21 +3197,21 @@ portuguese: "Ele foi rebaixado de sua posição.",
 },
 {
 english:
-"The boss demoted the employee who made a serious mistake.",
+    "The boss demoted the employee who made a serious mistake.",
 portuguese:
-"O chefe rebaixou o funcionário que cometeu um erro grave.",
+    "O chefe rebaixou o funcionário que cometeu um erro grave.",
 },
 {
 english:
-"Three teams are promoted, and three teams demoted from each division each year, depending on the circumstances.",
+    "Three teams are promoted, and three teams demoted from each division each year, depending on the circumstances.",
 portuguese:
-"Três equipes são promovidas e três equipes rebaixadas de cada divisão a cada ano, dependendo das circunstâncias.",
+    "Três equipes são promovidas e três equipes rebaixadas de cada divisão a cada ano, dependendo das circunstâncias.",
 },
 {
 english:
-"Those staff not successful would be effectively demoted (albeit with conserved salaries).",
+    "Those staff not successful would be effectively demoted (albeit with conserved salaries).",
 portuguese:
-"O pessoal sem sucesso seria efetivamente rebaixado (embora com salários conservados).",
+    "O pessoal sem sucesso seria efetivamente rebaixado (embora com salários conservados).",
 },
 ],
 },
@@ -3223,9 +3223,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"Sarah’s promotion to Sales Manager took everyone by surprise.",
+    "Sarah’s promotion to Sales Manager took everyone by surprise.",
 portuguese:
-"A promoção de Sarah a gerente de vendas pegou todos de surpresa.",
+    "A promoção de Sarah a gerente de vendas pegou todos de surpresa.",
 },
 {
 english: "It’s just not realistic to expect a promotion so soon.",
@@ -3238,25 +3238,25 @@ portuguese: "Ele ganhou uma promoção.",
 {
 english: "The team now almost certainlyfaces demotion.",
 portuguese:
-"A equipe agora quase certamente enfrenta rebaixamento.",
+    "A equipe agora quase certamente enfrenta rebaixamento.",
 },
 {
 english:
-"After the poor sales performance, the manager feared demotion.",
+    "After the poor sales performance, the manager feared demotion.",
 portuguese:
-"Após o fraco desempenho de vendas, o gerente temia um rebaixamento.",
+    "Após o fraco desempenho de vendas, o gerente temia um rebaixamento.",
 },
 {
 english:
-"His demotion to a lower position was a shock to everyone in the department.",
+    "His demotion to a lower position was a shock to everyone in the department.",
 portuguese:
-"Seu rebaixamento para um cargo inferior foi um choque para todos no departamento.",
+    "Seu rebaixamento para um cargo inferior foi um choque para todos no departamento.",
 },
 {
 english:
-"The demotion came as a consequence of consistent underperformance.",
+    "The demotion came as a consequence of consistent underperformance.",
 portuguese:
-"O rebaixamento veio como consequência de desempenho abaixo do esperado de forma consistente.",
+    "O rebaixamento veio como consequência de desempenho abaixo do esperado de forma consistente.",
 },
 ],
 },
@@ -3281,17 +3281,17 @@ sentences: [
 {
 english: "Small traders often have short-term cash-flow problems.",
 portuguese:
-"Os pequenos operadores frequentemente têm problemas de fluxo de caixa de curto prazo.",
+    "Os pequenos operadores frequentemente têm problemas de fluxo de caixa de curto prazo.",
 },
 {
 english: "Most of the staff are on short-term contracts.",
 portuguese:
-"A maior parte do pessoal tem contratos de curto prazo.",
+    "A maior parte do pessoal tem contratos de curto prazo.",
 },
 {
 english: "They sold the company purely for short-term gain.",
 portuguese:
-"Eles venderam a empresa puramente para obter ganhos de curto prazo.",
+    "Eles venderam a empresa puramente para obter ganhos de curto prazo.",
 },
 ],
 },
@@ -3304,19 +3304,19 @@ sentences: [
 {
 english: "All their money was tied up in long-term investments.",
 portuguese:
-"Todo o dinheiro deles estava vinculado a investimentos de longo prazo.",
+    "Todo o dinheiro deles estava vinculado a investimentos de longo prazo.",
 },
 {
 english:
-"A new training scheme to help the long-term unemployed is expected.",
+    "A new training scheme to help the long-term unemployed is expected.",
 portuguese:
-"É esperado um novo esquema de formação para ajudar os desempregados de longo prazo.",
+    "É esperado um novo esquema de formação para ajudar os desempregados de longo prazo.",
 },
 {
 english:
-"She is very negative about the long-term viability of the project.",
+    "She is very negative about the long-term viability of the project.",
 portuguese:
-"Ela é muito negativa sobre a viabilidade do projeto a longo prazo.",
+    "Ela é muito negativa sobre a viabilidade do projeto a longo prazo.",
 },
 ],
 },
@@ -3340,39 +3340,39 @@ type: "sentences",
 sentences: [
 {
 english:
-"The company’s gross revenue from selling electronics on a daily basis is impressive.",
+    "The company’s gross revenue from selling electronics on a daily basis is impressive.",
 portuguese:
-"A receita bruta da empresa da venda de eletrônicos diariamente é impressionante.",
+    "A receita bruta da empresa da venda de eletrônicos diariamente é impressionante.",
 },
 {
 english:
-"She earned a gross income of $5,000 per month before taxes and expenses.",
+    "She earned a gross income of $5,000 per month before taxes and expenses.",
 portuguese:
-"Ela ganhava uma renda bruta de $5.000 por mês antes de impostos e custos.",
+    "Ela ganhava uma renda bruta de $5.000 por mês antes de impostos e custos.",
 },
 {
 english:
-"The gross weight of the shipment, including packaging, was 500 kilograms.",
+    "The gross weight of the shipment, including packaging, was 500 kilograms.",
 portuguese:
-"O peso bruto da remessa, incluindo a embalagem, foi de 500kg.",
+    "O peso bruto da remessa, incluindo a embalagem, foi de 500kg.",
 },
 {
 english:
-"After deducting all costs and taxes, the net profit from the real estate deal was substantial.",
+    "After deducting all costs and taxes, the net profit from the real estate deal was substantial.",
 portuguese:
-"Depois de deduzir todos os custos e impostos, o lucro líquido do negócio imobiliário foi substancial.",
+    "Depois de deduzir todos os custos e impostos, o lucro líquido do negócio imobiliário foi substancial.",
 },
 {
 english:
-"Despite selling products on a regular basis, the net profit margin was lower than expected due to high operational expenses.",
+    "Despite selling products on a regular basis, the net profit margin was lower than expected due to high operational expenses.",
 portuguese:
-"Apesar de vender produtos regularmente, a margem de lucro líquido foi mais baixa do que o esperado devido a altas despesas operacionais.",
+    "Apesar de vender produtos regularmente, a margem de lucro líquido foi mais baixa do que o esperado devido a altas despesas operacionais.",
 },
 {
 english:
-"After the discount and other charges were applied, the net amount to buy the laptop was $800.",
+    "After the discount and other charges were applied, the net amount to buy the laptop was $800.",
 portuguese:
-"Depois que o desconto e que outras cobranças foram aplicadas, o montante líquido para comprar o notebook foi $800.",
+    "Depois que o desconto e que outras cobranças foram aplicadas, o montante líquido para comprar o notebook foi $800.",
 },
 ],
 },
@@ -3405,15 +3405,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"After months of preparation and practice, the archer finally hit the target dead center with her final arrow.",
+    "After months of preparation and practice, the archer finally hit the target dead center with her final arrow.",
 portuguese:
-"Após meses de preparação e prática, a arqueira finalmente acertou o alvo bem no centro com sua flecha final.",
+    "Após meses de preparação e prática, a arqueira finalmente acertou o alvo bem no centro com sua flecha final.",
 },
 {
 english:
-"The marketing campaign was a resounding success, as it hit the target audience precisely with its compelling message.",
+    "The marketing campaign was a resounding success, as it hit the target audience precisely with its compelling message.",
 portuguese:
-"A campanha de marketing foi um sucesso retumbante, pois atingiu precisamente o público-alvo com sua mensagem persuasiva.",
+    "A campanha de marketing foi um sucesso retumbante, pois atingiu precisamente o público-alvo com sua mensagem persuasiva.",
 },
 ],
 },
@@ -3426,15 +3426,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Despite setbacks, the team worked tirelessly to meet the deadline for project delivery.",
+    "Despite setbacks, the team worked tirelessly to meet the deadline for project delivery.",
 portuguese:
-"Apesar dos contratempos, a equipe trabalhou incansavelmente para cumprir o prazo de entrega do projeto.",
+    "Apesar dos contratempos, a equipe trabalhou incansavelmente para cumprir o prazo de entrega do projeto.",
 },
 {
 english:
-"The contractor assured the client that they would meet the deadline for construction completion.",
+    "The contractor assured the client that they would meet the deadline for construction completion.",
 portuguese:
-"O empreiteiro assegurou ao cliente que cumpriria o prazo para a conclusão da construção.",
+    "O empreiteiro assegurou ao cliente que cumpriria o prazo para a conclusão da construção.",
 },
 ],
 },
@@ -3447,15 +3447,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The event organizers managed to stay on budget despite unexpected costs.",
+    "The event organizers managed to stay on budget despite unexpected costs.",
 portuguese:
-"Os organizadores do evento conseguiram permanecer dentro do orçamento, apesar dos custos inesperados.",
+    "Os organizadores do evento conseguiram permanecer dentro do orçamento, apesar dos custos inesperados.",
 },
 {
 english:
-"The company implemented cost-saving measures to ensure they would stay on budget for the fiscal.",
+    "The company implemented cost-saving measures to ensure they would stay on budget for the fiscal.",
 portuguese:
-"A empresa implementou medidas de economia para garantir que permanecessem dentro do orçamento para o ano fiscal.",
+    "A empresa implementou medidas de economia para garantir que permanecessem dentro do orçamento para o ano fiscal.",
 },
 ],
 },
@@ -3468,15 +3468,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The new product launch exceeded expectations, resulting in record-breaking sales.",
+    "The new product launch exceeded expectations, resulting in record-breaking sales.",
 portuguese:
-"O lançamento do novo produto superou as expectativas, resultando em vendas que quebraram recordes.",
+    "O lançamento do novo produto superou as expectativas, resultando em vendas que quebraram recordes.",
 },
 {
 english:
-"The team's performance in the project review exceeded all expectations set by the management.",
+    "The team's performance in the project review exceeded all expectations set by the management.",
 portuguese:
-"O desempenho da equipe na revisão do projeto superou todas as expectativas estabelecidas pela gerência.",
+    "O desempenho da equipe na revisão do projeto superou todas as expectativas estabelecidas pela gerência.",
 },
 ],
 },
@@ -3489,15 +3489,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The CEO's leadership style was focused on driving results through effective decision-making.",
+    "The CEO's leadership style was focused on driving results through effective decision-making.",
 portuguese:
-"O estilo de liderança do CEO estava focado em impulsionar resultados por meio de tomadas de decisão eficazes.",
+    "O estilo de liderança do CEO estava focado em impulsionar resultados por meio de tomadas de decisão eficazes.",
 },
 {
 english:
-"The marketing team's innovative campaign strategies drove exceptional results in customer engagement.",
+    "The marketing team's innovative campaign strategies drove exceptional results in customer engagement.",
 portuguese:
-"As estratégias de campanha inovadoras da equipe de marketing impulsionaram resultados excepcionais no engajamento do cliente.",
+    "As estratégias de campanha inovadoras da equipe de marketing impulsionaram resultados excepcionais no engajamento do cliente.",
 },
 ],
 },
@@ -3511,15 +3511,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The company prides itself on maintaining high quality standards across all its products.",
+    "The company prides itself on maintaining high quality standards across all its products.",
 portuguese:
-"A empresa se orgulha de manter altos padrões de qualidade em todos os seus produtos.",
+    "A empresa se orgulha de manter altos padrões de qualidade em todos os seus produtos.",
 },
 {
 english:
-"The restaurant consistently maintains its quality standards to ensure customer satisfaction.",
+    "The restaurant consistently maintains its quality standards to ensure customer satisfaction.",
 portuguese:
-"O restaurante mantém consistentemente seus padrões de qualidade para garantir a satisfação do cliente.",
+    "O restaurante mantém consistentemente seus padrões de qualidade para garantir a satisfação do cliente.",
 },
 ],
 },
@@ -3532,15 +3532,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The company implemented aggressive marketing strategies to increase market share in the competitive industry.",
+    "The company implemented aggressive marketing strategies to increase market share in the competitive industry.",
 portuguese:
-"A empresa implementou estratégias de marketing agressivas para aumentar a participação de mercado na indústria competitiva.",
+    "A empresa implementou estratégias de marketing agressivas para aumentar a participação de mercado na indústria competitiva.",
 },
 {
 english:
-"The new product launch successfully increased the company's market share in the region.",
+    "The new product launch successfully increased the company's market share in the region.",
 portuguese:
-"O lançamento do novo produto aumentou com sucesso a participação de mercado da empresa na região.",
+    "O lançamento do novo produto aumentou com sucesso a participação de mercado da empresa na região.",
 },
 ],
 },
@@ -3562,15 +3562,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The company encouraged its employees to think outside the box to come up with innovative solutions.",
+    "The company encouraged its employees to think outside the box to come up with innovative solutions.",
 portuguese:
-"A empresa incentivou seus funcionários a pensar fora da caixa para encontrar soluções inovadoras.",
+    "A empresa incentivou seus funcionários a pensar fora da caixa para encontrar soluções inovadoras.",
 },
 {
 english:
-"To succeed in this competitive market, we need to think outside the box and explore new strategies.",
+    "To succeed in this competitive market, we need to think outside the box and explore new strategies.",
 portuguese:
-"Para ter sucesso neste mercado competitivo, precisamos pensar fora da caixa e explorar novas estratégias.",
+    "Para ter sucesso neste mercado competitivo, precisamos pensar fora da caixa e explorar novas estratégias.",
 },
 ],
 },
@@ -3583,15 +3583,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The contractor gave us a ballpark figure for the renovation costs, but we need a detailed breakdown.",
+    "The contractor gave us a ballpark figure for the renovation costs, but we need a detailed breakdown.",
 portuguese:
-"O empreiteiro nos deu uma estimativa aproximada dos custos de renovação, mas precisamos de um detalhamento completo.",
+    "O empreiteiro nos deu uma estimativa aproximada dos custos de renovação, mas precisamos de um detalhamento completo.",
 },
 {
 english:
-"Can you give me a ballpark figure of how much the project will cost?",
+    "Can you give me a ballpark figure of how much the project will cost?",
 portuguese:
-"Você pode me dar uma estimativa aproximada de quanto custará o projeto?",
+    "Você pode me dar uma estimativa aproximada de quanto custará o projeto?",
 },
 ],
 },
@@ -3604,15 +3604,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The company prides itself on developing cutting-edge technology that sets it apart from competitors.",
+    "The company prides itself on developing cutting-edge technology that sets it apart from competitors.",
 portuguese:
-"A empresa se orgulha de desenvolver tecnologia de ponta que a diferencia dos concorrentes.",
+    "A empresa se orgulha de desenvolver tecnologia de ponta que a diferencia dos concorrentes.",
 },
 {
 english:
-"Their research team is known for its cutting-edge discoveries in medical science.",
+    "Their research team is known for its cutting-edge discoveries in medical science.",
 portuguese:
-"Sua equipe de pesquisa é conhecida por suas descobertas inovadoras na ciência médica.",
+    "Sua equipe de pesquisa é conhecida por suas descobertas inovadoras na ciência médica.",
 },
 ],
 },
@@ -3625,15 +3625,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"When making decisions, we always need to focus on the bottom line and consider profitability.",
+    "When making decisions, we always need to focus on the bottom line and consider profitability.",
 portuguese:
-"Ao tomar decisões, sempre precisamos focar no resultado final e considerar a lucratividade.",
+    "Ao tomar decisões, sempre precisamos focar no resultado final e considerar a lucratividade.",
 },
 {
 english:
-"The bottom line is that we need to reduce costs if we want to remain competitive.",
+    "The bottom line is that we need to reduce costs if we want to remain competitive.",
 portuguese:
-"O ponto principal é que precisamos reduzir custos se quisermos permanecer competitivos.",
+    "O ponto principal é que precisamos reduzir custos se quisermos permanecer competitivos.",
 },
 ],
 },
@@ -3646,15 +3646,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Let's schedule a meeting to get the ball rolling on this new project.",
+    "Let's schedule a meeting to get the ball rolling on this new project.",
 portuguese:
-"Vamos agendar uma reunião para iniciar este novo projeto.",
+    "Vamos agendar uma reunião para iniciar este novo projeto.",
 },
 {
 english:
-"She proposed a few ideas to get the ball rolling on the fundraising campaign.",
+    "She proposed a few ideas to get the ball rolling on the fundraising campaign.",
 portuguese:
-"Ela propôs algumas ideias para começar a campanha de captação de recursos.",
+    "Ela propôs algumas ideias para começar a campanha de captação de recursos.",
 },
 ],
 },
@@ -3667,15 +3667,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Before moving forward, let's make sure everyone is on the same page regarding the project timeline.",
+    "Before moving forward, let's make sure everyone is on the same page regarding the project timeline.",
 portuguese:
-"Antes de avançarmos, vamos garantir que todos estejam alinhados com o cronograma do projeto.",
+    "Antes de avançarmos, vamos garantir que todos estejam alinhados com o cronograma do projeto.",
 },
 {
 english:
-"It's important that our team and the client are on the same page regarding project expectations.",
+    "It's important that our team and the client are on the same page regarding project expectations.",
 portuguese:
-"É importante que nossa equipe e o cliente estejam alinhados com as expectativas do projeto.",
+    "É importante que nossa equipe e o cliente estejam alinhados com as expectativas do projeto.",
 },
 ],
 },
@@ -3688,15 +3688,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"After careful consideration, she decided to take the plunge and start her own business.",
+    "After careful consideration, she decided to take the plunge and start her own business.",
 portuguese:
-"Depois de considerar cuidadosamente, ela decidiu dar o mergulho e abrir seu próprio negócio.",
+    "Depois de considerar cuidadosamente, ela decidiu dar o mergulho e abrir seu próprio negócio.",
 },
 {
 english:
-"Taking the plunge into international markets requires thorough market research and strategic planning.",
+    "Taking the plunge into international markets requires thorough market research and strategic planning.",
 portuguese:
-"Dar o mergulho nos mercados internacionais requer pesquisa de mercado detalhada e planejamento estratégico.",
+    "Dar o mergulho nos mercados internacionais requer pesquisa de mercado detalhada e planejamento estratégico.",
 },
 ],
 },
@@ -3710,15 +3710,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They were accused of making payments under the table to avoid taxes.",
+    "They were accused of making payments under the table to avoid taxes.",
 portuguese:
-"Eles foram acusados de fazer pagamentos por baixo dos panos para evitar impostos.",
+    "Eles foram acusados de fazer pagamentos por baixo dos panos para evitar impostos.",
 },
 {
 english:
-"He offered to pay me under the table for the extra work I did, but I refused.",
+    "He offered to pay me under the table for the extra work I did, but I refused.",
 portuguese:
-"Ele ofereceu pagar por fora pelo trabalho extra que fiz, mas eu recusei.",
+    "Ele ofereceu pagar por fora pelo trabalho extra que fiz, mas eu recusei.",
 },
 ],
 },
@@ -3732,15 +3732,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"We need some blue-sky thinking to come up with new product concepts for the next quarter.",
+    "We need some blue-sky thinking to come up with new product concepts for the next quarter.",
 portuguese:
-"Precisamos de um pensamento criativo para desenvolver novos conceitos de produtos para o próximo trimestre.",
+    "Precisamos de um pensamento criativo para desenvolver novos conceitos de produtos para o próximo trimestre.",
 },
 {
 english:
-"Their team session was all about blue-sky thinking to solve the company's long-term challenges.",
+    "Their team session was all about blue-sky thinking to solve the company's long-term challenges.",
 portuguese:
-"A sessão da equipe deles foi toda focada em um pensamento criativo para resolver os desafios de longo prazo da empresa.",
+    "A sessão da equipe deles foi toda focada em um pensamento criativo para resolver os desafios de longo prazo da empresa.",
 },
 ],
 },
@@ -3754,15 +3754,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"Let's touch base next week to discuss the project status.",
+    "Let's touch base next week to discuss the project status.",
 portuguese:
-"Vamos nos falar na semana que vem para discutir o status do projeto.",
+    "Vamos nos falar na semana que vem para discutir o status do projeto.",
 },
 {
 english:
-"I just wanted to touch base with you to see how things are progressing.",
+    "I just wanted to touch base with you to see how things are progressing.",
 portuguese:
-"Eu só queria falar rapidamente com você para ver como as coisas estão progredindo.",
+    "Eu só queria falar rapidamente com você para ver como as coisas estão progredindo.",
 },
 ],
 },
@@ -3797,7 +3797,7 @@ sentences: [
 {
 english: "He decided to invest in stocks for retirement income.",
 portuguese:
-"Ele decidiu investir em ações para obter renda de aposentadoria.",
+    "Ele decidiu investir em ações para obter renda de aposentadoria.",
 },
 
 {
@@ -3816,13 +3816,13 @@ sentences: [
 {
 english: "She tries to save a portion of her salary every month.",
 portuguese:
-"Ela tenta economizar uma parte do salário todos os meses.",
+    "Ela tenta economizar uma parte do salário todos os meses.",
 },
 {
 english:
-"Saving up for a down payment on a house is his current financial goal.",
+    "Saving up for a down payment on a house is his current financial goal.",
 portuguese:
-"Economizar para a entrada de uma casa é seu objetivo financeiro atual.",
+    "Economizar para a entrada de uma casa é seu objetivo financeiro atual.",
 },
 ],
 },
@@ -3836,13 +3836,13 @@ sentences: [
 {
 english: "They spent their vacation budget on a trip to Europe.",
 portuguese:
-"Eles gastaram o orçamento de férias em uma viagem para a Europa.",
+    "Eles gastaram o orçamento de férias em uma viagem para a Europa.",
 },
 {
 english:
-"She spends wisely by using coupons and shopping during sales.",
+    "She spends wisely by using coupons and shopping during sales.",
 portuguese:
-"Ela gasta com sabedoria usando cupons e fazendo compras durante as promoções.",
+    "Ela gasta com sabedoria usando cupons e fazendo compras durante as promoções.",
 },
 ],
 },
@@ -3855,15 +3855,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They had to borrow money from the bank to expand their business.",
+    "They had to borrow money from the bank to expand their business.",
 portuguese:
-"Eles tiveram que pegar dinheiro emprestado do banco para expandir o negócio.",
+    "Eles tiveram que pegar dinheiro emprestado do banco para expandir o negócio.",
 },
 {
 english:
-"She borrowed $200 from her friend to cover unexpected expenses.",
+    "She borrowed $200 from her friend to cover unexpected expenses.",
 portuguese:
-"Ela pegou emprestado $200 de seu amigo para cobrir despesas inesperadas.",
+    "Ela pegou emprestado $200 de seu amigo para cobrir despesas inesperadas.",
 },
 ],
 },
@@ -3877,14 +3877,14 @@ type: "sentences",
 sentences: [
 {
 english:
-"The bank agreed to lend them $50,000 for the home renovation.",
+    "The bank agreed to lend them $50,000 for the home renovation.",
 portuguese:
-"O banco concordou em emprestar $50.000 para a renovação da casa.",
+    "O banco concordou em emprestar $50.000 para a renovação da casa.",
 },
 {
 english: "He often lends money to his siblings during emergencies.",
 portuguese:
-"Ele frequentemente empresta dinheiro para seus irmãos em emergências.",
+    "Ele frequentemente empresta dinheiro para seus irmãos em emergências.",
 },
 ],
 },
@@ -3902,7 +3902,7 @@ portuguese: "Ela ganha um bom salário trabalhando em finanças.",
 {
 english: "He earned a bonus for exceeding his sales targets.",
 portuguese:
-"Ele recebeu um bônus por ultrapassar suas metas de vendas.",
+    "Ele recebeu um bônus por ultrapassar suas metas de vendas.",
 },
 ],
 },
@@ -3916,12 +3916,12 @@ sentences: [
 {
 english: "Economists forecasted a downturn in the housing market.",
 portuguese:
-"Os economistas previram uma queda no mercado imobiliário.",
+    "Os economistas previram uma queda no mercado imobiliário.",
 },
 {
 english: "He forecasted increased sales for the upcoming quarter.",
 portuguese:
-"Ele previu um aumento nas vendas para o próximo trimestre.",
+    "Ele previu um aumento nas vendas para o próximo trimestre.",
 },
 ],
 },
@@ -3934,15 +3934,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The IRS audited their tax returns for the past three years.",
+    "The IRS audited their tax returns for the past three years.",
 portuguese:
-"A Receita Federal auditou suas declarações de impostos dos últimos três anos.",
+    "A Receita Federal auditou suas declarações de impostos dos últimos três anos.",
 },
 {
 english:
-"They conducted an internal audit to review financial discrepancies.",
+    "They conducted an internal audit to review financial discrepancies.",
 portuguese:
-"Eles realizaram uma auditoria interna para revisar discrepâncias financeiras.",
+    "Eles realizaram uma auditoria interna para revisar discrepâncias financeiras.",
 },
 ],
 },
@@ -3973,19 +3973,228 @@ type: "sentences",
 sentences: [
 {
 english:
-"They diversified their investment portfolio by investing in stocks, bonds, and real estate.",
+    "They diversified their investment portfolio by investing in stocks, bonds, and real estate.",
 portuguese:
-"Eles diversificaram seu portfólio de investimentos investindo em ações, títulos e imóveis.",
+    "Eles diversificaram seu portfólio de investimentos investindo em ações, títulos e imóveis.",
 },
 {
 english:
-"He believes in diversifying his skills to remain competitive in the job market.",
+    "He believes in diversifying his skills to remain competitive in the job market.",
 portuguese:
-"Ele acredita em diversificar suas habilidades para permanecer competitivo no mercado de trabalho.",
+    "Ele acredita em diversificar suas habilidades para permanecer competitivo no mercado de trabalho.",
 },
 ],
 },
 
+/////  "Important Financial Verbs #2",
+{
+title: "Important Financial Verbs #2",
+order: 2,
+type: "Financial Concepts",
+
+description:
+"This module provides an extra essential overview of some the financial verbs.",
+elements: [
+{
+subtitle: "To deposit",
+order: 0,
+grid: 1,
+comments: "To put money into a bank account.",
+type: "sentences",
+sentences: [
+    {
+    english: "He made a deposit of $500 into his savings account.",
+    portuguese:
+        "Ele fez um depósito de $500 em sua conta poupança.",
+    },
+    {
+    english: "The customer made a cash deposit at the ATM.",
+    portuguese:
+        "O cliente fez um depósito em dinheiro no caixa eletrônico.",
+    },
+],
+},
+{
+subtitle: "To withdraw",
+order: 1,
+grid: 1,
+comments: "To take money out of a bank account.",
+type: "sentences",
+sentences: [
+    {
+    english:
+        "She needed to withdraw cash to pay for the concert tickets.",
+    portuguese:
+        "Ela precisava sacar dinheiro para pagar pelos ingressos do concerto.",
+    },
+    {
+    english:
+        "He withdrew $100 from the ATM for lunch with friends.",
+    portuguese:
+        "Ele sacou $100 do caixa eletrônico para almoçar com amigos.",
+    },
+],
+},
+{
+subtitle: "To transfer",
+order: 2,
+grid: 1,
+comments: "To move money from one account to another.",
+type: "sentences",
+sentences: [
+    {
+    english:
+        "They transferred funds from their checking account to their savings account.",
+    portuguese:
+        "Eles transferiram fundos de sua conta corrente para sua conta poupança.",
+    },
+    {
+    english:
+        "He transferred money to his sister's account for her birthday gift.",
+    portuguese:
+        "Ele transferiu dinheiro para a conta da sua irmã como presente de aniversário.",
+    },
+],
+},
+{
+subtitle: "To budget",
+order: 3,
+grid: 1,
+comments: "To plan and allocate financial resources.",
+type: "sentences",
+sentences: [
+    {
+    english:
+        "They created a monthly budget to track their expenses.",
+    portuguese:
+        "Eles criaram um orçamento mensal para controlar seus gastos.",
+    },
+    {
+    english: "He budgets carefully to save for a new car.",
+    portuguese:
+        "Ele faz um orçamento cuidadoso para economizar para um carro novo.",
+    },
+],
+},
+{
+subtitle: "To trade",
+order: 4,
+grid: 1,
+comments: "To buy and sell assets, such as stocks or goods.",
+type: "sentences",
+sentences: [
+    {
+    english: "He trades stocks and bonds on the stock market.",
+    portuguese: "Ele negocia ações e títulos no mercado de ações.",
+    },
+    {
+    english:
+        "She trades her old textbooks for new ones with her classmates.",
+    portuguese:
+        "Ela troca seus livros didáticos antigos por novos com seus colegas de classe.",
+    },
+],
+},
+{
+subtitle: "To repay",
+order: 5,
+grid: 1,
+comments: "To pay back borrowed money or credit.",
+type: "sentences",
+sentences: [
+    {
+    english: "They are repaying their mortgage over 30 years.",
+    portuguese:
+        "Eles estão pagando sua hipoteca ao longo de 30 anos.",
+    },
+    {
+    english:
+        "She repaid her friend for covering her dinner bill last night.",
+    portuguese:
+        "Ela reembolsou seu amigo por cobrir a conta do jantar de ontem à noite.",
+    },
+],
+},
+{
+subtitle: "To owe",
+order: 6,
+grid: 1,
+comments: "To have an obligation to pay money.",
+type: "sentences",
+sentences: [
+    {
+    english: "They owe $10,000 on their student loans.",
+    portuguese: "Eles devem $10.000 em empréstimos estudantis.",
+    },
+    {
+    english:
+        "She owes her brother $50 for buying her groceries last week.",
+    portuguese:
+        "Ela deve $50 ao seu irmão por ter comprado seus mantimentos na semana passada.",
+    },
+],
+},
+{
+subtitle: "To purchase",
+order: 7,
+grid: 1,
+comments: "To buy goods or services by paying money.",
+type: "sentences",
+sentences: [
+    {
+    english: "They purchased a new laptop for school.",
+    portuguese: "Eles compraram um novo laptop para a escola.",
+    },
+    {
+    english: "She purchased concert tickets online.",
+    portuguese: "Ela comprou ingressos para o show online.",
+    },
+],
+},
+{
+subtitle: "To sell",
+order: 8,
+grid: 1,
+comments: "To exchange goods or services for money.",
+type: "sentences",
+sentences: [
+    {
+    english: "He sold his old car to buy a new one.",
+    portuguese: "Ele vendeu seu carro antigo para comprar um novo.",
+    },
+    {
+    english: "She sells handmade crafts at the local market.",
+    portuguese:
+        "Ela vende artesanato feito à mão no mercado local.",
+    },
+],
+},
+{
+subtitle: "To fund",
+order: 9,
+grid: 1,
+comments:
+    "To provide financial resources for a project or initiative.",
+type: "sentences",
+sentences: [
+    {
+    english:
+        "The government provided funds for the new highway construction project.",
+    portuguese:
+        "O governo forneceu fundos para o novo projeto de construção de rodovias.",
+    },
+    {
+    english:
+        "Investors pooled their funds to launch a new tech startup.",
+    portuguese:
+        "Investidores reuniram seus fundos para lançar uma nova startup de tecnologia.",
+    },
+],
+},
+],
+},
+],
+},
 /////  "Important Financial Verbs #2",
 {
 title: "Important Financial Verbs #2",
@@ -4009,7 +4218,7 @@ portuguese: "Ele fez um depósito de $500 em sua conta poupança.",
 {
 english: "The customer made a cash deposit at the ATM.",
 portuguese:
-"O cliente fez um depósito em dinheiro no caixa eletrônico.",
+    "O cliente fez um depósito em dinheiro no caixa eletrônico.",
 },
 ],
 },
@@ -4022,14 +4231,14 @@ type: "sentences",
 sentences: [
 {
 english:
-"She needed to withdraw cash to pay for the concert tickets.",
+    "She needed to withdraw cash to pay for the concert tickets.",
 portuguese:
-"Ela precisava sacar dinheiro para pagar pelos ingressos do concerto.",
+    "Ela precisava sacar dinheiro para pagar pelos ingressos do concerto.",
 },
 {
 english: "He withdrew $100 from the ATM for lunch with friends.",
 portuguese:
-"Ele sacou $100 do caixa eletrônico para almoçar com amigos.",
+    "Ele sacou $100 do caixa eletrônico para almoçar com amigos.",
 },
 ],
 },
@@ -4042,15 +4251,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They transferred funds from their checking account to their savings account.",
+    "They transferred funds from their checking account to their savings account.",
 portuguese:
-"Eles transferiram fundos de sua conta corrente para sua conta poupança.",
+    "Eles transferiram fundos de sua conta corrente para sua conta poupança.",
 },
 {
 english:
-"He transferred money to his sister's account for her birthday gift.",
+    "He transferred money to his sister's account for her birthday gift.",
 portuguese:
-"Ele transferiu dinheiro para a conta da sua irmã como presente de aniversário.",
+    "Ele transferiu dinheiro para a conta da sua irmã como presente de aniversário.",
 },
 ],
 },
@@ -4064,12 +4273,12 @@ sentences: [
 {
 english: "They created a monthly budget to track their expenses.",
 portuguese:
-"Eles criaram um orçamento mensal para controlar seus gastos.",
+    "Eles criaram um orçamento mensal para controlar seus gastos.",
 },
 {
 english: "He budgets carefully to save for a new car.",
 portuguese:
-"Ele faz um orçamento cuidadoso para economizar para um carro novo.",
+    "Ele faz um orçamento cuidadoso para economizar para um carro novo.",
 },
 ],
 },
@@ -4086,9 +4295,9 @@ portuguese: "Ele negocia ações e títulos no mercado de ações.",
 },
 {
 english:
-"She trades her old textbooks for new ones with her classmates.",
+    "She trades her old textbooks for new ones with her classmates.",
 portuguese:
-"Ela troca seus livros didáticos antigos por novos com seus colegas de classe.",
+    "Ela troca seus livros didáticos antigos por novos com seus colegas de classe.",
 },
 ],
 },
@@ -4105,9 +4314,9 @@ portuguese: "Eles estão pagando sua hipoteca ao longo de 30 anos.",
 },
 {
 english:
-"She repaid her friend for covering her dinner bill last night.",
+    "She repaid her friend for covering her dinner bill last night.",
 portuguese:
-"Ela reembolsou seu amigo por cobrir a conta do jantar de ontem à noite.",
+    "Ela reembolsou seu amigo por cobrir a conta do jantar de ontem à noite.",
 },
 ],
 },
@@ -4124,9 +4333,9 @@ portuguese: "Eles devem $10.000 em empréstimos estudantis.",
 },
 {
 english:
-"She owes her brother $50 for buying her groceries last week.",
+    "She owes her brother $50 for buying her groceries last week.",
 portuguese:
-"Ela deve $50 ao seu irmão por ter comprado seus mantimentos na semana passada.",
+    "Ela deve $50 ao seu irmão por ter comprado seus mantimentos na semana passada.",
 },
 ],
 },
@@ -4173,222 +4382,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The government provided funds for the new highway construction project.",
+    "The government provided funds for the new highway construction project.",
 portuguese:
-"O governo forneceu fundos para o novo projeto de construção de rodovias.",
+    "O governo forneceu fundos para o novo projeto de construção de rodovias.",
 },
 {
 english:
-"Investors pooled their funds to launch a new tech startup.",
+    "Investors pooled their funds to launch a new tech startup.",
 portuguese:
-"Investidores reuniram seus fundos para lançar uma nova startup de tecnologia.",
-},
-],
-},
-],
-},
-
-
-
-
-],
-},
-/////  "Important Financial Verbs #2",
-{
-title: "Important Financial Verbs #2",
-order: 2,
-type: "Financial Concepts",
-
-description:
-"This module provides an extra essential overview of some the financial verbs.",
-elements: [
-{
-subtitle: "To deposit",
-order: 0,
-grid: 1,
-comments: "To put money into a bank account.",
-type: "sentences",
-sentences: [
-{
-english: "He made a deposit of $500 into his savings account.",
-portuguese: "Ele fez um depósito de $500 em sua conta poupança.",
-},
-{
-english: "The customer made a cash deposit at the ATM.",
-portuguese:
-"O cliente fez um depósito em dinheiro no caixa eletrônico.",
-},
-],
-},
-{
-subtitle: "To withdraw",
-order: 1,
-grid: 1,
-comments: "To take money out of a bank account.",
-type: "sentences",
-sentences: [
-{
-english:
-"She needed to withdraw cash to pay for the concert tickets.",
-portuguese:
-"Ela precisava sacar dinheiro para pagar pelos ingressos do concerto.",
-},
-{
-english: "He withdrew $100 from the ATM for lunch with friends.",
-portuguese:
-"Ele sacou $100 do caixa eletrônico para almoçar com amigos.",
-},
-],
-},
-{
-subtitle: "To transfer",
-order: 2,
-grid: 1,
-comments: "To move money from one account to another.",
-type: "sentences",
-sentences: [
-{
-english:
-"They transferred funds from their checking account to their savings account.",
-portuguese:
-"Eles transferiram fundos de sua conta corrente para sua conta poupança.",
-},
-{
-english:
-"He transferred money to his sister's account for her birthday gift.",
-portuguese:
-"Ele transferiu dinheiro para a conta da sua irmã como presente de aniversário.",
-},
-],
-},
-{
-subtitle: "To budget",
-order: 3,
-grid: 1,
-comments: "To plan and allocate financial resources.",
-type: "sentences",
-sentences: [
-{
-english: "They created a monthly budget to track their expenses.",
-portuguese:
-"Eles criaram um orçamento mensal para controlar seus gastos.",
-},
-{
-english: "He budgets carefully to save for a new car.",
-portuguese:
-"Ele faz um orçamento cuidadoso para economizar para um carro novo.",
-},
-],
-},
-{
-subtitle: "To trade",
-order: 4,
-grid: 1,
-comments: "To buy and sell assets, such as stocks or goods.",
-type: "sentences",
-sentences: [
-{
-english: "He trades stocks and bonds on the stock market.",
-portuguese: "Ele negocia ações e títulos no mercado de ações.",
-},
-{
-english:
-"She trades her old textbooks for new ones with her classmates.",
-portuguese:
-"Ela troca seus livros didáticos antigos por novos com seus colegas de classe.",
-},
-],
-},
-{
-subtitle: "To repay",
-order: 5,
-grid: 1,
-comments: "To pay back borrowed money or credit.",
-type: "sentences",
-sentences: [
-{
-english: "They are repaying their mortgage over 30 years.",
-portuguese: "Eles estão pagando sua hipoteca ao longo de 30 anos.",
-},
-{
-english:
-"She repaid her friend for covering her dinner bill last night.",
-portuguese:
-"Ela reembolsou seu amigo por cobrir a conta do jantar de ontem à noite.",
-},
-],
-},
-{
-subtitle: "To owe",
-order: 6,
-grid: 1,
-comments: "To have an obligation to pay money.",
-type: "sentences",
-sentences: [
-{
-english: "They owe $10,000 on their student loans.",
-portuguese: "Eles devem $10.000 em empréstimos estudantis.",
-},
-{
-english:
-"She owes her brother $50 for buying her groceries last week.",
-portuguese:
-"Ela deve $50 ao seu irmão por ter comprado seus mantimentos na semana passada.",
-},
-],
-},
-{
-subtitle: "To purchase",
-order: 7,
-grid: 1,
-comments: "To buy goods or services by paying money.",
-type: "sentences",
-sentences: [
-{
-english: "They purchased a new laptop for school.",
-portuguese: "Eles compraram um novo laptop para a escola.",
-},
-{
-english: "She purchased concert tickets online.",
-portuguese: "Ela comprou ingressos para o show online.",
-},
-],
-},
-{
-subtitle: "To sell",
-order: 8,
-grid: 1,
-comments: "To exchange goods or services for money.",
-type: "sentences",
-sentences: [
-{
-english: "He sold his old car to buy a new one.",
-portuguese: "Ele vendeu seu carro antigo para comprar um novo.",
-},
-{
-english: "She sells handmade crafts at the local market.",
-portuguese: "Ela vende artesanato feito à mão no mercado local.",
-},
-],
-},
-{
-subtitle: "To fund",
-order: 9,
-grid: 1,
-comments: "To provide financial resources for a project or initiative.",
-type: "sentences",
-sentences: [
-{
-english:
-"The government provided funds for the new highway construction project.",
-portuguese:
-"O governo forneceu fundos para o novo projeto de construção de rodovias.",
-},
-{
-english:
-"Investors pooled their funds to launch a new tech startup.",
-portuguese:
-"Investidores reuniram seus fundos para lançar uma nova startup de tecnologia.",
+    "Investidores reuniram seus fundos para lançar uma nova startup de tecnologia.",
 },
 ],
 },
@@ -4413,15 +4415,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"He hedged his investment in oil with a position in renewable energy stocks.",
+    "He hedged his investment in oil with a position in renewable energy stocks.",
 portuguese:
-"Ele fez um hedge em seu investimento em petróleo com uma posição em ações de energia renovável.",
+    "Ele fez um hedge em seu investimento em petróleo com uma posição em ações de energia renovável.",
 },
 {
 english:
-"They hedged against currency fluctuations by investing in foreign exchange options.",
+    "They hedged against currency fluctuations by investing in foreign exchange options.",
 portuguese:
-"Eles se protegeram contra flutuações cambiais investindo em opções de câmbio estrangeiro.",
+    "Eles se protegeram contra flutuações cambiais investindo em opções de câmbio estrangeiro.",
 },
 ],
 },
@@ -4435,9 +4437,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"They leased office space in the city center for their startup.",
+    "They leased office space in the city center for their startup.",
 portuguese:
-"Eles alugaram espaço de escritório no centro da cidade para sua startup.",
+    "Eles alugaram espaço de escritório no centro da cidade para sua startup.",
 },
 {
 english: "He leased a car instead of buying one outright.",
@@ -4454,13 +4456,13 @@ type: "sentences",
 sentences: [
 {
 english:
-"The appraiser assessed the value of the antique vase at $5,000.",
+    "The appraiser assessed the value of the antique vase at $5,000.",
 portuguese: "O avaliador avaliou o valor do vaso antigo em $5.000.",
 },
 {
 english: "They appraised the property before listing it for sale.",
 portuguese:
-"Eles avaliaram a propriedade antes de listá-la para venda.",
+    "Eles avaliaram a propriedade antes de listá-la para venda.",
 },
 ],
 },
@@ -4473,15 +4475,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They decided to refinance their mortgage to get a lower interest rate.",
+    "They decided to refinance their mortgage to get a lower interest rate.",
 portuguese:
-"Eles decidiram refinanciar sua hipoteca para obter uma taxa de juros mais baixa.",
+    "Eles decidiram refinanciar sua hipoteca para obter uma taxa de juros mais baixa.",
 },
 {
 english:
-"He refinanced his student loans to extend the repayment period.",
+    "He refinanced his student loans to extend the repayment period.",
 portuguese:
-"Ele refinanciou seus empréstimos estudantis para estender o período de pagamento.",
+    "Ele refinanciou seus empréstimos estudantis para estender o período de pagamento.",
 },
 ],
 },
@@ -4494,14 +4496,14 @@ type: "sentences",
 sentences: [
 {
 english:
-"They amortize the cost of the new equipment over five years.",
+    "They amortize the cost of the new equipment over five years.",
 portuguese:
-"Eles amortizam o custo do novo equipamento ao longo de cinco anos.",
+    "Eles amortizam o custo do novo equipamento ao longo de cinco anos.",
 },
 {
 english: "She amortizes the mortgage payments over 30 years.",
 portuguese:
-"Ela amortiza os pagamentos da hipoteca ao longo de 30 anos.",
+    "Ela amortiza os pagamentos da hipoteca ao longo de 30 anos.",
 },
 ],
 },
@@ -4514,15 +4516,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They allocated funds for research and development of new products.",
+    "They allocated funds for research and development of new products.",
 portuguese:
-"Eles alocaram fundos para pesquisa e desenvolvimento de novos produtos.",
+    "Eles alocaram fundos para pesquisa e desenvolvimento de novos produtos.",
 },
 {
 english:
-"He allocated time each day to study for his upcoming exams.",
+    "He allocated time each day to study for his upcoming exams.",
 portuguese:
-"Ele reservou tempo todos os dias para estudar para suas próximas provas.",
+    "Ele reservou tempo todos os dias para estudar para suas próximas provas.",
 },
 ],
 },
@@ -4535,15 +4537,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The bank agreed to underwrite the construction of the new office building.",
+    "The bank agreed to underwrite the construction of the new office building.",
 portuguese:
-"O banco concordou em garantir o financiamento da construção do novo edifício de escritórios.",
+    "O banco concordou em garantir o financiamento da construção do novo edifício de escritórios.",
 },
 {
 english:
-"They underwrote the insurance policy for the large corporate client.",
+    "They underwrote the insurance policy for the large corporate client.",
 portuguese:
-"Eles garantiram a apólice de seguro para o grande cliente corporativo.",
+    "Eles garantiram a apólice de seguro para o grande cliente corporativo.",
 },
 ],
 },
@@ -4556,15 +4558,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They had to liquidate their investments to pay off their debts.",
+    "They had to liquidate their investments to pay off their debts.",
 portuguese:
-"Eles tiveram que liquidar seus investimentos para pagar suas dívidas.",
+    "Eles tiveram que liquidar seus investimentos para pagar suas dívidas.",
 },
 {
 english:
-"He liquidated his antique collection to raise funds for his daughter's education.",
+    "He liquidated his antique collection to raise funds for his daughter's education.",
 portuguese:
-"Ele liquidou sua coleção de antiguidades para arrecadar fundos para a educação de sua filha.",
+    "Ele liquidou sua coleção de antiguidades para arrecadar fundos para a educação de sua filha.",
 },
 ],
 },
@@ -4578,15 +4580,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"He used leverage to buy more shares than he could afford with cash alone.",
+    "He used leverage to buy more shares than he could afford with cash alone.",
 portuguese:
-"Ele usou alavancagem para comprar mais ações do que poderia pagar apenas com dinheiro.",
+    "Ele usou alavancagem para comprar mais ações do que poderia pagar apenas com dinheiro.",
 },
 {
 english:
-"They leveraged their brand's popularity to launch a new product line.",
+    "They leveraged their brand's popularity to launch a new product line.",
 portuguese:
-"Eles aproveitaram a popularidade de sua marca para lançar uma nova linha de produtos.",
+    "Eles aproveitaram a popularidade de sua marca para lançar uma nova linha de produtos.",
 },
 ],
 },
@@ -4610,15 +4612,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"The company capitalized on the growing demand for eco-friendly products.",
+    "The company capitalized on the growing demand for eco-friendly products.",
 portuguese:
-"A empresa se capitalizou com a crescente demanda por produtos ecológicos.",
+    "A empresa se capitalizou com a crescente demanda por produtos ecológicos.",
 },
 {
 english:
-"Investors capitalized the startup with $1 million in seed funding.",
+    "Investors capitalized the startup with $1 million in seed funding.",
 portuguese:
-"Os investidores capitalizaram a startup com $1 milhão em financiamento inicial.",
+    "Os investidores capitalizaram a startup com $1 milhão em financiamento inicial.",
 },
 ],
 },
@@ -4632,15 +4634,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"He speculated on the cryptocurrency market and made a substantial profit.",
+    "He speculated on the cryptocurrency market and made a substantial profit.",
 portuguese:
-"Ele especulou no mercado de criptomoedas e obteve um lucro substancial.",
+    "Ele especulou no mercado de criptomoedas e obteve um lucro substancial.",
 },
 {
 english:
-"They speculate on the future price of gold by buying futures contracts.",
+    "They speculate on the future price of gold by buying futures contracts.",
 portuguese:
-"Eles especulam sobre o preço futuro do ouro comprando contratos futuros.",
+    "Eles especulam sobre o preço futuro do ouro comprando contratos futuros.",
 },
 ],
 },
@@ -4653,14 +4655,14 @@ type: "sentences",
 sentences: [
 {
 english:
-"Their investment in bonds yielded a steady income stream.",
+    "Their investment in bonds yielded a steady income stream.",
 portuguese:
-"Seu investimento em títulos gerou um fluxo de renda estável.",
+    "Seu investimento em títulos gerou um fluxo de renda estável.",
 },
 {
 english: "The farm yielded a bumper crop this season.",
 portuguese:
-"A fazenda produziu uma safra abundante nesta temporada.",
+    "A fazenda produziu uma safra abundante nesta temporada.",
 },
 ],
 },
@@ -4673,9 +4675,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"Interest accrues on the savings account balance every month.",
+    "Interest accrues on the savings account balance every month.",
 portuguese:
-"Os juros acumulam-se sobre o saldo da conta poupança todos os meses.",
+    "Os juros acumulam-se sobre o saldo da conta poupança todos os meses.",
 },
 {
 english: "He accrued vacation days over the course of the year.",
@@ -4692,9 +4694,9 @@ type: "sentences",
 sentences: [
 {
 english:
-"The value of their property appreciated significantly over the past decade.",
+    "The value of their property appreciated significantly over the past decade.",
 portuguese:
-"O valor de sua propriedade valorizou significativamente ao longo da última década.",
+    "O valor de sua propriedade valorizou significativamente ao longo da última década.",
 },
 {
 english: "She appreciates her investments in the stock market.",
@@ -4715,9 +4717,9 @@ portuguese: "O carro depreciou em valor após três anos de uso.",
 },
 {
 english:
-"Equipment tends to depreciate over time due to wear and tear.",
+    "Equipment tends to depreciate over time due to wear and tear.",
 portuguese:
-"Equipamentos tendem a depreciar ao longo do tempo devido ao desgaste.",
+    "Equipamentos tendem a depreciar ao longo do tempo devido ao desgaste.",
 },
 ],
 },
@@ -4731,14 +4733,14 @@ type: "sentences",
 sentences: [
 {
 english:
-"They incurred substantial debt while expanding their business.",
+    "They incurred substantial debt while expanding their business.",
 portuguese:
-"Eles contraíram uma dívida substancial ao expandir seu negócio.",
+    "Eles contraíram uma dívida substancial ao expandir seu negócio.",
 },
 {
 english: "He incurred travel expenses during his business trip.",
 portuguese:
-"Ele incorreu em despesas de viagem durante sua viagem de negócios.",
+    "Ele incorreu em despesas de viagem durante sua viagem de negócios.",
 },
 ],
 },
@@ -4752,12 +4754,12 @@ sentences: [
 {
 english: "They paid the contractor for renovating their kitchen.",
 portuguese:
-"Eles pagaram o empreiteiro pela reforma de sua cozinha.",
+    "Eles pagaram o empreiteiro pela reforma de sua cozinha.",
 },
 {
 english: "She pays her credit card bill in full every month.",
 portuguese:
-"Ela paga a fatura do cartão de crédito integralmente todos os meses.",
+    "Ela paga a fatura do cartão de crédito integralmente todos os meses.",
 },
 ],
 },
@@ -4770,15 +4772,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They reconciled the bank statement with their accounting records.",
+    "They reconciled the bank statement with their accounting records.",
 portuguese:
-"Eles conciliaram o extrato bancário com seus registros contábeis.",
+    "Eles conciliaram o extrato bancário com seus registros contábeis.",
 },
 {
 english:
-"He reconciled the discrepancies in the inventory records.",
+    "He reconciled the discrepancies in the inventory records.",
 portuguese:
-"Ele conciliou as discrepâncias nos registros de inventário.",
+    "Ele conciliou as discrepâncias nos registros de inventário.",
 },
 ],
 },
@@ -4791,15 +4793,15 @@ type: "sentences",
 sentences: [
 {
 english:
-"They optimized their website to improve user experience and increase sales.",
+    "They optimized their website to improve user experience and increase sales.",
 portuguese:
-"Eles otimizaram seu site para melhorar a experiência do usuário e aumentar as vendas.",
+    "Eles otimizaram seu site para melhorar a experiência do usuário e aumentar as vendas.",
 },
 {
 english:
-"He optimized his investment strategy to minimize risks and maximize returns.",
+    "He optimized his investment strategy to minimize risks and maximize returns.",
 portuguese:
-"Ele otimizou sua estratégia de investimento para minimizar riscos e maximizar retornos.",
+    "Ele otimizou sua estratégia de investimento para minimizar riscos e maximizar retornos.",
 },
 ],
 },
@@ -4823,27 +4825,27 @@ type: "sentences",
 sentences: [
 {
 english:
-"Real estate properties and investment portfolios are examples of assets.",
+    "Real estate properties and investment portfolios are examples of assets.",
 portuguese:
-"Propriedades imobiliárias e carteiras de investimento são exemplos de ativos.",
+    "Propriedades imobiliárias e carteiras de investimento são exemplos de ativos.",
 },
 {
 english:
-"His car and jewelry collection contribute to his overall assets.",
+    "His car and jewelry collection contribute to his overall assets.",
 portuguese:
-"Seu carro e coleção de joias contribuem para seus ativos totais.",
+    "Seu carro e coleção de joias contribuem para seus ativos totais.",
 },
 {
 english:
-"The company's assets include cash, inventory, and intellectual property.",
+    "The company's assets include cash, inventory, and intellectual property.",
 portuguese:
-"Os ativos da empresa incluem dinheiro, inventário e propriedade intelectual.",
+    "Os ativos da empresa incluem dinheiro, inventário e propriedade intelectual.",
 },
 {
 english:
-"Student loans and credit card debt are common liabilities for young professionals.",
+    "Student loans and credit card debt are common liabilities for young professionals.",
 portuguese:
-"Empréstimos estudantis e dívidas de cartão de crédito são passivos comuns para jovens profissionais.",
+    "Empréstimos estudantis e dívidas de cartão de crédito são passivos comuns para jovens profissionais.",
 },
 {
 english: "The mortgage on their house is their largest liability.",
@@ -4851,21 +4853,21 @@ portuguese: "A hipoteca da casa deles é seu maior passivo.",
 },
 {
 english:
-"Business loans and accounts payable are considered significant liabilities for the company.",
+    "Business loans and accounts payable are considered significant liabilities for the company.",
 portuguese:
-"Empréstimos comerciais e contas a pagar são considerados passivos significativos para a empresa.",
+    "Empréstimos comerciais e contas a pagar são considerados passivos significativos para a empresa.",
 },
 {
 english:
-"Understanding the difference between assets and liabilities is crucial for financial planning.",
+    "Understanding the difference between assets and liabilities is crucial for financial planning.",
 portuguese:
-"Entender a diferença entre ativos e passivos é crucial para o planejamento financeiro.",
+    "Entender a diferença entre ativos e passivos é crucial para o planejamento financeiro.",
 },
 {
 english:
-"Increasing assets while managing liabilities is a key strategy for wealth accumulation.",
+    "Increasing assets while managing liabilities is a key strategy for wealth accumulation.",
 portuguese:
-"Aumentar os ativos enquanto gerencia os passivos é uma estratégia chave para acumulação de riqueza.",
+    "Aumentar os ativos enquanto gerencia os passivos é uma estratégia chave para acumulação de riqueza.",
 },
 ],
 },
@@ -4901,7 +4903,7 @@ portuguese: "Veículos e máquinas",
 {
 english: "Intellectual Property (Patents, Trademarks, Copyrights)",
 portuguese:
-"Propriedade intelectual (Patentes, Marcas Registradas, Direitos Autorais)",
+    "Propriedade intelectual (Patentes, Marcas Registradas, Direitos Autorais)",
 },
 {
 english: "Goodwill",
@@ -4916,35 +4918,35 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Current Assets: Assets that are expected to be converted into cash or used up within one year, including cash, accounts receivable, and inventory.",
+    "Current Assets: Assets that are expected to be converted into cash or used up within one year, including cash, accounts receivable, and inventory.",
 },
 {
 enusAudio:
-"Non-Current Assets: Long-term investments and property that are not expected to be converted into cash within a year, such as property, plant, and equipment (PP&E), and intangible assets.",
+    "Non-Current Assets: Long-term investments and property that are not expected to be converted into cash within a year, such as property, plant, and equipment (PP&E), and intangible assets.",
 },
 {
 enusAudio:
-"Fixed Assets: Long-term tangible assets used in the operation of a business, like machinery, buildings, and land.",
+    "Fixed Assets: Long-term tangible assets used in the operation of a business, like machinery, buildings, and land.",
 },
 {
 enusAudio:
-"Intangible Assets: Non-physical assets with economic value, including intellectual property like patents, trademarks, and goodwill.",
+    "Intangible Assets: Non-physical assets with economic value, including intellectual property like patents, trademarks, and goodwill.",
 },
 {
 enusAudio:
-"Operating Assets: Assets used in the day-to-day operations of a business, including cash, inventory, and accounts receivable.",
+    "Operating Assets: Assets used in the day-to-day operations of a business, including cash, inventory, and accounts receivable.",
 },
 {
 enusAudio:
-"Non-Operating Assets: Assets not essential to the primary business activities but may generate income, such as investments and unused land.",
+    "Non-Operating Assets: Assets not essential to the primary business activities but may generate income, such as investments and unused land.",
 },
 {
 enusAudio:
-"Tangible Assets: Physical assets that can be touched and seen, including buildings, machinery, and vehicles.",
+    "Tangible Assets: Physical assets that can be touched and seen, including buildings, machinery, and vehicles.",
 },
 {
 enusAudio:
-"Financial Assets: Assets that derive value from a contractual claim, such as stocks, bonds, and bank deposits.",
+    "Financial Assets: Assets that derive value from a contractual claim, such as stocks, bonds, and bank deposits.",
 },
 ],
 },
@@ -4955,35 +4957,35 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Cash and Cash Equivalents: Includes currency, coins, and short-term investments that can be easily converted into cash.",
+    "Cash and Cash Equivalents: Includes currency, coins, and short-term investments that can be easily converted into cash.",
 },
 {
 enusAudio:
-"Accounts Receivable: Amounts owed to a business for goods or services provided on credit, expected to be collected in the near future.",
+    "Accounts Receivable: Amounts owed to a business for goods or services provided on credit, expected to be collected in the near future.",
 },
 {
 enusAudio:
-"Inventory: Goods held by a company for sale or production, including raw materials, work-in-progress, and finished goods.",
+    "Inventory: Goods held by a company for sale or production, including raw materials, work-in-progress, and finished goods.",
 },
 {
 enusAudio:
-"Investments (Stocks, Bonds, etc.): Securities purchased by a company or individual with the expectation of earning a return.",
+    "Investments (Stocks, Bonds, etc.): Securities purchased by a company or individual with the expectation of earning a return.",
 },
 {
 enusAudio:
-"Real Estate Properties: Land and buildings owned by a business or individual for use or investment purposes.",
+    "Real Estate Properties: Land and buildings owned by a business or individual for use or investment purposes.",
 },
 {
 enusAudio:
-"Vehicles and Machinery: Tangible assets used in business operations, such as cars, trucks, and manufacturing equipment.",
+    "Vehicles and Machinery: Tangible assets used in business operations, such as cars, trucks, and manufacturing equipment.",
 },
 {
 enusAudio:
-"Intellectual Property (Patents, Trademarks, Copyrights): Intangible assets that provide exclusive rights to ideas or creations, often resulting in economic benefits.",
+    "Intellectual Property (Patents, Trademarks, Copyrights): Intangible assets that provide exclusive rights to ideas or creations, often resulting in economic benefits.",
 },
 {
 enusAudio:
-"Goodwill: Represents the premium paid for a business over its fair market value, reflecting the reputation, customer loyalty, and brand value.",
+    "Goodwill: Represents the premium paid for a business over its fair market value, reflecting the reputation, customer loyalty, and brand value.",
 },
 ],
 },
@@ -5034,35 +5036,35 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Accounts Payable: Debts owed to suppliers or vendors for goods or services purchased on credit.",
+    "Accounts Payable: Debts owed to suppliers or vendors for goods or services purchased on credit.",
 },
 {
 enusAudio:
-"Short-term Loans: Borrowings that are expected to be repaid within one year.",
+    "Short-term Loans: Borrowings that are expected to be repaid within one year.",
 },
 {
 enusAudio:
-"Long-term Loans: Loans that are due more than one year ahead from the reporting date.",
+    "Long-term Loans: Loans that are due more than one year ahead from the reporting date.",
 },
 {
 enusAudio:
-"Bonds Payable: Debt securities issued by corporations or governments to raise capital, with specific repayment terms and interest rates.",
+    "Bonds Payable: Debt securities issued by corporations or governments to raise capital, with specific repayment terms and interest rates.",
 },
 {
 enusAudio:
-"Mortgages: Loans taken to finance the purchase of real estate, secured by the property itself.",
+    "Mortgages: Loans taken to finance the purchase of real estate, secured by the property itself.",
 },
 {
 enusAudio:
-"Accrued Expenses: Costs that have been incurred but not yet paid, such as wages, taxes, and interest.",
+    "Accrued Expenses: Costs that have been incurred but not yet paid, such as wages, taxes, and interest.",
 },
 {
 enusAudio:
-"Deferred Revenues: Income received but not yet earned, such as advance payments from customers.",
+    "Deferred Revenues: Income received but not yet earned, such as advance payments from customers.",
 },
 {
 enusAudio:
-"Income Taxes Payable: Amounts owed to tax authorities based on taxable income, to be paid within a specified period.",
+    "Income Taxes Payable: Amounts owed to tax authorities based on taxable income, to be paid within a specified period.",
 },
 ],
 },
@@ -5073,35 +5075,35 @@ type: "listinenglish",
 audios: [
 {
 enusAudio:
-"Current Liabilities: Obligations that are expected to be settled within one year, including accounts payable, short-term loans, and accrued expenses.",
+    "Current Liabilities: Obligations that are expected to be settled within one year, including accounts payable, short-term loans, and accrued expenses.",
 },
 {
 enusAudio:
-"Non-Current Liabilities: Long-term obligations not due within one year, such as long-term loans, bonds payable, and lease obligations.",
+    "Non-Current Liabilities: Long-term obligations not due within one year, such as long-term loans, bonds payable, and lease obligations.",
 },
 {
 enusAudio:
-"Operating Liabilities: Liabilities that arise from the primary business operations, including accounts payable, wages payable, and taxes payable.",
+    "Operating Liabilities: Liabilities that arise from the primary business operations, including accounts payable, wages payable, and taxes payable.",
 },
 {
 enusAudio:
-"Non-Operating Liabilities: Liabilities not directly tied to primary business operations, such as long-term loans and bonds payable.",
+    "Non-Operating Liabilities: Liabilities not directly tied to primary business operations, such as long-term loans and bonds payable.",
 },
 {
 enusAudio:
-"Contingent Liabilities: Potential obligations that may occur depending on the outcome of a future event, such as lawsuits or guarantees.",
+    "Contingent Liabilities: Potential obligations that may occur depending on the outcome of a future event, such as lawsuits or guarantees.",
 },
 {
 enusAudio:
-"Secured Liabilities: Liabilities backed by collateral, giving the lender a claim on the asset if the borrower defaults.",
+    "Secured Liabilities: Liabilities backed by collateral, giving the lender a claim on the asset if the borrower defaults.",
 },
 {
 enusAudio:
-"Unsecured Liabilities: Liabilities not backed by collateral, including most accounts payable and some forms of long-term debt.",
+    "Unsecured Liabilities: Liabilities not backed by collateral, including most accounts payable and some forms of long-term debt.",
 },
 {
 enusAudio:
-"Financial Liabilities: Obligations that arise from borrowing funds, such as loans, bonds, and lines of credit.",
+    "Financial Liabilities: Obligations that arise from borrowing funds, such as loans, bonds, and lines of credit.",
 },
 ],
 },
@@ -5113,8 +5115,79 @@ title: "Profit and Related Terms",
 order: 6,
 type: "Financial Concepts",
 description:
-"In this class, we'll learn how to use profit and related terms.",
-elements: [],
+"This class covers various types of taxes including Income Tax, Sales Tax, Property Tax, Corporate Tax, Capital Gains Tax, Excise Tax, Import Duty, and Value Added Tax (VAT). Students will learn about tax principles, implications, and application in different economic contexts and legal frameworks.",
+elements: [
+{
+subtitle: "To profit (verb)",
+order: 0,
+type: "sentences",
+sentences: [
+{
+english: "Companies aim to profit from their investments.",
+portuguese: "Empresas visam lucrar com seus investimentos.",
+},
+{
+english:
+    "He hopes to profit greatly from the new business venture.",
+portuguese:
+    "Ele espera lucrar muito com o novo empreendimento comercial.",
+},
+{
+english: "Investors seek to profit by buying low and selling high.",
+portuguese:
+    "Investidores procuram lucrar comprando barato e vendendo caro.",
+},
+],
+},
+{
+subtitle: "Profit (noun)",
+order: 1,
+type: "sentences",
+sentences: [
+{
+english: "The company reported a substantial profit this quarter.",
+portuguese:
+    "A empresa registrou um lucro substancial neste trimestre.",
+},
+{
+english: "After years of losses, finally, they turned a profit.",
+portuguese:
+    "Depois de anos de prejuízo, finalmente, conseguiram um lucro.",
+},
+{
+english:
+    "Their main goal is to maximize profit while minimizing costs.",
+portuguese:
+    "O objetivo principal deles é maximizar o lucro enquanto minimizam os custos.",
+},
+],
+},
+{
+subtitle: "Profitable",
+order: 2,
+type: "sentences",
+sentences: [
+{
+english:
+    "Investing in tech stocks has proven to be highly profitable.",
+portuguese:
+    "Investir em ações de tecnologia tem se mostrado altamente lucrativo.",
+},
+{
+english:
+    "Starting a small business can be a profitable venture if managed well.",
+portuguese:
+    "Iniciar um pequeno negócio pode ser um empreendimento lucrativo se administrado adequadamente.",
+},
+{
+english:
+    "They decided to expand into a more profitable market segment.",
+portuguese:
+    "Eles decidiram expandir para um segmento de mercado mais lucrativo.",
+},
+],
+},
+],
 },
 /////  "Types of Taxes",
 {
@@ -5122,15 +5195,267 @@ title: "Types of Taxes",
 order: 7,
 type: "Financial Concepts",
 description: "This class will be ready soon.",
-elements: [],
+elements: [
+{
+subtitle: "Income Tax",
+order: 0,
+type: "sentences",
+sentences: [
+{
+english: "Income tax is deducted from your salary each month.",
+portuguese:
+    "O imposto de renda é deduzido do seu salário todo mês.",
+},
+{
+english: "Individuals must file their income tax returns annually.",
+portuguese:
+    "As pessoas físicas devem declarar o imposto de renda anualmente.",
+},
+{
+english: "Income tax rates vary depending on your income level.",
+portuguese:
+    "As alíquotas do imposto de renda variam de acordo com o nível de renda.",
+},
+],
+},
+{
+subtitle: "Sales Tax",
+order: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Sales tax is added to the purchase price of goods and services.",
+portuguese:
+    "O imposto sobre vendas é adicionado ao preço de compra de bens e serviços.",
+},
+{
+english: "Some states have a higher sales tax rate than others.",
+portuguese:
+    "Alguns estados têm uma taxa de imposto sobre vendas mais alta do que outros.",
+},
+{
+english:
+    "Sales tax exemptions may apply to certain essential items.",
+portuguese:
+    "Isenções de imposto sobre vendas podem ser aplicadas a certos itens essenciais.",
+},
+],
+},
+{
+subtitle: "Property Tax",
+order: 2,
+type: "sentences",
+sentences: [
+{
+english:
+    "Property tax rates are determined based on the assessed value of the property.",
+portuguese:
+    "As alíquotas do imposto sobre propriedade são determinadas com base no valor avaliado da propriedade.",
+},
+{
+english:
+    "Property taxes fund local government services such as schools and roads.",
+portuguese:
+    "O imposto sobre propriedade financia serviços governamentais locais, como escolas e estradas.",
+},
+{
+english:
+    "Homeowners can deduct property taxes paid from their federal income tax.",
+portuguese:
+    "Os proprietários podem deduzir os impostos sobre propriedade pagos de seu imposto de renda federal.",
+},
+],
+},
+{
+subtitle: "Corporate Tax",
+order: 3,
+type: "sentences",
+sentences: [
+{
+english:
+    "Corporate tax rates can influence a company's decision to expand or relocate.",
+portuguese:
+    "As taxas de imposto corporativo podem influenciar a decisão de uma empresa de expandir ou relocar.",
+},
+{
+english:
+    "Businesses are required to file corporate tax returns annually.",
+portuguese:
+    "As empresas devem apresentar declarações de imposto de renda corporativo anualmente.",
+},
+{
+english:
+    "Some countries offer tax incentives to attract foreign corporate investments.",
+portuguese:
+    "Alguns países oferecem incentivos fiscais para atrair investimentos corporativos estrangeiros.",
+},
+],
+},
+{
+subtitle: "Capital Gains Tax",
+order: 4,
+type: "sentences",
+sentences: [
+{
+english:
+    "Capital gains tax is applied when you sell assets such as stocks or real estate.",
+portuguese:
+    "O imposto sobre ganhos de capital é aplicado quando você vende ativos como ações ou imóveis.",
+},
+{
+english:
+    "Long-term capital gains tax rates are typically lower than short-term rates.",
+portuguese:
+    "As alíquotas de imposto sobre ganhos de capital de longo prazo geralmente são menores do que as alíquotas de curto prazo.",
+},
+{
+english:
+    "Investors should consider capital gains tax implications when making investment decisions.",
+portuguese:
+    "Os investidores devem considerar as implicações do imposto sobre ganhos de capital ao tomar decisões de investimento.",
+},
+],
+},
+{
+subtitle: "Excise Tax",
+order: 5,
+type: "sentences",
+sentences: [
+{
+english:
+    "Excise tax is applied to certain goods like gasoline, alcohol, and tobacco.",
+portuguese:
+    "O imposto sobre produtos industrializados é aplicado a certos produtos como gasolina, álcool e tabaco.",
+},
+{
+english:
+    "Governments may use excise taxes to discourage consumption of harmful products.",
+portuguese:
+    "Os governos podem usar impostos sobre produtos industrializados para desencorajar o consumo de produtos prejudiciais.",
+},
+{
+english:
+    "Excise tax rates can vary widely between different types of products.",
+portuguese:
+    "As alíquotas do imposto sobre produtos industrializados podem variar amplamente entre diferentes tipos de produtos.",
+},
+],
+},
+{
+subtitle: "Import Duty (Customs Duty)",
+order: 6,
+type: "sentences",
+sentences: [
+{
+english:
+    "Import duty is imposed on goods imported into a country from abroad.",
+portuguese:
+    "O imposto de importação é imposto sobre bens importados para um país do exterior.",
+},
+{
+english:
+    "Customs duties are calculated based on the value of the imported goods.",
+portuguese:
+    "Os impostos de importação são calculados com base no valor dos bens importados.",
+},
+{
+english:
+    "Tariffs and import duties can affect international trade relations.",
+portuguese:
+    "Tarifas e impostos de importação podem afetar as relações comerciais internacionais.",
+},
+],
+},
+{
+subtitle: "Value Added Tax (VAT)",
+order: 7,
+type: "sentences",
+sentences: [
+{
+english:
+    "VAT is a consumption tax added at each stage of production and distribution.",
+portuguese:
+    "O IVA é um imposto sobre o consumo adicionado em cada etapa da produção e distribuição.",
+},
+{
+english:
+    "Consumers typically bear the final burden of VAT through higher prices.",
+portuguese:
+    "Os consumidores normalmente suportam o ônus final do IVA através de preços mais altos.",
+},
+{
+english:
+    "VAT rates can vary between different countries and types of goods.",
+portuguese:
+    "As alíquotas do IVA podem variar entre diferentes países e tipos de mercadorias.",
+},
+],
+},
+],
 },
 /////  "Bankruptcy",
 {
 title: "Bankruptcy",
 order: 8,
 type: "Financial Concepts",
-description: "This class will be ready soon.",
-elements: [],
+description: "This class explores various ways to talk about bankruptcy.",
+elements: [
+{
+subtitle: "To go bankrupt (verb)",
+order: 0,
+type: "sentences",
+sentences: [
+{
+english:
+    "Many small businesses unfortunately go bankrupt within the first few years of operation.",
+portuguese:
+    "Muitas pequenas empresas infelizmente vão à falência nos primeiros anos de operação.",
+},
+{
+english:
+    "If they continue to lose money, the company may go bankrupt.",
+portuguese:
+    "Se continuarem a perder dinheiro, a empresa pode falir.",
+},
+{
+english: "The recession caused several businesses to go bankrupt.",
+portuguese: "A recessão levou várias empresas à falência.",
+},
+],
+},
+{
+subtitle: "Bankruptcy (noun)",
+order: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "The company filed for bankruptcy after years of financial losses.",
+portuguese:
+    "A empresa entrou com pedido de falência após anos de prejuízos financeiros.",
+},
+{
+english:
+    "Bankruptcy laws provide guidelines for businesses facing financial insolvency.",
+portuguese:
+    "As leis de falência fornecem diretrizes para empresas enfrentando insolvência financeira.",
+},
+{
+english:
+    "Personal bankruptcy can have long-lasting effects on an individual's financial future.",
+portuguese:
+    "A falência pessoal pode ter efeitos de longo prazo no futuro financeiro de uma pessoa.",
+},
+],
+},
+{
+subtitle: "Text",
+order: 2,
+type: "text",
+text: "Bankruptcy is a legal status of financial insolvency where an individual or entity cannot repay debts to creditors. It involves a formal court process aimed at resolving debts through liquidation of assets or reorganization of finances. Bankruptcy provides relief to debtors while ensuring fair distribution to creditors under legal supervision.",
+},
+],
 },
 /////  "Cash Flow",
 {
@@ -5180,7 +5505,805 @@ type: "Financial Concepts",
 description: "This class will be ready soon.",
 elements: [],
 },
+/////  "HR Vocabulary",
+/////  "Introduction - HR",
+{
+title: "Introduction - HR",
+order: 0,
+type: "HR Vocabulary",
+description: "This class will be ready soon.",
+elements: [],
+},
+// Recruitment and Hiring
+{
+title: "Recruitment and Hiring",
+order: 1, // establish the order
+type: "HR Vocabulary",
+description:
+"Let's study the necessary vocabulary about recruitment and hiring.",
+elements: [
+{
+subtitle: "Job Posting",
+order: 0,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A job posting is a formal announcement or advertisement that outlines available job positions within a company or organization.",
+portuguese:
+    "Um anúncio de emprego é uma comunicação formal ou anúncio que descreve as posições de emprego disponíveis dentro de uma empresa ou organização.",
+},
+{
+english:
+    "Employers use job postings to attract qualified candidates by detailing job responsibilities, required qualifications, and other pertinent information.",
+portuguese:
+    "Os empregadores utilizam anúncios de emprego para atrair candidatos qualificados, detalhando as responsabilidades do cargo, qualificações necessárias e outras informações pertinentes.",
+},
+],
+},
+{
+subtitle: "Advertisement",
+order: 1,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "An advertisement for a job is a promotional message designed to attract potential applicants to apply for a specific job position within a company.",
+portuguese:
+    "Um anúncio de emprego é uma mensagem promocional projetada para atrair potenciais candidatos a se candidatarem a uma posição específica dentro de uma empresa.",
+},
+{
+english:
+    "Job advertisements are often crafted to highlight the benefits of working for a company and to entice suitable candidates to submit their applications.",
+portuguese:
+    "Os anúncios de emprego são frequentemente elaborados para destacar os benefícios de trabalhar em uma empresa e atrair candidatos adequados para enviar suas candidaturas.",
+},
+],
+},
+{
+subtitle: "Job Description",
+order: 2,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A job description is a detailed account of the roles, responsibilities, tasks, and duties associated with a particular job position.",
+portuguese:
+    "Uma descrição de emprego é um relato detalhado dos papéis, responsabilidades, tarefas e deveres associados a uma posição específica.",
+},
+{
+english:
+    "Employers use job descriptions to clearly communicate expectations to potential candidates and to establish a framework for evaluating job performance.",
+portuguese:
+    "Os empregadores utilizam descrições de emprego para comunicar claramente as expectativas aos candidatos potenciais e estabelecer um framework para avaliar o desempenho no trabalho.",
+},
+],
+},
+{
+subtitle: "Qualifications",
+order: 3,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Qualifications refer to the skills, experience, education, and certifications required for a particular job.",
+portuguese:
+    "Qualificações se referem às habilidades, experiência, educação e certificações necessárias para uma posição específica.",
+},
+{
+english:
+    "Employers list qualifications in job postings to ensure that applicants possess the necessary competencies to perform the job effectively.",
+portuguese:
+    "Os empregadores listam as qualificações nos anúncios de emprego para garantir que os candidatos possuam as competências necessárias para desempenhar o trabalho de forma eficaz.",
+},
+],
+},
+{
+subtitle: "Salary Range",
+order: 4,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "The salary range specifies the minimum and maximum pay a company is willing to offer for a particular job position.",
+portuguese:
+    "A faixa salarial especifica o salário mínimo e máximo que uma empresa está disposta a oferecer para uma posição específica.",
+},
+{
+english:
+    "Employers use the salary range to attract candidates and to establish transparency regarding compensation expectations.",
+portuguese:
+    "Os empregadores utilizam a faixa salarial para atrair candidatos e estabelecer transparência em relação às expectativas de remuneração.",
+},
+],
+},
+{
+subtitle: "Benefits",
+order: 5,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Benefits are additional perks and advantages offered by an employer to employees beyond their salary, such as healthcare coverage, retirement plans, and paid time off.",
+portuguese:
+    "Benefícios são vantagens e benefícios adicionais oferecidos por um empregador aos funcionários além de seus salários, como cobertura de saúde, planos de aposentadoria e licenças remuneradas.",
+},
+{
+english:
+    "Employers include benefits in job postings to attract candidates by demonstrating the value they place on employee well-being and satisfaction.",
+portuguese:
+    "Os empregadores incluem benefícios nos anúncios de emprego para atrair candidatos, demonstrando o valor que atribuem ao bem-estar e à satisfação dos funcionários.",
+},
+],
+},
+{
+subtitle: "Job Title",
+order: 6,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A job title is the name assigned to a particular job position within an organization, indicating the nature and level of the role.",
+portuguese:
+    "Um título de emprego é o nome atribuído a uma posição específica dentro de uma organização, indicando a natureza e o nível da função.",
+},
+{
+english:
+    "Job titles provide clarity about an employee's role and responsibilities both within the organization and externally.",
+portuguese:
+    "Os títulos de emprego fornecem clareza sobre o papel e as responsabilidades de um funcionário tanto dentro da organização quanto externamente.",
+},
+],
+},
+{
+subtitle: "Job Opening",
+order: 7,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A job opening refers to an available position within a company or organization that is actively seeking candidates.",
+portuguese:
+    "Uma vaga de emprego se refere a uma posição disponível dentro de uma empresa ou organização que está ativamente buscando candidatos.",
+},
+{
+english:
+    "Job openings are typically announced through job postings and advertisements to attract potential applicants.",
+portuguese:
+    "As vagas de emprego são geralmente anunciadas por meio de anúncios e anúncios de emprego para atrair potenciais candidatos.",
+},
+],
+},
+{
+subtitle: "Candidate Screening",
+order: 8,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Candidate screening involves the process of reviewing job applications and resumes to identify potential candidates who meet the job requirements.",
+portuguese:
+    "A triagem de candidatos envolve o processo de revisar inscrições e currículos para identificar potenciais candidatos que atendam aos requisitos do cargo.",
+},
+{
+english:
+    "Employers use candidate screening to shortlist applicants for further evaluation through interviews and assessments.",
+portuguese:
+    "Os empregadores utilizam a triagem de candidatos para selecionar candidatos para uma avaliação mais aprofundada por meio de entrevistas e avaliações.",
+},
+],
+},
+{
+subtitle: "Resume",
+order: 9,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A resume is a concise summary of a person's education, work experience, skills, achievements, and qualifications.",
+portuguese:
+    "Um currículo é um resumo conciso da educação, experiência profissional, habilidades, conquistas e qualificações de uma pessoa.",
+},
+{
+english:
+    "Candidates submit resumes when applying for jobs to showcase their suitability for the position to potential employers.",
+portuguese:
+    "Os candidatos enviam currículos ao se candidatarem a empregos para mostrar sua adequação à posição para potenciais empregadores.",
+},
+],
+},
+{
+subtitle: "CV",
+order: 10,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A CV (Curriculum Vitae) is a comprehensive document that details a person's academic background, professional achievements, research experience, and skills.",
+portuguese:
+    "Um CV (Currículo Vitae) é um documento abrangente que detalha o histórico acadêmico, conquistas profissionais, experiência em pesquisa e habilidades de uma pessoa.",
+},
+{
+english:
+    "In academic and research fields, a CV is commonly used to apply for academic positions, grants, scholarships, and research opportunities.",
+portuguese:
+    "Em campos acadêmicos e de pesquisa, um CV é comumente usado para se candidatar a posições acadêmicas, bolsas, bolsas de estudo e oportunidades de pesquisa.",
+},
+],
+},
+{
+subtitle: "Cover Letter",
+order: 11,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A cover letter is a formal letter that accompanies a resume or CV and provides additional information about the candidate's qualifications, skills, and interest in the job.",
+portuguese:
+    "Uma carta de apresentação é uma carta formal que acompanha um currículo e fornece informações adicionais sobre as qualificações, habilidades e interesse do candidato pela vaga.",
+},
+{
+english:
+    "Candidates use cover letters to personalize their application and explain why they are suitable for the position and how their skills align with the job requirements.",
+portuguese:
+    "Os candidatos utilizam cartas de apresentação para personalizar sua candidatura e explicar por que são adequados para a posição e como suas habilidades se alinham aos requisitos do cargo.",
+},
+],
+},
+{
+subtitle: "Shortlist",
+order: 12,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A shortlist is a list of candidates who have been selected from a larger pool of applicants for further consideration during the hiring process.",
+portuguese:
+    "Uma lista restrita é uma lista de candidatos selecionados de um grupo maior de candidatos para consideração adicional durante o processo de contratação.",
+},
+{
+english:
+    "Employers create a shortlist based on the qualifications, experience, and suitability of candidates for the job position.",
+portuguese:
+    "Os empregadores criam uma lista restrita com base nas qualificações, experiência e adequação dos candidatos para a posição.",
+},
+],
+},
+{
+subtitle: "Reference Check",
+order: 13,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A reference check is a process where employers contact the references provided by a candidate to verify their past work experience, skills, and character.",
+portuguese:
+    "Uma verificação de referências é um processo em que os empregadores entram em contato com as referências fornecidas por um candidato para verificar sua experiência de trabalho anterior, habilidades e caráter.",
+},
+{
+english:
+    "Reference checks help employers assess the credibility and suitability of candidates for the job position.",
+portuguese:
+    "Verificações de referências ajudam os empregadores a avaliar a credibilidade e a adequação dos candidatos para a posição.",
+},
+],
+},
+{
+subtitle: "Background Check",
+order: 14,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A background check is a process where employers investigate a candidate's criminal record, employment history, education credentials, and other relevant details.",
+portuguese:
+    "Uma verificação de antecedentes é um processo em que os empregadores investigam o registro criminal, histórico de emprego, credenciais educacionais e outros detalhes relevantes de um candidato.",
+},
+{
+english:
+    "Employers conduct background checks to ensure the integrity and reliability of potential employees before making a hiring decision.",
+portuguese:
+    "Os empregadores realizam verificações de antecedentes para garantir a integridade e a confiabilidade dos potenciais funcionários antes de tomar uma decisão de contratação.",
+},
+],
+},
+{
+subtitle: "Interview",
+order: 15,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "An interview is a formal meeting between a candidate and one or more representatives of a company to assess the candidate's suitability for a job position.",
+portuguese:
+    "Uma entrevista é uma reunião formal entre um candidato e um ou mais representantes de uma empresa para avaliar a adequação do candidato para uma posição de emprego.",
+},
+{
+english:
+    "Employers conduct interviews to evaluate a candidate's qualifications, skills, experience, and personality to determine their fit within the organization.",
+portuguese:
+    "Os empregadores realizam entrevistas para avaliar as qualificações, habilidades, experiência e personalidade de um candidato e determinar sua adequação dentro da organização.",
+},
+],
+},
+{
+subtitle: "Interview",
+order: 15,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "An interview is a formal meeting between a candidate and one or more representatives of a company to assess the candidate's suitability for a job position.",
+portuguese:
+    "Uma entrevista é uma reunião formal entre um candidato e um ou mais representantes de uma empresa para avaliar a adequação do candidato para uma posição de emprego.",
+},
+{
+english:
+    "Employers conduct interviews to evaluate a candidate's qualifications, skills, experience, and personality to determine their fit within the organization.",
+portuguese:
+    "Os empregadores realizam entrevistas para avaliar as qualificações, habilidades, experiência e personalidade de um candidato e determinar sua adequação dentro da organização.",
+},
+],
+},
+],
+},
+// Onboarding
+{
+title: "Onboarding",
+order: 2, // establish the order
+type: "HR Vocabulary",
+description: "Let's study the necessary vocabulary about Onboarding.",
+elements: [
+{
+subtitle: "Employee Onboarding",
+order: 0,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Employee onboarding is crucial for integrating new hires into the company.",
+portuguese:
+    "A integração de novos funcionários é crucial para o processo de onboarding.",
+},
+{
+english:
+    "The company's employee onboarding process includes training, orientation, and introductions.",
+portuguese:
+    "O processo de onboarding da empresa inclui treinamento, orientação e apresentações.",
+},
+],
+},
+{
+subtitle: "Welcome Package",
+order: 1,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "The welcome package typically includes a personalized note, company merchandise, and essential documents.",
+portuguese:
+    "O pacote de boas-vindas geralmente inclui uma nota personalizada, produtos da empresa e documentos essenciais.",
+},
+{
+english:
+    "New employees receive a comprehensive welcome package to help them settle into their new role.",
+portuguese:
+    "Os novos funcionários recebem um pacote de boas-vindas abrangente para ajudá-los a se adaptar ao novo cargo.",
+},
+],
+},
+{
+subtitle: "Company Culture",
+order: 2,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Company culture shapes the environment, values, and behaviors within an organization.",
+portuguese:
+    "A cultura da empresa molda o ambiente, os valores e comportamentos dentro da organização.",
+},
+{
+english:
+    "Understanding and embracing the company culture is important for long-term employee satisfaction.",
+portuguese:
+    "Compreender e adotar a cultura da empresa é importante para a satisfação dos funcionários a longo prazo.",
+},
+],
+},
+{
+subtitle: "Induction",
+order: 3,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Induction programs are designed to introduce new employees to the organization's structure and operations.",
+portuguese:
+    "Os programas de indução são projetados para introduzir novos funcionários à estrutura e operações da organização.",
+},
+{
+english:
+    "During induction, new hires learn about company policies, team dynamics, and their role expectations.",
+portuguese:
+    "Durante a indução, os novos contratados aprendem sobre políticas da empresa, dinâmicas de equipe e expectativas de seu papel.",
+},
+],
+},
+{
+subtitle: "Training Session",
+order: 4,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Training sessions provide employees with essential skills and knowledge needed for their roles.",
+portuguese:
+    "As sessões de treinamento fornecem aos funcionários habilidades e conhecimentos essenciais necessários para suas funções.",
+},
+{
+english:
+    "The company scheduled a series of training sessions to enhance employees' professional development.",
+portuguese:
+    "A empresa agendou uma série de sessões de treinamento para melhorar o desenvolvimento profissional dos funcionários.",
+},
+],
+},
+{
+subtitle: "Employment Contract",
+order: 5,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "An employment contract outlines the terms and conditions of employment between an employer and an employee.",
+portuguese:
+    "Um contrato de trabalho detalha os termos e condições de emprego entre empregador e empregado.",
+},
+{
+english:
+    "Signing the employment contract signifies mutual agreement on roles, responsibilities, and compensation.",
+portuguese:
+    "Assinar o contrato de trabalho representa acordo mútuo sobre papéis, responsabilidades e remuneração.",
+},
+],
+},
+{
+subtitle: "Non-Disclosure Agreement (NDA)",
+order: 6,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A non-disclosure agreement ensures confidentiality regarding sensitive company information.",
+portuguese:
+    "Um acordo de confidencialidade garante a confidencialidade de informações sensíveis da empresa.",
+},
+{
+english:
+    "Employees sign an NDA to protect proprietary information and maintain trust within the organization.",
+portuguese:
+    "Os funcionários assinam um NDA para proteger informações proprietárias e manter a confiança dentro da organização.",
+},
+],
+},
+{
+subtitle: "Employee Handbook",
+order: 7,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "The employee handbook outlines company policies, procedures, and expectations for employees.",
+portuguese:
+    "O manual do funcionário descreve políticas, procedimentos e expectativas da empresa para os funcionários.",
+},
+{
+english:
+    "New hires are encouraged to review the employee handbook to understand organizational guidelines.",
+portuguese:
+    "Os novos contratados são incentivados a revisar o manual do funcionário para entender as diretrizes organizacionais.",
+},
+],
+},
+{
+subtitle: "Policy Manual",
+order: 8,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "The policy manual provides detailed information on company rules, regulations, and protocols.",
+portuguese:
+    "O manual de políticas fornece informações detalhadas sobre regras, regulamentos e protocolos da empresa.",
+},
+{
+english:
+    "Consulting the policy manual helps employees adhere to company standards and guidelines.",
+portuguese:
+    "Consultar o manual de políticas ajuda os funcionários a aderir aos padrões e diretrizes da empresa.",
+},
+],
+},
+],
+},
 
+// Compensation and Benefits
+{
+title: "Compensation and Benefits",
+order: 3, // establish the order
+type: "HR Vocabulary",
+description:
+"Let's study the necessary vocabulary about Compensation and Benefits.",
+elements: [
+{
+subtitle: "Feedback",
+order: 0,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Feedback is essential for continuous improvement and personal development.",
+portuguese:
+    "O feedback é essencial para melhoria contínua e desenvolvimento pessoal.",
+},
+{
+english:
+    "Effective feedback should be specific, constructive, and actionable.",
+portuguese:
+    "O feedback eficaz deve ser específico, construtivo e aplicável.",
+},
+],
+},
+{
+subtitle: "Performance Review",
+order: 1,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A performance review evaluates an employee's work performance and achievements.",
+portuguese:
+    "Uma avaliação de desempenho avalia o desempenho e as conquistas de um funcionário.",
+},
+{
+english:
+    "Performance reviews often involve setting goals and discussing career development.",
+portuguese:
+    "As avaliações de desempenho frequentemente envolvem estabelecimento de metas e discussão de desenvolvimento de carreira.",
+},
+],
+},
+{
+subtitle: "Staff Meeting",
+order: 2,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Staff meetings facilitate communication, collaboration, and decision-making within teams.",
+portuguese:
+    "Reuniões de equipe facilitam a comunicação, colaboração e tomada de decisões dentro dos times.",
+},
+{
+english:
+    "Regular staff meetings help align team members on goals and projects.",
+portuguese:
+    "Reuniões regulares de equipe ajudam a alinhar os membros do time em relação a metas e projetos.",
+},
+],
+},
+{
+subtitle: "Team-Building",
+order: 3,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Team-building activities foster camaraderie and strengthen relationships among team members.",
+portuguese:
+    "Atividades de team-building promovem camaradagem e fortalecem os relacionamentos entre os membros da equipe.",
+},
+{
+english:
+    "Effective team-building improves collaboration and productivity within teams.",
+portuguese:
+    "Team-building eficaz melhora a colaboração e a produtividade dentro das equipes.",
+},
+],
+},
+{
+subtitle: "Conflict Resolution",
+order: 4,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Conflict resolution aims to address and resolve disagreements or disputes among individuals or teams.",
+portuguese:
+    "A resolução de conflitos visa abordar e resolver desentendimentos ou disputas entre indivíduos ou equipes.",
+},
+{
+english:
+    "Effective conflict resolution promotes a positive work environment and team cohesion.",
+portuguese:
+    "A resolução de conflitos eficaz promove um ambiente de trabalho positivo e coesão da equipe.",
+},
+],
+},
+{
+subtitle: "Grievance",
+order: 5,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A grievance is a formal complaint by an employee regarding a workplace issue.",
+portuguese:
+    "Uma queixa é uma reclamação formal de um funcionário sobre uma questão no local de trabalho.",
+},
+{
+english:
+    "Addressing grievances promptly demonstrates commitment to employee concerns and welfare.",
+portuguese:
+    "Abordar queixas prontamente demonstra compromisso com as preocupações e o bem-estar dos funcionários.",
+},
+],
+},
+{
+subtitle: "Dispute Resolution",
+order: 6,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Dispute resolution involves techniques and processes to resolve conflicts peacefully and constructively.",
+portuguese:
+    "A resolução de disputas envolve técnicas e processos para resolver conflitos de forma pacífica e construtiva.",
+},
+{
+english:
+    "Successful dispute resolution fosters a harmonious work environment and enhances productivity.",
+portuguese:
+    "A resolução bem-sucedida de disputas promove um ambiente de trabalho harmonioso e aumenta a produtividade.",
+},
+],
+},
+{
+subtitle: "Resolution",
+order: 7,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Resolution refers to the act of resolving or settling a problem or conflict.",
+portuguese:
+    "Resolução refere-se ao ato de resolver ou solucionar um problema ou conflito.",
+},
+{
+english:
+    "Finding a resolution often requires communication, negotiation, and compromise.",
+portuguese:
+    "Encontrar uma resolução frequentemente requer comunicação, negociação e compromisso.",
+},
+],
+},
+{
+subtitle: "Disciplinary Action",
+order: 8,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Disciplinary action is taken by employers to address employee misconduct or performance issues.",
+portuguese:
+    "Ação disciplinar é tomada pelos empregadores para lidar com má conduta ou problemas de desempenho dos funcionários.",
+},
+{
+english:
+    "Implementing fair disciplinary action maintains workplace standards and expectations.",
+portuguese:
+    "Implementar ação disciplinar justa mantém padrões e expectativas no ambiente de trabalho.",
+},
+],
+},
+{
+subtitle: "Employee Satisfaction",
+order: 9,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Employee satisfaction reflects the happiness and contentment of employees within their roles.",
+portuguese:
+    "A satisfação dos funcionários reflete a felicidade e o contentamento dos funcionários em seus papéis.",
+},
+{
+english:
+    "Improving employee satisfaction can lead to higher productivity and reduced turnover.",
+portuguese:
+    "Melhorar a satisfação dos funcionários pode levar a uma maior produtividade e menor rotatividade.",
+},
+],
+},
+{
+subtitle: "Morale",
+order: 10,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "Morale refers to the overall mood, confidence, and spirit of employees within an organization.",
+portuguese:
+    "Moral refere-se ao humor geral, confiança e espírito dos funcionários dentro de uma organização.",
+},
+{
+english:
+    "Boosting morale through recognition and support enhances employee engagement and satisfaction.",
+portuguese:
+    "Elevar a moral através de reconhecimento e apoio melhora o engajamento e a satisfação dos funcionários.",
+},
+],
+},
+{
+subtitle: "Recognition Program",
+order: 11,
+grid: 1,
+type: "sentences",
+sentences: [
+{
+english:
+    "A recognition program acknowledges and rewards employees for their contributions and achievements.",
+portuguese:
+    "Um programa de reconhecimento reconhece e recompensa os funcionários por suas contribuições e conquistas.",
+},
+{
+english:
+    "Implementing a robust recognition program boosts morale and motivates employees.",
+portuguese:
+    "Implementar um programa de reconhecimento robusto aumenta a moral e motiva os funcionários.",
+},
+],
+},
+],
+},
 ];
 
 /////  "Profit and Related Terms",
