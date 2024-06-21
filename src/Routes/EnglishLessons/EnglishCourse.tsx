@@ -4,16 +4,10 @@ import { pathGenerator } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "../EnglishMaterial/EnglishMaterial.Styled";
 import EnglishLessonsRender from "./Assets/EnglishCourseClassRender";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
-import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import {
-  darkGreyColor,
-  lightGreyColor,
-  primaryColor,
-  secondaryColor,
-} from "../../Styles/Styles";
+import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 
 interface EnglishCourseHomeProps {
   headers: MyHeadersType | null;
