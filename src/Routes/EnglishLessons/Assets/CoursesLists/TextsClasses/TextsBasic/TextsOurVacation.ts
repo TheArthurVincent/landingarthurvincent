@@ -1,0 +1,57 @@
+export const TextsOurVacation = [
+  {
+    title: "Our Vacation",
+    type: "1- Basic Texts",
+    order: 2,
+    image:
+      "https://www.tcbrasil.com.br/wp-content/uploads/2021/12/Saiba-se-Vacation-Club-vale-a-pena-para-o-seu-negocio.jpg",
+    elements: [
+      {
+        subtitle: "Practice Vocabulary",
+        comments: "Vocabulário adicional para prática.",
+        order: 0,
+        grid: 2,
+        type: "sentences",
+        sentences: [
+          { english: "Vacation", portuguese: "Férias" },
+          { english: "Beach", portuguese: "Praia" },
+          { english: "Sand", portuguese: "Areia" },
+          { english: "Palm tree", portuguese: "Palmeira" },
+          { english: "Beautiful", portuguese: "Bonito" },
+          { english: "Sandcastle", portuguese: "Castelo de areia" },
+          { english: "Sailboat", portuguese: "Veleiro" },
+          { english: "Dolphin", portuguese: "Golfinho" },
+          { english: "Whale", portuguese: "Baleia" },
+          { english: "Shell", portuguese: "Concha" },
+          { english: "Surf", portuguese: "Surfar" },
+          { english: "Fun", portuguese: "Divertido" },
+          { english: "Learn", portuguese: "Aprender" },
+          { english: "Teach", portuguese: "Ensinar" },
+        ],
+      },
+      {
+        subtitle: "Text",
+        order: 1,
+        type: "text",
+        text: "Every year we go to Florida. We like to go to the beach. My favorite beach is called Emerson Beach. It is very long, with soft sand and palm trees. It is very beautiful. I like to make sandcastles and watch the sailboats go by. Sometimes there are dolphins and whales in the water! Every morning we look for shells in the sand. I found fifteen big shells last year. I put them in a special place in my room. This year I want to learn to surf. It is hard to surf, but so much fun! My sister is a good surfer. She says that she can teach me. I hope I can do it!",
+      },
+      {
+        subtitle: "Questions",
+        comments: "Tente responder estas perguntas usando o que você aprendeu.",
+        order: 2,
+        type: "exercise",
+        items: [
+          "Where does the author go every year?",
+          "What is the name of the author's favorite beach?",
+          "What does the author like to do at the beach?",
+          "What kind of animals does the author sometimes see in the water?",
+          "How many shells did the author find last year?",
+          "Where did the author put the shells?",
+          "What does the author want to learn this year?",
+          "Who is good at surfing in the author's family?",
+          "What does the sister say she can do for the author?",
+        ],
+      },
+    ],
+  },
+];
