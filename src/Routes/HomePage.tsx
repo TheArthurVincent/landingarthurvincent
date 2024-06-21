@@ -39,6 +39,13 @@ export function HomePage({ headers }: HeadersProps) {
     }
   }, []);
 
+  const [see, setSee] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setSee(true);
+    }, 700);
+  }, []);
+
   const appRoutes = [
     {
       title: "Blog",
@@ -111,7 +118,7 @@ export function HomePage({ headers }: HeadersProps) {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        height: "100vh",
         justifyContent: "space-between",
       }}
     >
@@ -153,7 +160,7 @@ export function HomePage({ headers }: HeadersProps) {
           );
         })}
       </Routes>
-      <AppFooter />
+      <AppFooter see={see} />
       <Outlet />
     </div>
   );
