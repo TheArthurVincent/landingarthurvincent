@@ -198,9 +198,7 @@ export function Blog({ headers }: HeadersProps) {
               >
                 <span className="hover-link">
                   <i
-                    style={{
-                      paddingRight: "5px",
-                    }}
+                    
                     className="fa fa-calendar "
                     aria-hidden="true"
                   />
@@ -226,9 +224,7 @@ export function Blog({ headers }: HeadersProps) {
               >
                 <span className="hover-link">
                   <i
-                    style={{
-                      paddingRight: "5px",
-                    }}
+                    
                     className="fa fa-book"
                     aria-hidden="true"
                   />
@@ -282,13 +278,7 @@ export function Blog({ headers }: HeadersProps) {
                 to={googleDriveLink}
               >
                 <span className="hover-link">
-                  <i
-                    style={{
-                      paddingRight: "5px",
-                    }}
-                    className="fa fa-folder"
-                    aria-hidden="true"
-                  />
+                  <i className="fa fa-folder" aria-hidden="true" />
                   <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
                 </span>
               </Link>
