@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { LogoSVG } from "../../Resources/UniversalComponents";
-import { LogoStyle } from "../TopBar/TopBar.Styled";
 import {
   alwaysBlack,
   alwaysWhite,
@@ -12,7 +11,7 @@ const [see,setSee] = useState("none")
   useEffect(()=>{
 setTimeout(() => {
   setSee("flex")
-}, 1000);
+}, 2000);
 
   },[])
   const myLogo = LogoSVG(darkGreyColor(), mediumGreyColor(), 1.3);

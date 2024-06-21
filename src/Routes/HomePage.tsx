@@ -18,7 +18,6 @@ import { TopBar } from "../Application/TopBar/TopBar";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import EnglishCourses from "./EnglishLessons/EnglishCourses";
-import AddFlashCards from "./FlashCards/FlashCardsComponents/AddFlashCards";
 import AppFooter from "../Application/Footer/Footer";
 
 export function HomePage({ headers }: HeadersProps) {
@@ -109,12 +108,12 @@ export function HomePage({ headers }: HeadersProps) {
 
   return (
     <div
-    
-    style={{
-
-display:"flex",flexDirection:"column", height:"100%",justifyContent:"space-between"
-
-    }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "space-between",
+      }}
     >
       <TopBar />
       <Routes>
@@ -145,7 +144,6 @@ display:"flex",flexDirection:"column", height:"100%",justifyContent:"space-betwe
                         picture={picture}
                       />
                     )}
-                    {/* <AppFooter /> */}
                   </BlogRouteSizeControlBox>
                 ) : (
                   <Login />
@@ -155,7 +153,7 @@ display:"flex",flexDirection:"column", height:"100%",justifyContent:"space-betwe
           );
         })}
       </Routes>
-      <AppFooter/>
+      <AppFooter />
       <Outlet />
     </div>
   );
