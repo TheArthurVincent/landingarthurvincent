@@ -34,7 +34,7 @@ const AddOneFlashCard: React.FC<AddOneFlashCardProps> = ({
       <p>Card {index + 1}</p>
       <article id="front">
         <input
-          style={{ maxWidth: "120px", margin: "1px" }}
+          style={{ margin: "1px" }}
           value={frontCard}
           placeholder="front"
           onChange={(e) => {
