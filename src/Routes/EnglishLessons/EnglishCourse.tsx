@@ -24,10 +24,10 @@ export default function EnglishCourse({
 
   const arr = Object.entries(
     less.groupedLessonsArray.reduce((acc: any, lesson: any) => {
-      if (!acc[lesson.type]) {
-        acc[lesson.type] = [];
+      if (!acc[lesson.type ? lesson.type : lesson.module]) {
+        acc[lesson.type ? lesson.type : lesson.module] = [];
       }
-      acc[lesson.type].push(lesson);
+      acc[lesson.type ? lesson.type : lesson.module].push(lesson);
       return acc;
     }, {})
   ).map(([type, lessons]) => ({ type, lessons }));
@@ -136,7 +136,9 @@ export default function EnglishCourse({
         />
         {filteredLessons.map((course: any, index: number) => (
           <div key={index}>
-            <HThree>{course.type}: Classes</HThree>
+            <HThree>
+              {course.type ? course.type : course.module}: Classes
+            </HThree>
             <div
               style={{
                 display: "flex",

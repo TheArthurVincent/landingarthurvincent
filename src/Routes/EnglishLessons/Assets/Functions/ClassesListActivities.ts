@@ -4564,7 +4564,7 @@ export const lessons = [
 
   {
     title: "Saudi Money Helps Make Ronaldo Top Earning Athlete",
-    type: "2- Intermediate Texts",
+    type: "Intermediate Texts",
     order: 100,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
@@ -4637,7 +4637,7 @@ export const lessons = [
   },
   {
     title: "Man Arrested for Writing False Restaurant Reviews",
-    type: "2- Intermediate Texts",
+    type: "Intermediate Texts",
     order: 101,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
@@ -4691,7 +4691,7 @@ export const lessons = [
 
   {
     title: "Life Expectancy Could Increase 5 Years by 2050",
-    type: "2- Intermediate Texts",
+    type: "Intermediate Texts",
     order: 102,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",

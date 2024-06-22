@@ -7,12 +7,12 @@ import {
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
-import { pathGenerator } from "../../Resources/UniversalComponents";
+import { backDomain, pathGenerator } from "../../Resources/UniversalComponents";
 import EnglishCourse from "./EnglishCourse";
 import { englishGrammar } from "./Assets/CoursesLists/EnglishGrammar";
-import { textsCourse } from "./Assets/CoursesLists/Texts";
 import { talkingBusiness } from "./Assets/CoursesLists/TalkingBusiness";
 import { contrasts } from "./Assets/CoursesLists/Contrasts";
+import axios from "axios";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
@@ -22,7 +22,7 @@ interface EnglishCoursesHomeProps {
 export default function EnglishCourses({
   headers,
 }: // back,
-EnglishCoursesHomeProps) {
+  EnglishCoursesHomeProps) {
   const transformLessons = (lessons: any): any[] => {
     return Object.entries(
       lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
@@ -34,16 +34,58 @@ EnglishCoursesHomeProps) {
       }, {})
     ).map(([type, lessons]) => ({ type, lessons }));
   };
+  const transformLessonsDb = (lessons: any): any[] => {
+    return Object.entries(
+      lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
+        if (!acc[lesson.module]) {
+          acc[lesson.module] = [];
+        }
+        acc[lesson.module].push(lesson);
+        return acc;
+      }, {})
+    ).map(([module, lessons]) => ({ module, lessons }));
+  };
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [listOfClassesFromDatabase, setListOfClassesFromDatabase] =
+    useState<any>([]);
+
+  const actualHeaders = headers || {};
+
+  const getCourses = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/courses`, {
+        headers: actualHeaders,
+      });
+      const list = response.data;
+      setListOfClassesFromDatabase(list.classesDetails);
+      setLoading(false);
+    } catch (error) {
+      console.log("Erro ao obter cards");
+      setLoading(false);
+    }
+  };
 
   const talkingB = transformLessons(talkingBusiness);
   const englishClassesArray = transformLessons(englishGrammar);
-  const textsArray = transformLessons(textsCourse);
   const constrastsArray = transformLessons(contrasts);
+  const listDBArray = transformLessonsDb(listOfClassesFromDatabase);
 
-  const groupedTalkingBArray = talkingB.sort((a: any, b: any) => a.order - b.order);
-  const groupedEnglishLessonsArray = englishClassesArray.sort((a: any, b: any) => a.order - b.order);
-  const groupedTextsLessonsArray = textsArray.sort((a: any, b: any) => a.order - b.order);
-  const groupedConstrastsArray = constrastsArray.sort((a: any, b: any) => a.order - b.order);
+  const groupedTalkingBArray = talkingB.sort(
+    (a: any, b: any) => a.order - b.order
+  );
+  const groupedEnglishLessonsArray = englishClassesArray.sort(
+    (a: any, b: any) => a.order - b.order
+  );
+  const groupedTextsLessonsArray = listDBArray.sort(
+    (a: any, b: any) => a.order - b.order
+  );
+  const groupedConstrastsArray = constrastsArray.sort(
+    (a: any, b: any) => a.order - b.order
+  );
+
+  useEffect(() => { getCourses(); }, []);
 
   const location = useLocation();
   const isRootPath = location.pathname === "/english-courses";
@@ -73,7 +115,6 @@ EnglishCoursesHomeProps) {
       image:
         "https://ik.imagekit.io/vjz75qw96/assets/courses/4.png?updatedAt=1718973560787",
     },
-    
   ];
   return (
     <RouteDivUp>
