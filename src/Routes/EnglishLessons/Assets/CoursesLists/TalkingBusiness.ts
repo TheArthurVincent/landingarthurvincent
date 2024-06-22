@@ -48,9 +48,9 @@ portuguese: "Senhora (usa-se para mulheres, de forma geral)",
 { english: "Ma'am", portuguese: "Senhora (Não acompanha nome)" },
 {
 english: "Mister",
-portuguese: "Senhor (adicione o nome de alguém)",
+portuguese: "Senhor (Não acompanha nome)",
 },
-{ english: "Miss", portuguese: "Senhor (adicione o nome de alguém)" },
+{ english: "Miss", portuguese: "Senhora (Não acompanha nome)" },
 ],
 },
 {
