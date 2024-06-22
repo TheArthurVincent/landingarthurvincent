@@ -22,7 +22,7 @@ interface EnglishCoursesHomeProps {
 export default function EnglishCourses({
   headers,
 }: // back,
-EnglishCoursesHomeProps) {
+  EnglishCoursesHomeProps) {
   const transformLessons = (lessons: any): any[] => {
     return Object.entries(
       lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
@@ -85,15 +85,7 @@ EnglishCoursesHomeProps) {
     (a: any, b: any) => a.order - b.order
   );
 
-  useEffect(() => {
-    getCourses();
-    console.log(
-      listDBArray,
-      groupedTextsLessonsArray,
-      groupedEnglishLessonsArray,
-      englishClassesArray
-    );
-  }, []);
+  useEffect(() => { getCourses(); }, []);
 
   const location = useLocation();
   const isRootPath = location.pathname === "/english-courses";
