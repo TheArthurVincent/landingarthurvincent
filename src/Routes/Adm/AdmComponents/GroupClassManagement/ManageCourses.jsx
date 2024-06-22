@@ -65,7 +65,7 @@ export function ManageGroupClasses({ headers }) {
 
   const deleteClass = async (classId) => {
     try {
-      await axios.delete(`${backDomain}/api/v1/courseclass/${classId}`, {
+      await axios.delete(`${backDomain}/api/v1/groupclass/${classId}`, {
         headers,
       });
       getCourses();
@@ -85,7 +85,7 @@ export function ManageGroupClasses({ headers }) {
     setLoadingModal(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/courseclass/${classId}`,
+        `${backDomain}/api/v1/groupclass/${classId}`,
         { headers }
       );
       setClassTitle(response.data.classTitle);
@@ -104,7 +104,7 @@ export function ManageGroupClasses({ headers }) {
     setLoadingModal(true);
     try {
       await axios.put(
-        `${backDomain}/api/v1/courseclass/${classId}`,
+        `${backDomain}/api/v1/groupclass/${classId}`,
         {
           classTitle,
           description,
@@ -126,7 +126,7 @@ export function ManageGroupClasses({ headers }) {
   const postNewClass = async () => {
     try {
       await axios.post(
-        `${backDomain}/api/v1/courseclass`,
+        `${backDomain}/api/v1/groupclass`,
         {
           classTitle: newClassName,
           videoUrl: newVideoUrl,

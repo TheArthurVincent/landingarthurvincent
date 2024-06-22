@@ -35,7 +35,7 @@ export default function GroupClasses({ headers }) {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/allcourseobjects`,
+        `${backDomain}/api/v1/allgroupclasses`,
         { headers }
       );
       setClasses(response.data);

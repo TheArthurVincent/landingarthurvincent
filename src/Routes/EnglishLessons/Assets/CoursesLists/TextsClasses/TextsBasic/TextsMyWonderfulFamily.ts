@@ -1,7 +1,8 @@
 export const TextsMyWonderfulFamily = [
   {
     title: "My Wonderful Family",
-    type: "1- Basic Texts",
+    type: "Basic Texts",
+    module: "Basic Texts",
     order: 1,
     image:
       "https://cf.ltkcdn.net/family/images/std/200821-800x533r1-family.jpg",

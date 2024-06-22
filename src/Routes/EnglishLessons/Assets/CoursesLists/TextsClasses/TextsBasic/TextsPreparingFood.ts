@@ -1,7 +1,8 @@
 export const TextsPreparingFood = [
   {
     title: "Preparing Food",
-    type: "1- Basic Texts",
+    type: "Basic Texts",
+    module: "Basic Texts",
     order: 3,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",

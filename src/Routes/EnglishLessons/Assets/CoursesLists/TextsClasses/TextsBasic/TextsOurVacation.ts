@@ -1,7 +1,8 @@
 export const TextsOurVacation = [
   {
     title: "Our Vacation",
-    type: "1- Basic Texts",
+    type: "Basic Texts",
+    module: "Basic Texts",
     order: 2,
     image:
       "https://www.tcbrasil.com.br/wp-content/uploads/2021/12/Saiba-se-Vacation-Club-vale-a-pena-para-o-seu-negocio.jpg",

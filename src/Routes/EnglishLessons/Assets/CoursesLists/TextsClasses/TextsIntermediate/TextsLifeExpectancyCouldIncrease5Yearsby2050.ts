@@ -1,10 +1,9 @@
 export const TextsLifeExpectancyCouldIncrease5Yearsby2050 = [
   {
     title: "Life Expectancy Could Increase 5 Years by 2050",
-    type: "2- Intermediate Texts",
+    module: "Intermediate Texts",
+    type: "Intermediate Texts",
     order: 102,
-    // description:
-    //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
     image:
       "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_600,dpr_1/https://assets.app.engoo.com/organizations/5d2656f1-9162-461d-88c7-b2505623d8cb/images/1ln7PwsSsqUJv0XKbKgzJc.jpeg",
     elements: [

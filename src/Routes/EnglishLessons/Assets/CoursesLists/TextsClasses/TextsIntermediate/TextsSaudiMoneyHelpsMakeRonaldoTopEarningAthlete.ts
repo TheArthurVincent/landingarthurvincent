@@ -1,7 +1,8 @@
 export const TextsSaudiMoneyHelpsMakeRonaldoTopEarningAthlete = [
   {
     title: "Saudi Money Helps Make Ronaldo Top Earning Athlete",
-    type: "2- Intermediate Texts",
+    type: "Intermediate Texts",
+    module: "Intermediate Texts",
     order: 0,
     // description:
     //   "Quando falamos sobre 'ter', no sentido de 'haver' ou 'existir', usamos, no presente, as expressões THERE IS e THERE ARE.",
