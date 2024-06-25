@@ -118,6 +118,9 @@ export default function MyCalendar({ headers, thePermissions }) {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    fetchGeneralEvents();
+  }, []);
 
   const fetchGeneralEventsNoLoading = async () => {
     setPostNew(false);
@@ -532,7 +535,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao atualizar evento");
     }
   };
-
 
   useEffect(() => {
     if (newStudentId !== "") {

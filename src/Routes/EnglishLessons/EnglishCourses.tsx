@@ -30,8 +30,10 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
 
   const getCourses = async () => {
     setLoading(true);
+    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    const studentId = getLoggedUser.id;
     try {
-      const response = await axios.get(`${backDomain}/api/v1/courses`, {
+      const response = await axios.get(`${backDomain}/api/v1/courses/${studentId}`, {
         headers: actualHeaders,
       });
       const testt = renderCourses(
