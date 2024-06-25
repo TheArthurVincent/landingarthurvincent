@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv, RouteDivUp, } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteDivUp,
+} from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -53,7 +57,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       );
       setListOfClassesFromDatabase(classesDB);
       setListOfClassesNonAuthFromDatabase(classesDBNonAuth);
-      console.log(response.data);
       setLoading(false);
     } catch (error) {
       console.log("Erro ao obter cards");
@@ -85,99 +88,105 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
           />
         ))}
       </Routes>
-      {!loading ? (
-        <RouteDiv style={{ display: isRootPath ? "block" : "none" }}>
-          <Helmets text="Courses" />
-          <HOne>Escolha um curso</HOne>
-          <ArvinButton onClick={getCourses}>
-            <i className="fa fa-refresh" aria-hidden={true} />{" "}
-          </ArvinButton>
-          <ul
-            style={{
-              display: "grid",
-              gap: "1rem",
-            }}
-          >
-            {listOfClassesFromDatabase.map((route: any, idx: number) => (
-              <Link
-                style={{
-                  textDecoration: "none",
-                }}
-                key={idx}
-                to={pathGenerator(route.title)}
-              >
-                <div
-                  className="hvr"
+      <RouteDiv style={{ display: isRootPath ? "block" : "none" }}>
+        <Helmets text="Courses" />
+        <HOne>Escolha um curso</HOne>
+        <ArvinButton onClick={getCourses}>
+          <i className="fa fa-refresh" aria-hidden={true} />{" "}
+        </ArvinButton>
+        <br />
+        {!loading ? (
+          <>
+            <br />
+            <ul
+              style={{
+                display: "grid",
+                gap: "1rem",
+              }}
+            >
+              {listOfClassesFromDatabase.map((route: any, idx: number) => (
+                <Link
                   style={{
-                    display: "flex",
-                    gap: "1rem",
-                    padding: "1rem",
-                    borderRadius: "1rem",
-                    alignItems: "center",
-                    justifyContent: "space-between",
+                    textDecoration: "none",
                   }}
+                  key={idx}
+                  to={pathGenerator(route.title)}
                 >
-                  <img
+                  <div
+                    className="hvr"
                     style={{
-                      maxWidth: "10rem",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center center",
+                      display: "flex",
+                      gap: "1rem",
+                      padding: "1rem",
+                      borderRadius: "1rem",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                     }}
-                    src={route.image}
-                    alt={`${route.title}img`}
-                  />
-                  <h2>{route.title}</h2>
-                </div>
-              </Link>
-            ))}
-          </ul>
-          <br />
-          <ul
-            style={{
-              display: "grid",
-              gap: "1rem",
-            }}
-          >
-            {listOfClassesNonAuthFromDatabase.map((route: any, idx: number) => (
-              <div
-                key={idx}
-                style={{
-                  cursor: "not-allowed",
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "1rem",
-                  borderRadius: "1rem",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-                className="hvr"
-              >
-                <img
-                  style={{
-                    maxWidth: "10rem",
-                    width: "100%",
-                    filter: "grayscale(100%)",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center center",
-                  }}
-                  src={route.image}
-                  alt={`${route.title}img`}
-                />
-                <div>
-                  <h2>{route.title}</h2>
-                  <p>No access</p>
-                </div>
-              </div>
-            ))}
-          </ul>
-          <Outlet />
-        </RouteDiv>
-      ) : (
-        <CircularProgress />
-      )}
+                  >
+                    <img
+                      style={{
+                        maxWidth: "10rem",
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center center",
+                      }}
+                      src={route.image}
+                      alt={`${route.title}img`}
+                    />
+                    <h2>{route.title}</h2>
+                  </div>
+                </Link>
+              ))}
+            </ul>
+            <br />
+            <ul
+              style={{
+                display: "grid",
+                gap: "1rem",
+              }}
+            >
+              {listOfClassesNonAuthFromDatabase.map(
+                (route: any, idx: number) => (
+                  <div
+                    key={idx}
+                    style={{
+                      cursor: "not-allowed",
+                      display: "flex",
+                      gap: "1rem",
+                      padding: "1rem",
+                      borderRadius: "1rem",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                    className="hvr"
+                  >
+                    <img
+                      style={{
+                        maxWidth: "10rem",
+                        width: "100%",
+                        filter: "grayscale(100%)",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center center",
+                      }}
+                      src={route.image}
+                      alt={`${route.title}img`}
+                    />
+                    <div>
+                      <h2>{route.title}</h2>
+                      <p>No access</p>
+                    </div>
+                  </div>
+                )
+              )}
+            </ul>
+          </>
+        ) : (
+          <CircularProgress />
+        )}
+        <Outlet />
+      </RouteDiv>
     </RouteDivUp>
   );
 }
