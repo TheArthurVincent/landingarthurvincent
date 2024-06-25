@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { alwaysWhite, lightGreyColor } from "../../Styles/Styles";
+import { alwaysWhite, lightGreyColor, primaryColor } from "../../Styles/Styles";
 
 
 export const DivModal = styled.div`
@@ -51,13 +51,15 @@ export const SpanDisapear = styled.span`
 `;
 
 export const IFrameVideoBlog = styled.iframe`
-  border: none;
+  border: 1px solid ${lightGreyColor()};
+  border-radius: 1rem;
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
   min-width: 950px;
   min-height: 450px;
   @media (max-width: 1150px) {
+  border: none;
     min-width: 800px;
     min-height: 450px;
   }
