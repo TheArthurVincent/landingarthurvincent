@@ -137,7 +137,7 @@ export default function EnglishCourse({
         {filteredLessons.map((course: any, index: number) => (
           <div key={index}>
             <HThree>
-              {course.type ? course.type : course.module}: Classes
+              {index + 1} |  {course.type ? course.type : course.module}
             </HThree>
             <div
               style={{
