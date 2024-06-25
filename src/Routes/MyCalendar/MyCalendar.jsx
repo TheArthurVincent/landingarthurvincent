@@ -533,12 +533,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-  // UseEffects
-
-  useEffect(() => {
-    thePermissions == "superadmin" && fetchStudents();
-    fetchGeneralEvents();
-  }, []);
 
   useEffect(() => {
     if (newStudentId !== "") {

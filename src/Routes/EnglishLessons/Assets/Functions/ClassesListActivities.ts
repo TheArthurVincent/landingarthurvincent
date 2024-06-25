@@ -1,7 +1,9 @@
 export const lessons = [
+  
   {
     title: "Introducing Yourself and Basics",
     order: 1,
+    video: "https://vimeo.com/967100721",
     type: "1- Basic",
     description:
       "Nesta aula, aprenderemos algumas expressões básicas, e maneiras comuns de se apresentar.",

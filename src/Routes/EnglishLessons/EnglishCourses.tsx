@@ -13,16 +13,13 @@ import { englishGrammar } from "./Assets/CoursesLists/EnglishGrammar";
 import { talkingBusiness } from "./Assets/CoursesLists/TalkingBusiness";
 import { contrasts } from "./Assets/CoursesLists/Contrasts";
 import axios from "axios";
+import { CircularProgress } from "@mui/material";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
-  // back: any | null;
 }
 
-export default function EnglishCourses({
-  headers,
-}: // back,
-  EnglishCoursesHomeProps) {
+export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   const transformLessons = (lessons: any): any[] => {
     return Object.entries(
       lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
@@ -34,17 +31,6 @@ export default function EnglishCourses({
       }, {})
     ).map(([type, lessons]) => ({ type, lessons }));
   };
-  const transformLessonsDb = (lessons: any): any[] => {
-    return Object.entries(
-      lessons.reduce((acc: { [key: string]: any }, lesson: any) => {
-        if (!acc[lesson.module]) {
-          acc[lesson.module] = [];
-        }
-        acc[lesson.module].push(lesson);
-        return acc;
-      }, {})
-    ).map(([module, lessons]) => ({ module, lessons }));
-  };
 
   const [loading, setLoading] = useState<boolean>(false);
   const [listOfClassesFromDatabase, setListOfClassesFromDatabase] =
@@ -52,25 +38,19 @@ export default function EnglishCourses({
 
   const actualHeaders = headers || {};
 
-  const getCourses = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/courses`, {
-        headers: actualHeaders,
-      });
-      const list = response.data;
-      setListOfClassesFromDatabase(list.classesDetails);
-      setLoading(false);
-    } catch (error) {
-      console.log("Erro ao obter cards");
-      setLoading(false);
-    }
+  const renderCourses = (cList: any) => {
+    const arrayC = cList.map((course: any) => ({
+      title: course.title,
+      groupedLessonsArray: course.modules,
+      image: course.image,
+    }));
+
+    return arrayC;
   };
 
   const talkingB = transformLessons(talkingBusiness);
   const englishClassesArray = transformLessons(englishGrammar);
   const constrastsArray = transformLessons(contrasts);
-  const listDBArray = transformLessonsDb(listOfClassesFromDatabase);
 
   const groupedTalkingBArray = talkingB.sort(
     (a: any, b: any) => a.order - b.order
@@ -78,14 +58,34 @@ export default function EnglishCourses({
   const groupedEnglishLessonsArray = englishClassesArray.sort(
     (a: any, b: any) => a.order - b.order
   );
-  const groupedTextsLessonsArray = listDBArray.sort(
-    (a: any, b: any) => a.order - b.order
-  );
   const groupedConstrastsArray = constrastsArray.sort(
     (a: any, b: any) => a.order - b.order
   );
 
-  useEffect(() => { getCourses(); }, []);
+  const getCourses = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/courses`, {
+        headers: actualHeaders,
+      });
+      const testt = renderCourses(response.data.courses);
+      setListOfClassesFromDatabase(testt);
+      console.log(
+        "response.data.courses",
+        response.data.courses,
+        "testt",
+        testt
+      );
+      setLoading(false);
+    } catch (error) {
+      console.log("Erro ao obter cards");
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getCourses();
+  }, []);
 
   const location = useLocation();
   const isRootPath = location.pathname === "/english-courses";
@@ -99,7 +99,7 @@ export default function EnglishCourses({
     },
     {
       title: "Texts",
-      groupedLessonsArray: groupedTextsLessonsArray,
+      // groupedLessonsArray: groupedTextsLessonsArray,
       image:
         "https://ik.imagekit.io/vjz75qw96/assets/courses/2.jpg?updatedAt=1718734644105",
     },
@@ -116,9 +116,24 @@ export default function EnglishCourses({
         "https://ik.imagekit.io/vjz75qw96/assets/courses/4.png?updatedAt=1718973560787",
     },
   ];
+
   return (
     <RouteDivUp>
       <Routes>
+        {/* {listOfClassesFromDatabase.map((route: any, idx: number) => (
+          <Route
+            key={idx}
+            path={`${pathGenerator(route.title)}/*`}
+            element={
+              <EnglishCourse
+                back={pathGenerator(route.title)}
+                less={route}
+                headers={headers}
+              />
+            }
+          />
+        ))} */}
+
         {listOfCourses.map((route: any, idx: number) => (
           <Route
             key={idx}
@@ -133,52 +148,104 @@ export default function EnglishCourses({
           />
         ))}
       </Routes>
-      <RouteDiv style={{ display: isRootPath ? "block" : "none" }}>
-        <Helmets text="Courses" />
-        <HOne>Escolha um curso</HOne>
-        <ul
-          style={{
-            display: "grid",
-            gap: "1rem",
-          }}
-        >
-          {listOfCourses.map((route: any, idx: number) => (
-            <Link
-              style={{
-                textDecoration: "none",
-              }}
-              key={idx}
-              to={pathGenerator(route.title)}
-            >
-              <div
-                className="hvr"
+      {!loading ? (
+        <RouteDiv style={{ display: isRootPath ? "block" : "none" }}>
+          <Helmets text="Courses" />
+          <HOne>Escolha um curso</HOne>
+          {/* <ul
+            style={{
+              display: "grid",
+              gap: "1rem",
+            }}
+          >
+            {listOfClassesFromDatabase.map((route: any, idx: number) => (
+              <Link
                 style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "1rem",
-                  borderRadius: "1rem",
-                  alignItems: "center",
-                  justifyContent: "space-between",
+                  textDecoration: "none",
                 }}
+                key={idx}
+                to={pathGenerator(route.title)}
               >
-                <img
+                <div
+                  className="hvr"
                   style={{
-                    maxWidth: "10rem",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center center",
+                    display: "flex",
+                    gap: "1rem",
+                    padding: "1rem",
+                    borderRadius: "1rem",
+                    alignItems: "center",
+                    justifyContent: "space-between",
                   }}
-                  src={route.image}
-                  alt={`${route.title}img`}
-                />
-                <h2>{route.title}</h2>
-              </div>
-            </Link>
-          ))}
-        </ul>
-        <Outlet />
-      </RouteDiv>
+                >
+                  <img
+                    style={{
+                      maxWidth: "10rem",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center center",
+                    }}
+                    src={route.image}
+                    alt={`${route.title}img`}
+                  />
+                  <h2>{route.title}</h2>
+                </div>
+              </Link>
+            ))}
+          </ul>
+          <>_______________________________________________________</>
+          <br /> <>_______________________________________________________</>
+          <br /> <>_______________________________________________________</>
+          <br /> <>_______________________________________________________</>
+          <br /> <>_______________________________________________________</>
+          <br /> <>_______________________________________________________</>
+          <br /> */}
+          <ul
+            style={{
+              display: "grid",
+              gap: "1rem",
+            }}
+          >
+            {listOfCourses.map((route: any, idx: number) => (
+              <Link
+                style={{
+                  textDecoration: "none",
+                }}
+                key={idx}
+                to={pathGenerator(route.title)}
+              >
+                <div
+                  className="hvr"
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    padding: "1rem",
+                    borderRadius: "1rem",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <img
+                    style={{
+                      maxWidth: "10rem",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center center",
+                    }}
+                    src={route.image}
+                    alt={`${route.title}img`}
+                  />
+                  <h2>{route.title}</h2>
+                </div>
+              </Link>
+            ))}
+          </ul>
+          <Outlet />
+        </RouteDiv>
+      ) : (
+        <CircularProgress />
+      )}
     </RouteDivUp>
   );
 }
