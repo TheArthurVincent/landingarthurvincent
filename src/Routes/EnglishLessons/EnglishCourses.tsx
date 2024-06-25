@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  RouteDiv,
-  RouteDivUp,
-} from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv, RouteDivUp, } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
