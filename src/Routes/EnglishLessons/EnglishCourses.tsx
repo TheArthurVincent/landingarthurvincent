@@ -92,12 +92,11 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         <Helmets text="Courses" />
         <HOne>Escolha um curso</HOne>
         <ArvinButton onClick={getCourses}>
-          <i className="fa fa-refresh" aria-hidden={true} />{" "}
+          <i className="fa fa-refresh" aria-hidden={true} />
         </ArvinButton>
         <br />
         {!loading ? (
-          <>
-            <br />
+          <div>
             <ul
               style={{
                 display: "grid",
@@ -140,6 +139,8 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
               ))}
             </ul>
             <br />
+            <br />
+            <br />
             <ul
               style={{
                 display: "grid",
@@ -181,9 +182,12 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                 )
               )}
             </ul>
-          </>
+          </div>
         ) : (
-          <CircularProgress />
+          <div>
+            <br />
+            <CircularProgress />
+          </div>
         )}
         <Outlet />
       </RouteDiv>
