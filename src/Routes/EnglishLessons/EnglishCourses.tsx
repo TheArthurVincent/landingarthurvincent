@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv, RouteDivUp } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteDivUp,
+} from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -9,12 +13,18 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
-interface EnglishCoursesHomeProps { headers: MyHeadersType | null; }
+interface EnglishCoursesHomeProps {
+  headers: MyHeadersType | null;
+}
 
 export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [listOfClassesFromDatabase, setListOfClassesFromDatabase] =
     useState<any>([]);
+  const [
+    listOfClassesNonAuthFromDatabase,
+    setListOfClassesNonAuthFromDatabase,
+  ] = useState<any>([]);
 
   const actualHeaders = headers || {};
 
@@ -33,13 +43,20 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     const studentId = getLoggedUser.id;
     try {
-      const response = await axios.get(`${backDomain}/api/v1/courses/${studentId}`, {
-        headers: actualHeaders,
-      });
-      const testt = renderCourses(
+      const response = await axios.get(
+        `${backDomain}/api/v1/courses/${studentId}`,
+        {
+          headers: actualHeaders,
+        }
+      );
+      const classesDB = renderCourses(
         response.data.courses.sort((a: any, b: any) => a.order - b.order)
       );
-      setListOfClassesFromDatabase(testt);
+      const classesDBNonAuth = renderCourses(
+        response.data.coursesNonAuth.sort((a: any, b: any) => a.order - b.order)
+      );
+      setListOfClassesFromDatabase(classesDB);
+      setListOfClassesNonAuthFromDatabase(classesDBNonAuth);
       console.log(response.data);
       setLoading(false);
     } catch (error) {
@@ -48,7 +65,9 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
     }
   };
 
-  useEffect(() => { getCourses() }, []);
+  useEffect(() => {
+    getCourses();
+  }, []);
 
   const location = useLocation();
   const isRootPath = location.pathname === "/english-courses";
@@ -116,6 +135,46 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                   <h2>{route.title}</h2>
                 </div>
               </Link>
+            ))}
+          </ul>
+          <br />
+          <ul
+            style={{
+              display: "grid",
+              gap: "1rem",
+            }}
+          >
+            {listOfClassesNonAuthFromDatabase.map((route: any, idx: number) => (
+              <div
+                key={idx}
+                style={{
+                  cursor: "not-allowed",
+                  display: "flex",
+                  gap: "1rem",
+                  padding: "1rem",
+                  borderRadius: "1rem",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+                className="hvr"
+              >
+                <img
+                  style={{
+                    maxWidth: "10rem",
+                    width: "100%",
+                    filter: "grayscale(100%)",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center center",
+                  }}
+                  src={route.image}
+                  alt={`${route.title}img`}
+                />
+                <div>
+                  <h2>{route.title}</h2>
+                  <p>No access</p>
+                </div>
+              </div>
             ))}
           </ul>
           <Outlet />
