@@ -163,7 +163,7 @@ export default function EnglishCourse({
                       }}
                     >
                       <CourseCard>
-                        <p>{cls.title}</p>
+                        <p>{idx +1} - {cls.title}</p>
                         <img
                           style={{
                             margin: "auto",

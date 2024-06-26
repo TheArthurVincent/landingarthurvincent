@@ -149,7 +149,6 @@ export default function EnglishLessonsRender({
               cursor: "pointer",
             }}
             onClick={backToCourses}
-            // to={`/english-courses/${pathGenerator(module)}`}
           >
             {module}
           </span>{" "}

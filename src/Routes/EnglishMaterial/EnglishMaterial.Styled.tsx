@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import {
+  alwaysWhite,
   darkGreyColor,
   lightGreyColor,
   primaryColor,
@@ -36,7 +37,7 @@ export const CourseCard = styled.div`
   text-align: center;
   gap: 0.5rem;
   font-size: 9px;
-  border-radius:10px;
+  border-radius: 10px;
   font-weight: 800;
   display: flex;
   background-color: ${lightGreyColor()};
@@ -45,14 +46,26 @@ export const CourseCard = styled.div`
   padding: 1rem 0.2rem;
   flex-direction: column;
   transition: 0.3s;
+
   img {
     filter: grayscale(100%);
     transition: 0.3s;
-    }
-    &:hover {
-      box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
-      img {
-        filter: grayscale(0%);
+    border-radius: 0.5rem;
+    width: 100%;
+    height: auto;
+    transform-origin: center;
+  }
+
+  &:hover {
+    box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
+    background-color: ${alwaysWhite()};
+
+    img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+      border-radius: 0.7rem;
+      height: 8rem;
+      width: 6rem;
     }
   }
 `;
