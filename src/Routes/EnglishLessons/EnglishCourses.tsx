@@ -103,40 +103,42 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                 gap: "1rem",
               }}
             >
-              {listOfClassesFromDatabase.map((route: any, idx: number) => (
-                <Link
-                  style={{
-                    textDecoration: "none",
-                  }}
-                  key={idx}
-                  to={pathGenerator(route.title)}
-                >
-                  <div
-                    className="hvr"
+              {listOfClassesFromDatabase
+                .sort((a: any, b: any) => a.order - b.order)
+                .map((route: any, idx: number) => (
+                  <Link
                     style={{
-                      display: "flex",
-                      gap: "1rem",
-                      padding: "1rem",
-                      borderRadius: "1rem",
-                      alignItems: "center",
-                      justifyContent: "space-between",
+                      textDecoration: "none",
                     }}
+                    key={idx}
+                    to={pathGenerator(route.title)}
                   >
-                    <img
+                    <div
+                      className="hvr"
                       style={{
-                        maxWidth: "10rem",
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center center",
+                        display: "flex",
+                        gap: "1rem",
+                        padding: "1rem",
+                        borderRadius: "1rem",
+                        alignItems: "center",
+                        justifyContent: "space-between",
                       }}
-                      src={route.image}
-                      alt={`${route.title}img`}
-                    />
-                    <h2>{route.title}</h2>
-                  </div>
-                </Link>
-              ))}
+                    >
+                      <img
+                        style={{
+                          maxWidth: "10rem",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center center",
+                        }}
+                        src={route.image}
+                        alt={`${route.title}img`}
+                      />
+                      <h2>{route.title}</h2>
+                    </div>
+                  </Link>
+                ))}
             </ul>
             <br />
             <br />
