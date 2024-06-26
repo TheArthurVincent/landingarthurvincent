@@ -64,7 +64,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>
         </Button>
-        <p>Este é o Ranking das pontuações TOTAIS acima de 5000!</p>
+        <p>Este é o Ranking das pontuações TOTAIS acima de 3.000!</p>
       </div>
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
@@ -76,7 +76,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
               <AnimatedLi2
                 key={index}
                 style={{
-                  display: item.totalScore >= 5000 ? "flex" : "none",
+                  display: item.totalScore >= 3000 ? "flex" : "none",
                   background: theItems[levelNumber].color,
                   color: theItems[levelNumber].textcolor,
                 }}
