@@ -50,7 +50,8 @@ export const CourseCard = styled.div`
   img {
     filter: grayscale(100%);
     transition: 0.3s;
-    border-radius: 0.5rem;
+      border-radius: 50%;
+      transform: rotate(5deg); 
     width: 100%;
     height: auto;
     transform-origin: center;
@@ -62,8 +63,8 @@ export const CourseCard = styled.div`
 
     img {
       filter: grayscale(0%);
-      transform: scale(1.05);
-      border-radius: 0.7rem;
+      transform: rotate(0deg); 
+      border-radius: 50%;
       height: 8rem;
       width: 6rem;
     }
