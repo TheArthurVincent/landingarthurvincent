@@ -76,7 +76,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
               <AnimatedLi2
                 key={index}
                 style={{
-                  display: item.totalScore >= 5000 ? "flex" : "none",
+                  display: item.totalScore >= 3000 ? "flex" : "none",
                   background: theItems[levelNumber].color,
                   color: theItems[levelNumber].textcolor,
                 }}
