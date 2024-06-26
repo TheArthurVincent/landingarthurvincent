@@ -1,318 +1,356 @@
 {
   "theClass": [
     {
-          "title": "Introduction 3",
-      "order": 0,
-      "courseId": "667a9e074648eac19936470c",
-      "module": "667ab7efad6a4d6cdddb46bb",
-      "description": "Welcome to the Business Expressions module!",
-      "elements": []
-    },
-    {
-      "title": "Mastering Business Expressions",
-      "order": 1,
-      "courseId": "667a9e074648eac19936470c",
-      "module": "667ab7efad6a4d6cdddb46bb",
-      "description": "This class will be ready soon.",
+      "title": "Final Exercises",
+      "order": 13,
+      "module": "667ac1924b4d6245dc8f3802",
+      "image": "https://images.pexels.com/photos/4144294/pexels-photo-4144294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "courseId": "667a9dd14648eac1993646fc",
+      "description": "Aqui, aprenderemos referências de tempo, deste palavras como 'hoje' e 'amanhã', até como falar as horas!",
       "elements": [
         {
-          "subtitle": "To hit the target",
+          "subtitle": "What word is this?",
           "order": 0,
-          "grid": 1,
-          "comments": "To achieve the target established",
-          "type": "sentences",
-          "sentences": [
+          "type": "listenandtranslate",
+          "audios": [
             {
-              "english": "After months of preparation and practice, the archer finally hit the target dead center with her final arrow.",
-              "portuguese": "Após meses de preparação e prática, a arqueira finalmente acertou o alvo bem no centro com sua flecha final."
+              "enusAudio": "We can go, but we need to tell Mary.",
+              "ptbrText": "Podemos ir, mas precisamos avisar a Mary."
             },
             {
-              "english": "The marketing campaign was a resounding success, as it hit the target audience precisely with its compelling message.",
-              "portuguese": "A campanha de marketing foi um sucesso retumbante, pois atingiu precisamente o público-alvo com sua mensagem persuasiva."
+              "enusAudio": "I am not working today, but I will work next week.",
+              "ptbrText": "Não estou trabalhando hoje, mas vou trabalhar na próxima semana."
+            },
+            {
+              "enusAudio": "My father John is 44 years old and he is from Brazil.",
+              "ptbrText": "Meu pai John tem 44 anos e é do Brasil."
+            },
+            {
+              "enusAudio": "We can start at 6pm.",
+              "ptbrText": "Podemos começar às 18h."
+            },
+            {
+              "enusAudio": "They might arrive at quarter to five.",
+              "ptbrText": "Eles podem chegar às quatro e quinze."
+            },
+            {
+              "enusAudio": "We need her to finish the report by noon.",
+              "ptbrText": "Precisamos que ela termine o relatório até meio-dia."
+            },
+            {
+              "enusAudio": "They need us to finish this task by Friday.",
+              "ptbrText": "Eles precisam que nós terminemos esta tarefa até sexta-feira."
+            },
+            {
+              "enusAudio": "I like to start my day at 6am.",
+              "ptbrText": "Eu gosto de começar meu dia às 6h."
+            },
+            {
+              "enusAudio": "I have 2 cars, but they aren't very good.",
+              "ptbrText": "Eu tenho 2 carros, mas eles não são muito bons."
+            },
+            {
+              "enusAudio": "My mother has $3,430 in her bank account.",
+              "ptbrText": "Minha mãe tem $3,430 na conta bancária dela."
+            },
+            {
+              "enusAudio": "We should start this meeting at 7:35.",
+              "ptbrText": "Nós devemos começar esta reunião às 7:35."
+            },
+            {
+              "enusAudio": "This is my car, it's very old.",
+              "ptbrText": "Este é meu carro, ele é bem velho."
+            },
+            {
+              "enusAudio": "My new car is very good.",
+              "ptbrText": "Meu carro novo é muito bom."
+            },
+            {
+              "enusAudio": "His new house is nice.",
+              "ptbrText": "A nova casa dele é bonita."
+            },
+            {
+              "enusAudio": "We would like to go to the party.",
+              "ptbrText": "Nós gostaríamos de ir à festa."
+            },
+            {
+              "enusAudio": "She may arrive by noon.",
+              "ptbrText": "Ela pode chegar até o meio-dia."
+            },
+            {
+              "enusAudio": "We may start by 11am.",
+              "ptbrText": "Nós podemos começar até as 11h."
+            },
+            {
+              "enusAudio": "You must start to work at 1pm!",
+              "ptbrText": "Você deve começar a trabalhar às 13h!"
+            },
+            {
+              "enusAudio": "They could come on Friday.",
+              "ptbrText": "Eles poderiam vir na sexta-feira."
+            },
+            {
+              "enusAudio": "He may cry if you are not here by noon.",
+              "ptbrText": "Ele pode chorar se você não estiver aqui até o meio-dia."
+            },
+            {
+              "enusAudio": "I will study more this time.",
+              "ptbrText": "Eu vou estudar mais desta vez."
+            },
+            {
+              "enusAudio": "He would dance with you.",
+              "ptbrText": "Ele dançaria com você."
+            },
+            {
+              "enusAudio": "Is Mary working today?",
+              "ptbrText": "A Mary está trabalhando hoje?"
+            },
+            {
+              "enusAudio": "Are they here with you?",
+              "ptbrText": "Eles estão aqui com você?"
+            },
+            {
+              "enusAudio": "Are we doing this right?",
+              "ptbrText": "Estamos fazendo isso certo?"
+            },
+            {
+              "enusAudio": "She would dance with him.",
+              "ptbrText": "Ela dançaria com ele."
+            },
+            {
+              "enusAudio": "Mark must study more on Monday.",
+              "ptbrText": "Mark deve estudar mais na segunda-feira."
+            },
+            {
+              "enusAudio": "Thomas and Jane could arrive at half past four.",
+              "ptbrText": "Thomas e Jane poderiam chegar às quatro e meia."
+            },
+            {
+              "enusAudio": "You can leave, but we must inform them.",
+              "ptbrText": "Você pode sair, mas nós precisamos avisá-los."
+            },
+            {
+              "enusAudio": "You are not working today, but you were working yesterday.",
+              "ptbrText": "Você não está trabalhando hoje, mas você estava trabalhando ontem."
+            },
+            {
+              "enusAudio": "His mother Mary is 46 years old and she is from Australia.",
+              "ptbrText": "A mãe dele, Mary, tem 46 anos e é da Austrália."
+            },
+            {
+              "enusAudio": "We may start by seven.",
+              "ptbrText": "Nós podemos começar por volta das sete."
+            },
+            {
+              "enusAudio": "I might arrive at half past five.",
+              "ptbrText": "Eu posso chegar às cinco e meia."
+            },
+            {
+              "enusAudio": "They need him to complete the report by 3.",
+              "ptbrText": "Eles precisam que ele complete o relatório até as 3."
+            },
+            {
+              "enusAudio": "They must finish this by midnight.",
+              "ptbrText": "Eles precisam terminar isso até meia-noite."
+            },
+            {
+              "enusAudio": "We must finish that by Saturday.",
+              "ptbrText": "Nós precisamos terminar isso até sábado."
+            },
+            {
+              "enusAudio": "He prefers to start his day at five AM.",
+              "ptbrText": "Ele prefere começar o dia às cinco da manhã."
+            },
+            {
+              "enusAudio": "Her 2 cars aren't very good.",
+              "ptbrText": "Os dois carros dela não são muito bons."
+            },
+            {
+              "enusAudio": "My father has $1,430 in his bank account.",
+              "ptbrText": "Meu pai tem $1,430 na conta bancária dele."
+            },
+            {
+              "enusAudio": "This is our car, it's very old.",
+              "ptbrText": "Este é nosso carro, ele é bem velho."
+            },
+            {
+              "enusAudio": "This car is mine, but that car is ours.",
+              "ptbrText": "Este carro é meu, mas aquele carro é nosso."
             }
           ]
         },
         {
-          "subtitle": "To meet the deadline",
+          "subtitle": "Will - Afirmações",
           "order": 1,
-          "grid": 1,
-          "comments": "To complete tasks on or before the specified time",
+          "comments":"Will pode descrever um evento futuro. Vamos aprender algumas afirmações",
           "type": "sentences",
           "sentences": [
             {
-              "english": "Despite setbacks, the team worked tirelessly to meet the deadline for project delivery.",
-              "portuguese": "Apesar dos contratempos, a equipe trabalhou incansavelmente para cumprir o prazo de entrega do projeto."
+              "english": "I will tell him that this car is mine.",
+              "portuguese": "Eu vou dizer a ele que este carro é meu."
             },
             {
-              "english": "The contractor assured the client that they would meet the deadline for construction completion.",
-              "portuguese": "O empreiteiro assegurou ao cliente que cumpriria o prazo para a conclusão da construção."
+              "english": "I will tell him that this car is mine.",
+              "portuguese": "Eu vou dizer a ele que este carro é meu."
+            },
+            {
+              "english": "She will bring her dog to the park tomorrow.",
+              "portuguese": "Ela vai trazer o cachorro dela para o parque amanhã."
+            },
+            {
+              "english": "They will visit their grandparents next weekend.",
+              "portuguese": "Eles vão visitar os avós deles no próximo fim de semana."
+            },
+            {
+              "english": "I will cook dinner for my family tonight.",
+              "portuguese": "Eu vou cozinhar o jantar para minha família esta noite."
+            },
+            {
+              "english": "He will buy his girlfriend a gift for her birthday.",
+              "portuguese": "Ele vai comprar um presente para a namorada dele no aniversário dela."
+            },
+            {
+              "english": "We will clean our house before the guests arrive.",
+              "portuguese": "Nós vamos limpar nossa casa antes dos convidados chegarem."
+            },
+            {
+              "english": "She will teach her sister how to swim next summer.",
+              "portuguese": "Ela vai ensinar a irmã dela a nadar no próximo verão."
+            },
+            {
+              "english": "They will paint their bedroom walls pink.",
+              "portuguese": "Eles vão pintar as paredes do quarto deles de cor-de-rosa."
+            },
+            {
+              "english": "He will repair his bicycle over the weekend.",
+              "portuguese": "Ele vai consertar a bicicleta dele durante o fim de semana."
+            },
+            {
+              "english": "I will read my favorite book again next month.",
+              "portuguese": "Eu vou ler meu livro favorito novamente no próximo mês."
             }
           ]
         },
         {
-          "subtitle": "To stay on budget",
+          "subtitle": "Will - Perguntas",
           "order": 2,
-          "grid": 1,
-          "comments": "To adhere to the allocated financial resources",
+          "comments":"Vamos aprender algumas perguntas com Will",
           "type": "sentences",
-          "sentences": [
+          "sentences":[
             {
-              "english": "The event organizers managed to stay on budget despite unexpected costs.",
-              "portuguese": "Os organizadores do evento conseguiram permanecer dentro do orçamento, apesar dos custos inesperados."
+              "english": "Will she finish her homework in time?",
+              "portuguese": "Ela vai terminar a lição de casa a tempo?"
             },
             {
-              "english": "The company implemented cost-saving measures to ensure they would stay on budget for the fiscal.",
-              "portuguese": "A empresa implementou medidas de economia para garantir que permanecessem dentro do orçamento para o ano fiscal."
-            }
-          ]
-        },
-        {
-          "subtitle": "To exceed expectations",
-          "order": 3,
-          "grid": 1,
-          "comments": "To surpass what is anticipated or required",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "The new product launch exceeded expectations, resulting in record-breaking sales.",
-              "portuguese": "O lançamento do novo produto superou as expectativas, resultando em vendas que quebraram recordes."
+              "english": "Will John come?",
+              "portuguese": "John virá?"
+
+            },            {
+              "english": "Will we help them next week?",
+              "portuguese": "Nós ajudaremos eles semana que vem?"
+
             },
             {
-              "english": "The team's performance in the project review exceeded all expectations set by the management.",
-              "portuguese": "O desempenho da equipe na revisão do projeto superou todas as expectativas estabelecidas pela gerência."
-            }
-          ]
-        },
+            "english": "When will she finish her homework?",
+            "portuguese": "Quando ela vai terminar a lição de casa?"
+          },
+          {
+            "english": "Why will they move to a new city?",
+            "portuguese": "Por que eles vão se mudar para uma nova cidade?"
+          },
+          {
+            "english": "Where will you go on vacation this year?",
+            "portuguese": "Para onde você vai nas férias este ano?"
+          },
+          {
+            "english": "How will he learn to play the guitar?",
+            "portuguese": "Como ele vai aprender a tocar violão?"
+          },
+          {
+            "english": "How many books will she read this summer?",
+            "portuguese": "Quantos livros ela vai ler neste verão?"
+          },
+          {
+            "english": "How much will it cost to repair the car?",
+            "portuguese": "Quanto vai custar para consertar o carro?"
+          },
+          {
+            "english": "Who will cook dinner tonight?",
+            "portuguese": "Quem vai cozinhar o jantar hoje à noite?"
+          },
+          {
+            "english": "What will they do with the extra money?",
+            "portuguese": "O que eles vão fazer com o dinheiro extra?"
+          },
+          {
+            "english": "When will he finish building the house?",
+            "portuguese": "Quando ele vai terminar de construir a casa?"
+          },
+          {
+            "english": "Why will she start a new job next month?",
+            "portuguese": "Por que ela vai começar um novo emprego no próximo mês?"
+          }
+        ]},
         {
-          "subtitle": "To drive results",
-          "order": 4,
-          "grid": 1,
-          "comments": "To take actions that lead to successful outcomes",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "The CEO's leadership style was focused on driving results through effective decision-making.",
-              "portuguese": "O estilo de liderança do CEO estava focado em impulsionar resultados por meio de tomadas de decisão eficazes."
-            },
-            {
-              "english": "The marketing team's innovative campaign strategies drove exceptional results in customer engagement.",
-              "portuguese": "As estratégias de campanha inovadoras da equipe de marketing impulsionaram resultados excepcionais no engajamento do cliente."
-            }
-          ]
-        },
-        {
-          "subtitle": "To maintain quality standards",
-          "order": 5,
-          "grid": 1,
-          "comments": "To uphold established levels of quality in products or services",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "The company prides itself on maintaining high quality standards across all its products.",
-              "portuguese": "A empresa se orgulha de manter altos padrões de qualidade em todos os seus produtos."
-            },
-            {
-              "english": "The restaurant consistently maintains its quality standards to ensure customer satisfaction.",
-              "portuguese": "O restaurante mantém consistentemente seus padrões de qualidade para garantir a satisfação do cliente."
-            }
-          ]
-        },
-        {
-          "subtitle": "To increase market share",
-          "order": 5,
-          "grid": 1,
-          "comments": "To grow the portion of market sales relative to competitors",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "The company implemented aggressive marketing strategies to increase market share in the competitive industry.",
-              "portuguese": "A empresa implementou estratégias de marketing agressivas para aumentar a participação de mercado na indústria competitiva."
-            },
-            {
-              "english": "The new product launch successfully increased the company's market share in the region.",
-              "portuguese": "O lançamento do novo produto aumentou com sucesso a participação de mercado da empresa na região."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Mastering Business Idioms",
-      "order": 2,
-      "courseId": "667a9e074648eac19936470c",
-      "module": "667ab7efad6a4d6cdddb46bb",
-      "description": "This class will be ready soon.",
-      "elements": [
-        {
-          "subtitle": "To think outside the box",
-          "order": 0,
-          "grid": 1,
-          "comments": "To think creatively or unconventionally",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "The company encouraged its employees to think outside the box to come up with innovative solutions.",
-              "portuguese": "A empresa incentivou seus funcionários a pensar fora da caixa para encontrar soluções inovadoras."
-            },
-            {
-              "english": "To succeed in this competitive market, we need to think outside the box and explore new strategies.",
-              "portuguese": "Para ter sucesso neste mercado competitivo, precisamos pensar fora da caixa e explorar novas estratégias."
-            }
-          ]
-        },
-        {
-          "subtitle": "To give a ballpark figure",
-          "order": 1,
-          "grid": 1,
-          "comments": "To provide an approximate estimate",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "The contractor gave us a ballpark figure for the renovation costs, but we need a detailed breakdown.",
-              "portuguese": "O empreiteiro nos deu uma estimativa aproximada dos custos de renovação, mas precisamos de um detalhamento completo."
-            },
-            {
-              "english": "Can you give me a ballpark figure of how much the project will cost?",
-              "portuguese": "Você pode me dar uma estimativa aproximada de quanto custará o projeto?"
-            }
-          ]
-        },
-        {
-          "subtitle": "To be cutting-edge",
+          "subtitle": "Will - Negações",
           "order": 2,
-          "grid": 1,
-          "comments": "To be innovative or leading-edge",
+          "comments":"Vamos aprender como negar com Will. Você pode dizer 'will not' ou 'won't'",
           "type": "sentences",
-          "sentences": [
+          "sentences":[
             {
-              "english": "The company prides itself on developing cutting-edge technology that sets it apart from competitors.",
-              "portuguese": "A empresa se orgulha de desenvolver tecnologia de ponta que a diferencia dos concorrentes."
+              "english": "She will not come to our house tomorrow.",
+              "portuguese": "Ela não virá para nossa casa amanhã."
+            },   {
+              "english": "It won't affect our decision.",
+              "portuguese": "Isso não vai afetar nossa decisão."
             },
             {
-              "english": "Their research team is known for its cutting-edge discoveries in medical science.",
-              "portuguese": "Sua equipe de pesquisa é conhecida por suas descobertas inovadoras na ciência médica."
-            }
-          ]
-        },
-        {
-          "subtitle": "To focus on the bottom line",
-          "order": 3,
-          "grid": 1,
-          "comments": "To focus on the final result or key outcome",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "When making decisions, we always need to focus on the bottom line and consider profitability.",
-              "portuguese": "Ao tomar decisões, sempre precisamos focar no resultado final e considerar a lucratividade."
+              "english": "We won't forget their kindness.",
+              "portuguese": "Nós não vamos esquecer a bondade deles."
+            }, {
+              "english": "His phone broke, but ours will not break.",
+              "portuguese": "O telefone dele quebrou, mas o nosso não vai quebrar."
             },
             {
-              "english": "The bottom line is that we need to reduce costs if we want to remain competitive.",
-              "portuguese": "O ponto principal é que precisamos reduzir custos se quisermos permanecer competitivos."
-            }
-          ]
-        },
-        {
-          "subtitle": "To get the ball rolling",
-          "order": 4,
-          "grid": 1,
-          "comments": "To start or initiate something",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "Let's schedule a meeting to get the ball rolling on this new project.",
-              "portuguese": "Vamos agendar uma reunião para iniciar este novo projeto."
+              "english": "Her laptop will not be as fast as theirs.",
+              "portuguese": "O laptop dela não vai ser tão rápido quanto o deles."
             },
             {
-              "english": "She proposed a few ideas to get the ball rolling on the fundraising campaign.",
-              "portuguese": "Ela propôs algumas ideias para começar a campanha de captação de recursos."
-            }
-          ]
-        },
-        {
-          "subtitle": "To be on the same page",
-          "order": 5,
-          "grid": 1,
-          "comments": "To be in agreement or understanding the same information",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "Before moving forward, let's make sure everyone is on the same page regarding the project timeline.",
-              "portuguese": "Antes de avançarmos, vamos garantir que todos estejam alinhados com o cronograma do projeto."
+              "english": "My car will not last as long as hers.",
+              "portuguese": "Meu carro não vai durar tanto quanto o dela."
             },
             {
-              "english": "It's important that our team and the client are on the same page regarding project expectations.",
-              "portuguese": "É importante que nossa equipe e o cliente estejam alinhados com as expectativas do projeto."
-            }
-          ]
-        },
-        {
-          "subtitle": "To take the plunge",
-          "order": 6,
-          "grid": 1,
-          "comments": "To make a risky or significant decision",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "After careful consideration, she decided to take the plunge and start her own business.",
-              "portuguese": "Depois de considerar cuidadosamente, ela decidiu dar o mergulho e abrir seu próprio negócio."
+              "english": "Their solution will not work for us.",
+              "portuguese": "A solução deles não vai funcionar para nós."
+            },{
+              
+              "english": "My car will not be enough, we'll need hers.",
+              "portuguese": "Meu carro não será suficiente, vamos precisar do dela."
             },
             {
-              "english": "Taking the plunge into international markets requires thorough market research and strategic planning.",
-              "portuguese": "Dar o mergulho nos mercados internacionais requer pesquisa de mercado detalhada e planejamento estratégico."
-            }
-          ]
-        },
-        {
-          "subtitle": "To do something under the table",
-          "order": 7,
-          "grid": 1,
-          "comments": "To do something secretly or illegally, especially concerning payments or agreements",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "They were accused of making payments under the table to avoid taxes.",
-              "portuguese": "Eles foram acusados de fazer pagamentos por baixo dos panos para evitar impostos."
+              "english": "Our budget will not be as large as theirs.",
+              "portuguese": "Nosso orçamento não vai ser tão grande quanto o deles."
             },
             {
-              "english": "He offered to pay me under the table for the extra work I did, but I refused.",
-              "portuguese": "Ele ofereceu pagar por fora pelo trabalho extra que fiz, mas eu recusei."
-            }
-          ]
-        },
-        {
-          "subtitle": "To engage in blue-sky thinking",
-          "order": 8,
-          "grid": 1,
-          "comments": "To brainstorm without limits, often focusing on creative and ambitious ideas",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "We need some blue-sky thinking to come up with new product concepts for the next quarter.",
-              "portuguese": "Precisamos de um pensamento criativo para desenvolver novos conceitos de produtos para o próximo trimestre."
+              "english": "His idea will not be as effective as hers.",
+              "portuguese": "A ideia dele não vai ser tão eficaz quanto a dela."
+            },{
+              "english": "She won't be attending the party tomorrow.",
+              "portuguese": "Ela não vai estar presente na festa amanhã."
             },
             {
-              "english": "Their team session was all about blue-sky thinking to solve the company's long-term challenges.",
-              "portuguese": "A sessão da equipe deles foi toda focada em um pensamento criativo para resolver os desafios de longo prazo da empresa."
-            }
-          ]
-        },
-        {
-          "subtitle": "To touch base",
-          "order": 9,
-          "grid": 1,
-          "comments": "To make contact or reconnect briefly, typically regarding progress or updates",
-          "type": "sentences",
-          "sentences": [
-            {
-              "english": "Let's touch base next week to discuss the project status.",
-              "portuguese": "Vamos nos falar na semana que vem para discutir o status do projeto."
+              "english": "They won't be going on vacation this summer.",
+              "portuguese": "Eles não vão viajar neste verão."
             },
             {
-              "english": "I just wanted to touch base with you to see how things are progressing.",
-              "portuguese": "Eu só queria falar rapidamente com você para ver como as coisas estão progredindo."
+              "english": "He won't be joining us for dinner tonight.",
+              "portuguese": "Ele não vai se juntar a nós para o jantar esta noite."
+            },
+            {
+              "english": "We won't be starting the project until next month.",
+              "portuguese": "Nós não vamos começar o projeto até o próximo mês."
             }
-          ]
-        }
+        ]}
       ]
     }
   ]
