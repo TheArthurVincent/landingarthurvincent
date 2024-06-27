@@ -5,6 +5,7 @@ import {
   HOne,
 } from "../../../Resources/Components/RouteBox";
 import {
+  ImgResponsive,
   ImgResponsive0,
   Xp,
   abreviateName,
@@ -26,7 +27,7 @@ import {
 
 import { listOfButtons } from "./ListOfCriteria";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-
+import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 
 interface StudentsRankingProps {
   headers: MyHeadersType | null;
@@ -93,6 +94,9 @@ export default function StudentsRanking({
   const [monthlyScore, setMonthlyScore] = useState<number>(0);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [ID, setId] = useState<string>("");
+  const [card, setCard] = useState<boolean>(false);
+  const [pic, setPic] = useState<string>("");
+  const [name, setName] = useState<string>("");
 
   const actualHeaders = headers || {};
 
@@ -107,7 +111,14 @@ export default function StudentsRanking({
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
       setId(response.data.formattedStudentData.id);
+      setPic(response.data.formattedStudentData.picture);
+      setName(
+        response.data.formattedStudentData.name +
+          " " +
+          abreviateName(response.data.formattedStudentData.lastname)
+      );
       setDisabled(false);
+
       setLoadingScore(false);
     } catch (error) {
       console.log("error", error);
@@ -210,8 +221,9 @@ export default function StudentsRanking({
           backgroundColor: alwaysWhite(),
           top: "50%",
           left: "50%",
-          width: "20rem",
-          maxHeight: "60vh",
+          width: "100vw",
+          maxWidth: "40rem",
+          maxHeight: "75vh",
           overflow: "auto",
           display: isVisible ? "block" : "none",
           transform: "translate(-50%, -50%)",
@@ -258,14 +270,14 @@ export default function StudentsRanking({
           >
             {listOfButtons.map((item, index) => {
               return (
-                <Button
+                <ArvinButton
                   key={index}
                   disabled={disabled}
                   style={{
-                    backgroundColor: disabled ? "grey" : item.color,
                     color: alwaysWhite(),
                     fontSize: "0.8rem",
                   }}
+                  color={item.color}
                   onClick={() =>
                     submitPlusScore(
                       ID,
@@ -276,7 +288,7 @@ export default function StudentsRanking({
                   }
                 >
                   {item.text}
-                </Button>
+                </ArvinButton>
               );
             })}
 
@@ -294,14 +306,70 @@ export default function StudentsRanking({
                 onChange={(e) => setDescSpecial(e.target.value)}
                 type="text"
               />
-              <Button
+              <ArvinButton
                 onClick={() =>
                   submitPlusScore(ID, plusScore, descSpecial, "Others")
                 }
               >
                 +
-              </Button>
+              </ArvinButton>
             </div>
+            <button
+              onClick={() => {
+                setCard(!card);
+              }}
+            >
+              see card
+            </button>
+          </div>
+          <div
+            id="the-card"
+            style={{ display: card ? "block" : "none", position: "relative" }}
+          >
+            <img
+              style={{
+                maxWidth: "30rem",
+                position: "absolute",
+                zIndex: 1,
+              }}
+              src={updateScore(totalScore).card}
+              alt=""
+            />
+            <img
+              style={{
+                maxWidth: "16rem",
+                width: "16rem",
+                height: "16rem",
+                objectFit: "cover",
+                margin: "auto",
+                borderRadius: "50%",
+                position: "relative",
+                zIndex: 2,
+                left: "7em",
+                top: "1em",
+              }}
+              src={pic}
+              alt=""
+            />
+            <p
+              style={{
+                position: "relative",
+                zIndex: 3,
+                maxWidth: "16rem",
+                width: "16rem",
+                height: "16rem",
+                objectFit: "cover",
+                margin: "auto",
+                borderRadius: "50%",
+                left: name.length < 15 ?  "5rem" : "3.4rem",
+                top: "5rem",
+                fontFamily: "Athiti",
+                fontWeight: 800,
+                fontSize: "1.4rem",
+              }}
+            >
+              {name}
+            </p>
           </div>
         </div>
       </div>
@@ -397,7 +465,6 @@ export default function StudentsRanking({
           <ul>
             {students.map((item: any, index: number) => {
               const levelNumber = updateScore(item.totalScore).level;
-
               return (
                 <>
                   <AnimatedLi
@@ -447,7 +514,6 @@ export default function StudentsRanking({
                           fontWeight: 600,
                           fontFamily: "Athiti",
                           padding: "5px",
-                          textAlign: "center",
                           background: theItems[levelNumber].color,
                           color: theItems[levelNumber].textcolor,
                         }}

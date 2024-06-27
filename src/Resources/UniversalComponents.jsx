@@ -16,6 +16,8 @@ import { MyButton } from "./Components/ItemsLibrary";
 export function updateScore(totalScore) {
   var level = 1;
   var color = "#000";
+  var card =
+    "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171";
   var icon = "fa fa-clone";
   var color = "#eee";
   var textcolor = "black";
@@ -38,6 +40,7 @@ export function updateScore(totalScore) {
         color = levels[i].color;
         icon = levels[i].icon;
         textcolor = levels[i].textcolor;
+        card = levels[i].card;
         text = levels[i].text;
         discount = levels[i].discount;
         backgroundcolor = levels[i].backgroundcolor;
@@ -51,6 +54,7 @@ export function updateScore(totalScore) {
       color = levels[i].color;
       icon = levels[i].icon;
       image = levels[i].image;
+      card = levels[i].card;
       image2 = levels[i].image2;
       textcolor = levels[i].textcolor;
       text = levels[i].text;
@@ -64,6 +68,7 @@ export function updateScore(totalScore) {
     level,
     color,
     icon,
+    card,
     image,
     image2,
     textcolor,
@@ -519,7 +524,7 @@ export const DisapearOnMobile = styled.div`
 export const DisapearOnWeb = styled.div`
   display: none;
   @media (max-width: 600px) {
-    display:block;
+    display: block;
   }
 `;
 
