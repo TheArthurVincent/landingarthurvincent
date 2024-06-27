@@ -361,7 +361,7 @@ export default function StudentsRanking({
                 objectFit: "cover",
                 margin: "auto",
                 borderRadius: "50%",
-                left: name.length < 15 ?  "5rem" : "3.4rem",
+                left: name.length < 15 ? "5rem" : "3.4rem",
                 top: "5rem",
                 fontFamily: "Athiti",
                 fontWeight: 800,
