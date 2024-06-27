@@ -3,7 +3,8 @@
     {
       "level": 1,
       "icon": "fa fa-star",
-      "color": "#eee",  
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
+      "color": "#eee",
       "textcolor": "black",
       "backgroundcolor": "#EDEDED",
       "text": "White Belt",
@@ -14,6 +15,7 @@
     {
       "level": 2,
       "icon": "fa fa-bolt",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(1).png?updatedAt=1719515621259",
       "color": "#F5BD33",
       "textcolor": "black",
       "backgroundcolor": "#FFFBD3",
@@ -25,6 +27,7 @@
     {
       "level": 3,
       "icon": "fa fa-diamond",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(2).png?updatedAt=1719515621062",
       "color": "#0C55A5",
       "textcolor": "white",
       "backgroundcolor": "#E2F3FD",
@@ -36,6 +39,7 @@
     {
       "level": 4,
       "icon": "fa fa-fire",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(3).png?updatedAt=1719515621507",
       "color": "#B7050B",
       "backgroundcolor": "#FFE3E0",
       "textcolor": "white",
@@ -47,6 +51,7 @@
     {
       "level": 5,
       "icon": "fa fa-tree",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(4).png?updatedAt=1719515621087",
       "color": "#ADB762",
       "textcolor": "white",
       "backgroundcolor": "#DEFFE3",
@@ -58,6 +63,7 @@
     {
       "level": 6,
       "icon": "fa fa-sun-o",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(5).png?updatedAt=1719515621145",
       "color": "#FB6E02",
       "discount": "7%",
       "backgroundcolor": "#FFE1C5",
@@ -69,6 +75,7 @@
     {
       "level": 7,
       "icon": "fa fa-moon-o",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(6).png?updatedAt=1719515621190",
       "color": "#703A74",
       "backgroundcolor": "#D4D3FF",
       "discount": "7%",
@@ -80,6 +87,7 @@
     {
       "level": 8,
       "icon": "fa fa-superpowers",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(7).png?updatedAt=1719515621157",
       "color": "#000",
       "textcolor": "white",
       "backgroundcolor": "#eee",
@@ -91,6 +99,7 @@
     {
       "level": 9,
       "icon": "fa fa-superpowers",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(8).png?updatedAt=1719515621181",
       "color": "#000",
       "textcolor": "white",
       "backgroundcolor": "#000",
@@ -102,6 +111,7 @@
     {
       "level": 10,
       "icon": "fa fa-superpowers",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(9).png?updatedAt=1719515621623",
       "color": "#000",
       "textcolor": "white",
       "backgroundcolor": "#ccc",
@@ -113,6 +123,7 @@
     {
       "level": 9,
       "icon": "fa fa-superpowers",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#000",
       "textcolor": "white",
       "backgroundcolor": "#FFFBD3",
@@ -124,6 +135,7 @@
     {
       "level": 9,
       "icon": "fa fa-eercast",
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#00132b",
       "textcolor": "#00132b",
       "backgroundcolor": "#00132b",
@@ -135,6 +147,7 @@
     {
       "icon": "fa fa-eercast",
       "level": 10,
+      "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#000",
       "backgroundcolor": "#ccc",
       "discount": "10%",
