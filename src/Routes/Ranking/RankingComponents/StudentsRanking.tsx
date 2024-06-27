@@ -256,7 +256,6 @@ export default function StudentsRanking({
         )}
         <div
           style={{
-            textAlign: "center",
             display: "grid",
             gap: "1rem",
             overflow: "auto",
@@ -376,7 +375,6 @@ export default function StudentsRanking({
       <div
         style={{
           display: "flex",
-          alignItems: "center",
           justifyContent: "space-around",
           marginBottom: "0.5rem",
         }}
@@ -411,7 +409,6 @@ export default function StudentsRanking({
                     boxShadow: "1px 1px 10px 1px #aaa",
                     display: item.id === user.id ? "flex" : "none",
                     justifyContent: "space-between",
-                    alignItems: "center",
                     background: theItems[levelNumber].color,
                     color: theItems[levelNumber].textcolor,
                   }}
