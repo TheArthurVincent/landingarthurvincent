@@ -418,7 +418,7 @@ export default function StudentsHistoryOfWinners({
             </ul>
           )}
           <ArvinButton
-            onClick={() => {
+            onDoubleClick={() => {
               gettingMonth(
                 thisMonth.map((item, index) => ({
                   month: monthNow,
