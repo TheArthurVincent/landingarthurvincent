@@ -23,6 +23,7 @@ import {
   formatDateBr,
   formatDateBrContract,
 } from "../../Resources/UniversalComponents";
+import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -47,7 +48,9 @@ export default function Ranking({ headers }: HeadersProps) {
     {
       title: monthInQuestion,
       value: "1",
-      component: <StudentsRanking monthNow={monthInQuestion} headers={headers} />,
+      component: (
+        <StudentsRanking monthNow={monthInQuestion} headers={headers} />
+      ),
     },
     {
       title: UniversalTexts.totalRanking,
@@ -69,6 +72,16 @@ export default function Ranking({ headers }: HeadersProps) {
       title: UniversalTexts.rankingExplanation,
       value: "4",
       component: <RankingExplanation />,
+    },
+    {
+      title: "History",
+      value: "5",
+      component: (
+        <StudentsHistoryOfWinners
+          monthNow={monthInQuestion}
+          headers={headers}
+        />
+      ),
     },
   ];
   const handleChange = (event: any, newValue: string) => {

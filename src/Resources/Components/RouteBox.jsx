@@ -171,6 +171,7 @@ export const DivFont = styled.div`
 export const AnimatedLi = styled.li`
   padding: 0.2rem 1rem;
   margin-bottom: 5px;
+  list-style: none;
   justify-content: space-between;
   align-items: center;
   animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;

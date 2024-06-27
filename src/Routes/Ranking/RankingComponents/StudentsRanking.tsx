@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   AnimatedLi,
   DivFont,
-  RouteDiv,
+  HOne,
 } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
@@ -18,6 +18,7 @@ import { levels } from "./RankingLevelsList";
 import {
   alwaysBlack,
   alwaysWhite,
+  lightGreyColor,
   secondaryColor,
   textSecondaryColorContrast,
   transparentBlack,
@@ -32,7 +33,10 @@ interface StudentsRankingProps {
   monthNow: string;
 }
 
-export default function StudentsRanking({ headers,monthNow }: StudentsRankingProps) {
+export default function StudentsRanking({
+  headers,
+  monthNow,
+}: StudentsRankingProps) {
   interface StudentsType {
     id: string;
     lastname: string;
@@ -330,61 +334,63 @@ export default function StudentsRanking({ headers,monthNow }: StudentsRankingPro
           {students.map((item: any, index: number) => {
             const levelNumber = updateScore(item.totalScore).level;
             return (
-              <div
-                key={index}
-                style={{
-                  padding: "0.5rem 1rem",
-                  margin: "1rem 0",
-                  boxShadow: "1px 1px 10px 1px #aaa",
-                  display: item.id === user.id ? "flex" : "none",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  background: theItems[levelNumber].color,
-                  color: theItems[levelNumber].textcolor,
-                }}
-              >
+              <>
                 <div
+                  key={index}
                   style={{
-                    display: "grid",
-                    justifyContent: "space-evenly",
+                    padding: "0.5rem 1rem",
+                    margin: "1rem 0",
+                    boxShadow: "1px 1px 10px 1px #aaa",
+                    display: item.id === user.id ? "flex" : "none",
+                    justifyContent: "space-between",
                     alignItems: "center",
+                    background: theItems[levelNumber].color,
+                    color: theItems[levelNumber].textcolor,
                   }}
                 >
-                  <h1
+                  <div
                     style={{
-                      fontWeight: 600,
-                      margin: 0,
-                      padding: "5px",
-                      background: theItems[levelNumber].color,
-                      color: theItems[levelNumber].textcolor,
+                      display: "grid",
+                      justifyContent: "space-evenly",
+                      alignItems: "center",
                     }}
                   >
-                    #{index + 1} | {item.name} {abreviateName(item.lastname)}
-                  </h1>
-                </div>
-                <div>
-                  <p>
-                    Monthly Score:{" "}
-                    <span
+                    <h1
                       style={{
-                        fontWeight: "600",
+                        fontWeight: 600,
+                        margin: 0,
+                        padding: "5px",
+                        background: theItems[levelNumber].color,
+                        color: theItems[levelNumber].textcolor,
                       }}
                     >
-                      {formatNumber(item.monthlyScore)}
-                    </span>
-                  </p>
-                  <p>
-                    Total Score:{" "}
-                    <span
-                      style={{
-                        fontWeight: "600",
-                      }}
-                    >
-                      {formatNumber(item.totalScore)}
-                    </span>
-                  </p>
+                      #{index + 1} | {item.name} {abreviateName(item.lastname)}
+                    </h1>
+                  </div>
+                  <div>
+                    <p>
+                      Monthly Score:{" "}
+                      <span
+                        style={{
+                          fontWeight: "600",
+                        }}
+                      >
+                        {formatNumber(item.monthlyScore)}
+                      </span>
+                    </p>
+                    <p>
+                      Total Score:{" "}
+                      <span
+                        style={{
+                          fontWeight: "600",
+                        }}
+                      >
+                        {formatNumber(item.totalScore)}
+                      </span>
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </>
             );
           })}
 
@@ -393,81 +399,83 @@ export default function StudentsRanking({ headers,monthNow }: StudentsRankingPro
               const levelNumber = updateScore(item.totalScore).level;
 
               return (
-                <AnimatedLi
-                  key={index}
-                  style={{
-                    display: isAdm
-                      ? "flex"
-                      : index < 5 && item.monthlyScore > 0
-                      ? "flex"
-                      : "none",
-                    background: theItems[levelNumber].color,
-                    color: theItems[levelNumber].textcolor,
-                  }}
-                >
-                  <div
+                <>
+                  <AnimatedLi
+                    key={index}
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
+                      display: isAdm
+                        ? "flex"
+                        : index < 5 && item.monthlyScore > 0
+                        ? "flex"
+                        : "none",
+                      background: theItems[levelNumber].color,
+                      color: theItems[levelNumber].textcolor,
                     }}
                   >
-                    <ImgResponsive0
-                      src={theItems[levelNumber].image2}
-                      alt="level"
-                    />
-                    <img
-                      style={{
-                        width: "4.5rem",
-                        height: "4.5rem",
-                        objectFit: "cover",
-                        margin: "auto",
-                        borderRadius: "50%",
-                        border: `solid ${alwaysWhite()} 3px`,
-                      }}
-                      src={item.picture}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "grid",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontWeight: 600,
-                        fontFamily: "Athiti",
-                        padding: "5px",
-                        textAlign: "center",
-                        background: theItems[levelNumber].color,
-                        color: theItems[levelNumber].textcolor,
-                      }}
-                    >
-                      #{index + 1} | {item.name} {abreviateName(item.lastname)}{" "}
-                    </p>
                     <div
                       style={{
-                        fontSize: "0.9rem",
-                        borderRadius: "0.5rem",
-                        marginBottom: "0.2rem",
-                        padding: "5px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <ImgResponsive0
+                        src={theItems[levelNumber].image2}
+                        alt="level"
+                      />
+                      <img
+                        style={{
+                          width: "4.5rem",
+                          height: "4.5rem",
+                          objectFit: "cover",
+                          margin: "auto",
+                          borderRadius: "50%",
+                          border: `solid ${alwaysWhite()} 3px`,
+                        }}
+                        src={item.picture}
+                      />
+                    </div>
+                    <div
+                      style={{
+                        display: "grid",
+                        justifyContent: "center",
+                        alignItems: "center",
                       }}
                     >
                       <p
                         style={{
+                          fontWeight: 600,
+                          fontFamily: "Athiti",
+                          padding: "5px",
                           textAlign: "center",
+                          background: theItems[levelNumber].color,
+                          color: theItems[levelNumber].textcolor,
                         }}
                       >
-                        Monthly Score:
+                        #{index + 1} | {item.name}{" "}
+                        {abreviateName(item.lastname)}{" "}
                       </p>
-                      <DivFont
+                      <div
                         style={{
-                          textAlign: "center",
+                          fontSize: "0.9rem",
+                          borderRadius: "0.5rem",
+                          marginBottom: "0.2rem",
+                          padding: "5px",
+                        }}
+                      >
+                        <p
+                          style={{
+                            textAlign: "center",
+                          }}
+                        >
+                          Monthly Score:
+                        </p>
+                        <DivFont
+                          style={{
+                            textAlign: "center",
 
-                          color: alwaysWhite(),
-                          textShadow: `2px 0 ${alwaysBlack()},
+                            color: alwaysWhite(),
+                            textShadow: `2px 0 ${alwaysBlack()},
                              -2px 0 ${alwaysBlack()}, 
                              0 2px ${alwaysBlack()},
                               0 -2px ${alwaysBlack()},
@@ -475,42 +483,43 @@ export default function StudentsRanking({ headers,monthNow }: StudentsRankingPro
                                 -1px -1px ${alwaysBlack()},
                                  1px -1px ${alwaysBlack()},
                                   -1px 1px ${alwaysBlack()}`,
+                          }}
+                        >
+                          {formatNumber(item.monthlyScore)}{" "}
+                        </DivFont>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "1rem",
+                        display: isAdm ? "grid" : "none",
+                        textAlign: "center",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: theItems[levelNumber].textcolor,
+                      }}
+                    >
+                      <Button
+                        onClick={() => seeEdition(item.id)}
+                        style={{
+                          backgroundColor: theItems[levelNumber].textcolor,
+                          color: theItems[levelNumber].color,
                         }}
                       >
-                        {formatNumber(item.monthlyScore)}{" "}
-                      </DivFont>
+                        Pontuar
+                      </Button>
+                      <p
+                        style={{
+                          fontFamily: "Athiti",
+                          fontWeight: "600",
+                          fontSize: "0.8rem",
+                        }}
+                      >
+                        Total Score: {formatNumber(item.totalScore)}
+                      </p>
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "1rem",
-                      display: isAdm ? "grid" : "none",
-                      textAlign: "center",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      color: theItems[levelNumber].textcolor,
-                    }}
-                  >
-                    <Button
-                      onClick={() => seeEdition(item.id)}
-                      style={{
-                        backgroundColor: theItems[levelNumber].textcolor,
-                        color: theItems[levelNumber].color,
-                      }}
-                    >
-                      Pontuar
-                    </Button>
-                    <p
-                      style={{
-                        fontFamily: "Athiti",
-                        fontWeight: "600",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      Total Score: {formatNumber(item.totalScore)}
-                    </p>
-                  </div>
-                </AnimatedLi>
+                  </AnimatedLi>
+                </>
               );
             })}
           </ul>
