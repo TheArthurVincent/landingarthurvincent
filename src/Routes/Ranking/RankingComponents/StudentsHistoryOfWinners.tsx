@@ -19,6 +19,7 @@ import {
 
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { SpanDisapear } from "../../Blog/Blog.Styled";
 
 interface modelProps {
   backgroundColor: string;
@@ -205,8 +206,22 @@ export default function StudentsHistoryOfWinners({
     fetchStudents();
   }, []);
 
-  const gettingMonth = (item: any) => {
+  const gettingMonth = async (item: any) => {
     console.log(item);
+    setLoading(false);
+
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/scorestotalranking/`,
+        {
+          headers: actualHeaders,
+        }
+      );
+      setLoading(false);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+
   };
   const thisMonth = [
     {
@@ -357,131 +372,131 @@ export default function StudentsHistoryOfWinners({
     img: "https://ik.imagekit.io/vjz75qw96/assets/icons/12.png?updatedAt=1719494355128",
     backgroundColor: "#A0522D radial-gradient(white, #A0522D)",
   };
-  return (
-    <>
-      {isAdm && (
-        <div ref={a}>
-          {loading ? (
-            <CircularProgress style={{ color: secondaryColor() }} />
-          ) : (
-            <ul
-              style={{
-                height: "30rem",
-                border: `#eee 1px solid`,
-                background: `${alwaysWhite()} radial-gradient(white, ${alwaysWhite()})`,
-                padding: "1rem",
-                borderRadius: "5px",
-                width: "30rem",
-                display: "grid",
-                textAlign: "center",
-                margin: "auto",
-              }}
-            >
-              <HOne>{monthNow}</HOne>
-              {thisMonth.map((item, index) => {
-                return (
-                  <>
-                    <ModelListItem
-                      borderRadius={
-                        index == 0 ? "1rem" : index == 1 ? "2rem" : "3rem"
-                      }
-                      key={index}
-                      backgroundColor={
-                        index == 0
-                          ? gold.backgroundColor
-                          : index == 1
-                          ? silver.backgroundColor
-                          : bronze.backgroundColor
-                      }
-                      img={
-                        index == 0
-                          ? gold.img
-                          : index == 1
-                          ? silver.img
-                          : bronze.img
-                      }
-                      place={
-                        index == 0
-                          ? gold.place
-                          : index == 1
-                          ? silver.place
-                          : bronze.place
-                      }
-                      name={students[index].name}
-                      lastname={students[index].lastname}
-                      monthlyScore={students[index].monthlyScore}
-                      picture={students[index].picture}
-                    />
-                  </>
-                );
-              })}
-            </ul>
-          )}
-          <ArvinButton
-            onDoubleClick={() => {
-              gettingMonth(
-                thisMonth.map((item, index) => ({
-                  month: monthNow,
-                  place: item.place,
-                  name: students[index].name,
-                  lastname: students[index].lastname,
-                  monthlyScore: students[index].monthlyScore,
-                  picture: students[index].picture,
-                }))
-              );
-              // @ts-ignore
-              console.log(a.current.innerHTML);
-            }}
-          >
-            Gerar Mês De Junho
-          </ArvinButton>
-        </div>
-      )}
-      {history.map((month, index) => {
-        return (
-          <ul
-            style={{
-              height: "30rem",
-              border: `#eee 1px solid`,
-              background: `${lightGreyColor()} radial-gradient(white, ${lightGreyColor()})`,
-              padding: "1rem",
-              borderRadius: "5px",
-              width: "30rem",
-              display: "grid",
-              textAlign: "center",
-              margin: "auto",
-              marginTop: "1rem",
-            }}
-          >
-            <HOne>{month[0].month}</HOne>
-            <>
-              {month.map((item, i) => (
-                <span>
-                  <ModelListItem
-                    borderRadius={i == 0 ? "1rem" : i == 1 ? "2rem" : "3rem"}
-                    key={`${index}-${i}`}
-                    backgroundColor={
-                      i == 0
-                        ? gold.backgroundColor
-                        : i == 1
-                        ? silver.backgroundColor
-                        : bronze.backgroundColor
-                    }
-                    img={i == 0 ? gold.img : i == 1 ? silver.img : bronze.img}
-                    place={
-                      i == 0 ? gold.place : i == 1 ? silver.place : bronze.place
-                    }
-                    name={item.name}
-                    lastname={item.lastname}
-                    monthlyScore={item.monthlyScore}
-                    picture={item.picture}
-                  />
-                </span>
-              ))}
-            </>
-          </ul>
-        );
-      })}
-    </>
+  return ( <></>
+    // <>
+    //   {isAdm && (
+    //     <div ref={a}>
+    //       {loading ? (
+    //         <CircularProgress style={{ color: secondaryColor() }} />
+    //       ) : (
+    //         <ul
+    //           style={{
+    //             height: "30rem",
+    //             border: `#eee 1px solid`,
+    //             background: `${alwaysWhite()} radial-gradient(white, ${alwaysWhite()})`,
+    //             padding: "1rem",
+    //             borderRadius: "5px",
+    //             width: "70vw",
+    //             maxWidth: "40rem",
+    //             display: "grid",
+    //             textAlign: "center",
+    //             margin: "auto",
+    //           }}
+    //         >
+    //           <HOne>{monthNow}</HOne>
+    //           {thisMonth.map((item, index) => {
+    //             return (
+    //               <>
+    //                 <ModelListItem
+    //                   borderRadius={
+    //                     index == 0 ? "1rem" : index == 1 ? "2rem" : "3rem"
+    //                   }
+    //                   key={index}
+    //                   backgroundColor={
+    //                     index == 0
+    //                       ? gold.backgroundColor
+    //                       : index == 1
+    //                       ? silver.backgroundColor
+    //                       : bronze.backgroundColor
+    //                   }
+    //                   img={
+    //                     index == 0
+    //                       ? gold.img
+    //                       : index == 1
+    //                       ? silver.img
+    //                       : bronze.img
+    //                   }
+    //                   place={
+    //                     index == 0
+    //                       ? gold.place
+    //                       : index == 1
+    //                       ? silver.place
+    //                       : bronze.place
+    //                   }
+    //                   name={students[index].name}
+    //                   lastname={students[index].lastname}
+    //                   monthlyScore={students[index].monthlyScore}
+    //                   picture={students[index].picture}
+    //                 />
+    //               </>
+    //             );
+    //           })}
+    //         </ul>
+    //       )}
+    //     </div>
+    //   )}
+    //   {history.map((month, index) => {
+    //     return (
+    //       <ul
+    //         style={{
+    //           height: "30rem",
+    //           border: `#eee 1px solid`,
+    //           background: `${lightGreyColor()} radial-gradient(white, ${lightGreyColor()})`,
+    //           padding: "1rem",
+    //           borderRadius: "5px",
+    //           width: "70vw",
+    //           maxWidth: "40rem",
+    //           display: "grid",
+    //           textAlign: "center",
+    //           margin: "auto",
+    //           marginTop: "1rem",
+    //         }}
+    //       >
+    //         <HOne>{month[0].month}</HOne>
+    //         <>
+    //           {month.map((item, i) => (
+    //             <span>
+    //               <ModelListItem
+    //                 borderRadius={i == 0 ? "1rem" : i == 1 ? "2rem" : "3rem"}
+    //                 key={`${index}-${i}`}
+    //                 backgroundColor={
+    //                   i == 0
+    //                     ? gold.backgroundColor
+    //                     : i == 1
+    //                     ? silver.backgroundColor
+    //                     : bronze.backgroundColor
+    //                 }
+    //                 img={i == 0 ? gold.img : i == 1 ? silver.img : bronze.img}
+    //                 place={
+    //                   i == 0 ? gold.place : i == 1 ? silver.place : bronze.place
+    //                 }
+    //                 name={item.name}
+    //                 lastname={item.lastname}
+    //                 monthlyScore={item.monthlyScore}
+    //                 picture={item.picture}
+    //               />
+    //             </span>
+    //           ))}
+    //         </>
+    //       </ul>
+    //     );
+    //   })}
+    //   <ArvinButton
+    //     onDoubleClick={() => {
+    //       gettingMonth(
+    //         thisMonth.map((item, index) => ({
+    //           month: monthNow,
+    //           place: item.place,
+    //           name: students[index].name,
+    //           lastname: students[index].lastname,
+    //           monthlyScore: students[index].monthlyScore,
+    //           picture: students[index].picture,
+    //         }))
+    //       );
+    //     }}
+    //   >
+    //     Gerar Mês De Junho
+    //   </ArvinButton>
+    // </>
   );
 }
