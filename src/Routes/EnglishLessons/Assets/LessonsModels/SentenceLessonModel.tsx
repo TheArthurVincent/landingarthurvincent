@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
-import TextAreaLesson from "../Functions/TextAreaLessons";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 import { backDomain } from "../../../../Resources/UniversalComponents";
 import axios from "axios";
@@ -72,6 +71,18 @@ export default function SentenceLessonModel({
     }
   };
 
+
+  const [permissions, setPermissions] = useState<string>("");
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    if (user) {
+      const { permissions } = JSON.parse(user);
+      setPermissions(permissions);
+    }
+  }, []);
+
+
   return (
     <UlSentences
       style={{
@@ -119,7 +130,11 @@ export default function SentenceLessonModel({
             </button>
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
-            <textarea className="comments" name="comments"></textarea>
+            <textarea
+            
+      style={{ display: permissions === "superadmin" ? "block" : "none" }}
+            
+            className="comments" name="comments"></textarea>
             <br />
           </LiSentence>
         ))}

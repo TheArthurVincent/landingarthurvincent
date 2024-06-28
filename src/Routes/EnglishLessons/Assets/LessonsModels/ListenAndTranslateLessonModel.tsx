@@ -14,6 +14,7 @@ export default function ListenAndTranslateLessonModel({
   return (
     <div
       style={{
+        listStyle: "none",
         padding: "5px",
         margin: "10px 0",
       }}
@@ -22,7 +23,9 @@ export default function ListenAndTranslateLessonModel({
         element.audios.map((audio: any, index: number) => {
           return (
             <div key={index}>
-              <span>{audio.ptbrText}</span>
+              <span>
+                <span>{index + 1}</span> | {audio.ptbrText}
+              </span>
               <button
                 className="audio-button"
                 onClick={() => readText(audio.enusAudio, true)}

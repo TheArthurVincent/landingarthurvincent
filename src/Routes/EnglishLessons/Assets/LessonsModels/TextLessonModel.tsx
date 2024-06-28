@@ -15,7 +15,7 @@ export default function TextLessonModel({ text }: TextLessonModelProps) {
       }}
     >
       <div>
-        {text}
+        <div dangerouslySetInnerHTML={{ __html: text }} />
         <TextAreaLesson />
       </div>
     </div>
