@@ -85,7 +85,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
                 borderRadius: "5px",
               }}
             >
-              <span style={{ fontWeight: 800 }}>{index + 1} | </span>
+              <span style={{ fontWeight: 800 }}>{index + 1}) </span>
               <span>{exercise.question}</span>
               <select
                 value={selectedOptions[index] || ""}
