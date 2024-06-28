@@ -184,12 +184,12 @@ export default function EnglishLessonsRender({
               }}
               onClick={previousClass}
             >
-              Previous Class
+              <i className="fa fa-arrow-left" aria-hidden="true" />
             </span>
           ) : (
             <span>No previous class</span>
           )}
-          <h1 style={{}}>{`${order}- ${theclass.title}`}</h1>
+          <h1>{`${order}- ${theclass.title}`}</h1>
           {nextclass ? (
             <span
               style={{
@@ -198,7 +198,7 @@ export default function EnglishLessonsRender({
               }}
               onClick={nextClass}
             >
-              Next Class
+              <i className="fa fa-arrow-right" aria-hidden="true" />
             </span>
           ) : (
             <span>No next class</span>
@@ -364,6 +364,42 @@ export default function EnglishLessonsRender({
             See slides
           </ArvinButton>
         )}
+        <div
+          style={{
+            display: "flex",
+            margin: "1rem auto",
+            padding: "0 1rem",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          {previousclass ? (
+            <span
+              style={{
+                color: secondaryColor(),
+                cursor: "pointer",
+              }}
+              onClick={previousClass}
+            >
+              <i className="fa fa-arrow-left" aria-hidden="true" />
+            </span>
+          ) : (
+            <span>No previous class</span>
+          )}
+          {nextclass ? (
+            <span
+              style={{
+                color: secondaryColor(),
+                cursor: "pointer",
+              }}
+              onClick={nextClass}
+            >
+              <i className="fa fa-arrow-right" aria-hidden="true" />
+            </span>
+          ) : (
+            <span>No next class</span>
+          )}
+        </div>
       </RouteDiv>
       {/* Teacher */}
       {/* Teacher */}
