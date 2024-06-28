@@ -33,6 +33,7 @@ import SentenceLessonModelSlide from "./SlideModels/SentenceLessonModelSlide";
 import TextLessonModelSlide from "./SlideModels/TextLessonModelSlide";
 import TextsWithTranslateSlideLessonModel from "./SlideModels/TextWithNoAudio";
 import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
+import SelectExercise from "./LessonsModels/MultipleSelectExercise";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -324,6 +325,8 @@ export default function EnglishLessonsRender({
                     headers={headers}
                     element={element}
                   />
+                ) : element.type === "selectexercise" ? (
+                  <SelectExercise headers={headers} element={element} />
                 ) : element.type === "images" ? (
                   <ImageLessonModel
                     studentId={studentID}
