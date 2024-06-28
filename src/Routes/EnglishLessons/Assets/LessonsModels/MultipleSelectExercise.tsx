@@ -3,9 +3,24 @@ import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
 import TextAreaLesson from "../Functions/TextAreaLessons";
 
+interface Option {
+  option: string;
+  status: string;
+  reason: string;
+}
+
+interface Exercise {
+  question: string;
+  options: Option[];
+  answer: string;
+}
+
 interface SelectExerciseProps {
   headers: MyHeadersType | null;
-  element: any;
+  element: {
+    subtitle: string;
+    options: Exercise[];
+  };
 }
 
 const SelectExercise: React.FC<SelectExerciseProps> = ({
@@ -16,6 +31,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
     [key: number]: string;
   }>({});
   const [feedback, setFeedback] = useState<{ [key: number]: string }>({});
+  const [showAllAnswers, setShowAllAnswers] = useState(false);
 
   const handleSelectChange = (
     index: number,
@@ -38,17 +54,16 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
     return "white";
   };
 
-  const getSeeAnswer = (status: string | undefined) => {
-    if (status === "correct") return "inline";
-    if (status === "incorrect") return "none";
-    return "none";
+  const toggleShowAllAnswers = () => {
+    setShowAllAnswers(!showAllAnswers);
   };
+
   return (
     <div style={{ padding: "5px", margin: "10px 0" }}>
       {element.subtitle && <HThree>{element.subtitle}</HThree>}
       {element.options && (
         <ol style={{ padding: "5px", margin: "10px 0" }}>
-          {element.options.map((option: any, index: number) => (
+          {element.options.map((exercise: Exercise, index: number) => (
             <li
               key={index}
               className="exercise"
@@ -61,33 +76,73 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
               }}
             >
               <span style={{ fontWeight: 800 }}>{index + 1} | </span>
-              <span>{option.question}</span>
+              <span>{exercise.question}</span>
               <select
                 value={selectedOptions[index] || ""}
                 onChange={(e) =>
-                  handleSelectChange(index, e.target.value, option.correct)
+                  handleSelectChange(
+                    index,
+                    e.target.value,
+                    exercise.options.find((opt) => opt.status === "right")
+                      ?.option || ""
+                  )
                 }
                 style={{ marginLeft: "10px", marginRight: "10px" }}
+                disabled={feedback[index] === "correct"}
               >
                 <option value="">Select</option>
-                {Object.values(option.options).map((opt: any, i: number) => (
-                  <option key={i} value={opt}>
-                    {opt}
+                {exercise.options.map((opt: Option, i: number) => (
+                  <option key={i} value={opt.option}>
+                    {opt.option}
                   </option>
                 ))}
               </select>
               <span
                 style={{
-                  display: getSeeAnswer(feedback[index]),
                   fontStyle: "italic",
                 }}
               >
-                {option.answer}
+                {selectedOptions[index] ===
+                  exercise.options.find((opt) => opt.status === "right")
+                    ?.option && (
+                  <span style={{ color: "green" }}> - Correct!</span>
+                )}
+                {selectedOptions[index] !==
+                  exercise.options.find((opt) => opt.status === "right")
+                    ?.option && (
+                  <span style={{ color: "red" }}> - Incorrect!</span>
+                )}
               </span>
               <TextAreaLesson />
             </li>
           ))}
         </ol>
+      )}
+      <button onClick={toggleShowAllAnswers} style={{ marginTop: "10px" }}>
+        Explanation
+      </button>
+      {showAllAnswers && (
+        <div>
+          {element.options.map((exercise: Exercise, index: number) => (
+            <div key={index} style={{ marginTop: "10px" }}>
+              <div style={{ marginBottom: "5px", fontWeight: "bold" }}>
+                {index + 1}. {exercise.question}
+              {" "}  <span style={{ fontStyle: "italic" }}>{exercise.answer}</span>
+              </div>
+              {exercise.options.map((opt: Option, i: number) => (
+                <div
+                  key={i}
+                  style={{
+                    marginBottom: "5px",
+                    color: opt.status === "right" ? "green" : "red",
+                  }}
+                >
+                  {opt.reason}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
