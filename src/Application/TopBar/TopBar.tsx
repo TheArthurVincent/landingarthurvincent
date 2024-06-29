@@ -133,7 +133,6 @@ export const TopBar: FC = () => {
       icon: "th-list",
       display: "block",
     },
-    // { title: UniversalTexts.faq, endpoint: "/faq" ,icon:"question",  display: "block",  },
     {
       title: UniversalTexts.myClasses,
       endpoint: "/my-classes",
@@ -158,6 +157,8 @@ export const TopBar: FC = () => {
       display: "block",
       icon: "user-o",
     },
+    { title: UniversalTexts.faq, endpoint: "/faq" ,icon:"question",  display: "block",  },
+
   ];
 
   const handleVisible = () => {

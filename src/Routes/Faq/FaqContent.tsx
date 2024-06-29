@@ -6,26 +6,24 @@ import RankingExplanation from "../Ranking/RankingComponents/RankingExplanation"
 export const contentFaq = [
   {
     instruction: "Primeiros passos no portal",
-    url: "https://vimeo.com/908265449?share=copy",
+    url: "https://vimeo.com/971573790",
     tags: ["portal", "login", "próxima", "next", "em grupo"],
     explanation: (
       <>
         <h2>Página Inicial:</h2>
         <ul>
-          <li>Acesse facilmente sua próxima aula.</li>
-          <li>Acesse facilmente a próxima aula em grupo.</li>
-          <li>Encontre seus cartões Anki prontos para revisão.</li>
           <li>
             Navegue até sua pasta no Google Drive para acessar materiais
             importantes.
           </li>
+          <li>Veja as últimas informações importantes.</li>
         </ul>
       </>
     ),
   },
   {
     instruction: "Aba Minhas aulas e Aulas em grupo",
-    url: "https://vimeo.com/908255425?share=copy",
+    url: "https://vimeo.com/971573588",
     tags: [
       "estudar",
       "estudo",
@@ -75,6 +73,39 @@ export const contentFaq = [
             </Link>{" "}
           </li>
         </ul>
+      </>
+    ),
+  },
+  {
+    instruction: "Calendário",
+    url: "https://vimeo.com/971573729",
+    tags: ["calendar", "calendario", "data", "aula", "class"],
+    explanation: (
+      <>
+        <h2>Calendário:</h2>
+        <ul>
+          <li>Acesse facilmente sua próxima aula.</li>
+          <li>Acesse facilmente a próxima aula em grupo.</li>
+        </ul>
+        <Link to="https://portal.arthurvincent.com.br/calendar">
+          Entre aqui
+        </Link>{" "}
+      </>
+    ),
+  },
+  {
+    instruction: "Homework",
+    url: "https://vimeo.com/971573837",
+    tags: ["homework", "lição", "tutoring"],
+    explanation: (
+      <>
+        <h2>Calendário:</h2>
+        <ul>
+          <li>Veja onde estão seus homeworks.</li>
+        </ul>
+        <Link to="https://portal.arthurvincent.com.br/homework">
+          Entre aqui
+        </Link>{" "}
       </>
     ),
   },
@@ -135,11 +166,13 @@ export const contentFaq = [
     ),
   },
   {
-    instruction: "Como usar o Anki?",
-    url: "https://www.youtube.com/embed/o7jJeDzv7z4",
+    instruction: "Como usar os flashcards?",
+    url: "https://vimeo.com/971573880",
     tags: [
       "Anki",
       "Revisão",
+      "flashcard",
+      "flashcards",
       "memorizar",
       "memory",
       "forget",
@@ -148,37 +181,7 @@ export const contentFaq = [
     ],
     explanation: (
       <>
-        {" "}
-        <Link
-          style={{
-            marginRight: "1.2rem",
-            marginLeft: "auto",
-            maxWidth: "fit-content",
-            color: primaryColor(),
-            fontSize: "1rem",
-            backgroundColor: textPrimaryColorContrast(),
-          }}
-          to="http://ankiweb.net/decks"
-          target="_blank"
-        >
-          Clique aqui para acessar a página do Anki
-        </Link>
         <br />
-        <br />
-        <Link
-          style={{
-            marginRight: "1.2rem",
-            marginLeft: "auto",
-            maxWidth: "fit-content",
-            color: primaryColor(),
-            fontSize: "1rem",
-            backgroundColor: textPrimaryColorContrast(),
-          }}
-          to="https://ankiweb.net/account/signup"
-          target="_blank"
-        >
-          Clique aqui para se cadastrar no Anki
-        </Link>
       </>
     ),
   },
@@ -233,7 +236,14 @@ export const contentFaq = [
     ),
   },
   {
+    instruction: "Courses",
+    url: "https://vimeo.com/971573645",
+    tags: ["cursos", "courses", "business"],
+    explanation: <div></div>,
+  },
+  {
     instruction: "Como funcionam o ranking e os níveis?",
+    url: "https://vimeo.com/971573962",
     tags: ["Rank", "Score", "scoring", "level", "pontos", "pontuação"],
     explanation: <RankingExplanation />,
   },

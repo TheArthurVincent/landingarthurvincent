@@ -158,6 +158,14 @@ export function Homework({ headers, setChange, change }: HWProps) {
         <SectionHW>
           <article>
             <HTwo>Tutorings</HTwo>
+            <p
+              style={{
+                textAlign: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              As atividades abaixo são referentes às suas aulas particulares.
+            </p>
             <ul
               style={{
                 overflowY: "auto",
@@ -173,7 +181,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
                     style={{
                       marginBottom: "1px",
                       textDecoration: "none",
-                      display: "grid",
+                      display: index > 3 ? "none" : "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
@@ -202,8 +210,8 @@ export function Homework({ headers, setChange, change }: HWProps) {
                               : "ellipsis-h"
                           }`}
                           aria-hidden="true"
-                        />
-                        {" "}{homework?.status}
+                        />{" "}
+                        {homework?.status}
                       </span>
                       <br />
                       Due date: {formatDateBr(homework.dueDate)}
@@ -252,6 +260,14 @@ export function Homework({ headers, setChange, change }: HWProps) {
           </article>
           <article>
             <HTwo>Group Classes</HTwo>
+            <p
+              style={{
+                textAlign: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              As atividades abaixo são referentes às aulas em grupo!
+            </p>
             <ul
               style={{
                 overflowY: "auto",
@@ -267,7 +283,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
                     style={{
                       marginBottom: "1px",
                       textDecoration: "none",
-                      display: "grid",
+                      display: index > 3 ? "none" : "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
