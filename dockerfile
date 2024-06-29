@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 RUN npm install
-RUN npm isntall --global serve
+RUN npm install --global serve
 COPY . .
 RUN npm run build
 # If you are building your code for production
