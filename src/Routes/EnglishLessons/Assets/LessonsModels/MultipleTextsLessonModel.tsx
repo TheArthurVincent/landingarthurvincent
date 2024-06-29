@@ -12,7 +12,6 @@ export default function MultipleTextsLessonModel({
   headers,
   element,
 }: MultipleTextsLessonModelProps) {
-  const [isPaused, setIsPaused] = useState<boolean>(false);
   return (
     <div
       style={{
@@ -29,25 +28,10 @@ export default function MultipleTextsLessonModel({
                   {text.subtexttitle && <HThree>{text.subtexttitle}</HThree>}
                   {text.text && (
                     <>
-                      <p
-                        style={{
-                          marginBottom: "2rem",
-                        }}
-                      >
+                      <p style={{ marginBottom: "2rem" }}>
                         {text.text}
-                        <button
-                          className="audio-button"
-                          onClick={() => {
-                            readText(text, false);
-                            setIsPaused(!isPaused);
-                          }}
-                        >
-                          <i
-                            className={
-                              !isPaused ? "fa fa-volume-up" : "fa fa-pause"
-                            }
-                            aria-hidden="true"
-                          />
+                        <button className="audio-button" onClick={() => { readText(text.text, true); }}>
+                          <i className={"fa fa-volume-up"} aria-hidden="true" />
                         </button>
                       </p>
                       <TextAreaLesson />

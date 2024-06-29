@@ -131,19 +131,18 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
                   </option>
                 ))}
               </select>
-              {!exercise.audio ||
-                (!exercise.answer && (
-                  <i
-                    style={{
-                      marginTop: "1rem",
-                      color: "#ccc",
-                    }}
-                    className="fa fa-long-arrow-right"
-                    onMouseEnter={() => handleMouseEnter(index)}
-                    onClick={() => handleMouseEnter(index)}
-                    onMouseLeave={handleMouseLeave}
-                  />
-                ))}
+              <br />
+              {exercise.answer && <i
+                style={{
+                  marginTop: "1rem",
+                  color: "#ccc",
+                }}
+                className="fa fa-eye"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onClick={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+              />}
+              {"  "}
               {hoverIndex === index && (
                 <span style={{ fontStyle: "italic" }}>
                   {exercise.answer && exercise.answer}
@@ -163,10 +162,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
                   {selectedOptions[index] !==
                     exercise.options.find((opt) => opt.status === "right")
                       ?.option && (
-                    <span style={{  color: "red" }}>
-                      {" "}
-                      - Incorrect!
-                    </span>
+                    <span style={{ color: "red" }}> - Incorrect!</span>
                   )}
                 </span>
               )}
@@ -191,16 +187,21 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
             <div key={index} style={{ margin: "10px" }}>
               <div style={{ margin: "5px", fontWeight: "bold" }}>
                 {index + 1}. {exercise.question && exercise.question}{" "}
+                <span
+                  style={{
+                    fontStyle: "italic",
+                  }}
+                >
+                  {" - "}{exercise.answer && exercise.answer}
+                </span>
               </div>
               {exercise.options.map((opt: Option, i: number) => (
                 <div
                   key={i}
                   style={{
                     margin: "20px 0",
-
                     color: opt.status === "right" ? "green" : "red",
                     fontStyle: opt.status === "right" ? "none" : "italic",
-                  
                   }}
                 >
                   <span
