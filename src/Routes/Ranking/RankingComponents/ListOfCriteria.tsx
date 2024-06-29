@@ -62,12 +62,12 @@ export const listOfCriteria = [
         nobutton: true,
         color: "green",
       },
-      {
-        description: "Zerou as 40 revisões do dia",
-        score: 80,
-        nobutton: true,
-        color: "green",
-      },
+      // {
+      //   description: "Zerou as 40 revisões do dia",
+      //   score: 80,
+      //   nobutton: true,
+      //   color: "green",
+      // },
     ],
   },
   {
