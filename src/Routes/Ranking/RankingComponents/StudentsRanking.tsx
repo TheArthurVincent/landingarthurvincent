@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi, DivFont, } from "../../../Resources/Components/RouteBox";
-import { ImgResponsive0, Xp, abreviateName, backDomain, formatNumber, updateScore, } from "../../../Resources/UniversalComponents";
+import { AnimatedLi, DivFont } from "../../../Resources/Components/RouteBox";
+import {
+  ImgResponsive0,
+  Xp,
+  abreviateName,
+  backDomain,
+  formatNumber,
+  updateScore,
+} from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
-import { alwaysBlack, alwaysWhite, secondaryColor, textSecondaryColorContrast, transparentBlack, } from "../../../Styles/Styles";
+import {
+  alwaysBlack,
+  alwaysWhite,
+  secondaryColor,
+  textSecondaryColorContrast,
+  transparentBlack,
+} from "../../../Styles/Styles";
 import { listOfButtons } from "./ListOfCriteria";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -94,8 +107,8 @@ export default function StudentsRanking({
       setPic(response.data.formattedStudentData.picture);
       setName(
         response.data.formattedStudentData.name +
-        " " +
-        abreviateName(response.data.formattedStudentData.lastname)
+          " " +
+          abreviateName(response.data.formattedStudentData.lastname)
       );
       setDisabled(false);
 
@@ -450,8 +463,8 @@ export default function StudentsRanking({
                       display: isAdm
                         ? "flex"
                         : index < 5 && item.monthlyScore > 0
-                          ? "flex"
-                          : "none",
+                        ? "flex"
+                        : "none",
                       background: theItems[levelNumber].color,
                       borderRadius: "5rem",
                       boxShadow: "1px 1px 10px 1px #aaa",
