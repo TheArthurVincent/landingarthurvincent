@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import StudentsRanking from "./RankingComponents/StudentsRanking";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
@@ -18,12 +14,9 @@ import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
-import {
-  formatDate,
-  formatDateBr,
-  formatDateBrContract,
-} from "../../Resources/UniversalComponents";
+import { formatDate } from "../../Resources/UniversalComponents";
 import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
+import Countdown from "./RankingComponents/Countdown";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -125,6 +118,7 @@ export default function Ranking({ headers }: HeadersProps) {
             })}
           </TabList>
         </Box>
+        <Countdown />
         {componentsToRender.map((component, index) => {
           return (
             <TabPanel
