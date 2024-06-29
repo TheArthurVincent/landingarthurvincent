@@ -16,7 +16,7 @@ import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import { formatDate } from "../../Resources/UniversalComponents";
 import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
-import Countdown from "./RankingComponents/Countdown";
+// import Countdown from "./RankingComponents/Countdown";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -118,7 +118,7 @@ export default function Ranking({ headers }: HeadersProps) {
             })}
           </TabList>
         </Box>
-        <Countdown />
+        {/* <Countdown /> */}
         {componentsToRender.map((component, index) => {
           return (
             <TabPanel
