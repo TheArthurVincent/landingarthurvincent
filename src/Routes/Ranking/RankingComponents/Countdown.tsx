@@ -9,7 +9,7 @@ import {
 
 const Countdown: React.FC = () => {
   // const targetDate = new Date("2024-06-29T18:00:00"); 
-  const targetDate = new Date("2024-07-31T18:00:00"); 
+  const targetDate = new Date("2024-08-03T18:00:00"); 
 
   const calculateTimeLeft = () => {
     const now = new Date();
