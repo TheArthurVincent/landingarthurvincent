@@ -321,10 +321,14 @@ export default function EnglishLessonsRender({
                     text={element.text ? element.text : ""}
                   />
                 ) : element.type === "html" ? (
-                  <div>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: element.text }}
-                    />
+                  <div
+                    style={{
+                      padding: "1rem",
+                      display: "grid",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: element.text }} />
                   </div>
                 ) : element.type === "multipletexts" ? (
                   <MultipleTextsLessonModel
