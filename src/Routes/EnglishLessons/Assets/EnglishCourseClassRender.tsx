@@ -325,7 +325,7 @@ export default function EnglishLessonsRender({
                     style={{
                       padding: "1rem",
                       display: "grid",
-                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
                     <div dangerouslySetInnerHTML={{ __html: element.text }} />
