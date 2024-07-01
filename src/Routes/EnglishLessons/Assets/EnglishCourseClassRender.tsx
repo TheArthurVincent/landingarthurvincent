@@ -320,6 +320,10 @@ export default function EnglishLessonsRender({
                     headers={headers}
                     text={element.text ? element.text : ""}
                   />
+                ) :  element.type === "video" ? (
+
+                  <VideoLessonModel element={element} />
+                  
                 ) : element.type === "multipletexts" ? (
                   <MultipleTextsLessonModel
                     headers={headers}
