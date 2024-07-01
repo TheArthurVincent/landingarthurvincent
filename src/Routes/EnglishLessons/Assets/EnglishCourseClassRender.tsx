@@ -320,6 +320,12 @@ export default function EnglishLessonsRender({
                     headers={headers}
                     text={element.text ? element.text : ""}
                   />
+                ) : element.type === "html" ? (
+                  <div>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: element.text }}
+                    />
+                  </div>
                 ) : element.type === "multipletexts" ? (
                   <MultipleTextsLessonModel
                     headers={headers}
