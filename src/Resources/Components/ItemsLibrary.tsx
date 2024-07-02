@@ -19,8 +19,8 @@ interface ArvinButtonProps {
 }
 
 export const ArvinButton = styled.button<ArvinButtonProps>`
-  min-width: 50px;
-  margin: 1px;
+  min-width: 30px;
+  margin:  0 3px;
   background: linear-gradient(
     to left,
     ${(props) =>
@@ -67,9 +67,9 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
       50%
   );
   color: ${(props) => (props.color === "white" ? "black" : alwaysWhite())};
-  padding: 5px 1.2rem;
+  padding: 3px 1rem;
   font-family: Athiti;
-  border-radius: 10px;
+  border-radius: 8px;
   border: none;
   cursor: ${(props) =>
     props.cursor === "not-allowed" ? "not-allowed" : "pointer"};
@@ -123,8 +123,8 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             : primaryColor2()}
         100%
     );
-    box-shadow: 1px 1px 10px 1px #aaa;
-    border-radius: 12px;
+    box-shadow: 1px 1px 10px 1px #bbb;
+    border-radius: 10px;
   }
 
   &:active {
@@ -156,7 +156,7 @@ export const MyButton = styled.button<ButtonProps>`
         100%
     );
 
-    box-shadow: 1px 1px 10px 1px #aaa;
+    box-shadow: 1px 1px 10px 1px #bbb;
     border-radius: 12px;
   }
 
