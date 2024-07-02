@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import { alwaysWhite, lightGreyColor, primaryColor } from "../../Styles/Styles";
 
-
 export const DivModal = styled.div`
   position: fixed;
   z-index: 100;
@@ -56,84 +55,99 @@ export const IFrameVideoBlog = styled.iframe`
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
-  min-width: 950px;
-  min-height: 450px;
-  @media (max-width: 1150px) {
+  min-width: 1000px;
+  min-height: 500px;
   border: none;
-    min-width: 800px;
-    min-height: 450px;
+  @media (max-width: 1150px) {
+    margin-right: auto;
+    margin-left: auto;
   }
   @media (max-width: 950px) {
-    min-width: 750px;
-    min-height: 400px;
+    min-width: 950px;
+    min-height: 450px;
   }
   @media (max-width: 875px) {
-    min-width: 700px;
-    min-height: 400px;
+    min-width: 870px;
+    min-height: 435px;
   }
   @media (max-width: 810px) {
-    min-width: 650px;
-    min-height: 380px;
+    min-width: 800px;
+    min-height: 400px;
   }
   @media (max-width: 750px) {
-    min-width: 600px;
-    min-height: 350px;
+    min-width: 720px;
+    min-height: 360px;
   }
   @media (max-width: 692px) {
-    min-width: 550px;
-    min-height: 320px;
+    min-width: 680px;
+    min-height: 340px;
   }
   @media (max-width: 638px) {
-    min-width: 500px;
-    min-height: 300px;
+    min-width: 630px;
+    min-height: 315px;
   }
   @media (max-width: 580px) {
-    min-width: 470px;
-    min-height: 200px;
+    min-width: 570px;
+    min-height: 285px;
   }
-  @media (max-width: 542px) {
-    min-width: 440px;
-    min-height: 200px;
+    @media (max-width: 550px) {
+    min-width: 545px;
+    min-height: 225px;
+  }    @media (max-width: 540px) {
+    min-width: 535px;
+    min-height: 265px;
   }
-  @media (max-width: 512px) {
-    min-width: 430px;
-    min-height: 200px;
+  @media (max-width: 530px) {
+    min-width: 525px;
+    min-height: 260px;
+  }
+  @media (max-width: 520px) {
+    min-width: 515px;
+    min-height: 255px;
+  }
+  @media (max-width: 510px) {
+    min-width: 500px;
+    min-height: 250px;
   }
   @media (max-width: 500px) {
-    min-width: 420px;
-    min-height: 200px;
+    min-width: 490px;
+    min-height: 240px;
   }
-  @media (max-width: 486px) {
-    min-width: 390px;
-    min-height: 200px;
+  @media (max-width: 490px) {
+    min-width: 485px;
+    min-height: 240px;
+  }
+  @media (max-width: 480px) {
+    min-width: 475px;
+    min-height: 235px;
+  }
+  @media (max-width: 470px) {
+    min-width: 465px;
+    min-height: 235px;
   }
   @media (max-width: 450px) {
-    min-width: 360px;
+    min-width: 445px;
+    min-height: 222px;
+  }
+  @media (max-width: 440px) {
+    min-width: 435px;
+    min-height: 215px;
+  }
+  @media (max-width: 420px) {
+    min-width: 415px;
+    min-height: 210px;
+  }
+  @media (max-width: 410px) {
+    min-width: 405px;
     min-height: 200px;
   }
-  @media (max-width: 418px) {
-    min-width: 340px;
-    min-height: 180px;
+  @media (max-width: 400px) {
+    min-width: 390px;
+    min-height: 195px;
   }
-  @media (max-width: 402px) {
-    min-width: 320px;
-    min-height: 165px;
-  }
-  @media (max-width: 376px) {
-    min-width: 300px;
-    min-height: 150px;
-  }
-  @media (max-width: 353px) {
-    min-width: 270px;
-    min-height: 150px;
-  }
-  @media (max-width: 280px) {
-    min-width: 140px;
-    min-height: 64px;
-  }
-  @media (max-width: 210px) {
-    min-width: 80px;
-    min-height: 38px;
+  @media (max-width: 380px) {
+    min-width: 375px;
+    min-height: 189px;
   }
 `;
 
