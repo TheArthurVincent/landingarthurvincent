@@ -413,7 +413,7 @@ export default function EnglishLessonsRender({
               onChange={(event) => setDescription(event.target.value)}
               style={{ width: "98%", height: "50px", padding: "8px" }}
             />{" "}
-            <ArvinButton>Send Comment</ArvinButton>
+            <ArvinButton>Send</ArvinButton>
           </form>
           <h3>Comments</h3>
           <ul>
