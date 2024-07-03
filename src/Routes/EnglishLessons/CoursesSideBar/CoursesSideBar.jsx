@@ -15,6 +15,14 @@ import {
   textPrimaryColorContrast,
 } from "../../../Styles/Styles";
 
+
+export const truncateTitle = (title, maxChars) => {
+  if (title.length > maxChars) {
+    return title.substring(0, maxChars).trim() + " ...";
+  }
+  return title;
+};
+
 function CoursesSideBar({ courses }) {
   const [showCourses, setShowCourses] = useState(false);
   const [arrow, setArrow] = useState(false);
@@ -25,15 +33,6 @@ function CoursesSideBar({ courses }) {
   const handleHideCourses = () => {
     setShowCourses(false);
     setArrow(false);
-  };
-  useEffect(() => {
-    console.log("courses", courses);
-  }, []);
-  const truncateTitle = (title, maxChars) => {
-    if (title.length > maxChars) {
-      return title.substring(0, maxChars).trim() + " ...";
-    }
-    return title;
   };
   const location = useLocation();
   const go = (e) => {

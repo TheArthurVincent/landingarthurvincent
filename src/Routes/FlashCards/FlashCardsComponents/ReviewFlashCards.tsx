@@ -67,7 +67,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         { flashcardId: id, difficulty },
         { headers: actualHeaders }
       );
-      console.log(response.data);
       setAnswer(false);
       seeCardsToReview();
       onChange(!change);
@@ -102,7 +101,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )
           : null;
       }
-      console.log("Look here", response.data);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);

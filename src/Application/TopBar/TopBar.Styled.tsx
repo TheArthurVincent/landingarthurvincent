@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import {
   secondaryColor,
-  textSecondaryColorContrast,
   transparentBlack,
   primaryColor,
   alwaysWhite,
@@ -9,7 +8,7 @@ import {
 
 export const TopBarContainer = styled.header`
   top: 0;
-  z-index: 6;
+  z-index: 7;
   position: fixed;
   background-color: ${alwaysWhite()};
   justify-content: space-evenly;
@@ -17,7 +16,7 @@ export const TopBarContainer = styled.header`
   display: flex;
   padding: 5px;
   box-shadow: 1px 1px 10px 1px #555;
-  width: 100vw;
+  width: 100%;
   @media print {
     display: none;
   }
@@ -29,7 +28,7 @@ export const TopBarNavigation = styled.div`
   display: flex;
   z-index: 4;
   font-size: 13px;
-  padding:5px;
+  padding: 5px;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
