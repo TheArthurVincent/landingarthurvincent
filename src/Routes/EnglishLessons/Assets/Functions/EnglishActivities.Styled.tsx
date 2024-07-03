@@ -73,7 +73,7 @@ export const UlGridImageLessons = styled.ul`
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 2rem;
   @media (max-width: 690px) {
     grid-template-columns: 1fr;
   }
