@@ -97,7 +97,6 @@ export default function EnglishLessonsRender({
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers: actualHeaders,
       });
-      console.log(theclass);
       setStudentsList(response.data.listOfStudents);
     } catch (error) {
       alert("Erro ao encontrar alunos");

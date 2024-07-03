@@ -426,7 +426,6 @@ export default function MyCalendar({ headers, thePermissions }) {
         { headers }
       );
       alert("E-mail lembrete enviado");
-      console.log("E-mail lembrete enviado");
       fetchGeneralEventsNoLoading();
     } catch (error) {
       console.log(error, "Erro ao enviar e-mail");

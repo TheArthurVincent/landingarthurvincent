@@ -75,35 +75,30 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
   const handleFrontCardChange = (index: number, value: string) => {
     const newCards = [...cards];
     newCards[index].frontCard = value;
-    console.log("frontCard", value, "newCards", newCards);
     setCards(newCards);
   };
 
   const handleBackCardChange = (index: number, value: string) => {
     const newCards = [...cards];
     newCards[index].backCard = value;
-    console.log("backCard", value, "newCards", newCards);
     setCards(newCards);
   };
 
   const handleLanguageFrontChange = (index: number, value: string) => {
     const newCards = [...cards];
     newCards[index].languageFront = value;
-    console.log("languageFront", value, "newCards", newCards);
     setCards(newCards);
   };
 
   const handleLanguageBackChange = (index: number, value: string) => {
     const newCards = [...cards];
     newCards[index].languageBack = value;
-    console.log("languageBack", value, "newCards", newCards);
     setCards(newCards);
   };
 
   const handleCommentsBack = (index: number, value: string) => {
     const newCards = [...cards];
     newCards[index].backComments = value;
-    console.log("backComments", value, "newCards", newCards);
     setCards(newCards);
   };
 
@@ -119,7 +114,6 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
         language: card.languageBack,
       },
     }));
-    console.log(newCards);
     try {
       await axios.post(
         `${backDomain}/api/v1/flashcard/${studentID}`,

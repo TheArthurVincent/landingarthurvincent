@@ -34,10 +34,6 @@ function CoursesSideBar({ courses }) {
     setShowCourses(false);
     setArrow(false);
   };
-  useEffect(() => {
-    console.log("courses", courses);
-  }, []);
-
   const location = useLocation();
   const go = (e) => {
     window.location.assign(pathGenerator(e));

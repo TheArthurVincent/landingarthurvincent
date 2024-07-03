@@ -211,7 +211,6 @@ export default function StudentsHistoryOfWinners({
         headers: actualHeaders,
       });
       const hist = response.data.scoreMonth;
-      console.log(response.data.scoreMonth);
       setHistory(hist);
       setTimeout(() => {
         setLoading(false);
@@ -227,7 +226,6 @@ export default function StudentsHistoryOfWinners({
   }, []);
 
   const savingMonth = async (item: any) => {
-    console.log(item);
     setLoading(false);
     try {
       const response = await axios.post(
@@ -238,7 +236,6 @@ export default function StudentsHistoryOfWinners({
         }
       );
       setLoading(false);
-      console.log(response);
       gettingHistory();
     } catch (error) {
       alert("Erro ao encontrar alunos");
