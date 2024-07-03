@@ -47,10 +47,9 @@ export const CourseCard = styled.div`
   width: 100%;
   padding: 0.2rem;
   transition: 0.3s;
-p{
-
-margin-right:2rem
-};
+  p {
+    margin-right: 2rem;
+  }
   img {
     filter: grayscale(0%);
     transition: 0.1s;
