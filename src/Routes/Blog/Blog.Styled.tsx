@@ -50,13 +50,10 @@ export const SpanDisapear = styled.span`
 `;
 
 export const IFrameVideoBlog = styled.iframe`
-  border: 1px solid ${lightGreyColor()};
-  border-radius: 1rem;
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
   min-width: 1000px;
   min-height: 500px;
+  margin-right: auto;
+  margin-left: auto;
   position: relative;
   border: none;
   @media (max-width: 1150px) {

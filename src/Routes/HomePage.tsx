@@ -140,11 +140,6 @@ export function HomePage({ headers }: HeadersProps) {
                     {component.component}
                     {component.levelcard && (
                       <LevelCard
-                        display={
-                          component.path == "adm-businessmanagement"
-                            ? "none"
-                            : "block"
-                        }
                         change={change}
                         headers={headers}
                         _StudentId={_StudentId}

@@ -20,14 +20,12 @@ interface LevelCardProps {
   headers: MyHeadersType | null;
   _StudentId: string;
   picture: string;
-  display: string;
   change: boolean;
 }
 export function LevelCard({
   headers,
   _StudentId,
   picture,
-  display,
   change,
 }: LevelCardProps) {
   const [pictureStudent, setPictureStudent] = useState<string>(picture);
@@ -71,7 +69,6 @@ export function LevelCard({
   }, [change]);
 
   return (
-    <div style={{ display: display }}>
       <NewLevelCardComponent
         style={{
           border: `double 5px ${items[level].color} `,
@@ -140,7 +137,6 @@ export function LevelCard({
           </div>
         </TextLevelCard>
       </NewLevelCardComponent>
-    </div>
   );
 }
 

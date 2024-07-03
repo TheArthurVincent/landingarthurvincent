@@ -31,6 +31,8 @@ export const LevelCardComponent = styled.div`
 export const NewLevelCardComponent = styled.div`
   padding: 12px 8px;
   display: grid;
+  position: sticky;
+  top: 60px;
   border-radius: 4rem;
   text-align: center;
   background: linear-gradient(to bottom, #444 20%, #000 95%);
@@ -43,15 +45,8 @@ export const NewLevelCardComponent = styled.div`
   @media (max-width: 1200px) {
     display: flex;
     width: 88vw;
-    height: 9rem;
-    margin:auto;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: space-between;
-  }
-  @media (max-width: 450px) {
-    display: flex;
-    height: 9rem;
+    height: 5rem;
+    margin: auto;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: space-between;
@@ -78,14 +73,14 @@ export const LevelCardLevel = styled.img`
   z-index: 3;
   transform: translate(-50%, -40%);
   animation: ${spinAnimation} 1s ease-out forwards;
-
   @media (max-width: 1200px) {
-    top: 36%;
-    left: -18%;
+    top: 26.5%;
+    left: -40%;
+    width: 6rem;
+    height: 6rem;
   }
-  @media (max-width: 450px) {
-    top: 36%;
-    left: 35%;
+  @media (max-width: 487px) {
+    left: 13%;
   }
 `;
 export const LevelCardPhotoLevel = styled.img`
@@ -97,11 +92,12 @@ export const LevelCardPhotoLevel = styled.img`
   top: 17%;
   left: 0%;
   @media (max-width: 1200px) {
-    top: 3%;
+    top: 7%;
     left: -68%;
+    width: 4rem;
+    height: 4rem;
   }
-  @media (max-width: 450px) {
-    top: 3%;
+  @media (max-width: 487px) {
     left: -15%;
   }
 `;
