@@ -57,6 +57,7 @@ export const IFrameVideoBlog = styled.iframe`
   margin-left: auto;
   min-width: 1000px;
   min-height: 500px;
+  position: relative;
   border: none;
   @media (max-width: 1150px) {
     margin-right: auto;
@@ -90,10 +91,11 @@ export const IFrameVideoBlog = styled.iframe`
     min-width: 570px;
     min-height: 285px;
   }
-    @media (max-width: 550px) {
+  @media (max-width: 550px) {
     min-width: 545px;
     min-height: 225px;
-  }    @media (max-width: 540px) {
+  }
+  @media (max-width: 540px) {
     min-width: 535px;
     min-height: 265px;
   }
