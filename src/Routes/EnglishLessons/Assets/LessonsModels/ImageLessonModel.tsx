@@ -80,6 +80,8 @@ export default function ImageLessonModel({
         display: "flex",
         padding: "5px",
         margin: "10px 0",
+        justifyContent: "center",
+        width: "100%",
       }}
     >
       <UlGridImageLessons>
