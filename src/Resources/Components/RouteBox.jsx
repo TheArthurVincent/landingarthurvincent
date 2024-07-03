@@ -44,10 +44,8 @@ export const OverFlow = styled.div`
 }
   `;
 export const BlogRouteSizeControlBox = styled.div`
-  display: grid;
-  grid-template-columns: 7fr 1fr;
+  display: flex;
   margin: 1rem auto;
-  justify-content: center;
   max-width: 70vw;
   gap: 0.2rem;
   @media (max-width: 1200px) {
