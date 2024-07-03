@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  RouteDiv,
-  RouteDivUp,
-} from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -72,7 +68,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   const isRootPath = location.pathname === "/english-courses";
 
   return (
-    <RouteDivUp>
+    <div>
       <Routes>
         {listOfClassesFromDatabase.map((route: any, idx: number) => (
           <Route
@@ -88,7 +84,11 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
           />
         ))}
       </Routes>
-      <RouteDiv style={{ display: isRootPath ? "block" : "none" }}>
+      <RouteDiv
+        style={{
+          display: isRootPath ? "block" : "none",
+        }}
+      >
         <Helmets text="Courses" />
         <HOne>Escolha um curso</HOne>
         <ArvinButton onClick={getCourses}>
@@ -195,6 +195,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         )}
         <Outlet />
       </RouteDiv>
-    </RouteDivUp>
+    </div>
   );
 }

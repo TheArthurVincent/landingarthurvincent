@@ -20,7 +20,9 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 import Helmets from "../../../Resources/Helmets";
 import VideoLessonModel from "./LessonsModels/VideoLessonModel";
-import CoursesSideBar from "../CoursesSideBar/CoursesSideBar";
+import CoursesSideBar, {
+  truncateTitle,
+} from "../CoursesSideBar/CoursesSideBar";
 import {
   alwaysWhite,
   darkGreyColor,
@@ -192,7 +194,11 @@ export default function EnglishLessonsRender({
           ) : (
             <span>No previous class</span>
           )}
-          <h1>{`${order}- ${theclass.title}`}</h1>
+          <h1
+            style={{
+              fontSize: "15px",
+            }}
+          >{`${order}- ${truncateTitle(theclass.title, 25)}`}</h1>
           {nextclass ? (
             <span
               style={{
@@ -204,7 +210,13 @@ export default function EnglishLessonsRender({
               <i className="fa fa-arrow-right" aria-hidden="true" />
             </span>
           ) : (
-            <span>No next class</span>
+            <span
+              style={{
+                fontSize: "10px",
+              }}
+            >
+              No next class
+            </span>
           )}
         </div>
         {thePermissions === "superadmin" && (
