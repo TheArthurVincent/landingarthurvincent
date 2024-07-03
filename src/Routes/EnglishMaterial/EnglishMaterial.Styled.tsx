@@ -48,10 +48,10 @@ export const CourseCard = styled.div`
   transition: 0.3s;
 
   img {
-    filter: grayscale(100%);
+    filter: grayscale(0%);
     transition: 0.3s;
       border-radius: 50%;
-      transform: rotate(5deg); 
+      transform: rotate(2deg); 
     width: 100%;
     height: auto;
     transform-origin: center;
@@ -62,7 +62,7 @@ export const CourseCard = styled.div`
     background-color: ${alwaysWhite()};
 
     img {
-      filter: grayscale(0%);
+      filter: grayscale(30%);
       transform: rotate(0deg); 
       border-radius: 50%;
       height: 8rem;

@@ -231,11 +231,11 @@ li {
 }
 
 .hvr {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 .hvr:hover {
-  background-color: #aaa;
+  background-color: #f2f2f2;
 }
 
 @keyframes slideInLeft {
