@@ -34,6 +34,7 @@ import TextLessonModelSlide from "./SlideModels/TextLessonModelSlide";
 import TextsWithTranslateSlideLessonModel from "./SlideModels/TextWithNoAudio";
 import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
 import SelectExercise from "./LessonsModels/MultipleSelectExercise";
+import { Tooltip } from "@mui/material";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -64,6 +65,7 @@ export default function EnglishLessonsRender({
   const [myId, setId] = useState<string>("");
   const [thePermissions, setPermissions] = useState<string>("");
   const [seeSlides, setSeeSlides] = useState<boolean>(false);
+  const [description, setDescription] = useState<string>("");
 
   const PC = previousclass ? pathGenerator(previousclass.title) : null;
   const NC = nextclass ? pathGenerator(nextclass.title) : null;
@@ -93,6 +95,7 @@ export default function EnglishLessonsRender({
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers: actualHeaders,
       });
+      console.log(theclass);
       setStudentsList(response.data.listOfStudents);
     } catch (error) {
       alert("Erro ao encontrar alunos");
@@ -365,15 +368,6 @@ export default function EnglishLessonsRender({
                 )}
               </div>
             ))}
-        {thePermissions === "superadmin" && (
-          <ArvinButton
-            onClick={() => {
-              setSeeSlides(!seeSlides);
-            }}
-          >
-            See slides
-          </ArvinButton>
-        )}
         <div
           style={{
             display: "flex",
@@ -410,7 +404,175 @@ export default function EnglishLessonsRender({
             <span>No next class</span>
           )}
         </div>
+        <div id="comment-section">
+          <form action="">
+            <h3>Leave a comment!</h3>
+            <textarea
+              placeholder="Description"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+              style={{ width: "98%", height: "50px", padding: "8px" }}
+            />{" "}
+            <ArvinButton>Send</ArvinButton>
+          </form>
+          <h3>Comments</h3>
+          <ul>
+            {theclass.studentsComments.length > 0
+              ? theclass.studentsComments.map(
+                  (comment: any, indexx: number) => {
+                    return (
+                      <li
+                        key={indexx}
+                        style={{
+                          padding: "2px 8px",
+                          marginTop: "8px",
+                          borderRadius: "10px",
+                          border: "1px solid #f1f1f1",
+                          backgroundColor: "#f1f1f1",
+                          listStyle: "none",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily: "Athiti",
+                            fontWeight: 800,
+                            fontSize: "1.2rem",
+                          }}
+                        >
+                          {comment.studentName}
+                        </span>
+                        <span>
+                          {comment.likes >= 0 && (
+                            <span style={{ margin: "0 1rem" }}>
+                              {" "}
+                              <i
+                                style={{ cursor: "pointer" }}
+                                className={"fa fa-thumbs-up"}
+                                aria-hidden="true"
+                              />{" "}
+                              {comment.likes}
+                            </span>
+                          )}
+                          <Tooltip title="Answer/Responda">
+                            <ArvinButton color="green">
+                              <i className="fa fa-commenting " />
+                            </ArvinButton>
+                          </Tooltip>
+                          <Tooltip title="Edit/Editar">
+                            <ArvinButton>
+                              <i className="fa fa-pencil" />
+                            </ArvinButton>
+                          </Tooltip>
+                          <Tooltip title="Delete/Apagar">
+                            <ArvinButton color="red">
+                              <i className="fa fa-trash" />
+                            </ArvinButton>
+                          </Tooltip>{" "}
+                        </span>
+                        <br />
+                        {comment.comment}
+                        {comment.answers.length > 0 && (
+                          <>
+                            <h3
+                              style={{
+                                textAlign: "center",
+                              }}
+                            >
+                              Answers:
+                            </h3>
+                            <ul
+                              style={{
+                                margin: "5px",
+                              }}
+                            >
+                              {comment.answers.map((asw: any, idxx: number) => {
+                                return (
+                                  <li
+                                    style={{
+                                      listStyle: "inside square",
+                                      display: "flex",
+                                      justifyContent: "space-between",
+                                      padding: "3px",
+                                      marginTop: "15px",
+                                      border: "1px solid #fefefe",
+                                      borderRadius: "5px",
+                                      backgroundColor: "#fefefe",
+                                    }}
+                                    key={idxx + indexx}
+                                  >
+                                    <span style={{ maxWidth: "80%" }}>
+                                      <span
+                                        style={{
+                                          fontFamily: "Athiti",
+                                          fontWeight: 800,
+                                          fontSize: "1.1rem",
+                                        }}
+                                      >
+                                        {asw.studentName}
+                                      </span>
+                                      {asw.likes >= 0 && (
+                                        <span
+                                          style={{
+                                            margin: "0 1rem",
+                                          }}
+                                        >
+                                          {" "}
+                                          <i
+                                            style={{ cursor: "pointer" }}
+                                            className={"fa fa-thumbs-up"}
+                                            aria-hidden="true"
+                                          />{" "}
+                                          {asw.likes}
+                                        </span>
+                                      )}
+                                      <br />
+                                      <span
+                                        style={{
+                                          fontStyle: "italic",
+                                        }}
+                                      >
+                                        {asw.comment}
+
+                                        <br />
+                                      </span>
+                                    </span>
+                                    <span>
+                                      <Tooltip title="Edit/Editar">
+                                        <ArvinButton>
+                                          <i className="fa fa-pencil" />
+                                        </ArvinButton>
+                                      </Tooltip>
+                                      <Tooltip title="Delete/Apagar">
+                                        <ArvinButton color="red">
+                                          <i className="fa fa-trash" />
+                                        </ArvinButton>
+                                      </Tooltip>{" "}
+                                    </span>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </>
+                        )}
+                      </li>
+                    );
+                  }
+                )
+              : "No comments"}
+          </ul>
+        </div>
+        {thePermissions === "superadmin" && (
+          <ArvinButton
+            style={{ margin: "1rem auto", display: "block" }}
+            onClick={() => {
+              setSeeSlides(!seeSlides);
+            }}
+          >
+            See slides
+          </ArvinButton>
+        )}
       </RouteDiv>
+
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}

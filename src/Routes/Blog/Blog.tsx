@@ -274,12 +274,7 @@ export function Blog({ headers }: HeadersProps) {
               </BlogPostTitle>
             )}
             {post.videoUrl ? (
-              <IFrameVideoBlog
-                style={{
-                  maxWidth: "100%",
-                }}
-                src={getVideoEmbedUrl(post.videoUrl)}
-              />
+              <IFrameVideoBlog src={getVideoEmbedUrl(post.videoUrl)} />
             ) : post.img ? (
               <ImgBlog src={post.img} alt="logo" />
             ) : null}
@@ -419,6 +414,6 @@ export function Blog({ headers }: HeadersProps) {
       />
     </>
   );
-} 
+}
 
 export default Blog;

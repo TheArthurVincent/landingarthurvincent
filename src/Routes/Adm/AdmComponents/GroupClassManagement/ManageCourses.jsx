@@ -154,8 +154,8 @@ export function ManageGroupClasses({ headers }) {
 
   return (
     <>
-      <HOne>Gerenciar Cursos</HOne>
-      <Box sx={{ width: "100%", typography: "body1" }}>
+      <HOne>Gerenciar Aulas em Grupo</HOne>
+      {/* <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={tabValue}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -327,7 +327,42 @@ export function ManageGroupClasses({ headers }) {
             </div>
           </TabPanel>
         </TabContext>
-      </Box>
+      </Box> */}
+
+      <div id="1">
+        {" "}
+        <HTwo>Postar aula em grupo</HTwo>
+        <div
+          style={{
+            display: "grid",
+            gap: "0.5rem",
+          }}
+        >
+          <TextField
+            id="outlined-basic"
+            label="Nome da nova aula"
+            variant="outlined"
+            value={newClassName}
+            onChange={(e) => setNewClassName(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="URL do Vídeo da nova aula"
+            variant="outlined"
+            value={newVideoUrl}
+            onChange={(e) => setNewVideoUrl(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Pasta da nova aula"
+            variant="outlined"
+            value={newGoogleDriveLink}
+            onChange={(e) => setNewGoogleDriveLink(e.target.value)}
+          />
+          <HTMLEditor onChange={handleDescriptionChange} />
+          <Button onClick={() => postNewClass()}>Salvar</Button>
+        </div>
+      </div>
     </>
   );
 }
