@@ -415,7 +415,7 @@ export default function EnglishLessonsRender({
             />{" "}
             <ArvinButton>Send</ArvinButton>
           </form>
-          <h3>Comments</h3>
+          {/* <h3>Comments</h3>
           <ul>
             {theclass.studentsComments.length > 0
               ? theclass.studentsComments.map(
@@ -559,7 +559,7 @@ export default function EnglishLessonsRender({
                   }
                 )
               : "No comments"}
-          </ul>
+          </ul> */}
         </div>
         {thePermissions === "superadmin" && (
           <ArvinButton
