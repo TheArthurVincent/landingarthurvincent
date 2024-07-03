@@ -19,9 +19,8 @@ export const CoursesList = styled.div`
 `;
 
 export const CourseItem = styled.div`
-  background-color: ${lightGreyColor()};
+  background-color: #eee;
   padding: 3rem;
-  text-align: center;
   border: none;
   color: ${primaryColor()};
   cursor: pointer;
@@ -33,40 +32,46 @@ export const CourseItem = styled.div`
   }
 `;
 export const CourseCard = styled.div`
-  color: black;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
+  color: black;
   gap: 0.5rem;
+  background-color: #f1f1f1;
   font-size: 9px;
   border-radius: 10px;
-  font-weight: 800;
-  display: flex;
-  background-color: ${lightGreyColor()};
-  height: 10rem;
-  width: 8rem;
-  padding: 1rem 0.2rem;
-  flex-direction: column;
+  font-size: 0.8rem;
+  text-align: end;
+  width: 100%;
+  padding: 0.2rem;
   transition: 0.3s;
-
+  p {
+    margin-right: 2rem;
+  }
   img {
-    filter: grayscale(100%);
-    transition: 0.3s;
-      border-radius: 50%;
-      transform: rotate(5deg); 
+    filter: grayscale(0%);
+    transition: 0.1s;
+    border-radius: 50%;
+    transform: rotate(2deg);
     width: 100%;
     height: auto;
     transform-origin: center;
+    margin: auto;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    object-position: center center;
   }
 
   &:hover {
-    box-shadow: 2px 2px 10px 1px ${darkGreyColor()};
     background-color: ${alwaysWhite()};
 
     img {
-      filter: grayscale(0%);
-      transform: rotate(0deg); 
-      border-radius: 50%;
-      height: 8rem;
-      width: 6rem;
+      filter: grayscale(100%);
+      transform: rotate(0deg);
+      border-radius: 5px;
     }
   }
 `;

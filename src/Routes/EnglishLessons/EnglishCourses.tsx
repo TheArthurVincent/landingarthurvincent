@@ -119,15 +119,16 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                         display: "flex",
                         gap: "1rem",
                         padding: "1rem",
-                        borderRadius: "1rem",
+                        borderRadius: "30rem",
                         alignItems: "center",
                         justifyContent: "space-between",
                       }}
                     >
                       <img
                         style={{
-                          maxWidth: "10rem",
+                          maxWidth: "8rem",
                           width: "100%",
+                          borderRadius: "50%",
                           height: "100%",
                           objectFit: "cover",
                           objectPosition: "center center",
@@ -158,7 +159,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                       display: "flex",
                       gap: "1rem",
                       padding: "1rem",
-                      borderRadius: "1rem",
+                      borderRadius: "30rem",
                       alignItems: "center",
                       justifyContent: "space-between",
                     }}
@@ -166,7 +167,8 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                   >
                     <img
                       style={{
-                        maxWidth: "10rem",
+                        maxWidth: "6rem",
+                        borderRadius: "50%",
                         width: "100%",
                         filter: "grayscale(100%)",
                         height: "100%",

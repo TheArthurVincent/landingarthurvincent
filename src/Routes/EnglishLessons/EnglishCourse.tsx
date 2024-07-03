@@ -143,15 +143,9 @@ export default function EnglishCourse({
               </HThree>
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "left",
-                  gap: "1rem",
-                  margin: "0 1rem",
-                  overflowY: "auto",
-                  overflowX: "scroll",
-                  maxWidth: "100%",
-                  padding: "0.5rem",
+                  display: "grid",
+                  gap: "2px",
+                  margin: "0 10px",
                 }}
               >
                 {course.lessons.map((cls: any, idx: number) => (
@@ -161,17 +155,12 @@ export default function EnglishCourse({
                       onClick={() => {
                         setDisplayy("none");
                       }}
+                      style={{
+                        textDecoration: "none",
+                      }}
                     >
                       <CourseCard>
-                        <p>{idx +1} - {cls.title}</p>
                         <img
-                          style={{
-                            margin: "auto",
-                            width: "8rem",
-                            height: "8rem",
-                            objectFit: "cover",
-                            objectPosition: "center center",
-                          }}
                           src={
                             cls.image
                               ? cls.image
@@ -179,6 +168,9 @@ export default function EnglishCourse({
                           }
                           alt={cls.title}
                         />
+                        <p>
+                          {idx + 1} - {cls.title}
+                        </p>
                       </CourseCard>
                     </Link>
                   </div>
