@@ -192,7 +192,13 @@ export default function EnglishLessonsRender({
               <i className="fa fa-arrow-left" aria-hidden="true" />
             </span>
           ) : (
-            <span>No previous class</span>
+            <span
+              style={{
+                fontSize: "10px",
+              }}
+            >
+              No previous class
+            </span>
           )}
           <h1
             style={{
