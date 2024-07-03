@@ -29,7 +29,6 @@ export function Adm({ headers }: HeadersProps) {
       component: (
         <div>
           <NewTutoring headers={headers} />
-          <AllClasses headers={headers} />
         </div>
       ),
     },
