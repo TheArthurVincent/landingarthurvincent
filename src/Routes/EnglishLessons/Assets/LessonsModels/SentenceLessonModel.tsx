@@ -101,16 +101,16 @@ export default function SentenceLessonModel({
               color="white"
               onClick={() => addNewCards(sentence.english, sentence.portuguese)}
             >
-              En-Pt
+              Flashcard
             </ArvinButton>
-            <ArvinButton
+            {/* <ArvinButton
               color="white"
               onClick={() =>
                 addNewCardsInverted(sentence.english, sentence.portuguese)
               }
             >
               Pt-En
-            </ArvinButton>
+            </ArvinButton> */}
             <br />
             <br />
             <strong
