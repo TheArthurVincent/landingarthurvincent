@@ -9,8 +9,6 @@ import { alwaysWhite } from "../../Styles/Styles";
 import { RouteDiv } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
-
-import AllClasses from "./AdmComponents/ClassesManagement/AllClasses";
 import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
 import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 import Helmets from "../../Resources/Helmets";
@@ -26,22 +24,14 @@ export function Adm({ headers }: HeadersProps) {
       title: "Gestão de Aulas",
       value: "1",
       tooltip: "Marque uma aula particular.",
-      component: (
-        <div>
-          <NewTutoring headers={headers} />
-        </div>
-      ),
+      component: <NewTutoring headers={headers} />,
     },
     {
       title: "Alunos",
       value: "2",
       tooltip:
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
-      component: (
-        <div>
-          <NewStudent headers={headers} />
-        </div>
-      ),
+      component: <NewStudent headers={headers} />,
     },
     {
       title: "Aulas em grupo",
@@ -83,10 +73,7 @@ export function Adm({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteDiv
-   
-      className="smooth"
-    >
+    <RouteDiv className="smooth">
       <Helmets text="Adm" />
       <TabContext value={value}>
         <span className="no-print">

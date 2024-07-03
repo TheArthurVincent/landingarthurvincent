@@ -248,7 +248,12 @@ export function MyClasses({ headers }) {
                     {permissions == "superadmin" && (
                       <ArvinButton
                         color="red"
-                        onClick={() => handleDelete(item.id, studentNXTId)}
+                        onClick={() =>
+                          handleDelete(
+                            item.id,
+                            studentNXTId == "" ? studentId : studentNXTId
+                          )
+                        }
                       >
                         Apagar aula
                       </ArvinButton>
