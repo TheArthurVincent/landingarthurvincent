@@ -17,17 +17,26 @@ import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Helmets from "../../Resources/Helmets";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
   const [classes, setClasses] = useState([]);
+  const [studentId, setStudentId] = useState("");
+  const [studentNXTId, setStudentNXTId] = useState("");
+  const [studentsList, setStudentsList] = useState([]);
+  const [permissions, setPermissions] = useState("");
+  const [newID, setNewID] = useState("");
 
   const { UniversalTexts } = useUserContext();
+
   async function fetchMonthYear() {
     setLoading(true);
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+    setStudentId(getLoggedUser.id);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/tutoring/${getLoggedUser.id}`,
@@ -38,8 +47,36 @@ export function MyClasses({ headers }) {
     } catch (error) {}
   }
 
+  async function fetchNextStudentClasses(id) {
+    setStudentNXTId(id);
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/tutoring/${id}`, {
+        headers,
+      });
+      setClasses(response.data.formattedTutoringFromParticularStudent);
+    } catch (error) {}
+  }
+
+  const fetchStudents = async () => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn"));
+    setPermissions(getLoggedUser.permissions);
+    if (getLoggedUser.permissions == "superadmin") {
+      try {
+        const response = await axios.get(`${backDomain}/api/v1/students/`, {
+          headers,
+        });
+        setStudentsList(response.data.listOfStudents);
+      } catch (error) {
+        alert("Erro ao encontrar alunos");
+      }
+    } else {
+      null;
+    }
+  };
+
   useEffect(() => {
     fetchMonthYear();
+    fetchStudents();
   }, []);
 
   const handleNextPage = () => {
@@ -150,82 +187,53 @@ export function MyClasses({ headers }) {
       </TransectionMenu>
     );
   }
-  const [googleDriveLink, setGoogleDriveLink] = useState("");
 
-  useEffect(() => {
-    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
-    setGoogleDriveLink(getLoggedUser.googleDriveLink);
-  }, []);
+  async function handleDelete(tutoringID, studentNXTId) {
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/tutoring/${tutoringID}`,
+        { headers }
+      );
+      alert(`Aula com ID ${tutoringID} excluída`);
+      fetchNextStudentClasses(studentNXTId);
+    } catch (error) {
+      alert(`Erro ao excluir aula com ID ${tutoringID}: ${error}`);
+    }
+  }
+
+  const handleStudentChange = (event) => {
+    setNewID(event.target.value);
+    fetchNextStudentClasses(event.target.value);
+  };
 
   return (
     <RouteDiv className="smooth">
       <Helmets text="My Classes" />
+      {permissions == "superadmin" && (
+        <>
+          <select
+            onChange={handleStudentChange}
+            name="students"
+            id=""
+            value={newID}
+          >
+            <option value={""} hidden>
+              Select student
+            </option>
+            {studentsList.map((student, index) => {
+              return (
+                <option key={index} value={student.id}>
+                  {student.name + " " + student.lastname}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      )}
       {!loading ? (
         <div>
           <HOne>{UniversalTexts.myClasses}</HOne>
-
           <ClassesSideBar />
-          {/* <div
-            style={{
-              display: "flex",
-              gap: "5px",
-            }}
-          >
-            <Tooltip title={UniversalTexts.personalFolder}>
-              <Link
-                target="_blank"
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  gap: "5px",
-                  alignItems: "center",
-                  textDecoration: "none",
-                }}
-                to={googleDriveLink}
-              >
-                <span className="hover-link">
-                  <i
-                    style={{
-                      paddingRight: "5px",
-                    }}
-                    className="fa fa-folder"
-                    aria-hidden="true"
-                  />
-                  <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
-                </span>
-              </Link>
-            </Tooltip>
-            <Tooltip title={UniversalTexts.talkToTheTeacher}>
-              <Link
-                target="_blank"
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  textDecoration: "none",
-                  gap: "5px",
-                  alignItems: "center",
-                }}
-                to="https://wa.me/5511915857807"
-              >
-                <span className="hover-link">
-                  <i
-                    style={{ paddingRight: "5px", maxWidth: "100%" }}
-                    className="fa fa-whatsapp"
-                    aria-hidden="true"
-                  />
-                  <SpanDisapear>{UniversalTexts.talkToTheTeacher}</SpanDisapear>
-                </span>
-              </Link>
-            </Tooltip>
-          </div> */}
           {currentClasses.map((item, index) => (
             <div key={index}>
               <ClassBox>
@@ -237,6 +245,14 @@ export function MyClasses({ headers }) {
                       alignItems: "center",
                     }}
                   >
+                    {permissions == "superadmin" && (
+                      <ArvinButton
+                        color="red"
+                        onClick={() => handleDelete(item.id, studentNXTId)}
+                      >
+                        Apagar aula
+                      </ArvinButton>
+                    )}
                     <HTwo>{item.date}</HTwo>{" "}
                     {item.attachments && (
                       <Link target="_blank" to={item.attachments}>
