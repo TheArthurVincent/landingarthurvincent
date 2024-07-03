@@ -9,7 +9,6 @@ import { alwaysWhite } from "../../Styles/Styles";
 import { RouteDiv } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
-import { UsefulLinks } from "./AdmComponents/LinksManagement/UsefulLinks";
 import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
@@ -57,14 +56,15 @@ export function Adm({ headers }: HeadersProps) {
       value: "7",
       tooltip: "Geração do recibo de um aluno específico.",
       component: <Invoice headers={headers} />,
-    },
-    {
-      title: "Links úteis",
-      value: "8",
-      tooltip:
-        "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
-      component: <UsefulLinks />,
-    },
+    }
+    // ,
+    // {
+    //   title: "Links úteis",
+    //   value: "8",
+    //   tooltip:
+    //     "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
+    //   component: <UsefulLinks />,
+    // },
   ];
 
   const handleChange = (event: any, newValue: string) => {
