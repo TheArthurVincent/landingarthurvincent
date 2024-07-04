@@ -177,7 +177,12 @@ export function NewTutoring({ headers }) {
                 }}
                 required
               />
-              <button
+              <div
+                style={{
+                  cursor: "pointer",
+                  padding: "1rem",
+                  backgroundColor: lightGreyColor(),
+                }}
                 onClick={() => {
                   setDueDate("");
                   setNewHWDescription("");
@@ -185,7 +190,7 @@ export function NewTutoring({ headers }) {
                 }}
               >
                 HW
-              </button>
+              </div>
             </DivGrid>
             <div
               style={{
