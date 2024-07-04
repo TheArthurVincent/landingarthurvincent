@@ -115,7 +115,13 @@ export function NewTutoring({ headers }) {
               );
             })}
           </select>
-          <ArvinButton onClick={handleAddTutoring}>+ Aula</ArvinButton>
+          <div
+        style={{
+          cursor: "pointer",
+          padding: "1rem",
+          backgroundColor: lightGreyColor(),
+        }}
+          onClick={handleAddTutoring}>+ Aula</div>
         </div>
         {tutorings.map((tutoring, index) => (
           <div key={index}>
@@ -177,7 +183,12 @@ export function NewTutoring({ headers }) {
                 }}
                 required
               />
-              <button
+              <div
+                style={{
+                  cursor: "pointer",
+                  padding: "1rem",
+                  backgroundColor: lightGreyColor(),
+                }}
                 onClick={() => {
                   setDueDate("");
                   setNewHWDescription("");
@@ -185,7 +196,7 @@ export function NewTutoring({ headers }) {
                 }}
               >
                 HW
-              </button>
+              </div>
             </DivGrid>
             <div
               style={{
