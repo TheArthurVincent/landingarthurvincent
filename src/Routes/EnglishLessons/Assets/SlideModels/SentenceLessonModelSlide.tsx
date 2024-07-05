@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
+import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
+import HTMLJustWrite from "../../../../Resources/Components/HTMLJustWrite";
 
 interface SentenceLessonModelProps {
   element: any;
@@ -10,17 +12,17 @@ interface SentenceLessonModelProps {
 export default function SentenceLessonModelSlide({
   element,
 }: SentenceLessonModelProps) {
-
+  const [newHWDescription, setNewHWDescription] = useState("");
+  const handleHWDescriptionChange = (htmlContent: any) => {
+    setNewHWDescription(htmlContent);
+  };
   return (
     <ul
       style={{
         alignItems: "center",
-        textAlign: "center",
         display: "grid",
-        fontSize: "3.5rem",
         gap: "30rem",
-        marginBottom: " 30rem",
-        marginTop: " 30rem",
+        marginBottom: " 40rem",
       }}
     >
       {element.sentences &&
@@ -34,14 +36,23 @@ export default function SentenceLessonModelSlide({
             <strong
               style={{
                 fontFamily: "Athiti",
+                fontSize: "2.1rem",
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
               }}
             >
               {sentence.english}
             </strong>
             <br />
-            <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
+            <span
+              style={{
+                fontSize: "2rem",
+                fontStyle: "italic",
+              }}
+            >
+              {sentence.portuguese}
+            </span>
             <br />
+            <HTMLJustWrite onChange={handleHWDescriptionChange} />
           </li>
         ))}
     </ul>
