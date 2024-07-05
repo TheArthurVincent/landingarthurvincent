@@ -36,7 +36,7 @@ export default function SentenceLessonModelSlide({
             <strong
               style={{
                 fontFamily: "Athiti",
-                fontSize: "2.1rem",
+                fontSize: "2.3rem",
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
               }}
             >
@@ -45,7 +45,7 @@ export default function SentenceLessonModelSlide({
             <br />
             <span
               style={{
-                fontSize: "2rem",
+                fontSize: "2.1rem",
                 fontStyle: "italic",
               }}
             >
