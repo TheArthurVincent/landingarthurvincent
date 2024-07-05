@@ -15,6 +15,7 @@ import {
   backDomain,
   getVideoEmbedUrl,
   pathGenerator,
+  Xp,
 } from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
@@ -26,8 +27,10 @@ import CoursesSideBar, {
 import {
   alwaysWhite,
   darkGreyColor,
+  lightGreyColor,
   primaryColor,
   secondaryColor,
+  transparentBlack,
 } from "../../../Styles/Styles";
 import TextsWithTranslateLessonModel from "./LessonsModels/TextWithNoAudio";
 import { Link } from "react-router-dom";
@@ -596,40 +599,82 @@ export default function EnglishLessonsRender({
       {/* Teacher */}
       {/* Teacher */}
       {thePermissions === "superadmin" && seeSlides && (
-        <RouteDiv
-          style={{
-            maxWidth: "95vw",
-            padding: "2.2rem",
-            marginTop: "20rem",
-          }}
-        >
-          {theclass.elements
-            .sort((a: any, b: any) => a.order - b.order)
-            .map((element: any, index: number) => (
-              <div key={index} style={{ margin: "10px 0" }}>
-                {element.type === "sentences" ? (
-                  <SentenceLessonModelSlide
-                    id={myId}
-                    studentId={studentID}
-                    element={element}
-                  />
-                ) : element.type === "text" ? (
-                  <TextLessonModelSlide
-                    text={element.text ? element.text : ""}
-                  />
-                ) : element.type === "listinenglish" ? (
-                  <TextsWithTranslateSlideLessonModel
-                    headers={headers}
-                    element={element}
-                  />
-                ) : element.type === "images" ? (
-                  <ImageLessonModelSlide headers={headers} element={element} />
-                ) : (
-                  <></>
-                )}
-              </div>
-            ))}
-        </RouteDiv>
+        <>
+          <div
+            onClick={() => {
+              setSeeSlides(!seeSlides);
+            }}
+            style={{
+              backgroundColor: transparentBlack(),
+              zIndex: 100000000000,
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100000000vw",
+              height: "100000000vw",
+            }}
+            />
+          <div
+            style={{
+              padding: "2rem",
+              position: "fixed",
+              top: 10,
+              left: 10,
+              width: "94vw",
+              border: "1px grey solid",
+              borderRadius: "1rem",
+              marginTop: "2rem",
+              height: "84vh",
+              zIndex: 10000000000000,
+              backgroundColor: "white",
+            }}
+          >
+            <Xp
+              style={{ margin: "1rem auto", display: "block" }}
+              onClick={() => {
+                setSeeSlides(!seeSlides);
+              }}
+            >
+              x
+            </Xp>
+            <div
+              style={{
+                height: "75vh",
+                overflow: "auto",
+              }}
+            >
+              {theclass.elements
+                .sort((a: any, b: any) => a.order - b.order)
+                .map((element: any, index: number) => (
+                  <div key={index} style={{ marginBottom: "10px" }}>
+                    {element.type === "sentences" ? (
+                      <SentenceLessonModelSlide
+                        id={myId}
+                        studentId={studentID}
+                        element={element}
+                      />
+                    ) : element.type === "text" ? (
+                      <TextLessonModelSlide
+                        text={element.text ? element.text : ""}
+                      />
+                    ) : element.type === "listinenglish" ? (
+                      <TextsWithTranslateSlideLessonModel
+                        headers={headers}
+                        element={element}
+                      />
+                    ) : element.type === "images" ? (
+                      <ImageLessonModelSlide
+                        headers={headers}
+                        element={element}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                ))}
+            </div>
+          </div>
+        </>
       )}
     </>
   );
