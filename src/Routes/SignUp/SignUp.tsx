@@ -99,7 +99,7 @@ export function SignUp() {
             color: textPrimaryColorContrast(),
           }}
         >
-          Login - Página
+          Já tenho cadastro - Página Inicial
         </span>
       </Link>
       <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
@@ -202,7 +202,7 @@ export function SignUp() {
             color: textPrimaryColorContrast(),
           }}
         >
-          Login - Página
+          Já tenho cadastro - Página Inicial
         </span>
       </Link>
     </RouteSizeControlBox>
