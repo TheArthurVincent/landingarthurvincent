@@ -11,10 +11,10 @@ export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newAttachments, setAttachments] = useState("");
-  const [newHWDescription, setNewHWDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [seeHW, setSeeHW] = useState(false);
-
+  
+  const [newHWDescription, setNewHWDescription] = useState("");
   const handleHWDescriptionChange = (htmlContent) => {
     setNewHWDescription(htmlContent);
   };

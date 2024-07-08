@@ -151,7 +151,7 @@ export function Invoice({ headers }: HeadersProps) {
             src="https://ik.imagekit.io/vjz75qw96/assets/signature.png?updatedAt=1717680390615"
             alt="signatureArth"
           />{" "}
-          <img
+          {/* <img
             style={{
               position: "fixed",
               maxWidth: "40rem",
@@ -160,7 +160,7 @@ export function Invoice({ headers }: HeadersProps) {
             }}
             src="https://ik.imagekit.io/vjz75qw96/assets/bgbg?updatedAt=1717696801814"
             alt="back"
-          />
+          /> */}
           <div style={{ fontSize: "16px" }}>
             <p>Arthur Rodrigues Cardoso | Professor Titular</p>
             <p>442.650.158-08</p>

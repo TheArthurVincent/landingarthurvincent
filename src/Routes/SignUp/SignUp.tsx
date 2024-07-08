@@ -19,6 +19,7 @@ import {
 import { InputFieldSignUp } from "./SignUpAssets/SignUp.Styled";
 import Helmets from "../../Resources/Helmets";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { Link } from "react-router-dom";
 
 export function SignUp() {
   const [newName, setNewName] = useState<string>("");
@@ -88,9 +89,26 @@ export function SignUp() {
   };
 
   return (
-    <RouteSizeControlBox>
+    <RouteSizeControlBox
+      style={{
+        maxWidth: "25rem",
+        margin: "2rem auto",
+      }}
+    >
       <Helmets text="Sign Up" />
-      <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
+      <Link to="/login">
+        <span
+          style={{
+            padding: "1rem",
+            backgroundColor: primaryColor(),
+            color: textPrimaryColorContrast(),
+            margin: "1rem",
+          }}
+        >
+          Já tenho cadastro - Página Inicial
+        </span>
+      </Link>
+      <RouteDiv style={{ maxWidth: "25rem", margin: "2rem auto" }}>
         <HOne>Cadastro de Aluno</HOne>
         <form
           style={{
@@ -182,6 +200,17 @@ export function SignUp() {
           </ArvinButton>
         </form>
       </RouteDiv>
+      <Link to="/login">
+        <span
+          style={{
+            padding: "1rem",
+            backgroundColor: primaryColor(),
+            color: textPrimaryColorContrast(),
+          }}
+        >
+          Já tenho cadastro - Página Inicial
+        </span>
+      </Link>
     </RouteSizeControlBox>
   );
 }
