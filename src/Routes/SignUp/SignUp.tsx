@@ -89,7 +89,12 @@ export function SignUp() {
   };
 
   return (
-    <RouteSizeControlBox>
+    <RouteSizeControlBox
+      style={{
+        maxWidth: "25rem",
+        margin: "2rem auto",
+      }}
+    >
       <Helmets text="Sign Up" />
       <Link to="/login">
         <span
@@ -97,12 +102,13 @@ export function SignUp() {
             padding: "1rem",
             backgroundColor: primaryColor(),
             color: textPrimaryColorContrast(),
+            margin: "1rem",
           }}
         >
           Já tenho cadastro - Página Inicial
         </span>
       </Link>
-      <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
+      <RouteDiv style={{ maxWidth: "25rem", margin: "2rem auto" }}>
         <HOne>Cadastro de Aluno</HOne>
         <form
           style={{
