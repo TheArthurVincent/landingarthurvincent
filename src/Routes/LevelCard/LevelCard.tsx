@@ -72,7 +72,6 @@ export function LevelCard({
       <NewLevelCardComponent
         style={{
           border: `double 5px ${items[level].color} `,
-          // position:"fixed"
         }}
       >
         <DivCardLevel>

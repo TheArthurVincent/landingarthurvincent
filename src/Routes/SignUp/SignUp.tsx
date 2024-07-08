@@ -19,6 +19,7 @@ import {
 import { InputFieldSignUp } from "./SignUpAssets/SignUp.Styled";
 import Helmets from "../../Resources/Helmets";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { Link } from "react-router-dom";
 
 export function SignUp() {
   const [newName, setNewName] = useState<string>("");
@@ -92,6 +93,17 @@ export function SignUp() {
       <Helmets text="Sign Up" />
       <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
         <HOne>Cadastro de Aluno</HOne>
+        <Link to="/login">
+          <span
+            style={{
+              padding: "1rem",
+              backgroundColor: primaryColor(),
+              color: textPrimaryColorContrast(),
+            }}
+          >
+            Login - Página
+          </span>
+        </Link>
         <form
           style={{
             padding: "5px",
