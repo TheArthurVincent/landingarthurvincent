@@ -91,19 +91,19 @@ export function SignUp() {
   return (
     <RouteSizeControlBox>
       <Helmets text="Sign Up" />
+      <Link to="/login">
+        <span
+          style={{
+            padding: "1rem",
+            backgroundColor: primaryColor(),
+            color: textPrimaryColorContrast(),
+          }}
+        >
+          Login - Página
+        </span>
+      </Link>
       <RouteDiv style={{ maxWidth: "25rem", margin: "auto" }}>
         <HOne>Cadastro de Aluno</HOne>
-        <Link to="/login">
-          <span
-            style={{
-              padding: "1rem",
-              backgroundColor: primaryColor(),
-              color: textPrimaryColorContrast(),
-            }}
-          >
-            Login - Página
-          </span>
-        </Link>
         <form
           style={{
             padding: "5px",
@@ -194,6 +194,17 @@ export function SignUp() {
           </ArvinButton>
         </form>
       </RouteDiv>
+      <Link to="/login">
+        <span
+          style={{
+            padding: "1rem",
+            backgroundColor: primaryColor(),
+            color: textPrimaryColorContrast(),
+          }}
+        >
+          Login - Página
+        </span>
+      </Link>
     </RouteSizeControlBox>
   );
 }
