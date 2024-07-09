@@ -692,9 +692,7 @@ export default function EnglishLessonsRender({
                     </div>
                   ))}
               </span>
-              <span
-               
-              >
+              <span>
                 <HTMLJustComments onChange={handleHWDescriptionChange} />
               </span>
             </div>
