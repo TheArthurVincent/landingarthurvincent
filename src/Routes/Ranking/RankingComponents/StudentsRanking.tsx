@@ -466,6 +466,7 @@ export default function StudentsRanking({
                         ? "flex"
                         : "none",
                       background: theItems[levelNumber].color,
+                      overflowX: "hidden",
                       borderRadius: "5rem",
                       boxShadow: "1px 1px 10px 1px #aaa",
                       color: theItems[levelNumber].textcolor,
