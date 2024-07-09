@@ -610,7 +610,7 @@ export default function EnglishLessonsRender({
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}
-      {thePermissions === "superadmin" && seeSlides && (
+      {seeSlides && (
         <>
           <div
             onClick={() => {
