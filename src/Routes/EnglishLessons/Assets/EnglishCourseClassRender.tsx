@@ -686,7 +686,14 @@ export default function EnglishLessonsRender({
                     </div>
                   ))}
               </span>
-              <span style={{ backgroundColor: "#fbfbfb", margin: "0.5rem" }}>
+              <span
+                style={{
+                  maxHeight: "1200px",
+                  overflow: "auto",
+                  backgroundColor: "#fbfbfb",
+                  margin: "0.5rem",
+                }}
+              >
                 <HTMLJustComments onChange={handleHWDescriptionChange} />
               </span>
             </div>
