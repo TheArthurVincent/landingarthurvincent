@@ -411,6 +411,7 @@ export default function StudentsRanking({
                       display: "grid",
                       justifyContent: "space-evenly",
                       alignItems: "center",
+                      overflow: "hidden",
                     }}
                   >
                     <h1
