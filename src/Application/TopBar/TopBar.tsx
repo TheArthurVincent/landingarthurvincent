@@ -13,6 +13,7 @@ import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { primaryColor, secondaryColor, alwaysBlack } from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
 
 const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -87,6 +88,7 @@ export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
   const [permissions, setPermissions] = useState<string>("");
+  const [seeItems, setSeeItems] = useState(true);
 
   const onLoggOut = () => {
     localStorage.removeItem("authorization");
@@ -157,8 +159,12 @@ export const TopBar: FC = () => {
       display: "block",
       icon: "user-o",
     },
-    { title: UniversalTexts.faq, endpoint: "/faq" ,icon:"question",  display: "block",  },
-
+    {
+      title: UniversalTexts.faq,
+      endpoint: "/faq",
+      icon: "question",
+      display: "block",
+    },
   ];
 
   const handleVisible = () => {
@@ -169,9 +175,18 @@ export const TopBar: FC = () => {
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
-      <Link to="/">
-        <LogoStyle>{myLogo}</LogoStyle>
-      </Link>
+      <SpanDisapear>
+        <Link to="/">
+          <LogoStyle
+            style={{
+              display: seeItems ? "block" : "none",
+            }}
+          >
+            {myLogo}
+          </LogoStyle>
+        </Link>
+      </SpanDisapear>
+
       <TopBarNavigationBurger
         onClick={handleVisible}
         style={{ display: visible }}
@@ -282,6 +297,7 @@ export const TopBar: FC = () => {
               <NavLink
                 key={index}
                 style={{
+                  display: seeItems ? "block" : "none",
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
                     : alwaysBlack(),
@@ -323,35 +339,43 @@ export const TopBar: FC = () => {
               );
             })}
         </div>
-        {/* <ItemTopBar title={UniversalTexts.classes} list={classes} /> */}
-        {/* <ItemTopBar title={UniversalTexts.extras} list={extras} /> */}
-        {/* <div
-          style={{
-            display: permissions == "superadmin" ? "flex" : "none",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            gap: "1rem",
-          }}
-        >
-          <span style={{ color: secondaryColor(), fontWeight: 600 }}>|</span>
-    
-        </div> */}
       </TopBarNavigation>
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <form>
-            <select
-              id="language"
-              name="language"
-              onChange={(e) => handleLanguageChange(e.target.value)}
-              defaultValue="en"
+          <SpanDisapear>
+            <i
+              onClick={() => {
+                setSeeItems(!seeItems);
+              }}
+              onMouseOver={() => {
+                setSeeItems(true);
+              }}
+              style={{ cursor: "pointer" }}
+              className="fa fa-eye"
+            />
+          </SpanDisapear>
+          <SpanDisapear>
+            <form
+              style={{
+                display: seeItems ? "block" : "none",
+              }}
             >
-              <option value="en">EN-US</option>
-              <option value="pt">PT-BR</option>
-            </select>
-          </form>
-          <ArvinButton onClick={onLoggOut}>
+              <select
+                id="language"
+                name="language"
+                onChange={(e) => handleLanguageChange(e.target.value)}
+                defaultValue="en"
+              >
+                <option value="en">EN-US</option>
+                <option value="pt">PT-BR</option>
+              </select>
+            </form>
+          </SpanDisapear>
+          <ArvinButton
+            style={{ display: seeItems ? "block" : "none" }}
+            onClick={onLoggOut}
+          >
             {" "}
             {UniversalTexts.leaveButton}
           </ArvinButton>

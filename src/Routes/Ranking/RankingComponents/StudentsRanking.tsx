@@ -411,7 +411,6 @@ export default function StudentsRanking({
                       display: "grid",
                       justifyContent: "space-evenly",
                       alignItems: "center",
-                      overflow: "hidden",
                     }}
                   >
                     <h1
@@ -467,6 +466,7 @@ export default function StudentsRanking({
                         ? "flex"
                         : "none",
                       background: theItems[levelNumber].color,
+                      overflowX: "hidden",
                       borderRadius: "5rem",
                       boxShadow: "1px 1px 10px 1px #aaa",
                       color: theItems[levelNumber].textcolor,
