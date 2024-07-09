@@ -248,39 +248,41 @@ export const TopBar: FC = () => {
             );
           })}
         </div>
-        <div
-          style={{
-            display: permissions == "superadmin" ? "block" : "none",
-          }}
-        >
-          {toAdm.map((link, index) => {
-            return (
-              <NavLink
-                style={{
-                  color: location.pathname.includes(link.endpoint)
-                    ? secondaryColor()
-                    : alwaysBlack(),
-                  cursor: location.pathname.includes(link.endpoint)
-                    ? "default"
-                    : "pointer",
-                  textDecoration: "none",
-                }}
-                key={index}
-                to={link.endpoint}
-              >
-                <SpanHover
+        {seeItems && (
+          <div
+            style={{
+              display: permissions == "superadmin" ? "block" : "none",
+            }}
+          >
+            {toAdm.map((link, index) => {
+              return (
+                <NavLink
                   style={{
-                    fontWeight: 700,
-                    fontSize: "1.1rem",
-                    fontFamily: "Athiti",
+                    color: location.pathname.includes(link.endpoint)
+                      ? secondaryColor()
+                      : alwaysBlack(),
+                    cursor: location.pathname.includes(link.endpoint)
+                      ? "default"
+                      : "pointer",
+                    textDecoration: "none",
                   }}
+                  key={index}
+                  to={link.endpoint}
                 >
-                  {link.title}
-                </SpanHover>
-              </NavLink>
-            );
-          })}
-        </div>
+                  <SpanHover
+                    style={{
+                      fontWeight: 700,
+                      fontSize: "1.1rem",
+                      fontFamily: "Athiti",
+                    }}
+                  >
+                    {link.title}
+                  </SpanHover>
+                </NavLink>
+              );
+            })}
+          </div>
+        )}
       </TopBarNavigationBurger>
       <BackgroundClick onClick={handleVisible} style={{ display: visible }} />
       <TopBarNavigation>
@@ -316,6 +318,7 @@ export const TopBar: FC = () => {
             );
           })}
           {permissions === "superadmin" &&
+            seeItems &&
             toAdm.map((link, index) => {
               return (
                 <NavLink
@@ -351,7 +354,10 @@ export const TopBar: FC = () => {
               onMouseOver={() => {
                 setSeeItems(true);
               }}
-              style={{ cursor: "pointer" }}
+              style={{
+                cursor: "pointer",
+                display: permissions == "superadmin" ? "block" : "none",
+              }}
               className="fa fa-eye"
             />
           </SpanDisapear>
