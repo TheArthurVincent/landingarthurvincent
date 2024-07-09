@@ -137,6 +137,14 @@ export default function EnglishLessonsRender({
   return (
     <>
       <RouteDiv>
+        <ArvinButton
+          style={{ margin: "1rem auto", display: "block" }}
+          onClick={() => {
+            setSeeSlides(!seeSlides);
+          }}
+        >
+          See slides
+        </ArvinButton>
         <div
           style={{
             display: "flex",
@@ -587,16 +595,14 @@ export default function EnglishLessonsRender({
               : "No comments"}
           </ul> 
         </div> */}
-        {thePermissions === "superadmin" && (
-          <ArvinButton
-            style={{ margin: "1rem auto", display: "block" }}
-            onClick={() => {
-              setSeeSlides(!seeSlides);
-            }}
-          >
-            See slides
-          </ArvinButton>
-        )}
+        <ArvinButton
+          style={{ margin: "1rem auto", display: "block" }}
+          onClick={() => {
+            setSeeSlides(!seeSlides);
+          }}
+        >
+          See slides
+        </ArvinButton>
       </RouteDiv>
 
       {/* Teacher */}
@@ -688,7 +694,7 @@ export default function EnglishLessonsRender({
               </span>
               <span
                 style={{
-                  maxHeight: "1200px",
+                  maxHeight: "1000px",
                   overflow: "auto",
                   backgroundColor: "#fbfbfb",
                   margin: "0.5rem",
