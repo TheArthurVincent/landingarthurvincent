@@ -40,6 +40,8 @@ import TextsWithTranslateSlideLessonModel from "./SlideModels/TextWithNoAudio";
 import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
 import SelectExercise from "./LessonsModels/MultipleSelectExercise";
 import { Tooltip } from "@mui/material";
+import HTMLJustWrite from "../../../Resources/Components/HTMLJustWrite";
+import HTMLJustComments from "../../../Resources/Components/HTMLJustComments";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -71,6 +73,10 @@ export default function EnglishLessonsRender({
   const [thePermissions, setPermissions] = useState<string>("");
   const [seeSlides, setSeeSlides] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
+  const [newHWDescription, setNewHWDescription] = useState("");
+  const handleHWDescriptionChange = (htmlContent: any) => {
+    setNewHWDescription(htmlContent);
+  };
 
   const PC = previousclass ? pathGenerator(previousclass.title) : null;
   const NC = nextclass ? pathGenerator(nextclass.title) : null;
@@ -613,7 +619,7 @@ export default function EnglishLessonsRender({
               width: "100000000vw",
               height: "100000000vw",
             }}
-            />
+          />
           <div
             style={{
               padding: "2rem",
@@ -639,39 +645,50 @@ export default function EnglishLessonsRender({
             </Xp>
             <div
               style={{
-                height: "75vh",
-                overflow: "auto",
+                display: "grid",
+                gridTemplateColumns: "1fr 0.8fr",
+                borderRight: "1px solid #555",
               }}
             >
-              {theclass.elements
-                .sort((a: any, b: any) => a.order - b.order)
-                .map((element: any, index: number) => (
-                  <div key={index} style={{ marginBottom: "10px" }}>
-                    {element.type === "sentences" ? (
-                      <SentenceLessonModelSlide
-                        id={myId}
-                        studentId={studentID}
-                        element={element}
-                      />
-                    ) : element.type === "text" ? (
-                      <TextLessonModelSlide
-                        text={element.text ? element.text : ""}
-                      />
-                    ) : element.type === "listinenglish" ? (
-                      <TextsWithTranslateSlideLessonModel
-                        headers={headers}
-                        element={element}
-                      />
-                    ) : element.type === "images" ? (
-                      <ImageLessonModelSlide
-                        headers={headers}
-                        element={element}
-                      />
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                ))}
+              <span
+                style={{
+                  height: "75vh",
+                  overflow: "auto",
+                }}
+              >
+                {theclass.elements
+                  .sort((a: any, b: any) => a.order - b.order)
+                  .map((element: any, index: number) => (
+                    <div key={index} style={{ marginBottom: "10px" }}>
+                      {element.type === "sentences" ? (
+                        <SentenceLessonModelSlide
+                          id={myId}
+                          studentId={studentID}
+                          element={element}
+                        />
+                      ) : element.type === "text" ? (
+                        <TextLessonModelSlide
+                          text={element.text ? element.text : ""}
+                        />
+                      ) : element.type === "listinenglish" ? (
+                        <TextsWithTranslateSlideLessonModel
+                          headers={headers}
+                          element={element}
+                        />
+                      ) : element.type === "images" ? (
+                        <ImageLessonModelSlide
+                          headers={headers}
+                          element={element}
+                        />
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  ))}
+              </span>
+              <span style={{ backgroundColor: "#fbfbfb", margin: "0.5rem" }}>
+                <HTMLJustComments onChange={handleHWDescriptionChange} />
+              </span>
             </div>
           </div>
         </>
