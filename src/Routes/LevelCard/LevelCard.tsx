@@ -69,73 +69,74 @@ export function LevelCard({
   }, [change]);
 
   return (
-      <NewLevelCardComponent
-        style={{
-          border: `double 5px ${items[level].color} `,
-        }}
-      >
-        <DivCardLevel>
-          <LevelCardLevel
-            style={{ display: showCard }}
-            src={items[level].image}
-            alt="card"
+    <NewLevelCardComponent
+      className="glowing2"
+      style={{
+        border: `double 5px ${items[level].color} `,
+      }}
+    >
+      <DivCardLevel>
+        <LevelCardLevel
+          style={{ display: showCard }}
+          src={items[level].image}
+          alt="card"
+        />
+        <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />
+      </DivCardLevel>
+      <TextLevelCard>
+        <div
+          style={{
+            display: showCard,
+          }}
+        >
+          <i
+            style={{
+              fontSize: "1.5rem",
+            }}
+            className={items[level].icon}
+            aria-hidden="true"
           />
-          <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />
-        </DivCardLevel>
-        <TextLevelCard>
           <div
             style={{
-              display: showCard,
+              marginBottom: "1rem",
+              display: "flex",
+              gap: "10px",
+              alignItems: "center",
+              marginTop: "0.5rem",
             }}
           >
             <i
+              onClick={() => seeScore(_StudentId)}
               style={{
-                fontSize: "1.5rem",
+                display: showCard,
+                cursor: "pointer",
+                color: "#fff",
+                fontSize: "0.8rem",
+                margin: "0",
               }}
-              className={items[level].icon}
+              className="fa fa-refresh"
               aria-hidden="true"
             />
-            <div
-              style={{
-                marginBottom: "1rem",
-                display: "flex",
-                gap: "10px",
-                alignItems: "center",
-                marginTop: "0.5rem",
-              }}
-            >
-              <i
-                onClick={() => seeScore(_StudentId)}
+            {loading ? (
+              <CircularProgress
                 style={{
-                  display: showCard,
-                  cursor: "pointer",
-                  color: "#fff",
-                  fontSize: "0.8rem",
-                  margin: "0",
+                  color: items[level].color,
                 }}
-                className="fa fa-refresh"
-                aria-hidden="true"
               />
-              {loading ? (
-                <CircularProgress
-                  style={{
-                    color: items[level].color,
-                  }}
-                />
-              ) : (
-                <div>
-                  <p style={{ color: "#fff" }}>
-                    Total Score: {formatNumber(totalScore)}
-                  </p>
-                  <p style={{ color: "#fff" }}>
-                    Monthly Score: {formatNumber(monthlyScore)}
-                  </p>
-                </div>
-              )}
-            </div>
+            ) : (
+              <div>
+                <p style={{ color: "#fff" }}>
+                  Total Score: {formatNumber(totalScore)}
+                </p>
+                <p style={{ color: "#fff" }}>
+                  Monthly Score: {formatNumber(monthlyScore)}
+                </p>
+              </div>
+            )}
           </div>
-        </TextLevelCard>
-      </NewLevelCardComponent>
+        </div>
+      </TextLevelCard>
+    </NewLevelCardComponent>
   );
 }
 

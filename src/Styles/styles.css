@@ -11,12 +11,12 @@
   --blue-arvin2: #001e42;
   --green-arvin2: #61de08;
   --white: #fefefe;
-
 }
 
 html {
   overflow-x: hidden;
 }
+
 body {
   overflow-x: hidden;
 }
@@ -91,6 +91,24 @@ h4 {
   animation: piscar 2s infinite;
 }
 
+.glowing2 {
+  animation: piscar2 5s infinite;
+}
+
+@keyframes piscar2 {
+  0% {
+    background: #444;
+  }
+
+  50% {
+    background: #000;
+  }
+
+  100% {
+    background: #444;
+  }
+}
+
 @keyframes piscar {
   0% {
     background-color: #54bf08;
@@ -140,7 +158,6 @@ body {
   font-size: 1rem;
   cursor: pointer;
   border: none;
-
 }
 
 .audio-button:hover {
@@ -262,7 +279,6 @@ li {
   to {
     transform: translateX(0);
     opacity: 1;
-
   }
 }
 
@@ -386,7 +402,6 @@ textarea.inputs-style:focus {
 .comments:focus {
   background-color: #efefef;
   border: none;
-
 }
 
 .do-print {
@@ -394,7 +409,6 @@ textarea.inputs-style:focus {
 }
 
 @media print {
-
   .do-print {
     display: block;
   }
