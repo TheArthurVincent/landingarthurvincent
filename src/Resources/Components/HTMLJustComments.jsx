@@ -102,13 +102,14 @@ function HTMLJustComments({ onChange }) {
         <div
           ref={editorRef}
           style={{
-            height: "500%",
-            overflow: "hidden",
+            maxHeight: "700px",
+            overflow: "auto",
             border: "none",
             padding: "0.5rem",
-            marginTop: "0.5rem",
             fontSize: "1.5rem",
             width: "90%",
+            backgroundColor: "#fbfbfb",
+            margin: "0.5rem",
           }}
         />
       </>
