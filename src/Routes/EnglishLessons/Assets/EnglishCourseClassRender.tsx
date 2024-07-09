@@ -206,7 +206,7 @@ export default function EnglishLessonsRender({
             style={{
               fontSize: "15px",
             }}
-          >{`${order + 1}- ${truncateTitle(theclass.title, 25)}`}</h1>
+          >{`${order + 1}- ${truncateTitle(theclass.title, 30)}`}</h1>
           {nextclass ? (
             <span
               style={{
