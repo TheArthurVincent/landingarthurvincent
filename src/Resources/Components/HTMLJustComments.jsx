@@ -103,6 +103,7 @@ function HTMLJustComments({ onChange }) {
           ref={editorRef}
           style={{
             height: "500%",
+            overflow: "hidden",
             border: "none",
             padding: "0.5rem",
             marginTop: "0.5rem",

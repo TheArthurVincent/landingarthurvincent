@@ -652,7 +652,7 @@ export default function EnglishLessonsRender({
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 0.8fr",
+                gridTemplateColumns: "1fr 0.7fr",
                 borderRight: "1px solid #555",
               }}
             >
@@ -700,7 +700,8 @@ export default function EnglishLessonsRender({
                   margin: "0.5rem",
                 }}
               >
-                <HTMLJustComments onChange={handleHWDescriptionChange} />
+                <HTMLJustComments 
+                onChange={handleHWDescriptionChange} />
               </span>
             </div>
           </div>
