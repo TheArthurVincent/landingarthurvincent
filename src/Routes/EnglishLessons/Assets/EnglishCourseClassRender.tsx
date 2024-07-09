@@ -220,7 +220,7 @@ export default function EnglishLessonsRender({
             style={{
               fontSize: "15px",
             }}
-          >{`${order + 1}- ${truncateTitle(theclass.title, 30)}`}</h1>
+          >{`${order + 1}- ${truncateTitle(theclass.title, 35)}`}</h1>
           {nextclass ? (
             <span
               style={{
@@ -693,15 +693,9 @@ export default function EnglishLessonsRender({
                   ))}
               </span>
               <span
-                style={{
-                  maxHeight: "1000px",
-                  overflow: "auto",
-                  backgroundColor: "#fbfbfb",
-                  margin: "0.5rem",
-                }}
+               
               >
-                <HTMLJustComments 
-                onChange={handleHWDescriptionChange} />
+                <HTMLJustComments onChange={handleHWDescriptionChange} />
               </span>
             </div>
           </div>
