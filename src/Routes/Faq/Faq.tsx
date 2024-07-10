@@ -14,6 +14,7 @@ import { DivAppear, H3FAQ } from "../MyClasses/MyClasses.Styled";
 import { Input } from "@mui/material";
 import { contentFaq } from "./FaqContent";
 import Helmets from "../../Resources/Helmets";
+import { IFrameVideoBlog } from "../Blog/Blog.Styled";
 
 export function Faq() {
   const { UniversalTexts } = useUserContext();
@@ -74,7 +75,7 @@ export function Faq() {
               <DivAppear>
                 {item.url && (
                   <div style={{ textAlign: "center" }}>
-                    <IFrameVideoClass
+                    <IFrameVideoBlog
                       src={getVideoEmbedUrl(item.url)}
                       frameBorder="0"
                     />

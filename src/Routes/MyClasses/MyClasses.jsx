@@ -18,6 +18,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Helmets from "../../Resources/Helmets";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { IFrameVideoBlog } from "../Blog/Blog.Styled";
 
 export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
@@ -265,7 +266,7 @@ export function MyClasses({ headers }) {
                       </Link>
                     )}
                   </div>
-                  <IFrameVideoClass src={getVideoEmbedUrl(item.videoUrl)} />
+                  <IFrameVideoBlog src={getVideoEmbedUrl(item.videoUrl)} />
                 </div>
               </ClassBox>
             </div>
