@@ -23,6 +23,7 @@ import {
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import Helmets from "../../Resources/Helmets";
+import { IFrameVideoBlog } from "../Blog/Blog.Styled";
 
 export default function GroupClasses({ headers }) {
   const { UniversalTexts } = useUserContext();
@@ -199,7 +200,7 @@ export default function GroupClasses({ headers }) {
                         </Link>
                       )}
                     </DivFlex>{" "}
-                    <IFrameVideoClass src={getVideoEmbedUrl(item.videoUrl)} />
+                    <IFrameVideoBlog src={getVideoEmbedUrl(item.videoUrl)} />
                   </div>
                 </ClassBox>
               </div>
