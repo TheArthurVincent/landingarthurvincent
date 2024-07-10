@@ -139,7 +139,7 @@ export default function EnglishCourse({
           .map((course: any, index: number) => (
             <div key={index}>
               <HThree>
-                {index + 1} | {course.type ? course.type : course.module}
+                {index + 1} | {course.type ? course.type : course.module} - {course.lessons.length} classes
               </HThree>
               <div
                 style={{
