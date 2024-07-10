@@ -50,7 +50,7 @@ export const SpanDisapear = styled.span`
 `;
 
 export const IFrameVideoBlog = styled.iframe`
-  min-width: 1000px;
+  min-width: 950px;
   min-height: 500px;
   margin-right: auto;
   margin-left: auto;

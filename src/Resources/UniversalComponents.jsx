@@ -362,110 +362,128 @@ export const linkReset2 = {
   padding: "1px",
 };
 
-export const IFrameVideoClass = styled.iframe`
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: none;
-  min-width: 950px;
-  min-height: 500px;
-  @media (max-width: 1150px) {
-    margin-top: 0;
-    min-width: 800px;
-    min-height: 450px;
-  }
-  @media (max-width: 950px) {
-    margin-top: 0;
-    min-width: 750px;
-    min-height: 400px;
-  }
-  @media (max-width: 875px) {
-    margin-top: 0;
-    min-width: 700px;
-    min-height: 400px;
-  }
-  @media (max-width: 810px) {
-    margin-top: 0;
-    min-width: 650px;
-    min-height: 380px;
-  }
-  @media (max-width: 750px) {
-    margin-top: 0;
-    min-width: 600px;
-    min-height: 350px;
-  }
-  @media (max-width: 692px) {
-    margin-top: 0;
-    min-width: 550px;
-    min-height: 320px;
-  }
-  @media (max-width: 638px) {
-    margin-top: 0;
-    min-width: 500px;
-    min-height: 300px;
-  }
-  @media (max-width: 580px) {
-    margin-top: 0;
-    min-width: 470px;
-    min-height: 200px;
-  }
-  @media (max-width: 542px) {
-    margin-top: 0;
-    min-width: 440px;
-    min-height: 200px;
-  }
-  @media (max-width: 512px) {
-    margin-top: 0;
-    min-width: 430px;
-    min-height: 200px;
-  }
-  @media (max-width: 500px) {
-    margin-top: 0;
-    min-width: 420px;
-    min-height: 200px;
-  }
-  @media (max-width: 486px) {
-    margin-top: 0;
-    min-width: 390px;
-    min-height: 200px;
-  }
-  @media (max-width: 450px) {
-    margin-top: 0;
-    min-width: 360px;
-    min-height: 200px;
-  }
-  @media (max-width: 418px) {
-    margin-top: 0;
-    min-width: 340px;
-    min-height: 180px;
-  }
-  @media (max-width: 402px) {
-    margin-top: 0;
-    min-width: 320px;
-    min-height: 165px;
-  }
-  @media (max-width: 376px) {
-    margin-top: 0;
-    min-width: 300px;
-    min-height: 150px;
-  }
-  @media (max-width: 353px) {
-    margin-top: 0;
-    min-width: 270px;
-    min-height: 150px;
-  }
-  @media (max-width: 280px) {
-    margin-top: 0;
-    min-width: 140px;
-    min-height: 64px;
-  }
-  @media (max-width: 210px) {
-    margin-top: 0;
-    min-width: 80px;
-    min-height: 38px;
+// export const IFrameVideoClass = styled.iframe`
+//   margin-top: 0;
+//   margin-right: auto;
+//   margin-left: auto;
+//   border: none;
+//   min-width: 950px;
+//   min-height: 500px;
+//   @media (max-width: 1150px) {
+//     margin-top: 0;
+//     min-width: 800px;
+//     min-height: 450px;
+//   }
+//   @media (max-width: 950px) {
+//     margin-top: 0;
+//     min-width: 750px;
+//     min-height: 400px;
+//   }
+//   @media (max-width: 875px) {
+//     margin-top: 0;
+//     min-width: 700px;
+//     min-height: 400px;
+//   }
+//   @media (max-width: 810px) {
+//     margin-top: 0;
+//     min-width: 650px;
+//     min-height: 380px;
+//   }
+//   @media (max-width: 750px) {
+//     margin-top: 0;
+//     min-width: 600px;
+//     min-height: 350px;
+//   }
+//   @media (max-width: 692px) {
+//     margin-top: 0;
+//     min-width: 550px;
+//     min-height: 320px;
+//   }
+//   @media (max-width: 638px) {
+//     margin-top: 0;
+//     min-width: 500px;
+//     min-height: 300px;
+//   }
+//   @media (max-width: 580px) {
+//     margin-top: 0;
+//     min-width: 470px;
+//     min-height: 200px;
+//   }
+//   @media (max-width: 542px) {
+//     margin-top: 0;
+//     min-width: 440px;
+//     min-height: 200px;
+//   }
+//   @media (max-width: 512px) {
+//     margin-top: 0;
+//     min-width: 430px;
+//     min-height: 200px;
+//   }
+//   @media (max-width: 500px) {
+//     margin-top: 0;
+//     min-width: 420px;
+//     min-height: 200px;
+//   }
+//   @media (max-width: 486px) {
+//     margin-top: 0;
+//     min-width: 390px;
+//     min-height: 200px;
+//   }
+//   @media (max-width: 450px) {
+//     margin-top: 0;
+//     min-width: 360px;
+//     min-height: 200px;
+//   }
+//   @media (max-width: 418px) {
+//     margin-top: 0;
+//     min-width: 340px;
+//     min-height: 180px;
+//   }
+//   @media (max-width: 402px) {
+//     margin-top: 0;
+//     min-width: 320px;
+//     min-height: 165px;
+//   }
+//   @media (max-width: 376px) {
+//     margin-top: 0;
+//     min-width: 300px;
+//     min-height: 150px;
+//   }
+//   @media (max-width: 353px) {
+//     margin-top: 0;
+//     min-width: 270px;
+//     min-height: 150px;
+//   }
+//   @media (max-width: 280px) {
+//     margin-top: 0;
+//     min-width: 140px;
+//     min-height: 64px;
+//   }
+//   @media (max-width: 210px) {
+//     margin-top: 0;
+//     min-width: 80px;
+//     min-height: 38px;
+//   }
+// `;
+export const ContainerClass = styled.div`
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 `;
-
+export const IFrameVideoClass = styled.iframe`
+  min-width: 98%;
+  min-  height: 100%;
+  border: none;
+`;
 export const abreviateName = (word) => {
   const words = word.split(" ");
   const lastWord = words[words.length - 1];
