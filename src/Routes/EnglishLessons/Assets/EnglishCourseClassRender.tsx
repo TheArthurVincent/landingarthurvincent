@@ -27,7 +27,6 @@ import CoursesSideBar, {
 import {
   alwaysWhite,
   darkGreyColor,
-  lightGreyColor,
   primaryColor,
   secondaryColor,
   transparentBlack,
@@ -40,7 +39,6 @@ import TextsWithTranslateSlideLessonModel from "./SlideModels/TextWithNoAudio";
 import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
 import SelectExercise from "./LessonsModels/MultipleSelectExercise";
 import { Tooltip } from "@mui/material";
-import HTMLJustWrite from "../../../Resources/Components/HTMLJustWrite";
 import HTMLJustComments from "../../../Resources/Components/HTMLJustComments";
 
 interface EnglishLessonsRenderModelProps {
