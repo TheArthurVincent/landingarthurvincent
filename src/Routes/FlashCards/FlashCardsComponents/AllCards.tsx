@@ -15,11 +15,34 @@ const AllCards = ({ headers }: HeadersProps) => {
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [newFront, setNewFront] = useState<string>("");
+  const [newBack, setNewBack] = useState<string>("");
+  const [newLGFront, setNewLGFront] = useState<string>("");
+  const [newLGBack, setNewLGBack] = useState<string>("");
+  const [cardIdToEdit, setCardIdToEdit] = useState<string>("");
+  const [newBackComments, setNewBackComments] = useState<string>("");
+  const [studentsList, setStudentsList] = useState<any>([]);
+  const [perm, setPermissions] = useState<string>("");
+  const [studentID, setStudentID] = useState<string>("");
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    const { id, permissions } = JSON.parse(user || "");
+    setPermissions(permissions);
+    if (permissions == "superadmin") {
+      fetchStudents();
+    }
+
+    if (user) {
+      setId(id);
+      setStudentID(id);
+      getNewCards(id);
+    }
+  }, []);
 
   const actualHeaders = headers || {};
 
-  const [studentsList, setStudentsList] = useState<any>([]);
-  const [studentID, setStudentID] = useState<string>("");
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStudentID(event.target.value);
     getNewCards(event.target.value);
@@ -52,38 +75,13 @@ const AllCards = ({ headers }: HeadersProps) => {
     }
   };
 
-  const [perm, setPermissions] = useState<string>("");
-
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    const { id, permissions } = JSON.parse(user || "");
-    setPermissions(permissions);
-    if (permissions == "superadmin") {
-      fetchStudents();
-    }
-
-    if (user) {
-      setId(id);
-      setStudentID(id);
-      getNewCards(id);
-    }
-  }, []);
-
   /////////////////
-
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [newFront, setNewFront] = useState<string>("");
-  const [newBack, setNewBack] = useState<string>("");
-  const [newLGFront, setNewLGFront] = useState<string>("");
-  const [newLGBack, setNewLGBack] = useState<string>("");
-  const [cardIdToEdit, setCardIdToEdit] = useState<string>("");
-  const [newBackComments, setNewBackComments] = useState<string>("");
 
   const handleSeeModal = async (cardId: string) => {
     setShowModal(true);
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/flashcardfindone/${myId}`,
+        `${backDomain}/api/v1/flashcardfindone/${studentID}`,
         {
           params: { cardId },
           headers: actualHeaders,
@@ -110,7 +108,7 @@ const AllCards = ({ headers }: HeadersProps) => {
     setShowModal(true);
     try {
       const response = await axios.put(
-        `${backDomain}/api/v1/flashcard/${myId}`,
+        `${backDomain}/api/v1/flashcard/${studentID}`,
         {
           newFront,
           newBack,
@@ -131,7 +129,7 @@ const AllCards = ({ headers }: HeadersProps) => {
   const handleDeleteCard = async (cardId: string) => {
     try {
       const response = await axios.delete(
-        `${backDomain}/api/v1/flashcard/${myId}`,
+        `${backDomain}/api/v1/flashcard/${studentID}`,
         {
           params: { cardId },
         }
@@ -163,7 +161,7 @@ const AllCards = ({ headers }: HeadersProps) => {
             justifyContent: "space-between",
           }}
         >
-          <ArvinButton onClick={() => getNewCards(myId)}>
+          <ArvinButton onClick={() => getNewCards(studentID)}>
             <i className="fa fa-refresh" aria-hidden="true" />
           </ArvinButton>
           {perm === "superadmin" && (
@@ -207,10 +205,9 @@ const AllCards = ({ headers }: HeadersProps) => {
                 }}
               >
                 <div>
-                  {myId === "651311fac3d58753aa9281c5" && (
+                  {perm === "superadmin" && (
                     <ArvinButton
                       onClick={() => {
-                        console.log(card.id);
                         handleSeeModal(card.id);
                       }}
                       color="yellow"
