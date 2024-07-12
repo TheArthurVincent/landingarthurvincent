@@ -4,6 +4,7 @@ import { backDomain } from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import AddOneFlashCard from "./AddFlashONEFlashCard";
+import { Box, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 interface Student {
   id: string;
@@ -25,17 +26,17 @@ interface AddFlashCardsProps {
 }
 const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
   const [studentsList, setStudentsList] = useState<Student[]>([]);
-  const [myId, setId] = useState<string>("");
   const [studentID, setStudentID] = useState<string>("");
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [cards, setCards] = useState<FlashCard[]>([]);
+  const [myPermissions, setPermissions] = useState<string>("");
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { id } = JSON.parse(user);
-      setId(id);
+      const { permissions, id } = JSON.parse(user);
       setStudentID(id);
+      setPermissions(permissions);
     }
   }, []);
 
@@ -43,7 +44,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
 
   const fetchStudents = async () => {
     setAddCardVisible(!addCardVisible);
-    if (myId === "651311fac3d58753aa9281c5") {
+    if (myPermissions === "superadmin") {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`, {
           headers: actualHeaders,
@@ -127,11 +128,8 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
   };
 
   return (
-    <div
-      style={{
-        //@ts-ignore
-        position: display,
-        border: display == "fixed" ? "1px solid black" : "none",
+    <Box
+      sx={{
         borderRadius: "1rem",
         zIndex: 10000,
         bottom: 10,
@@ -143,45 +141,50 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
       }}
       className="smooth"
     >
-      <section
-        style={{ margin: "auto", maxWidth: "fit-content", display: "flex" }}
-        id="addcards"
-      >
-        {myId === "651311fac3d58753aa9281c5" && (
-          <div style={{ display: "grid" }}>
+      <Box sx={{ margin: "auto", display: "flex" }} id="addcards">
+        {myPermissions === "superadmin" && (
+          <Box sx={{ display: "grid" }}>
             <ArvinButton
-              style={{
-                margin: " auto",
-                display: "block",
-              }}
+              // sx={{
+              //   margin: " auto",
+              //   display: "block",
+              // }}
               color="yellow"
               onClick={fetchStudents}
             >
               Adicionar cartas
             </ArvinButton>
-            <div
-              style={{
+            <Box
+              sx={{
                 marginTop: "1rem",
                 display: addCardVisible ? "block" : "none",
               }}
             >
-              <div style={{ display: "flex" }}>
-                <select
-                  style={{ maxWidth: "120px" }}
-                  onChange={handleStudentChange}
-                  value={studentID}
-                >
-                  {studentsList.map((student, index) => (
-                    <option key={index} value={student.id}>
-                      {student.name + " " + student.lastname}
-                    </option>
-                  ))}
-                </select>
+              <Box sx={{ display: "flex" }}>
+                <FormControl sx={{ width: "250px" }}>
+                  <InputLabel id="student-select-label">Choose student</InputLabel>
+                  <Select
+                    labelId="student-select-label"
+                    value={studentID}
+                    // @ts-ignore
+                    onChange={handleStudentChange}
+                    label="Choose student"
+                  >
+                    <MenuItem value="student" disabled hidden>
+                      Choose student
+                    </MenuItem>
+                    {studentsList.map((student, index) => (
+                      <MenuItem key={index} value={student.id}>
+                        {student.name + " " + student.lastname}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
                 <ArvinButton color="navy" onClick={addNewCard}>
                   +
                 </ArvinButton>
-              </div>
-              <div>
+              </Box>
+              <Box>
                 {cards.map((card, index) => (
                   <AddOneFlashCard
                     key={index}
@@ -198,15 +201,15 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
                     handleCommentsBack={handleCommentsBack}
                   />
                 ))}
-              </div>
+              </Box>
               <ArvinButton color="green" onClick={addNewCards}>
                 Add cards
               </ArvinButton>
-            </div>
-          </div>
+            </Box>
+          </Box>
         )}
-      </section>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

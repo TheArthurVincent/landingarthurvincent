@@ -4,7 +4,7 @@ import {
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
-import {  MyHeadersType } from "../../Resources/types.universalInterfaces";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Box, Tab } from "@mui/material";
 import {
   alwaysWhite,
@@ -21,9 +21,9 @@ interface FlashCardsProps {
   onChange: any;
   change: boolean;
 }
-const FlashCards = ({ headers, onChange,change }: FlashCardsProps) => {
+const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   useState<number>(0);
-  const [myId, setId] = useState<string>("");
+  const [myPermissions, setPermissions] = useState<string>("");
   const [value, setValue] = useState<string>("1");
 
   const handleChange = (event: any, newValue: string) => {
@@ -34,8 +34,8 @@ const FlashCards = ({ headers, onChange,change }: FlashCardsProps) => {
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { id } = JSON.parse(user);
-      setId(id);
+      const { permissions } = JSON.parse(user);
+      setPermissions(permissions);
     }
   }, []);
 
@@ -44,7 +44,13 @@ const FlashCards = ({ headers, onChange,change }: FlashCardsProps) => {
       title: "Review",
       value: "1",
       adm: false,
-      component: <ReviewFlashCards onChange={onChange}change={change} headers={headers} />,
+      component: (
+        <ReviewFlashCards
+          onChange={onChange}
+          change={change}
+          headers={headers}
+        />
+      ),
     },
     {
       title: "Add",
@@ -60,7 +66,7 @@ const FlashCards = ({ headers, onChange,change }: FlashCardsProps) => {
     },
   ];
 
-  const displayIsAdm = myId === "651311fac3d58753aa9281c5" ? "block" : "none";
+  const displayIsAdm = myPermissions === "superadmin" ? "block" : "none";
 
   return (
     <RouteDiv className="smooth">
