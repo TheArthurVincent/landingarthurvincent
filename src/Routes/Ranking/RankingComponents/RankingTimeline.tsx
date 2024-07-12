@@ -29,6 +29,7 @@ export default function RankingTimeline({
   const [actualName, setActualName] = useState<string>(name);
   const [newID, setNewID] = useState<string>(id);
   const [loading, setLoading] = useState<boolean>(true);
+  const [myPermissions, setPermissions] = useState<string>("");
 
   const actualHeaders = headers || {};
 

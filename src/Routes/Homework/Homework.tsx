@@ -309,7 +309,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
                     </div>
                     {homework.status && (
                       <>
-                        {myId === "651311fac3d58753aa9281c5" &&
+                        {permissions === "superadmin" &&
                           homework.status !== "done" && (
                             <ArvinButton
                               onClick={() =>
