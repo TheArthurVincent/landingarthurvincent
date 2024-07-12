@@ -187,7 +187,7 @@ export default function StudentsHistoryOfWinners({
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(getLoggedUser);
-    getLoggedUser.id === "651311fac3d58753aa9281c5" ? setIsAdm(true) : null;
+    getLoggedUser.permissions === "superadmin" ? setIsAdm(true) : null;
   }, []);
 
   const fetchStudents = async () => {

@@ -17,12 +17,14 @@ interface RankingTimeLineProps {
   headers: MyHeadersType | null;
   id: string;
   name: string;
+  permissions: string;
 }
 
 export default function RankingTimeline({
   headers,
   id,
   name,
+  permissions
 }: RankingTimeLineProps) {
   const [localTimeline, setLocalTimeline] = useState<any>([]);
   const [studentsList, setStudentsList] = useState<any>([]);
@@ -34,7 +36,7 @@ export default function RankingTimeline({
   const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
-    if (id == "651311fac3d58753aa9281c5") {
+    if (permissions == "superadmin") {
       try {
         const response = await axios.get(`${backDomain}/api/v1/students/`, {
           headers: actualHeaders,
@@ -114,7 +116,7 @@ export default function RankingTimeline({
             <i className="fa fa-refresh" aria-hidden="true" />
           </Button>
         )}{" "}
-        {id == "651311fac3d58753aa9281c5" && (
+        {permissions == "superadmin" && (
           <select
             onChange={handleStudentChange}
             name="students"

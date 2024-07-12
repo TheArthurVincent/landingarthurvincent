@@ -56,6 +56,7 @@ export default function Ranking({ headers }: HeadersProps) {
       component: (
         <RankingTimeline
           id={user.id}
+          permissions={user.permissions}
           name={user.name + " " + user.lastname}
           headers={headers}
         />
