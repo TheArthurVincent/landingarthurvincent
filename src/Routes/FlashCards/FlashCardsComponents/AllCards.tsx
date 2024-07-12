@@ -3,19 +3,21 @@ import axios from "axios";
 import {
   backDomain,
   formatDateBr,
+  Xp,
 } from "../../../Resources/UniversalComponents";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { CircularProgress } from "@mui/material";
+import { languages } from "./AddFlashONEFlashCard";
 
 const AllCards = ({ headers }: HeadersProps) => {
   const [myId, setId] = useState<string>("");
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
-  
+
   const actualHeaders = headers || {};
-  
+
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -50,9 +52,12 @@ const AllCards = ({ headers }: HeadersProps) => {
     }
   };
 
+  const [perm, setPermissions] = useState<string>("");
+
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     const { id, permissions } = JSON.parse(user || "");
+    setPermissions(permissions);
     if (permissions == "superadmin") {
       fetchStudents();
     }
@@ -64,97 +69,277 @@ const AllCards = ({ headers }: HeadersProps) => {
     }
   }, []);
 
+  /////////////////
+
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [newFront, setNewFront] = useState<string>("");
+  const [newBack, setNewBack] = useState<string>("");
+  const [newLGFront, setNewLGFront] = useState<string>("");
+  const [newLGBack, setNewLGBack] = useState<string>("");
+  const [cardIdToEdit, setCardIdToEdit] = useState<string>("");
+  const [newBackComments, setNewBackComments] = useState<string>("");
+
+  const handleSeeModal = async (cardId: string) => {
+    setShowModal(true);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/flashcardfindone/${myId}`,
+        {
+          params: { cardId },
+          headers: actualHeaders,
+        }
+      );
+      const newf = response.data.flashcard.front.text;
+      const newb = response.data.flashcard.back.text;
+      const newlf = response.data.flashcard.front.language;
+      const newlb = response.data.flashcard.back.language;
+      const newIDcard = response.data.flashcard.id;
+      const newComments = response.data.flashcard.backComments;
+
+      setNewBackComments(newComments);
+      setNewFront(newf);
+      setNewBack(newb);
+      setNewLGFront(newlf);
+      setNewLGBack(newlb);
+      setCardIdToEdit(newIDcard);
+    } catch (error) {
+      console.log(error, "Erro ao obter cards");
+    }
+  };
+  const handleEditCard = async (cardId: string) => {
+    setShowModal(true);
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/flashcard/${myId}`,
+        {
+          newFront,
+          newBack,
+          newLGBack,
+          newLGFront,
+          newBackComments,
+        },
+        {
+          params: { cardId },
+        }
+      );
+      getNewCards(studentID);
+      setShowModal(false);
+    } catch (error) {
+      console.log(error, "Erro ao obter cards");
+    }
+  };
+  const handleDeleteCard = async (cardId: string) => {
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/flashcard/${myId}`,
+        {
+          params: { cardId },
+        }
+      );
+      getNewCards(studentID);
+      setShowModal(false);
+    } catch (error) {
+      console.log(error, "Erro ao obter cards");
+    }
+  };
+  const handleHideModal = () => {
+    setShowModal(false);
+  };
+
+  ///////////////////////
+
   return (
-    <div
-      style={{
-        margin: "auto",
-        maxWidth: "40rem",
-      }}
-    >
+    <>
       <div
         style={{
-          display: "flex",
-          gap: "1rem",
-          justifyContent: "space-between",
+          margin: "auto",
+          maxWidth: "40rem",
         }}
       >
-        <ArvinButton onClick={() => getNewCards(myId)}>
-          <i className="fa fa-refresh" aria-hidden="true" />
-        </ArvinButton>
-        {myId === "651311fac3d58753aa9281c5" && (
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "space-between",
+          }}
+        >
+          <ArvinButton onClick={() => getNewCards(myId)}>
+            <i className="fa fa-refresh" aria-hidden="true" />
+          </ArvinButton>
+          {perm === "superadmin" && (
+            <div
+              style={{
+                display: "inline",
+              }}
+            >
+              <select onChange={handleStudentChange} value={studentID}>
+                {studentsList.map((student: any, index: number) => (
+                  <option key={index} value={student.id}>
+                    {student.name + " " + student.lastname}
+                  </option>
+                ))}
+              </select>
+              <ArvinButton color="green" onClick={fetchStudents}>
+                <i className="fa fa-refresh" aria-hidden="true" />
+                <i className="fa fa-user" aria-hidden="true" />
+              </ArvinButton>
+            </div>
+          )}
+        </div>
+        {loading ? (
+          <CircularProgress />
+        ) : (
           <div
             style={{
-              display: "inline",
+              padding: "5px",
+              overflowX: "auto",
+              backgroundColor: "#eee",
+              maxHeight: "50vh",
             }}
           >
-            <select onChange={handleStudentChange} value={studentID}>
-              {studentsList.map((student: any, index: number) => (
-                <option key={index} value={student.id}>
-                  {student.name + " " + student.lastname}
-                </option>
-              ))}
-            </select>
-            <ArvinButton color="green" onClick={fetchStudents}>
-              <i className="fa fa-refresh" aria-hidden="true" />
-              <i className="fa fa-user" aria-hidden="true" />
-            </ArvinButton>
+            {cards.map((card: any, index: number) => (
+              <div
+                key={index}
+                style={{
+                  padding: "1rem",
+                  margin: "5px",
+                  backgroundColor: "#fff",
+                }}
+              >
+                <div>
+                  {myId === "651311fac3d58753aa9281c5" && (
+                    <ArvinButton
+                      onClick={() => {
+                        console.log(card.id);
+                        handleSeeModal(card.id);
+                      }}
+                      color="yellow"
+                    >
+                      <i className="fa fa-edit" aria-hidden="true" />
+                    </ArvinButton>
+                  )}
+                  <div
+                    style={{
+                      fontWeight: 600,
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: card.front.text,
+                    }}
+                  />
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: card.back.text,
+                    }}
+                  />
+                </div>
+                <br />
+                <div
+                  style={{
+                    fontStyle: "italic",
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: card.backComments,
+                  }}
+                />
+                <br />
+                <br />
+                <div>Next Review: {formatDateBr(card.reviewDate)}</div>
+                <div>Reviewed {card.numberOfReviews} times</div>
+                <div>Review Rate: {card.reviewRate}</div>
+              </div>
+            ))}
           </div>
         )}
       </div>
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <div
-          style={{
-            padding: "5px",
-            overflowX: "auto",
-            backgroundColor: "#eee",
-            maxHeight: "50vh",
-          }}
-        >
-          {cards.map((card: any, index: number) => (
-            <div
-              key={index}
-              style={{
-                padding: "1rem",
-                margin: "5px",
-                backgroundColor: "#fff",
-              }}
+      <div
+        style={{
+          backgroundColor: "rgba(0,0,0,0.8)",
+          top: 0,
+          left: 0,
+          display: showModal ? "block" : "none",
+          width: "1000000px",
+          height: "1000000px",
+          position: "fixed",
+        }}
+        onClick={handleHideModal}
+      />
+      <div
+        style={{
+          display: showModal ? "block" : "none",
+          backgroundColor: "white",
+          padding: "1rem",
+          position: "fixed",
+          top: "40%",
+          left: "40%",
+          boxShadow: "1px 1px 10px black",
+        }}
+        id="modal"
+      >
+        <Xp onClick={handleHideModal}>X</Xp>
+        <article id="front">
+          <input
+            style={{ maxWidth: "120px" }}
+            value={newFront}
+            onChange={(e) => {
+              setNewFront(e.target.value);
+            }}
+            type="text"
+          />
+          <select
+            style={{ maxWidth: "120px" }}
+            value={newLGFront}
+            onChange={(e) => setNewLGFront(e.target.value)}
+          >
+            {languages.map((language, langIndex) => (
+              <option key={langIndex} value={language}>
+                {language}
+              </option>
+            ))}
+          </select>
+        </article>
+        <article id="back">
+          <input
+            style={{ maxWidth: "120px" }}
+            value={newBack}
+            onChange={(e) => setNewBack(e.target.value)}
+            type="text"
+          />
+          <select
+            style={{ maxWidth: "120px" }}
+            value={newLGBack}
+            onChange={(e) => setNewLGBack(e.target.value)}
+          >
+            {languages.map((language, langIndex) => (
+              <option key={langIndex} value={language}>
+                {language}
+              </option>
+            ))}
+          </select>
+          <br />
+          <input
+            style={{ maxWidth: "120px" }}
+            value={newBackComments}
+            onChange={(e) => setNewBackComments(e.target.value)}
+            type="text"
+          />
+          <div>
+            <ArvinButton
+              onClick={() => handleDeleteCard(cardIdToEdit)}
+              color="red"
             >
-              <div>
-                <div
-                  style={{
-                    fontWeight: 600,
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: card.front.text,
-                  }}
-                />
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: card.back.text,
-                  }}
-                />
-              </div>
-              <br />
-              <div
-                style={{
-                  fontStyle: "italic",
-                }}
-                dangerouslySetInnerHTML={{
-                  __html: card.backComments,
-                }}
-              />
-              <br />
-              <br />
-              <div>Next Review: {formatDateBr(card.reviewDate)}</div>
-              <div>Reviewed {card.numberOfReviews} times</div>
-              <div>Review Rate: {card.reviewRate}</div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+              <i className="fa fa-trash" aria-hidden="true" />
+            </ArvinButton>
+
+            <ArvinButton
+              onClick={() => handleEditCard(cardIdToEdit)}
+              color="green"
+            >
+              <i className="fa fa-folder" aria-hidden="true" />
+            </ArvinButton>
+          </div>
+        </article>
+      </div>
+    </>
   );
 };
 
