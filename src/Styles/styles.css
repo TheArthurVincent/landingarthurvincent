@@ -188,6 +188,7 @@ li {
   background-color: #424364;
   color: white;
 }
+
 .button2 {
   margin: 5px;
   display: flex;
@@ -206,6 +207,14 @@ li {
 .button2:hover {
   font-weight: 600;
   background-color: rgb(204, 204, 204);
+}
+
+.name{
+  background-color: white;
+}
+
+.name:hover {
+  background-color: #fafafa;
 }
 
 .flashcard {

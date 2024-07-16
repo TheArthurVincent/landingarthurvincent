@@ -19,11 +19,13 @@ import {
   Xp,
   abreviateName,
   backDomain,
+  formatDateBr,
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
 import { StyledDiv } from "./MyCalendar.Styled";
 import Helmets from "../../Resources/Helmets";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 
 export default function MyCalendar({ headers, thePermissions }) {
   // states
@@ -247,7 +249,14 @@ export default function MyCalendar({ headers, thePermissions }) {
       const response = await axios.get(`${backDomain}/api/v1/event/${id}`, {
         headers,
       });
-      fetchStudents()
+      const test =
+        response.data.event.category == "Rep" ||
+        response.data.event.category == "Tutoring" ||
+        response.data.event.category == "Group Class";
+      if (test) {
+        fetchStudents();
+      }
+
       const newCategory = response.data.event.category;
       const newStudentID = response.data.event.studentID;
       const newStatus = response.data.event.status;
@@ -269,6 +278,7 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
   const fetchOneSetOfTutorings = async (studentId) => {
+    if (!studentId) return;
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/tutoringsevents/${studentId}`,
@@ -279,7 +289,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       const tutorings = response.data.tutorings;
       setLoadingTutoringDays(true);
       setTutoringsListOfOneStudent(response.data.tutorings);
-
       setLoadingTutoringDays(false);
     } catch (error) {
       console.log(error, "Erro ao encontrar alunos");
@@ -866,9 +875,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <i className="fa fa-refresh" aria-hidden="true" />
               </button>
               <button
-                style={{
-                  width: "5rem",
-                }}
+                style={{ width: "3.5rem", }}
                 disabled={!disabledAvoid}
                 className="button2"
                 onClick={() => handleChangeWeek(-7)}
@@ -876,9 +883,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <i className="fa fa-arrow-left" aria-hidden="true" />
               </button>{" "}
               <button
-                style={{
-                  width: "5rem",
-                }}
+                style={{ width: "3.5rem", }}
                 disabled={!disabledAvoid}
                 className="button2"
                 onClick={() => handleChangeWeek(7)}
@@ -887,9 +892,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               </button>
               <input type="date" onChange={changeToday} />
               <button
-                style={{
-                  width: "5rem",
-                }}
+                style={{ width: "3.5rem", }}
                 disabled={!disabledAvoid}
                 className="button2"
                 onClick={handleBackToToday}
@@ -914,16 +917,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                       <StyledDiv
                         className={
                           hj.getDate() == date.getDate() &&
-                          hj.getMonth() == date.getMonth() &&
-                          hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                             ? "glowing"
                             : "none"
                         }
                         style={{
                           border:
                             hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
+                              hj.getMonth() == date.getMonth() &&
+                              hj.getFullYear() == date.getFullYear()
                               ? `2px solid ${secondaryColor()}`
                               : "null",
                         }}
@@ -936,15 +939,15 @@ export default function MyCalendar({ headers, thePermissions }) {
                             top: 0,
                             fontWeight:
                               hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                                hj.getMonth() == date.getMonth() &&
+                                hj.getFullYear() == date.getFullYear()
                                 ? 700
                                 : 500,
                             textAlign: "center",
                             backgroundColor:
                               hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                                hj.getMonth() == date.getMonth() &&
+                                hj.getFullYear() == date.getFullYear()
                                 ? "#439906"
                                 : alwaysBlack(),
                             color: alwaysWhite(),
@@ -976,7 +979,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               style={{
                                 margin: "4px",
                                 marginBottom: "1rem",
-                                padding: "5px",
+                                padding: "2px",
                                 boxShadow: "2px 2px 20px 2px #ccc",
                                 borderRadius: "5px",
                                 border: "1px solid #aaa",
@@ -984,106 +987,22 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.category === "Group Class"
                                     ? "#F2F1CE"
                                     : event.category === "Rep"
-                                    ? "#aaa"
-                                    : event.category === "Tutoring"
-                                    ? "#eee"
-                                    : event.category === "Prize Class"
-                                    ? "#FCE562"
-                                    : event.category === "Standalone"
-                                    ? "#123"
-                                    : event.category === "Test"
-                                    ? "#333"
-                                    : "#000",
+                                      ? "#ade"
+                                      : event.category === "Tutoring"
+                                        ? "#eee"
+                                        : event.category === "Prize Class"
+                                          ? "#FCE562"
+                                          : event.category === "Standalone"
+                                            ? "#123"
+                                            : event.category === "Test"
+                                              ? "#333"
+                                              : "#000",
 
                                 textAlign: "center",
                                 display: "grid",
                               }}
                               key={event + index}
                             >
-                              {thePermissions == "superadmin" && (
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    backgroundColor: alwaysWhite(),
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    gap: "5px",
-                                  }}
-                                >
-                                  <button
-                                    className="button"
-                                    onClick={() => handleSeeModal(event)}
-                                  >
-                                    <i
-                                      style={{ fontSize: "0.6rem" }}
-                                      className="fa fa-pencil"
-                                      aria-hidden="true"
-                                    />
-                                  </button>
-                                  <i
-                                    className="fa fa-clock-o"
-                                    aria-hidden="true"
-                                    onClick={() => updateScheduled(event._id)}
-                                    style={{
-                                      cursor: "pointer",
-                                      fontSize:
-                                        event.status == "marcado"
-                                          ? "12px"
-                                          : "10px",
-                                      color:
-                                        event.status == "marcado"
-                                          ? "blue"
-                                          : "grey",
-                                    }}
-                                  />
-                                  <i
-                                    className="fa fa-check-circle"
-                                    aria-hidden="true"
-                                    onClick={() =>
-                                      updateRealizedClass(event._id)
-                                    }
-                                    style={{
-                                      cursor: "pointer",
-                                      fontSize:
-                                        event.status == "realizada"
-                                          ? "12px"
-                                          : "10px",
-                                      color:
-                                        event.status == "realizada"
-                                          ? "green"
-                                          : "grey",
-                                    }}
-                                  />
-                                  <i
-                                    className="fa fa-times-circle-o"
-                                    aria-hidden="true"
-                                    onClick={() => updateUnscheduled(event._id)}
-                                    style={{
-                                      cursor: "pointer",
-                                      fontSize:
-                                        event.status == "desmarcado"
-                                          ? "12px"
-                                          : "10px",
-                                      color:
-                                        event.status == "desmarcado"
-                                          ? "red"
-                                          : "grey",
-                                    }}
-                                  />{" "}
-                                  {event.status !== "desmarcado" && (
-                                    <i
-                                      className="fa fa-envelope-o"
-                                      aria-hidden="true"
-                                      onClick={() => reminderEmail(event._id)}
-                                      style={{
-                                        marginLeft: "1rem",
-                                        cursor: "pointer",
-                                      }}
-                                    />
-                                  )}
-                                </div>
-                              )}
-
                               {event.status !== "desmarcado" &&
                                 isEventTimeNow(event, hj, date) && (
                                   <span
@@ -1099,13 +1018,14 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   </span>
                                 )}
                               <p
+                                onClick={() => handleSeeModal(event)}
+                                className="name"
                                 style={{
-                                  fontFamily: "Athiti",
-                                  padding: "10px",
-                                  margin: "10px",
-                                  borderRadius: "10px",
-                                  backgroundColor: textPrimaryColorContrast(),
-                                  color: primaryColor(),
+                                  padding: "8px",
+                                  margin: "2px",
+                                  display: "grid",
+                                  cursor: "pointer",
+                                  borderRadius: "5px",
                                   fontSize: "0.8rem",
                                 }}
                               >
@@ -1119,61 +1039,43 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   >
                                     {event.student.split(" ")[0]}{" "}
                                     {abreviateName(event.student)}
-                                    <br />
                                   </span>
                                 )}
 
                                 {` ${event.time} | ${event.category}`}
                                 <br />
                               </p>
-                              {event.description && (
-                                <div
-                                  style={{
-                                    color: "#333",
-                                    backgroundColor: "#fff",
-                                    padding: "3px",
-                                    marginTop: "10px",
-                                    fontSize: "11px",
-                                    maxWidth: "20ch",
-                                    margin: "5px auto",
-                                    fontStyle: "italic",
-                                    borderRadius: "5px",
-                                    border: "solid 1px #ddd",
-                                  }}
-                                >
-                                  <p>{event.description}</p>
-                                </div>
-                              )}
                               <div
                                 style={{
                                   display: "flex",
                                   gap: "0.5rem",
                                   flexDirection: "column",
-                                  margin: "5px",
-                                  borderRadius: "50px",
-                                  padding: "0px",
+                                  margin: "2px",
+                                  borderRadius: "5px",
                                   alignItems: "center",
                                   justifyContent: "center",
                                   backgroundColor:
                                     event.status == "desmarcado"
                                       ? "#FFCCCC"
                                       : event.status == "marcado"
-                                      ? "#CCE5FF"
-                                      : event.status == "realizada"
-                                      ? "#CCFFCC"
-                                      : "#000",
+                                        ? "#CCE5FF"
+                                        : event.status == "realizada"
+                                          ? "#CCFFCC"
+                                          : "#000",
                                 }}
                               >
                                 <div
                                   style={{
+                                    display: "flex",
+                                    gap: "5px",
                                     color:
                                       event.status == "marcado"
                                         ? primaryColor()
                                         : event.status == "realizada"
-                                        ? secondaryColor()
-                                        : event.status == "desmarcado"
-                                        ? "red"
-                                        : "#000",
+                                          ? secondaryColor()
+                                          : event.status == "desmarcado"
+                                            ? "red"
+                                            : "#000",
                                     fontSize: "0.6rem",
                                     padding: "5px",
                                     fontWeight: 600,
@@ -1182,11 +1084,90 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   {event.status == "marcado"
                                     ? "Scheduled"
                                     : event.status == "desmarcado"
-                                    ? "Canceled"
-                                    : "Realized"}
+                                      ? "Canceled"
+                                      : "Realized"}
+                                  {thePermissions == "superadmin" && (
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        gap: "5px",
+                                      }}
+                                    >
+                                      <i
+                                        className="fa fa-clock-o"
+                                        aria-hidden="true"
+                                        onClick={() =>
+                                          updateScheduled(event._id)
+                                        }
+                                        style={{
+                                          cursor: "pointer",
+                                          fontSize:
+                                            event.status == "marcado"
+                                              ? "12px"
+                                              : "10px",
+                                          color:
+                                            event.status == "marcado"
+                                              ? "blue"
+                                              : "grey",
+                                        }}
+                                      />
+                                      <i
+                                        className="fa fa-check-circle"
+                                        aria-hidden="true"
+                                        onClick={() =>
+                                          updateRealizedClass(event._id)
+                                        }
+                                        style={{
+                                          cursor: "pointer",
+                                          fontSize:
+                                            event.status == "realizada"
+                                              ? "12px"
+                                              : "10px",
+                                          color:
+                                            event.status == "realizada"
+                                              ? "green"
+                                              : "grey",
+                                        }}
+                                      />
+                                      <i
+                                        className="fa fa-times-circle-o"
+                                        aria-hidden="true"
+                                        onClick={() =>
+                                          updateUnscheduled(event._id)
+                                        }
+                                        style={{
+                                          cursor: "pointer",
+                                          fontSize:
+                                            event.status == "desmarcado"
+                                              ? "12px"
+                                              : "10px",
+                                          color:
+                                            event.status == "desmarcado"
+                                              ? "red"
+                                              : "grey",
+                                        }}
+                                      />{" "}
+                                      {event.status !== "desmarcado" && (
+                                        <i
+                                          className="fa fa-envelope-o"
+                                          aria-hidden="true"
+                                          onClick={() =>
+                                            reminderEmail(event._id)
+                                          }
+                                          style={{
+                                            cursor: "pointer",
+                                            fontSize: "10px",
+                                            color: "grey",
+                                          }}
+                                        />
+                                      )}
+                                    </div>
+                                  )}
                                 </div>
                               </div>
-                              <span
+                              {/* <span
                                 style={{
                                   padding: "5px",
                                   marginTop: "10px",
@@ -1197,7 +1178,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 <Link target="_blank" to={event.link}>
                                   Access the class
                                 </Link>
-                              </span>
+                              </span> */}
                             </div>
                           ))}
                       </StyledDiv>
@@ -1217,10 +1198,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                 top: "0",
                 left: "0",
                 position: "fixed",
-                borderRadius: "3px",
+                borderRadius: "5px",
                 zIndex: 99,
                 display: isVisible ? "block" : "none",
-                padding: "1rem",
               }}
               onClick={handleCloseModal}
             />
@@ -1229,200 +1209,258 @@ export default function MyCalendar({ headers, thePermissions }) {
               style={{
                 position: "fixed",
                 display: isVisible ? "block" : "none",
+                boxShadow: "5px 5px 5px grey",
                 zIndex: 100,
                 backgroundColor: alwaysWhite(),
-                padding: "1rem",
                 width: "20rem",
-                height: "30rem",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <Xp onClick={handleCloseModal}>X</Xp>
-              <h2
+              <div
                 style={{
-                  margin: "0.5rem 0",
+                  padding: "1rem",
+                  maxHeight: "30rem",
+                  overflow: "auto",
                 }}
               >
-                {UniversalTexts.editPost}
-              </h2>
-              {loadingInfo ? (
-                <CircularProgress />
-              ) : (
-                <form
+                <Xp onClick={handleCloseModal}>X</Xp>
+                <h2
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyItems: "center",
-                    gap: "0.5rem",
+                    margin: "0.5rem 0",
                   }}
                 >
-                  <select
-                    onChange={handleCategoryChange}
-                    name="category"
-                    id=""
-                    value={category}
-                  >
-                    <option value="category" hidden>
-                      Select category
-                    </option>
-                    {[
-                      "Test",
-                      "Standalone",
-                      "Group Class",
-                      "Rep",
-                      "Prize Class",
-                      "Tutoring",
-                    ].map((category, index) => {
-                      return (
-                        <option key={index} value={category}>
-                          {category}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  {isTutoring && (
-                    <select
-                      onChange={handleStudentChange}
-                      name="students"
-                      id=""
-                      value={newStudentId}
-                      style={{ display: "block" }}
+                  Access the event
+                </h2>
+                <p>
+                  <b>Category:</b>{" "}
+                  {category == "Test"
+                    ? "Test Class"
+                    : category == "Standalone"
+                      ? "Standalone Class"
+                      : category == "Group Class"
+                        ? "Group Class"
+                        : category == "Rep"
+                          ? "Replenishing"
+                          : category == "Prize Class"
+                            ? "Prize Class"
+                            : category == "Tutoring"
+                              ? "Tutoring: Private Class"
+                              : ""}{" "}
+                </p>
+                <p>
+                  <b>Date: </b>
+                  {formatDateBr(date)}
+                </p>
+                <p>
+                  <b>Time: </b>
+                  {theTime}
+                </p>
+                <Link to={link} target="_blank">
+                  Click here to access the class
+                </Link>
+                <p
+                  style={{
+                    fontFamily: "Athiti",
+                    fontSize: "1.1rem",
+                  }}
+                >
+                  {description}
+                </p>
+                {thePermissions == "superadmin" && (
+                  <>
+                    <h2
+                      style={{
+                        margin: "0.5rem 0",
+                      }}
                     >
-                      <option value="category" hidden>
-                        Select student
-                      </option>
-                      {studentsList.map((student, index) => {
-                        return (
-                          <option key={index} value={student.id}>
-                            {student.name + " " + student.lastname}
+                      {UniversalTexts.editPost}
+                    </h2>
+                    {loadingInfo ? (
+                      <CircularProgress />
+                    ) : (
+                      <form
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyItems: "center",
+                          gap: "0.5rem",
+                        }}
+                      >
+                        <select
+                          onChange={handleCategoryChange}
+                          name="category"
+                          id=""
+                          value={category}
+                          className="inputs-style"
+                        >
+                          <option value="category" hidden>
+                            Select category
                           </option>
-                        );
-                      })}
-                    </select>
-                  )}
-                  <input
-                    value={date}
-                    onChange={(e) => {
-                      setDate(e.target.value);
-                    }}
-                    type="date"
-                    required
-                  />
-                  <input
-                    value={theTime}
-                    onChange={(e) => {
-                      setTheTime(e.target.value);
-                    }}
-                    type="time"
-                    required
-                  />
-                  <input
-                    value={link}
-                    onChange={(e) => setLink(e.target.value)}
-                    placeholder="Link"
-                    type="text"
-                    required
-                  />
-                  <input
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Description"
-                    type="text"
-                    required
-                  />
-                </form>
-              )}
-
-              {!deleteVisible ? (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                    justifyContent: "space-evenly",
-                  }}
-                >
-                  {[
-                    {
-                      text: "Delete",
-                      backgroundColor: "red",
-                      onClick: seeDelete,
-                      visible: postNew ? false : true,
-                    },
-                    {
-                      text: "Cancel",
-                      backgroundColor: primaryColor(),
-                      onClick: handleCloseModal,
-                      visible: true,
-                    },
-                    {
-                      text: "Save",
-                      backgroundColor: secondaryColor(),
-                      onClick: postNew ? postNewEvent : editInside,
-                      visible: true,
-                      type: "submit",
-                    },
-                  ].map((item, index) => {
-                    return (
-                      <button
-                        key={index}
-                        onClick={item.onClick}
+                          {[
+                            "Test",
+                            "Standalone",
+                            "Group Class",
+                            "Rep",
+                            "Prize Class",
+                            "Tutoring",
+                          ].map((category, index) => {
+                            return (
+                              <option key={index} value={category}>
+                                {category}
+                              </option>
+                            );
+                          })}
+                        </select>
+                        {isTutoring && (
+                          <select
+                            className="inputs-style"
+                            onChange={handleStudentChange}
+                            name="students"
+                            id=""
+                            value={newStudentId}
+                            style={{ display: "block" }}
+                          >
+                            <option value="category" hidden>
+                              Select student
+                            </option>
+                            {studentsList.map((student, index) => {
+                              return (
+                                <option key={index} value={student.id}>
+                                  {student.name + " " + student.lastname}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        )}
+                        <input
+                          className="inputs-style"
+                          value={date}
+                          onChange={(e) => {
+                            setDate(e.target.value);
+                          }}
+                          type="date"
+                          required
+                        />
+                        <input
+                          className="inputs-style"
+                          value={theTime}
+                          onChange={(e) => {
+                            setTheTime(e.target.value);
+                          }}
+                          type="time"
+                          required
+                        />
+                        <input
+                          className="inputs-style"
+                          value={link}
+                          onChange={(e) => setLink(e.target.value)}
+                          placeholder="Link"
+                          type="text"
+                          required
+                        />
+                        <input
+                          className="inputs-style"
+                          value={description}
+                          onChange={(e) => setDescription(e.target.value)}
+                          placeholder="Description"
+                          type="text"
+                          required
+                        />
+                      </form>
+                    )}
+                    {!deleteVisible ? (
+                      <div
                         style={{
-                          display: item.visible ? "block" : "none",
-                          marginTop: "1rem",
-                          cursor: "pointer",
-                          color: "white",
-                          backgroundColor: item.backgroundColor,
-                        }}
-                        type={item.type ? item.type : null}
-                      >
-                        {item.text}
-                      </button>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                    justifyContent: "space-evenly",
-                  }}
-                >
-                  <p>Are you Sure??</p>
-                  {[
-                    {
-                      text: "No!",
-                      backgroundColor: "navy",
-                      onClick: seeDelete,
-                    },
-
-                    {
-                      text: "Yes!",
-                      backgroundColor: "red",
-                      onClick: deleteOneMaterialInside,
-                    },
-                  ].map((item, index) => {
-                    return (
-                      <button
-                        key={index}
-                        onClick={item.onClick}
-                        style={{
-                          marginTop: "1rem",
-                          color: "white",
-                          cursor: "pointer",
-                          backgroundColor: item.backgroundColor,
+                          display: "flex",
+                          alignItems: "center",
+                          width: "100%",
+                          justifyContent: "space-evenly",
                         }}
                       >
-                        {item.text}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
+                        {[
+                          {
+                            text: "Delete",
+                            color: "red",
+                            onClick: seeDelete,
+                            visible: postNew ? false : true,
+                          },
+                          {
+                            text: "Cancel",
+                            color: "blue",
+                            onClick: handleCloseModal,
+                            visible: true,
+                          },
+                          {
+                            text: "Save",
+                            color: "green",
+                            onClick: postNew ? postNewEvent : editInside,
+                            visible: true,
+                            type: "submit",
+                          },
+                        ].map((item, index) => {
+                          return (
+                            <ArvinButton
+                              key={index}
+                              color={item.color}
+                              onClick={item.onClick}
+                              style={{
+                                display: item.visible ? "block" : "none",
+                                marginTop: "1rem",
+                                cursor: "pointer",
+                                color: "white",
+                              }}
+                              type={item.type ? item.type : null}
+                            >
+                              {item.text}
+                            </ArvinButton>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          width: "100%",
+                          justifyContent: "space-evenly",
+                        }}
+                      >
+                        <p>Are you Sure??</p>
+                        {[
+                          {
+                            text: "No!",
+                            backgroundColor: "navy",
+                            onClick: seeDelete,
+                          },
+
+                          {
+                            text: "Yes!",
+                            backgroundColor: "red",
+                            onClick: deleteOneMaterialInside,
+                          },
+                        ].map((item, index) => {
+                          return (
+                            <button
+                              key={index}
+                              onClick={item.onClick}
+                              style={{
+                                marginTop: "1rem",
+                                color: "white",
+                                cursor: "pointer",
+                                backgroundColor: item.backgroundColor,
+                              }}
+                            >
+                              {item.text}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
             </div>
           </>
           <>
@@ -1445,6 +1483,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               className="modal"
               style={{
                 position: "fixed",
+
                 display: isModalOfTutoringsVisible ? "block" : "none",
                 zIndex: 100,
                 backgroundColor: alwaysWhite(),
