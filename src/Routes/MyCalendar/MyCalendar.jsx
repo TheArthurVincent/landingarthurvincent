@@ -870,7 +870,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                   width: "5rem",
                 }}
                 disabled={!disabledAvoid}
-                className="button"
+                className="button2"
                 onClick={() => handleChangeWeek(-7)}
               >
                 <i className="fa fa-arrow-left" aria-hidden="true" />
@@ -880,7 +880,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                   width: "5rem",
                 }}
                 disabled={!disabledAvoid}
-                className="button"
+                className="button2"
                 onClick={() => handleChangeWeek(7)}
               >
                 <i className="fa fa-arrow-right" aria-hidden="true" />
@@ -891,7 +891,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                   width: "5rem",
                 }}
                 disabled={!disabledAvoid}
-                className="button"
+                className="button2"
                 onClick={handleBackToToday}
               >
                 Today
