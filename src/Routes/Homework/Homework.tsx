@@ -23,7 +23,6 @@ export function Homework({ headers, setChange, change }: HWProps) {
 
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
-  const [myId, setMyId] = useState<string>("");
   const [permissions, setPermissions] = useState<string>("");
 
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -44,7 +43,6 @@ export function Homework({ headers, setChange, change }: HWProps) {
   const actualHeaders = headers || {};
 
   const fetchClasses = async (studentId: string) => {
-    // setLoading(true);
     try {
       var response = await axios.get(
         `${backDomain}/api/v1/homework/${studentId}`,
@@ -57,16 +55,12 @@ export function Homework({ headers, setChange, change }: HWProps) {
       setGroupList(gc);
       setTutoringList(tt);
       setLoading(false);
-    } catch (error) {
-      console.log(error, "erro ao listar homework");
-      // setLoading(false);
-    }
+    } catch (error) { console.log(error, "erro ao listar homework"); }
   };
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     //@ts-ignore
     const { id, permissions } = getLoggedUser;
-    setMyId(id);
     fetchClasses(id);
     setPermissions(permissions);
     permissions == "superadmin" ? fetchStudents() : null;
@@ -204,11 +198,10 @@ export function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
-                              ? "check-circle"
-                              : "ellipsis-h"
-                          }`}
+                          className={`fa fa-${homework?.status == "done"
+                            ? "check-circle"
+                            : "ellipsis-h"
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -298,11 +291,10 @@ export function Homework({ headers, setChange, change }: HWProps) {
                           color:
                             homework?.status == "done" ? "green" : "orange",
                         }}
-                        className={`fa fa-${
-                          homework?.status == "done"
-                            ? "check-circle"
-                            : "ellipsis-h"
-                        }`}
+                        className={`fa fa-${homework?.status == "done"
+                          ? "check-circle"
+                          : "ellipsis-h"
+                          }`}
                         aria-hidden="true"
                       />{" "}
                       Due date: {formatDateBr(homework.dueDate)}

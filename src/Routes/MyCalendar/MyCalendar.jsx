@@ -149,7 +149,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       null;
     }
   };
-
   const changeToday = async (e) => {
     const user = JSON.parse(localStorage.getItem("loggedIn"));
     const id = user.id;
@@ -179,7 +178,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao encontrar alunos");
     }
   };
-
   const handleChangeWeek = async (sum) => {
     setDisabledAvoid(false);
     const user = JSON.parse(localStorage.getItem("loggedIn"));
@@ -212,7 +210,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao encontrar alunos");
     }
   };
-
   const handleBackToToday = async () => {
     setDisabledAvoid(false);
     const user = JSON.parse(localStorage.getItem("loggedIn"));
@@ -245,12 +242,12 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao encontrar alunos");
     }
   };
-
   const fetchOneEvent = async (id) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/event/${id}`, {
         headers,
       });
+      fetchStudents()
       const newCategory = response.data.event.category;
       const newStudentID = response.data.event.studentID;
       const newStatus = response.data.event.status;
@@ -271,7 +268,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao encontrarssss alunos");
     }
   };
-
   const fetchOneSetOfTutorings = async (studentId) => {
     try {
       const response = await axios.get(
@@ -289,13 +285,11 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao encontrar alunos");
     }
   };
-
   const fetchOneSetOfTutoringsInside = (e) => {
     const eTargetValue = e.target.value;
     setNewStudentId(eTargetValue);
     setShowClasses(true);
   };
-
   const postNewEvent = async () => {
     setLoadingInfo(true);
     try {
@@ -323,7 +317,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao criar evento");
     }
   };
-
   const deleteOneMaterial = async (id) => {
     setLoadingInfo(true);
     try {
@@ -566,12 +559,12 @@ export default function MyCalendar({ headers, thePermissions }) {
     setTimeOfTutoring(e.time);
     setWeekDay(e.day);
   };
+
   const closeEditOneTutoring = () => {
     setSeeEditTutoring(false);
     setNewStudentId("");
     setTheTime("");
     setShowClasses(false);
-
     setTheNewLink("");
     setTimeOfTutoring("");
     setTheNewWeekDay("");
@@ -586,10 +579,11 @@ export default function MyCalendar({ headers, thePermissions }) {
     setWeekDay("");
     setTheNewLink("");
     setShowClasses(false);
+    setDescription("");
     setTimeOfTutoring("");
     setTheNewWeekDay("");
     setTheNewTimeOfTutoring("");
-    fetchGeneralEvents();
+    fetchGeneralEventsNoLoading();
   };
   const handleSeeModalOfTutorings = () => {
     setNewStudentId("");
