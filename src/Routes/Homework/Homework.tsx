@@ -52,7 +52,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
           headers: actualHeaders,
         }
       );
-      const gc = response.data.groupClassHomeworkList;
+      const gc = response.data.groupClassHomeworkList.reverse();
       const tt = response.data.tutoringHomeworkList;
       setGroupList(gc);
       setTutoringList(tt);
