@@ -52,7 +52,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
           headers: actualHeaders,
         }
       );
-      const gc = response.data.groupClassHomeworkList;
+      const gc = response.data.groupClassHomeworkList.reverse();
       const tt = response.data.tutoringHomeworkList;
       setGroupList(gc);
       setTutoringList(tt);
@@ -309,7 +309,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
                     </div>
                     {homework.status && (
                       <>
-                        {myId === "651311fac3d58753aa9281c5" &&
+                        {permissions === "superadmin" &&
                           homework.status !== "done" && (
                             <ArvinButton
                               onClick={() =>
