@@ -84,12 +84,12 @@ h4 {
 }
 
 .glowing2 {
-  animation: piscar2 6s infinite;
+  animation: piscar2 7s infinite;
 }
 
 @keyframes piscar2 {
   0% {
-    background: #333;
+    background: #555;
   }
 
   50% {
