@@ -952,6 +952,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               ? 700
                               : 500,
                           textAlign: "center",
+                          fontSize: "0.8rem",
                           backgroundColor:
                             hj.getDate() == date.getDate() &&
                             hj.getMonth() == date.getMonth() &&
