@@ -1180,7 +1180,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </p>
                 <p>
                   <b>Date: </b>
-                  {formatDate(new Date(date.setDate(date.getDate() + 1)))}
+                  {formatDate(date)}
                 </p>
                 <p>
                   <b>Time: </b>
