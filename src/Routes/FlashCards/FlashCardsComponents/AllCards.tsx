@@ -127,22 +127,21 @@ const AllCards = ({ headers }: HeadersProps) => {
     }
   };
 
+  function getReviewDate(card: any) {
+    const reviewDate = new Date(card.reviewDate);
+    const today = new Date();
 
-function getReviewDate(card:any) {
-  const reviewDate = new Date(card.reviewDate);
-  const today = new Date();
-  
-  // Zera a hora para comparar apenas as datas
-  today.setHours(0, 0, 0, 0);
-  
-  // Se a data for anterior a hoje, retorna a data de hoje
-  if (reviewDate < today) {
+    // Zera a hora para comparar apenas as datas
+    today.setHours(0, 0, 0, 0);
+
+    // Se a data for anterior a hoje, retorna a data de hoje
+    if (reviewDate < today) {
       return formatDateBr(today);
+    }
+
+    // Caso contrário, retorna a data original formatada
+    return formatDateBr(reviewDate);
   }
-  
-  // Caso contrário, retorna a data original formatada
-  return formatDateBr(reviewDate);
-}
   const handleDeleteCard = async (cardId: string) => {
     try {
       const response = await axios.delete(
@@ -257,6 +256,9 @@ function getReviewDate(card:any) {
                 />
                 <br />
                 <br />
+                <div>
+                  Original Review Date: {formatDateBr(card.reviewDate)}
+                </div>
                 <div>Next Review: {getReviewDate(card)}</div>
                 <div>Reviewed {card.numberOfReviews} times</div>
                 <div>Review Rate: {card.reviewRate}</div>
