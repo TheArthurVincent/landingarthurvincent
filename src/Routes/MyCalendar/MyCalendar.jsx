@@ -850,6 +850,12 @@ export default function MyCalendar({ headers, thePermissions }) {
     "22:30",
     "22:45",
   ];
+
+  const plusOneDay = (d) => {
+    const a = new Date(d.setDate(d.getDate() + 1));
+    return formatDate(a);
+  };
+
   return (
     <>
       {headers ? (
@@ -1180,7 +1186,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </p>
                 <p>
                   <b>Date: </b>
-                  {formatDate(date)}
+                  {date}
                 </p>
                 <p>
                   <b>Time: </b>
