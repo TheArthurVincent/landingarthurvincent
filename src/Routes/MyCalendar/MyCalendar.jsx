@@ -851,10 +851,16 @@ export default function MyCalendar({ headers, thePermissions }) {
     "22:45",
   ];
 
-  const plusOneDay = (d) => {
-    const a = new Date(d.setDate(d.getDate() + 1));
-    return formatDate(a);
-  };
+  function newFormatDate(date) {
+    let d = new Date(date);
+    d.setDate(d.getDate() + 1); // Aumenta um dia na data
+    let day = String(d.getDate()).padStart(2, "0");
+    let month = String(d.getMonth() + 1).padStart(2, "0"); // Janeiro é 0!
+    let year = d.getFullYear();
+    let final = `${day}/${month}/${year}`;
+    return final;
+  }
+
 
   return (
     <>
@@ -1186,7 +1192,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </p>
                 <p>
                   <b>Date: </b>
-                  {date}
+                  {newFormatDate(date)}
                 </p>
                 <p>
                   <b>Time: </b>
