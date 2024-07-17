@@ -1094,18 +1094,19 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   : event.status == "desmarcado"
                                   ? "Canceled"
                                   : "Realized"}
-                                {event.status !== "desmarcado" && (
-                                  <i
-                                    className="fa fa-envelope-o"
-                                    aria-hidden="true"
-                                    onClick={() => reminderEmail(event._id)}
-                                    style={{
-                                      cursor: "pointer",
-                                      fontSize: "10px",
-                                      color: "grey",
-                                    }}
-                                  />
-                                )}
+                                {event.status !== "desmarcado" &&
+                                  thePermissions == "superadmin" && (
+                                    <i
+                                      className="fa fa-envelope-o"
+                                      aria-hidden="true"
+                                      onClick={() => reminderEmail(event._id)}
+                                      style={{
+                                        cursor: "pointer",
+                                        fontSize: "10px",
+                                        color: "grey",
+                                      }}
+                                    />
+                                  )}
                               </div>
                             </div>
                           </div>
@@ -1179,7 +1180,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </p>
                 <p>
                   <b>Date: </b>
-                  {formatDate(date)}
+                  {formatDate(new Date(date.setDate(date.getDate() + 1)))}
                 </p>
                 <p>
                   <b>Time: </b>
