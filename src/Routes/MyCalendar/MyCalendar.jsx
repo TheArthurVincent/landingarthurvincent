@@ -19,6 +19,7 @@ import {
   Xp,
   abreviateName,
   backDomain,
+  formatDate,
   formatDateBr,
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
@@ -1107,18 +1108,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 )}
                               </div>
                             </div>
-                            {/* <span
-                                style={{
-                                  padding: "5px",
-                                  marginTop: "10px",
-                                  fontSize: "10px",
-                                  backgroundColor: alwaysWhite(),
-                                }}
-                              >
-                                <Link target="_blank" to={event.link}>
-                                  Access the class
-                                </Link>
-                              </span> */}
                           </div>
                         ))}
                     </StyledDiv>
@@ -1190,7 +1179,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </p>
                 <p>
                   <b>Date: </b>
-                  {formatDateBr(date)}
+                  {formatDate(date)}
                 </p>
                 <p>
                   <b>Time: </b>
@@ -1227,7 +1216,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                             alignItems: "center",
                             justifyContent: "center",
                             gap: "5px",
-                            marginBottom:"10px"
+                            marginBottom: "10px",
                           }}
                         >
                           <i
@@ -1260,18 +1249,19 @@ export default function MyCalendar({ headers, thePermissions }) {
                               color: status == "Canceled" ? "red" : "grey",
                             }}
                           />{" "}
-                          {status !== "desmarcado" && (
-                            <i
-                              className="fa fa-envelope-o"
-                              aria-hidden="true"
-                              onClick={() => reminderEmail(event._id)}
-                              style={{
-                                cursor: "pointer",
-                                fontSize: "10px",
-                                color: "grey",
-                              }}
-                            />
-                          )}
+                          {status !== "desmarcado" &&
+                            thePermissions == "superadmin" && (
+                              <i
+                                className="fa fa-envelope-o"
+                                aria-hidden="true"
+                                onClick={() => reminderEmail(event._id)}
+                                style={{
+                                  cursor: "pointer",
+                                  fontSize: "10px",
+                                  color: "grey",
+                                }}
+                              />
+                            )}
                         </div>
                         <form
                           style={{
