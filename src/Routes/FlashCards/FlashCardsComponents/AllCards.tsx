@@ -256,9 +256,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                 />
                 <br />
                 <br />
-                <div>
-                  Original Review Date: {formatDateBr(card.reviewDate)}
-                </div>
+                <div>Original Review Date: {formatDateBr(card.reviewDate)}</div>
                 <div>Next Review: {getReviewDate(card)}</div>
                 <div>Reviewed {card.numberOfReviews} times</div>
                 <div>Review Rate: {card.reviewRate}</div>
