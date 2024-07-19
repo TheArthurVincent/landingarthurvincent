@@ -134,7 +134,7 @@ export function HomePage({ headers }: HeadersProps) {
               element={
                 verifyToken() ? (
                   <BlogRouteSizeControlBox
-                    style={{ gap: "1rem", marginTop: "5rem" }}
+                    style={{ gap: "1rem", marginTop: "4.5rem" }}
                     className="smooth"
                   >
                     {component.component}

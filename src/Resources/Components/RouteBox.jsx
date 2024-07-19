@@ -46,7 +46,7 @@ export const OverFlow = styled.div`
 export const BlogRouteSizeControlBox = styled.div`
   display: flex;
   margin: 1rem auto;
-  max-width: 70vw;
+  max-width: 90vw;
   gap: 0.2rem;
   @media (max-width: 1200px) {
     display: flex;
