@@ -207,7 +207,7 @@ export default function StudentsHistoryOfWinners({
   const gettingHistory = async () => {
     setLoading(false);
     try {
-      const response = await axios.get(`${backDomain}/api/v1/newitemhistory/`, {
+      const response = await axios.get(`${backDomain}/api/v1/allitemhistory/`, {
         headers: actualHeaders,
       });
       const hist = response.data.scoreMonth;
