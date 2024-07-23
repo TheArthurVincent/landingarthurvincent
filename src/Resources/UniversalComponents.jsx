@@ -853,7 +853,7 @@ export const ButtonButton = (text) => {
 export function isDev() {
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";
-  } else if (window.location.includes === "staging") {
+  } else if (window.location.hostname === "arvin-staging.9kwq6c.easypanel.host") {
     return "https://arvin-backstagin.9kwq6c.easypanel.host";
   } else {
     return "https://apiprod.arthurvincent.com.br";
