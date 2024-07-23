@@ -228,12 +228,9 @@ export default function StudentsHistoryOfWinners({
   const savingMonth = async (item: any) => {
     setLoading(false);
     try {
-      const response = await axios.post(
-        `${backDomain}/api/v1/newitemhistory/`,
+      const response = await axios.post(`${backDomain}/api/v1/newitemhistory/`,
         { scoreMonth: item },
-        {
-          headers: actualHeaders,
-        }
+        { headers: actualHeaders, }
       );
       setLoading(false);
       gettingHistory();
@@ -335,16 +332,16 @@ export default function StudentsHistoryOfWinners({
                         i == 0
                           ? gold.backgroundColor
                           : i == 1
-                          ? silver.backgroundColor
-                          : bronze.backgroundColor
+                            ? silver.backgroundColor
+                            : bronze.backgroundColor
                       }
                       img={i == 0 ? gold.img : i == 1 ? silver.img : bronze.img}
                       place={
                         i == 0
                           ? gold.place
                           : i == 1
-                          ? silver.place
-                          : bronze.place
+                            ? silver.place
+                            : bronze.place
                       }
                       name={item.name}
                       lastname={item.lastname}
