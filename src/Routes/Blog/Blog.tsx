@@ -138,11 +138,15 @@ export function Blog({ headers }: HeadersProps) {
       const response = await axios.get(`${backDomain}/api/v1/blogposts`, {
         headers: actualHeaders,
       });
-
       setTimeout(() => {
-        setPosts(response.data.listOfPosts || posts);
+        const filteredPosts = response.data.listOfPosts.filter(
+          (post: any) => post !== null
+        );
+        setPosts(filteredPosts);
         setLoading(false);
       }, 300);
+
+      console.log(response.data.listOfPosts);
     } catch (error) {
       console.log(error);
       alert("Erro ao importar posts, faça login novamente");
