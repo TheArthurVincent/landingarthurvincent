@@ -12,6 +12,7 @@ import { backDomain, formatDate } from "../../../Resources/UniversalComponents";
 import { Button, CircularProgress } from "@mui/material";
 import { DivHover, CenterRightToggle } from "./RankingComponents";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
+import { HOne } from "../../../Resources/Components/RouteBox";
 
 interface RankingTimeLineProps {
   headers: MyHeadersType | null;
@@ -140,7 +141,7 @@ export default function RankingTimeline({
           justifyContent: "space-between",
         }}
       >
-        <h1 style={{ textAlign: "center", margin: "0.5rem" }}>{actualName}</h1>
+        <HOne style={{ textAlign: "center", margin: "0.5rem" }}>{actualName}</HOne>
       </span>
       <div
         style={{

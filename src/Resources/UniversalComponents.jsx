@@ -89,7 +89,6 @@ export const UniversalButtonsDivFlex = styled.div`
 `;
 export const SpanHover = styled.span`
   padding: 0 8px;
-  font-family: Lato;
   font-weight: 500;
   gap: 5px;
   display: grid;

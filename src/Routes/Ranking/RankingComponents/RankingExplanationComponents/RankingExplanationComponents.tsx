@@ -3,19 +3,21 @@ import {
   primaryColor,
   textPrimaryColorContrast,
   textSecondaryColorContrast,
+  textTitleFont,
 } from "../../../../Styles/Styles";
 import {
   GridRankingExplanation,
   GridRankingExplanationCard,
   listOfCriteria,
 } from "../ListOfCriteria";
+import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export default function RankingExplanationComponent() {
   return (
     <GridRankingExplanation>
       {listOfCriteria.map((criteria, index) => (
         <GridRankingExplanationCard key={index}>
-          <h3
+          <HThree
             style={{
               color: primaryColor(),
               padding: "5px",
@@ -41,8 +43,8 @@ export default function RankingExplanationComponent() {
               className={criteria.icon}
               aria-hidden="true"
             />{" "}
-            <span style={{ fontFamily: "Athiti" }}> {criteria.title}</span>
-          </h3>
+            <span style={{ fontFamily: textTitleFont() }}> {criteria.title}</span>
+          </HThree>
           <div>
             {criteria.score.map((score, index) => (
               <p
@@ -65,7 +67,7 @@ export default function RankingExplanationComponent() {
                     backgroundColor: score.color,
                     color: textSecondaryColorContrast(),
                     fontSize: "1.1rem",
-                    fontFamily: "Athiti",
+                    fontFamily: textTitleFont(),
                     fontWeight: 600,
                     padding: "5px",
                     top: "*15px",

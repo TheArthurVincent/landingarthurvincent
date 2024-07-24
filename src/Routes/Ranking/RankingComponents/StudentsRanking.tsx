@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi, DivFont } from "../../../Resources/Components/RouteBox";
+import { AnimatedLi, DivFont, HOne } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
   Xp,
@@ -16,11 +16,13 @@ import {
   alwaysWhite,
   secondaryColor,
   textSecondaryColorContrast,
+  textTitleFont,
   transparentBlack,
 } from "../../../Styles/Styles";
 import { listOfButtons } from "./ListOfCriteria";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { HThree } from "../../MyClasses/MyClasses.Styled";
 
 interface StudentsRankingProps {
   headers: MyHeadersType | null;
@@ -145,12 +147,17 @@ export default function StudentsRanking({
     setLoadingScore(true);
     setDisabled(true);
     try {
-      const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
-        headers,
-        score,
-        description,
-        type,
-      });
+      const response = await axios.put(
+        `${backDomain}/api/v1/score/${id}`,
+        {
+          score,
+          description,
+          type,
+        },
+        {
+          headers: actualHeaders,
+        }
+      );
 
       updateScoreNow(id);
       setDisabled(false);
@@ -239,12 +246,12 @@ export default function StudentsRanking({
             >
               x
             </Xp>
-            <h3>
+            <HThree>
               Monthly Score: <strong>{formatNumber(monthlyScore)} </strong>{" "}
-            </h3>
-            <h3>
+            </HThree>
+            <HThree>
               Total Score: <strong>{formatNumber(totalScore)} </strong>
-            </h3>
+            </HThree>
           </div>
         )}
         <div
@@ -355,7 +362,7 @@ export default function StudentsRanking({
                 borderRadius: "50%",
                 left: name.length < 15 ? "5rem" : "3.4rem",
                 top: "5rem",
-                fontFamily: "Athiti",
+                fontFamily: textTitleFont(),
                 fontWeight: 800,
                 fontSize: "1.4rem",
               }}
@@ -413,7 +420,7 @@ export default function StudentsRanking({
                       alignItems: "center",
                     }}
                   >
-                    <h1
+                    <HOne
                       style={{
                         fontWeight: 600,
                         margin: 0,
@@ -423,7 +430,7 @@ export default function StudentsRanking({
                       }}
                     >
                       #{index + 1} | {item.name} {abreviateName(item.lastname)}
-                    </h1>
+                    </HOne>
                   </div>
                   <div>
                     <p>
@@ -458,7 +465,7 @@ export default function StudentsRanking({
               return (
                 <>
                   <AnimatedLi
-                    key={index}
+                    key={index + item.picture}
                     style={{
                       display: isAdm
                         ? "flex"
@@ -505,7 +512,7 @@ export default function StudentsRanking({
                       <p
                         style={{
                           fontWeight: 600,
-                          fontFamily: "Athiti",
+                          fontFamily: textTitleFont(),
                           padding: "5px",
                           background: theItems[levelNumber].color,
                           color: theItems[levelNumber].textcolor,
@@ -566,7 +573,7 @@ export default function StudentsRanking({
                       </ArvinButton>
                       <p
                         style={{
-                          fontFamily: "Athiti",
+                          fontFamily: textTitleFont(),
                           fontWeight: "600",
                           fontSize: "0.8rem",
                         }}

@@ -5,6 +5,7 @@ import {
   InputField,
   Button,
   backDomain,
+  InputFieldNotRequired,
 } from "../../../../Resources/UniversalComponents";
 import { FormList } from "../../Adm.Styled";
 import { CircularProgress } from "@mui/material";
@@ -21,8 +22,6 @@ export function NewStudent({ headers }) {
   const [newCPF, setNewCPF] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [newAnkiEmail, setNewAnkiEmail] = useState("");
-  const [newAnkiPassword, setNewAnkiPassword] = useState("");
   const [newGoogleDriveLink, setNewGoogleDriveLink] = useState("");
   const [upload, setUpload] = useState(true);
   const [button, setButton] = useState("Cadastrar");
@@ -37,8 +36,6 @@ export function NewStudent({ headers }) {
     setNewCPF("");
     setNewPassword("");
     setConfirmPassword("");
-    setNewAnkiEmail("");
-    setNewAnkiPassword("");
     setNewGoogleDriveLink("");
     setButton("Sucesso");
     setUpload(!upload);
@@ -58,8 +55,6 @@ export function NewStudent({ headers }) {
       phoneNumber: newPhone,
       dateOfBirth: newDateOfBirth,
       googleDriveLink: newGoogleDriveLink,
-      ankiEmail: newAnkiEmail,
-      ankiPassword: newAnkiPassword,
     };
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -106,7 +101,7 @@ export function NewStudent({ headers }) {
             placeholder="Sobrenome"
             type="text"
           />
-          <InputField
+          <InputFieldNotRequired
             value={newUsername}
             onChange={(event) => setNewUsername(event.target.value)}
             placeholder="Username"
@@ -136,19 +131,7 @@ export function NewStudent({ headers }) {
             placeholder="CPF"
             type="number"
           />
-          <InputField
-            value={newAnkiEmail}
-            onChange={(event) => setNewAnkiEmail(event.target.value)}
-            placeholder="E-mail do Anki"
-            type="text"
-          />
-          <InputField
-            value={newAnkiPassword}
-            onChange={(event) => setNewAnkiPassword(event.target.value)}
-            placeholder="Senha do Anki"
-            type="text"
-          />
-          <InputField
+          <InputFieldNotRequired
             value={newGoogleDriveLink}
             onChange={(event) => setNewGoogleDriveLink(event.target.value)}
             placeholder="Link do Drive"

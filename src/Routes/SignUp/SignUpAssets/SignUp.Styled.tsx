@@ -1,6 +1,6 @@
 import React from "react";
 import { SignUp } from "./types.SignUp";
-import { secondaryColor } from "../../../Styles/Styles";
+import { secondaryColor, textTitleFont } from "../../../Styles/Styles";
 
 export function InputFieldSignUp({
   value,
@@ -14,7 +14,7 @@ export function InputFieldSignUp({
       style={{
         display: "flex",
         flexDirection: "column",
-        fontFamily: "Athiti",
+        fontFamily: textTitleFont(),
         justifyContent: "center",
       }}
     >
@@ -24,7 +24,7 @@ export function InputFieldSignUp({
           fontSize:"15px",
           paddingBottom: "2px",
           fontWeight: 500,
-          fontFamily: "Athiti",
+          fontFamily: textTitleFont(),
         }}
       >
         {placeholder}
@@ -32,7 +32,6 @@ export function InputFieldSignUp({
       <input
         style={{
           padding: "0.5rem",
-          fontFamily: "Lato",
           fontSize: "15px",
           fontWeight: 500,
           border: `1px solid ${secondaryColor()}`,

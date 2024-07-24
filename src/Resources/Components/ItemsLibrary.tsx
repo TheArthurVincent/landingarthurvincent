@@ -5,6 +5,7 @@ import {
   primaryColor2,
   secondaryColor,
   secondaryColor2,
+  textTitleFont,
 } from "../../Styles/Styles";
 
 interface ButtonProps {
@@ -20,7 +21,7 @@ interface ArvinButtonProps {
 
 export const ArvinButton = styled.button<ArvinButtonProps>`
   min-width: 30px;
-  margin:  0 3px;
+  margin: 0 3px;
   background: linear-gradient(
     to left,
     ${(props) =>
@@ -68,7 +69,7 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
   );
   color: ${(props) => (props.color === "white" ? "black" : alwaysWhite())};
   padding: 3px 1rem;
-  font-family: Athiti;
+  font-family: ${textTitleFont()};
   border-radius: 8px;
   border: none;
   cursor: ${(props) =>
@@ -141,7 +142,7 @@ export const MyButton = styled.button<ButtonProps>`
   );
   color: ${(props) => props.textcolor || alwaysWhite()};
   padding: 5px 1.2rem;
-  font-family: Athiti;
+  font-family: ${textTitleFont()};
   border-radius: 10px;
   border: none;
   cursor: pointer;

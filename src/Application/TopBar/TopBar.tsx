@@ -10,7 +10,11 @@ import {
 } from "./TopBar.Styled";
 import { LogoSVG, SpanHover } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import { primaryColor, secondaryColor, alwaysBlack } from "../../Styles/Styles";
+import {
+  primaryColor,
+  textTitleFont,
+  secondaryColor,
+} from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
@@ -39,7 +43,7 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
         <SpanHover
           style={{
             textDecoration: "none",
-            color: isAnyLinkActive ? secondaryColor() : alwaysBlack(),
+            color: isAnyLinkActive ? secondaryColor() : primaryColor(),
           }}
         >
           {title}
@@ -64,13 +68,17 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
             key={index}
             style={{
               color: location.pathname.includes(link.endpoint)
-                ? secondaryColor()
-                : alwaysBlack(),
+                ? primaryColor()
+                : primaryColor(),
               cursor: location.pathname.includes(link.endpoint)
                 ? "default"
                 : "pointer",
               display: link.display,
               textDecoration: "none",
+              paddingBottom: "5px",
+              borderBottom: location.pathname.includes(link.endpoint)
+                ? `solid 1px ${primaryColor()}`
+                : "none",
             }}
             to={link.endpoint}
           >
@@ -201,8 +209,12 @@ export const TopBar: FC = () => {
           <NavLink
             style={{
               color: location.pathname.includes("home")
-                ? secondaryColor()
-                : alwaysBlack(),
+                ? primaryColor()
+                : primaryColor(),
+              paddingBottom: "5px",
+              borderBottom: location.pathname.includes("home")
+                ? `solid 1px ${primaryColor()}`
+                : "none",
               textDecoration: "none",
             }}
             to="/"
@@ -211,7 +223,7 @@ export const TopBar: FC = () => {
               style={{
                 fontWeight: 700,
                 fontSize: "1.1rem",
-                fontFamily: "Athiti",
+                fontFamily: textTitleFont(),
                 textDecoration: "none",
               }}
             >
@@ -225,7 +237,9 @@ export const TopBar: FC = () => {
                 style={{
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
-                    : alwaysBlack(),
+                    : primaryColor(),
+                  paddingBottom: "5px",
+
                   cursor: location.pathname.includes(link.endpoint)
                     ? "default"
                     : "pointer",
@@ -239,7 +253,7 @@ export const TopBar: FC = () => {
                     textDecoration: "none",
                     fontWeight: 700,
                     fontSize: "1.1rem",
-                    fontFamily: "Athiti",
+                    fontFamily: textTitleFont(),
                   }}
                 >
                   {link.title}
@@ -260,7 +274,9 @@ export const TopBar: FC = () => {
                   style={{
                     color: location.pathname.includes(link.endpoint)
                       ? secondaryColor()
-                      : alwaysBlack(),
+                      : primaryColor(),
+                    paddingBottom: "5px",
+
                     cursor: location.pathname.includes(link.endpoint)
                       ? "default"
                       : "pointer",
@@ -273,7 +289,7 @@ export const TopBar: FC = () => {
                     style={{
                       fontWeight: 700,
                       fontSize: "1.1rem",
-                      fontFamily: "Athiti",
+                      fontFamily: textTitleFont(),
                     }}
                   >
                     {link.title}
@@ -302,7 +318,9 @@ export const TopBar: FC = () => {
                   display: seeItems ? "block" : "none",
                   color: location.pathname.includes(link.endpoint)
                     ? secondaryColor()
-                    : alwaysBlack(),
+                    : primaryColor(),
+                  paddingBottom: "5px",
+
                   cursor: location.pathname.includes(link.endpoint)
                     ? "default"
                     : "pointer",
@@ -326,11 +344,12 @@ export const TopBar: FC = () => {
                   style={{
                     color: location.pathname.includes(link.endpoint)
                       ? secondaryColor()
-                      : alwaysBlack(),
-                    cursor: location.pathname.includes(link.endpoint)
-                      ? "default"
-                      : "pointer",
+                      : primaryColor(),
                     textDecoration: "none",
+                    paddingBottom: "5px",
+                    borderBottom: location.pathname.includes(link.endpoint)
+                      ? `solid 1px ${primaryColor()}`
+                      : "none",
                   }}
                   to={link.endpoint}
                 >
@@ -346,21 +365,6 @@ export const TopBar: FC = () => {
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         {" "}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <SpanDisapear>
-            <i
-              onClick={() => {
-                setSeeItems(!seeItems);
-              }}
-              onMouseOver={() => {
-                setSeeItems(true);
-              }}
-              style={{
-                cursor: "pointer",
-                display: permissions == "superadmin" ? "block" : "none",
-              }}
-              className="fa fa-eye"
-            />
-          </SpanDisapear>
           <SpanDisapear>
             <form
               style={{

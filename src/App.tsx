@@ -8,6 +8,7 @@ import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
 import { authorizationToken } from "./App.Styled";
 import { MyHeadersType } from "./Resources/types.universalInterfaces";
+import { textFont, textTitleFont } from "./Styles/Styles";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -20,14 +21,29 @@ const headers: MyHeadersType = {
 
 function App() {
   const [_StudentId, setStudentId] = useState<string>("");
-  const [picture, setPicture] = useState<string>("");
+
+  const checkLocalBackground = () => {
+    if (window.location.hostname === "localhost") {
+      document.body.style.backgroundColor = "#555";
+    }
+  };
 
   useEffect(() => {
+    checkLocalBackground();
     const user = localStorage.getItem("loggedIn");
+
+    const textElement = document.querySelector("div");
+    if (textElement) {
+      textElement.style.fontFamily = textFont();
+    }
+    const h1Element = document.querySelector("h1");
+    if (h1Element) {
+      h1Element.style.fontFamily = textTitleFont();
+    }
+
     if (user) {
-      const { permissions, picture, id } = JSON.parse(user);
+      const { id } = JSON.parse(user);
       setStudentId(id || _StudentId);
-      setPicture(picture);
     } else {
       return;
     }

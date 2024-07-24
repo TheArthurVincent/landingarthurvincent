@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   HOne,
+  HTwo,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
@@ -11,6 +12,7 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
+  textTitleFont,
   transparentWhite,
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
@@ -1053,7 +1055,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               {event.student && (
                                 <span
                                   style={{
-                                    fontFamily: "Athiti",
+                                    fontFamily: textTitleFont(),
                                     fontWeight: 600,
                                   }}
                                 >
@@ -1167,13 +1169,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                 }}
               >
                 <Xp onClick={handleCloseModal}>X</Xp>
-                <h2
+                <HTwo
                   style={{
                     margin: "0.5rem 0",
                   }}
                 >
                   Access the event
-                </h2>
+                </HTwo>
                 <p>
                   <b>Category:</b>{" "}
                   {category == "Test"
@@ -1204,7 +1206,7 @@ export default function MyCalendar({ headers, thePermissions }) {
 
                 <p
                   style={{
-                    fontFamily: "Athiti",
+                    fontFamily: textTitleFont(),
                     fontSize: "1.1rem",
                   }}
                 >
@@ -1212,13 +1214,13 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </p>
                 {thePermissions == "superadmin" && (
                   <>
-                    <h2
+                    <HTwo
                       style={{
                         margin: "0.5rem 0",
                       }}
                     >
                       {UniversalTexts.editPost}
-                    </h2>
+                    </HTwo>
                     {loadingInfo ? (
                       <CircularProgress />
                     ) : (
@@ -1494,13 +1496,13 @@ export default function MyCalendar({ headers, thePermissions }) {
               }}
             >
               <Xp onClick={handleCloseModalOfTutorings}>X</Xp>
-              <h2
+              <HTwo
                 style={{
                   margin: "0.5rem 0",
                 }}
               >
                 {UniversalTexts.editTurorings}
-              </h2>
+              </HTwo>
               {loadingModalTutoringsInfo ? (
                 <CircularProgress />
               ) : (
@@ -1633,7 +1635,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 <button onClick={updateOneTutoring}>Save</button>
               </div>
               <div style={{ display: !seeEditTutoring ? "block" : "none" }}>
-                <h2>New</h2>
+                <HTwo>New</HTwo>
                 <select
                   onChange={handleTheNewWeekDayChange}
                   name="students"

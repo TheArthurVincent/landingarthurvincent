@@ -6,6 +6,7 @@ import { CircularProgress } from "@mui/material";
 import { lightGreyColor, secondaryColor } from "../../../../Styles/Styles";
 import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
+import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function NewTutoring({ headers }) {
   const [newDate, setNewDate] = useState("");
@@ -203,7 +204,7 @@ export function NewTutoring({ headers }) {
                 display: seeHW ? "block" : "none",
               }}
             >
-              <h3>Homework</h3>
+              <HThree>Homework</HThree>
               <div
                 style={{
                   display: "grid",

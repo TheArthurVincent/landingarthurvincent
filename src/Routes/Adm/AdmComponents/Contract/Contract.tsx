@@ -7,6 +7,8 @@ import {
 } from "../../../../Resources/UniversalComponents";
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 import Helmets from "../../../../Resources/Helmets";
+import { HOne, HTwo } from "../../../../Resources/Components/RouteBox";
+import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function Contract({ headers }: HeadersProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
@@ -104,15 +106,15 @@ export function Contract({ headers }: HeadersProps) {
         style={{ fontSize: "11px", padding: "1rem" }}
         id="contract-content"
       >
-        <h1 style={{ textAlign: "center" }}>Contrato de Aulas Particulares</h1>
-        <h2
+        <HOne style={{ textAlign: "center" }}>Contrato de Aulas Particulares</HOne>
+        <HTwo
           style={{
             paddingBottom: "2rem 0",
             textAlign: "center",
           }}
         >
           Dados do Aluno
-        </h2>
+        </HTwo>
         <div
           style={{
             display: "grid",
@@ -138,7 +140,7 @@ export function Contract({ headers }: HeadersProps) {
             <strong>CPF:</strong> {doc}
           </p>{" "}
         </div>
-        <h2
+        <HTwo
           style={{
             marginTop: "1rem",
             paddingBottom: "2rem 0",
@@ -146,7 +148,7 @@ export function Contract({ headers }: HeadersProps) {
           }}
         >
           Detalhes do Contrato
-        </h2>
+        </HTwo>
         <div
           style={{
             display: "grid",
@@ -163,7 +165,7 @@ export function Contract({ headers }: HeadersProps) {
             <strong>Valor acordado:</strong> R$ {fee}
           </p>
         </div>
-        <h2
+        <HTwo
           style={{
             marginTop: "1rem",
             paddingBottom: "1rem 0",
@@ -171,10 +173,10 @@ export function Contract({ headers }: HeadersProps) {
           }}
         >
           Termos do Contrato
-        </h2>
+        </HTwo>
         <ul style={ulStyle}>
           <li style={{ listStyle: "none" }}>
-            <h3>Sobre as aulas</h3>
+            <HThree>Sobre as aulas</HThree>
             <ul style={ulStyle}>
               <li style={liStyle}>
                 As aulas terão duração de 55 minutos, e os links para as aulas
@@ -214,7 +216,7 @@ export function Contract({ headers }: HeadersProps) {
             </ul>
           </li>
           <li style={{ listStyle: "none" }}>
-            <h3>Sobre os descontos</h3>
+            <HThree>Sobre os descontos</HThree>
             <ul style={ulStyle}>
               <li style={liStyle}>
                 O aluno terá direito aos descontos oferecidos na aba "Ranking",
@@ -232,7 +234,7 @@ export function Contract({ headers }: HeadersProps) {
             </ul>
           </li>
           <li style={{ listStyle: "none" }}>
-            <h3>Sobre cancelamento do curso</h3>
+            <HThree>Sobre cancelamento do curso</HThree>
             <ul style={ulStyle}>
               <li style={liStyle}>
                 Em caso de cancelamento do curso, o aluno deve avisar o
@@ -253,7 +255,7 @@ export function Contract({ headers }: HeadersProps) {
             </ul>
           </li>
           <li style={{ listStyle: "none" }}>
-            <h3>Sobre as atividades</h3>
+            <HThree>Sobre as atividades</HThree>
             <ul style={ulStyle}>
               <li style={liStyle}>
                 O aluno deve se comprometer a realizar as atividades propostas
@@ -262,7 +264,7 @@ export function Contract({ headers }: HeadersProps) {
             </ul>
           </li>
         </ul>
-        <h2
+        <HTwo
           style={{
             marginTop: "1rem",
             paddingBottom: "2rem 0",
@@ -270,7 +272,7 @@ export function Contract({ headers }: HeadersProps) {
           }}
         >
           Assinaturas
-        </h2>
+        </HTwo>
         <div
           style={{
             display: "flex",

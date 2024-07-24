@@ -1,9 +1,10 @@
 import React from "react";
 import RankingList from "./RankingList";
-import { primaryColor } from "../../../Styles/Styles";
+import { primaryColor, textTitleFont } from "../../../Styles/Styles";
 import WarningText from "../../../Resources/Warning";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import RankingExplanationComponent from "./RankingExplanationComponents/RankingExplanationComponents";
+import { HThree } from "../../MyClasses/MyClasses.Styled";
 
 export default function RankingExplanation() {
   const { UniversalTexts } = useUserContext();
@@ -15,7 +16,7 @@ export default function RankingExplanation() {
       }}
     >
       <p>{UniversalTexts.timelineExplanationText}</p>
-      <h3
+      <HThree
         style={{
           textAlign: "center",
           color: primaryColor(),
@@ -24,10 +25,10 @@ export default function RankingExplanation() {
         }}
       >
         {UniversalTexts.score}
-      </h3>
+      </HThree>
       <RankingExplanationComponent />
       <WarningText text={UniversalTexts.t3000} />
-      <h3
+      <HThree
         style={{
           textAlign: "center",
           color: primaryColor(),
@@ -36,11 +37,11 @@ export default function RankingExplanation() {
         }}
       >
         {UniversalTexts.monthlyRanking}
-      </h3>
+      </HThree>
       <ul>
         <li
           style={{
-            fontFamily: "Athiti",
+            fontFamily: textTitleFont(),
             padding: "0.5rem",
             borderRadius: "0 1.05rem ",
             border: "2px groove #FFD51E",
@@ -53,7 +54,7 @@ export default function RankingExplanation() {
         </li>
         <li
           style={{
-            fontFamily: "Athiti",
+            fontFamily: textTitleFont(),
             padding: "0.5rem",
             borderRadius: "0 1.05rem ",
             border: "2px groove #B2B2B2",
@@ -66,7 +67,7 @@ export default function RankingExplanation() {
         </li>
         <li
           style={{
-            fontFamily: "Athiti",
+            fontFamily: textTitleFont(),
             padding: "0.5rem",
             borderRadius: "0 1.05rem ",
             border: "2px groove #693D2B",
@@ -79,7 +80,7 @@ export default function RankingExplanation() {
         </li>
       </ul>
       <div style={{ display: "grid", gap: "1rem", padding: "3px" }}>
-        <h3
+        <HThree
           style={{
             textAlign: "center",
             color: primaryColor(),
@@ -88,7 +89,7 @@ export default function RankingExplanation() {
           }}
         >
           {UniversalTexts.uplevel}
-        </h3>
+        </HThree>
         <RankingList />
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
+import { textTitleFont } from "../../../../Styles/Styles";
 interface ImageLessonModelSlideProps {
   headers: MyHeadersType | null;
   element: any;
@@ -36,7 +37,7 @@ export default function ImageLessonModelSlide({
             <div key={i}>
               <span
                 style={{
-                  fontFamily: "Athiti",
+                  fontFamily: textTitleFont(),
                 }}
               >
                 {image.text}

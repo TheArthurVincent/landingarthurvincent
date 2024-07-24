@@ -182,14 +182,14 @@ export function Homework({ headers, setChange, change }: HWProps) {
                       border: `1px solid ${primaryColor()}`,
                     }}
                   >
-                    <h2
+                    <HTwo
                       style={{
                         padding: "none",
                         margin: "none",
                       }}
                     >
                       Title: {formatDateBr(homework.assignmentDate)}
-                    </h2>
+                    </HTwo>
                     <div>
                       <span>
                         <i
