@@ -20,14 +20,20 @@ const headers: MyHeadersType = {
 
 function App() {
   const [_StudentId, setStudentId] = useState<string>("");
-  const [picture, setPicture] = useState<string>("");
+
+  const checkLocalBackground = () => {
+    if (window.location.hostname === "localhost") {
+      document.body.style.backgroundColor = "#555";
+    }
+  };
 
   useEffect(() => {
+    checkLocalBackground();
     const user = localStorage.getItem("loggedIn");
+
     if (user) {
-      const { permissions, picture, id } = JSON.parse(user);
+      const { id } = JSON.parse(user);
       setStudentId(id || _StudentId);
-      setPicture(picture);
     } else {
       return;
     }
