@@ -289,13 +289,17 @@ export function FindStudent({ uploadStatus, headers }) {
   const [hasReset, setHasReset] = useState(false);
   const [resetVisible, setResetVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
+
   const handleResetMonth = async () => {
+    const headersBack = {
+      authorization: headers.Authorization,
+    };
     try {
+      console.log(headersBack);
       const response = await axios.put(
         `${backDomain}/api/v1/resetmonthscoresecurethepoints`,
-        {
-          headers,
-        }
+        null,
+        { headers: headersBack }
       );
       setResetVisible(true);
       setTimeout(() => {
