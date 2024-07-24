@@ -217,7 +217,7 @@ export default function GroupClassesTemplate({
                           listStyle: "none",
                         }}
                       >
-                        <h2
+                        <HTwo
                           style={{
                             padding: "0.3rem 1rem",
                             fontSize: "1.2rem",
@@ -226,7 +226,7 @@ export default function GroupClassesTemplate({
                           }}
                         >
                           {item.moduleTitle}
-                        </h2>
+                        </HTwo>
                         <div>
                           {item.classes && (
                             <ul>

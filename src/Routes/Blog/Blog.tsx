@@ -4,6 +4,7 @@ import {
   BlogPostTitle,
   BackgroundClickBlog,
   HOne,
+  HTwo,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -179,10 +180,10 @@ export function Blog({ headers }: HeadersProps) {
             }}
           >
             <i className="fa fa-user " aria-hidden="true" />
-            <h2>
+            <p>
               {UniversalTexts.hello}
               {name}!
-            </h2>
+            </p>
           </div>
           <div style={{ display: "flex", gap: "5px" }}>
             <Tooltip title={UniversalTexts.personalFolder}>
@@ -270,7 +271,7 @@ export function Blog({ headers }: HeadersProps) {
                       <i className="fa fa-edit" aria-hidden="true" />
                     </button>
                   )}
-                  <h2> {post.title}</h2>
+                  <HTwo> {post.title}</HTwo>
                 </span>
                 {post.createdAt && (
                   <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
@@ -304,7 +305,7 @@ export function Blog({ headers }: HeadersProps) {
         }}
       >
         <Xp onClick={() => handleSeeModal()}>X</Xp>
-        <h2>{UniversalTexts.editPost}</h2>
+        <HTwo>{UniversalTexts.editPost}</HTwo>
         <InternDivModal>
           <input
             value={newTitle}

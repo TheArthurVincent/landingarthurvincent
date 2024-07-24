@@ -8,6 +8,7 @@ import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
 import { authorizationToken } from "./App.Styled";
 import { MyHeadersType } from "./Resources/types.universalInterfaces";
+import { textFont, textTitleFont } from "./Styles/Styles";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -30,6 +31,15 @@ function App() {
   useEffect(() => {
     checkLocalBackground();
     const user = localStorage.getItem("loggedIn");
+
+    const textElement = document.querySelector("div");
+    if (textElement) {
+      textElement.style.fontFamily = textFont();
+    }
+    const h1Element = document.querySelector("h1");
+    if (h1Element) {
+      h1Element.style.fontFamily = textTitleFont();
+    }
 
     if (user) {
       const { id } = JSON.parse(user);

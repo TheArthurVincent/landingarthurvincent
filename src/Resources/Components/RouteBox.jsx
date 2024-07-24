@@ -6,6 +6,7 @@ import {
   alwaysBlack,
   transparentWhite,
   secondaryColor,
+  textTitleFont,
 } from "../../Styles/Styles";
 
 export const RouteSizeControlBox = styled.div`
@@ -65,6 +66,7 @@ export const BlogRouteSizeControlBox = styled.div`
 export const HOne = styled.h1`
   text-align: center;
   color: ${primaryColor()};
+  font-family: ${textTitleFont()};
 `;
 export const SpanIcon = styled.span`
   font-size: 1px;
@@ -73,7 +75,7 @@ export const SpanIcon = styled.span`
   opacity: 0.8;
   transition: 0.3s;
   display: flex;
-  font-family: Athiti;
+  font-family: ${textTitleFont()};
   align-items: center;
   &:hover {
     opacity: 1;
@@ -100,11 +102,12 @@ export const BlogPostTitle = styled.div`
 `;
 
 export const HTwo = styled.h2`
-  font-size: 1.3rem;
+  font-family: ${textTitleFont()};
+  font-size: 1.2rem;
   font-weight: 600;
   padding: 0.6rem;
   margin-bottom: 1rem;
-  color: ${secondaryColor()};
+  color: ${primaryColor()};
   @media (max-width: 1700px) {
     text-align: center;
     margin-top: 1rem;
@@ -116,8 +119,9 @@ export const HTwo = styled.h2`
 `;
 
 export const HThree = styled.h3`
+  font-family: ${textTitleFont()};
+  font-size: 1.1rem;
   padding: 6px;
-  color: #eee;
   @media (max-width: 750px) {
     padding: 3px;
     margin: 5px;
@@ -155,7 +159,7 @@ export const fadeIn = keyframes`
 export const DivFont = styled.div`
   font-weight: 700;
   font-size: 1.1rem;
-  font-family: Athiti;
+  font-family: ${textTitleFont()};
   margin: 0;
   @media (max-width: 500px) {
     font-size: 1rem;

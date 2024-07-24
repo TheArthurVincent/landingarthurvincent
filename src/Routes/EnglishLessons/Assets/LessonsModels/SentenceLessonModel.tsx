@@ -42,6 +42,7 @@ export default function SentenceLessonModel({
         { newCards },
         { headers: actualHeaders }
       );
+      alert("Card adicionado ao baralho");
     } catch (error) {
       alert("Erro ao enviar cards");
     }

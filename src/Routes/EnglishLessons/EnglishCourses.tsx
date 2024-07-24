@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -136,7 +136,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                         src={route.image}
                         alt={`${route.title}img`}
                       />
-                      <h2>{route.title}</h2>
+                      <HTwo>{route.title}</HTwo>
                     </div>
                   </Link>
                 ))}
@@ -179,7 +179,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                       alt={`${route.title}img`}
                     />
                     <div>
-                      <h2>{route.title}</h2>
+                      <HTwo>{route.title}</HTwo>
                       <p>No access</p>
                     </div>
                   </div>

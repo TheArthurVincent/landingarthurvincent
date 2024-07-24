@@ -14,6 +14,7 @@ import {
   secondaryColor,
   textPrimaryColorContrast,
 } from "../../../Styles/Styles";
+import { HOne, HTwo } from "../../../Resources/Components/RouteBox";
 
 
 export const truncateTitle = (title, maxChars) => {
@@ -76,18 +77,18 @@ function CoursesSideBar({ courses }) {
                   gap: "9rem",
                 }}
               >
-                <h1>Modules</h1>
-                <h1 style={{ fontSize: "10px" }}>
+                <HOne>Modules</HOne>
+                <HOne style={{ fontSize: "10px" }}>
                   <i
                     className={`fa fa-arrow-${arrow ? "left" : "right"}`}
                     style={{ fontSize: "16px" }}
                     aria-hidden="true"
                   />
-                </h1>
+                </HOne>
               </div>
               {courses.map((course, index) => (
                 <div style={{ padding: "1rem 0" }} key={index}>
-                  <h2 style={{ padding: "0 1rem " }}> {course.type} </h2>
+                  <HTwo style={{ padding: "0 1rem " }}> {course.type} </HTwo>
                   <CoursesList>
                     {course.lessons[0].lessons.map((lesson, idx) => {
                       return (

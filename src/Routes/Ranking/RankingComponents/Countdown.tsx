@@ -5,7 +5,9 @@ import {
 import {
   secondaryColor,
   textSecondaryColorContrast,
+  textTitleFont,
 } from "../../../Styles/Styles";
+import { HOne } from "../../../Resources/Components/RouteBox";
 
 const Countdown: React.FC = () => {
   // const targetDate = new Date("2024-06-29T18:00:00"); 
@@ -51,7 +53,7 @@ const Countdown: React.FC = () => {
         marginBottom: "2rem",
       }}
     >
-      <h1>Score Resets on {formatDate(targetDate)}</h1>
+      <HOne>Score Resets on {formatDate(targetDate)}</HOne>
       <div
         style={{
           backgroundColor: timeLeft.days == 0 ? "red" : secondaryColor(),
@@ -59,7 +61,7 @@ const Countdown: React.FC = () => {
           borderRadius: "1rem",
           fontSize: "1.1rem",
           padding: "8px 12px",
-          fontFamily: "Athiti",
+          fontFamily: textTitleFont(),
           fontWeight: 600,
           display: "inline",
         }}

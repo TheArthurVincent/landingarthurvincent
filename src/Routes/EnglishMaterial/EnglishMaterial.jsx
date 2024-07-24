@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   HOne,
+  HTwo,
   RouteDiv,
   RouteSizeControlBox,
 } from "../../Resources/Components/RouteBox";
@@ -275,13 +276,13 @@ export default function EnglishMaterial({ headers }) {
               }}
             >
               <Xp onClick={() => handleSeeModal()}>X</Xp>
-              <h2
+              <HTwo
                 style={{
                   margin: "0.5rem 0",
                 }}
               >
                 {postNew ? "New" : UniversalTexts.editPost}
-              </h2>
+              </HTwo>
               {loadingInfo ? (
                 <CircularProgress />
               ) : (

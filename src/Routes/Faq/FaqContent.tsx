@@ -2,6 +2,8 @@ import React from "react";
 import { primaryColor, textPrimaryColorContrast } from "../../Styles/Styles";
 import { Link } from "react-router-dom";
 import RankingExplanation from "../Ranking/RankingComponents/RankingExplanation";
+import { HTwo } from "../../Resources/Components/RouteBox";
+import { HThree } from "../MyClasses/MyClasses.Styled";
 
 export const contentFaq = [
   {
@@ -10,7 +12,7 @@ export const contentFaq = [
     tags: ["portal", "login", "próxima", "next", "em grupo"],
     explanation: (
       <>
-        <h2>Página Inicial:</h2>
+        <HTwo>Página Inicial:</HTwo>
         <ul>
           <li>
             Navegue até sua pasta no Google Drive para acessar materiais
@@ -40,7 +42,7 @@ export const contentFaq = [
     ],
     explanation: (
       <>
-        <h2>Página Inicial:</h2>
+        <HTwo>Página Inicial:</HTwo>
         <ul>
           <li>Acesse facilmente sua próxima aula.</li>
           <li>Encontre seus cartões Anki prontos para revisão.</li>
@@ -50,7 +52,7 @@ export const contentFaq = [
           </li>
         </ul>
 
-        <h2>Minhas Aulas:</h2>
+        <HTwo>Minhas Aulas:</HTwo>
         <ul>
           <li>
             Acesse rapidamente suas últimas aulas particulares para revisão ou
@@ -63,7 +65,7 @@ export const contentFaq = [
           </li>
         </ul>
 
-        <h2>Aulas em grupo:</h2>
+        <HTwo>Aulas em grupo:</HTwo>
         <ul>
           <li>Encontre todas as Aulas em grupo.</li>
           <li>Pesquise por tema.</li>
@@ -82,7 +84,7 @@ export const contentFaq = [
     tags: ["calendar", "calendario", "data", "aula", "class"],
     explanation: (
       <>
-        <h2>Calendário:</h2>
+        <HTwo>Calendário:</HTwo>
         <ul>
           <li>Acesse facilmente sua próxima aula.</li>
           <li>Acesse facilmente a próxima aula em grupo.</li>
@@ -99,7 +101,7 @@ export const contentFaq = [
     tags: ["homework", "lição", "tutoring"],
     explanation: (
       <>
-        <h2>Calendário:</h2>
+        <HTwo>Calendário:</HTwo>
         <ul>
           <li>Veja onde estão seus homeworks.</li>
         </ul>
@@ -124,7 +126,7 @@ export const contentFaq = [
     ],
     explanation: (
       <>
-        <h2>Estudo Ativo (Não Diário)</h2>
+        <HTwo>Estudo Ativo (Não Diário)</HTwo>
         <p>
           Engaje-se em atividades de aprendizado ativo, não necessariamente
           todos os dias. Experimente:
@@ -138,7 +140,7 @@ export const contentFaq = [
           <li>Realizar homeworks particulares e em grupo.</li>
         </ul>
 
-        <h2>Estudo Passivo (Diariamente)</h2>
+        <HTwo>Estudo Passivo (Diariamente)</HTwo>
         <p>
           Dedique algum tempo diariamente para revisar e reforçar o que
           aprendeu. Inclua:
@@ -191,7 +193,7 @@ export const contentFaq = [
     tags: ["Vocabulário", "vocabulary", "study", "estudar"],
     explanation: (
       <>
-        <h3> Mineração de sentenças.</h3> Este é, a meu ver, o melhor método
+        <HThree> Mineração de sentenças.</HThree> Este é, a meu ver, o melhor método
         para reforçar o uso das palavras. Minerar sentenças é o ato de
         encontrar, em contextos reais, a palavra aprendida. Usamos 3 sites para
         isso:
@@ -265,19 +267,19 @@ export const contentFaq = [
     explanation: (
       <>
         {" "}
-        <h2>Duração e Acesso às Aulas</h2>
+        <HTwo>Duração e Acesso às Aulas</HTwo>
         <p>
           As aulas terão duração de 55 minutos, e o professor enviará o link de
           acesso com, no mínimo, 5 minutos de antecedência.
         </p>
-        <h2>Aulas Extras</h2>
+        <HTwo>Aulas Extras</HTwo>
         <p>
           Os alunos têm o direito de participar das aulas extras semanais, que
           são coletivas, além das aulas particulares contratadas. Essas aulas
           extras servem como compensação por aulas perdidas pelo aluno e pelos
           feriados, nos quais o professor não ministrará aulas.
         </p>
-        <h2>Reposição de Aulas Particulares</h2>
+        <HTwo>Reposição de Aulas Particulares</HTwo>
         <p>
           Se o aluno não puder comparecer à aula, deve informar o professor com,
           no máximo, 24 horas de antecedência para poder repor a aula particular
@@ -288,7 +290,7 @@ export const contentFaq = [
           aluno deve se comprometer a realizar as atividades propostas pelo
           professor para melhor desenvolvimento do curso.
         </p>
-        <h2>Falta do Professor</h2>
+        <HTwo>Falta do Professor</HTwo>
         <p>
           Em caso de falta do professor, a aula será reposta em horário
           combinado por ambos.

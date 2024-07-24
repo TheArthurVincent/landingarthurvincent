@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { alwaysWhite, lightGreyColor } from "../../../Styles/Styles";
+import { alwaysWhite, lightGreyColor, textTitleFont } from "../../../Styles/Styles";
 
 export const FlexAdjust = styled.span`
   display: flex;
@@ -29,7 +29,7 @@ export const DivHover = styled.span`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  font-family: Athiti;
+  font-family: ${textTitleFont()};
   padding: 0.5rem 0;
   margin: 2px auto;
   background-color: ${alwaysWhite()};

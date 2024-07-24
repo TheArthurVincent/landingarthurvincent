@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
+import { primaryColor, secondaryColor, textTitleFont } from "../../../../Styles/Styles";
 import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
 import HTMLJustWrite from "../../../../Resources/Components/HTMLJustWrite";
 
@@ -35,7 +35,7 @@ export default function SentenceLessonModelSlide({
           >
             <strong
               style={{
-                fontFamily: "Athiti",
+                fontFamily: textTitleFont(),
                 fontSize: "3rem",
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
               }}

@@ -26,6 +26,7 @@ import {
 } from "../../../../Styles/Styles";
 import { HOne } from "../../../../Resources/Components/RouteBox";
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
+import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function FindStudent({ uploadStatus, headers }) {
   const { UniversalTexts } = useUserContext();
@@ -556,7 +557,7 @@ export function FindStudent({ uploadStatus, headers }) {
         }}
       >
         <Xp onClick={() => handleSeeModal()}>X</Xp>
-        <h1
+        <HOne
           style={{
             fontSize: "1.5rem",
             marginBottom: 0,
@@ -567,7 +568,7 @@ export function FindStudent({ uploadStatus, headers }) {
           }}
         >
           Editar aluno - {newName}
-        </h1>
+        </HOne>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList
@@ -717,7 +718,7 @@ export function FindStudent({ uploadStatus, headers }) {
                 textAlign: "center",
               }}
             >
-              <h3>
+              <HThree>
                 Esta ação não pode ser desfeita! Tem certeza que deseja excluir
                 o(a) aluno(a) <br />
                 <br />
@@ -733,7 +734,7 @@ export function FindStudent({ uploadStatus, headers }) {
                 </span>
                 <br />
                 <br />?
-              </h3>
+              </HThree>
               <div
                 style={{
                   marginTop: "1rem",
