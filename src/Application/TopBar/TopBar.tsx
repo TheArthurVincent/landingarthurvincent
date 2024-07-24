@@ -12,9 +12,7 @@ import { LogoSVG, SpanHover } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import {
   primaryColor,
-  alwaysBlack,
   textTitleFont,
-  secondaryColor2,
   secondaryColor,
 } from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
@@ -45,7 +43,7 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
         <SpanHover
           style={{
             textDecoration: "none",
-            color: isAnyLinkActive ? secondaryColor2() : primaryColor(),
+            color: isAnyLinkActive ? secondaryColor() : primaryColor(),
           }}
         >
           {title}
@@ -238,7 +236,7 @@ export const TopBar: FC = () => {
                 key={index}
                 style={{
                   color: location.pathname.includes(link.endpoint)
-                    ? secondaryColor2()
+                    ? secondaryColor()
                     : primaryColor(),
                   paddingBottom: "5px",
 
@@ -275,7 +273,7 @@ export const TopBar: FC = () => {
                 <NavLink
                   style={{
                     color: location.pathname.includes(link.endpoint)
-                      ? secondaryColor2()
+                      ? secondaryColor()
                       : primaryColor(),
                     paddingBottom: "5px",
 
@@ -319,7 +317,7 @@ export const TopBar: FC = () => {
                 style={{
                   display: seeItems ? "block" : "none",
                   color: location.pathname.includes(link.endpoint)
-                    ? secondaryColor2()
+                    ? secondaryColor()
                     : primaryColor(),
                   paddingBottom: "5px",
 
@@ -345,7 +343,7 @@ export const TopBar: FC = () => {
                   key={index}
                   style={{
                     color: location.pathname.includes(link.endpoint)
-                      ? secondaryColor2()
+                      ? secondaryColor()
                       : primaryColor(),
                     textDecoration: "none",
                     paddingBottom: "5px",
