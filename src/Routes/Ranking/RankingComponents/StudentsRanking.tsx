@@ -145,12 +145,17 @@ export default function StudentsRanking({
     setLoadingScore(true);
     setDisabled(true);
     try {
-      const response = await axios.put(`${backDomain}/api/v1/score/${id}`, {
-        headers,
-        score,
-        description,
-        type,
-      });
+      const response = await axios.put(
+        `${backDomain}/api/v1/score/${id}`,
+        {
+          score,
+          description,
+          type,
+        },
+        {
+          headers: actualHeaders,
+        }
+      );
 
       updateScoreNow(id);
       setDisabled(false);
@@ -458,7 +463,7 @@ export default function StudentsRanking({
               return (
                 <>
                   <AnimatedLi
-                    key={index}
+                    key={index + item.picture}
                     style={{
                       display: isAdm
                         ? "flex"
