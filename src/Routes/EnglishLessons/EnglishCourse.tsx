@@ -1,13 +1,13 @@
-import React, { act, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { pathGenerator } from "../../Resources/UniversalComponents";
 import { HThree } from "../MyClasses/MyClasses.Styled";
-import { CourseCard } from "../EnglishMaterial/EnglishMaterial.Styled";
 import EnglishLessonsRender from "./Assets/EnglishCourseClassRender";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
+import { CourseCard } from "./EnglishCourses.Styled";
 
 interface EnglishCourseHomeProps {
   headers: MyHeadersType | null;
