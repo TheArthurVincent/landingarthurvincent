@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
-import Login from "./Routes/Login/Login";
-import HomePage from "./Routes/HomePage";
-import NotFound from "./Routes/NotFound/NotFound";
 import { SignUp } from "./Routes/SignUp/SignUp";
 import { MessageDrive } from "./Routes/Message/Message";
 import { authorizationToken } from "./App.Styled";
 import { MyHeadersType } from "./Resources/types.universalInterfaces";
 import { textFont, textTitleFont } from "./Styles/Styles";
+
+import Login from "./Routes/Login/Login";
+import HomePage from "./Routes/HomePage";
+import NotFound from "./Routes/NotFound/NotFound";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -31,12 +33,12 @@ function App() {
   useEffect(() => {
     checkLocalBackground();
     const user = localStorage.getItem("loggedIn");
-    
+
     const inputElement = document.querySelector("input");
     if (inputElement) {
       inputElement.style.fontFamily = textFont();
     }
-    
+
     const textElement = document.querySelector("div");
     if (textElement) {
       textElement.style.fontFamily = textFont();
@@ -56,26 +58,11 @@ function App() {
   }, []);
 
   const routes = [
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/*",
-      element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
-    },
-    {
-      path: "/message",
-      element: verifyToken() ? <MessageDrive /> : <Login />,
-    },
-    {
-      path: "*",
-      element: verifyToken() ? <NotFound /> : <Login />,
-    },
-    {
-      path: "/signup",
-      element: <SignUp />,
-    },
+    { path: "/login", element: <Login /> },
+    { path: "/*", element: verifyToken() ? <HomePage headers={headers} /> : <Login /> },
+    { path: "/message", element: verifyToken() ? <MessageDrive /> : <Login /> },
+    { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
+    { path: "/signup", element: <SignUp /> },
   ];
 
   return (
