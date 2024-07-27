@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
-import StudentsRanking from "./RankingComponents/StudentsRanking";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import {
@@ -8,33 +8,28 @@ import {
   primaryColor,
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import { formatDate } from "../../Resources/UniversalComponents";
+
 import RankingExplanation from "./RankingComponents/RankingExplanation";
 import RankingTimeline from "./RankingComponents/RankingTimeline";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
-import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
-import { formatDate } from "../../Resources/UniversalComponents";
+import StudentsRanking from "./RankingComponents/StudentsRanking";
 import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
 import Countdown from "./RankingComponents/Countdown";
+import { monthInQuestion } from "./RankingComponents/RankingComponents";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
 
   const [value, setValue] = useState<string>("1");
   const [user, setUser] = useState<any>({});
-  const [monthInQuestion, setMonthInQuestion] = useState<string>("");
 
   useEffect(() => {
-    const d = new Date();
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(theuser);
-    const monthNow = (
-      formatDate(d).split(" ")[0] +
-      "/" +
-      formatDate(d).split(" ")[2]
-    ).split(",")[0];
-    setMonthInQuestion(monthNow);
   }, []);
 
   const componentsToRender = [

@@ -87,7 +87,7 @@ export const Hamburguer = styled.div`
   display: none;
   color: ${secondaryColor()};
   font-weight: 900;
-  font-size: 1.1rem;
+  font-size: 1.9rem;
   cursor: pointer;
   &:hover {
     color: ${primaryColor()};

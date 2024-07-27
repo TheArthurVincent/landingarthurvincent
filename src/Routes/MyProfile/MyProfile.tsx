@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import { alwaysBlack } from "../../Styles/Styles";
@@ -102,7 +98,6 @@ export function MyProfile({ headers }: HeadersProps) {
         <RouteDiv className="smooth grid-flex">
           <Helmets text="My Profile" />
           <div>
-            <HOne>{UniversalTexts.myProfile}</HOne>
             <ul
               style={{
                 display: "grid",
@@ -111,60 +106,64 @@ export function MyProfile({ headers }: HeadersProps) {
                 padding: "0.2rem",
               }}
             >
+              {" "}
               <ArvinButton onClick={updateInfo} color="navy">
                 <i className="fa fa-refresh" aria-hidden="true" />
               </ArvinButton>
               {loading ? (
                 <CircularProgress />
               ) : (
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "1rem",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
+                <>
+                  <HOne>{UniversalTexts.myProfile}</HOne>
+                  <div
                     style={{
-                      maxWidth: "7rem",
-                      paddingBottom: "1rem",
-                      borderRadius: "50%",
+                      display: "flex",
+                      gap: "1rem",
+                      alignItems: "center",
                     }}
-                    src={user.picture}
-                    alt=""
-                  />
-                  <div>
-                    {myProfileList.map((item: any, index: number) => {
-                      return (
-                        <li
-                          key={index + item}
-                          style={{
-                            listStyle: "none",
-                          }}
-                        >
-                          <SpanDisapear>
-                            <b>{item.title}: </b>
-                          </SpanDisapear>
-                          {item.link ? (
-                            <NavLink to={item.link}>Click here</NavLink>
-                          ) : (
-                            <span>{item.data}</span>
-                          )}
-                        </li>
-                      );
-                    })}
+                  >
+                    <img
+                      style={{
+                        maxWidth: "7rem",
+                        paddingBottom: "1rem",
+                        borderRadius: "50%",
+                      }}
+                      src={user.picture}
+                      alt=""
+                    />
+                    <div>
+                      {myProfileList.map((item: any, index: number) => {
+                        return (
+                          <li
+                            key={index + item}
+                            style={{
+                              listStyle: "none",
+                            }}
+                          >
+                            <SpanDisapear>
+                              <b>{item.title}: </b>
+                            </SpanDisapear>
+                            {item.link ? (
+                              <NavLink to={item.link}>Click here</NavLink>
+                            ) : (
+                              <span>{item.data}</span>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </>
               )}
             </ul>
           </div>
           <div>
-            <HOne>{UniversalTexts.newPassword}</HOne>
             <form
               style={{
                 textAlign: "center",
               }}
             >
+              <HOne>{UniversalTexts.newPassword}</HOne>
               <input
                 value={newPassword}
                 onChange={(event) => setNewPassword(event.target.value)}

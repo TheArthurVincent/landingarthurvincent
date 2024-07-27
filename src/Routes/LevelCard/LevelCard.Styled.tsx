@@ -33,7 +33,7 @@ export const NewLevelCardComponent = styled.div`
   display: grid;
   position: sticky;
   top: 60px;
-  border-radius: 1rem ;
+  border-radius: 1rem;
   text-align: center;
   color: white;
   min-width: 200px;
@@ -42,13 +42,16 @@ export const NewLevelCardComponent = styled.div`
   justify-content: center;
   text-align: center;
   @media (max-width: 1200px) {
+    width: 85vw;
     display: flex;
-    width: 88vw;
     height: 5rem;
     margin: auto;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: space-between;
+  }
+  @media (max-width: 985px) {
+    width: 92vw;
   }
 `;
 
