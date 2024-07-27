@@ -290,10 +290,9 @@ export function Blog({ headers }: HeadersProps) {
                 margin: "1rem",
                 fontSize: "1.1rem",
                 display: "block",
-                padding: "1rem",
-                backgroundColor: alwaysWhite(),
-                color: alwaysBlack(),
+                padding: "1rem 0",
               }}
+              className="limited-text"
             >
               <div dangerouslySetInnerHTML={{ __html: post.text }} />
             </div>

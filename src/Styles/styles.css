@@ -5,23 +5,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=East+Sea+Dokdo&display=swap');
 
 *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 *::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 12px;
+  background: grey;
+  border-radius: 7px;
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 12px;
+  border-radius: 7px;
   background-color: white;
 }
 
 * {
   padding: 0;
   margin: 0;
+}
+
+@media(max-width:1200px) {
+
+
+  *::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 0px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: white;
+  }
 }
 
 div {
@@ -353,6 +372,22 @@ input.inputs-style {
   font-weight: bold;
   margin: 2px auto;
 }
+
+.limited-text {
+  margin: 1rem;
+  font-size: 1.1rem;
+  display: block;
+  padding: 1rem 0;
+  max-width: 90%;
+  /* Ajuste conforme necessário */
+  word-wrap: break-word;
+  /* Quebra palavras longas */
+  overflow: hidden;
+  /* Esconde o excesso de texto */
+  white-space: pre-wrap;
+  /* Mantém quebras de linha */
+}
+
 
 input.inputs-style:hover {
   background-color: #c6c6c6;

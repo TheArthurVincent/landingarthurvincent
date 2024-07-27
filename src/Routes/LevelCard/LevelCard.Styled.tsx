@@ -42,7 +42,7 @@ export const NewLevelCardComponent = styled.div`
   justify-content: center;
   text-align: center;
   @media (max-width: 1200px) {
-    width: 88vw;
+    width: 85vw;
     display: flex;
     height: 5rem;
     margin: auto;
@@ -51,7 +51,7 @@ export const NewLevelCardComponent = styled.div`
     justify-content: space-between;
   }
   @media (max-width: 985px) {
-    width: 96.5vw;
+    width: 92vw;
   }
 `;
 

@@ -31,7 +31,7 @@ export const RouteDiv = styled.div`
   width: 60rem;
   margin: auto;
   @media (max-width: 995px) {
-    width: 96vw;
+    width: 95vw;
   }
 `;
 
