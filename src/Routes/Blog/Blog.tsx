@@ -226,11 +226,13 @@ export function Blog({ headers }: HeadersProps) {
               >
                 <span className="hover-link">
                   <i
-                    style={{ paddingRight: "5px", maxWidth: "100%" }}
+                    style={{ maxWidth: "100%" }}
                     className="fa fa-whatsapp"
                     aria-hidden="true"
                   />
-                  <SpanDisapear>{UniversalTexts.talkToTheTeacher}</SpanDisapear>
+                  <SpanDisapear style={{ paddingLeft: "5px" }}>
+                    {UniversalTexts.talkToTheTeacher}
+                  </SpanDisapear>
                 </span>
               </Link>
             </Tooltip>

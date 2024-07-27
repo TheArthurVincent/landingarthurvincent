@@ -31,11 +31,17 @@ function App() {
   useEffect(() => {
     checkLocalBackground();
     const user = localStorage.getItem("loggedIn");
-
+    
+    const inputElement = document.querySelector("input");
+    if (inputElement) {
+      inputElement.style.fontFamily = textFont();
+    }
+    
     const textElement = document.querySelector("div");
     if (textElement) {
       textElement.style.fontFamily = textFont();
     }
+
     const h1Element = document.querySelector("h1");
     if (h1Element) {
       h1Element.style.fontFamily = textTitleFont();

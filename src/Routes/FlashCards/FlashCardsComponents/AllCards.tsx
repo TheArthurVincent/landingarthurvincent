@@ -118,6 +118,7 @@ const AllCards = ({ headers }: HeadersProps) => {
         },
         {
           params: { cardId },
+          headers: actualHeaders,
         }
       );
       getNewCards(studentID);
@@ -148,14 +149,16 @@ const AllCards = ({ headers }: HeadersProps) => {
         `${backDomain}/api/v1/flashcard/${studentID}`,
         {
           params: { cardId },
+          headers: actualHeaders,
         }
       );
       getNewCards(studentID);
       setShowModal(false);
     } catch (error) {
-      console.log(error, "Erro ao obter cards");
+      console.log(error, "Erro ao apagar cards");
     }
   };
+
   const handleHideModal = () => {
     setShowModal(false);
   };
