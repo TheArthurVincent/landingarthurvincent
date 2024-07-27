@@ -55,12 +55,15 @@ export function Homework({ headers, setChange, change }: HWProps) {
       setGroupList(gc);
       setTutoringList(tt);
       setLoading(false);
-    } catch (error) { console.log(error, "erro ao listar homework"); }
+    } catch (error) {
+      console.log(error, "erro ao listar homework");
+    }
   };
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     //@ts-ignore
     const { id, permissions } = getLoggedUser;
+    setStudentID(id);
     fetchClasses(id);
     setPermissions(permissions);
     permissions == "superadmin" ? fetchStudents() : null;
@@ -198,10 +201,11 @@ export function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${homework?.status == "done"
-                            ? "check-circle"
-                            : "ellipsis-h"
-                            }`}
+                          className={`fa fa-${
+                            homework?.status == "done"
+                              ? "check-circle"
+                              : "ellipsis-h"
+                          }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -291,10 +295,11 @@ export function Homework({ headers, setChange, change }: HWProps) {
                           color:
                             homework?.status == "done" ? "green" : "orange",
                         }}
-                        className={`fa fa-${homework?.status == "done"
-                          ? "check-circle"
-                          : "ellipsis-h"
-                          }`}
+                        className={`fa fa-${
+                          homework?.status == "done"
+                            ? "check-circle"
+                            : "ellipsis-h"
+                        }`}
                         aria-hidden="true"
                       />{" "}
                       Due date: {formatDateBr(homework.dueDate)}
