@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { alwaysWhite, lightGreyColor, textTitleFont } from "../../../Styles/Styles";
+import { formatDate } from "../../../Resources/UniversalComponents";
 
 export const FlexAdjust = styled.span`
   display: flex;
@@ -23,6 +24,8 @@ export const CenterRightToggle = styled.p`
     text-align: center;
   }
 `;
+const d = new Date();
+export const monthInQuestion = (formatDate(d).split(" ")[0] + "/" + formatDate(d).split(" ")[2]).split(",")[0];
 
 export const DivHover = styled.span`
   display: flex;

@@ -264,8 +264,8 @@ export function Blog({ headers }: HeadersProps) {
                 >
                   {!loading && (
                     <button
-                      className="button"
                       style={{
+                        cursor: "pointer",
                         display: permissions == "superadmin" ? "grid" : "none",
                       }}
                       onClick={() => seeEdition(post._id)}

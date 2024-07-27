@@ -30,8 +30,8 @@ export const RouteDiv = styled.div`
   box-shadow: 1px 1px 5px 1px #777;
   width: 60rem;
   margin: auto;
-  @media (max-width: 800px) {
-    width: 98vw;
+  @media (max-width: 995px) {
+    width: 96vw;
   }
 `;
 
@@ -49,7 +49,7 @@ export const BlogRouteSizeControlBox = styled.div`
   margin: 1rem auto;
   max-width: 90vw;
   gap: 0.2rem;
-  @media (max-width: 1200px) {
+  @media (max-width: 1203px) {
     display: flex;
     max-width: 100vw;
     flex-direction: column-reverse;
