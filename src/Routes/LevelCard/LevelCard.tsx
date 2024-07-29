@@ -46,7 +46,6 @@ export function LevelCard({
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers: actualHeaders,
       });
-      updateInfo(response.data.id, actualHeaders);
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       setPictureStudent(response.data.picture);
@@ -54,6 +53,7 @@ export function LevelCard({
       const levelDone = newValue.level;
       setLevel(levelDone);
       setShowCard("block");
+      updateInfo(response.data.id, headers);
       setLoading(false);
     } catch (error) {
       console.error(error);
