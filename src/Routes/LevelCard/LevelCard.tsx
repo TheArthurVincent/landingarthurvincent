@@ -3,6 +3,7 @@ import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
 import {
   backDomain,
   formatNumber,
+  updateInfo,
   updateScore,
 } from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
@@ -41,6 +42,7 @@ export function LevelCard({
   const seeScore = async (id: string) => {
     setLoading(true);
     try {
+      updateInfo();
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers: actualHeaders,
       });
