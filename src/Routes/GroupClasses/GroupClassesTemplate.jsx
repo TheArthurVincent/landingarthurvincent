@@ -3,6 +3,7 @@ import {
   IFrameVideo,
   backDomain,
   getVideoEmbedUrl,
+  onLoggOut,
 } from "../../Resources/UniversalComponents";
 import {
   alwaysBlack,
@@ -42,8 +43,7 @@ export default function GroupClassesTemplate({
         );
         setCourseModules(response.data.modules);
       } catch (error) {
-        alert(error, "Erro ao importar módulos, faça login novamente");
-        window.location.assign("/login");
+        onLoggOut();
       }
     }
     fetchData();

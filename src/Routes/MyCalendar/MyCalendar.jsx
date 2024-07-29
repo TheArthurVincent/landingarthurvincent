@@ -23,6 +23,7 @@ import {
   backDomain,
   formatDate,
   formatDateBr,
+  onLoggOut,
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
@@ -119,8 +120,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setEvents(eventsLoop);
       setLoading(false);
     } catch (error) {
-      console.log(error, "Erro ao encontrar eventos");
-      setLoading(false);
+      onLoggOut();
     }
   };
   useEffect(() => {
@@ -148,7 +148,7 @@ export default function MyCalendar({ headers, thePermissions }) {
         });
         setEvents(eventsLoop);
       } catch (error) {
-        console.log(error, "Erro ao encontrar alunos");
+        onLoggOut();
       }
     } else {
       null;
@@ -862,7 +862,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     let final = `${day}/${month}/${year}`;
     return final;
   }
-
 
   return (
     <>

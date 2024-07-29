@@ -8,7 +8,7 @@ import {
   LogoStyle,
   Hamburguer,
 } from "./TopBar.Styled";
-import { LogoSVG, SpanHover } from "../../Resources/UniversalComponents";
+import { LogoSVG, onLoggOut, SpanHover } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import {
   primaryColor,
@@ -97,12 +97,6 @@ export const TopBar: FC = () => {
   const { handleLanguageChange, UniversalTexts } = useUserContext();
   const [permissions, setPermissions] = useState<string>("");
   const [seeItems, setSeeItems] = useState(true);
-
-  const onLoggOut = () => {
-    localStorage.removeItem("authorization");
-    localStorage.removeItem("loggedIn");
-    window.location.assign("/");
-  };
 
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");

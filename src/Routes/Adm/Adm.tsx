@@ -57,14 +57,6 @@ export function Adm({ headers }: HeadersProps) {
       tooltip: "Geração do recibo de um aluno específico.",
       component: <Invoice headers={headers} />,
     }
-    // ,
-    // {
-    //   title: "Links úteis",
-    //   value: "8",
-    //   tooltip:
-    //     "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
-    //   component: <UsefulLinks />,
-    // },
   ];
 
   const handleChange = (event: any, newValue: string) => {
