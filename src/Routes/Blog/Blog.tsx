@@ -150,7 +150,7 @@ export function Blog({ headers }: HeadersProps) {
       console.log(response.data.listOfPosts);
     } catch (error) {
       console.log(error);
-      alert("Erro ao importar posts, faça login novamente");
+      alert("Faça login novamente");
       window.location.assign("/login");
       setLoading(false);
     }
