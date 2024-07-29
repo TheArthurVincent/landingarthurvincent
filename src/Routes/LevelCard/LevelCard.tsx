@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
-import { backDomain, formatNumber, updateInfo, updateScore, } from "../../Resources/UniversalComponents";
+import {
+  backDomain,
+  formatNumber,
+  updateInfo,
+  updateScore,
+} from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
-import { LevelCardLevel, LevelCardPhotoLevel, DivCardLevel, TextLevelCard, NewLevelCardComponent, } from "./LevelCard.Styled";
+import {
+  LevelCardLevel,
+  LevelCardPhotoLevel,
+  DivCardLevel,
+  TextLevelCard,
+  NewLevelCardComponent,
+} from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 
-interface LevelCardProps { headers: MyHeadersType | null; _StudentId: string; picture: string; change: boolean; }
+interface LevelCardProps {
+  headers: MyHeadersType | null;
+  _StudentId: string;
+  picture: string;
+  change: boolean;
+}
 
 export function LevelCard({
   headers,
@@ -27,10 +43,10 @@ export function LevelCard({
   const seeScore = async (id: string) => {
     setLoading(true);
     try {
-      updateInfo();
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers: actualHeaders,
       });
+      updateInfo(response.data.id, actualHeaders);
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       setPictureStudent(response.data.picture);
