@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
-import {
-  backDomain,
-  formatNumber,
-  updateInfo,
-  updateScore,
-} from "../../Resources/UniversalComponents";
+import { backDomain, formatNumber, updateInfo, updateScore, } from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
-import {
-  LevelCardLevel,
-  LevelCardPhotoLevel,
-  DivCardLevel,
-  TextLevelCard,
-  NewLevelCardComponent,
-} from "./LevelCard.Styled";
+import { LevelCardLevel, LevelCardPhotoLevel, DivCardLevel, TextLevelCard, NewLevelCardComponent, } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 
-interface LevelCardProps {
-  headers: MyHeadersType | null;
-  _StudentId: string;
-  picture: string;
-  change: boolean;
-}
+interface LevelCardProps { headers: MyHeadersType | null; _StudentId: string; picture: string; change: boolean; }
+
 export function LevelCard({
   headers,
   _StudentId,
