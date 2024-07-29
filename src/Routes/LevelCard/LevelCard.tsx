@@ -53,7 +53,6 @@ export function LevelCard({
       const levelDone = newValue.level;
       setLevel(levelDone);
       setShowCard("block");
-      updateInfo(response.data.id, headers);
       setLoading(false);
     } catch (error) {
       console.error(error);
