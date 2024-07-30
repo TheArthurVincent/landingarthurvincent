@@ -494,55 +494,44 @@ export default function EnglishLessonsRender({
             </Xp>
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 0.7fr",
-                borderRight: "1px solid #555",
+                height: "75vh",
+                overflow: "auto",
               }}
             >
-              <span
-                style={{
-                  height: "75vh",
-                  overflow: "auto",
-                }}
-              >
-                {theclass.elements
-                  .sort((a: any, b: any) => a.order - b.order)
-                  .map((element: any, index: number) => (
-                    <div key={index} style={{ marginBottom: "10px" }}>
-                      {element.type === "sentences" ? (
-                        <SentenceLessonModelSlide
-                          id={myId}
-                          studentId={studentID}
-                          element={element}
-                        />
-                      ) : element.type === "text" ? (
-                        <TextLessonModelSlide
-                          text={element.text ? element.text : ""}
-                        />
-                      ) : element.type === "listinenglish" ? (
-                        <TextsWithTranslateSlideLessonModel
-                          headers={headers}
-                          element={element}
-                        />
-                      ) : element.type === "exercise" ? (
-                        <ExerciseLessonModelLesson
-                          headers={headers}
-                          item={element.items}
-                        />
-                      ) : element.type === "images" ? (
-                        <ImageLessonModelSlide
-                          headers={headers}
-                          element={element}
-                        />
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                  ))}
-              </span>
-              {/* <span>
-                <HTMLJustComments onChange={handleHWDescriptionChange} />
-              </span> */}
+              {theclass.elements
+                .sort((a: any, b: any) => a.order - b.order)
+                .map((element: any, index: number) => (
+                  <div key={index} style={{ marginBottom: "10px" }}>
+                    {element.type === "sentences" ? (
+                      <SentenceLessonModelSlide
+                        id={myId}
+                        studentId={studentID}
+                        element={element}
+                      />
+                    ) : element.type === "text" ? (
+                      <TextLessonModelSlide
+                        text={element.text ? element.text : ""}
+                      />
+                    ) : element.type === "listinenglish" ? (
+                      <TextsWithTranslateSlideLessonModel
+                        headers={headers}
+                        element={element}
+                      />
+                    ) : element.type === "exercise" ? (
+                      <ExerciseLessonModelLesson
+                        headers={headers}
+                        item={element.items}
+                      />
+                    ) : element.type === "images" ? (
+                      <ImageLessonModelSlide
+                        headers={headers}
+                        element={element}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
         </>
