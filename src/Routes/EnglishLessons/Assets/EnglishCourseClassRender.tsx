@@ -479,7 +479,7 @@ export default function EnglishLessonsRender({
           />
           <div
             style={{
-              padding: "2rem",
+              padding: "1rem",
               position: "fixed",
               top: 5,
               left: 5,
@@ -487,7 +487,7 @@ export default function EnglishLessonsRender({
               border: "1px grey solid",
               borderRadius: "1rem",
               marginTop: "5px",
-              height: "84vh",
+              height: "95vh",
               zIndex: 10000000000000,
               backgroundColor: "white",
             }}
