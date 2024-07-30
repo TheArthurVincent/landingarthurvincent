@@ -6,6 +6,7 @@ import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 import { backDomain } from "../../../../Resources/UniversalComponents";
 import axios from "axios";
+import { Tooltip } from "@mui/material";
 
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
@@ -72,7 +73,6 @@ export default function SentenceLessonModel({
     }
   };
 
-
   const [permissions, setPermissions] = useState<string>("");
 
   useEffect(() => {
@@ -82,7 +82,6 @@ export default function SentenceLessonModel({
       setPermissions(permissions);
     }
   }, []);
-
 
   return (
     <UlSentences
@@ -98,12 +97,16 @@ export default function SentenceLessonModel({
       {element.sentences &&
         element.sentences.map((sentence: any, i: number) => (
           <LiSentence key={i}>
-            <ArvinButton
-              color="white"
-              onClick={() => addNewCards(sentence.english, sentence.portuguese)}
-            >
-              Flashcard
-            </ArvinButton>
+            <Tooltip title="Add to flashcards">
+              <ArvinButton
+                color="white"
+                onClick={() =>
+                  addNewCards(sentence.english, sentence.portuguese)
+                }
+              >
+                <i className="fa fa-files-o" aria-hidden="true" />
+              </ArvinButton>
+            </Tooltip>
             {/* <ArvinButton
               color="white"
               onClick={() =>
@@ -132,10 +135,12 @@ export default function SentenceLessonModel({
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
             <textarea
-            
-      style={{ display: permissions === "superadmin" ? "block" : "none" }}
-            
-            className="comments" name="comments"></textarea>
+              style={{
+                display: permissions === "superadmin" ? "block" : "none",
+              }}
+              className="comments"
+              name="comments"
+            ></textarea>
             <br />
           </LiSentence>
         ))}
