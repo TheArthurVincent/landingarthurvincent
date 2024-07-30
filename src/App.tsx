@@ -34,11 +34,6 @@ function App() {
     checkLocalBackground();
     const user = localStorage.getItem("loggedIn");
 
-    const inputElement = document.querySelector("input");
-    if (inputElement) {
-      inputElement.style.fontFamily = textFont();
-    }
-
     const textElement = document.querySelector("div");
     if (textElement) {
       textElement.style.fontFamily = textFont();

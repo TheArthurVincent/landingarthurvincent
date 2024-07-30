@@ -3,6 +3,7 @@ import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
 import {
   backDomain,
   formatNumber,
+  updateInfo,
   updateScore,
 } from "../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
@@ -22,6 +23,7 @@ interface LevelCardProps {
   picture: string;
   change: boolean;
 }
+
 export function LevelCard({
   headers,
   _StudentId,

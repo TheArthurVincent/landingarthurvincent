@@ -10,6 +10,7 @@ import {
   IFrameVideoClass,
   backDomain,
   getVideoEmbedUrl,
+  onLoggOut,
 } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -41,7 +42,9 @@ export default function GroupClasses({ headers }) {
       );
       setClasses(response.data);
       setLoading(false);
-    } catch (error) {}
+    } catch (error) {
+      onLoggOut();
+    }
   }
 
   useEffect(() => {

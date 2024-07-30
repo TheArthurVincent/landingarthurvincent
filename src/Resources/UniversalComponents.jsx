@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { levels } from "../Routes/Ranking/RankingComponents/ranking.json";
 import { Helmet } from "react-helmet";
 import { MyButton } from "./Components/ItemsLibrary";
+import axios from "axios";
 
 // Função que verifica o nível do aluno
 export function updateScore(totalScore) {
@@ -757,14 +758,30 @@ export function isDev() {
     return "https://apiprod.arthurvincent.com.br";
   }
 }
-
-// export function logout24h() {
-//   setTimeout(() => {
-//     alert("Token expirado: Faça login novamente");
-//     localStorage.removeItem("authorization");
-//     localStorage.removeItem("loggedIn");
-//     window.location.assign("/");
-//   }, 43200000); // login expirar o login em 12h de inatividade
-// }
-
 export const backDomain = isDev();
+
+export const updateInfo = async (id, headers) => {
+  try {
+    const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
+      headers,
+    });
+    const userInfo = response.data.formattedStudentData;
+    const loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
+    Object.keys(userInfo).forEach((key) => {
+      if (loggedIn.hasOwnProperty(key)) {
+        loggedIn[key] = userInfo[key];
+      }
+    });
+
+    localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+    console.log("Sucesso ao atualizar dados");
+  } catch (error) {
+    console.log(error, "Erro ao atualizar dados");
+  }
+};
+
+export const onLoggOut = () => {
+  localStorage.removeItem("authorization");
+  localStorage.removeItem("loggedIn");
+  window.location.assign("/");
+};

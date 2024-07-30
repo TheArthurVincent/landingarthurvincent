@@ -26,6 +26,7 @@ export function HomePage({ headers }: HeadersProps) {
   const [_StudentId, setStudentId] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
   const [change, setChange] = useState<boolean>(true);
+  
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {

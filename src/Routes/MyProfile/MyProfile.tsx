@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
+import {
+  backDomain,
+  formatDateBr,
+  updateInfo,
+} from "../../Resources/UniversalComponents";
 import { alwaysBlack } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
 import { Button, CircularProgress } from "@mui/material";
@@ -18,7 +22,6 @@ export function MyProfile({ headers }: HeadersProps) {
   const [user, setUser] = useState<User>({} as User);
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
 
   const actualHeaders = headers || {};
 
@@ -41,33 +44,6 @@ export function MyProfile({ headers }: HeadersProps) {
       alert("Senha editada com sucesso!");
     } catch (error) {
       alert("Erro ao editar senha");
-    }
-  };
-
-  const updateInfo = async (): Promise<void> => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/student/${user.id}`,
-        { headers: actualHeaders }
-      );
-      const userInfo = response.data.formattedStudentData;
-      setUser(userInfo);
-
-      const loggedIn = JSON.parse(localStorage.getItem("loggedIn") || "{}");
-
-      Object.keys(userInfo).forEach((key) => {
-        if (loggedIn.hasOwnProperty(key)) {
-          loggedIn[key] = userInfo[key];
-        }
-      });
-
-      localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-
-      setLoading(false);
-    } catch (error) {
-      console.log("Erro ao atualizar dados");
-      setLoading(false);
     }
   };
 
@@ -107,54 +83,53 @@ export function MyProfile({ headers }: HeadersProps) {
               }}
             >
               {" "}
-              <ArvinButton onClick={updateInfo} color="navy">
+              <ArvinButton
+                onClick={() => {
+                  updateInfo(user.id, headers);
+                }}
+                color="navy"
+              >
                 <i className="fa fa-refresh" aria-hidden="true" />
               </ArvinButton>
-              {loading ? (
-                <CircularProgress />
-              ) : (
-                <>
-                  <HOne>{UniversalTexts.myProfile}</HOne>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "1rem",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      style={{
-                        maxWidth: "7rem",
-                        paddingBottom: "1rem",
-                        borderRadius: "50%",
-                      }}
-                      src={user.picture}
-                      alt=""
-                    />
-                    <div>
-                      {myProfileList.map((item: any, index: number) => {
-                        return (
-                          <li
-                            key={index + item}
-                            style={{
-                              listStyle: "none",
-                            }}
-                          >
-                            <SpanDisapear>
-                              <b>{item.title}: </b>
-                            </SpanDisapear>
-                            {item.link ? (
-                              <NavLink to={item.link}>Click here</NavLink>
-                            ) : (
-                              <span>{item.data}</span>
-                            )}
-                          </li>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </>
-              )}
+              <HOne>{UniversalTexts.myProfile}</HOne>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  alignItems: "center",
+                }}
+              >
+                <img
+                  style={{
+                    maxWidth: "7rem",
+                    paddingBottom: "1rem",
+                    borderRadius: "50%",
+                  }}
+                  src={user.picture}
+                  alt=""
+                />
+                <div>
+                  {myProfileList.map((item: any, index: number) => {
+                    return (
+                      <li
+                        key={index + item}
+                        style={{
+                          listStyle: "none",
+                        }}
+                      >
+                        <SpanDisapear>
+                          <b>{item.title}: </b>
+                        </SpanDisapear>
+                        {item.link ? (
+                          <NavLink to={item.link}>Click here</NavLink>
+                        ) : (
+                          <span>{item.data}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </div>
+              </div>
             </ul>
           </div>
           <div>

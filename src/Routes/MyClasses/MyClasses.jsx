@@ -5,6 +5,7 @@ import {
   IFrameVideoClass,
   backDomain,
   getVideoEmbedUrl,
+  onLoggOut,
 } from "../../Resources/UniversalComponents";
 import { ClassBox, TransectionMenu } from "./MyClasses.Styled";
 import {
@@ -45,7 +46,9 @@ export function MyClasses({ headers }) {
       );
       setClasses(response.data.formattedTutoringFromParticularStudent);
       setLoading(false);
-    } catch (error) {}
+    } catch (error) {
+      onLoggOut();
+    }
   }
 
   async function fetchNextStudentClasses(id) {
