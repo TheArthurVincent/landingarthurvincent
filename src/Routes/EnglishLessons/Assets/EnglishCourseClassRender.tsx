@@ -41,6 +41,7 @@ import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
 import SelectExercise from "./LessonsModels/MultipleSelectExercise";
 import { Tooltip } from "@mui/material";
 import HTMLJustComments from "../../../Resources/Components/HTMLJustComments";
+import ExerciseLessonModelLesson from "./LessonsModels/ExerciseLessonModelExercise";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -71,11 +72,20 @@ export default function EnglishLessonsRender({
   const [myId, setId] = useState<string>("");
   const [thePermissions, setPermissions] = useState<string>("");
   const [seeSlides, setSeeSlides] = useState<boolean>(false);
-  const [description, setDescription] = useState<string>("");
-  const [newHWDescription, setNewHWDescription] = useState("");
-  const handleHWDescriptionChange = (htmlContent: any) => {
-    setNewHWDescription(htmlContent);
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Escape") {
+      setSeeSlides(false);
+    }
   };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const PC = previousclass ? pathGenerator(previousclass.title) : null;
   const NC = nextclass ? pathGenerator(nextclass.title) : null;
@@ -446,7 +456,6 @@ export default function EnglishLessonsRender({
           See slides
         </ArvinButton>
       </RouteDiv>
-
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}
@@ -470,15 +479,15 @@ export default function EnglishLessonsRender({
           />
           <div
             style={{
-              padding: "2rem",
+              padding: "1rem",
               position: "fixed",
-              top: 10,
-              left: 10,
-              width: "94vw",
+              top: 5,
+              left: 5,
+              width: "95vw",
               border: "1px grey solid",
               borderRadius: "1rem",
-              marginTop: "2rem",
-              height: "84vh",
+              marginTop: "5px",
+              height: "95vh",
               zIndex: 10000000000000,
               backgroundColor: "white",
             }}
@@ -493,50 +502,44 @@ export default function EnglishLessonsRender({
             </Xp>
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 0.7fr",
-                borderRight: "1px solid #555",
+                height: "75vh",
+                overflow: "auto",
               }}
             >
-              <span
-                style={{
-                  height: "75vh",
-                  overflow: "auto",
-                }}
-              >
-                {theclass.elements
-                  .sort((a: any, b: any) => a.order - b.order)
-                  .map((element: any, index: number) => (
-                    <div key={index} style={{ marginBottom: "10px" }}>
-                      {element.type === "sentences" ? (
-                        <SentenceLessonModelSlide
-                          id={myId}
-                          studentId={studentID}
-                          element={element}
-                        />
-                      ) : element.type === "text" ? (
-                        <TextLessonModelSlide
-                          text={element.text ? element.text : ""}
-                        />
-                      ) : element.type === "listinenglish" ? (
-                        <TextsWithTranslateSlideLessonModel
-                          headers={headers}
-                          element={element}
-                        />
-                      ) : element.type === "images" ? (
-                        <ImageLessonModelSlide
-                          headers={headers}
-                          element={element}
-                        />
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                  ))}
-              </span>
-              <span>
-                <HTMLJustComments onChange={handleHWDescriptionChange} />
-              </span>
+              {theclass.elements
+                .sort((a: any, b: any) => a.order - b.order)
+                .map((element: any, index: number) => (
+                  <div key={index} style={{ marginBottom: "10px" }}>
+                    {element.type === "sentences" ? (
+                      <SentenceLessonModelSlide
+                        id={myId}
+                        studentId={studentID}
+                        element={element}
+                      />
+                    ) : element.type === "text" ? (
+                      <TextLessonModelSlide
+                        text={element.text ? element.text : ""}
+                      />
+                    ) : element.type === "listinenglish" ? (
+                      <TextsWithTranslateSlideLessonModel
+                        headers={headers}
+                        element={element}
+                      />
+                    ) : element.type === "exercise" ? (
+                      <ExerciseLessonModelLesson
+                        headers={headers}
+                        item={element.items}
+                      />
+                    ) : element.type === "images" ? (
+                      <ImageLessonModelSlide
+                        headers={headers}
+                        element={element}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
         </>

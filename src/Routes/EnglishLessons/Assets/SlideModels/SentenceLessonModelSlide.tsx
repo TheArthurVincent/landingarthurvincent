@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { primaryColor, secondaryColor, textTitleFont } from "../../../../Styles/Styles";
-import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
 import HTMLJustWrite from "../../../../Resources/Components/HTMLJustWrite";
 
 interface SentenceLessonModelProps {
@@ -36,7 +35,7 @@ export default function SentenceLessonModelSlide({
             <strong
               style={{
                 fontFamily: textTitleFont(),
-                fontSize: "3rem",
+                fontSize: "2rem",
                 color: !sentence.portuguese ? secondaryColor() : primaryColor(),
               }}
             >
@@ -45,7 +44,7 @@ export default function SentenceLessonModelSlide({
             <br />
             <span
               style={{
-                fontSize: "2.5rem",
+                fontSize: "1.8rem",
                 fontStyle: "italic",
               }}
             >
