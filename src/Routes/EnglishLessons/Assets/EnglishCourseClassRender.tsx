@@ -511,9 +511,9 @@ export default function EnglishLessonsRender({
                   <div key={index} style={{ marginBottom: "10px" }}>
                     {element.type === "sentences" ? (
                       <SentenceLessonModelSlide
-                        id={myId}
                         studentId={studentID}
                         element={element}
+                        headers={headers}
                       />
                     ) : element.type === "text" ? (
                       <TextLessonModelSlide
