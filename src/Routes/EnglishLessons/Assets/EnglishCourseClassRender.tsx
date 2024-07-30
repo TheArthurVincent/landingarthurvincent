@@ -41,6 +41,7 @@ import ImageLessonModelSlide from "./SlideModels/ImageLessonModelSlide";
 import SelectExercise from "./LessonsModels/MultipleSelectExercise";
 import { Tooltip } from "@mui/material";
 import HTMLJustComments from "../../../Resources/Components/HTMLJustComments";
+import ExerciseLessonModelLesson from "./LessonsModels/ExerciseLessonModelExercise";
 
 interface EnglishLessonsRenderModelProps {
   headers: MyHeadersType | null;
@@ -523,6 +524,11 @@ export default function EnglishLessonsRender({
                           headers={headers}
                           element={element}
                         />
+                      ) : element.type === "exercise" ? (
+                        <ExerciseLessonModelLesson
+                          headers={headers}
+                          item={element.items}
+                        />
                       ) : element.type === "images" ? (
                         <ImageLessonModelSlide
                           headers={headers}
@@ -534,9 +540,9 @@ export default function EnglishLessonsRender({
                     </div>
                   ))}
               </span>
-              <span>
+              {/* <span>
                 <HTMLJustComments onChange={handleHWDescriptionChange} />
-              </span>
+              </span> */}
             </div>
           </div>
         </>
