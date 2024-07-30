@@ -105,6 +105,8 @@ function HTMLJustWrite({ onChange }) {
             height: "500%",
             border: "none",
             padding: "1rem",
+            backgroundColor: "#fdfdfd",
+            boxShadow: "10px 10px 10px 10px #ddd",
             marginTop: "1rem",
             fontSize: "1.5rem",
             width: "90%",

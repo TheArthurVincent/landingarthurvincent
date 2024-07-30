@@ -447,7 +447,6 @@ export default function EnglishLessonsRender({
           See slides
         </ArvinButton>
       </RouteDiv>
-
       {/* Teacher */}
       {/* Teacher */}
       {/* Teacher */}
@@ -473,9 +472,9 @@ export default function EnglishLessonsRender({
             style={{
               padding: "2rem",
               position: "fixed",
-              top: 10,
-              left: 10,
-              width: "94vw",
+              top: 5,
+              left: 5,
+              width: "97vw",
               border: "1px grey solid",
               borderRadius: "1rem",
               marginTop: "2rem",
