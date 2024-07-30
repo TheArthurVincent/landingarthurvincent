@@ -9,6 +9,7 @@ import { backDomain } from "../../../../Resources/UniversalComponents";
 import axios from "axios";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
+import { Tooltip } from "@mui/material";
 
 interface SentenceLessonModelProps {
   element: any;
@@ -21,7 +22,6 @@ export default function SentenceLessonModelSlide({
   studentId,
   headers,
 }: SentenceLessonModelProps) {
-
   const [newHWDescription, setNewHWDescription] = useState("");
   const handleHWDescriptionChange = (htmlContent: any) => {
     setNewHWDescription(htmlContent);
@@ -49,6 +49,7 @@ export default function SentenceLessonModelSlide({
         { newCards },
         { headers: actualHeaders }
       );
+      alert("Card adicionado ao baralho");
     } catch (error) {
       alert("Erro ao enviar cards");
     }
@@ -94,14 +95,16 @@ export default function SentenceLessonModelSlide({
               >
                 {sentence.english}
               </strong>
-              <ArvinButton
-                color="white"
-                onClick={() =>
-                  addNewCards(sentence.english, sentence.portuguese)
-                }
-              >
-                Flashcard
-              </ArvinButton>
+              <Tooltip title="Add to flashcards">
+                <ArvinButton
+                  color="white"
+                  onClick={() =>
+                    addNewCards(sentence.english, sentence.portuguese)
+                  }
+                >
+                  <i className="fa fa-files-o" aria-hidden="true" />
+                </ArvinButton>
+              </Tooltip>
             </span>
             <br />
             <span
