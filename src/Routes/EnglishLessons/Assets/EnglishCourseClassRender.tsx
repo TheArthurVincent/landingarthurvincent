@@ -483,7 +483,7 @@ export default function EnglishLessonsRender({
               position: "fixed",
               top: 5,
               left: 5,
-              width: "97vw",
+              width: "94vw",
               border: "1px grey solid",
               borderRadius: "5px",
               height: "97vh",
