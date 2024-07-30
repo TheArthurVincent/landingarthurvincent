@@ -479,15 +479,14 @@ export default function EnglishLessonsRender({
           />
           <div
             style={{
-              marginTop: "8px",
               padding: "2rem",
               position: "fixed",
               top: 5,
               left: 5,
-              width: "90vw",
+              width: "97vw",
               border: "1px grey solid",
               borderRadius: "5px",
-              height: "90vh",
+              height: "97vh",
               zIndex: 10000000000000,
               backgroundColor: "white",
             }}
