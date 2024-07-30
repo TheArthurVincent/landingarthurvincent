@@ -72,11 +72,20 @@ export default function EnglishLessonsRender({
   const [myId, setId] = useState<string>("");
   const [thePermissions, setPermissions] = useState<string>("");
   const [seeSlides, setSeeSlides] = useState<boolean>(false);
-  const [description, setDescription] = useState<string>("");
-  const [newHWDescription, setNewHWDescription] = useState("");
-  const handleHWDescriptionChange = (htmlContent: any) => {
-    setNewHWDescription(htmlContent);
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Escape") {
+      setSeeSlides(false);
+    }
   };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const PC = previousclass ? pathGenerator(previousclass.title) : null;
   const NC = nextclass ? pathGenerator(nextclass.title) : null;
@@ -474,10 +483,10 @@ export default function EnglishLessonsRender({
               position: "fixed",
               top: 5,
               left: 5,
-              width: "97vw",
+              width: "95vw",
               border: "1px grey solid",
               borderRadius: "1rem",
-              marginTop: "2rem",
+              marginTop: "5px",
               height: "84vh",
               zIndex: 10000000000000,
               backgroundColor: "white",
