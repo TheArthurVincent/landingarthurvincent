@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { primaryColor, secondaryColor, textTitleFont } from "../../../../Styles/Styles";
-import HTMLEditor from "../../../../Resources/Components/HTMLEditor";
 import HTMLJustWrite from "../../../../Resources/Components/HTMLJustWrite";
 
 interface SentenceLessonModelProps {
