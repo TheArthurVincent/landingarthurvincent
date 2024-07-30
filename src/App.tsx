@@ -39,6 +39,16 @@ function App() {
       textElement.style.fontFamily = textFont();
     }
 
+    const inputElement = document.querySelector("input");
+    if (inputElement) {
+      inputElement.style.fontFamily = textFont();
+    }
+
+    const selectElement = document.querySelector("select");
+    if (selectElement) {
+      selectElement.style.fontFamily = textTitleFont();
+    }
+
     const h1Element = document.querySelector("h1");
     if (h1Element) {
       h1Element.style.fontFamily = textTitleFont();
@@ -54,7 +64,10 @@ function App() {
 
   const routes = [
     { path: "/login", element: <Login /> },
-    { path: "/*", element: verifyToken() ? <HomePage headers={headers} /> : <Login /> },
+    {
+      path: "/*",
+      element: verifyToken() ? <HomePage headers={headers} /> : <Login />,
+    },
     { path: "/message", element: verifyToken() ? <MessageDrive /> : <Login /> },
     { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
     { path: "/signup", element: <SignUp /> },
