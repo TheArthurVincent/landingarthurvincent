@@ -20,8 +20,8 @@ export default function SentenceLessonModelSlide({
       style={{
         alignItems: "center",
         display: "grid",
-        gap: "30rem",
-        marginBottom: " 40rem",
+        gap: "3rem",
+        marginBottom: "5rem",
       }}
     >
       {element.sentences &&
