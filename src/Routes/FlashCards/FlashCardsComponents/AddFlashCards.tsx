@@ -4,7 +4,14 @@ import { backDomain } from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import AddOneFlashCard from "./AddFlashONEFlashCard";
-import { Box, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import {
+  Box,
+  Button,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
 
 interface Student {
   id: string;
@@ -162,7 +169,9 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
             >
               <Box sx={{ display: "flex" }}>
                 <FormControl sx={{ width: "250px" }}>
-                  <InputLabel id="student-select-label">Choose student</InputLabel>
+                  <InputLabel id="student-select-label">
+                    Choose student
+                  </InputLabel>
                   <Select
                     labelId="student-select-label"
                     value={studentID}
@@ -202,9 +211,14 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
                   />
                 ))}
               </Box>
-              <ArvinButton color="green" onClick={addNewCards}>
-                Add cards
-              </ArvinButton>
+              <span>
+                <ArvinButton color="green" onClick={addNewCards}>
+                  Add cards
+                </ArvinButton>
+                <ArvinButton color="navy" onClick={addNewCard}>
+                  +
+                </ArvinButton>
+              </span>
             </Box>
           </Box>
         )}
