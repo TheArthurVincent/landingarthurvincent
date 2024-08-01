@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  RouteDiv,
-  RouteSizeControlBox,
-} from "../../Resources/Components/RouteBox";
+import { RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Box, Tab } from "@mui/material";
@@ -15,6 +12,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
 import AllCards from "./FlashCardsComponents/AllCards";
+import { onLoggOut } from "../../Resources/UniversalComponents";
 
 interface FlashCardsProps {
   headers: MyHeadersType | null;
@@ -36,6 +34,8 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
     if (user) {
       const { permissions } = JSON.parse(user);
       setPermissions(permissions);
+    } else {
+      onLoggOut();
     }
   }, []);
 

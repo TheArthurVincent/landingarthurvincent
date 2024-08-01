@@ -329,6 +329,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setDate("");
       fetchGeneralEvents();
     } catch (error) {
+      onLoggOut();
       console.log(error, "Erro ao criar evento");
     }
   };

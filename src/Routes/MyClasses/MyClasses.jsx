@@ -74,7 +74,7 @@ export function MyClasses({ headers }) {
         alert("Erro ao encontrar alunos");
       }
     } else {
-      null;
+      onLoggOut();
     }
   };
 

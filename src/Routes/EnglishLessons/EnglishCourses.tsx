@@ -3,7 +3,7 @@ import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
-import { backDomain, pathGenerator } from "../../Resources/UniversalComponents";
+import { backDomain, onLoggOut, pathGenerator } from "../../Resources/UniversalComponents";
 import EnglishCourse from "./EnglishCourse";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
@@ -55,7 +55,8 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       setListOfClassesNonAuthFromDatabase(classesDBNonAuth);
       setLoading(false);
     } catch (error) {
-      console.log("Erro ao obter cards");
+      console.log("Erro ao obter aulas");
+      onLoggOut();
       setLoading(false);
     }
   };
