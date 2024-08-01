@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import {
-  RouteDiv,
-  HOne,
-} from "../../Resources/Components/RouteBox";
+import React, { useEffect, useState } from "react";
+import { RouteDiv, HOne } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
   BackToHomePage,
-  IFrameVideoClass,
   getVideoEmbedUrl,
+  onLoggOut,
 } from "../../Resources/UniversalComponents";
 import { transparentWhite } from "../../Styles/Styles";
 import { DivAppear, H3FAQ } from "../MyClasses/MyClasses.Styled";
@@ -15,8 +12,9 @@ import { Input } from "@mui/material";
 import { contentFaq } from "./FaqContent";
 import Helmets from "../../Resources/Helmets";
 import { IFrameVideoBlog } from "../Blog/Blog.Styled";
+import { HeadersProps } from "../../Resources/types.universalInterfaces";
 
-export function Faq() {
+function Faq({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
 
   const [expandedItem, setExpandedItem] = useState(null);
@@ -38,6 +36,14 @@ export function Faq() {
       prevExpandedItem === index ? null : index
     );
   };
+  const checkLoggedIn = async () => {
+    const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    if (!getLoggedUser) onLoggOut();
+  };
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
 
   return (
     <RouteDiv className="smooth">

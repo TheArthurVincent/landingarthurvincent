@@ -10,8 +10,6 @@ import {
 } from "../../Styles/Styles";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
-import { formatDate } from "../../Resources/UniversalComponents";
-
 import RankingExplanation from "./RankingComponents/RankingExplanation";
 import RankingTimeline from "./RankingComponents/RankingTimeline";
 import StudentsRankingTotal from "./RankingComponents/StudentsRankingTotal";
@@ -20,6 +18,7 @@ import StudentsRanking from "./RankingComponents/StudentsRanking";
 import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
 import Countdown from "./RankingComponents/Countdown";
 import { monthInQuestion } from "./RankingComponents/RankingComponents";
+import { onLoggOut } from "../../Resources/UniversalComponents";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -29,7 +28,11 @@ export default function Ranking({ headers }: HeadersProps) {
 
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
-    setUser(theuser);
+    if (user) {
+      setUser(theuser);
+    } else {
+      onLoggOut();
+    }
   }, []);
 
   const componentsToRender = [

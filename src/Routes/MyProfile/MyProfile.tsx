@@ -4,6 +4,7 @@ import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage"
 import {
   backDomain,
   formatDateBr,
+  onLoggOut,
   updateInfo,
 } from "../../Resources/UniversalComponents";
 import { alwaysBlack } from "../../Styles/Styles";
@@ -43,6 +44,7 @@ export function MyProfile({ headers }: HeadersProps) {
       setNewPassword("");
       alert("Senha editada com sucesso!");
     } catch (error) {
+      onLoggOut();
       alert("Erro ao editar senha");
     }
   };

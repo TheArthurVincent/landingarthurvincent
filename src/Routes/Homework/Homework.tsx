@@ -4,7 +4,11 @@ import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { SectionHW } from "./Homework.Styled";
 import { Link } from "react-router-dom";
-import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
+import {
+  backDomain,
+  formatDateBr,
+  onLoggOut,
+} from "../../Resources/UniversalComponents";
 import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
@@ -36,6 +40,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
       });
       setStudentsList(response.data.listOfStudents);
     } catch (error) {
+      onLoggOut();
       alert("Erro ao encontrar alunos");
     }
   };
@@ -56,6 +61,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
       setTutoringList(tt);
       setLoading(false);
     } catch (error) {
+      onLoggOut();
       console.log(error, "erro ao listar homework");
     }
   };
