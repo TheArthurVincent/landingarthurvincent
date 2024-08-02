@@ -2,7 +2,11 @@ import React from "react";
 
 export function Manual() {
   return (
-    <div>
+    <div
+      style={{
+        padding: "1rem",
+      }}
+    >
       <h1>Manual do Aluno</h1>
 
       <h3>Acesso às Ferramentas:</h3>
