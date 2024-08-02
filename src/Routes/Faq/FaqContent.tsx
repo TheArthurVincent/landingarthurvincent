@@ -1,11 +1,24 @@
 import React from "react";
-import { primaryColor, textPrimaryColorContrast } from "../../Styles/Styles";
 import { Link } from "react-router-dom";
 import RankingExplanation from "../Ranking/RankingComponents/RankingExplanation";
 import { HTwo } from "../../Resources/Components/RouteBox";
 import { HThree } from "../MyClasses/MyClasses.Styled";
+import Manual from "../Adm/AdmComponents/Manual/Manual";
 
 export const contentFaq = [
+  {
+    instruction: "Condições",
+    tags: [
+      "portal",
+      "contrato",
+      "condições",
+      "login",
+      "próxima",
+      "next",
+      "em grupo",
+    ],
+    explanation: <Manual />,
+  },
   {
     instruction: "Primeiros passos no portal",
     url: "https://vimeo.com/971573790",
@@ -193,8 +206,8 @@ export const contentFaq = [
     tags: ["Vocabulário", "vocabulary", "study", "estudar"],
     explanation: (
       <>
-        <HThree> Mineração de sentenças.</HThree> Este é, a meu ver, o melhor método
-        para reforçar o uso das palavras. Minerar sentenças é o ato de
+        <HThree> Mineração de sentenças.</HThree> Este é, a meu ver, o melhor
+        método para reforçar o uso das palavras. Minerar sentenças é o ato de
         encontrar, em contextos reais, a palavra aprendida. Usamos 3 sites para
         isso:
         <br />

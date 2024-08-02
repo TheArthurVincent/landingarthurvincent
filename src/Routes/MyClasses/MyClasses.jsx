@@ -1,23 +1,13 @@
+import axios from "axios";
+import Helmets from "../../Resources/Helmets";
 import React, { useEffect, useState } from "react";
 import { RouteDiv, HOne, HTwo } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import {
-  IFrameVideoClass,
-  backDomain,
-  getVideoEmbedUrl,
-  onLoggOut,
-} from "../../Resources/UniversalComponents";
+import { IFrameVideoClass, backDomain, getVideoEmbedUrl, onLoggOut } from "../../Resources/UniversalComponents";
 import { ClassBox, TransectionMenu } from "./MyClasses.Styled";
-import {
-  alwaysBlack,
-  primaryColor,
-  secondaryColor,
-  textPrimaryColorContrast,
-} from "../../Styles/Styles";
+import { alwaysBlack, primaryColor, secondaryColor, textPrimaryColorContrast } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import Helmets from "../../Resources/Helmets";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../Blog/Blog.Styled";
 
@@ -58,7 +48,7 @@ export function MyClasses({ headers }) {
         headers,
       });
       setClasses(response.data.formattedTutoringFromParticularStudent);
-    } catch (error) {}
+    } catch (error) { }
   }
 
   const fetchStudents = async () => {
@@ -73,9 +63,7 @@ export function MyClasses({ headers }) {
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }
-    } else {
-      onLoggOut();
-    }
+    } else { }
   };
 
   useEffect(() => {
