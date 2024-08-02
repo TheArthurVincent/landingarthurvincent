@@ -783,6 +783,6 @@ export const updateInfo = async (id, headers) => {
 export const onLoggOut = () => {
   localStorage.removeItem("authorization");
   localStorage.removeItem("loggedIn");
-  alert("Token expirado. Faça login novamente");
+  alert("Faça login novamente");
   window.location.assign("/login");
 };
