@@ -14,6 +14,7 @@ import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Contract from "./AdmComponents/Contract/Contract";
 import Invoice from "./AdmComponents/Invoice/Invoice";
+import Manual from "./AdmComponents/Manual/Manual";
 
 export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
@@ -56,7 +57,13 @@ export function Adm({ headers }: HeadersProps) {
       value: "7",
       tooltip: "Geração do recibo de um aluno específico.",
       component: <Invoice headers={headers} />,
-    }
+    },
+    {
+      title: "Manual do aluno",
+      value: "8",
+      tooltip: "Manual do aluno.",
+      component: <Manual />,
+    },
   ];
 
   const handleChange = (event: any, newValue: string) => {
