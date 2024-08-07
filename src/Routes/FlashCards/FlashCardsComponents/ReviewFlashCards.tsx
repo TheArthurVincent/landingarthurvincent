@@ -32,6 +32,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
 
+
   const timerDisabled = () => {
     setCount(4);
     setIsDisabled(true);
@@ -147,6 +148,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       console.log(error, "Erro ao obter cards");
     }
   };
+
+
   const handleEditCard = async (cardId: string) => {
     setShowModal(true);
     try {
@@ -160,6 +163,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           newBackComments,
         },
         {
+          headers: actualHeaders,
           params: { cardId },
         }
       );
@@ -175,6 +179,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       const response = await axios.delete(
         `${backDomain}/api/v1/flashcard/${myId}`,
         {
+          headers: actualHeaders,
           params: { cardId }, // Enviar cardId como parâmetro de consulta
         }
       );
