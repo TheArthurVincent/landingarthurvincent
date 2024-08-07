@@ -152,10 +152,6 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
         {myPermissions === "superadmin" && (
           <Box sx={{ display: "grid" }}>
             <ArvinButton
-              // sx={{
-              //   margin: " auto",
-              //   display: "block",
-              // }}
               color="yellow"
               onClick={fetchStudents}
             >
