@@ -9,6 +9,7 @@ import {
   Xp,
   backDomain,
   formatDateBr,
+  updateInfo,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -31,7 +32,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
-
 
   const timerDisabled = () => {
     setCount(4);
@@ -84,6 +84,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     setSee(true);
     timerDisabled();
     setLoading(true);
+    updateInfo(myId, actualHeaders);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/flashcards/${myId}`,
@@ -148,7 +149,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       console.log(error, "Erro ao obter cards");
     }
   };
-
 
   const handleEditCard = async (cardId: string) => {
     setShowModal(true);

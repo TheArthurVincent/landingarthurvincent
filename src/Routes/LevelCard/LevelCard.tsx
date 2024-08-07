@@ -43,6 +43,12 @@ export function LevelCard({
   const seeScore = async (id: string) => {
     setLoading(true);
     try {
+      updateInfo(id, actualHeaders);
+    } catch (e) {
+      console.log(e);
+    }
+
+    try {
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers: actualHeaders,
       });

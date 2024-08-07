@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import {
@@ -50,10 +50,15 @@ export function MyProfile({ headers }: HeadersProps) {
   };
 
   useEffect(() => {
-    const getLoggedUser: User = JSON.parse(
-      localStorage.getItem("loggedIn") || ""
-    );
-    setUser(getLoggedUser);
+    try {
+      const getLoggedUser: User = JSON.parse(
+        localStorage.getItem("loggedIn") || ""
+      );
+      setUser(getLoggedUser);
+    } catch (e) {
+      console.log(e);
+      onLoggOut();
+    }
   }, []);
 
   const myProfileList = [
