@@ -9,6 +9,7 @@ import {
   Xp,
   backDomain,
   formatDateBr,
+  updateInfo,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -83,6 +84,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     setSee(true);
     timerDisabled();
     setLoading(true);
+    updateInfo(myId, actualHeaders);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/flashcards/${myId}`,
@@ -147,6 +149,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       console.log(error, "Erro ao obter cards");
     }
   };
+
   const handleEditCard = async (cardId: string) => {
     setShowModal(true);
     try {
@@ -160,6 +163,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           newBackComments,
         },
         {
+          headers: actualHeaders,
           params: { cardId },
         }
       );
@@ -175,6 +179,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       const response = await axios.delete(
         `${backDomain}/api/v1/flashcard/${myId}`,
         {
+          headers: actualHeaders,
           params: { cardId }, // Enviar cardId como parâmetro de consulta
         }
       );

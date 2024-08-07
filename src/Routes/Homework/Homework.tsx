@@ -8,6 +8,7 @@ import {
   backDomain,
   formatDateBr,
   onLoggOut,
+  updateInfo,
 } from "../../Resources/UniversalComponents";
 import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import axios from "axios";
@@ -71,6 +72,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
     const { id, permissions } = getLoggedUser;
     setStudentID(id);
     fetchClasses(id);
+    updateInfo(id, actualHeaders);
     setPermissions(permissions);
     permissions == "superadmin" ? fetchStudents() : null;
   }, []);
