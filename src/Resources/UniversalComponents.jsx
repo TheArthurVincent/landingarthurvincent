@@ -747,17 +747,25 @@ export const ButtonButton = (text) => {
   );
 };
 
+// export function isDev() {
+//   if (window.location.hostname === "localhost") {
+//     return "http://localhost:3502";
+//   } else if (
+//     window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
+//   ) {
+//     return "https://arvin-backstagin.9kwq6c.easypanel.host";
+//   } else {
+//     return "https://apiprod.arthurvincent.com.br";
+//   }
+// }
 export function isDev() {
   if (window.location.hostname === "localhost") {
     return "http://localhost:3502";
-  } else if (
-    window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
-  ) {
-    return "https://arvin-backstagin.9kwq6c.easypanel.host";
   } else {
-    return "https://apiprod.arthurvincent.com.br";
+    return "https://arvin-backstagin.9kwq6c.easypanel.host";
   }
 }
+
 export const backDomain = isDev();
 
 export const updateInfo = async (id, headers) => {
