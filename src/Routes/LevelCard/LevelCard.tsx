@@ -88,22 +88,18 @@ export function LevelCard({
           style={{ display: showCard }}
           src={items[level].image}
           alt="card"
-        />
-        <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />
-      </DivCardLevel>
+        />{" "}
+        <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />{" "}
+      </DivCardLevel>{" "}
       <TextLevelCard>
-        <div
-          style={{
-            display: showCard,
-          }}
-        >
+        {" "}
+        <div style={{ display: showCard }}>
+          {" "}
           <i
-            style={{
-              fontSize: "1.5rem",
-            }}
+            style={{ fontSize: "1.5rem" }}
             className={items[level].icon}
             aria-hidden="true"
-          />
+          />{" "}
           <div
             style={{
               marginBottom: "1rem",
@@ -113,6 +109,7 @@ export function LevelCard({
               marginTop: "0.5rem",
             }}
           >
+            {" "}
             <i
               onClick={() => seeScore(_StudentId)}
               style={{

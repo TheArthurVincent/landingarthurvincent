@@ -73,6 +73,7 @@ function HTMLEditor({ onChange }) {
         },
       },
     });
+
     setEditor(quill);
 
     return () => {
@@ -86,6 +87,7 @@ function HTMLEditor({ onChange }) {
     const handleChange = () => {
       const htmlContent =
         editorRef.current.querySelector(".ql-editor").innerHTML;
+      console.log(editor.getText());
       onChange(htmlContent);
     };
 
@@ -95,6 +97,7 @@ function HTMLEditor({ onChange }) {
       editor.off("text-change", handleChange);
     };
   }, [editor, onChange]);
+
 
   const memoizedEditor = useMemo(() => {
     return (
