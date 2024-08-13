@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import {
-  HeadersProps,
   MyHeadersType,
 } from "../../../Resources/types.universalInterfaces";
 import {
@@ -104,6 +103,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )
           : null;
       }
+      console.log(response.data.dueFlashcards);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
@@ -457,6 +457,20 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         </div>
                       </div>
                     </div>
+                    {/* <span>
+                      {cards &&
+                        cards.map((card, index) => {
+                          return (
+                            <p 
+                            style={{margin:"1rem"}}
+                            key={index}>
+                              <strong>{card.front.text} </strong>- Review Rate:{" "}
+                              <strong>{card.reviewRate}</strong> - Number of
+                              Reviews: <strong>{card.numberOfReviews}</strong>
+                            </p>
+                          );
+                        })}
+                    </span> */}
                   </>
                 ) : (
                   <p>
