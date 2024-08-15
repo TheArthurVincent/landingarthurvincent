@@ -1009,16 +1009,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                     <StyledDiv
                       className={
                         hj.getDate() == date.getDate() &&
-                          hj.getMonth() == date.getMonth() &&
-                          hj.getFullYear() == date.getFullYear()
+                        hj.getMonth() == date.getMonth() &&
+                        hj.getFullYear() == date.getFullYear()
                           ? "glowing"
                           : "none"
                       }
                       style={{
                         border:
                           hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
+                          hj.getMonth() == date.getMonth() &&
+                          hj.getFullYear() == date.getFullYear()
                             ? `2px solid ${secondaryColor()}`
                             : "null",
                       }}
@@ -1031,16 +1031,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                           top: 0,
                           fontWeight:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? 700
                               : 500,
                           textAlign: "center",
                           fontSize: "0.8rem",
                           backgroundColor:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? "#439906"
                               : alwaysBlack(),
                           color: alwaysWhite(),
@@ -1080,16 +1080,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 event.category === "Group Class"
                                   ? "#F2F1CE"
                                   : event.category === "Rep"
-                                    ? "#ade"
-                                    : event.category === "Tutoring"
-                                      ? "#eee"
-                                      : event.category === "Prize Class"
-                                        ? "#FCE562"
-                                        : event.category === "Standalone"
-                                          ? "#123"
-                                          : event.category === "Test"
-                                            ? "#333"
-                                            : "#000",
+                                  ? "#ade"
+                                  : event.category === "Tutoring"
+                                  ? "#eee"
+                                  : event.category === "Prize Class"
+                                  ? "#FCE562"
+                                  : event.category === "Standalone"
+                                  ? "#123"
+                                  : event.category === "Test"
+                                  ? "#333"
+                                  : "#000",
                               textAlign: "center",
                               display: "grid",
                             }}
@@ -1149,10 +1149,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.status == "desmarcado"
                                     ? "#FFCCCC"
                                     : event.status == "marcado"
-                                      ? "#CCE5FF"
-                                      : event.status == "realizada"
-                                        ? "#CCFFCC"
-                                        : "#000",
+                                    ? "#CCE5FF"
+                                    : event.status == "realizada"
+                                    ? "#CCFFCC"
+                                    : "#000",
                               }}
                             >
                               <div
@@ -1163,10 +1163,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     event.status == "marcado"
                                       ? primaryColor()
                                       : event.status == "realizada"
-                                        ? secondaryColor()
-                                        : event.status == "desmarcado"
-                                          ? "red"
-                                          : "#000",
+                                      ? secondaryColor()
+                                      : event.status == "desmarcado"
+                                      ? "red"
+                                      : "#000",
                                   fontSize: "0.6rem",
                                   padding: "5px",
                                   fontWeight: 600,
@@ -1175,8 +1175,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 {event.status == "marcado"
                                   ? "Scheduled"
                                   : event.status == "desmarcado"
-                                    ? "Canceled"
-                                    : "Realized"}
+                                  ? "Canceled"
+                                  : "Realized"}
                                 {event.status !== "desmarcado" &&
                                   thePermissions == "superadmin" && (
                                     <i
@@ -1250,16 +1250,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                   {category == "Test"
                     ? "Test Class"
                     : category == "Standalone"
-                      ? "Standalone Class"
-                      : category == "Group Class"
-                        ? "Group Class"
-                        : category == "Rep"
-                          ? "Replenishing"
-                          : category == "Prize Class"
-                            ? "Prize Class"
-                            : category == "Tutoring"
-                              ? "Tutoring: Private Class"
-                              : ""}{" "}
+                    ? "Standalone Class"
+                    : category == "Group Class"
+                    ? "Group Class"
+                    : category == "Rep"
+                    ? "Replenishing"
+                    : category == "Prize Class"
+                    ? "Prize Class"
+                    : category == "Tutoring"
+                    ? "Tutoring: Private Class"
+                    : ""}{" "}
                 </p>
                 <p>
                   <b>Date: </b>
@@ -1444,7 +1444,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               value="option1"
                               onChange={handleCheckbox1Change}
                             />
-                            1. Subir Aulas na Plataforma:
+                            0. Subir Vídeo no vimeo:
                           </label>
                         </div>
                         <div>
@@ -1455,7 +1455,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               value="option2"
                               onChange={handleCheckbox2Change}
                             />
-                            2. Adicionar Atividades de Homework:
+                            1. Subir Aulas na Plataforma:
                           </label>
                         </div>
                         <div>
@@ -1466,6 +1466,17 @@ export default function MyCalendar({ headers, thePermissions }) {
                               value="option3"
                               onChange={handleCheckbox3Change}
                             />
+                            2. Adicionar Atividades de Homework:
+                          </label>
+                        </div>
+                        <div>
+                          <label>
+                            <input
+                              checked={eventFull.checkList4}
+                              type="checkbox"
+                              value="option4"
+                              onChange={handleCheckbox4Change}
+                            />
                             3. Subir Flashcards:
                           </label>
                         </div>
@@ -1473,9 +1484,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                           <label>
                             <input
                               type="checkbox"
-                              checked={eventFull.checkList4}
-                              value="option4"
-                              onChange={handleCheckbox4Change}
+                              checked={eventFull.checkList5}
+                              value="option5"
+                              onChange={handleCheckbox5Change}
                             />
                             4. Formatar Material:
                           </label>
