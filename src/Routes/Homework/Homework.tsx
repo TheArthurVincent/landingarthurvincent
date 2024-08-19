@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
-import { SectionHW } from "./Homework.Styled";
 import { Link } from "react-router-dom";
 import {
   backDomain,
@@ -10,9 +9,13 @@ import {
   onLoggOut,
   updateInfo,
 } from "../../Resources/UniversalComponents";
-import { primaryColor, secondaryColor } from "../../Styles/Styles";
+import {
+  darkGreyColor,
+  primaryColor,
+  secondaryColor,
+} from "../../Styles/Styles";
 import axios from "axios";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { listOfCriteria } from "../Ranking/RankingComponents/ListOfCriteria";
 
@@ -21,19 +24,25 @@ interface HWProps {
   setChange: any;
   change: boolean;
 }
+
 export function Homework({ headers, setChange, change }: HWProps) {
   const [groupList, setGroupList] = useState<any>([]);
   const [tutoringList, setTutoringList] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
   const [permissions, setPermissions] = useState<string>("");
+  const [tabValue, setTabValue] = useState(0); // State para o controle das abas
+
+  const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    setTabValue(newValue);
+  };
 
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStudentID(event.target.value);
     fetchClasses(event.target.value);
   };
+
   const fetchStudents = async () => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
@@ -50,7 +59,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
 
   const fetchClasses = async (studentId: string) => {
     try {
-      var response = await axios.get(
+      const response = await axios.get(
         `${backDomain}/api/v1/homework/${studentId}`,
         {
           headers: actualHeaders,
@@ -66,6 +75,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
       console.log(error, "erro ao listar homework");
     }
   };
+
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     //@ts-ignore
@@ -79,7 +89,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
 
   const updateRealizedClass = async (tutoringId: string, score: number) => {
     try {
-      const response = await axios.put(
+      await axios.put(
         `${backDomain}/api/v1/homework/${studentID}`,
         {
           tutoringId,
@@ -95,6 +105,7 @@ export function Homework({ headers, setChange, change }: HWProps) {
       alert("Erro ao encontrar alunos");
     }
   };
+
   const pointsHW = (dueDate: string) => {
     const pointsMadeHW = listOfCriteria[0].score[0].score;
     const pointsLateHW = listOfCriteria[0].score[1].score;
@@ -160,47 +171,45 @@ export function Homework({ headers, setChange, change }: HWProps) {
       {loading ? (
         <CircularProgress />
       ) : (
-        <SectionHW>
-          <article>
-            <HTwo>Tutorings</HTwo>
-            <p
-              style={{
-                textAlign: "center",
-                marginBottom: "1rem",
-              }}
-            >
-              As atividades abaixo são referentes às suas aulas particulares.
-            </p>
-            <ul
-              style={{
-                overflowY: "auto",
-                maxHeight: "70vh",
-                padding: "1px",
-                border: "1px solid black",
-              }}
-            >
-              {tutoringList.map((homework: any, index: number) => {
-                return (
+        <Box sx={{ width: "100%" }}>
+          <Tabs value={tabValue} onChange={handleTabChange}>
+            <Tab label="Tutorings" />
+            <Tab label="Group Classes" />
+          </Tabs>
+          {tabValue === 0 && (
+            <Box>
+              <HTwo>Tutorings</HTwo>
+              <p style={{ textAlign: "center", marginBottom: "1rem" }}>
+                As atividades abaixo são referentes às suas aulas particulares.
+              </p>
+              <ul
+                style={{
+                  overflowY: "auto",
+                  maxHeight: "70vh",
+                }}
+              >
+                {tutoringList.map((homework: any, index: number) => (
                   <li
                     key={index}
                     style={{
-                      marginBottom: "1px",
+                      margin: "2px",
                       textDecoration: "none",
                       display: index > 3 ? "none" : "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
-                      border: `1px solid ${primaryColor()}`,
+                      borderRadius: "10px",
+                      border: `1px solid #aaa`,
                     }}
                   >
-                    <HTwo
-                      style={{
-                        padding: "none",
-                        margin: "none",
-                      }}
-                    >
-                      Title: {formatDateBr(homework.assignmentDate)}
-                    </HTwo>
+                    <Tooltip title="Dia de entrega">
+                      <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
+                    </Tooltip>
+                    <Tooltip title="Dia que a aula foi dada">
+                      <HTwo>
+                        Title: {formatDateBr(homework.assignmentDate)}
+                      </HTwo>
+                    </Tooltip>
                     <div>
                       <span>
                         <i
@@ -219,34 +228,29 @@ export function Homework({ headers, setChange, change }: HWProps) {
                         {homework?.status}
                       </span>
                       <br />
-                      Due date: {formatDateBr(homework.dueDate)}
                     </div>
                     <div style={{ display: "flex", gap: "5px" }}>
-                      {homework.status && (
-                        <>
-                          {permissions == "superadmin" &&
-                            homework?.status == "pending" && (
-                              <ArvinButton
-                                onClick={() =>
-                                  updateRealizedClass(
-                                    homework._id,
-                                    pointsHW(homework.dueDate)
-                                  )
-                                }
-                              >
-                                <i
-                                  className="fa fa-check-circle"
-                                  aria-hidden="true"
-                                />
-                              </ArvinButton>
-                            )}
-                        </>
-                      )}
+                      {homework.status &&
+                        permissions === "superadmin" &&
+                        homework?.status === "pending" && (
+                          <ArvinButton
+                            onClick={() =>
+                              updateRealizedClass(
+                                homework._id,
+                                pointsHW(homework.dueDate)
+                              )
+                            }
+                          >
+                            <i
+                              className="fa fa-check-circle"
+                              aria-hidden="true"
+                            />
+                          </ArvinButton>
+                        )}
                     </div>
-                    <div style={{ width: "20rem" }}>
+                    <div>
                       <div
                         style={{
-                          backgroundColor: "#eee",
                           padding: "1rem",
                         }}
                         dangerouslySetInnerHTML={{
@@ -254,90 +258,90 @@ export function Homework({ headers, setChange, change }: HWProps) {
                         }}
                       />
                     </div>
-
                     <Link to={homework.googleDriveLink}>
                       Access the class here
                     </Link>
                   </li>
-                );
-              })}
-            </ul>
-          </article>
-          <article>
-            <HTwo>Group Classes</HTwo>
-            <p
-              style={{
-                textAlign: "center",
-                marginBottom: "1rem",
-              }}
-            >
-              As atividades abaixo são referentes às aulas em grupo!
-            </p>
-            <ul
-              style={{
-                overflowY: "auto",
-                maxHeight: "70vh",
-                padding: "1px",
-                border: "1px solid black",
-              }}
-            >
-              {groupList.map((homework: any, index: number) => {
-                return (
+                ))}
+              </ul>
+            </Box>
+          )}
+          {tabValue === 1 && (
+            <Box>
+              <HTwo>Group Classes</HTwo>
+              <p style={{ textAlign: "center", marginBottom: "1rem" }}>
+                As atividades abaixo são referentes às aulas em grupo!
+              </p>
+              <ul
+                style={{
+                  overflowY: "auto",
+                  maxHeight: "70vh",
+                  padding: "1px",
+                }}
+              >
+                {groupList.map((homework: any, index: number) => (
                   <li
                     key={index}
                     style={{
-                      marginBottom: "1px",
+                      margin: "2px",
                       textDecoration: "none",
                       display: index > 3 ? "none" : "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
-                      border: `1px solid ${secondaryColor()}`,
+                      borderRadius: "10px",
+                      border: `1px solid #aaa`,
                     }}
                   >
-                    <HTwo>Title: {formatDateBr(homework.assignmentDate)}</HTwo>
+                    <Tooltip title="Dia de entrega">
+                      <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
+                    </Tooltip>
+                    <Tooltip title="Dia que a aula foi dada">
+                      <HTwo>
+                        Title: {formatDateBr(homework.assignmentDate)}
+                      </HTwo>
+                    </Tooltip>
                     <div>
-                      <i
-                        style={{
-                          display: "inline",
-                          color:
-                            homework?.status == "done" ? "green" : "orange",
-                        }}
-                        className={`fa fa-${
-                          homework?.status == "done"
-                            ? "check-circle"
-                            : "ellipsis-h"
-                        }`}
-                        aria-hidden="true"
-                      />{" "}
-                      Due date: {formatDateBr(homework.dueDate)}
+                      <span>
+                        <i
+                          style={{
+                            display: "inline",
+                            color:
+                              homework?.status == "done" ? "green" : "orange",
+                          }}
+                          className={`fa fa-${
+                            homework?.status == "done"
+                              ? "check-circle"
+                              : "ellipsis-h"
+                          }`}
+                          aria-hidden="true"
+                        />{" "}
+                        {homework?.status}
+                      </span>
+                      <br />
                     </div>
-                    {homework.status && (
-                      <>
-                        {permissions === "superadmin" &&
-                          homework.status !== "done" && (
-                            <ArvinButton
-                              onClick={() =>
-                                updateRealizedClass(
-                                  homework._id,
-                                  pointsGC(homework.dueDate)
-                                )
-                              }
-                            >
-                              <i
-                                className="fa fa-check-circle"
-                                aria-hidden="true"
-                              />
-                            </ArvinButton>
-                          )}
-                      </>
-                    )}
-
-                    <div style={{ display: "flex", gap: "5px" }}></div>
-                    <div style={{ width: "20rem" }}>
+                    <div style={{ display: "flex", gap: "5px" }}>
+                      {homework.status &&
+                        permissions === "superadmin" &&
+                        homework?.status === "pending" && (
+                          <ArvinButton
+                            onClick={() =>
+                              updateRealizedClass(
+                                homework._id,
+                                pointsGC(homework.dueDate)
+                              )
+                            }
+                          >
+                            <i
+                              className="fa fa-check-circle"
+                              aria-hidden="true"
+                            />
+                          </ArvinButton>
+                        )}
+                    </div>
+                    <div>
                       <div
                         style={{
-                          backgroundColor: "#eee",
                           padding: "1rem",
                         }}
                         dangerouslySetInnerHTML={{
@@ -349,14 +353,12 @@ export function Homework({ headers, setChange, change }: HWProps) {
                       Access the class here
                     </Link>
                   </li>
-                );
-              })}
-            </ul>
-          </article>
-        </SectionHW>
-      )}{" "}
+                ))}
+              </ul>
+            </Box>
+          )}
+        </Box>
+      )}
     </RouteDiv>
   );
 }
-
-export default Homework;
