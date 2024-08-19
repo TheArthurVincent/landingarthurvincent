@@ -1132,7 +1132,6 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   {abreviateName(event.student)}
                                 </span>
                               )}
-
                               {event.category == "Group Class"
                                 ? `${event.time} | ${event.description}`
                                 : ` ${event.time} | ${event.category}`}
