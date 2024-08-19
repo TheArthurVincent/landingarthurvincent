@@ -25,7 +25,7 @@ interface HWProps {
   change: boolean;
 }
 
-export function Homework({ headers, setChange, change }: HWProps) {
+export default function Homework({ headers, setChange, change }: HWProps) {
   const [groupList, setGroupList] = useState<any>([]);
   const [tutoringList, setTutoringList] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
