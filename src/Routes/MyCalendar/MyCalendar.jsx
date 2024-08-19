@@ -1133,7 +1133,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 </span>
                               )}
 
-                              {` ${event.time} | ${event.category}`}
+                              {event.category == "Group Class"
+                                ? `${event.time} | ${event.description}`
+                                : ` ${event.time} | ${event.category}`}
                               <br />
                             </p>
                             <div
