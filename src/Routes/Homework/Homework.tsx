@@ -9,11 +9,6 @@ import {
   onLoggOut,
   updateInfo,
 } from "../../Resources/UniversalComponents";
-import {
-  darkGreyColor,
-  primaryColor,
-  secondaryColor,
-} from "../../Styles/Styles";
 import axios from "axios";
 import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
@@ -25,7 +20,7 @@ interface HWProps {
   change: boolean;
 }
 
-export function Homework({ headers, setChange, change }: HWProps) {
+export default function Homework({ headers, setChange, change }: HWProps) {
   const [groupList, setGroupList] = useState<any>([]);
   const [tutoringList, setTutoringList] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -218,11 +213,10 @@ export function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
+                          className={`fa fa-${homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                          }`}
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -309,11 +303,10 @@ export function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
+                          className={`fa fa-${homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                          }`}
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
