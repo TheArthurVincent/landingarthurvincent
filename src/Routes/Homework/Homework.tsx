@@ -218,11 +218,10 @@ export function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
+                          className={`fa fa-${homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                          }`}
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -309,11 +308,10 @@ export function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
+                          className={`fa fa-${homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                          }`}
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
