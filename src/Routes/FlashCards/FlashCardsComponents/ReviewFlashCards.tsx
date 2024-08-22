@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
-import {
-  MyHeadersType,
-} from "../../../Resources/types.universalInterfaces";
+import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
   Xp,
   backDomain,
@@ -286,10 +284,16 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             justifyContent: "center",
                             display: "flex",
                             gap: "5px",
+                            marginBottom: "10px",
                             marginTop: "5px",
                           }}
                         >
-                          <div style={{ display: "grid", gap: "5px" }}>
+                          <div
+                            style={{
+                              display: "grid",
+                              gap: "5px",
+                            }}
+                          >
                             <ArvinButton
                               onClick={() => {
                                 reviewCard(cards[0].id, "veryhard");
@@ -298,7 +302,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             >
                               Repeat!{" "}
                             </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>Today</p>
+                            {/* <p style={{ fontSize: "10px" }}>Today</p> */}
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
@@ -307,9 +311,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             >
                               Hard
                             </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>
+                            {/* <p style={{ fontSize: "10px" }}>
                               {formatDateBr(cards[0].hard)}
-                            </p>
+                            </p> */}
                           </div>
 
                           <div style={{ display: "grid", gap: "5px" }}>
@@ -319,9 +323,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             >
                               Medium
                             </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>
+                            {/* <p style={{ fontSize: "10px" }}>
                               {formatDateBr(cards[0].medium)}
-                            </p>
+                            </p> */}
                           </div>
 
                           <div style={{ display: "grid", gap: "5px" }}>
@@ -331,9 +335,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             >
                               Easy
                             </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>
+                            {/* <p style={{ fontSize: "10px" }}>
                               {formatDateBr(cards[0].easy)}
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
