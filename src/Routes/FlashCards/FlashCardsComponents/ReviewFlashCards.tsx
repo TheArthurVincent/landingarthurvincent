@@ -284,6 +284,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             justifyContent: "center",
                             display: "flex",
                             gap: "5px",
+                            marginBottom: "10px",
                             marginTop: "5px",
                           }}
                         >
@@ -291,7 +292,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             style={{
                               display: "grid",
                               gap: "5px",
-                              maxWidth: "1.1rem",
                             }}
                           >
                             <ArvinButton
