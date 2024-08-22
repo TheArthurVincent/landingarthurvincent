@@ -9,11 +9,6 @@ import {
   onLoggOut,
   updateInfo,
 } from "../../Resources/UniversalComponents";
-import {
-  darkGreyColor,
-  primaryColor,
-  secondaryColor,
-} from "../../Styles/Styles";
 import axios from "axios";
 import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
