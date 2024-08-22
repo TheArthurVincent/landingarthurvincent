@@ -287,7 +287,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             marginTop: "5px",
                           }}
                         >
-                          <div style={{ display: "grid", gap: "5px" }}>
+                          <div
+                            style={{
+                              display: "grid",
+                              gap: "5px",
+                              maxWidth: "1.1rem",
+                            }}
+                          >
                             <ArvinButton
                               onClick={() => {
                                 reviewCard(cards[0].id, "veryhard");
@@ -296,7 +302,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             >
                               Repeat!{" "}
                             </ArvinButton>
-                            <p style={{ fontSize: "10px" }}>Today</p>
+                            {/* <p style={{ fontSize: "10px" }}>Today</p> */}
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
