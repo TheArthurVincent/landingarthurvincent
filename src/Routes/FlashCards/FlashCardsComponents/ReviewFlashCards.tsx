@@ -5,7 +5,6 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
   Xp,
   backDomain,
-  formatDateBr,
   updateInfo,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
@@ -214,7 +213,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         paddingBottom: "1rem",
                       }}
                     >
-                      New cards:{" "}
+                      {/* New cards:{" "}
                       <span
                         style={{
                           color: "navy",
@@ -230,15 +229,15 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       >
                         {cardsCount.reviewedCardsCount}
                       </span>{" "}
-                      | Reviews for today:{" "}
+                      |  */}
+                      Reviews for today:{" "}
                       <span
                         style={{
                           color: "black",
                         }}
                       >
                         {cardsCount.remainingFlashcardsToReview}
-                      </span>{" "}
-                      |{" "}
+                      </span>
                     </div>{" "}
                     {myPermissions === "superadmin" && (
                       <ArvinButton
