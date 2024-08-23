@@ -127,7 +127,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                     >
                       <img
                         style={{
-                          maxWidth: "8rem",
+                          maxWidth: "5rem",
                           width: "100%",
                           borderRadius: "50%",
                           height: "100%",
@@ -151,7 +151,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                 gap: "1rem",
               }}
             >
-              {listOfClassesNonAuthFromDatabase.map(
+              {/* {listOfClassesNonAuthFromDatabase.map(
                 (route: any, idx: number) => (
                   <div
                     key={idx}
@@ -168,7 +168,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                   >
                     <img
                       style={{
-                        maxWidth: "6rem",
+                        maxWidth: "5rem",
                         borderRadius: "50%",
                         width: "100%",
                         filter: "grayscale(100%)",
@@ -185,7 +185,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                     </div>
                   </div>
                 )
-              )}
+              )} */}
             </ul>
           </div>
         ) : (
