@@ -151,7 +151,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                 gap: "1rem",
               }}
             >
-              {listOfClassesNonAuthFromDatabase.map(
+              {/* {listOfClassesNonAuthFromDatabase.map(
                 (route: any, idx: number) => (
                   <div
                     key={idx}
@@ -185,7 +185,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                     </div>
                   </div>
                 )
-              )}
+              )} */}
             </ul>
           </div>
         ) : (
