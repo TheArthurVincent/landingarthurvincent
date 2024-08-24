@@ -58,23 +58,19 @@ function CoursesSideBar({ courses }) {
             <div onClick={handleShowCourses}>
               <div
                 style={{
-                  maxHeight: "1rem",
-                  padding: "1rem",
-                  zIndex: -1,
                   alignItems: "center",
-                  backgroundColor: secondaryColor(),
-                  border: `ridge 5px ${secondaryColor()}`,
-                  borderRadius: "50px",
-                  transition: "left 0.3s ease-out",
-                  color: alwaysWhite(),
-                  position: "fixed",
-                  left: showCourses ? -150 : "-17.8rem",
-                  top: 405,
-                  justifyContent: "space-between",
-                  cursor: "pointer",
-                  width: "18rem",
+                  backgroundColor: secondaryColor(), border: `ridge 4px ${secondaryColor()}`, borderRadius: "50px",
+                  color: alwaysWhite(), cursor: "pointer",
                   display: "flex",
                   gap: "9rem",
+                  justifyContent: "space-between",
+                  left: showCourses ? -150 : "-17.8rem",
+                  maxHeight: "1rem",
+                  padding: "0.6rem", position: "fixed",
+                  transition: "left 0.3s ease-out",
+                  top: 400,
+                  width: "18rem",
+                  zIndex: -1,
                 }}
               >
                 <HOne>Modules</HOne>
