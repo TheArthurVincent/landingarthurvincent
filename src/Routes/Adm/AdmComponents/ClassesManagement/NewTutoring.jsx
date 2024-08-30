@@ -69,12 +69,10 @@ export function NewTutoring({ headers }) {
       setTutorings([]);
       setNewHWDescription("");
       setButton("Criar");
-      fetchStudents();
     } catch (error) {
       setButton("Criar");
       alert("Erro ao salvar aulas");
       setStandardValue("Aluno");
-      fetchStudents();
     }
   };
 
