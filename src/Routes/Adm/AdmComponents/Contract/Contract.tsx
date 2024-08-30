@@ -9,6 +9,7 @@ import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 import Helmets from "../../../../Resources/Helmets";
 import { HOne, HTwo } from "../../../../Resources/Components/RouteBox";
 import { HThree } from "../../../MyClasses/MyClasses.Styled";
+import { CircularProgress } from "@mui/material";
 
 export function Contract({ headers }: HeadersProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
@@ -20,6 +21,7 @@ export function Contract({ headers }: HeadersProps) {
   const [fee, setFee] = useState<number>(0);
   const [weeklyClasses, setWeeklyClasses] = useState<number>(0);
   const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [loading, setLoading] = useState<Boolean>(false);
 
   const handleStudentChange = async (event: any) => {
     setNewID(event.target.value);
@@ -46,11 +48,13 @@ export function Contract({ headers }: HeadersProps) {
   const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers: actualHeaders,
       });
       setStudentsList(response.data.listOfStudents);
+      setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
@@ -74,39 +78,42 @@ export function Contract({ headers }: HeadersProps) {
 
   return (
     <div>
-      <div
-      className="no-print"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 5rem",
-        }}
-      >
-        <select
-          onChange={handleStudentChange}
-          name="students"
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <div
           className="no-print"
-          id=""
-          value={newID}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 5rem",
+          }}
         >
-          {studentsList.map((student: any, index: number) => {
-            return (
-              <option key={index} value={student.id}>
-                {student.name + " " + student.lastname}
-              </option>
-            );
-          })}
-        </select>
-        <span className="no-print">
-          <MyButton onClick={generatePDF}>Gerar PDF</MyButton>
-        </span>
-      </div>
-      <div
-        style={{ fontSize: "11px", padding: "1rem" }}
-        id="contract-content"
-      >
-        <HOne style={{ textAlign: "center" }}>Contrato de Aulas Particulares</HOne>
+          <select
+            onChange={handleStudentChange}
+            name="students"
+            className="no-print"
+            id=""
+            value={newID}
+          >
+            {studentsList.map((student: any, index: number) => {
+              return (
+                <option key={index} value={student.id}>
+                  {student.name + " " + student.lastname}
+                </option>
+              );
+            })}
+          </select>
+          <span className="no-print">
+            <MyButton onClick={generatePDF}>Gerar PDF</MyButton>
+          </span>
+        </div>
+      )}
+      <div style={{ fontSize: "11px", padding: "1rem" }} id="contract-content">
+        <HOne style={{ textAlign: "center" }}>
+          Contrato de Aulas Particulares
+        </HOne>
         <HTwo
           style={{
             paddingBottom: "2rem 0",
@@ -128,7 +135,8 @@ export function Contract({ headers }: HeadersProps) {
             <strong>Nome do aluno:</strong> {name}
           </p>
           <p>
-            <strong>Data de nascimento:</strong> {formatDateBrContract(dateOfBirth)}
+            <strong>Data de nascimento:</strong>{" "}
+            {formatDateBrContract(dateOfBirth)}
           </p>
           <p>
             <strong>Telefone:</strong> {phoneNumber}

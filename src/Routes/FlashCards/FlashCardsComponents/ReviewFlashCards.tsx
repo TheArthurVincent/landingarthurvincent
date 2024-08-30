@@ -29,9 +29,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
 
-useEffect(()=>{
-  console.log(cards)
-},[])
+  useEffect(() => {
+    console.log(cards);
+  }, []);
   const timerDisabled = () => {
     setCount(4);
     setIsDisabled(true);
@@ -69,8 +69,9 @@ useEffect(()=>{
         { headers: actualHeaders }
       );
       setAnswer(false);
-      seeCardsToReview();
       onChange(!change);
+      seeCardsToReview();
+      timerDisabled();
     } catch (error) {
       alert("Erro ao enviar cards");
     }
@@ -78,11 +79,10 @@ useEffect(()=>{
   const [loading, setLoading] = useState<boolean>(false);
 
   const seeCardsToReview = async () => {
+    setLoading(true);
     setAnswer(false);
     setBackCardVisible(false);
     setSee(true);
-    timerDisabled();
-    setLoading(true);
     updateInfo(myId, actualHeaders);
     try {
       const response = await axios.get(
@@ -101,14 +101,15 @@ useEffect(()=>{
               false,
               response.data.dueFlashcards[0].front.language
             )
-          : null;
-      }
-      console.log(response.data.dueFlashcards, response.data);
+            : null;
+          }
       setCards(response.data.dueFlashcards);
+      console.log(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
-      setLoading(false);
       setBackCardVisible(true);
+      setLoading(false);
+      timerDisabled();
     } catch (error) {
       alert("Erro ao enviar cards");
     }
@@ -216,23 +217,6 @@ useEffect(()=>{
                         paddingBottom: "1rem",
                       }}
                     >
-                      {/* New cards:{" "}
-                      <span
-                        style={{
-                          color: "navy",
-                        }}
-                      >
-                        {cardsCount.newCardsCount}
-                      </span>{" "}
-                      | Old cards:{" "}
-                      <span
-                        style={{
-                          color: "green",
-                        }}
-                      >
-                        {cardsCount.reviewedCardsCount}
-                      </span>{" "}
-                      |  */}
                       Reviews for today:{" "}
                       <span
                         style={{
@@ -304,7 +288,6 @@ useEffect(()=>{
                             >
                               Repeat!{" "}
                             </ArvinButton>
-                            {/* <p style={{ fontSize: "10px" }}>Today</p> */}
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
@@ -313,9 +296,6 @@ useEffect(()=>{
                             >
                               Hard
                             </ArvinButton>
-                            {/* <p style={{ fontSize: "10px" }}>
-                              {formatDateBr(cards[0].hard)}
-                            </p> */}
                           </div>
 
                           <div style={{ display: "grid", gap: "5px" }}>
@@ -325,9 +305,6 @@ useEffect(()=>{
                             >
                               Medium
                             </ArvinButton>
-                            {/* <p style={{ fontSize: "10px" }}>
-                              {formatDateBr(cards[0].medium)}
-                            </p> */}
                           </div>
 
                           <div style={{ display: "grid", gap: "5px" }}>
@@ -337,9 +314,6 @@ useEffect(()=>{
                             >
                               Easy
                             </ArvinButton>
-                            {/* <p style={{ fontSize: "10px" }}>
-                              {formatDateBr(cards[0].easy)}
-                            </p> */}
                           </div>
                         </div>
                       </div>

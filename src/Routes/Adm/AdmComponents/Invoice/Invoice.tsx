@@ -8,6 +8,7 @@ import {
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 import Helmets from "../../../../Resources/Helmets";
 import { HOne } from "../../../../Resources/Components/RouteBox";
+import { CircularProgress } from "@mui/material";
 
 export function Invoice({ headers }: HeadersProps) {
   const [studentsList, setStudentsList] = useState<any>([]);
@@ -17,10 +18,11 @@ export function Invoice({ headers }: HeadersProps) {
   const [today, setDate] = useState<any>(new Date());
   const [thisMonth, setThisMonth] = useState<string>("Janeiro/1999");
   const [fee, setFee] = useState<number>(1000);
+  const [loading, setLoading] = useState<Boolean>(false);
+
   const [comments, setComments] = useState<string>("");
   const handleStudentChange = async (event: any) => {
     setNewID(event.target.value);
-
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/student/${event.target.value}`,
@@ -39,11 +41,13 @@ export function Invoice({ headers }: HeadersProps) {
   const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers: actualHeaders,
       });
       setStudentsList(response.data.listOfStudents);
+      setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
@@ -58,66 +62,71 @@ export function Invoice({ headers }: HeadersProps) {
 
   return (
     <div>
-      <div
-        style={{
-          display: "grid",
-          gap: "5px",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 5rem",
-        }}
-      >
-        <select
-          onChange={handleStudentChange}
-          name="students"
-          className="no-print"
-          id=""
-          value={newID}
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <div
+          style={{
+            display: "grid",
+            gap: "5px",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 5rem",
+          }}
         >
-          {studentsList.map((student: any, index: number) => {
-            return (
-              <option key={index} value={student.id}>
-                {student.name + " " + student.lastname}
-              </option>
-            );
-          })}
-        </select>
-        <input
-          className="no-print"
-          type="date"
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
-        />
-        <input
-          className="no-print"
-          value={thisMonth}
-          type="text"
-          onChange={(e) => {
-            setThisMonth(e.target.value);
-          }}
-        />{" "}
-        <input
-          className="no-print"
-          value={fee}
-          type="number"
-          onChange={(e) => {
-            setFee(Number(e.target.value));
-          }}
-        />
-        <input
-          className="no-print"
-          value={comments}
-          placeholder="comments"
-          type="text"
-          onChange={(e) => {
-            setComments(e.target.value);
-          }}
-        />
-        <span className="no-print">
-          <MyButton onClick={generatePDF}>Gerar PDF</MyButton>
-        </span>
-      </div>
+          <select
+            onChange={handleStudentChange}
+            name="students"
+            className="no-print"
+            id=""
+            value={newID}
+          >
+            {studentsList.map((student: any, index: number) => {
+              return (
+                <option key={index} value={student.id}>
+                  {student.name + " " + student.lastname}
+                </option>
+              );
+            })}
+          </select>
+          <input
+            className="no-print"
+            type="date"
+            onChange={(e) => {
+              setDate(e.target.value);
+            }}
+          />
+          <input
+            className="no-print"
+            value={thisMonth}
+            type="text"
+            onChange={(e) => {
+              setThisMonth(e.target.value);
+            }}
+          />{" "}
+          <input
+            className="no-print"
+            value={fee}
+            type="number"
+            onChange={(e) => {
+              setFee(Number(e.target.value));
+            }}
+          />
+          <input
+            className="no-print"
+            value={comments}
+            placeholder="comments"
+            type="text"
+            onChange={(e) => {
+              setComments(e.target.value);
+            }}
+          />
+          <span className="no-print">
+            <MyButton onClick={generatePDF}>Gerar PDF</MyButton>
+          </span>
+        </div>
+      )}
+
       <div
         style={{
           fontSize: "25px",

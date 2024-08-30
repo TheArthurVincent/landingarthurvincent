@@ -14,7 +14,7 @@ export function NewTutoring({ headers }) {
   const [newAttachments, setAttachments] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [seeHW, setSeeHW] = useState(false);
-  
+
   const [newHWDescription, setNewHWDescription] = useState("");
   const handleHWDescriptionChange = (htmlContent) => {
     setNewHWDescription(htmlContent);
@@ -26,13 +26,16 @@ export function NewTutoring({ headers }) {
   const [button, setButton] = useState("Criar");
   const [tutorings, setTutorings] = useState([]);
   const [disabled, setDisabled] = useState(true);
+  const [loadingS, setLoadingS] = useState(true);
 
   const fetchStudents = async () => {
+    setLoadingS(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers,
       });
       setStudent(response.data.listOfStudents);
+      setLoadingS(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
@@ -83,135 +86,99 @@ export function NewTutoring({ headers }) {
   return (
     <>
       <HOne>Postar aula particular dada</HOne>
-      <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
-        <div
-          style={{
-            display: "grid",
-            gap: "1rem",
-            gridTemplateColumns: "1fr 0.1fr",
-          }}
-        >
-          <select
-            required
-            style={{
-              minWidth: "4.5rem",
-              padding: "0.3rem",
-              fontSize: "1rem",
-              cursor: "pointer",
-            }}
-            onChange={(e) => setStudentList(e.target.value)}
-          >
-            <option style={{ cursor: "pointer" }} value={standardValue} hidden>
-              Escolha o aluno
-            </option>
-            {student.map((option, index) => {
-              return (
-                <option
-                  style={{ cursor: "pointer" }}
-                  key={index}
-                  value={option.id}
-                >
-                  {option.fullname}
-                </option>
-              );
-            })}
-          </select>
+
+      {loadingS ? (
+        <CircularProgress />
+      ) : (
+        <form style={{ display: "grid", gap: "1rem" }} onSubmit={handleSubmit}>
           <div
-        style={{
-          cursor: "pointer",
-          padding: "1rem",
-          backgroundColor: lightGreyColor(),
-        }}
-          onClick={handleAddTutoring}>+ Aula</div>
-        </div>
-        {tutorings.map((tutoring, index) => (
-          <div key={index}>
-            <DivGrid>
-              <input
-                style={{
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                  padding: "0.5rem",
-                  margin: "0",
-                  fontSize: "1.1rem",
-                  fontWeight: 500,
-                }}
-                required
-                type="text"
-                placeholder="Vídeo da Aula (YouTube ou Vimeo)"
-                value={tutoring.videoUrl}
-                onChange={(e) => {
-                  const newTutorings = [...tutorings];
-                  newTutorings[index].videoUrl = e.target.value;
-                  setTutorings(newTutorings);
-                }}
-              />
-              <input
-                style={{
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                  padding: "0.5rem",
-                  margin: "0",
-                  fontSize: "1.1rem",
-                  fontWeight: 500,
-                }}
-                required
-                type="text"
-                placeholder="Pasta da Aula"
-                value={tutoring.attachments}
-                onChange={(e) => {
-                  const newTutorings = [...tutorings];
-                  newTutorings[index].attachments = e.target.value;
-                  setTutorings(newTutorings);
-                }}
-              />
-              <input
-                style={{
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                  padding: "0.5rem",
-                  margin: "0",
-                  fontSize: "1.1rem",
-                  fontWeight: 500,
-                }}
-                type="date"
-                placeholder="Data"
-                value={tutoring.date}
-                onChange={(e) => {
-                  const newTutorings = [...tutorings];
-                  newTutorings[index].date = e.target.value;
-                  setTutorings(newTutorings);
-                }}
-                required
-              />
-              <div
-                style={{
-                  cursor: "pointer",
-                  padding: "1rem",
-                  backgroundColor: lightGreyColor(),
-                }}
-                onClick={() => {
-                  setDueDate("");
-                  setNewHWDescription("");
-                  setSeeHW(!seeHW);
-                }}
+            style={{
+              display: "grid",
+              gap: "1rem",
+              gridTemplateColumns: "1fr 0.1fr",
+            }}
+          >
+            <select
+              required
+              style={{
+                minWidth: "4.5rem",
+                padding: "0.3rem",
+                fontSize: "1rem",
+                cursor: "pointer",
+              }}
+              onChange={(e) => setStudentList(e.target.value)}
+            >
+              <option
+                style={{ cursor: "pointer" }}
+                value={standardValue}
+                hidden
               >
-                HW
-              </div>
-            </DivGrid>
+                Escolha o aluno
+              </option>
+              {student.map((option, index) => {
+                return (
+                  <option
+                    style={{ cursor: "pointer" }}
+                    key={index}
+                    value={option.id}
+                  >
+                    {option.fullname}
+                  </option>
+                );
+              })}
+            </select>
             <div
               style={{
-                display: seeHW ? "block" : "none",
+                cursor: "pointer",
+                padding: "1rem",
+                backgroundColor: lightGreyColor(),
               }}
+              onClick={handleAddTutoring}
             >
-              <HThree>Homework</HThree>
-              <div
-                style={{
-                  display: "grid",
-                  padding: "1rem",
-                  border: `solid 2px ${lightGreyColor()}`,
-                }}
-              >
+              + Aula
+            </div>
+          </div>
+          {tutorings.map((tutoring, index) => (
+            <div key={index}>
+              <DivGrid>
+                <input
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                    padding: "0.5rem",
+                    margin: "0",
+                    fontSize: "1.1rem",
+                    fontWeight: 500,
+                  }}
+                  required
+                  type="text"
+                  placeholder="Vídeo da Aula (YouTube ou Vimeo)"
+                  value={tutoring.videoUrl}
+                  onChange={(e) => {
+                    const newTutorings = [...tutorings];
+                    newTutorings[index].videoUrl = e.target.value;
+                    setTutorings(newTutorings);
+                  }}
+                />
+                <input
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                    padding: "0.5rem",
+                    margin: "0",
+                    fontSize: "1.1rem",
+                    fontWeight: 500,
+                  }}
+                  required
+                  type="text"
+                  placeholder="Pasta da Aula"
+                  value={tutoring.attachments}
+                  onChange={(e) => {
+                    const newTutorings = [...tutorings];
+                    newTutorings[index].attachments = e.target.value;
+                    setTutorings(newTutorings);
+                  }}
+                />
                 <input
                   style={{
                     alignItems: "center",
@@ -223,34 +190,82 @@ export function NewTutoring({ headers }) {
                   }}
                   type="date"
                   placeholder="Data"
-                  value={dueDate}
+                  value={tutoring.date}
                   onChange={(e) => {
-                    setDueDate(e.target.value);
+                    const newTutorings = [...tutorings];
+                    newTutorings[index].date = e.target.value;
+                    setTutorings(newTutorings);
                   }}
+                  required
                 />
-
                 <div
                   style={{
-                    marginBottom: "3rem",
+                    cursor: "pointer",
+                    padding: "1rem",
+                    backgroundColor: lightGreyColor(),
+                  }}
+                  onClick={() => {
+                    setDueDate("");
+                    setNewHWDescription("");
+                    setSeeHW(!seeHW);
                   }}
                 >
-                  <HTMLEditor onChange={handleHWDescriptionChange} />
+                  HW
                 </div>
-              </div>{" "}
+              </DivGrid>
+              <div
+                style={{
+                  display: seeHW ? "block" : "none",
+                }}
+              >
+                <HThree>Homework</HThree>
+                <div
+                  style={{
+                    display: "grid",
+                    padding: "1rem",
+                    border: `solid 2px ${lightGreyColor()}`,
+                  }}
+                >
+                  <input
+                    style={{
+                      alignItems: "center",
+                      justifyContent: "space-around",
+                      padding: "0.5rem",
+                      margin: "0",
+                      fontSize: "1.1rem",
+                      fontWeight: 500,
+                    }}
+                    type="date"
+                    placeholder="Data"
+                    value={dueDate}
+                    onChange={(e) => {
+                      setDueDate(e.target.value);
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      marginBottom: "3rem",
+                    }}
+                  >
+                    <HTMLEditor onChange={handleHWDescriptionChange} />
+                  </div>
+                </div>{" "}
+              </div>
             </div>
-          </div>
-        ))}
-        <ArvinButton
-          disabled={disabled}
-          style={{
-            marginLeft: "auto",
-            cursor: disabled ? "not-allowed" : "pointer",
-          }}
-          type="submit"
-        >
-          {button}
-        </ArvinButton>
-      </form>
+          ))}
+          <ArvinButton
+            disabled={disabled}
+            style={{
+              marginLeft: "auto",
+              cursor: disabled ? "not-allowed" : "pointer",
+            }}
+            type="submit"
+          >
+            {button}
+          </ArvinButton>
+        </form>
+      )}
     </>
   );
 }
