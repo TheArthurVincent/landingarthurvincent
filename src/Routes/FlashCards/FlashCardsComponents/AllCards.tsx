@@ -46,6 +46,7 @@ const AllCards = ({ headers }: HeadersProps) => {
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStudentID(event.target.value);
     getNewCards(event.target.value);
+
   };
 
   const getNewCards = async (id?: any) => {
@@ -91,7 +92,7 @@ const AllCards = ({ headers }: HeadersProps) => {
       const newb = response.data.flashcard.back.text;
       const newlf = response.data.flashcard.front.language;
       const newlb = response.data.flashcard.back.language;
-      const newIDcard = response.data.flashcard.id;
+      const newIDcard = response.data.flashcard._id;
       const newComments = response.data.flashcard.backComments;
 
       setNewBackComments(newComments);
@@ -227,7 +228,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                   {perm === "superadmin" && (
                     <ArvinButton
                       onClick={() => {
-                        handleSeeModal(card.id);
+                        handleSeeModal(card._id);
                       }}
                       color="yellow"
                     >

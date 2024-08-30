@@ -29,6 +29,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
 
+useEffect(()=>{
+  console.log(cards)
+},[])
   const timerDisabled = () => {
     setCount(4);
     setIsDisabled(true);
@@ -100,7 +103,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )
           : null;
       }
-      console.log(response.data.dueFlashcards);
+      console.log(response.data.dueFlashcards, response.data);
       setCards(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
@@ -241,7 +244,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     </div>{" "}
                     {myPermissions === "superadmin" && (
                       <ArvinButton
-                        onClick={() => handleSeeModal(cards[0].id)}
+                        onClick={() => handleSeeModal(cards[0]._id)}
                         color="yellow"
                       >
                         <i className="fa fa-edit" aria-hidden="true" />
@@ -295,7 +298,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           >
                             <ArvinButton
                               onClick={() => {
-                                reviewCard(cards[0].id, "veryhard");
+                                reviewCard(cards[0]._id, "veryhard");
                               }}
                               color="red"
                             >
@@ -305,7 +308,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "hard")}
+                              onClick={() => reviewCard(cards[0]._id, "hard")}
                               color="pink"
                             >
                               Hard
@@ -317,7 +320,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "medium")}
+                              onClick={() => reviewCard(cards[0]._id, "medium")}
                               color="navy"
                             >
                               Medium
@@ -329,7 +332,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
-                              onClick={() => reviewCard(cards[0].id, "easy")}
+                              onClick={() => reviewCard(cards[0]._id, "easy")}
                               color="green"
                             >
                               Easy
