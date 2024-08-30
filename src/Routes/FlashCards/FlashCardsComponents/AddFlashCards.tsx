@@ -11,6 +11,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  CircularProgress,
 } from "@mui/material";
 
 interface Student {
@@ -49,7 +50,10 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
 
   const actualHeaders = headers || {};
 
+  const [loading, setLoading] = useState<Boolean>(false);
+
   const fetchStudents = async () => {
+    setLoading(true);
     setAddCardVisible(!addCardVisible);
     if (myPermissions === "superadmin") {
       try {
@@ -57,6 +61,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
           headers: actualHeaders,
         });
         setStudentsList(response.data.listOfStudents);
+        setLoading(false);
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }
@@ -151,10 +156,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
       <Box sx={{ margin: "auto", display: "flex" }} id="addcards">
         {myPermissions === "superadmin" && (
           <Box sx={{ display: "grid" }}>
-            <ArvinButton
-              color="yellow"
-              onClick={fetchStudents}
-            >
+            <ArvinButton color="yellow" onClick={fetchStudents}>
               Adicionar cartas
             </ArvinButton>
             <Box
@@ -164,27 +166,31 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
               }}
             >
               <Box sx={{ display: "flex" }}>
-                <FormControl sx={{ width: "250px" }}>
-                  <InputLabel id="student-select-label">
-                    Choose student
-                  </InputLabel>
-                  <Select
-                    labelId="student-select-label"
-                    value={studentID}
-                    // @ts-ignore
-                    onChange={handleStudentChange}
-                    label="Choose student"
-                  >
-                    <MenuItem value="student" disabled hidden>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <FormControl sx={{ width: "250px" }}>
+                    <InputLabel id="student-select-label">
                       Choose student
-                    </MenuItem>
-                    {studentsList.map((student, index) => (
-                      <MenuItem key={index} value={student.id}>
-                        {student.name + " " + student.lastname}
+                    </InputLabel>
+                    <Select
+                      labelId="student-select-label"
+                      value={studentID}
+                      // @ts-ignore
+                      onChange={handleStudentChange}
+                      label="Choose student"
+                    >
+                      <MenuItem value="student" disabled hidden>
+                        Choose student
                       </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
+                      {studentsList.map((student, index) => (
+                        <MenuItem key={index} value={student.id}>
+                          {student.name + " " + student.lastname}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
                 <ArvinButton color="navy" onClick={addNewCard}>
                   +
                 </ArvinButton>
