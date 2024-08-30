@@ -15,6 +15,7 @@ const AllCards = ({ headers }: HeadersProps) => {
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [loadingStudents, setLoadingStudents] = useState<boolean>(true);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [newFront, setNewFront] = useState<string>("");
   const [newBack, setNewBack] = useState<string>("");
@@ -46,7 +47,6 @@ const AllCards = ({ headers }: HeadersProps) => {
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStudentID(event.target.value);
     getNewCards(event.target.value);
-
   };
 
   const getNewCards = async (id?: any) => {
@@ -65,12 +65,14 @@ const AllCards = ({ headers }: HeadersProps) => {
   };
 
   const fetchStudents = async () => {
+    setLoadingStudents(true);
     setAddCardVisible(!addCardVisible);
     try {
       const response = await axios.get(`${backDomain}/api/v1/students/`, {
         headers: actualHeaders,
       });
       setStudentsList(response.data.listOfStudents);
+      setLoadingStudents(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
@@ -190,17 +192,17 @@ const AllCards = ({ headers }: HeadersProps) => {
                 display: "inline",
               }}
             >
-              <select onChange={handleStudentChange} value={studentID}>
-                {studentsList.map((student: any, index: number) => (
-                  <option key={index} value={student.id}>
-                    {student.name + " " + student.lastname}
-                  </option>
-                ))}
-              </select>
-              <ArvinButton color="green" onClick={fetchStudents}>
-                <i className="fa fa-refresh" aria-hidden="true" />
-                <i className="fa fa-user" aria-hidden="true" />
-              </ArvinButton>
+              {loadingStudents ? (
+                <CircularProgress />
+              ) : (
+                <select onChange={handleStudentChange} value={studentID}>
+                  {studentsList.map((student: any, index: number) => (
+                    <option key={index} value={student.id}>
+                      {student.name + " " + student.lastname}
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
           )}
         </div>
