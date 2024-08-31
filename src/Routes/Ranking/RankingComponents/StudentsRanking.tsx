@@ -407,7 +407,7 @@ export default function StudentsRanking({
                     padding: "0.5rem 1rem",
                     margin: "1rem 0",
                     boxShadow: "1px 1px 10px 1px #aaa",
-                    display: item.id === user.id ? "flex" : "none",
+                    display: item._id === user.id ? "flex" : "none",
                     justifyContent: "space-between",
                     background: theItems[levelNumber].color,
                     color: theItems[levelNumber].textcolor,
@@ -566,7 +566,7 @@ export default function StudentsRanking({
                       }}
                     >
                       <ArvinButton
-                        onClick={() => seeEdition(item.id)}
+                        onClick={() => seeEdition(item._id)}
                         color="white"
                       >
                         +
