@@ -28,6 +28,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     console.log(cards);
@@ -62,6 +63,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const actualHeaders = headers || {};
 
   const reviewCard = async (id: string, difficulty: string) => {
+    setLoading(true);
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/reviewflashcard/${myId}`,
@@ -76,14 +78,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       alert("Erro ao enviar cards");
     }
   };
-  const [loading, setLoading] = useState<boolean>(false);
 
   const seeCardsToReview = async () => {
     setLoading(true);
     setAnswer(false);
     setBackCardVisible(false);
     setSee(true);
-    updateInfo(myId, actualHeaders);
+    // updateInfo(myId, actualHeaders);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/flashcards/${myId}`,
@@ -101,15 +102,15 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               false,
               response.data.dueFlashcards[0].front.language
             )
-            : null;
-          }
+          : null;
+      }
       setCards(response.data.dueFlashcards);
       console.log(response.data.dueFlashcards);
       setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
       setBackCardVisible(true);
-      setLoading(false);
       timerDisabled();
+      setLoading(false);
     } catch (error) {
       alert("Erro ao enviar cards");
     }

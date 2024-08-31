@@ -74,13 +74,13 @@ export function HomePage({ headers }: HeadersProps) {
         <MyCalendar thePermissions={thePermissions} headers={headers} />
       ),
     },
-    // {
-    //   title: "Flash Cards",
-    //   levelcard: true,
-    //   component: (
-    //     <FlashCards change={change} onChange={setChange} headers={headers} />
-    //   ),
-    // },
+    {
+      title: "Flash Cards",
+      levelcard: true,
+      component: (
+        <FlashCards change={change} onChange={setChange} headers={headers} />
+      ),
+    },
     {
       title: "Ranking",
       levelcard: true,

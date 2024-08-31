@@ -125,12 +125,12 @@ export const TopBar: FC = () => {
       icon: "book",
       display: "block",
     },
-    // {
-    //   title: "Flashcards",
-    //   endpoint: "/flash-cards",
-    //   icon: "clone",
-    //   display: "block",
-    // },
+    {
+      title: "Flashcards",
+      endpoint: "/flash-cards",
+      icon: "clone",
+      display: "block",
+    },
     {
       title: "Ranking",
       endpoint: "/ranking",
