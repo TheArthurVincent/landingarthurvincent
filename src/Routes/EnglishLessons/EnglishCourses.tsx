@@ -17,10 +17,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [listOfClassesFromDatabase, setListOfClassesFromDatabase] =
     useState<any>([]);
-  const [
-    listOfClassesNonAuthFromDatabase,
-    setListOfClassesNonAuthFromDatabase,
-  ] = useState<any>([]);
 
   const actualHeaders = headers || {};
 
@@ -48,11 +44,8 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       const classesDB = renderCourses(
         response.data.courses.sort((a: any, b: any) => a.order - b.order)
       );
-      const classesDBNonAuth = renderCourses(
-        response.data.coursesNonAuth.sort((a: any, b: any) => a.order - b.order)
-      );
+    
       setListOfClassesFromDatabase(classesDB);
-      setListOfClassesNonAuthFromDatabase(classesDBNonAuth);
       setLoading(false);
     } catch (error) {
       console.log("Erro ao obter aulas");

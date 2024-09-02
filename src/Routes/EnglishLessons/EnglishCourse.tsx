@@ -43,8 +43,8 @@ export default function EnglishCourse({
 
   const [displayy, setDisplayy] = useState<string>("block");
 
-  const location = useLocation();
   const actualPthn = "/english-courses/" + back;
+  const location = useLocation();
   const isRootPath = location.pathname === actualPthn;
   useEffect(() => {
     if (isRootPath) {
