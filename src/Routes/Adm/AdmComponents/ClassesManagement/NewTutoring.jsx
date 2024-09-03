@@ -76,6 +76,24 @@ export function NewTutoring({ headers }) {
     }
   };
 
+  const postHW = async () => {
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/homework/${selectedStudentID}`,
+        { description: newHWDescription, dueDate },
+        {
+          headers,
+        }
+      );
+      alert("HW criado com sucesso!");
+      setTutorings([]);
+      setNewHWDescription("");
+    } catch (error) {
+      alert("Erro ao salvar aulas");
+      setStandardValue("Aluno");
+    }
+  };
+
   const setStudentList = (e) => {
     setSelectedStudentID(e);
     setDisabled(false);
@@ -264,6 +282,43 @@ export function NewTutoring({ headers }) {
           </ArvinButton>
         </form>
       )}
+
+      <div>
+        <HThree>Homework</HThree>
+        <div
+          style={{
+            display: "grid",
+            padding: "1rem",
+            border: `solid 2px ${lightGreyColor()}`,
+          }}
+        >
+          <input
+            style={{
+              alignItems: "center",
+              justifyContent: "space-around",
+              padding: "0.5rem",
+              margin: "0",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+            }}
+            type="date"
+            placeholder="Data"
+            value={dueDate}
+            onChange={(e) => {
+              setDueDate(e.target.value);
+            }}
+          />
+
+          <div
+            style={{
+              marginBottom: "3rem",
+            }}
+          >
+            <HTMLEditor onChange={handleHWDescriptionChange} />
+          </div>
+        </div>{" "}
+        <ArvinButton onClick={postHW}>Postar só HW</ArvinButton>
+      </div>
     </>
   );
 }
