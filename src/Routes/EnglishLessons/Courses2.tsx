@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -37,7 +37,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       );
       var classesDB = response.data.courses;
       setListOfCoursesFromDatabase(classesDB);
-      console.log(response.data);
       setLoading(false);
     } catch (error) {
       console.log("Erro ao obter aulas");
@@ -50,11 +49,15 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
     getCourses();
   }, []);
 
-  const [displayy, setDisplayy] = useState<boolean>(true);
+  const loc = useLocation();
+  const [displayRouteDiv, setDisplayRouteDiv] = useState<boolean>(true);
 
   useEffect(() => {
-    setDisplayy(true);
-  }, []);
+    const isRootPath =
+      loc.pathname === "/english-courses" ||
+      loc.pathname === "/english-courses/";
+    setDisplayRouteDiv(isRootPath);
+  }, [loc.pathname]);
 
   return (
     <div>
@@ -65,8 +68,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
             path={`${pathGenerator(route.title)}/*`}
             element={
               <Modules
-                setDisplayy={setDisplayy}
-                displayy={displayy}
                 courseId={route._id}
                 title={route.title}
                 headers={headers}
@@ -75,76 +76,96 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
           />
         ))}
       </Routes>
-      <RouteDiv style={{ display: displayy ? "block" : "false" }}>
-        <Helmets text="Courses" />
-        <HOne>Escolha um curso</HOne>
-        <ArvinButton onClick={getCourses}>
-          <i className="fa fa-refresh" aria-hidden={true} />
-        </ArvinButton>
-        <br />
-        {!loading ? (
-          <div>
-            <ul
-              style={{
-                display: "grid",
-                gap: "5px",
-              }}
-            >
-              {listOfCoursesFromDatabase
-                .sort((a: any, b: any) => a.order - b.order)
-                .map((route: any, idx: number) => (
-                  <>
-                    <Link
-                      style={{ textDecoration: "none" }}
+      <Helmets text="Courses" />
+      {displayRouteDiv ? (
+        !loading ? (
+          <RouteDiv>
+            <HOne>Escolha um curso</HOne>
+            <ArvinButton onClick={getCourses}>
+              <i className="fa fa-refresh" aria-hidden={true} />
+            </ArvinButton>
+            <br />
+            <br />
+            <div>
+              <ul
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+                  gap: "20px",
+                  padding: "0",
+                  listStyle: "none",
+                }}
+              >
+                {listOfCoursesFromDatabase
+                  .sort((a: any, b: any) => a.order - b.order)
+                  .map((route: any, idx: number) => (
+                    <li
                       key={idx}
-                      to={`${pathGenerator(route.title)}/`}
+                      style={{
+                        listStyle: "none",
+                        borderRadius: "10px",
+                        overflow: "hidden",
+                        transition: "transform 0.3s",
+                      }}
+                      className="card"
                     >
-                      <div
-                        className="hvr"
+                      <Link
                         style={{
-                          display: "flex",
-                          padding: "5px 1rem  5px 5px ",
-                          borderRadius: "20rem",
-                          alignItems: "center",
-                          justifyContent: "space-between",
+                          textDecoration: "none",
+                          color: "inherit",
+                          display: "block",
                         }}
+                        to={`${pathGenerator(route.title)}/`}
                       >
-                        <img
+                        <div
                           style={{
-                            maxWidth: "3rem",
-                            width: "100%",
-                            borderRadius: "50%",
-                            height: "100%",
-                            objectFit: "cover",
-                            objectPosition: "center center",
+                            height: "300px",
+                            backgroundColor: "#333",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            position: "relative",
+                            overflow: "hidden",
                           }}
-                          src={route.image}
-                          alt={`${route.title}img`}
-                        />
-                        <p>{route.title}</p>
-                      </div>
-                    </Link>
-                  </>
-                ))}
-            </ul>
-            <br />
-            <br />
-            <br />
-            <ul
-              style={{
-                display: "grid",
-                gap: "1rem",
-              }}
-            ></ul>
-          </div>
+                          className="card-content"
+                        >
+                          <img
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "center",
+                              transition: "transform 0.3s, opacity 0.3s",
+                            }}
+                            src={route.image}
+                            alt={`${route.title}img`}
+                          />
+                          <div
+                            style={{
+                              position: "absolute",
+                              bottom: "0",
+                              width: "100%",
+                              background: "rgba(0, 0, 0, 0.7)",
+                              color: "#fff",
+                              padding: "10px",
+                              textAlign: "center",
+                            }}
+                          >
+                            <p>{route.title}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </RouteDiv>
         ) : (
-          <div>
-            <br />
-            <CircularProgress />
-          </div>
-        )}
-        <Outlet />
-      </RouteDiv>
+          <CircularProgress />
+        )
+      ) : null}
+      <Outlet />
     </div>
   );
 }

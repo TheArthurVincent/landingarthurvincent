@@ -41,6 +41,36 @@ export const HThree = styled.h3`
   }
 `;
 
+export const HThreeModule = styled.h3`
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  color: ${primaryColor()};
+  background-color: #f8f8f8;
+  border-left: 5px solid ${primaryColor()};
+  font-size: 1.25rem;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.1s ease, color 0.3s ease;
+
+  &:hover {
+    color: ${secondaryColor()};
+  }
+
+  @media (max-width: 900px) {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    margin: 0.75rem 0;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+`;
+
 export const H3FAQ = styled.h3`
   padding: 0.5rem;
   margin: 0.5rem;
