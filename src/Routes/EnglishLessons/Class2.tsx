@@ -7,7 +7,7 @@ import {
   pathGenerator,
   Xp,
 } from "../../Resources/UniversalComponents";
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, HTwo } from "../../Resources/Components/RouteBox";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { Link } from "react-router-dom";
 import {
@@ -87,7 +87,7 @@ export default function EnglishClassCourse2({
       setLoading(false);
     } catch (error) {
       console.log(error, "Erro ao obter aulas");
-      // onLoggOut();
+      onLoggOut();
       setLoading(false);
     }
   };
@@ -472,13 +472,6 @@ export default function EnglishClassCourse2({
                 No previous class
               </span>
             )}
-            <HOne
-              style={{
-                fontSize: "15px",
-              }}
-            >
-              {`${order + 1}- ${theclass.title}`}
-            </HOne>
             {nextClass !== "123456" ? (
               <span
                 style={{

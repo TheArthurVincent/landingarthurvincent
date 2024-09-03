@@ -44,7 +44,6 @@ export const CourseCard = styled.div`
 
   &:hover {
     background-color: #f5f5f5;
-    transform: translateY(-2px);
   }
 
   img {
