@@ -255,9 +255,11 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                         )}
                       {permissions === "superadmin" && (
                         <ArvinButton
-                          onClick={() => deleteHomework(homework._id)}
+                          color="red"
+                          onDoubleClick={() => deleteHomework(homework._id)}
                         >
-                          <i className="fa fa-trash" aria-hidden="true" />
+                          <i className="fa fa-trash" aria-hidden="true" />{" "}
+                          Double Click
                         </ArvinButton>
                       )}
                     </div>
@@ -351,14 +353,15 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             />
                           </ArvinButton>
                         )}
-                      {permissions === "superadmin" && (
+                      {/* {permissions === "superadmin" && (
                         <ArvinButton
+                          color="red"
                           onDoubleClick={() => deleteHomework(homework._id)}
                         >
                           <i className="fa fa-trash" aria-hidden="true" />{" "}
                           double click
                         </ArvinButton>
-                      )}
+                      )} */}
                     </div>
                     <div>
                       <div
