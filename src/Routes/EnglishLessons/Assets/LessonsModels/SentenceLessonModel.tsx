@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
-import { primaryColor, secondaryColor } from "../../../../Styles/Styles";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 import { backDomain } from "../../../../Resources/UniversalComponents";
@@ -48,30 +47,6 @@ export default function SentenceLessonModel({
       alert("Erro ao enviar cards");
     }
   };
-  const addNewCardsInverted = async (frontText: string, backText: string) => {
-    const newCards = [
-      {
-        back: {
-          text: frontText,
-          language: "en",
-        },
-        front: {
-          text: backText,
-          language: "pt",
-        },
-      },
-    ];
-
-    try {
-      const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${studentId}`,
-        { newCards },
-        { headers: actualHeaders }
-      );
-    } catch (error) {
-      alert("Erro ao enviar cards");
-    }
-  };
 
   const [permissions, setPermissions] = useState<string>("");
 
@@ -99,6 +74,9 @@ export default function SentenceLessonModel({
           <LiSentence key={i}>
             <Tooltip title="Add to flashcards">
               <ArvinButton
+                style={{
+                  display: permissions === "superadmin" ? "block" : "none",
+                }}
                 color="white"
                 onClick={() =>
                   addNewCards(sentence.english, sentence.portuguese)
@@ -107,23 +85,13 @@ export default function SentenceLessonModel({
                 <i className="fa fa-files-o" aria-hidden="true" />
               </ArvinButton>
             </Tooltip>
-            {/* <ArvinButton
-              color="white"
-              onClick={() =>
-                addNewCardsInverted(sentence.english, sentence.portuguese)
-              }
-            >
-              Pt-En
-            </ArvinButton> */}
-            <br />
-            <br />
-            <strong
-              style={{
-                color: !sentence.portuguese ? secondaryColor() : primaryColor(),
-              }}
-            >
-              {sentence.english}
-            </strong>
+            {permissions === "superadmin" ? (
+              <span>
+                <br />
+                <br />
+              </span>
+            ) : null}
+            <strong>{sentence.english}</strong>
             <button
               className="audio-button"
               onClick={() => {

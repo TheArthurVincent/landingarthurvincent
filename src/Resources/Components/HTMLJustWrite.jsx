@@ -3,7 +3,7 @@ import Quill from "quill";
 import "quill/dist/quill.snow.css";
 import { textTitleFont } from "../../Styles/Styles";
 
-function HTMLJustWrite({ onChange }) {
+function HTMLJustWrite({ onChange, displayy }) {
   const editorRef = useRef(null);
   const [editor, setEditor] = useState(null);
 
@@ -110,6 +110,7 @@ function HTMLJustWrite({ onChange }) {
             marginTop: "1rem",
             fontSize: "1.5rem",
             width: "90%",
+            display: displayy ? displayy : "block",
           }}
         />
       </>
