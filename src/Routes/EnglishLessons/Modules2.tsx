@@ -15,6 +15,7 @@ import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 import { HThree } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "./EnglishCourses.Styled";
+import EnglishClassCourse2 from "./Class2";
 
 interface ModulesHomeProps {
   headers: MyHeadersType | null;
@@ -77,6 +78,7 @@ export default function Modules({
   }, []);
 
   interface ClassType {
+    _id: string;
     title: string;
   }
 
@@ -91,9 +93,11 @@ export default function Modules({
           module.classes.map((classItem: ClassType, index2: number) => (
             <Route
               key={`${index}-${index2}`}
-              path={`${pathGenerator(classItem.title)}`}
+              path={`${classItem._id}/`}
               element={
                 <div style={{ padding: "10rem" }}>
+                  /// fixx this
+                  {/* <EnglishClassCourse2 /> */}
                   <p>{classItem.title}</p>
                 </div>
               }
@@ -169,8 +173,16 @@ export default function Modules({
             >
               {module.classes.map((cls: any, idx: number) => (
                 <div key={idx}>
+                  <p
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      console.log(cls, cls._id, pathGenerator(cls.title));
+                    }}
+                  >
+                    oojrierb
+                  </p>
                   <Link
-                    to={pathGenerator(cls.title)}
+                    to={cls._id}
                     style={{
                       textDecoration: "none",
                     }}
@@ -185,7 +197,7 @@ export default function Modules({
                         alt={cls.title}
                       />
                       <p>
-                        {idx + 1} - {cls.title}
+                        #{idx + 1} - {cls.title}
                       </p>
                     </CourseCard>
                   </Link>

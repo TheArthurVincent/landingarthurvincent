@@ -397,7 +397,6 @@ export const pathGenerator = (text) => {
   const cleanText = text.replace(/[^a-zA-Z0-9\s]/g, "");
   const spacelessText = cleanText.replace(/\s+/g, "-");
   const lowerCase = spacelessText.toLowerCase();
-
   return lowerCase;
 };
 

@@ -8,7 +8,6 @@ import {
   onLoggOut,
   pathGenerator,
 } from "../../Resources/UniversalComponents";
-import EnglishCourse from "./EnglishCourse";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
@@ -21,8 +20,6 @@ interface EnglishCoursesHomeProps {
 export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [listOfCoursesFromDatabase, setListOfCoursesFromDatabase] =
-    useState<any>([]);
-  const [listOfModulesFromDatabase, setListOfModulesFromDatabase] =
     useState<any>([]);
 
   const actualHeaders = headers || {};
@@ -39,9 +36,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         { headers: actualHeaders }
       );
       var classesDB = response.data.courses;
-      var modulesTitles = response.data.modulesTitles;
       setListOfCoursesFromDatabase(classesDB);
-      setListOfModulesFromDatabase(modulesTitles);
       console.log(response.data);
       setLoading(false);
     } catch (error) {
@@ -55,11 +50,10 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
     getCourses();
   }, []);
 
-  const location = useLocation();
   const [displayy, setDisplayy] = useState<boolean>(true);
 
   useEffect(() => {
-      setDisplayy(true);
+    setDisplayy(true);
   }, []);
 
   return (
@@ -68,7 +62,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         {listOfCoursesFromDatabase.map((route: any, idx: number) => (
           <Route
             key={idx}
-            path={pathGenerator(route.title)}
+            path={`${pathGenerator(route.title)}/*`}
             element={
               <Modules
                 setDisplayy={setDisplayy}
