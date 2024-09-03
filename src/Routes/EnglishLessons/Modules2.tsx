@@ -43,7 +43,7 @@ export default function Modules({
       var mod = response.data.modules;
       setModules(mod);
       // Inicialize todos os módulos como visíveis
-      setVisibleModules(new Array(mod.length).fill(false));
+      setVisibleModules(new Array(mod.length).fill(true));
       setLoading(false);
     } catch (error) {
       console.log(error, "Erro ao obter aulas");
