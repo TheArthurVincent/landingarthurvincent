@@ -17,8 +17,8 @@ import { HeadersProps } from "../Resources/types.universalInterfaces";
 import { TopBar } from "../Application/TopBar/TopBar";
 import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
-import EnglishCourses from "./EnglishLessons/EnglishCourses";
 import AppFooter from "../Application/Footer/Footer";
+import EnglishCourses from "./EnglishLessons/Courses2";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");

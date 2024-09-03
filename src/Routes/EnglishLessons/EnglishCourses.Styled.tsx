@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 import {
   alwaysWhite,
-  darkGreyColor,
-  lightGreyColor,
   primaryColor,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
@@ -32,46 +30,41 @@ export const CourseItem = styled.div`
   }
 `;
 export const CourseCard = styled.div`
-  display: grid;
-  grid-template-columns: 0.1fr 1fr;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  text-align: center;
-  color: black;
-  gap: 0.5rem;
-  background-color: #f1f1f1;
-  font-size: 9px;
+  background-color: #ffffff;
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
   border-radius: 10px;
-  font-size: 0.8rem;
-  text-align: end;
-  width: 100%;
-  padding: 0.2rem;
-  transition: 0.3s;
-  p {
-    margin-right: 2rem;
-  }
-  img {
-    filter: grayscale(0%);
-    transition: 0.1s;
-    border-radius: 50%;
-    transform: rotate(2deg);
-    width: 100%;
-    height: auto;
-    transform-origin: center;
-    margin: auto;
-    width: 3rem;
-    height: 3rem;
-    object-fit: cover;
-    object-position: center center;
-  }
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 
   &:hover {
-    background-color: ${alwaysWhite()};
+    background-color: #f5f5f5;
+  }
 
-    img {
+  img {
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 1rem;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
       filter: grayscale(100%);
-      transform: rotate(0deg);
-      border-radius: 5px;
     }
+  }
+
+  p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
   }
 `;
