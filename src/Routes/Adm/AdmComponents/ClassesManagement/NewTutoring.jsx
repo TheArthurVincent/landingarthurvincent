@@ -317,7 +317,9 @@ export function NewTutoring({ headers }) {
             <HTMLEditor onChange={handleHWDescriptionChange} />
           </div>
         </div>{" "}
-        <ArvinButton onClick={postHW}>Postar só HW</ArvinButton>
+        <ArvinButton onClick={postHW}>
+          Postar só HW -
+        </ArvinButton>
       </div>
     </>
   );
