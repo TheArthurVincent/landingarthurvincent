@@ -98,6 +98,9 @@ export default function SentenceLessonModelSlide({
               <Tooltip title="Add to flashcards">
                 <ArvinButton
                   color="white"
+                  style={{
+                    display: permissions === "superadmin" ? "block" : "none",
+                  }}
                   onClick={() =>
                     addNewCards(sentence.english, sentence.portuguese)
                   }
@@ -116,7 +119,10 @@ export default function SentenceLessonModelSlide({
               {sentence.portuguese}
             </span>
             <br />
-            <HTMLJustWrite onChange={handleHWDescriptionChange} />
+            <HTMLJustWrite
+              displayy={permissions === "superadmin" ? "block" : "none"}
+              onChange={handleHWDescriptionChange}
+            />
           </li>
         ))}
     </ul>

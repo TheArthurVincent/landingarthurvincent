@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import {
@@ -73,6 +73,17 @@ export default function ImageLessonModel({
       alert("Erro ao enviar cards");
     }
   };
+
+  
+  const [permissions, setPermissions] = useState<string>("");
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    if (user) {
+      const { permissions } = JSON.parse(user);
+      setPermissions(permissions);
+    }
+  }, []);
   return (
     <div
       className="sentences"
@@ -89,15 +100,11 @@ export default function ImageLessonModel({
           element.images.map((image: any, i: number) => (
             <LiGridImageLessons key={i}>
               <div>
-                {" "}
-                {/* <ArvinButton
-                  color="white"
-                  onClick={() => addNewCards(image.english, image.portuguese)}
-                >
-                  en-pt
-                </ArvinButton> */}
                 <ArvinButton
                   color="white"
+                  style={{
+                    display: permissions === "superadmin" ? "block" : "none",
+                  }}
                   onClick={() =>
                     addNewCardsInverted(image.english, image.portuguese)
                   }

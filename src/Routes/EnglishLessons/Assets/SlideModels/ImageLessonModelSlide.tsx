@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { textTitleFont } from "../../../../Styles/Styles";
 interface ImageLessonModelSlideProps {
@@ -10,6 +10,8 @@ export default function ImageLessonModelSlide({
   headers,
   element,
 }: ImageLessonModelSlideProps) {
+
+
   return (
     <div
       className="sentences"
