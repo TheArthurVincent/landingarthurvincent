@@ -101,6 +101,17 @@ export default function Homework({ headers, setChange, change }: HWProps) {
     }
   };
 
+  const deleteHomework = async (id: string) => {
+    try {
+      await axios.delete(`${backDomain}/api/v1/homework/${id}`, {
+        headers: actualHeaders,
+      });
+      fetchClasses(studentID);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+
   const pointsHW = (dueDate: string) => {
     const pointsMadeHW = listOfCriteria[0].score[0].score;
     const pointsLateHW = listOfCriteria[0].score[1].score;
@@ -213,10 +224,11 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${homework?.status == "done"
+                          className={`fa fa-${
+                            homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                            }`}
+                          }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -241,6 +253,13 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             />
                           </ArvinButton>
                         )}
+                      {permissions === "superadmin" && (
+                        <ArvinButton
+                          onClick={() => deleteHomework(homework._id)}
+                        >
+                          <i className="fa fa-trash" aria-hidden="true" />
+                        </ArvinButton>
+                      )}
                     </div>
                     <div>
                       <div
@@ -303,10 +322,11 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${homework?.status == "done"
+                          className={`fa fa-${
+                            homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                            }`}
+                          }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -331,6 +351,13 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             />
                           </ArvinButton>
                         )}
+                      {permissions === "superadmin" && (
+                        <ArvinButton
+                          onClick={() => deleteHomework(homework._id)}
+                        >
+                          <i className="fa fa-trash" aria-hidden="true" />
+                        </ArvinButton>
+                      )}
                     </div>
                     <div>
                       <div
