@@ -1122,8 +1122,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     fontWeight: 600,
                                   }}
                                 >
-                                  {event.student.split(" ")[0]}{" "}
-                                  {abreviateName(event.student)}
+                                  {event.student}
                                 </span>
                               )}
                               {event.category == "Group Class"
