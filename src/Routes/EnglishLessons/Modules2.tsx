@@ -10,7 +10,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
-import { HThree, HThreeModule } from "../MyClasses/MyClasses.Styled";
+import { HThreeModule } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "./EnglishCourses.Styled";
 import EnglishClassCourse2 from "./Class2";
 
