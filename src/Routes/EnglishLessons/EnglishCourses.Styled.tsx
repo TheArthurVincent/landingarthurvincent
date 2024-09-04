@@ -33,16 +33,14 @@ export const CourseCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #333;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
   border-radius: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
-
   &:hover {
-    background-color: #fefefe;
+    background-color: #f5f5f5;
   }
 
   img {

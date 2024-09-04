@@ -52,6 +52,7 @@ export const HThreeModule = styled.h3`
   font-weight: bold;
   border-radius: 5px;
   transition: background-color 0.1s ease, color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
     color: ${secondaryColor()};
