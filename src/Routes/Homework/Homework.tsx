@@ -101,6 +101,24 @@ export default function Homework({ headers, setChange, change }: HWProps) {
     }
   };
 
+  const justStatus = async (tutoringId: string) => {
+    try {
+      await axios.put(
+        `${backDomain}/api/v1/homeworkjuststatus/${studentID}`,
+        {
+          tutoringId,
+        },
+        {
+          headers: actualHeaders,
+        }
+      );
+      setChange(!change);
+      fetchClasses(studentID);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+
   const deleteHomework = async (id: string) => {
     try {
       await axios.delete(`${backDomain}/api/v1/homework/${id}`, {
@@ -112,33 +130,13 @@ export default function Homework({ headers, setChange, change }: HWProps) {
     }
   };
 
-  const pointsHW = (dueDate: string) => {
-    const pointsMadeHW = listOfCriteria[0].score[0].score;
-    const pointsLateHW = listOfCriteria[0].score[1].score;
-
-    const currentDate = new Date();
-    const dueDateObj = new Date(dueDate);
-
-    if (dueDateObj < currentDate) {
-      return pointsLateHW;
-    } else {
-      return pointsMadeHW;
-    }
-  };
-
-  const pointsGC = (dueDate: string) => {
-    const pointsMadeGC = listOfCriteria[2].score[0].score;
-    const pointsLateGC = listOfCriteria[2].score[1].score;
-
-    const currentDate = new Date();
-    const dueDateObj = new Date(dueDate);
-
-    if (dueDateObj < currentDate) {
-      return pointsLateGC;
-    } else {
-      return pointsMadeGC;
-    }
-  };
+  const pointsMadeHW = listOfCriteria[0].score[0].score;
+  const pointsLateHW = listOfCriteria[0].score[1].score;
+  const pointsMadeGC = listOfCriteria[2].score[0].score;
+  const pointsLateGC = listOfCriteria[2].score[1].score;
+  useEffect(() => {
+    console.log(pointsMadeHW, pointsLateHW, pointsMadeGC, pointsLateGC);
+  }, []);
 
   return (
     <RouteDiv className="smooth">
@@ -224,11 +222,10 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
+                          className={`fa fa-${homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                          }`}
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -239,19 +236,27 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                       {homework.status &&
                         permissions === "superadmin" &&
                         homework?.status === "pending" && (
-                          <ArvinButton
-                            onClick={() =>
-                              updateRealizedClass(
-                                homework._id,
-                                pointsHW(homework.dueDate)
-                              )
-                            }
-                          >
-                            <i
-                              className="fa fa-check-circle"
-                              aria-hidden="true"
-                            />
-                          </ArvinButton>
+                          <>
+                            <ArvinButton
+                              onClick={() =>
+                                updateRealizedClass(homework._id, pointsMadeHW)
+                              }
+                            >
+                              Up to date
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() =>
+                                updateRealizedClass(homework._id, pointsLateHW)
+                              }
+                            >
+                              Late
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() => justStatus(homework._id)}
+                            >
+                              Just status
+                            </ArvinButton>
+                          </>
                         )}
                       {permissions === "superadmin" && (
                         <ArvinButton
@@ -324,11 +329,10 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${
-                            homework?.status == "done"
+                          className={`fa fa-${homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                          }`}
+                            }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -339,19 +343,27 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                       {homework.status &&
                         permissions === "superadmin" &&
                         homework?.status === "pending" && (
-                          <ArvinButton
-                            onClick={() =>
-                              updateRealizedClass(
-                                homework._id,
-                                pointsGC(homework.dueDate)
-                              )
-                            }
-                          >
-                            <i
-                              className="fa fa-check-circle"
-                              aria-hidden="true"
-                            />
-                          </ArvinButton>
+                          <>
+                            <ArvinButton
+                              onClick={() =>
+                                updateRealizedClass(homework._id, pointsMadeGC)
+                              }
+                            >
+                              Up to date
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() =>
+                                updateRealizedClass(homework._id, pointsLateGC)
+                              }
+                            >
+                              Late
+                            </ArvinButton>
+                            <ArvinButton
+                              onClick={() => justStatus(homework._id)}
+                            >
+                              Just status
+                            </ArvinButton>
+                          </>
                         )}
                       {/* {permissions === "superadmin" && (
                         <ArvinButton
