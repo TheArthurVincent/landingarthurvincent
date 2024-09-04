@@ -33,7 +33,7 @@ export const CourseCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
   color: #333;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
@@ -42,7 +42,7 @@ export const CourseCard = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #f5f5f5;
+    background-color: #fff;
   }
 
   img {
