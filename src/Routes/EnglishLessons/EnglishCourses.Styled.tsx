@@ -35,8 +35,7 @@ export const CourseCard = styled.div`
   justify-content: space-between;
   background-color: #f5f5f5;
   color: #333;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
+  padding: 0.2rem;
   border-radius: 10px;
   cursor: pointer;
   &:hover {
