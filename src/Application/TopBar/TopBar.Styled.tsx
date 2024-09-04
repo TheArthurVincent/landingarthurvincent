@@ -4,6 +4,7 @@ import {
   transparentBlack,
   primaryColor,
   alwaysWhite,
+  textTitleFont,
 } from "../../Styles/Styles";
 
 export const TopBarContainer = styled.header`
@@ -36,26 +37,56 @@ export const TopBarNavigation = styled.div`
     display: none;
   }
 `;
-
 export const TopBarNavigationBurger = styled.div`
   position: fixed;
-  flex-direction: column;
-  top: 0rem;
-  left: 0rem;
+  top: 0;
+  left: 0;
   z-index: 6000;
-  list-style: none;
-  width: 50vw;
-  gap: 1rem;
-  text-align: left;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   background-color: ${alwaysWhite()};
-  padding: 1rem 0.5rem;
-  display: none;
+  padding: 2rem 1.5rem;
+  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid ${secondaryColor()};
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+
   &.smooth {
     animation-name: slideInLeftNoOpacity;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
   }
+
+  &:hover {
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  a {
+    text-decoration: none;
+    color: ${primaryColor()};
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: ${textTitleFont()};
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: color 0.3s, background-color 0.3s, padding-left 0.3s, transform 0.3s;
+
+    &:hover {
+      background-color: ${secondaryColor()};
+      color: #fff;
+      padding-left: 1.8rem;
+      transform: translateX(5px);
+    }
+
+    &.active {
+      color: ${secondaryColor()};
+      border-left: 4px solid ${secondaryColor()};
+      padding-left: calc(1rem - 4px);
+    }
+  }
 `;
+
 
 export const BackgroundClick = styled.div`
   position: fixed;

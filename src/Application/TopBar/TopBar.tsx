@@ -8,7 +8,11 @@ import {
   LogoStyle,
   Hamburguer,
 } from "./TopBar.Styled";
-import { LogoSVG, onLoggOut, SpanHover } from "../../Resources/UniversalComponents";
+import {
+  LogoSVG,
+  onLoggOut,
+  SpanHover,
+} from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import {
   primaryColor,
@@ -188,7 +192,6 @@ export const TopBar: FC = () => {
           </LogoStyle>
         </Link>
       </SpanDisapear>
-
       <TopBarNavigationBurger
         onClick={handleVisible}
         style={{ display: visible }}
@@ -213,16 +216,13 @@ export const TopBar: FC = () => {
             }}
             to="/"
           >
-            <SpanHover
+            <span
               style={{
-                fontWeight: 700,
-                fontSize: "1.1rem",
-                fontFamily: textTitleFont(),
-                textDecoration: "none",
+                textAlign: "center",
               }}
             >
               {UniversalTexts.homePage}
-            </SpanHover>
+            </span>
           </NavLink>
           {allLinksForUser.map((link, index) => {
             return (
@@ -242,16 +242,13 @@ export const TopBar: FC = () => {
                 }}
                 to={link.endpoint}
               >
-                <SpanHover
+                <span
                   style={{
-                    textDecoration: "none",
-                    fontWeight: 700,
-                    fontSize: "1.1rem",
-                    fontFamily: textTitleFont(),
+                    textAlign: "center",
                   }}
                 >
                   {link.title}
-                </SpanHover>
+                </span>
               </NavLink>
             );
           })}
@@ -279,15 +276,13 @@ export const TopBar: FC = () => {
                   key={index}
                   to={link.endpoint}
                 >
-                  <SpanHover
+                  <span
                     style={{
-                      fontWeight: 700,
-                      fontSize: "1.1rem",
-                      fontFamily: textTitleFont(),
+                      textAlign: "center",
                     }}
                   >
                     {link.title}
-                  </SpanHover>
+                  </span>
                 </NavLink>
               );
             })}
