@@ -95,19 +95,21 @@ export default function SentenceLessonModelSlide({
               >
                 {sentence.english}
               </strong>
-              <Tooltip title="Add to flashcards">
-                <ArvinButton
-                  color="white"
-                  style={{
-                    display: permissions === "superadmin" ? "block" : "none",
-                  }}
-                  onClick={() =>
-                    addNewCards(sentence.english, sentence.portuguese)
-                  }
-                >
-                  <i className="fa fa-files-o" aria-hidden="true" />
-                </ArvinButton>
-              </Tooltip>
+              {/* {permissions === "superadmin" && (
+                <Tooltip title="Add to flashcards">
+                  <ArvinButton
+                    color="white"
+                    style={{
+                      display: permissions === "superadmin" ? "block" : "none",
+                    }}
+                    onClick={() =>
+                      addNewCards(sentence.english, sentence.portuguese)
+                    }
+                  >
+                    <i className="fa fa-files-o" aria-hidden="true" />
+                  </ArvinButton>
+                </Tooltip>
+              )} */}
             </span>
             <br />
             <span
