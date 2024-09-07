@@ -1,12 +1,10 @@
 import { styled } from "styled-components";
 import {
   alwaysBlack,
-  alwaysWhite,
   lightGreyColor,
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 export const EventsCardsContainer = styled.div`
