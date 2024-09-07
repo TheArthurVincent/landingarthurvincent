@@ -4,6 +4,7 @@ import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import {
   backDomain,
   getVideoEmbedUrl,
+  onLoggOut,
   pathGenerator,
   Xp,
 } from "../../Resources/UniversalComponents";
@@ -18,7 +19,6 @@ import {
   textTitleFont,
   transparentBlack,
 } from "../../Styles/Styles";
-import CoursesSideBar, { truncateTitle } from "./CoursesSideBar/CoursesSideBar";
 import Helmets from "../../Resources/Helmets";
 import { ImgLesson } from "./Assets/Functions/EnglishActivities.Styled";
 import { IFrameVideoBlog } from "../Blog/Blog.Styled";

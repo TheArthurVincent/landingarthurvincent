@@ -1,9 +1,5 @@
 import { styled } from "styled-components";
-import {
-  alwaysWhite,
-  primaryColor,
-  textSecondaryColorContrast,
-} from "../../Styles/Styles";
+import { primaryColor, textSecondaryColorContrast } from "../../Styles/Styles";
 
 export const CoursesList = styled.div`
   display: grid;

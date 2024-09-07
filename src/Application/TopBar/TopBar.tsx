@@ -14,11 +14,7 @@ import {
   SpanHover,
 } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
-import {
-  primaryColor,
-  textTitleFont,
-  secondaryColor,
-} from "../../Styles/Styles";
+import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
