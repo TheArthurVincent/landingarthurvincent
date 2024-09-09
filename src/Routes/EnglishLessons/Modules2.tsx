@@ -3,11 +3,7 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
-import {
-  backDomain,
-  onLoggOut,
-  pathGenerator,
-} from "../../Resources/UniversalComponents";
+import { backDomain, onLoggOut, pathGenerator } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 import { HThreeModule } from "../MyClasses/MyClasses.Styled";
@@ -97,8 +93,8 @@ export default function Modules({
                       !isLastClass
                         ? module.classes[index2 + 1]._id
                         : !isLastModule && modules[index + 1]?.classes[0]?._id
-                        ? modules[index + 1]?.classes[0]?._id
-                        : "123456"
+                          ? modules[index + 1]?.classes[0]?._id
+                          : "123456"
                     }
                     order={index2}
                     courseTitle={title}
