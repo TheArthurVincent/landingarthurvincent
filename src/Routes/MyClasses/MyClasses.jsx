@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../Blog/Blog.Styled";
 
-export  default function MyClasses({ headers }) {
+export function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
@@ -104,10 +104,6 @@ export  default function MyClasses({ headers }) {
           gap: "1rem",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "1rem",
-          backgroundColor: secondaryColor(),
-          borderRadius: "8px",
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
         }}
       >
         <div
@@ -122,10 +118,6 @@ export  default function MyClasses({ headers }) {
             style={{
               backgroundColor: primaryColor(),
               color: textPrimaryColorContrast(),
-              borderRadius: "20px",
-              padding: "0.5rem 1rem",
-              transition: "background-color 0.3s ease",
-              '&:hover': { backgroundColor: secondaryColor() },
             }}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
@@ -135,8 +127,6 @@ export  default function MyClasses({ headers }) {
           <span
             style={{
               color: alwaysBlack(),
-              fontSize: "1.2rem",
-              fontWeight: "bold",
             }}
           >
             {currentPage}/{totalPages}
@@ -145,10 +135,6 @@ export  default function MyClasses({ headers }) {
             style={{
               backgroundColor: primaryColor(),
               color: textPrimaryColorContrast(),
-              borderRadius: "20px",
-              padding: "0.5rem 1rem",
-              transition: "background-color 0.3s ease",
-              '&:hover': { backgroundColor: secondaryColor() },
             }}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
@@ -165,19 +151,13 @@ export  default function MyClasses({ headers }) {
               justifyContent: "space-between",
             }}
           >
-            <label style={{ fontWeight: "bold", color: alwaysBlack() }}>
-              {UniversalTexts.itemsPerPage}
-            </label>
+            <label>{UniversalTexts.itemsPerPage}</label>
             <select
               style={{
                 minWidth: "4.5rem",
-                padding: "0.5rem",
+                padding: "0.1rem",
                 fontSize: "1rem",
                 cursor: "pointer",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-                transition: "border 0.3s ease",
-                '&:hover': { border: "1px solid" + secondaryColor() },
               }}
               value={itemsPerPage}
               onChange={handleItemsPerPageChange}
@@ -219,100 +199,105 @@ export  default function MyClasses({ headers }) {
   };
 
   return (
-    <RouteDiv className="smooth" style={{ padding: "2rem" }}>
-      <Helmets text="My Classes" />
-      {permissions == "superadmin" && (
-        <>
-          <select
-            onChange={handleStudentChange}
-            name="students"
-            id=""
-            value={newID}
-            style={{
-              minWidth: "10rem",
-              padding: "0.5rem",
-              borderRadius: "8px",
-              marginBottom: "1rem",
-              border: "1px solid #ccc",
-            }}
-          >
-            <option value={""} hidden>
-              Select student
-            </option>
-            {studentsList.map((student, index) => {
-              return (
-                <option
-                  style={{ cursor: "pointer" }}
-                  key={index}
-                  value={student._id}
-                >
-                  {student.fullName}
-                </option>
-              );
-            })}
-          </select>
-        </>
-      )}
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <>
-          <ClassesSideBar />
-          <HOne style={{ margin: "2rem 0", color: primaryColor() }}>
-            {UniversalTexts.titleMyClasses}
-          </HOne>
-          <ClassBox>
-            {currentClasses.map((lesson, index) => {
-              return (
-                <div
-                  key={lesson.tutoringID}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: "1.5rem",
-                    margin: "0.5rem 0",
-                    backgroundColor: "#fff",
-                    borderRadius: "8px",
-                    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <HTwo
-                    style={{
-                      marginBottom: "0.5rem",
-                      color: primaryColor(),
-                      fontSize: "1.25rem",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {lesson.title}
-                  </HTwo>
-                  <p style={{ margin: "0.5rem 0" }}>{lesson.classDate}</p>
-                  <Link to={getVideoEmbedUrl(lesson.classVideo)}>
-                    {lesson.classVideo}
-                  </Link>
-                  {permissions === "superadmin" && (
-                    <Button
-                      style={{
-                        backgroundColor: "red",
-                        color: "white",
-                        marginTop: "1rem",
-                        padding: "0.5rem 1rem",
-                        borderRadius: "8px",
-                        cursor: "pointer",
-                        transition: "opacity 0.3s ease",
-                        '&:hover': { opacity: 0.8 },
-                      }}
-                      onClick={() => handleDelete(lesson.tutoringID, studentNXTId)}
-                    >
-                      {UniversalTexts.deleteLesson}
-                    </Button>
-                  )}
-                </div>
-              );
-            })}
-          </ClassBox>
-        </>
-      )}
-    </RouteDiv>
+    <RouteDiv style={{ transition: 'all 0.3s ease' }}>
+  <Helmets text="My Classes" />
+  
+  {permissions === "superadmin" && (
+    <div style={{ marginBottom: '16px' }}>
+      <select
+        onChange={handleStudentChange}
+        name="students"
+        value={newID}
+        style={{
+          padding: '8px',
+          borderRadius: '4px',
+          border: '1px solid #ccc',
+          fontSize: '16px',
+          width: '100%',
+          maxWidth: '300px',
+          boxSizing: 'border-box'
+        }}
+      >
+        <option value="" hidden>Selecione um aluno</option>
+        {studentsList.map((student) => (
+          <option key={student.id} value={student.id}>
+            {student.name} {student.lastname}
+          </option>
+        ))}
+      </select>
+    </div>
+  )}
+  
+  {!loading ? (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <HOne style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
+        {UniversalTexts.myClasses}
+      </HOne>
+      <ClassesSideBar />
+      {currentClasses.map((classItem) => (
+        <ClassBox
+          key={classItem.id}
+          style={{
+            border: '1px solid #ddd',
+            borderRadius: '8px',
+            padding: '16px',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            backgroundColor: '#fff',
+            marginBottom: '16px'
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {permissions === "superadmin" && (
+              <ArvinButton
+                color="red"
+                onClick={() => handleDelete(classItem.id, studentNXTId || studentId)}
+                style={{
+                  backgroundColor: 'red',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  marginBottom: '8px'
+                }}
+              >
+                Apagar aula
+              </ArvinButton>
+            )}
+            <HTwo style={{ fontSize: '18px', fontWeight: 'normal', margin: '0' }}>
+              {classItem.date}
+            </HTwo>
+            {classItem.attachments && (
+              <Link
+                to={classItem.attachments}
+                target="_blank"
+                style={{
+                  color: '#007bff',
+                  textDecoration: 'none',
+                  fontSize: '14px'
+                }}
+              >
+                Arquivos da aula
+              </Link>
+            )}
+            <IFrameVideoBlog
+              src={getVideoEmbedUrl(classItem.videoUrl)}
+ 
+            />
+          </div>
+        </ClassBox>
+      ))}
+      {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
+    </div>
+  ) : (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+      <CircularProgress style={{ color: secondaryColor() }} />
+    </div>
+  )}
+</RouteDiv>
+
   );
 }
+
+export default MyClasses;
