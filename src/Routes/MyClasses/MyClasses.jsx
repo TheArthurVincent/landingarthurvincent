@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../Blog/Blog.Styled";
 
-export function MyClasses({ headers }) {
+export  default function MyClasses({ headers }) {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(1);
