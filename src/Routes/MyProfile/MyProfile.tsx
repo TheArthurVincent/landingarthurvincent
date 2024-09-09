@@ -101,8 +101,7 @@ export function MyProfile({ headers }: HeadersProps) {
                   padding: "0.5rem 1rem",
                   borderRadius: "8px",
                   cursor: "pointer",
-                  transition: "opacity 0.3s ease",
-                  "&:hover": { opacity: 0.8 },
+                  transition: "opacity 0.3s ease"
                 }}
               >
                 <i className="fa fa-refresh" aria-hidden="true" />
