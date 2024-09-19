@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import React from "react";
 
 const spinAnimation = keyframes`
 0% {
