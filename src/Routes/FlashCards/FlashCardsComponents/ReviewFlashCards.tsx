@@ -287,19 +287,18 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                               }}
                               color="red"
                             >
-                              Repeat!{" "}
+                              I missed - Errei{" "}
                             </ArvinButton>
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
                               onClick={() => reviewCard(cards[0]._id, "hard")}
-                              color="pink"
+                              color="green"
                             >
-                              Hard
+                              I got it - Acertei
                             </ArvinButton>
                           </div>
-
-                          <div style={{ display: "grid", gap: "5px" }}>
+                          {/*          <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
                               onClick={() => reviewCard(cards[0]._id, "medium")}
                               color="navy"
@@ -315,10 +314,12 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             >
                               Easy
                             </ArvinButton>
-                          </div>
+                          </div>*/}
                         </div>
+                        Be honest! hehe <br />
                       </div>
                     )}
+
                     <div
                       style={{
                         margin: "auto",
