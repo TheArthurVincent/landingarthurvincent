@@ -69,12 +69,12 @@ export default function ImageLessonModel({
         { newCards },
         { headers: actualHeaders }
       );
+      alert("Card enviado");
     } catch (error) {
       alert("Erro ao enviar cards");
     }
   };
 
-  
   const [permissions, setPermissions] = useState<string>("");
 
   useEffect(() => {
@@ -109,7 +109,7 @@ export default function ImageLessonModel({
                     addNewCardsInverted(image.english, image.portuguese)
                   }
                 >
-                  Flashcard
+                  <i className="fa fa-folder" aria-hidden="true" />
                 </ArvinButton>
               </div>
               <ImgLesson src={image.img} />
