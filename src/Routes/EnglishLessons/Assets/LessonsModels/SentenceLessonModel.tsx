@@ -59,16 +59,8 @@ export default function SentenceLessonModel({
   }, []);
 
   return (
-    <UlSentences
-      style={{
-        gridTemplateColumns:
-          element.grid === 3
-            ? "1fr 1fr 1fr"
-            : element.grid === 2
-            ? "1fr 1fr"
-            : "1fr",
-      }}
-    >
+    <UlSentences grid={element.grid}>
+
       {element.sentences &&
         element.sentences.map((sentence: any, i: number) => (
           <LiSentence key={i}>
