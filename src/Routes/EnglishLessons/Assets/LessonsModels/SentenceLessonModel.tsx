@@ -60,7 +60,6 @@ export default function SentenceLessonModel({
 
   return (
     <UlSentences grid={element.grid}>
-
       {element.sentences &&
         element.sentences.map((sentence: any, i: number) => (
           <LiSentence key={i}>
