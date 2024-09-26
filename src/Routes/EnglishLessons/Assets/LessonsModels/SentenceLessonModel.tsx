@@ -44,7 +44,7 @@ export default function SentenceLessonModel({
       );
 
 
-      console.log(`Card adicionado ao baralho, ${response}`);
+      console.log(`Card adicionado ao baralho`, response);
       alert(`Card adicionado ao baralho, ${response}`);
     } catch (error) {
       alert("Erro ao enviar cards");
