@@ -307,7 +307,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             </ArvinButton>
                           </div>
                         </div>
-                        Be honest! hehe <br />
+                        <br />
+                        <br />
                       </div>
                     )}
                     <div
