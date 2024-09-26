@@ -149,7 +149,7 @@ body {
 .audio-button {
   padding: 0;
   padding-left: 10px;
-  background-color: white;
+  background-color: none;
   color: #000;
   font-size: 1rem;
   cursor: pointer;
