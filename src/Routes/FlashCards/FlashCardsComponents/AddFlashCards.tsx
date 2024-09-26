@@ -128,11 +128,16 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
       },
     }));
     try {
-      await axios.post(
+      const response = await axios.post(
         `${backDomain}/api/v1/flashcard/${studentID}`,
         { newCards },
         { headers: actualHeaders }
       );
+
+      const showThis =
+        response.data.addedNewFlashcards + " " + response.data.invalidNewCards;
+      console.log(showThis);
+      alert(showThis);
       setCards([]);
     } catch (error) {
       alert("Erro ao enviar cards");
