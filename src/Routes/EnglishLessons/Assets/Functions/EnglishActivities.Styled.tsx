@@ -26,7 +26,7 @@ export const LiSentence = styled.li`
   border: solid 1px #ddd;
   border-radius: 10px;
 
-  &:active {
+  &:hover {
     background-color: #eaeaea; 
   }
 
