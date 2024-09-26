@@ -295,7 +295,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                               onClick={() => reviewCard(cards[0]._id, "hard")}
                               color="blue"
                             >
-                              It was okay (Foi mais ou menos)
+                              It was okay (Mais ou menos)
                             </ArvinButton>
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
