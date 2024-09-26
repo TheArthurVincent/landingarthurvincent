@@ -25,6 +25,11 @@ export const LiSentence = styled.li`
   padding: 10px;
   border: solid 1px #ddd;
   border-radius: 10px;
+
+  &:active {
+    background-color: #e0e0e0; 
+  }
+
   @media print {
     box-shadow: 1px 1px 12px 3px white;
   }
