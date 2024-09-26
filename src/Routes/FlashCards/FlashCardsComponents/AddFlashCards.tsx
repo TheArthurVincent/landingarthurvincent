@@ -135,7 +135,10 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
       );
 
       const showThis =
-        response.data.addedNewFlashcards + " " + response.data.invalidNewCards;
+        "cards adicionados:" +
+        response.data.addedNewFlashcards +
+        ", cards não adicionados:" +
+        response.data.invalidNewCards;
       console.log(showThis);
       alert(showThis);
       setCards([]);

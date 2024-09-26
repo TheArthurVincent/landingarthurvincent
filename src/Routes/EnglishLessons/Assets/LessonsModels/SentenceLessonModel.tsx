@@ -42,8 +42,7 @@ export default function SentenceLessonModel({
         { newCards },
         { headers: actualHeaders }
       );
-      const showThis =
-        response.data.addedNewFlashcards + " " + response.data.invalidNewCards;
+      const showThis = "cards adicionados:" + response.data.addedNewFlashcards + ", cards não adicionados:" + response.data.invalidNewCards;
       console.log(showThis);
       alert(showThis);
     } catch (error) {
