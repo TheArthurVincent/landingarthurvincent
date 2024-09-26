@@ -287,39 +287,29 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                               }}
                               color="red"
                             >
-                              I missed - Errei{" "}
+                              I missed (Errei)
                             </ArvinButton>
                           </div>
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
                               onClick={() => reviewCard(cards[0]._id, "hard")}
-                              color="green"
+                              color="blue"
                             >
-                              I got it - Acertei
+                              It was okay (Foi mais ou menos)
                             </ArvinButton>
                           </div>
-                          {/*          <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0]._id, "medium")}
-                              color="navy"
-                            >
-                              Medium
-                            </ArvinButton>
-                          </div>
-
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
                               onClick={() => reviewCard(cards[0]._id, "easy")}
                               color="green"
                             >
-                              Easy
+                              I got it easily! (Acertei fácil)
                             </ArvinButton>
-                          </div>*/}
+                          </div>
                         </div>
                         Be honest! hehe <br />
                       </div>
                     )}
-
                     <div
                       style={{
                         margin: "auto",
@@ -338,8 +328,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                               fontSize: "12px",
                             }}
                           >
-                            {cards[0]?.numberOfReviews || "no"}{" "}
-                            {cards[0]?.numberOfReviews == 1
+                            {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
+                            {Math.round(cards[0]?.numberOfReviews) == 1
                               ? "review"
                               : "reviews"}
                           </span>
@@ -439,28 +429,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         </div>
                       </div>
                     </div>
-                    {/* <span>
-                      {cards &&
-                        cards.map((card, index) => {
-                          return (
-                            <p 
-                            style={{margin:"1rem"}}
-                            key={index}>
-                              <strong>{card.front.text} </strong>- Review Rate:{" "}
-                              <strong>{card.reviewRate}</strong> - Number of
-                              Reviews: <strong>{card.numberOfReviews}</strong>
-                            </p>
-                          );
-                        })}
-                    </span> */}
                   </>
                 ) : (
                   <p>
                     <b>
-                      {" "}
                       Congratulations! You've finished reviewing your cards! One
                       step closer to fluency!
-                    </b>{" "}
+                    </b>
                     <br />
                     <br />
                     Parabéns, você terminou de revisar seus cards! Mais um passo
