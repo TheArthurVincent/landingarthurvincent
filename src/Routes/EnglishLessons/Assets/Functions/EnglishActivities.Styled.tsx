@@ -29,7 +29,7 @@ export const LiSentence = styled.li`
 
   &:hover {
     box-shadow: 1px 1px 12px 3px white;
-    background-color: #ededed;
+    background-color: #eee;
   }
 
   @media print {
