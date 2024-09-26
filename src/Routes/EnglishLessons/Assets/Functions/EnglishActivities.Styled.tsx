@@ -27,7 +27,7 @@ export const LiSentence = styled.li`
   border-radius: 10px;
 
   &:active {
-    background-color: #e0e0e0; 
+    background-color: #eaeaea; 
   }
 
   @media print {
