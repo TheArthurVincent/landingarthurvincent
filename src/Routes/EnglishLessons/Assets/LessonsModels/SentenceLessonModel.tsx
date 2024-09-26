@@ -66,7 +66,7 @@ export default function SentenceLessonModel({
             <Tooltip title="Add to flashcards">
               <ArvinButton
                 style={{
-                  display: permissions === "superadmin" ? "block" : "none",
+                  // display: permissions === "superadmin" ? "block" : "none",
                 }}
                 color="white"
                 onClick={() =>
@@ -93,14 +93,14 @@ export default function SentenceLessonModel({
             </button>
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
-            <textarea
+            {/* <textarea
               style={{
                 display: permissions === "superadmin" ? "block" : "none",
               }}
               className="comments"
               name="comments"
             ></textarea>
-            <br />
+            <br /> */}
           </LiSentence>
         ))}
     </UlSentences>
