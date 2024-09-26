@@ -24,10 +24,11 @@ export const LiSentence = styled.li`
   margin-bottom: 10px;
   padding: 10px;
   border: solid 1px #ddd;
-  border-radius: 10px;
+  border-radius: 8px;
 
   &:hover {
-    background-color: #eaeaea; 
+    box-shadow: 1px 1px 12px 3px white;
+    background-color: #ededed; 
   }
 
   @media print {
