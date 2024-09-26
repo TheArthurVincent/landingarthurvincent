@@ -82,14 +82,14 @@ export default function SentenceLessonModel({
             <br />
             <br />
             <strong>{sentence.english}</strong>
-            <button
+            <span
               className="audio-button"
               onClick={() => {
                 readText(sentence.english, true);
               }}
             >
               <i className="fa fa-volume-up" aria-hidden="true" />
-            </button>
+            </span>
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
             {/* <textarea
