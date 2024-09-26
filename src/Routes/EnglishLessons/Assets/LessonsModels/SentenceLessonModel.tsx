@@ -65,9 +65,9 @@ export default function SentenceLessonModel({
           <LiSentence key={i}>
             <Tooltip title="Add to flashcards">
               <ArvinButton
-                style={{
-                  // display: permissions === "superadmin" ? "block" : "none",
-                }}
+                // style={{
+                //   display: permissions === "superadmin" ? "block" : "none",
+                // }}
                 color="white"
                 onClick={() =>
                   addNewCards(sentence.english, sentence.portuguese)
