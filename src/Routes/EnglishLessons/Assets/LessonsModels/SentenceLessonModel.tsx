@@ -42,10 +42,10 @@ export default function SentenceLessonModel({
         { newCards },
         { headers: actualHeaders }
       );
-
-
-      console.log(`Card adicionado ao baralho`, response.data);
-      alert(`Card adicionado ao baralho, ${response.data}`);
+      const showThis =
+        response.data.addedNewFlashcards + " " + response.data.invalidNewCards;
+      console.log(showThis);
+      alert(showThis);
     } catch (error) {
       alert("Erro ao enviar cards");
     }
