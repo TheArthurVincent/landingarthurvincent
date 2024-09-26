@@ -291,7 +291,7 @@ export const ImgResponsive0 = styled.img`
   }
 `;
 export const ImgResponsive3 = styled.img`
-  max-width: 8rem;
+  max-width: 3rem;
   @media (max-width: 755px) {
     display: none;
   }
