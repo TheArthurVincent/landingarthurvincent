@@ -42,7 +42,11 @@ export default function SentenceLessonModel({
         { newCards },
         { headers: actualHeaders }
       );
-      const showThis = "cards adicionados:" + response.data.addedNewFlashcards + ", cards não adicionados:" + response.data.invalidNewCards;
+      const showThis =
+        "cards adicionados:" +
+        response.data.addedNewFlashcards +
+        ", cards não adicionados:" +
+        response.data.invalidNewCards;
       console.log(showThis);
       alert(showThis);
     } catch (error) {
@@ -67,9 +71,6 @@ export default function SentenceLessonModel({
           <LiSentence key={i}>
             <Tooltip title="Add to flashcards">
               <ArvinButton
-                // style={{
-                //   display: permissions === "superadmin" ? "block" : "none",
-                // }}
                 color="white"
                 onClick={() =>
                   addNewCards(sentence.english, sentence.portuguese)
@@ -78,12 +79,8 @@ export default function SentenceLessonModel({
                 <i className="fa fa-files-o" aria-hidden="true" />
               </ArvinButton>
             </Tooltip>
-            {permissions === "superadmin" ? (
-              <span>
-                <br />
-                <br />
-              </span>
-            ) : null}
+            <br />
+            <br />
             <strong>{sentence.english}</strong>
             <button
               className="audio-button"
