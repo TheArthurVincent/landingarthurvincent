@@ -9,6 +9,7 @@ import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { CircularProgress } from "@mui/material";
 import { languages } from "./AddFlashONEFlashCard";
+import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 
 const AllCards = ({ headers }: HeadersProps) => {
   const [myId, setId] = useState<string>("");
@@ -237,6 +238,16 @@ const AllCards = ({ headers }: HeadersProps) => {
                       <i className="fa fa-edit" aria-hidden="true" />
                     </ArvinButton>
                   )}
+                  {card.front.language && card.front.language !== "pt" && (
+                    <button
+                      className="audio-button"
+                      onClick={() =>
+                        readText(card.front.text, true, card.front.language)
+                      }
+                    >
+                      <i className="fa fa-volume-up" aria-hidden="true" />
+                    </button>
+                  )}
                   <div
                     style={{
                       fontWeight: 600,
@@ -250,6 +261,16 @@ const AllCards = ({ headers }: HeadersProps) => {
                       __html: card.back.text,
                     }}
                   />
+                  {card.back.language && card.back.language !== "pt" && (
+                    <button
+                      className="audio-button"
+                      onClick={() =>
+                        readText(card.back.text, true, card.back.language)
+                      }
+                    >
+                      <i className="fa fa-volume-up" aria-hidden="true" />
+                    </button>
+                  )}
                 </div>
                 <br />
                 <div
