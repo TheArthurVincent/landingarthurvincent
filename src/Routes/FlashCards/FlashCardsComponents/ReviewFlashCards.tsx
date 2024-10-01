@@ -34,7 +34,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     console.log(cards);
   }, []);
   const timerDisabled = () => {
-    if (myPermissions === "superadmin") {
+    if (myPermissions !== "superadmin") {
       setCount(4);
       setIsDisabled(true);
 
