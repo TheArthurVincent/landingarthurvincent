@@ -285,7 +285,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                 <br />
                 <div>Reviewed {Math.round(card.numberOfReviews)} times</div>
                 <br />
-                <div>Review Rate: {card.reviewRate}</div>
+                <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
               </div>
             ))}
           </div>
