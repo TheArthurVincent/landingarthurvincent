@@ -34,20 +34,28 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     console.log(cards);
   }, []);
   const timerDisabled = () => {
-    setCount(4);
-    setIsDisabled(true);
-    setTimeout(() => {
-      setCount(3);
-    }, 1000);
-    setTimeout(() => {
-      setCount(2);
-    }, 2000);
-    setTimeout(() => {
-      setCount(1);
-    }, 3000);
-    setTimeout(() => {
+    if (myPermissions === "superadmin") {
+      setCount(4);
+      setIsDisabled(true);
+
+      setTimeout(() => {
+        setCount(3);
+      }, 1000);
+
+      setTimeout(() => {
+        setCount(2);
+      }, 2000);
+
+      setTimeout(() => {
+        setCount(1);
+      }, 3000);
+
+      setTimeout(() => {
+        setIsDisabled(false);
+      }, 4000);
+    } else {
       setIsDisabled(false);
-    }, 4000);
+    }
   };
 
   useEffect(() => {
