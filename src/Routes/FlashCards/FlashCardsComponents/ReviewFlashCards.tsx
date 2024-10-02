@@ -558,7 +558,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               seeCardsToReview;
             }}
           >
-            <option value="nofilter">Sem filtro</option>
+            <option value="nofilter">Ver todos os cards</option>
             <option value="vocabulary">Vocabulário</option>
             <option value="possessive">Possessivos</option>
             <option value="be">To be</option>

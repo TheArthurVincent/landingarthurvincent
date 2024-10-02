@@ -196,7 +196,7 @@ const AllCards = ({ headers }: HeadersProps) => {
               }
             }}
           >
-            <option value="nofilter">Sem filtro</option>
+            <option value="nofilter">Ver todos os cards</option>
             <option value="vocabulary">Vocabulário</option>
             <option value="modal">Modal verbs</option>
             <option value="possessive">Possessivos</option>
