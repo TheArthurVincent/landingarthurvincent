@@ -5,7 +5,6 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
   Xp,
   backDomain,
-  updateInfo,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -96,7 +95,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       );
       const thereAreCards =
         response.data.dueFlashcards.length > 0 ? false : true;
-      const cardsCountFetch = response.data.cardsCount;
       {
         response.data.dueFlashcards.length > 0 &&
         response.data.dueFlashcards[0].front.language &&
@@ -111,7 +109,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       }
       setCards(response.data.dueFlashcards);
       console.log(response.data.dueFlashcards);
-      setCardsCount(cardsCountFetch);
       setCardsLength(thereAreCards);
       setBackCardVisible(true);
       timerDisabled();
@@ -223,14 +220,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         paddingBottom: "1rem",
                       }}
                     >
-                      Reviews for today:{" "}
-                      <span
-                        style={{
-                          color: "black",
-                        }}
-                      >
-                        {cardsCount.remainingFlashcardsToReview}
-                      </span>
+                   
                     </div>{" "}
                     {myPermissions === "superadmin" && (
                       <ArvinButton
@@ -438,14 +428,10 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   </>
                 ) : (
                   <p>
-                    <b>
-                      Congratulations! You've finished reviewing your cards! One
-                      step closer to fluency!
-                    </b>
+                    <b>No flashcards</b>
                     <br />
                     <br />
-                    Parabéns, você terminou de revisar seus cards! Mais um passo
-                    rumo à fluência!
+                    Nenhum flashcard
                   </p>
                 )}
               </div>
