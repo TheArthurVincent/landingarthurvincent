@@ -41,11 +41,11 @@
   }
 }
 
-div {
+* {
   animation-name: slideInLeft;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-out;
-  transition: all 0.1s ease-out;
+  animation-duration: 0.4s;
+  animation-timing-function: forward;
+  transition: all 0.1s forward;
 }
 
 h1,

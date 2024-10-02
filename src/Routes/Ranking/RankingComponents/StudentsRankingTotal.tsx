@@ -21,6 +21,7 @@ import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [students, setStudents] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Novo estado para hover
 
   const theItems = levels();
 
@@ -41,6 +42,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
       alert("Erro ao encontrar alunos");
     }
   };
+
   useEffect(() => {
     fetchStudents();
   }, []);
@@ -72,6 +74,11 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         <ul>
           {students.map((item: any, index: number) => {
             const levelNumber = updateScore(item.totalScore).level;
+            const nextLevel = theItems[levelNumber + 1] || {};
+            const remainingPoints =
+              (Number(nextLevel.totalScore) || 0) -
+              (Number(item.totalScore) || 0);
+
             return (
               <AnimatedLi2
                 key={index}
@@ -80,15 +87,35 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   background: theItems[levelNumber].color,
                   color: theItems[levelNumber].textcolor,
                 }}
+                onMouseOver={() => setHoveredIndex(index)} // Define o índice atual como hovered
+                onMouseOut={() => setHoveredIndex(null)} // Limpa o hover ao remover o mouse
               >
                 <ImgResponsive3
                   src={theItems[levelNumber].image2}
                   alt="level"
                 />
-                <p>
-                  #{index + 1} |{" "}
-                  {item.name + " " + abreviateName(item.lastname)}
-                </p>
+                <div
+                style={{textAlign:"center"}}
+                >
+                  <p
+                style={{fontWeight:550}}
+                  
+                  >
+                    #{index + 1} |{" "}
+                    {item.name + " " + abreviateName(item.lastname)}
+                  </p>
+                  {/* Exibe os pontos restantes somente se o item estiver hovered */}
+                  {hoveredIndex === index && (
+                    <p
+                    style={{fontStyle:"italic",fontSize:"12px"}}
+                    
+                    >
+                      {`Pontos restantes até o nível ${
+                        nextLevel.text || "Desconhecido"
+                      } : ${formatNumber(remainingPoints)}`}
+                    </p>
+                  )}
+                </div>
                 <DivFont
                   style={{
                     color: alwaysWhite(),
