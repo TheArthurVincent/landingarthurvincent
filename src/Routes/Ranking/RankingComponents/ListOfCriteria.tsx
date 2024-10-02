@@ -51,23 +51,12 @@ export const listOfCriteria = [
     transform: "rotate(-25deg)",
     color: "rgb(1, 188, 255)",
     score: [
-      // {
-      //   description: "Chegou na aula com o Anki totalmente revisado",
-      //   score: 50,
-      //   color: "green",
-      // },
       {
         description: "Revisou um card",
-        score: 5,
+        score: 4,
         nobutton: true,
         color: "green",
-      },
-      // {
-      //   description: "Zerou as 40 revisões do dia",
-      //   score: 80,
-      //   nobutton: true,
-      //   color: "green",
-      // },
+      }
     ],
   },
   {
