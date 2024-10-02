@@ -15,6 +15,7 @@ const AllCards = ({ headers }: HeadersProps) => {
   const [myId, setId] = useState<string>("");
   const [addCardVisible, setAddCardVisible] = useState<boolean>(false);
   const [cards, setCards] = useState([]);
+  const [fCards, setFCards] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [loadingStudents, setLoadingStudents] = useState<boolean>(true);
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -58,13 +59,14 @@ const AllCards = ({ headers }: HeadersProps) => {
       });
       const list = response.data.allFlashCards;
       setCards(list);
+      setFCards(list);
       setLoading(false);
     } catch (error) {
       console.log("Erro ao obter cards");
       setLoading(false);
     }
   };
-
+  const [category, setCategory] = useState("");
   const fetchStudents = async () => {
     setLoadingStudents(true);
     setAddCardVisible(!addCardVisible);
@@ -177,6 +179,38 @@ const AllCards = ({ headers }: HeadersProps) => {
           maxWidth: "40rem",
         }}
       >
+        <>
+          {" "}
+          <select
+            id="category-select"
+            value={category}
+            onChange={(e) => {
+              setCategory(e.target.value);
+              const filteredCards = fCards.filter((c: any) =>
+                c.tags.includes(e.target.value)
+              );
+              if (e.target.value !== "nofilter") {
+                setCards(filteredCards);
+              } else {
+                getNewCards(studentID);
+              }
+            }}
+          >
+            <option value="nofilter">Sem filtro</option>
+            <option value="vocabulary">Vocabulário</option>
+            <option value="modal">Modal verbs</option>
+            <option value="possessive">Possessivos</option>
+            <option value="question">Question words</option>
+            <option value="irregularpast">Irregular Past</option>
+            <option value="did">Did & Didn't</option>
+            <option value="do">Do & Does</option>
+            <option value="dont">Don't & Doesn't</option>
+            <option value="presentperfect">Present Perfect</option>
+            <option value="pastperfect">Past Perfect</option>
+            <option value="be">To be</option>
+          </select>
+        </>
+
         <div
           style={{
             display: "flex",
@@ -286,8 +320,24 @@ const AllCards = ({ headers }: HeadersProps) => {
                 <div>Reviewed {Math.round(card.numberOfReviews)} times</div>
                 <br />
                 <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
+                <div>
+                  Tags:{" "}
+                  {card.tags.map((thetag: string, index: number) => {
+                    return (
+                      <span
+                        style={{
+                          fontStyle: "italic",
+                        }}
+                        key={index}
+                      >
+                        {thetag};{" "}
+                      </span>
+                    );
+                  })}
+                </div>
+
                 {perm == "superadmin" && (
-                  <div>Review Rate: {card.reviewRate}</div>
+                  <div>Review Rate Total: {card.reviewRate}</div>
                 )}
               </div>
             ))}

@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import {
-  Xp,
-  backDomain,
-} from "../../../Resources/UniversalComponents";
+import { Xp, backDomain } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { languages } from "./AddFlashONEFlashCard";
@@ -23,11 +20,11 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const [answer, setAnswer] = useState<boolean>(false);
   const [cardsLength, setCardsLength] = useState<boolean>(true);
-  const [cardsCount, setCardsCount] = useState<any>([]);
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [category, setCategory] = useState<string>("nofilter");
 
   useEffect(() => {
     console.log(cards);
@@ -53,12 +50,14 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
+  const [totalS, setTotalScore] = useState(0);
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions, id } = JSON.parse(user);
+      const { totalScore, permissions, id } = JSON.parse(user);
       setId(id);
       setPermissions(permissions);
+      setTotalScore(totalScore);
     }
     setAnswer(false);
   }, []);
@@ -87,11 +86,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     setAnswer(false);
     setBackCardVisible(false);
     setSee(true);
-    // updateInfo(myId, actualHeaders);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/flashcards/${myId}`,
-        { headers: actualHeaders }
+        {
+          headers: actualHeaders,
+          params: { category },
+        }
       );
       const thereAreCards =
         response.data.dueFlashcards.length > 0 ? false : true;
@@ -114,6 +115,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       timerDisabled();
       setLoading(false);
     } catch (error) {
+      console.log(error);
       alert("Erro ao enviar cards");
     }
   };
@@ -219,9 +221,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         fontSize: "10px",
                         paddingBottom: "1rem",
                       }}
-                    >
-                   
-                    </div>{" "}
+                    ></div>{" "}
                     {myPermissions === "superadmin" && (
                       <ArvinButton
                         onClick={() => handleSeeModal(cards[0]._id)}
@@ -534,10 +534,50 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           alignItems: "center",
         }}
       />
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          alignItems: "center",
+          marginBottom: "1rem",
+        }}
+      >
+        <div
+          style={
+            {
+              // display: myPermissions === "superadmin" ? "block" : "none",
+            }
+          }
+        >
+          <label htmlFor="category-select">Categoria:</label>
+          <select
+            id="category-select"
+            value={category}
+            onChange={(e) => {
+              setCategory(e.target.value);
+              seeCardsToReview;
+            }}
+          >
+            <option value="nofilter">Sem filtro</option>
+            <option value="vocabulary">Vocabulário</option>
+            <option value="possessive">Possessivos</option>
+            <option value="be">To be</option>
+            <option value="modal">Modal verbs</option>
+            <option value="question">Question words</option>
+            <option value="do">Do & Does</option>
+            <option value="dont">Don't & Doesn't</option>
+            <option value="did">Did & Didn't</option>
+            <option value="irregularpast">Irregular Past</option>
+            <option value="presentperfect">Present Perfect</option>
+            <option value="pastperfect">Past Perfect</option>
+          </select>
+        </div>
+      </div>
+
       <ArvinButton
         style={{
           margin: "auto",
-          display: !see ? "block" : "none",
+          display: "block",
         }}
         onClick={seeCardsToReview}
       >
