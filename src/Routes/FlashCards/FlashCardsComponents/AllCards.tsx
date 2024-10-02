@@ -320,6 +320,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                 <div>Reviewed {Math.round(card.numberOfReviews)} times</div>
                 <br />
                 <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
+                <div>Easy Reviews: {card.easyReviews}</div>
                 <div>
                   Tags:{" "}
                   {card.tags.map((thetag: string, index: number) => {
