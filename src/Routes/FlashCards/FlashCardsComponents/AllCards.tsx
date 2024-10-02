@@ -286,6 +286,9 @@ const AllCards = ({ headers }: HeadersProps) => {
                 <div>Reviewed {Math.round(card.numberOfReviews)} times</div>
                 <br />
                 <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
+                {perm == "superadmin" && (
+                  <div>Review Rate: {card.reviewRate}</div>
+                )}
               </div>
             ))}
           </div>
