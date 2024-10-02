@@ -156,7 +156,7 @@ export const ImgBlog = styled.img`
   margin-left: auto;
   object-position: center;
   max-height: auto;
-  width: 99%;
+  width: 40%;
 `;
 
 export const Disapear = styled.span`
