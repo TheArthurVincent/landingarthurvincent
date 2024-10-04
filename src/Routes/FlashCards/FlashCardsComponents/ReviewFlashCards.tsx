@@ -25,6 +25,49 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
+  const [textColor, setTextColor] = useState<string>("#000");
+
+  // Função para alterar a cor do texto conforme a categoria
+  useEffect(() => {
+    switch (category) {
+      case "vocabulary":
+        setTextColor("#006400"); // Verde escuro
+        break;
+      case "possessive":
+        setTextColor("#00008B"); // Azul escuro
+        break;
+      case "be":
+        setTextColor("#4B0082"); // Roxo escuro
+        break;
+      case "modal":
+        setTextColor("#2E8B57"); // Outro tom de verde escuro
+        break;
+      case "question":
+        setTextColor("#4682B4"); // Azul aço
+        break;
+      case "do":
+        setTextColor("#6A5ACD"); // Azul ardósia médio
+        break;
+      case "dont":
+        setTextColor("#483D8B"); // Azul ardósia escuro
+        break;
+      case "did":
+        setTextColor("#8B0000"); // Vermelho escuro
+        break;
+      case "irregularpast":
+        setTextColor("#556B2F"); // Verde oliva escuro
+        break;
+      case "presentperfect":
+        setTextColor("#8B008B"); // Roxo escuro
+        break;
+      case "pastperfect":
+        setTextColor("#4B0082"); // Índigo escuro
+        break;
+      default:
+        setTextColor("#000"); // Cor padrão (preto)
+    }
+  }, [category]);
+
 
   useEffect(() => {
     console.log(cards);
@@ -211,6 +254,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               style={{
                 margin: "auto",
                 textAlign: "center",
+                color: textColor,
               }}
             >
               <div>
@@ -332,16 +376,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           <br />
                           <br />
                           <span>
-                            {(
-                              <div
-                                style={{
-                                  marginBottom: "15px",
-                                }}
-                                dangerouslySetInnerHTML={{
-                                  __html: cards[0]?.front?.text,
-                                }}
-                              />
-                            ) || " "}
+                            <div
+                              style={{
+                                marginBottom: "15px",
+                              }}
+                            >
+                              {cards[0]?.front?.text}
+                            </div>
                           </span>
                           {cards[0].front.language &&
                             cards[0].front.language !== "pt" && (
