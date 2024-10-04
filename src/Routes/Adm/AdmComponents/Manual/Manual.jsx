@@ -41,7 +41,6 @@ export function Manual() {
       <p>
         * Funcionam como reposição para feriados e eventuais faltas do aluno.
       </p>
-
       <HTwo>Política de Cancelamento:</HTwo>
       <ul>
         <li>
@@ -65,9 +64,9 @@ export function Manual() {
         </thead>
         <tbody>
           <tr>
-            <td style={tdStyle}>R$ 300</td>
-            <td style={tdStyle}>R$ 500</td>
-            <td style={tdStyle}>R$ 750</td>
+            <td style={tdStyle}>R$ 310</td>
+            <td style={tdStyle}>R$ 510</td>
+            <td style={tdStyle}>R$ 800</td>
           </tr>
         </tbody>
       </table>
