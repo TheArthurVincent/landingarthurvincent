@@ -62,7 +62,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         setTextColor("#F5F5FA"); // Lavanda pastel ainda mais suave
         break;
       default:
-        setTextColor("#000"); // Cor padrão (preto)
+        setTextColor("#fff"); // Cor padrão (preto)
     }
   }, [category]);
   
