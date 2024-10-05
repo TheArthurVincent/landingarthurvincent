@@ -38,7 +38,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         setTextColor("#F5DEB3"); // Bege claro pastel
         break;
       case "modal":
-        setTextColor("#90EE90"); // Verde suave pastel
+        setTextColor("#ddd"); // cinza
         break;
       case "question":
         setTextColor("#B0E0E6"); // Azul pálido pastel
