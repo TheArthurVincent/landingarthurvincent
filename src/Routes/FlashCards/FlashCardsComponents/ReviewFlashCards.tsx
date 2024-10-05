@@ -26,8 +26,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
-
-  // Função para alterar a cor do texto conforme a categoria
   useEffect(() => {
     switch (category) {
       case "vocabulary":
@@ -37,7 +35,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         setTextColor("#ADD8E6"); // Azul claro pastel
         break;
       case "be":
-        setTextColor("#DDA0DD"); // Lilás pastel
+        setTextColor("#F5DEB3"); // Bege claro pastel
         break;
       case "modal":
         setTextColor("#90EE90"); // Verde suave pastel
@@ -49,24 +47,25 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         setTextColor("#B0C4DE"); // Azul ardósia claro pastel
         break;
       case "dont":
-        setTextColor("#D8BFD8"); // Roxo claro pastel
+        setTextColor("#FFFFE0"); // Amarelo claro pastel
         break;
       case "did":
-        setTextColor("#FFC0CB"); // Rosa claro pastel
+        setTextColor("#FFFACD"); // Amarelo limão pastel
         break;
       case "irregularpast":
         setTextColor("#F0E68C"); // Amarelo claro pastel
         break;
       case "presentperfect":
-        setTextColor("#E6E6FA"); // Lavanda pastel
+        setTextColor("#E0FFFF"); // Azul claro pálido
         break;
       case "pastperfect":
-        setTextColor("#FFE4E1"); // Rosa embaçado pastel
+        setTextColor("#E6E6FA"); // Lavanda suave pastel
         break;
       default:
-        setTextColor("#FFF"); // Cor padrão (preto)
+        setTextColor("#000"); // Cor padrão (preto)
     }
   }, [category]);
+
 
 
   useEffect(() => {
