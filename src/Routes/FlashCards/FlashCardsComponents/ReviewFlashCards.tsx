@@ -343,12 +343,12 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     <div
                       style={{
                         margin: "auto",
-                        backgroundColor: textColor,
                       }}
                       className={`flashcard ${answer ? "flip" : ""}`}
-                    >
+                      >
                       <div
                         style={{
+                          backgroundColor: textColor,
                           display: !backCardVisible ? "none" : "block",
                         }}
                         className="flashcard-front"
