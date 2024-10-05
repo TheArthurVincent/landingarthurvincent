@@ -29,44 +29,43 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useEffect(() => {
     switch (category) {
       case "vocabulary":
-        setTextColor("#98FB98"); // Verde claro pastel
+        setTextColor("#D0F5D0"); // Verde ainda mais claro
         break;
       case "possessive":
-        setTextColor("#ADD8E6"); // Azul claro pastel
+        setTextColor("#D6EBF5"); // Azul ainda mais claro
         break;
       case "be":
-        setTextColor("#F5DEB3"); // Bege claro pastel
+        setTextColor("#FAE9D3"); // Bege claro mais suave
         break;
       case "modal":
-        setTextColor("#ddd"); // cinza
+        setTextColor("#EEEEEE"); // Cinza ainda mais claro
         break;
       case "question":
-        setTextColor("#B0E0E6"); // Azul pálido pastel
+        setTextColor("#D9F3F6"); // Azul pálido mais claro
         break;
       case "do":
-        setTextColor("#B0C4DE"); // Azul ardósia claro pastel
+        setTextColor("#DDE3EF"); // Azul ardósia ainda mais claro
         break;
       case "dont":
-        setTextColor("#FFFFE0"); // Amarelo claro pastel
+        setTextColor("#FFFFF5"); // Amarelo claro muito suave
         break;
       case "did":
-        setTextColor("#FFFACD"); // Amarelo limão pastel
+        setTextColor("#FFFEEF"); // Amarelo limão mais suave
         break;
       case "irregularpast":
-        setTextColor("#F0E68C"); // Amarelo claro pastel
+        setTextColor("#F7F4C2"); // Amarelo claro ainda mais suave
         break;
       case "presentperfect":
-        setTextColor("#E0FFFF"); // Azul claro pálido
+        setTextColor("#F1FFFF"); // Azul muito claro e suave
         break;
       case "pastperfect":
-        setTextColor("#E6E6FA"); // Lavanda suave pastel
+        setTextColor("#F5F5FA"); // Lavanda pastel ainda mais suave
         break;
       default:
         setTextColor("#000"); // Cor padrão (preto)
     }
   }, [category]);
-
-
+  
 
   useEffect(() => {
     console.log(cards);
@@ -253,7 +252,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               style={{
                 margin: "auto",
                 textAlign: "center",
-                backgroundColor: textColor,
                 color: "black",
               }}
             >
@@ -345,11 +343,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     <div
                       style={{
                         margin: "auto",
+                        backgroundColor: textColor,
                       }}
                       className={`flashcard ${answer ? "flip" : ""}`}
                     >
                       <div
                         style={{
+                          backgroundColor: textColor,
                           display: !backCardVisible ? "none" : "block",
                         }}
                         className="flashcard-front"
