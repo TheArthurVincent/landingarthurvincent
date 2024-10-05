@@ -31,40 +31,40 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useEffect(() => {
     switch (category) {
       case "vocabulary":
-        setTextColor("#006400"); // Verde escuro
+        setTextColor("#98FB98"); // Verde claro pastel
         break;
       case "possessive":
-        setTextColor("#00008B"); // Azul escuro
+        setTextColor("#ADD8E6"); // Azul claro pastel
         break;
       case "be":
-        setTextColor("#4B0082"); // Roxo escuro
+        setTextColor("#DDA0DD"); // Lilás pastel
         break;
       case "modal":
-        setTextColor("#2E8B57"); // Outro tom de verde escuro
+        setTextColor("#90EE90"); // Verde suave pastel
         break;
       case "question":
-        setTextColor("#4682B4"); // Azul aço
+        setTextColor("#B0E0E6"); // Azul pálido pastel
         break;
       case "do":
-        setTextColor("#6A5ACD"); // Azul ardósia médio
+        setTextColor("#B0C4DE"); // Azul ardósia claro pastel
         break;
       case "dont":
-        setTextColor("#483D8B"); // Azul ardósia escuro
+        setTextColor("#D8BFD8"); // Roxo claro pastel
         break;
       case "did":
-        setTextColor("#8B0000"); // Vermelho escuro
+        setTextColor("#FFC0CB"); // Rosa claro pastel
         break;
       case "irregularpast":
-        setTextColor("#556B2F"); // Verde oliva escuro
+        setTextColor("#F0E68C"); // Amarelo claro pastel
         break;
       case "presentperfect":
-        setTextColor("#8B008B"); // Roxo escuro
+        setTextColor("#E6E6FA"); // Lavanda pastel
         break;
       case "pastperfect":
-        setTextColor("#4B0082"); // Índigo escuro
+        setTextColor("#FFE4E1"); // Rosa embaçado pastel
         break;
       default:
-        setTextColor("#000"); // Cor padrão (preto)
+        setTextColor("#FFF"); // Cor padrão (preto)
     }
   }, [category]);
 
@@ -254,7 +254,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               style={{
                 margin: "auto",
                 textAlign: "center",
-                color: textColor,
+                backgroundColor: textColor,
+                color: "black",
               }}
             >
               <div>
@@ -322,21 +323,13 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           >
                             <ArvinButton
                               onClick={() => {
-                                reviewCard(cards[0]._id, "veryhard");
+                                reviewCard(cards[0]._id, "hard");
                               }}
                               color="red"
                             >
                               I missed (Errei)
                             </ArvinButton>
                           </div>
-                          {/* <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0]._id, "hard")}
-                              color="blue"
-                            >
-                              It was okay (Mais ou menos)
-                            </ArvinButton>
-                          </div> */}
                           <div style={{ display: "grid", gap: "5px" }}>
                             <ArvinButton
                               onClick={() => reviewCard(cards[0]._id, "easy")}
