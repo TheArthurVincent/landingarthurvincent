@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi, DivFont, HOne } from "../../../Resources/Components/RouteBox";
+import {
+  AnimatedLi,
+  DivFont,
+  HOne,
+} from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
   Xp,
@@ -371,9 +375,9 @@ export default function StudentsRanking({
               {name}
             </p>
           </div>
+          <p>New ... Belt!. Congratulations, @</p>
         </div>
       </div>
-      <p>New ... Belt!. Congratulations, @</p>
       <div
         style={{
           display: "flex",
