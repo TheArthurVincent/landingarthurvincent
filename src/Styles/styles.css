@@ -10,7 +10,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: grey;
+  background: #ddd;
   border-radius: 7px;
 }
 
