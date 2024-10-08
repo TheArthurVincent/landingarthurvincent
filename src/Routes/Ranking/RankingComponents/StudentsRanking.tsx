@@ -320,6 +320,7 @@ export default function StudentsRanking({
             >
               see card
             </button>
+            <p></p>
           </div>
           <div
             id="the-card"
@@ -372,6 +373,7 @@ export default function StudentsRanking({
           </div>
         </div>
       </div>
+      <p>New ... Belt!. Congratulations, @</p>
       <div
         style={{
           display: "flex",
