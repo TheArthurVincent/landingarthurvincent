@@ -83,6 +83,8 @@ export default function StudentsRanking({
     monthlyScore: 0,
     totalScore: 0,
   });
+  const actualHeaders = headers || {};
+
   const [loading, setLoading] = useState<boolean>(true);
   const [isAdm, setIsAdm] = useState<boolean>(false);
   const [loadingScore, setLoadingScore] = useState<boolean>(false);
@@ -96,8 +98,6 @@ export default function StudentsRanking({
   const [card, setCard] = useState<boolean>(false);
   const [pic, setPic] = useState<string>("");
   const [name, setName] = useState<string>("");
-
-  const actualHeaders = headers || {};
 
   const seeEdition = async (id: string) => {
     setDisabled(true);
@@ -200,6 +200,21 @@ export default function StudentsRanking({
   useEffect(() => {
     fetchStudents();
   }, []);
+  const updateFeeStatus = async (id: string) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/feeuptodate/${id}`, // ID já está na URL
+        {}, // corpo vazio, pois você está apenas atualizando o status via ID
+        {
+          headers: actualHeaders, // headers fora do objeto de dados
+        }
+      );
+      alert("Status atualizado");
+      fetchStudents();
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
   return (
     <div>
@@ -527,6 +542,7 @@ export default function StudentsRanking({
                         #{index + 1} | {item.name}{" "}
                         {abreviateName(item.lastname)}{" "}
                       </p>
+
                       <div
                         style={{
                           fontSize: "0.9rem",
@@ -535,6 +551,23 @@ export default function StudentsRanking({
                           padding: "5px",
                         }}
                       >
+                        <div
+                          style={{
+                            padding: "5px",
+                            display: isAdm ? "block" : "none",
+                            marginBottom: "5px",
+                            borderRadius: "5px",
+                            cursor: "pointer",
+                            color: "white",
+                            fontWeight: 800,
+                            backgroundColor: item.feeUpToDate ? "green" : "red",
+                          }}
+                          onClick={() => updateFeeStatus(item._id)}
+                        >
+                          {item.feeUpToDate
+                            ? "Mensalidade em dia"
+                            : "Mensalidade atrasada"}
+                        </div>
                         <p
                           style={{
                             textAlign: "center",
@@ -542,6 +575,7 @@ export default function StudentsRanking({
                         >
                           Monthly Score:
                         </p>
+
                         <DivFont
                           style={{
                             textAlign: "center",

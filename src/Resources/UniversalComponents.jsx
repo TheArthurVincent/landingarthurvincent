@@ -766,22 +766,19 @@ export function isDev() {
 // }
 
 export const backDomain = isDev();
-
 export const updateInfo = async (id, headers) => {
   try {
     const response = await axios.get(`${backDomain}/api/v1/student/${id}`, {
       headers,
     });
     const userInfo = response.data.formattedStudentData;
-    const loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
-    Object.keys(userInfo).forEach((key) => {
-      if (loggedIn.hasOwnProperty(key)) {
-        loggedIn[key] = userInfo[key];
-      }
-    });
+    let loggedIn = JSON.parse(localStorage.getItem("loggedIn")) || {};
+
+    // Mescla as informações do userInfo com o loggedIn
+    loggedIn = Object.assign(loggedIn, userInfo);
 
     localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-    console.log("Sucesso ao atualizar dados");
+    console.log(response.data.feeUpToDate, "Sucesso ao atualizar dados");
   } catch (error) {
     console.log(error, "Erro ao atualizar dados");
   }
