@@ -81,8 +81,6 @@ export default function SentenceLessonModel({
             </Tooltip>
             <br />
             <br />
-            <br />
-            <br />
             <strong>{sentence.english}</strong>
             <span
               className="audio-button"
@@ -92,8 +90,6 @@ export default function SentenceLessonModel({
             >
               <i className="fa fa-volume-up" aria-hidden="true" />
             </span>
-            <br />
-            <br />
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
             {/* <textarea
