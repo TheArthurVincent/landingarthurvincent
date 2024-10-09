@@ -16,6 +16,7 @@ export default function ListenAndTranslateLessonModel({
       style={{
         listStyle: "none",
         padding: "5px",
+        fontWeight: 600,
         margin: "10px 0",
       }}
     >

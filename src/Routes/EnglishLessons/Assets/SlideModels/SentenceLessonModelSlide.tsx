@@ -70,7 +70,8 @@ export default function SentenceLessonModelSlide({
       style={{
         alignItems: "center",
         display: "grid",
-        gap: "3rem",
+        gap: "10rem",
+        marginTop: "5rem",
         marginBottom: "5rem",
       }}
     >
@@ -78,7 +79,8 @@ export default function SentenceLessonModelSlide({
         element.sentences.map((sentence: any, i: number) => (
           <li
             style={{
-              listStyle: "none",
+        margin: "1rem",
+        listStyle: "none",
             }}
             key={i}
           >
