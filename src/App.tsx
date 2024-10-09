@@ -58,22 +58,21 @@ function App() {
       try {
         const { id } = JSON.parse(user); // Tenta fazer o parse do JSON
         setStudentId(id || _StudentId); // Define o ID do aluno se ele existir
+
+        // @ts-ignore
+
+        const { feeUpToDate } = JSON.parse(user);
+
+        if (!feeUpToDate) {
+          alert("Sua mensalidade está atrasada. Fale com o professor. :)");
+          onLoggOut;
+        } else {
+          console.log("!deboa");
+          return;
+        }
       } catch (error) {
         console.error("Erro ao fazer parse do JSON:", error);
       }
-    }
-    // @ts-ignore
-
-    const { feeUpToDate } = JSON.parse(user);
-
-    if (!feeUpToDate) {
-      alert("Sua mensalidade está atrasada. Fale com o professor. :)");
-      console.log(feeUpToDate);
-      onLoggOut;
-    } else {
-      console.log(feeUpToDate);
-      console.log("!deboa");
-      return;
     }
   }, []);
 
