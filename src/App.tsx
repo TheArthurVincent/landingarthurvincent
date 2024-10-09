@@ -56,18 +56,14 @@ function App() {
     }
     if (user) {
       try {
-        const { id } = JSON.parse(user); // Tenta fazer o parse do JSON
+        const { id, feeUpToDate } = JSON.parse(user); // Tenta fazer o parse do JSON
         setStudentId(id || _StudentId); // Define o ID do aluno se ele existir
-
-        // @ts-ignore
-
-        const { feeUpToDate } = JSON.parse(user);
 
         if (!feeUpToDate) {
           alert("Sua mensalidade está atrasada. Fale com o professor. :)");
           onLoggOut;
         } else {
-          console.log("!deboa");
+          console.log("de boa");
           return;
         }
       } catch (error) {
