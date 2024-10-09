@@ -24,6 +24,7 @@ const headers: MyHeadersType = {
 
 function App() {
   const [_StudentId, setStudentId] = useState<string>("");
+  const [feeU, setFeeU] = useState<boolean>(true);
 
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
@@ -54,12 +55,13 @@ function App() {
     if (h1Element) {
       h1Element.style.fontFamily = textTitleFont();
     }
+
     if (user) {
       try {
         const { id, feeUpToDate } = JSON.parse(user); // Tenta fazer o parse do JSON
         setStudentId(id || _StudentId); // Define o ID do aluno se ele existir
-
-        if (!feeUpToDate) {
+        setFeeU(feeUpToDate);
+        if (!feeU) {
           alert("Sua mensalidade está atrasada. Fale com o professor. :)");
           onLoggOut;
         } else {
