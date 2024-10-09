@@ -67,13 +67,12 @@ function App() {
     const { feeUpToDate } = JSON.parse(user);
 
     if (!feeUpToDate) {
-      console.log(feeUpToDate);
       alert("Sua mensalidade está atrasada. Fale com o professor. :)");
+      console.log(feeUpToDate);
       onLoggOut;
     } else {
       console.log(feeUpToDate);
       console.log("!deboa");
-
       return;
     }
   }, []);
