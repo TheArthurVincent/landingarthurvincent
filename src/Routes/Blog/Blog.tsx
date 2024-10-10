@@ -149,8 +149,10 @@ export function Blog({ headers }: HeadersProps) {
 
       console.log(response.data.listOfPosts);
     } catch (error) {
-      console.log(error);
-      alert("Faça login novamente");
+      // @ts-ignore
+      console.log(error.response.data.error);
+      // @ts-ignore
+      alert(error.response.data.error);
       window.location.assign("/login");
       setLoading(false);
     }
