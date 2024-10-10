@@ -773,12 +773,9 @@ export const updateInfo = async (id, headers) => {
     });
     const userInfo = response.data.formattedStudentData;
     let loggedIn = JSON.parse(localStorage.getItem("loggedIn")) || {};
-
     // Mescla as informações do userInfo com o loggedIn
     loggedIn = Object.assign(loggedIn, userInfo);
-
     localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
-    console.log(response.data.feeUpToDate, "Sucesso ao atualizar dados");
   } catch (error) {
     console.log(error, "Erro ao atualizar dados");
   }
@@ -788,5 +785,12 @@ export const onLoggOut = () => {
   localStorage.removeItem("authorization");
   localStorage.removeItem("loggedIn");
   alert("Faça login novamente");
+  window.location.assign("/login");
+};
+
+export const onLoggOutFee = () => {
+  localStorage.removeItem("authorization");
+  localStorage.removeItem("loggedIn");
+  alert("Sua mensalidade está atrasada. Fale com o professor. :)");
   window.location.assign("/login");
 };

@@ -11,7 +11,7 @@ import { textFont, textTitleFont } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
 import NotFound from "./Routes/NotFound/NotFound";
-import { onLoggOut } from "./Resources/UniversalComponents";
+import { onLoggOut, onLoggOutFee } from "./Resources/UniversalComponents";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -58,16 +58,8 @@ function App() {
 
     if (user) {
       try {
-        const { id, feeUpToDate } = JSON.parse(user); // Tenta fazer o parse do JSON
-        setStudentId(id || _StudentId); // Define o ID do aluno se ele existir
-        setFeeU(feeUpToDate);
-        if (!feeU) {
-          alert("Sua mensalidade está atrasada. Fale com o professor. :)");
-          onLoggOut;
-        } else {
-          console.log("de boa");
-          return;
-        }
+        const { id } = JSON.parse(user);
+        setStudentId(id || _StudentId);
       } catch (error) {
         console.error("Erro ao fazer parse do JSON:", error);
       }

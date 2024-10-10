@@ -24,6 +24,8 @@ import {
   formatDate,
   formatDateBr,
   onLoggOut,
+  onLoggOutFee,
+  updateInfo,
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
 import moment from "moment";
@@ -98,12 +100,21 @@ export default function MyCalendar({ headers, thePermissions }) {
       null;
     }
   };
+  const [isFee, setIsFee] = useState(true);
 
   const fetchGeneralEvents = async () => {
     setLoading(true);
     try {
       const user = JSON.parse(localStorage.getItem("loggedIn"));
-      const id = user.id;
+      const { id, feeUpToDate } = user;
+      updateInfo(id, headers);
+      setIsFee(feeUpToDate);
+
+
+      if (!feeUpToDate) {
+        onLoggOutFee()
+      } else { }
+
       const response = await axios.get(
         `${backDomain}/api/v1/eventsgeneral/${id}?today=${today}`,
         {
@@ -120,6 +131,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(eventsLoop);
       setEvents(eventsLoop);
       setLoading(false);
+
     } catch (error) {
       onLoggOut();
     }
@@ -147,7 +159,7 @@ export default function MyCalendar({ headers, thePermissions }) {
           event.date = formattedDates(nextDay);
           return event;
         });
-        console.log(eventsLoop)
+        console.log(eventsLoop);
         setEvents(eventsLoop);
       } catch (error) {
         onLoggOut();
@@ -1104,7 +1116,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 </span>
                               )}
                             <p
-                              onClick={() => handleSeeModal(event)}
+                              onClick={() => {
+                                handleSeeModal(event);
+                              }}
                               className="name"
                               style={{
                                 padding: "8px",
