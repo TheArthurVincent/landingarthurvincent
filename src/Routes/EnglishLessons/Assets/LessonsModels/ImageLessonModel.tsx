@@ -103,7 +103,7 @@ export default function ImageLessonModel({
                 <ArvinButton
                   color="white"
                   style={{
-                    display: permissions === "superadmin" ? "block" : "none",
+                    // display: permissions === "superadmin" ? "block" : "none",
                   }}
                   onClick={() =>
                     addNewCardsInverted(image.english, image.portuguese)

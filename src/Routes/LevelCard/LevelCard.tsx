@@ -145,7 +145,16 @@ export function LevelCard({
                 </DivDisapearBig>
                 <DivSeeBig>
                   <i
-                    style={{ fontSize: "1.5rem" }}
+                    style={{
+                      display: "grid",
+                      alignContent: "center",
+                      borderRadius:"50%",
+                      // color: items[level].color,
+                      backgroundColor: items[level].color,
+                      width: "25px",
+                      height: "25px",
+                      fontSize: "15px",
+                    }}
                     className={items[level].icon}
                     aria-hidden="true"
                   />{" "}
