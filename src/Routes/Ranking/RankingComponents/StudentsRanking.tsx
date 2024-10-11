@@ -554,9 +554,9 @@ export default function StudentsRanking({
                         <div
                           style={{
                             padding: "5px",
-                            display: isAdm ? "block" : "none",
+                            display: isAdm ? "grid" : "none",
                             marginBottom: "5px",
-                            borderRadius: "5px",
+                            borderRadius: "5px",maxWidth:"fit-content",
                             cursor: "pointer",
                             color: "white",
                             fontWeight: 800,
