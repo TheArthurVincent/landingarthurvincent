@@ -14,6 +14,8 @@ import {
   DivCardLevel,
   TextLevelCard,
   NewLevelCardComponent,
+  DivDisapearBig,
+  DivSeeBig,
 } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 
@@ -95,33 +97,36 @@ export function LevelCard({
         {" "}
         <div style={{ display: showCard }}>
           {" "}
-          <i
-            style={{ fontSize: "1.5rem" }}
-            className={items[level].icon}
-            aria-hidden="true"
-          />{" "}
+          <DivDisapearBig>
+            <i
+              style={{ fontSize: "1.5rem" }}
+              className={items[level].icon}
+              aria-hidden="true"
+            />{" "}
+          </DivDisapearBig>
           <div
             style={{
               marginBottom: "1rem",
               display: "flex",
               gap: "10px",
               alignItems: "center",
-              marginTop: "0.5rem",
             }}
           >
             {" "}
-            <i
-              onClick={() => seeScore(_StudentId)}
-              style={{
-                display: showCard,
-                cursor: "pointer",
-                color: "#fff",
-                fontSize: "0.8rem",
-                margin: "0",
-              }}
-              className="fa fa-refresh"
-              aria-hidden="true"
-            />
+            <DivDisapearBig>
+              <i
+                onClick={() => seeScore(_StudentId)}
+                style={{
+                  display: showCard,
+                  cursor: "pointer",
+                  color: "#fff",
+                  fontSize: "0.8rem",
+                  margin: "0",
+                }}
+                className="fa fa-refresh"
+                aria-hidden="true"
+              />{" "}
+            </DivDisapearBig>
             {loading ? (
               <CircularProgress
                 style={{
@@ -129,14 +134,55 @@ export function LevelCard({
                 }}
               />
             ) : (
-              <div>
-                <p style={{ color: "#fff" }}>
-                  Total Score: {formatNumber(totalScore)}
-                </p>
-                <p style={{ color: "#fff" }}>
-                  Monthly Score: {formatNumber(monthlyScore)}
-                </p>
-              </div>
+              <>
+                <DivDisapearBig>
+                  <p style={{ color: "#fff" }}>
+                    Total Score: {formatNumber(totalScore)}
+                  </p>
+                  <p style={{ color: "#fff" }}>
+                    Monthly Score: {formatNumber(monthlyScore)}
+                  </p>
+                </DivDisapearBig>
+                <DivSeeBig>
+                  <i
+                    style={{ fontSize: "1.5rem" }}
+                    className={items[level].icon}
+                    aria-hidden="true"
+                  />{" "}
+                  <p style={{ color: "#fff" }}>
+                    <span
+                      style={{
+                        fontWeight: 1000,
+                      }}
+                    >
+                      Total Score:
+                    </span>{" "}
+                    {formatNumber(totalScore)}
+                  </p>
+                  <p style={{ color: "#fff" }}>
+                    <span
+                      style={{
+                        fontWeight: 1000,
+                      }}
+                    >
+                      Monthly Score:{" "}
+                    </span>
+                    {formatNumber(monthlyScore)}
+                  </p>
+                  <i
+                    onClick={() => seeScore(_StudentId)}
+                    style={{
+                      display: showCard,
+                      cursor: "pointer",
+                      color: "#fff",
+                      fontSize: "0.8rem",
+                      margin: "0",
+                    }}
+                    className="fa fa-refresh"
+                    aria-hidden="true"
+                  />
+                </DivSeeBig>
+              </>
             )}
           </div>
         </div>

@@ -14,6 +14,26 @@ export const DivCardLevel = styled.div`
   width: 7rem;
   height: 7rem;
   margin: auto;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+export const DivDisapearBig = styled.div`
+  margin-top: 0.5rem;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+export const DivSeeBig = styled.div`
+  display: none;
+  font-size:0.8rem;
+  @media (max-width: 1200px) {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+  }
 `;
 
 export const LevelCardComponent = styled.div`
@@ -43,11 +63,11 @@ export const NewLevelCardComponent = styled.div`
   @media (max-width: 1200px) {
     width: 85vw;
     display: flex;
-    height: 5rem;
+    height: 1.5rem;
     margin: auto;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: space-between;
+    // grid-template-columns: 1fr 1fr;
+    // align-items: center;
+    // justify-content: space-between;
   }
   @media (max-width: 985px) {
     width: 92vw;
@@ -59,8 +79,8 @@ export const TextLevelCard = styled.div`
   top: 30%;
   left: 0%;
   @media (max-width: 1200px) {
-    top: 0%;
-    left: -5%;
+    position: static;
+    align-items: center;
   }
 `;
 
