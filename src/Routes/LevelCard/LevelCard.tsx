@@ -149,7 +149,7 @@ export function LevelCard({
                       display: "grid",
                       alignContent: "center",
                       borderRadius:"50%",
-                      // color: items[level].color,
+                      color: items[level].textcolor,
                       backgroundColor: items[level].color,
                       width: "25px",
                       height: "25px",

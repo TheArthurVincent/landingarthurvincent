@@ -58,10 +58,10 @@ export const levels = () => {
     {
       level: 5,
       icon: "fa fa-tree",
-      color: "#ADB762",
+      color: "#2D9F00",
       textcolor: "white",
       text: "Green Belt",
-      backgroundcolor: "#566115",
+      backgroundcolor: "#258300",
       totalScore: 50000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/green.png?updatedAt=1711540460421",
