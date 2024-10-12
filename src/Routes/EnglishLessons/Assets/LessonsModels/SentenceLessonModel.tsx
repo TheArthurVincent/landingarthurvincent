@@ -10,14 +10,14 @@ import { Tooltip } from "@mui/material";
 interface SentenceLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
-  id: string;
   studentId: string;
+  mainTag: string;
 }
 
 export default function SentenceLessonModel({
   headers,
   element,
-  id,
+  mainTag,
   studentId,
 }: SentenceLessonModelProps) {
   const actualHeaders = headers || {};
@@ -33,6 +33,7 @@ export default function SentenceLessonModel({
           text: backText,
           language: "pt",
         },
+        tags: [mainTag ? mainTag : ""],
       },
     ];
 
@@ -47,7 +48,7 @@ export default function SentenceLessonModel({
         response.data.addedNewFlashcards +
         ", cards não adicionados:" +
         response.data.invalidNewCards;
-      console.log(showThis);
+      console.log(showThis, element);
       alert(showThis);
     } catch (error) {
       alert("Erro ao enviar cards");

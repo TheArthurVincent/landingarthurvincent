@@ -177,6 +177,12 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
+          {/* <div
+          
+          onClick={()=>{
+            console.log("odddi",theclass)
+          }}
+          >dd</div> */}
           <div
             style={{
               display: "flex",
@@ -383,7 +389,7 @@ export default function EnglishClassCourse2({
                   )}
                   {element.type === "sentences" ? (
                     <SentenceLessonModel
-                      id={myId}
+                      mainTag={theclass.mainTag}
                       studentId={studentID}
                       element={element}
                       headers={headers}
@@ -413,6 +419,7 @@ export default function EnglishClassCourse2({
                   ) : element.type === "images" ? (
                     <ImageLessonModel
                       studentId={studentID}
+                      mainTag={theclass.mainTag}
                       id={myId}
                       headers={headers}
                       element={element}

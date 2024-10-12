@@ -61,15 +61,84 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       case "pastperfect":
         setTextColor("#F5F5FA"); // Lavanda pastel ainda mais suave
         break;
+      case "travel":
+        setTextColor("#F0F8FF"); // Azul claríssimo
+        break;
+      case "bodyparts":
+        setTextColor("#FFF5F5"); // Rosa claríssimo
+        break;
+      case "businessenglish":
+        setTextColor("#E8F6EF"); // Verde claríssimo
+        break;
+      case "family":
+        setTextColor("#FFEFD5"); // Pêssego claro
+        break;
+      case "animals":
+        setTextColor("#F0FFF0"); // Verde hortelã claríssimo
+        break;
+      case "fruits":
+        setTextColor("#FFF8DC"); // Creme claro
+        break;
+      case "food":
+        setTextColor("#FFF5EE"); // Laranja claríssimo
+        break;
+      case "colors":
+        setTextColor("#F5F5F5"); // Branco sujo
+        break;
+      case "house":
+        setTextColor("#F0F5FF"); // Azul clarinho
+        break;
+      case "supermarket":
+        setTextColor("#FAF0E6"); // Linho claro
+        break;
+      case "weather":
+        setTextColor("#F0FFFF"); // Azul gelo
+        break;
+      case "clothes":
+        setTextColor("#FFF0F5"); // Lavanda rosada
+        break;
+      case "time":
+        setTextColor("#F5F5DC"); // Bege claro
+        break;
+      case "daysanddates":
+        setTextColor("#FFFFE0"); // Amarelo claro
+        break;
+      case "car":
+        setTextColor("#FFFAFA"); // Branco neve
+        break;
+      case "road":
+        setTextColor("#F5F0E1"); // Creme pálido
+        break;
+      case "personality":
+        setTextColor("#FFE4E1"); // Rosa claro
+        break;
+      case "nature":
+        setTextColor("#F0FFF0"); // Verde menta
+        break;
+      case "numbers":
+        setTextColor("#FAFAD2"); // Amarelo claro
+        break;
+      case "transportation":
+        setTextColor("#F5FFFA"); // Verde menta claro
+        break;
+      case "office":
+        setTextColor("#F8F8FF"); // Branco fantasma
+        break;
+      case "diseases":
+        setTextColor("#FFFACD"); // Amarelo claro
+        break;
+      case "professions":
+        setTextColor("#F8F8FF"); // Branco fantasma
+        break;
+      case "weather":
+        setTextColor("#FFFACD"); // Amarelo claro
+        break;
       default:
-        setTextColor("#fff"); // Cor padrão (preto)
+        setTextColor("#fff"); // Cor padrão (branco)
+        break;
     }
   }, [category]);
-  
 
-  useEffect(() => {
-    console.log(cards);
-  }, []);
   const timerDisabled = () => {
     if (myPermissions !== "superadmin") {
       setCount(3);
@@ -345,7 +414,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         margin: "auto",
                       }}
                       className={`flashcard ${answer ? "flip" : ""}`}
-                      >
+                    >
                       <div
                         style={{
                           backgroundColor: textColor,
@@ -602,6 +671,30 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             <option value="irregularpast">Irregular Past</option>
             <option value="presentperfect">Present Perfect</option>
             <option value="pastperfect">Past Perfect</option>
+            <option value="travel">Viagem</option>
+            <option value="bodyparts">Partes do corpo</option>
+            <option value="businessenglish">Inglês para negócios</option>
+            <option value="family">Família</option>
+            <option value="animals">Animais</option>
+            <option value="fruits">Frutas</option>
+            <option value="food">Comida</option>
+            <option value="colors">Cores</option>
+            <option value="house">Casa</option>
+            <option value="supermarket">Supermercado</option>
+            <option value="weather">Clima</option>
+            <option value="clothes">Roupas</option>
+            <option value="time">Horários</option>
+            <option value="daysanddates">Dias e Datas</option>
+            <option value="car">Carro</option>
+            <option value="road">Estrada</option>
+            <option value="personality">Personalidade</option>
+            <option value="nature">Natureza</option>
+            <option value="numbers">Números</option>
+            <option value="transportation">Transporte</option>
+            <option value="office">Escritório</option>
+            <option value="diseases">Doenças</option>
+            <option value="professions">Profissões</option>
+            <option value="weather">Clima</option>
           </select>
         </div>
       </div>

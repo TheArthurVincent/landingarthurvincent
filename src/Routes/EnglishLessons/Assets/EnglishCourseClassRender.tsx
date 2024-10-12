@@ -81,7 +81,6 @@ export default function EnglishLessonsRender({
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
-
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
@@ -154,6 +153,7 @@ export default function EnglishLessonsRender({
         >
           See slides
         </ArvinButton>
+
         <div
           style={{
             display: "flex",

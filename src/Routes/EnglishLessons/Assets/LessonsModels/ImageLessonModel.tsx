@@ -15,40 +15,17 @@ interface ImageLessonModelProps {
   element: any;
   id: string;
   studentId: string;
+  mainTag: string;
 }
 
 export default function ImageLessonModel({
   headers,
-  id,
   element,
   studentId,
+  mainTag,
 }: ImageLessonModelProps) {
   const actualHeaders = headers || {};
 
-  const addNewCards = async (frontText: string, backText: string) => {
-    const newCards = [
-      {
-        front: {
-          text: frontText,
-          language: "en",
-        },
-        back: {
-          text: backText,
-          language: "pt",
-        },
-      },
-    ];
-
-    try {
-      const response = await axios.post(
-        `${backDomain}/api/v1/flashcard/${studentId}`,
-        { newCards },
-        { headers: actualHeaders }
-      );
-    } catch (error) {
-      alert("Erro ao enviar cards");
-    }
-  };
   const addNewCardsInverted = async (frontText: string, backText: string) => {
     const newCards = [
       {
@@ -60,6 +37,7 @@ export default function ImageLessonModel({
           text: backText,
           language: "pt",
         },
+        tags: [mainTag ? mainTag : ""],
       },
     ];
 
@@ -75,15 +53,6 @@ export default function ImageLessonModel({
     }
   };
 
-  const [permissions, setPermissions] = useState<string>("");
-
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    if (user) {
-      const { permissions } = JSON.parse(user);
-      setPermissions(permissions);
-    }
-  }, []);
   return (
     <div
       className="sentences"
@@ -102,9 +71,6 @@ export default function ImageLessonModel({
               <div>
                 <ArvinButton
                   color="white"
-                  style={{
-                    // display: permissions === "superadmin" ? "block" : "none",
-                  }}
                   onClick={() =>
                     addNewCardsInverted(image.english, image.portuguese)
                   }

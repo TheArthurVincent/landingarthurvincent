@@ -208,6 +208,30 @@ const AllCards = ({ headers }: HeadersProps) => {
             <option value="presentperfect">Present Perfect</option>
             <option value="pastperfect">Past Perfect</option>
             <option value="be">To be</option>
+            <option value="travel">Viagem</option>
+            <option value="bodyparts">Partes do corpo</option>
+            <option value="businessenglish">Inglês para negócios</option>
+            <option value="family">Família</option>
+            <option value="animals">Animais</option>
+            <option value="fruits">Frutas</option>
+            <option value="food">Comida</option>
+            <option value="colors">Cores</option>
+            <option value="house">Casa</option>
+            <option value="supermarket">Supermercado</option>
+            <option value="weather">Clima</option>
+            <option value="clothes">Roupas</option>
+            <option value="time">Horários</option>
+            <option value="daysanddates">Dias e Datas</option>
+            <option value="car">Carro</option>
+            <option value="road">Estrada</option>
+            <option value="personality">Personalidade</option>
+            <option value="nature">Natureza</option>
+            <option value="numbers">Números</option>
+            <option value="transportation">Transporte</option>
+            <option value="office">Escritório</option>
+            <option value="diseases">Doenças</option>
+            <option value="professions">Profissões</option>
+            <option value="weather">Clima</option>
           </select>
         </>
 
