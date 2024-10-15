@@ -13,6 +13,7 @@ import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
 import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
 import AllCards from "./FlashCardsComponents/AllCards";
 import { onLoggOut } from "../../Resources/UniversalComponents";
+import FlashcardsHistory from "./FlashCardsComponents/FlashcardsHistory";
 
 interface FlashCardsProps {
   headers: MyHeadersType | null;
@@ -63,6 +64,12 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       value: "3",
       adm: false,
       component: <AllCards headers={headers} />,
+    },
+    {
+      title: "Reviews History",
+      value: "4",
+      adm: false,
+      component: <FlashcardsHistory headers={headers} />,
     },
   ];
 

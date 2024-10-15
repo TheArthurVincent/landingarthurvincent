@@ -54,7 +54,7 @@ export default function RankingTimeline({
       const response = await axios.get(`${backDomain}/api/v1/score/${id}`, {
         headers: actualHeaders,
       });
-      setLocalTimeline(response.data.scoreTimeline);
+      setLocalTimeline(response.data.history);
       setLoading(false);
       setNewID(id);
       seeName(id);
