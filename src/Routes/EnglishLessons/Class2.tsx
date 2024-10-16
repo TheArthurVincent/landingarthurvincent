@@ -177,12 +177,6 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
-          {/* <div
-          
-          onClick={()=>{
-            console.log("odddi",theclass)
-          }}
-          >dd</div> */}
           <div
             style={{
               display: "flex",
@@ -224,7 +218,6 @@ export default function EnglishClassCourse2({
               {theclass.title}
             </span>
           </div>
-          {/* <CoursesSideBar courses={course} /> */}
           <div
             style={{
               display: "flex",
@@ -255,7 +248,7 @@ export default function EnglishClassCourse2({
             )}
             <HOne
               style={{
-                fontSize: "15px",
+                fontSize: "18px",
               }}
             >
               {`${order + 1}- ${theclass.title}`}
@@ -329,9 +322,9 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
-          {theclass.image && (
+          {/* {theclass.image && (
             <ImgLesson src={theclass.image} alt={theclass.title} />
-          )}
+          )} */}
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
@@ -369,7 +362,7 @@ export default function EnglishClassCourse2({
                   )}
                   {element.image && element.subtitle && (
                     <ImgLesson src={element.image} alt={element.subtitle} />
-                  )}{" "}
+                  )}
                   {element.video && element.subtitle && (
                     <VideoLessonModel element={element} />
                   )}
