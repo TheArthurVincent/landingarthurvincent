@@ -5,8 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=East+Sea+Dokdo&display=swap");
 
 *::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 11px;
+  height: 11px;
 }
 
 *::-webkit-scrollbar-track {
