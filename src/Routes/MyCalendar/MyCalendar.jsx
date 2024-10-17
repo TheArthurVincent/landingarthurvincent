@@ -110,10 +110,10 @@ export default function MyCalendar({ headers, thePermissions }) {
       updateInfo(id, headers);
       setIsFee(feeUpToDate);
 
-
       if (!feeUpToDate) {
-        onLoggOutFee()
-      } else { }
+        onLoggOutFee();
+      } else {
+      }
 
       const response = await axios.get(
         `${backDomain}/api/v1/eventsgeneral/${id}?today=${today}`,
@@ -131,7 +131,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(eventsLoop);
       setEvents(eventsLoop);
       setLoading(false);
-
     } catch (error) {
       onLoggOut();
     }
@@ -262,8 +261,12 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
+  const [loadingModalInfo, setLoadingModalInfo] = useState(false);
+
   const [eventFull, setEventFull] = useState({});
   const fetchOneEvent = async (id) => {
+    setLoadingModalInfo(true);
+
     if (!id) {
       return;
     }
@@ -296,6 +299,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setTheTime(newTime);
       setDescription(newDescription);
       setDate(newDate);
+      setLoadingModalInfo(false);
     } catch (error) {
       console.log(error, "Erro ao encontrarssss alunos");
     }
@@ -1015,16 +1019,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                     <StyledDiv
                       className={
                         hj.getDate() == date.getDate() &&
-                          hj.getMonth() == date.getMonth() &&
-                          hj.getFullYear() == date.getFullYear()
+                        hj.getMonth() == date.getMonth() &&
+                        hj.getFullYear() == date.getFullYear()
                           ? "glowing"
                           : "none"
                       }
                       style={{
                         border:
                           hj.getDate() == date.getDate() &&
-                            hj.getMonth() == date.getMonth() &&
-                            hj.getFullYear() == date.getFullYear()
+                          hj.getMonth() == date.getMonth() &&
+                          hj.getFullYear() == date.getFullYear()
                             ? `2px solid ${secondaryColor()}`
                             : "null",
                       }}
@@ -1037,16 +1041,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                           top: 0,
                           fontWeight:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? 700
                               : 500,
                           textAlign: "center",
                           fontSize: "0.8rem",
                           backgroundColor:
                             hj.getDate() == date.getDate() &&
-                              hj.getMonth() == date.getMonth() &&
-                              hj.getFullYear() == date.getFullYear()
+                            hj.getMonth() == date.getMonth() &&
+                            hj.getFullYear() == date.getFullYear()
                               ? "#439906"
                               : alwaysBlack(),
                           color: alwaysWhite(),
@@ -1086,16 +1090,16 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 event.category === "Group Class"
                                   ? "#F2F1CE"
                                   : event.category === "Rep"
-                                    ? "#ade"
-                                    : event.category === "Tutoring"
-                                      ? "#eee"
-                                      : event.category === "Prize Class"
-                                        ? "#FCE562"
-                                        : event.category === "Standalone"
-                                          ? "#123"
-                                          : event.category === "Test"
-                                            ? "#333"
-                                            : "#000",
+                                  ? "#ade"
+                                  : event.category === "Tutoring"
+                                  ? "#eee"
+                                  : event.category === "Prize Class"
+                                  ? "#FCE562"
+                                  : event.category === "Standalone"
+                                  ? "#123"
+                                  : event.category === "Test"
+                                  ? "#333"
+                                  : "#000",
                               textAlign: "center",
                               display: "grid",
                             }}
@@ -1157,10 +1161,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   event.status == "desmarcado"
                                     ? "#FFCCCC"
                                     : event.status == "marcado"
-                                      ? "#CCE5FF"
-                                      : event.status == "realizada"
-                                        ? "#CCFFCC"
-                                        : "#000",
+                                    ? "#CCE5FF"
+                                    : event.status == "realizada"
+                                    ? "#CCFFCC"
+                                    : "#000",
                               }}
                             >
                               <div
@@ -1171,10 +1175,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     event.status == "marcado"
                                       ? primaryColor()
                                       : event.status == "realizada"
-                                        ? secondaryColor()
-                                        : event.status == "desmarcado"
-                                          ? "red"
-                                          : "#000",
+                                      ? secondaryColor()
+                                      : event.status == "desmarcado"
+                                      ? "red"
+                                      : "#000",
                                   fontSize: "0.6rem",
                                   padding: "5px",
                                   fontWeight: 600,
@@ -1183,8 +1187,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 {event.status == "marcado"
                                   ? "Scheduled"
                                   : event.status == "desmarcado"
-                                    ? "Canceled"
-                                    : "Realized"}
+                                  ? "Canceled"
+                                  : "Realized"}
                                 {event.status !== "desmarcado" &&
                                   thePermissions == "superadmin" && (
                                     <i
@@ -1224,6 +1228,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               }}
               onClick={handleCloseModal}
             />
+
             <div
               className="modal"
               style={{
@@ -1238,360 +1243,367 @@ export default function MyCalendar({ headers, thePermissions }) {
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <div
-                style={{
-                  padding: "1rem",
-                  maxHeight: "30rem",
-                  overflow: "auto",
-                }}
-              >
-                <Xp onClick={handleCloseModal}>X</Xp>
-                <HTwo
+              {loadingModalInfo ? (
+                <CircularProgress />
+              ) : (
+                <div
                   style={{
-                    margin: "0.5rem 0",
+                    padding: "1rem",
+                    maxHeight: "30rem",
+                    overflow: "auto",
                   }}
                 >
-                  Access the event
-                </HTwo>
-                <p>
-                  <b>Category:</b>{" "}
-                  {category == "Test"
-                    ? "Test Class"
-                    : category == "Standalone"
+                  <Xp onClick={handleCloseModal}>X</Xp>
+                  <HTwo
+                    style={{
+                      margin: "0.5rem 0",
+                    }}
+                  >
+                    Access the event
+                  </HTwo>
+                  <p>
+                    <b>Category:</b>{" "}
+                    {category == "Test"
+                      ? "Test Class"
+                      : category == "Standalone"
                       ? "Standalone Class"
                       : category == "Group Class"
-                        ? "Group Class"
-                        : category == "Rep"
-                          ? "Replenishing"
-                          : category == "Prize Class"
-                            ? "Prize Class"
-                            : category == "Tutoring"
-                              ? "Tutoring: Private Class"
-                              : ""}{" "}
-                </p>
-                <p>
-                  <b>Date: </b>
-                  {newFormatDate(date)}
-                </p>
-                <p>
-                  <b>Time: </b>
-                  {theTime}
-                </p>
-                <Link to={link} target="_blank">
-                  Click here to access the class
-                </Link>
+                      ? "Group Class"
+                      : category == "Rep"
+                      ? "Replenishing"
+                      : category == "Prize Class"
+                      ? "Prize Class"
+                      : category == "Tutoring"
+                      ? "Tutoring: Private Class"
+                      : ""}{" "}
+                  </p>
+                  <p>
+                    <b>Date: </b>
+                    {newFormatDate(date)}
+                  </p>
+                  <p>
+                    <b>Time: </b>
+                    {theTime}
+                  </p>
+                  <Link to={link} target="_blank">
+                    Click here to access the class
+                  </Link>
 
-                <p
-                  style={{
-                    fontFamily: textTitleFont(),
-                    fontSize: "1.1rem",
-                  }}
-                >
-                  {description}
-                </p>
-                {thePermissions == "superadmin" && (
-                  <>
-                    <HTwo
-                      style={{
-                        margin: "0.5rem 0",
-                      }}
-                    >
-                      {UniversalTexts.editPost}
-                    </HTwo>
-                    {loadingInfo ? (
-                      <CircularProgress />
-                    ) : (
-                      <>
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: "5px",
-                            marginBottom: "10px",
-                          }}
-                        >
-                          <i
-                            className="fa fa-clock-o"
-                            aria-hidden="true"
-                            onClick={() => updateScheduled(newEventId)}
+                  <p
+                    style={{
+                      fontFamily: textTitleFont(),
+                      fontSize: "1.1rem",
+                    }}
+                  >
+                    {description}
+                  </p>
+                  {thePermissions == "superadmin" && (
+                    <>
+                      <HTwo
+                        style={{
+                          margin: "0.5rem 0",
+                        }}
+                      >
+                        {UniversalTexts.editPost}
+                      </HTwo>
+                      {loadingInfo ? (
+                        <CircularProgress />
+                      ) : (
+                        <>
+                          <div
                             style={{
-                              cursor: "pointer",
-                              fontSize: status == "Scheduled" ? "15px" : "12px",
-                              color: status == "Scheduled" ? "blue" : "grey",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              gap: "5px",
+                              marginBottom: "10px",
                             }}
-                          />
-                          <i
-                            className="fa fa-check-circle"
-                            aria-hidden="true"
-                            onClick={() => updateRealizedClass(newEventId)}
-                            style={{
-                              cursor: "pointer",
-                              fontSize: status == "Realized" ? "15px" : "12px",
-                              color: status == "Realized" ? "green" : "grey",
-                            }}
-                          />
-                          <i
-                            className="fa fa-times-circle-o"
-                            aria-hidden="true"
-                            onClick={() => updateUnscheduled(newEventId)}
-                            style={{
-                              cursor: "pointer",
-                              fontSize: status == "Canceled" ? "15px" : "12px",
-                              color: status == "Canceled" ? "red" : "grey",
-                            }}
-                          />{" "}
-                          {status !== "desmarcado" &&
-                            thePermissions == "superadmin" && (
-                              <i
-                                className="fa fa-envelope-o"
-                                aria-hidden="true"
-                                onClick={() => reminderEmail(event._id)}
-                                style={{
-                                  cursor: "pointer",
-                                  fontSize: "10px",
-                                  color: "grey",
-                                }}
-                              />
-                            )}
-                        </div>
-                        <form
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyItems: "center",
-                            gap: "0.5rem",
-                          }}
-                        >
-                          <select
-                            onChange={handleCategoryChange}
-                            name="category"
-                            id=""
-                            value={category}
-                            className="inputs-style"
                           >
-                            <option value="category" hidden>
-                              Select category
-                            </option>
-                            {[
-                              "Test",
-                              "Standalone",
-                              "Group Class",
-                              "Rep",
-                              "Prize Class",
-                              "Tutoring",
-                            ].map((category, index) => {
-                              return (
-                                <option key={index} value={category}>
-                                  {category}
-                                </option>
-                              );
-                            })}
-                          </select>
-                          {isTutoring && (
+                            <i
+                              className="fa fa-clock-o"
+                              aria-hidden="true"
+                              onClick={() => updateScheduled(newEventId)}
+                              style={{
+                                cursor: "pointer",
+                                fontSize:
+                                  status == "Scheduled" ? "15px" : "12px",
+                                color: status == "Scheduled" ? "blue" : "grey",
+                              }}
+                            />
+                            <i
+                              className="fa fa-check-circle"
+                              aria-hidden="true"
+                              onClick={() => updateRealizedClass(newEventId)}
+                              style={{
+                                cursor: "pointer",
+                                fontSize:
+                                  status == "Realized" ? "15px" : "12px",
+                                color: status == "Realized" ? "green" : "grey",
+                              }}
+                            />
+                            <i
+                              className="fa fa-times-circle-o"
+                              aria-hidden="true"
+                              onClick={() => updateUnscheduled(newEventId)}
+                              style={{
+                                cursor: "pointer",
+                                fontSize:
+                                  status == "Canceled" ? "15px" : "12px",
+                                color: status == "Canceled" ? "red" : "grey",
+                              }}
+                            />{" "}
+                            {status !== "desmarcado" &&
+                              thePermissions == "superadmin" && (
+                                <i
+                                  className="fa fa-envelope-o"
+                                  aria-hidden="true"
+                                  onClick={() => reminderEmail(event._id)}
+                                  style={{
+                                    cursor: "pointer",
+                                    fontSize: "10px",
+                                    color: "grey",
+                                  }}
+                                />
+                              )}
+                          </div>
+                          <form
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyItems: "center",
+                              gap: "0.5rem",
+                            }}
+                          >
                             <select
-                              className="inputs-style"
-                              onChange={handleStudentChange}
-                              name="students"
+                              onChange={handleCategoryChange}
+                              name="category"
                               id=""
-                              value={newStudentId}
-                              style={{ display: "block" }}
+                              value={category}
+                              className="inputs-style"
                             >
                               <option value="category" hidden>
-                                Select student
+                                Select category
                               </option>
-                              {studentsList.map((student, index) => {
+                              {[
+                                "Test",
+                                "Standalone",
+                                "Group Class",
+                                "Rep",
+                                "Prize Class",
+                                "Tutoring",
+                              ].map((category, index) => {
                                 return (
-                                  <option key={index} value={student.id}>
-                                    {student.name + " " + student.lastname}
+                                  <option key={index} value={category}>
+                                    {category}
                                   </option>
                                 );
                               })}
                             </select>
-                          )}
-                          <input
-                            className="inputs-style"
-                            value={date}
-                            onChange={(e) => {
-                              setDate(e.target.value);
-                            }}
-                            type="date"
-                            required
-                          />
-                          <input
-                            className="inputs-style"
-                            value={theTime}
-                            onChange={(e) => {
-                              setTheTime(e.target.value);
-                            }}
-                            type="time"
-                            required
-                          />
-                          <input
-                            className="inputs-style"
-                            value={link}
-                            onChange={(e) => setLink(e.target.value)}
-                            placeholder="Link"
-                            type="text"
-                            required
-                          />
-                          <input
-                            className="inputs-style"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Description"
-                            type="text"
-                            required
-                          />
-                        </form>
-                        <div>
-                          <label>
+                            {isTutoring && (
+                              <select
+                                className="inputs-style"
+                                onChange={handleStudentChange}
+                                name="students"
+                                id=""
+                                value={newStudentId}
+                                style={{ display: "block" }}
+                              >
+                                <option value="category" hidden>
+                                  Select student
+                                </option>
+                                {studentsList.map((student, index) => {
+                                  return (
+                                    <option key={index} value={student.id}>
+                                      {student.name + " " + student.lastname}
+                                    </option>
+                                  );
+                                })}
+                              </select>
+                            )}
                             <input
-                              checked={eventFull.checkList1}
-                              type="checkbox"
-                              value="option1"
-                              onChange={handleCheckbox1Change}
-                            />
-                            0. Subir Vídeo no vimeo:
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            <input
-                              checked={eventFull.checkList2}
-                              type="checkbox"
-                              value="option2"
-                              onChange={handleCheckbox2Change}
-                            />
-                            1. Subir Aulas na Plataforma:
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            <input
-                              checked={eventFull.checkList3}
-                              type="checkbox"
-                              value="option3"
-                              onChange={handleCheckbox3Change}
-                            />
-                            2. Adicionar Atividades de Homework:
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            <input
-                              checked={eventFull.checkList4}
-                              type="checkbox"
-                              value="option4"
-                              onChange={handleCheckbox4Change}
-                            />
-                            3. Subir Flashcards:
-                          </label>
-                        </div>
-                        <div>
-                          <label>
-                            <input
-                              type="checkbox"
-                              checked={eventFull.checkList5}
-                              value="option5"
-                              onChange={handleCheckbox5Change}
-                            />
-                            4. Formatar Material:
-                          </label>
-                        </div>
-                      </>
-                    )}
-                    {!deleteVisible ? (
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                          justifyContent: "space-evenly",
-                        }}
-                      >
-                        {[
-                          {
-                            text: "Delete",
-                            color: "red",
-                            onClick: seeDelete,
-                            visible: postNew ? false : true,
-                          },
-                          {
-                            text: "Cancel",
-                            color: "blue",
-                            onClick: handleCloseModal,
-                            visible: true,
-                          },
-                          {
-                            text: "Save",
-                            color: "green",
-                            onClick: postNew ? postNewEvent : editInside,
-                            visible: true,
-                            type: "submit",
-                          },
-                        ].map((item, index) => {
-                          return (
-                            <ArvinButton
-                              key={index}
-                              color={item.color}
-                              onClick={item.onClick}
-                              style={{
-                                display: item.visible ? "block" : "none",
-                                marginTop: "1rem",
-                                cursor: "pointer",
-                                color: "white",
+                              className="inputs-style"
+                              value={date}
+                              onChange={(e) => {
+                                setDate(e.target.value);
                               }}
-                              type={item.type ? item.type : null}
-                            >
-                              {item.text}
-                            </ArvinButton>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                          justifyContent: "space-evenly",
-                        }}
-                      >
-                        <p>Are you Sure??</p>
-                        {[
-                          {
-                            text: "No!",
-                            backgroundColor: "navy",
-                            onClick: seeDelete,
-                          },
+                              type="date"
+                              required
+                            />
+                            <input
+                              className="inputs-style"
+                              value={theTime}
+                              onChange={(e) => {
+                                setTheTime(e.target.value);
+                              }}
+                              type="time"
+                              required
+                            />
+                            <input
+                              className="inputs-style"
+                              value={link}
+                              onChange={(e) => setLink(e.target.value)}
+                              placeholder="Link"
+                              type="text"
+                              required
+                            />
+                            <input
+                              className="inputs-style"
+                              value={description}
+                              onChange={(e) => setDescription(e.target.value)}
+                              placeholder="Description"
+                              type="text"
+                              required
+                            />
+                          </form>
+                          <div>
+                            <label>
+                              <input
+                                checked={eventFull.checkList1}
+                                type="checkbox"
+                                value="option1"
+                                onChange={handleCheckbox1Change}
+                              />
+                              0. Subir Vídeo no vimeo:
+                            </label>
+                          </div>
+                          <div>
+                            <label>
+                              <input
+                                checked={eventFull.checkList2}
+                                type="checkbox"
+                                value="option2"
+                                onChange={handleCheckbox2Change}
+                              />
+                              1. Subir Aulas na Plataforma:
+                            </label>
+                          </div>
+                          <div>
+                            <label>
+                              <input
+                                checked={eventFull.checkList3}
+                                type="checkbox"
+                                value="option3"
+                                onChange={handleCheckbox3Change}
+                              />
+                              2. Adicionar Atividades de Homework:
+                            </label>
+                          </div>
+                          <div>
+                            <label>
+                              <input
+                                checked={eventFull.checkList4}
+                                type="checkbox"
+                                value="option4"
+                                onChange={handleCheckbox4Change}
+                              />
+                              3. Subir Flashcards:
+                            </label>
+                          </div>
+                          <div>
+                            <label>
+                              <input
+                                type="checkbox"
+                                checked={eventFull.checkList5}
+                                value="option5"
+                                onChange={handleCheckbox5Change}
+                              />
+                              4. Formatar Material:
+                            </label>
+                          </div>
+                        </>
+                      )}
+                      {!deleteVisible ? (
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            width: "100%",
+                            justifyContent: "space-evenly",
+                          }}
+                        >
+                          {[
+                            {
+                              text: "Delete",
+                              color: "red",
+                              onClick: seeDelete,
+                              visible: postNew ? false : true,
+                            },
+                            {
+                              text: "Cancel",
+                              color: "blue",
+                              onClick: handleCloseModal,
+                              visible: true,
+                            },
+                            {
+                              text: "Save",
+                              color: "green",
+                              onClick: postNew ? postNewEvent : editInside,
+                              visible: true,
+                              type: "submit",
+                            },
+                          ].map((item, index) => {
+                            return (
+                              <ArvinButton
+                                key={index}
+                                color={item.color}
+                                onClick={item.onClick}
+                                style={{
+                                  display: item.visible ? "block" : "none",
+                                  marginTop: "1rem",
+                                  cursor: "pointer",
+                                  color: "white",
+                                }}
+                                type={item.type ? item.type : null}
+                              >
+                                {item.text}
+                              </ArvinButton>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            width: "100%",
+                            justifyContent: "space-evenly",
+                          }}
+                        >
+                          <p>Are you Sure??</p>
+                          {[
+                            {
+                              text: "No!",
+                              backgroundColor: "navy",
+                              onClick: seeDelete,
+                            },
 
-                          {
-                            text: "Yes!",
-                            backgroundColor: "red",
-                            onClick: deleteOneMaterialInside,
-                          },
-                        ].map((item, index) => {
-                          return (
-                            <button
-                              key={index}
-                              onClick={item.onClick}
-                              style={{
-                                marginTop: "1rem",
-                                color: "white",
-                                cursor: "pointer",
-                                backgroundColor: item.backgroundColor,
-                              }}
-                            >
-                              {item.text}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
+                            {
+                              text: "Yes!",
+                              backgroundColor: "red",
+                              onClick: deleteOneMaterialInside,
+                            },
+                          ].map((item, index) => {
+                            return (
+                              <button
+                                key={index}
+                                onClick={item.onClick}
+                                style={{
+                                  marginTop: "1rem",
+                                  color: "white",
+                                  cursor: "pointer",
+                                  backgroundColor: item.backgroundColor,
+                                }}
+                              >
+                                {item.text}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           </>
           <>
