@@ -155,8 +155,9 @@ export function MyProfile({ headers }: HeadersProps) {
                                 color: "#1a73e8",
                                 textDecoration: "underline",
                               }}
+                              target="_blank"
                             >
-                              Click here
+                      Google Drive Folder
                             </NavLink>
                           ) : (
                             <span>{item.data}</span>
