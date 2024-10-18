@@ -102,7 +102,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   
                   >
                     #{index + 1} |{" "}
-                    {item.name + " " + abreviateName(item.lastname)}
+                    {item.name + " " + item.lastname}
                   </p>
                   {/* Exibe os pontos restantes somente se o item estiver hovered */}
                   {hoveredIndex === index && (

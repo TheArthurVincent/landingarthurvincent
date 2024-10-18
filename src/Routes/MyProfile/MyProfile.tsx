@@ -157,7 +157,7 @@ export function MyProfile({ headers }: HeadersProps) {
                               }}
                               target="_blank"
                             >
-                      Google Drive Folder
+                              Google Drive Folder
                             </NavLink>
                           ) : (
                             <span>{item.data}</span>
