@@ -3,7 +3,11 @@ import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
-import { backDomain, onLoggOut, pathGenerator } from "../../Resources/UniversalComponents";
+import {
+  backDomain,
+  onLoggOut,
+  pathGenerator,
+} from "../../Resources/UniversalComponents";
 import axios from "axios";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 import { HThreeModule } from "../MyClasses/MyClasses.Styled";
@@ -24,6 +28,7 @@ export default function Modules({
   const [loading, setLoading] = useState<boolean>(false);
   const [modules, setModules] = useState<any>([]);
   const [visibleModules, setVisibleModules] = useState<boolean[]>([]);
+  const [filtered, setFiltered] = useState([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const actualHeaders = headers || {};
@@ -70,6 +75,19 @@ export default function Modules({
     setDisplayRouteDiv(isRootPath);
   }, [loc.pathname]);
 
+  useEffect(() => {
+    // Filtra os módulos com base na pesquisa e atualiza o estado
+    const filteredModules = modules.map((module: any) => {
+      return {
+        ...module,
+        classes: module.classes.filter((cls: any) =>
+          cls.title?.toLowerCase().includes(searchQuery.toLowerCase())
+        ),
+      };
+    });
+    setFiltered(filteredModules);
+  }, [searchQuery, modules]);
+
   return (
     <RouteDiv>
       <Routes>
@@ -93,8 +111,8 @@ export default function Modules({
                       !isLastClass
                         ? module.classes[index2 + 1]._id
                         : !isLastModule && modules[index + 1]?.classes[0]?._id
-                          ? modules[index + 1]?.classes[0]?._id
-                          : "123456"
+                        ? modules[index + 1]?.classes[0]?._id
+                        : "123456"
                     }
                     order={index2}
                     courseTitle={title}
@@ -154,10 +172,13 @@ export default function Modules({
             type="text"
             placeholder="Search classes by name..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              console.log(e.target.value, searchQuery);
+              setSearchQuery(e.target.value);
+            }}
             style={{ borderRadius: "0.3rem", padding: "0.3rem" }}
           />
-          {modules
+          {filtered
             .sort((a: any, b: any) => a.order - b.order)
             .map((module: any, index: number) => (
               <div key={index}>
