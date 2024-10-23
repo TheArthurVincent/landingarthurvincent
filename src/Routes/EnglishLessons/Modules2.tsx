@@ -82,7 +82,9 @@ export default function Modules({
         ...module,
         classes: module.classes.filter((cls: any) => {
           // Verifica o título e as tags
-          const titleMatches = cls.title?.toLowerCase().includes(searchQuery.toLowerCase());
+          const titleMatches = cls.title
+            ?.toLowerCase()
+            .includes(searchQuery.toLowerCase());
           const tagsMatch = cls.tags?.some((tag: string) =>
             tag.toLowerCase().includes(searchQuery.toLowerCase())
           );
@@ -217,8 +219,19 @@ export default function Modules({
                               }
                               alt={cls.title}
                             />
-                            <p>
+                            <p className="hoverable-paragraph">
                               #{idx + 1} - {cls.title}
+                              <span
+                                className="hidden-span"
+                                style={{
+                                  fontStyle: "italic",
+                                  fontWeight: "400",
+                                  fontSize: "10px",marginLeft:"1rem"
+                                }}
+                              > 
+                                {cls.tags.length > 0 &&
+                                  cls.tags.join(", ").toLowerCase()}
+                              </span>
                             </p>
                           </CourseCard>
                         </Link>

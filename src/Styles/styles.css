@@ -106,6 +106,14 @@ h4 {
     background: #777;
   }
 }
+.hoverable-paragraph .hidden-span {
+  visibility: hidden;
+  transition: visibility 0.2s;
+}
+
+.hoverable-paragraph:hover .hidden-span {
+  visibility: visible;
+}
 
 @keyframes piscar {
   0% {
