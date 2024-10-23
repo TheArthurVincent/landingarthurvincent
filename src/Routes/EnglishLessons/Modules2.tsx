@@ -80,9 +80,14 @@ export default function Modules({
     const filteredModules = modules.map((module: any) => {
       return {
         ...module,
-        classes: module.classes.filter((cls: any) =>
-          cls.title?.toLowerCase().includes(searchQuery.toLowerCase())
-        ),
+        classes: module.classes.filter((cls: any) => {
+          // Verifica o título e as tags
+          const titleMatches = cls.title?.toLowerCase().includes(searchQuery.toLowerCase());
+          const tagsMatch = cls.tags?.some((tag: string) =>
+            tag.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+          return titleMatches || tagsMatch;
+        }),
       };
     });
     setFiltered(filteredModules);
