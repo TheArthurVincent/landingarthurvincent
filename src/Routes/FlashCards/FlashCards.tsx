@@ -14,6 +14,7 @@ import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
 import AllCards from "./FlashCardsComponents/AllCards";
 import { onLoggOut } from "../../Resources/UniversalComponents";
 import FlashcardsHistory from "./FlashCardsComponents/FlashcardsHistory";
+import ListeningExercise from "./FlashCardsComponents/ListeningExercise";
 
 interface FlashCardsProps {
   headers: MyHeadersType | null;
@@ -47,6 +48,18 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       adm: false,
       component: (
         <ReviewFlashCards
+          onChange={onChange}
+          change={change}
+          headers={headers}
+        />
+      ),
+    },
+    {
+      title: "Listening Exercise",
+      value: "5",
+      adm: true,
+      component: (
+        <ListeningExercise
           onChange={onChange}
           change={change}
           headers={headers}
