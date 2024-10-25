@@ -184,8 +184,11 @@ const ListeningExercise = ({
     );
     setSimilarity(simC);
     setWords(wordCountInCard);
-    setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
-
+    if (simC > 95) {
+      setScore(100);
+    } else {
+      setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
+    }
     const highlightedText = highlightDifferences(cardText, userTranscript);
     setSimilarity(similarityPercentage(userTranscript, cardText));
     setWords(wordCount(cardText));
@@ -230,8 +233,14 @@ const ListeningExercise = ({
     setSimilarity(simC);
     setWords(wordCountInCard);
     const points = simC > 50 ? wordCountInCard * (simC / 100) * 5 : 0;
-    setScore(points);
-    reviewListeningExercise(points, simC);
+
+    if (simC > 95) {
+      setScore(100);
+      reviewListeningExercise(100, simC);
+    } else {
+      setScore(points);
+      reviewListeningExercise(points, simC);
+    }
   };
 
   const seeCardsToReview = async () => {
@@ -293,8 +302,8 @@ const ListeningExercise = ({
   recognition.onerror = () => {
     stopListening();
     alert("Erro no reconhecimento de voz");
+    window.location.reload();
   };
-
 
   return (
     <section id="review">
@@ -305,9 +314,11 @@ const ListeningExercise = ({
           ) : (
             <div
               style={{
-                maxWidth: "500px",
+                maxWidth: "400px",
                 margin: "auto",
                 textAlign: "center",
+                padding: "20px",
+                borderRadius: "10px",
               }}
             >
               {!cardsLength ? (
@@ -317,40 +328,40 @@ const ListeningExercise = ({
                       style={{
                         display: isDisabled ? "none" : "grid",
                         alignItems: "center",
-                        gap: "5px",
+                        gap: "10px",
                         justifyContent: "center",
                       }}
                     >
                       <p
                         style={{
-                          fontSize: "1rem",
-                          padding: "5px",
+                          padding: "10px",
                           borderRadius: "10px",
                           backgroundColor:
-                            similarity == 100
-                              ? "green"
-                              : similarity > 90 && similarity < 100
-                              ? "blue"
-                              : similarity > 50 && similarity < 90
-                              ? "white"
-                              : "red",
+                            similarity === 100
+                              ? "#4caf50"
+                              : similarity > 90
+                              ? "#2196f3"
+                              : similarity > 50
+                              ? "#ffeb3b"
+                              : "#f44336",
                           color:
-                            similarity == 100
+                            similarity === 100
                               ? "white"
-                              : similarity > 90 && similarity < 100
+                              : similarity > 90
                               ? "white"
-                              : similarity > 50 && similarity < 90
+                              : similarity > 50
                               ? "black"
                               : "white",
                           border: `solid 1px ${
-                            similarity == 100
+                            similarity === 100
                               ? "white"
-                              : similarity > 90 && similarity < 100
+                              : similarity > 90
                               ? "white"
-                              : similarity > 50 && similarity < 90
+                              : similarity > 50
                               ? "black"
                               : "white"
                           }`,
+                          transition: "background-color 0.3s",
                         }}
                       >
                         {similarity}% correct
@@ -358,29 +369,27 @@ const ListeningExercise = ({
                       <div
                         style={{
                           display: "grid",
-                          border: "solid 1px grey",
-                          borderRadius: "1rem",
-                          padding: "1rem",
+                          border: "solid 1px #ccc",
+                          borderRadius: "10px",
+                          padding: "15px",
+                          backgroundColor: "#fff",
                         }}
                       >
                         <p
                           style={{
                             fontFamily: "Athiti",
-                            fontSize: "1.5rem",
+                            fontSize: "1rem",
                             fontWeight: 600,
-                            display: isDisabled ? "none" : "inline",
                           }}
                         >
-                          {
-                            cards[0]?.front?.text // Substitui múltiplos espaços por um espaço
-                          }
+                          {cards[0]?.front?.text.replace(/\s+/g, " ")}
                         </p>
                         <p
                           style={{
                             fontFamily: "Lato",
-                            fontSize: "1rem",
-                            fontWeight: 600,
-                            display: isDisabled ? "none" : "inline",
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            color: "#555",
                           }}
                         >
                           {cards[0]?.back?.text}
@@ -389,12 +398,22 @@ const ListeningExercise = ({
                       <div
                         style={{
                           display: "grid",
-                          border: "solid 1px grey",
-                          borderRadius: "1rem",
-                          padding: "1rem",
+                          border: "solid 1px #ccc",
+                          borderRadius: "10px",
+                          padding: "15px",
+                          backgroundColor: "#fff",
                         }}
                       >
-                        <HThree>Your answer:</HThree>
+                        <p
+                          style={{
+                            color: "grey",
+                            marginBottom: "10px",
+                            fontSize: "10px",
+                            fontStyle: "italic",
+                          }}
+                        >
+                          Your answer:
+                        </p>
                         <div
                           dangerouslySetInnerHTML={{
                             __html: transcriptHighLighted,
@@ -412,28 +431,31 @@ const ListeningExercise = ({
                       <CircularProgress />
                     ) : (
                       <div>
-                        {" "}
                         <ArvinButton
-                          style={
-                            {
-                              // display: !isDisabled ? "none" : "inline",
-                            }
-                          }
                           onClick={() => {
                             readText(
-                              cards[0]?.front?.text.replace(/\s+/g, " "), // Substitui múltiplos espaços por um espaço
+                              cards[0]?.front?.text.replace(/\s+/g, " "),
                               false,
                               cards[0]?.front?.language
                             );
                             setEnableVoice(true);
                           }}
+                          style={{
+                            margin: "0 5px",
+                            marginTop: !isDisabled ? "1rem" : 0,
+                          }}
                         >
-                          <i className="fa fa-volume-up" aria-hidden="true" />
+                          {!isDisabled ? (
+                            `Listen again`
+                          ) : (
+                            <i className="fa fa-volume-up" aria-hidden="true" />
+                          )}
                         </ArvinButton>
                         <ArvinButton
                           style={{
                             display: !isDisabled ? "none" : "inline-block",
                             cursor: enableVoice ? "pointer" : "not-allowed",
+                            margin: "0 5px",
                           }}
                           disabled={!enableVoice}
                           onClick={!listening ? startListening : stopListening}
@@ -461,6 +483,7 @@ const ListeningExercise = ({
                       display: isDisabled ? "none" : "inline-block",
                     }}
                     disabled={next}
+                    color="green"
                     onClick={() => ponctuate(transcript)}
                   >
                     Next
@@ -469,6 +492,10 @@ const ListeningExercise = ({
                     style={{
                       display: !isDisabled ? "none" : "inline-block",
                       marginTop: "1rem",
+                      width: "85%",
+                      padding: "10px",
+                      borderRadius: "5px",
+                      border: "1px solid #ccc",
                     }}
                     placeholder="Use this area for reference if you need to transcribe what you hear"
                     name=""
@@ -485,12 +512,17 @@ const ListeningExercise = ({
       <div
         style={{
           display: !isDisabled ? "none" : "flex",
+          justifyContent: "center",
+          marginTop: "20px",
         }}
       >
-        <ArvinButton onClick={() => setSeeVideo(!seeVideo)}>
+        <ArvinButton
+          onClick={() => setSeeVideo(!seeVideo)}
+          style={{ margin: "0 5px" }}
+        >
           See explanation
         </ArvinButton>
-        <ArvinButton onClick={seeCardsToReview}>
+        <ArvinButton onClick={seeCardsToReview} style={{ margin: "0 5px" }}>
           {!see ? "Start" : <i className="fa fa-refresh" />}
         </ArvinButton>
       </div>
@@ -498,16 +530,17 @@ const ListeningExercise = ({
       <div
         style={{
           display: seeVideo ? "block" : "none",
+          marginTop: "20px",
+          padding: "20px",
+          border: "1px solid #ccc",
+          borderRadius: "10px",
+          backgroundColor: "#f9f9f9",
         }}
       >
         <IFrameVideoBlog
           src={getVideoEmbedUrl("https://www.youtube.com/watch?v=UTv6fUcbe-8")}
         />
-        <div
-          style={{
-            padding: "1rem",
-          }}
-        >
+        <div style={{ padding: "1rem", color: "#333" }}>
           <p>
             Fala pessoal, tudo bem? Quero mostrar para vocês como usar essa nova
             funcionalidade dos flashcards, chamada "The Listening Exercise". É
