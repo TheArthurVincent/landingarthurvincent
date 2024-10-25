@@ -169,7 +169,7 @@ body {
 }
 
 .audio-button:active {
-  font-size: 0.9rem;
+  color: blue;
 }
 
 .comment {
