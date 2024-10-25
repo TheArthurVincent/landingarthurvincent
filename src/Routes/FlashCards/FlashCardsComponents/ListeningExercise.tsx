@@ -261,7 +261,11 @@ const ListeningExercise = ({
     setEnableVoice(false);
   };
 
-  recognition.onspeechend = stopListening;
+  recognition.onspeechend = () => {
+    setTimeout(() => {
+      stopListening();
+    }, 1500);
+  };
   recognition.onerror = () => {
     stopListening();
     alert("Erro no reconhecimento de voz");
@@ -434,7 +438,11 @@ const ListeningExercise = ({
         <IFrameVideoBlog
           src={getVideoEmbedUrl("https://www.youtube.com/watch?v=UTv6fUcbe-8")}
         />
-        <div>
+        <div
+          style={{
+            padding: "1rem",
+          }}
+        >
           <p>
             Fala pessoal, tudo bem? Quero mostrar para vocês como usar essa nova
             funcionalidade dos flashcards, chamada "The Listening Exercise". É
