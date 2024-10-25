@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { backDomain } from "../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  getVideoEmbedUrl,
+} from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 
 // Função para contar o número de palavras
 function wordCount(str: string): number {
@@ -264,6 +268,7 @@ const ListeningExercise = ({
   };
 
   const [enableVoice, setEnableVoice] = useState(false);
+  const [seeVideo, setSeeVideo] = useState(false);
   return (
     <section id="review">
       {see && (
@@ -408,14 +413,28 @@ const ListeningExercise = ({
           )}
         </div>
       )}
-      <ArvinButton
+      <div
         style={{
-          display: !isDisabled ? "none" : "inline-block",
+          display: !isDisabled ? "none" : "flex",
         }}
-        onClick={seeCardsToReview}
       >
-        {!see ? "Start" : <i className="fa fa-refresh" />}
-      </ArvinButton>
+        <ArvinButton onClick={() => setSeeVideo(!seeVideo)}>
+          See explanation
+        </ArvinButton>
+        <ArvinButton onClick={seeCardsToReview}>
+          {!see ? "Start" : <i className="fa fa-refresh" />}
+        </ArvinButton>
+      </div>
+
+      <div
+        style={{
+          display: seeVideo ? "block" : "none",
+        }}
+      >
+        <IFrameVideoBlog
+          src={getVideoEmbedUrl("https://www.youtube.com/watch?v=UTv6fUcbe-8")}
+        />
+      </div>
     </section>
   );
 };
