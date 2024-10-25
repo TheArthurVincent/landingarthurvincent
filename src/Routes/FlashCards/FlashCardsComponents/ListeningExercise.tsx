@@ -250,24 +250,14 @@ const ListeningExercise = ({
               {!cardsLength ? (
                 <>
                   <div>
-                    <p
-                      style={{
-                        display: isDisabled ? "none" : "inline",
-                      }}
-                    >
-                      {cards[0]?.front?.text}
-                    </p>{" "}
                     <div
                       style={{
-                        display: isDisabled ? "none" : "inline",
+                        display: isDisabled ? "none" : "grid",
+                        alignItems: "center",
+                        gap: "5px",
+                        justifyContent: "center",
                       }}
                     >
-                      <ArvinButton
-                        disabled={next}
-                        onClick={() => ponctuate(transcript)}
-                      >
-                        Next
-                      </ArvinButton>
                       <p
                         style={{
                           fontSize: "1rem",
@@ -278,12 +268,46 @@ const ListeningExercise = ({
                           color: similarity == 100 ? "white" : "black",
                         }}
                       >
-                        {similarity}%
+                        {similarity}% correct
                       </p>
-                      <br />
-                      <p>{words} words</p>
-                      <br />
-                      <p>{score.toFixed()} points</p>
+                      <div
+                        style={{
+                          display: "grid",
+                          border: "solid 1px grey",
+                          borderRadius: "1rem",
+                          padding: "1rem",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "Athiti",
+                            fontSize: "1.5rem",
+                            fontWeight: 600,
+                            display: isDisabled ? "none" : "inline",
+                          }}
+                        >
+                          {cards[0]?.front?.text}
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "Lato",
+                            fontSize: "1rem",
+                            fontWeight: 600,
+                            display: isDisabled ? "none" : "inline",
+                          }}
+                        >
+                          {cards[0]?.back?.text}
+                        </p>
+                      </div>
+                      <p>
+                        Your answer: <b>{transcript}</b>
+                      </p>
+                      <p>
+                        This sentence has <b>{words}</b> words
+                      </p>
+                      <p>
+                        You scored <b>{score.toFixed()}</b> points
+                      </p>
                     </div>
                     <div>
                       {" "}
@@ -316,21 +340,20 @@ const ListeningExercise = ({
                         />
                       </ArvinButton>
                     </div>
-                    <br />
-                    <p>
-                      Your answer: <b>{transcript}</b>
-                    </p>
-                    {/* <ArvinButton
-                      style={{
-                        display: !isDisabled ? "none" : "block",
-                      }}
-                      onClick={startListening}
-                    >
-                      Speak
-                    </ArvinButton> */}
                   </div>
+                  <ArvinButton
+                    style={{
+                      marginTop: "1rem",
+                      display: isDisabled ? "none" : "inline-block",
+                    }}
+                    disabled={next}
+                    onClick={() => ponctuate(transcript)}
+                  >
+                    Next
+                  </ArvinButton>
                   <textarea
                     style={{
+                      display: !isDisabled ? "none" : "inline-block",
                       marginTop: "1rem",
                     }}
                     name=""
