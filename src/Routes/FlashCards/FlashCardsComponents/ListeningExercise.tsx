@@ -358,7 +358,7 @@ const ListeningExercise = ({
                     }}
                     name=""
                     id=""
-                  ></textarea>
+                  />
                 </>
               ) : (
                 <p>No flashcards</p>
@@ -367,7 +367,12 @@ const ListeningExercise = ({
           )}
         </div>
       )}
-      <ArvinButton onClick={seeCardsToReview}>
+      <ArvinButton
+        style={{
+          display: !isDisabled ? "none" : "inline-block",
+        }}
+        onClick={seeCardsToReview}
+      >
         {!see ? "Start" : <i className="fa fa-refresh" />}
       </ArvinButton>
     </section>

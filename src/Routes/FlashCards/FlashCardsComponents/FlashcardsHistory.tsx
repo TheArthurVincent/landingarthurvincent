@@ -68,20 +68,6 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
     }
   };
 
-  // Função para agrupar os flashcards por dia e calcular os totais de pontos
-  const groupByDay = (data: any[]) => {
-    if (!Array.isArray(data)) return {}; // Return an empty object if data is not an array
-    return data.reduce((acc, curr) => {
-      const date = new Date(curr.date).toLocaleDateString();
-      if (!acc[date]) {
-        acc[date] = { items: [], totalScore: 0 };
-      }
-      acc[date].items.push(curr);
-      acc[date].totalScore += curr.score;
-      return acc;
-    }, {} as Record<string, { items: any[]; totalScore: number }>);
-  };
-
   const groupByDay2 = (data: any[]) => {
     if (!Array.isArray(data)) return {}; // Return an empty object if data is not an array
     return data.reduce((acc, curr) => {
