@@ -5,6 +5,8 @@ export const readText = (text: string, restart: boolean, lang?: string) => {
       console.error("speechSynthesis não está disponível.");
       return;
     }
+    // Limpa qualquer fala em andamento
+    synth.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
 

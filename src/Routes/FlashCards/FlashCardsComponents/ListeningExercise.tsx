@@ -9,7 +9,20 @@ import {
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
+import { HThree } from "../../MyClasses/MyClasses.Styled";
 
+function highlightDifferences(original: string, userInput: string): string {
+  const originalWords = original.split(" ");
+  const userWords = userInput.split(" ");
+  const highlightedWords = userWords.map((word, index) => {
+    if (originalWords[index] && originalWords[index] !== word) {
+      return `<span style="color: red; font-weight: 600;">${word}</span>`;
+    }
+    return `<span style="color: green">${word}</span>`;
+  });
+
+  return highlightedWords.join(" ");
+}
 // Função para contar o número de palavras
 function wordCount(str: string): number {
   return str.trim().split(/\s+/).length;
@@ -93,10 +106,16 @@ const ListeningExercise = ({
   const [see, setSee] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [next, setNext] = useState<boolean>(false);
+  const [seeProgress, setSeeProgress] = useState(false);
+  const [enableVoice, setEnableVoice] = useState(false);
+  const [seeVideo, setSeeVideo] = useState(false);
   const [similarity, setSimilarity] = useState<number>(0);
   const [words, setWords] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [transcript, setTranscript] = useState<string>("");
+  const [transcriptHighLighted, setTranscriptHighLighted] =
+    useState<string>("");
+
   const [listening, setListening] = useState<boolean>(false);
 
   const actualHeaders = headers || {};
@@ -166,6 +185,12 @@ const ListeningExercise = ({
     setSimilarity(simC);
     setWords(wordCountInCard);
     setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
+
+    const highlightedText = highlightDifferences(cardText, userTranscript);
+    setSimilarity(similarityPercentage(userTranscript, cardText));
+    setWords(wordCount(cardText));
+    // Atualize o estado para armazenar a resposta com destaque
+    setTranscriptHighLighted(highlightedText);
   };
 
   const ponctuate = (transcription: string | null) => {
@@ -248,7 +273,6 @@ const ListeningExercise = ({
     setListening(false);
     recognition.stop();
   };
-  const [seeProgress, setSeeProgress] = useState(false);
   recognition.onresult = (event) => {
     const speechToText = event.results[0][0].transcript;
     setTranscript(cleanString(speechToText));
@@ -264,15 +288,14 @@ const ListeningExercise = ({
   recognition.onspeechend = () => {
     setTimeout(() => {
       stopListening();
-    }, 1500);
+    }, 5000);
   };
   recognition.onerror = () => {
     stopListening();
     alert("Erro no reconhecimento de voz");
   };
 
-  const [enableVoice, setEnableVoice] = useState(false);
-  const [seeVideo, setSeeVideo] = useState(false);
+
   return (
     <section id="review">
       {see && (
@@ -280,7 +303,13 @@ const ListeningExercise = ({
           {loading ? (
             <CircularProgress />
           ) : (
-            <div style={{ margin: "auto", textAlign: "center" }}>
+            <div
+              style={{
+                maxWidth: "500px",
+                margin: "auto",
+                textAlign: "center",
+              }}
+            >
               {!cardsLength ? (
                 <>
                   <div>
@@ -298,8 +327,30 @@ const ListeningExercise = ({
                           padding: "5px",
                           borderRadius: "10px",
                           backgroundColor:
-                            similarity == 100 ? "green" : "white",
-                          color: similarity == 100 ? "white" : "black",
+                            similarity == 100
+                              ? "green"
+                              : similarity > 90 && similarity < 100
+                              ? "blue"
+                              : similarity > 50 && similarity < 90
+                              ? "white"
+                              : "red",
+                          color:
+                            similarity == 100
+                              ? "white"
+                              : similarity > 90 && similarity < 100
+                              ? "white"
+                              : similarity > 50 && similarity < 90
+                              ? "black"
+                              : "white",
+                          border: `solid 1px ${
+                            similarity == 100
+                              ? "white"
+                              : similarity > 90 && similarity < 100
+                              ? "white"
+                              : similarity > 50 && similarity < 90
+                              ? "black"
+                              : "white"
+                          }`,
                         }}
                       >
                         {similarity}% correct
@@ -335,9 +386,21 @@ const ListeningExercise = ({
                           {cards[0]?.back?.text}
                         </p>
                       </div>
-                      <p>
-                        Your answer: <b>{transcript}</b>
-                      </p>
+                      <div
+                        style={{
+                          display: "grid",
+                          border: "solid 1px grey",
+                          borderRadius: "1rem",
+                          padding: "1rem",
+                        }}
+                      >
+                        <HThree>Your answer:</HThree>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: transcriptHighLighted,
+                          }}
+                        />
+                      </div>
                       <p>
                         This sentence has <b>{words}</b> words
                       </p>
@@ -351,9 +414,11 @@ const ListeningExercise = ({
                       <div>
                         {" "}
                         <ArvinButton
-                          style={{
-                            display: !isDisabled ? "none" : "inline",
-                          }}
+                          style={
+                            {
+                              // display: !isDisabled ? "none" : "inline",
+                            }
+                          }
                           onClick={() => {
                             readText(
                               cards[0]?.front?.text.replace(/\s+/g, " "), // Substitui múltiplos espaços por um espaço
