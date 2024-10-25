@@ -9,7 +9,6 @@ import {
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
-import { HThree } from "../../MyClasses/MyClasses.Styled";
 
 function highlightDifferences(original: string, userInput: string): string {
   const originalWords = original.split(" ");
@@ -189,11 +188,13 @@ const ListeningExercise = ({
     } else {
       setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
     }
+
+    
     const highlightedText = highlightDifferences(cardText, userTranscript);
+    setTranscriptHighLighted(highlightedText);
     setSimilarity(similarityPercentage(userTranscript, cardText));
     setWords(wordCount(cardText));
     // Atualize o estado para armazenar a resposta com destaque
-    setTranscriptHighLighted(highlightedText);
   };
 
   const ponctuate = (transcription: string | null) => {
