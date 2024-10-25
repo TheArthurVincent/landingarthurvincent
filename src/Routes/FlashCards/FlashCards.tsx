@@ -43,7 +43,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
 
   const componentsToRender = [
     {
-      title: "Review",
+      title: "Review Exercise",
       value: "1",
       adm: false,
       component: (
