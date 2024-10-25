@@ -306,6 +306,13 @@ const ListeningExercise = ({
                     <p>Microfone: {listening ? "Ativo" : "Inativo"}</p>
                     <ArvinButton onClick={startListening}>Falar</ArvinButton>
                   </div>
+                  <textarea
+                    style={{
+                      marginTop: "1rem",
+                    }}
+                    name=""
+                    id=""
+                  ></textarea>
                 </>
               ) : (
                 <p>No flashcards</p>
