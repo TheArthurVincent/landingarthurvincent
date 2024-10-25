@@ -406,7 +406,17 @@ input.inputs-style:focus {
 }
 
 
-/* FlashcardsHistory.css */
+.flashcard-history-upper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+  .flashcard-history-upper {
+    grid-template-columns: 1fr;
+  }
+}
+
 .flashcard-history-container {
   max-width: 800px;
   margin: 0 auto;
@@ -417,6 +427,7 @@ input.inputs-style:focus {
 }
 
 .flashcard-history-list {
+  font-size: 12px;
   list-style: none;
   padding: 0;
 }
@@ -449,7 +460,7 @@ background-color: #eee;
 .flashcard-items {
   margin-left: 20px;
   max-height: 500px;
-  overflow: hidden;
+  overflow: auto;
   transition: max-height 0.3s ease-out;
 }
 

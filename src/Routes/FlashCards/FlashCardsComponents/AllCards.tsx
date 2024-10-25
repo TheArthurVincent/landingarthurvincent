@@ -134,21 +134,6 @@ const AllCards = ({ headers }: HeadersProps) => {
     }
   };
 
-  function getReviewDate(card: any) {
-    const reviewDate = new Date(card.reviewDate);
-    const today = new Date();
-
-    // Zera a hora para comparar apenas as datas
-    today.setHours(0, 0, 0, 0);
-
-    // Se a data for anterior a hoje, retorna a data de hoje
-    if (reviewDate < today) {
-      return formatDateBr(today);
-    }
-
-    // Caso contrário, retorna a data original formatada
-    return formatDateBr(reviewDate);
-  }
   const handleDeleteCard = async (cardId: string) => {
     try {
       const response = await axios.delete(
@@ -344,6 +329,8 @@ const AllCards = ({ headers }: HeadersProps) => {
                 <div>Reviewed {Math.round(card.numberOfReviews)} times</div>
                 <br />
                 <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
+                <div>Listening Rate: {card.listeningRate.toFixed(1)}</div>
+
                 <div>Easy Reviews: {card.easyReviews}</div>
                 <div>
                   Tags:{" "}
@@ -362,7 +349,11 @@ const AllCards = ({ headers }: HeadersProps) => {
                 </div>
 
                 {perm == "superadmin" && (
-                  <div>Review Rate Total: {card.reviewRate}</div>
+                  <div>
+                    Review Rate Total: {card.reviewRate}
+                    <br />
+                    Listening Rate Total: {card.listeningRate}
+                  </div>
                 )}
               </div>
             ))}
