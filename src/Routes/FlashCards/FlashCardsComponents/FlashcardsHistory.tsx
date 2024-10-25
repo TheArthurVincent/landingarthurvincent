@@ -132,7 +132,7 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
               <div key={date} className="flashcard-day">
                 <h2 className="flashcard-date" onClick={() => toggleListeningDay(date)}>
                   {/* @ts-ignore */}
-                  {date} - Total Points: {group.totalScore}
+                  {date} - Total Points: {group.totalScore.toFixed()}
                 </h2>
                 {expandedListeningDays[date] && ( // Exibe ou esconde os itens com base no estado
                   <div className="flashcard-items">
