@@ -13,17 +13,7 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
 
   const [expandedFlashcardsDays, setExpandedFlashcardsDays] = useState<Record<string, boolean>>({});
   const [expandedListeningDays, setExpandedListeningDays] = useState<Record<string, boolean>>({});
-
-
   const [loading, setLoading] = useState<boolean>(true);
-  const [expandedDays, setExpandedDays] = useState<Record<string, boolean>>({});
-  const toggleDay = (date: string) => {
-    setExpandedDays((prevState) => ({
-      ...prevState,
-      [date]: !prevState[date], // Alterna entre expandido e contraído
-    }));
-  };
-
 
   const toggleFlashcardDay = (date: string) => {
     setExpandedFlashcardsDays((prevState) => ({

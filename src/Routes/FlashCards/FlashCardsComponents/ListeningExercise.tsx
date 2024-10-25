@@ -187,19 +187,19 @@ const ListeningExercise = ({
       const thereAreCards = response.data.dueFlashcards.length === 0;
       setCards(response.data.dueFlashcards);
       setCardsLength(thereAreCards);
-      {
-        response.data.dueFlashcards.length > 0 &&
-        response.data.dueFlashcards[0].front.language == "en"
-          ? setTimeout(() => {
-              console.log(response.data.dueFlashcards);
-              readText(
-                response.data.dueFlashcards[0].front?.text,
-                false,
-                response.data.dueFlashcards[0].front.language
-              );
-            }, 500)
-          : null;
-      }
+      // {
+      //   response.data.dueFlashcards.length > 0 &&
+      //   response.data.dueFlashcards[0].front.language == "en"
+      //     ? setTimeout(() => {
+      //         console.log(response.data.dueFlashcards);
+      //         readText(
+      //           response.data.dueFlashcards[0].front?.text,
+      //           false,
+      //           response.data.dueFlashcards[0].front.language
+      //         );
+      //       }, 500)
+      //     : null;
+      // }
       setLoading(false);
     } catch (error) {
       alert("Erro ao carregar cards");
@@ -356,6 +356,7 @@ const ListeningExercise = ({
                       display: !isDisabled ? "none" : "inline-block",
                       marginTop: "1rem",
                     }}
+                    placeholder=""
                     name=""
                     id=""
                   />
