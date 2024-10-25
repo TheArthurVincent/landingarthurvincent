@@ -308,7 +308,7 @@ const ListeningExercise = ({
                   </div>
                   <textarea
                     style={{
-                      marginTop: "1remd",
+                      marginTop: "1rem",
                     }}
                     name=""
                     id=""
