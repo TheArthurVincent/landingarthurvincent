@@ -57,7 +57,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
     {
       title: "Listening Exercise",
       value: "5",
-      adm: false,
+      adm: true,
       component: (
         <ListeningExercise
           onChange={onChange}
