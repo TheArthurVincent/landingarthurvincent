@@ -19,6 +19,15 @@ const normalizeText = (text: string): string => {
     .replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     .trim();
 };
+function wordBasedSimilarity(str1: string, str2: string): number {
+  const words1 = normalizeText(str1).split(" ");
+  const words2 = normalizeText(str2).split(" ");
+
+  const totalWords = Math.max(words1.length, words2.length);
+  const matchingWords = words1.filter((word) => words2.includes(word)).length;
+
+  return (matchingWords / totalWords) * 100; // Retorna similaridade em porcentagem
+}
 
 // Função para limpar a string
 function cleanString(str: string): string {
@@ -116,10 +125,21 @@ const ListeningExercise = ({
   };
 
   const isCorrectAnswer = (transcription: string | null) => {
-    readText(cards[0]?.front?.text, false, "en");
-    const cardText = normalizeText(cleanString(cards[0]?.front?.text || ""));
+    readText(
+      cards[0]?.front?.text.replace(/\s+/g, " "), // Substitui múltiplos espaços por um espaço
+      false,
+      "en"
+    );
+    const cardText = normalizeText(
+      cleanString(
+        cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
+          ""
+      )
+    );
     const userTranscript = normalizeText(cleanString(transcription || ""));
-    const wordCountInCard = wordCount(cards[0]?.front?.text);
+    const wordCountInCard = wordCount(
+      cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
+    );
 
     if (userTranscript === "") {
       setSimilarity(0);
@@ -135,7 +155,10 @@ const ListeningExercise = ({
       return;
     }
 
-    const simC = similarityPercentage(userTranscript, cards[0]?.front?.text);
+    const simC = similarityPercentage(
+      userTranscript,
+      cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
+    );
     setSimilarity(simC);
     setWords(wordCountInCard);
     setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
@@ -143,30 +166,41 @@ const ListeningExercise = ({
 
   const ponctuate = (transcription: string | null) => {
     setLoading(true);
-    const cardText = normalizeText(cleanString(cards[0]?.front?.text || ""));
+    const cardText = normalizeText(
+      cleanString(
+        cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
+          ""
+      )
+    );
     const userTranscript = normalizeText(cleanString(transcription || ""));
-    const wordCountInCard = wordCount(cards[0]?.front?.text);
+    const wordCountInCard = wordCount(
+      cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
+        ""
+    );
 
     if (userTranscript === "") {
       setSimilarity(0);
       setScore(0);
-      setWords(0);
+      setWords(wordCountInCard);
       reviewListeningExercise(0, 0);
       return;
     }
 
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
-      reviewListeningExercise(wordCountInCard * 5, 100);
-      setWords(wordCountInCard);
       setScore(wordCountInCard * 5);
+      setWords(wordCountInCard);
+      reviewListeningExercise(wordCountInCard * 5, 100);
       return;
     }
 
-    const simC = similarityPercentage(userTranscript, cards[0]?.front?.text);
+    const simC = similarityPercentage(
+      userTranscript,
+      cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
+    );
     setSimilarity(simC);
     setWords(wordCountInCard);
-    var points = simC > 50 ? wordCountInCard * simC * 0.05 : 0;
+    const points = simC > 50 ? wordCountInCard * (simC / 100) * 5 : 0;
     setScore(points);
     reviewListeningExercise(points, simC);
   };
@@ -187,19 +221,6 @@ const ListeningExercise = ({
       const thereAreCards = response.data.dueFlashcards.length === 0;
       setCards(response.data.dueFlashcards);
       setCardsLength(thereAreCards);
-      // {
-      //   response.data.dueFlashcards.length > 0 &&
-      //   response.data.dueFlashcards[0].front.language == "en"
-      //     ? setTimeout(() => {
-      //         console.log(response.data.dueFlashcards);
-      //         readText(
-      //           response.data.dueFlashcards[0].front?.text,
-      //           false,
-      //           response.data.dueFlashcards[0].front.language
-      //         );
-      //       }, 500)
-      //     : null;
-      // }
       setLoading(false);
     } catch (error) {
       alert("Erro ao carregar cards");
@@ -223,14 +244,17 @@ const ListeningExercise = ({
     setListening(false);
     recognition.stop();
   };
-
+  const [seeProgress, setSeeProgress] = useState(false);
   recognition.onresult = (event) => {
     const speechToText = event.results[0][0].transcript;
     setTranscript(cleanString(speechToText));
+    setSeeProgress(true);
     setTimeout(() => {
       isCorrectAnswer(speechToText);
       setIsDisabled(false);
-    }, 1300);
+      setSeeProgress(false);
+    }, 2000);
+    setEnableVoice(false);
   };
 
   recognition.onspeechend = stopListening;
@@ -239,6 +263,7 @@ const ListeningExercise = ({
     alert("Erro no reconhecimento de voz");
   };
 
+  const [enableVoice, setEnableVoice] = useState(false);
   return (
     <section id="review">
       {see && (
@@ -286,7 +311,9 @@ const ListeningExercise = ({
                             display: isDisabled ? "none" : "inline",
                           }}
                         >
-                          {cards[0]?.front?.text}
+                          {
+                            cards[0]?.front?.text // Substitui múltiplos espaços por um espaço
+                          }
                         </p>
                         <p
                           style={{
@@ -309,37 +336,50 @@ const ListeningExercise = ({
                         You scored <b>{score.toFixed()}</b> points
                       </p>
                     </div>
-                    <div>
-                      {" "}
-                      <ArvinButton
-                        style={{
-                          display: !isDisabled ? "none" : "inline",
-                        }}
-                        onClick={() => {
-                          readText(
-                            cards[0]?.front?.text,
-                            false,
-                            cards[0]?.front?.language
-                          );
-                        }}
-                      >
-                        <i className="fa fa-volume-up" aria-hidden="true" />
-                      </ArvinButton>
-                      <ArvinButton
-                        onClick={startListening}
-                        color={!listening ? "green" : "red"}
-                        style={{
-                          display: !isDisabled ? "none" : "inline-block",
-                        }}
-                      >
-                        <i
-                          className={
-                            !listening ? "fa fa-microphone" : "fa  fa-stop"
+                    {seeProgress ? (
+                      <CircularProgress />
+                    ) : (
+                      <div>
+                        {" "}
+                        <ArvinButton
+                          style={{
+                            display: !isDisabled ? "none" : "inline",
+                          }}
+                          onClick={() => {
+                            readText(
+                              cards[0]?.front?.text.replace(/\s+/g, " "), // Substitui múltiplos espaços por um espaço
+                              false,
+                              cards[0]?.front?.language
+                            );
+                            setEnableVoice(true);
+                          }}
+                        >
+                          <i className="fa fa-volume-up" aria-hidden="true" />
+                        </ArvinButton>
+                        <ArvinButton
+                          style={{
+                            display: !isDisabled ? "none" : "inline-block",
+                            cursor: enableVoice ? "pointer" : "not-allowed",
+                          }}
+                          disabled={!enableVoice}
+                          onClick={!listening ? startListening : stopListening}
+                          color={
+                            !enableVoice
+                              ? "grey"
+                              : !listening && enableVoice
+                              ? "green"
+                              : "red"
                           }
-                          aria-hidden="true"
-                        />
-                      </ArvinButton>
-                    </div>
+                        >
+                          <i
+                            className={
+                              !listening ? "fa fa-microphone" : "fa fa-stop"
+                            }
+                            aria-hidden="true"
+                          />
+                        </ArvinButton>
+                      </div>
+                    )}
                   </div>
                   <ArvinButton
                     style={{
@@ -356,7 +396,7 @@ const ListeningExercise = ({
                       display: !isDisabled ? "none" : "inline-block",
                       marginTop: "1rem",
                     }}
-                    placeholder=""
+                    placeholder="Use this area for reference if you need to transcribe what you hear"
                     name=""
                     id=""
                   />
