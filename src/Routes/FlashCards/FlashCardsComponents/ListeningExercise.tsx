@@ -434,6 +434,61 @@ const ListeningExercise = ({
         <IFrameVideoBlog
           src={getVideoEmbedUrl("https://www.youtube.com/watch?v=UTv6fUcbe-8")}
         />
+        <div>
+          <p>
+            Fala pessoal, tudo bem? Quero mostrar para vocês como usar essa nova
+            funcionalidade dos flashcards, chamada "The Listening Exercise". É
+            uma aba nova, então vou mostrar para vocês como vai funcionar.
+          </p>
+
+          <p>
+            A primeira coisa que você deve fazer é clicar em "Start". Em
+            seguida, aparecerão dois botões: um para escutar e outro para falar.
+            Você começa clicando no botão de escutar. Você pode clicar quantas
+            vezes quiser para confirmar que entendeu o que foi falado.
+          </p>
+
+          <p>
+            Por exemplo, se você ouvir "This Is Mine" e achar que é isso que foi
+            dito, pode usar a área de anotações para escrever o que entendeu.
+            Essa área de escrita não influencia na pontuação; é apenas para
+            referência pessoal. Se estiver no celular, pode usar papel e caneta
+            para anotar frases mais longas.
+          </p>
+
+          <p>
+            Após ouvir e entender "This Is Mine", você precisa repetir a frase
+            clicando no botão do microfone. Se repetir corretamente, como "This
+            Is Mine", você fará 100% dos pontos, que neste caso seriam 15 pontos
+            (5 pontos por palavra correta). Se não acertar 100%, sua pontuação
+            será ajustada proporcionalmente.
+          </p>
+
+          <p>
+            Vamos para mais um exemplo: ao clicar em "Next", você deve escutar a
+            frase antes de tentar repeti-la. Digamos que você escute "Why is the
+            excitement undeniable?" e erre uma palavra ao falar, por exemplo,
+            dizendo "unforgettable" no lugar de "undeniable". Nesse caso, você
+            terá acertado apenas 80% da frase, então a pontuação por palavra
+            será reduzida de 5 para 4 pontos.
+          </p>
+
+          <p>
+            Agora, vamos considerar um cenário em que você erre tudo: se a frase
+            correta for "YouTube took the lead", mas você falar algo totalmente
+            diferente, como "Netflix took the lead", a pontuação será calculada
+            com base na porcentagem de acerto. Se menos de 50% da frase estiver
+            correta, você não receberá pontos.
+          </p>
+
+          <p>
+            O objetivo é praticar suas habilidades de compreensão auditiva
+            (listening) e de pronúncia. Se o microfone do navegador conseguir
+            reconhecer e reproduzir bem o que você disse, isso significa que sua
+            pronúncia está boa. Aproveite para estudar bastante e acumular
+            pontos!
+          </p>
+        </div>
       </div>
     </section>
   );
