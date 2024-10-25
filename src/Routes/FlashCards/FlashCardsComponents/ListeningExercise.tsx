@@ -5,26 +5,18 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { Xp, backDomain } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
-import { languages } from "./AddFlashONEFlashCard";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
   onChange: any;
   change: boolean;
 }
-const normalizeText = (text: string) => {
-  return text
-    .toLowerCase()
-    .replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "")
-    .trim();
-};
 
 const ListeningExercise = ({
   headers,
   onChange,
   change,
 }: FlashCardsPropsRv) => {
-  useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [myPermissions, setPermissions] = useState<string>("");
   const [cards, setCards] = useState<any[]>([]);
@@ -33,84 +25,161 @@ const ListeningExercise = ({
   const [cardsLength, setCardsLength] = useState<boolean>(true);
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
+  const [countAnswer, setCountAnswer] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [correct, setCorrect] = useState<boolean>(false);
-
-  const isCorrectAnswer = () => {
-    const cardText = normalizeText(cards[0]?.front?.text);
-    const userTranscript = normalizeText(transcript);
-    setCorrect(cardText === userTranscript);
-  };
-
-  const timerDisabled = () => {
-    if (myPermissions !== "superadmin") {
-      setCount(3);
-      setIsDisabled(true);
-
-      setTimeout(() => {
-        setCount(2);
-      }, 1000);
-
-      setTimeout(() => {
-        setCount(1);
-      }, 2000);
-
-      setTimeout(() => {
-        setIsDisabled(false);
-      }, 3000);
-    } else {
-      setIsDisabled(false);
-    }
-  };
-
-  const [totalS, setTotalScore] = useState(0);
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    if (user) {
-      const { totalScore, permissions, id } = JSON.parse(user);
-      setId(id);
-      setPermissions(permissions);
-      setTotalScore(totalScore);
-    }
-    setAnswer(false);
-  }, []);
-
+  const [similarity, setSimilarity] = useState<number>(0);
+  const [words, setWords] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
+  const [transcript, setTranscript] = useState<string>("");
+  const [listening, setListening] = useState<boolean>(false);
   const actualHeaders = headers || {};
 
-  const reviewCard = async (id: string, difficulty: string) => {
-    setTranscript("");
+  // Função para contar o número de palavras
+  function wordCount(str: string): number {
+    return str.trim().split(/\s+/).length;
+  }
+
+  // Função para normalizar o texto
+  const normalizeText = (text: string): string => {
+    return text
+      .toLowerCase()
+      .replace(/[?.,/’'#!$%^&*;:{}=\-_`~()]/g, "") // Remove pontuação
+      .replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
+      .trim();
+  };
+
+  // Função para limpar a string
+  function cleanString(str: string): string {
+    return str
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .replace(/[^\x20-\x7E]/g, "") // Remove caracteres não imprimíveis
+      .trim();
+  }
+
+  // Função de distância de Levenshtein
+  function levenshteinDistance(str1: string, str2: string): number {
+    const len1 = str1.length;
+    const len2 = str2.length;
+    const dp = Array.from(Array(len1 + 1), () => Array(len2 + 1).fill(0));
+
+    for (let i = 0; i <= len1; i++) dp[i][0] = i;
+    for (let j = 0; j <= len2; j++) dp[0][j] = j;
+
+    for (let i = 1; i <= len1; i++) {
+      for (let j = 1; j <= len2; j++) {
+        if (str1[i - 1] === str2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
+        }
+      }
+    }
+
+    return dp[len1][len2];
+  }
+
+  // Função para calcular a porcentagem de similaridade
+  function similarityPercentage(str1: string, str2: string): number {
+    const maxLen = Math.max(str1.length, str2.length);
+    if (maxLen === 0) return 100; // Se ambas as strings estiverem vazias
+
+    const distance = levenshteinDistance(cleanString(str1), cleanString(str2));
+    const similarity = ((maxLen - distance) / maxLen) * 100;
+
+    return Math.round(similarity); // Retorna a similaridade como um número inteiro
+  }
+
+  // Função para verificar se a resposta está correta
+  const isCorrectAnswer = (front: string, transcription: string | null) => {
+    readText(cards[0]?.front?.text, false, "en");
+    const cardText = normalizeText(cleanString(cards[0]?.front?.text || ""));
+    const userTranscript = normalizeText(cleanString(transcription || ""));
+    const wordCountInCard = wordCount(front);
+
+    if (userTranscript === "") {
+      setSimilarity(0);
+      setScore(0);
+      setWords(0);
+
+      reload(cards[0]._id, 0);
+      return;
+    }
+
+    if (cleanString(cardText) === cleanString(userTranscript)) {
+      setSimilarity(100);
+      reload(cards[0]._id, wordCountInCard * 5);
+      setWords(wordCountInCard);
+      setScore(wordCountInCard * 5);
+      setCorrect(true);
+      return;
+    }
+
+    const simC = similarityPercentage(userTranscript, front);
+    setSimilarity(simC);
+    reload(cards[0]._id, wordCountInCard * simC * 0.05);
+    setWords(wordCountInCard);
+    setScore(wordCountInCard * simC * 0.05);
+
+    setCorrect(simC >= 80); // Considera correto se a similaridade for >= 80%
+  };
+
+  // Funções auxiliares para cronômetro e recarregamento
+  const timerDisabled = () => {
+    setCount(3);
+    setIsDisabled(true);
+
+    setTimeout(() => setCount(2), 1000);
+    setTimeout(() => setCount(1), 2000);
+    setTimeout(() => setCount(0), 3000);
+  };
+
+  const reload = (card: string, score: number) => {
+    setCountAnswer(4);
+    setTimeout(() => setCountAnswer(3), 1000);
+    setTimeout(() => setCountAnswer(2), 2000);
+    setTimeout(() => setCountAnswer(1), 3000);
+    setTimeout(() => reviewCard(card, score), 4000);
+  };
+
+  // Função para revisar o cartão
+  const reviewCard = async (id: string, score: number) => {
     setLoading(true);
     try {
-      const response = await axios.put(
+      await axios.put(
         `${backDomain}/api/v1/reviewflashcardlistening/${myId}`,
-        { flashcardId: id, difficulty },
-        { headers: actualHeaders }
+        { flashcardId: id, score },
+        { headers: actualHeaders || {} }
       );
       setAnswer(false);
       onChange(!change);
+      setTranscript("");
       seeCardsToReview();
     } catch (error) {
       alert("Erro ao enviar cards");
     }
   };
 
+  // Função para carregar os cartões a serem revisados
   const seeCardsToReview = async () => {
     setLoading(true);
     setCorrect(false);
     setAnswer(false);
     setBackCardVisible(false);
     setSee(true);
-
+    setSimilarity(0);
+    setScore(0);
+    setWords(0);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/flashcardslistening/${myId}`,
-        {
-          headers: actualHeaders,
-        }
+        { headers: actualHeaders || {} }
       );
-      const thereAreCards =
-        response.data.dueFlashcards.length > 0 ? false : true;
+      const thereAreCards = response.data.dueFlashcards.length === 0;
+      setCards(response.data.dueFlashcards);
+      setCardsLength(thereAreCards);
       {
         response.data.dueFlashcards.length > 0 &&
         response.data.dueFlashcards[0].front.language &&
@@ -123,27 +192,19 @@ const ListeningExercise = ({
             )
           : null;
       }
-      setCards(response.data.dueFlashcards);
-      console.log(response.data.dueFlashcards);
-      setCardsLength(thereAreCards);
-      setBackCardVisible(true);
       timerDisabled();
       setLoading(false);
     } catch (error) {
-      console.log(error);
-      alert("Erro ao enviar cards");
+      alert("Erro ao carregar cards");
     }
   };
 
-  const [transcript, setTranscript] = useState("");
-  const [listening, setListening] = useState(false);
-
+  // Controle do reconhecimento de fala
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-
-  recognition.lang = "en-US"; // Defina o idioma aqui
-  recognition.interimResults = false; // Define se os resultados devem ser retornados enquanto a fala ainda está acontecendo
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
   const startListening = () => {
@@ -158,17 +219,28 @@ const ListeningExercise = ({
 
   recognition.onresult = (event) => {
     const speechToText = event.results[0][0].transcript;
-    setTranscript(speechToText);
+    setTranscript(cleanString(speechToText));
+    setTimeout(() => {
+      setIsDisabled(false);
+      isCorrectAnswer(cards[0].front.text, speechToText);
+    }, 2000);
   };
 
-  recognition.onspeechend = () => {
+  recognition.onspeechend = stopListening;
+  recognition.onerror = () => {
     stopListening();
+    alert("Erro no reconhecimento de voz");
   };
 
-  recognition.onerror = (event) => {
-    console.error("Erro no reconhecimento de voz:", event.error);
-    stopListening();
-  };
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    if (user) {
+      const { totalScore, permissions, id } = JSON.parse(user);
+      setId(id);
+      setPermissions(permissions);
+    }
+    setAnswer(false);
+  }, []);
 
   return (
     <section id="review">
@@ -177,216 +249,73 @@ const ListeningExercise = ({
           {loading ? (
             <CircularProgress />
           ) : (
-            <div
-              style={{
-                margin: "auto",
-                textAlign: "center",
-                color: "black",
-              }}
-            >
-              <div>
-                {!cardsLength ? (
-                  <>
-                    <ArvinButton
+            <div style={{ margin: "auto", textAlign: "center" }}>
+              {!cardsLength ? (
+                <>
+                  <div>
+                    <p
                       style={{
-                        display: answer ? "none" : "inline",
-                      }}
-                      disabled={isDisabled}
-                      cursor={isDisabled ? "not-allowed" : "pointer"}
-                      color={isDisabled ? "grey" : "navy"}
-                      onClick={() => {
-                        readText(
-                          cards[0].front.text,
-                          true,
-                          cards[0].front.language
-                        );
-                        isCorrectAnswer();
-                        setBackCardVisible(!backCardVisible);
-                        setAnswer(!answer);
-                        timerDisabled();
-
-                        {
-                          cards.length > 0 && cards[0].back.language == "en"
-                            ? readText(
-                                backCardVisible
-                                  ? cards[0].back.text
-                                  : cards[0].front.text,
-                                true,
-                                backCardVisible
-                                  ? cards[0].back.language
-                                  : cards[0].front.language
-                              )
-                            : null;
-                        }
-
-                        setTimeout(() => {
-                          reviewCard(cards[0]._id, "easy");
-                        }, 3000);
+                        display: isDisabled ? "none" : "inline",
                       }}
                     >
-                      <span>{isDisabled? count : "Answer"}</span>
-                    </ArvinButton>
-                    <br />
-                    {answer && (
-                      <div>
-                        <div
-                          style={{
-                            justifyContent: "center",
-                            display: "flex",
-                            gap: "5px",
-                            marginBottom: "10px",
-                            marginTop: "5px",
-                          }}
-                        >
-                          {/* <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0]._id, "easy")}
-                              color="green"
-                            >
-                              Next
-                            </ArvinButton>
-                          </div> */}
-                        </div>
-                      </div>
-                    )}
-                    <div>
-                      <div>
-                        <div>
-                          <br />
+                      {cards[0]?.front?.text}
+                    </p>
 
-                          {cards[0].front.language &&
-                            !answer &&
-                            cards[0].front.language !== "pt" && (
-                              <button
-                                className="audio-button"
-                                onClick={() =>
-                                  readText(
-                                    cards[0].front.text,
-                                    true,
-                                    cards[0].front.language
-                                  )
-                                }
-                              >
-                                <i
-                                  className="fa fa-volume-up"
-                                  aria-hidden="true"
-                                />
-                              </button>
-                            )}
-                        </div>
-                      </div>
-                      <div>
-                        <div>
-                          <span
-                            style={{
-                              display: answer ? "block" : "none",
-                              fontFamily: "Athiti",
-                              fontSize: "20px",
-                            }}
-                          >
-                            {count}
-                            {(
-                              <>
-                                {" "}
-                                <div
-                                  style={{ fontWeight: 800 }}
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0]?.front?.text,
-                                  }}
-                                />
-                                <div
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0].back.text,
-                                  }}
-                                />
-                                <div
-                                  style={{
-                                    fontSize: "12px",
-                                    fontStyle: "italic",
-                                    marginBottom: "15px",
-                                  }}
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0]?.backComments,
-                                  }}
-                                />
-                              </>
-                            ) || " "}
-                          </span>
-                          {cards[0].back.language &&
-                            cards[0].back.language !== "pt" && (
-                              <button
-                                className="audio-button"
-                                onClick={() =>
-                                  readText(
-                                    cards[0].back.text,
-                                    true,
-                                    cards[0].back.language
-                                  )
-                                }
-                              >
-                                <i
-                                  className="fa fa-volume-up"
-                                  aria-hidden="true"
-                                />
-                              </button>
-                            )}
-                        </div>
-                      </div>
-                    </div>
-                    <div>
+                    <button
+                      className="audio-button"
+                      style={{
+                        display: !isDisabled ? "none" : "inline",
+                      }}
+                      onClick={() => {
+                        readText(
+                          cards[0]?.front?.text,
+                          false,
+                          cards[0]?.front?.language
+                        );
+                      }}
+                    >
+                      <i className="fa fa-volume-up" aria-hidden="true" />
+                    </button>
+
+                    <div
+                      style={{
+                        display: isDisabled ? "none" : "inline",
+                      }}
+                    >
+                      <p>{countAnswer}</p>
                       <p
                         style={{
+                          fontSize: "1rem",
+                          padding: "5px",
                           borderRadius: "10px",
-                          padding: "10px",
-                          backgroundColor: correct ? "green" : "white",
-                          color: correct ? "white" : "black",
+                          backgroundColor:
+                            similarity == 100 ? "green" : "white",
+                          color: similarity == 100 ? "white" : "black",
                         }}
                       >
-                        Your answer:{" "}
-                        <i>
-                          <b>
-                            {"  "}
-                            {transcript}
-                          </b>
-                        </i>{" "}
-                        <span>{correct ? "Perfect!" : ""}</span>
+                        {similarity}%
                       </p>
-                      <p>Microfone: {listening ? "Ativo" : "Inativo"}</p>
                       <br />
-                      <ArvinButton color="green"onClick={startListening}>Falar</ArvinButton>
-                      <ArvinButton color="red" onClick={stopListening}>Parar</ArvinButton>
+                      <p>{words} words</p>
+                      <br />
+                      <p>{score.toFixed()} points</p>
                     </div>
-                  </>
-                ) : (
-                  <p>
-                    <b>No flashcards</b>
-                    <br />
-                    <br />
-                    Nenhum flashcard
-                  </p>
-                )}
-              </div>
+                    <p>
+                      Your answer: <b>{transcript}</b>
+                    </p>
+                    <p>Microfone: {listening ? "Ativo" : "Inativo"}</p>
+                    <ArvinButton onClick={startListening}>Falar</ArvinButton>
+                  </div>
+                </>
+              ) : (
+                <p>No flashcards</p>
+              )}
             </div>
           )}
         </div>
       )}
-
-      <div
-        style={{
-          display: "flex",
-          gap: "5px",
-          alignItems: "center",
-        }}
-      />
-
-      <ArvinButton
-        style={{
-          margin: "auto",
-          display: "block",
-        }}
-        onClick={seeCardsToReview}
-      >
-        {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
+      <ArvinButton onClick={seeCardsToReview}>
+        {!see ? "Start" : <i className="fa fa-refresh" />}
       </ArvinButton>
     </section>
   );
