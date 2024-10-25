@@ -235,8 +235,8 @@ const ListeningExercise = ({
     const points = simC > 50 ? wordCountInCard * (simC / 100) * 5 : 0;
 
     if (simC > 95) {
-      setScore(100);
-      reviewListeningExercise(100, simC);
+      setSimilarity(100);
+      reviewListeningExercise(wordCountInCard * 5, 100);
     } else {
       setScore(points);
       reviewListeningExercise(points, simC);
