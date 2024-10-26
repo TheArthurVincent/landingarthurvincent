@@ -8,7 +8,7 @@ interface DialogueLessonModelProps {
 }
 
 export default function DialogueLessonModel({
-  element,
+  element,headers
 }: DialogueLessonModelProps) {
   function isEven(val: number) {
     return val % 2 === 0;
