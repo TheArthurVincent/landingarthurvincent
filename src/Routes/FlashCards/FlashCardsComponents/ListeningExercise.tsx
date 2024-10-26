@@ -109,6 +109,8 @@ const ListeningExercise = ({
   const [enableVoice, setEnableVoice] = useState(false);
   const [seeVideo, setSeeVideo] = useState(false);
   const [similarity, setSimilarity] = useState<number>(0);
+  const [actualPointsPerWord, setActualPointsPerWord] = useState<number>(0);
+
   const [words, setWords] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [transcript, setTranscript] = useState<string>("");
@@ -163,7 +165,6 @@ const ListeningExercise = ({
       cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     );
 
-        
     const highlightedText = highlightDifferences(cardText, userTranscript);
     setTranscriptHighLighted(highlightedText);
     setSimilarity(similarityPercentage(userTranscript, cardText));
@@ -194,8 +195,6 @@ const ListeningExercise = ({
     } else {
       setScore(simC > 60 ? wordCountInCard * simC * 0.04 : 0);
     }
-
-
   };
 
   const ponctuate = (transcription: string | null) => {
@@ -214,6 +213,7 @@ const ListeningExercise = ({
 
     if (userTranscript === "") {
       setSimilarity(0);
+      setActualPointsPerWord(0);
       setScore(0);
       setWords(wordCountInCard);
       reviewListeningExercise(0, 0);
@@ -223,6 +223,7 @@ const ListeningExercise = ({
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
       setScore(wordCountInCard * 4);
+      setActualPointsPerWord(4);
       setWords(wordCountInCard);
       reviewListeningExercise(wordCountInCard * 4, 100);
       return;
@@ -232,16 +233,19 @@ const ListeningExercise = ({
       userTranscript,
       cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     );
+    setActualPointsPerWord((simC / 100) * 4);
     setSimilarity(simC);
     setWords(wordCountInCard);
     const points = simC > 60 ? wordCountInCard * (simC / 100) * 4 : 0;
 
     if (simC > 95) {
       setSimilarity(100);
+      setActualPointsPerWord(4);
       reviewListeningExercise(wordCountInCard * 4, 100);
     } else {
       setScore(points);
-      reviewListeningExercise(points, simC);
+    setActualPointsPerWord((simC / 100) * 4);
+    reviewListeningExercise(points, simC);
     }
   };
 
@@ -424,7 +428,10 @@ const ListeningExercise = ({
                       </div>
                       <p>
                         This sentence has <b>{words}</b> words
-                      </p>
+                      </p>{" "}
+                      {/* <p>
+                        You scored <b>{actualPointsPerWord}</b> per word
+                      </p> */}
                       <p>
                         You scored <b>{score.toFixed()}</b> points
                       </p>
