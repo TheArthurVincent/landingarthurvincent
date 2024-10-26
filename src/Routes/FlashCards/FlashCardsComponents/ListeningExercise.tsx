@@ -450,7 +450,7 @@ const ListeningExercise = ({
                             setPlayingAudio(true);
                             setTimeout(() => {
                               setPlayingAudio(false);
-                            }, 2000);
+                            }, 3000);
                             console.log(
                               cards[0]?.front?.text.replace(/\s+/g, " ")
                             );
