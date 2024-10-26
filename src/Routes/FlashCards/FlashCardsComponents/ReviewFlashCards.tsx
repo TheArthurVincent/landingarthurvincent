@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { Xp, backDomain } from "../../../Resources/UniversalComponents";
+import {
+  Xp,
+  backDomain,
+  getVideoEmbedUrl,
+} from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { languages } from "./AddFlashONEFlashCard";
+import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -24,6 +29,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [seeVideo, setSeeVideo] = useState<boolean>(false);
+
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
   useEffect(() => {
@@ -699,15 +706,44 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         </div>
       </div>
 
-      <ArvinButton
+      <div
         style={{
-          margin: "auto",
-          display: "block",
+          display: !isDisabled ? "none" : "flex",
+          justifyContent: "center",
+          marginTop: "20px",
         }}
-        onClick={seeCardsToReview}
       >
-        {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
-      </ArvinButton>
+        <ArvinButton
+          onClick={() => setSeeVideo(!seeVideo)}
+          style={{ margin: "0 5px" }}
+        >
+          See explanation
+        </ArvinButton>
+        <ArvinButton
+          style={{
+            margin: "auto",
+            display: "block",
+          }}
+          onClick={seeCardsToReview}
+        >
+          {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
+        </ArvinButton>
+      </div>
+
+      <div
+        style={{
+          display: seeVideo ? "block" : "none",
+          marginTop: "20px",
+          padding: "20px",
+          border: "1px solid #ccc",
+          borderRadius: "10px",
+          backgroundColor: "#f9f9f9",
+        }}
+      >
+        <IFrameVideoBlog
+          src={getVideoEmbedUrl("https://www.youtube.com/watch?v=Athon_3u2Ww")}
+        />
+      </div>
     </section>
   );
 };
