@@ -370,7 +370,10 @@ const ListeningExercise = ({
                           transition: "background-color 0.3s",
                         }}
                       >
-                        {similarity}% correct (You need at least 60% to score)
+                        {similarity}% correct{" "}
+                        {similarity < 60 && (
+                          <span>(You need at least 60% to score)</span>
+                        )}
                       </p>
                       <div
                         style={{
@@ -549,7 +552,6 @@ const ListeningExercise = ({
         <IFrameVideoBlog
           src={getVideoEmbedUrl("https://www.youtube.com/watch?v=3DLGazINiRw")}
         />
-       
       </div>
     </section>
   );
