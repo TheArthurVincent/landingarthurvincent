@@ -53,7 +53,7 @@ export default function RankingExplanationComponent() {
                   backgroundColor: primaryColor(),
                   color: textPrimaryColorContrast(),
                   display: "grid",
-                  gridTemplateColumns: "1fr 0.6fr",
+                  gridTemplateColumns: "1fr 0.06fr",
                   alignItems: "center",
                   margin: "5px",
                   padding: "5px",
