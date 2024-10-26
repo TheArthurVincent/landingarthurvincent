@@ -46,7 +46,7 @@ export const HThreeModule = styled.h3`
   color: ${primaryColor()};
   background-color: #f8f8f8;
   border-left: 5px solid ${primaryColor()};
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: bold;
   border-radius: 5px;
   transition: background-color 0.1s ease, color 0.3s ease;
