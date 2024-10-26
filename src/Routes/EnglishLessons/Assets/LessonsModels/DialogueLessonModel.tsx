@@ -30,7 +30,7 @@ export default function DialogueLessonModel({
                   key={index}
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 0.2fr",
+                    gridTemplateColumns: "1fr 0.6fr",
                   }}
                 >
                   <p
