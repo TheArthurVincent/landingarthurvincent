@@ -163,6 +163,12 @@ const ListeningExercise = ({
       cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     );
 
+        
+    const highlightedText = highlightDifferences(cardText, userTranscript);
+    setTranscriptHighLighted(highlightedText);
+    setSimilarity(similarityPercentage(userTranscript, cardText));
+    setWords(wordCount(cardText));
+
     if (userTranscript === "") {
       setSimilarity(0);
       setScore(0);
@@ -189,12 +195,7 @@ const ListeningExercise = ({
       setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
     }
 
-    
-    const highlightedText = highlightDifferences(cardText, userTranscript);
-    setTranscriptHighLighted(highlightedText);
-    setSimilarity(similarityPercentage(userTranscript, cardText));
-    setWords(wordCount(cardText));
-    // Atualize o estado para armazenar a resposta com destaque
+
   };
 
   const ponctuate = (transcription: string | null) => {
