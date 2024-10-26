@@ -32,7 +32,7 @@ export const CourseCard = styled.div`
   background-color: #f5f5f5;
   color: #333;
   padding: 0.2rem;
-  font-size: 11px;
+  font-size: 12px;
   border-radius: 10px;
   cursor: pointer;
   &:hover {
@@ -55,7 +55,7 @@ export const CourseCard = styled.div`
   p {
     flex-grow: 1;
     margin: 0;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     text-align: left;
   }
