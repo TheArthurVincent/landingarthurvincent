@@ -1,6 +1,7 @@
 export const readText = (text: string, restart: boolean, lang?: string) => {
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;
+
     if (!synth) {
       console.error("speechSynthesis não está disponível.");
       return;
@@ -11,30 +12,28 @@ export const readText = (text: string, restart: boolean, lang?: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
 
     // Definir o idioma
-    switch (lang) {
-      case "pt":
-        utterance.lang = "pt-BR";
-        break;
-      case "fr":
-        utterance.lang = "fr-FR";
-        break;
-      case "it":
-        utterance.lang = "it-IT";
-        break;
-      case "de":
-        utterance.lang = "de-DE";
-        break;
-      case "en":
-      default:
-        utterance.lang = "en-US";
-        break;
-    }
+    utterance.lang = lang === "pt" ? "pt-BR" : 
+                      lang === "fr" ? "fr-FR" : 
+                      lang === "it" ? "it-IT" : 
+                      lang === "de" ? "de-DE" : "en-US";
 
     // Eventos de controle
     utterance.onstart = () => console.log("Leitura iniciada.");
     utterance.onend = () => console.log("Leitura finalizada.");
-    utterance.onerror = (e) => console.error("Erro na leitura:", e);
+    utterance.onerror = (e) => {
+      console.error("Erro na leitura:", e);
 
+      // Se a leitura foi interrompida, tenta reiniciar
+      if (e.error === "interrupted" && restart) {
+        console.warn("Leitura interrompida, tentando reiniciar...");
+        synth.cancel();
+        synth.speak(utterance);
+      } else {
+        console.log(`Ocorreu um erro: ${e.error}`);
+      }
+    };
+
+    // Lógica de controle de fala
     if (restart) {
       synth.cancel();
       synth.speak(utterance);
@@ -51,6 +50,7 @@ export const readText = (text: string, restart: boolean, lang?: string) => {
   }
 };
 
+// Função para pausar a fala
 export const pauseSpeech = () => {
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;

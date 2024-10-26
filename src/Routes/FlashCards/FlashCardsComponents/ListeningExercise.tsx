@@ -445,6 +445,7 @@ const ListeningExercise = ({
                       <div>
                         <ArvinButton
                           onClick={() => {
+                            console.log(cards[0]?.front?.text.replace(/\s+/g, " "));
                             readText(
                               cards[0]?.front?.text.replace(/\s+/g, " "),
                               false,
