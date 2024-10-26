@@ -110,6 +110,7 @@ const ListeningExercise = ({
   const [seeVideo, setSeeVideo] = useState(false);
   const [similarity, setSimilarity] = useState<number>(0);
   const [actualPointsPerWord, setActualPointsPerWord] = useState<number>(0);
+  const [playingAudio, setPlayingAudio] = useState<boolean>(false);
 
   const [words, setWords] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
@@ -444,8 +445,15 @@ const ListeningExercise = ({
                     ) : (
                       <div>
                         <ArvinButton
+                          disabled={playingAudio}
                           onClick={() => {
-                            console.log(cards[0]?.front?.text.replace(/\s+/g, " "));
+                            setPlayingAudio(true);
+                            setTimeout(() => {
+                              setPlayingAudio(false);
+                            }, 2000);
+                            console.log(
+                              cards[0]?.front?.text.replace(/\s+/g, " ")
+                            );
                             readText(
                               cards[0]?.front?.text.replace(/\s+/g, " "),
                               false,
@@ -453,7 +461,9 @@ const ListeningExercise = ({
                             );
                             setEnableVoice(true);
                           }}
+                          color={!playingAudio ? "blue" : "grey"}
                           style={{
+                            cursor:playingAudio ? "not-allowed":"pointer",
                             margin: "0 5px",
                             marginTop: !isDisabled ? "1rem" : 0,
                           }}
