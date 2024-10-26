@@ -32,11 +32,11 @@ export const CourseCard = styled.div`
   background-color: #f5f5f5;
   color: #333;
   padding: 0.2rem;
+  font-size: 11px;
   border-radius: 10px;
   cursor: pointer;
   &:hover {
     background-color: #f3f3f3;
-
     img {
       transform: scale(1.1);
       filter: grayscale(100%);
@@ -44,9 +44,9 @@ export const CourseCard = styled.div`
   }
 
   img {
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     margin-right: 1rem;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -55,7 +55,7 @@ export const CourseCard = styled.div`
   p {
     flex-grow: 1;
     margin: 0;
-    font-size: 1rem;
+    font-size: 11px;
     font-weight: bold;
     text-align: left;
   }
