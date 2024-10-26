@@ -179,7 +179,7 @@ const ListeningExercise = ({
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
       setWords(wordCountInCard);
-      setScore(wordCountInCard * 5);
+      setScore(wordCountInCard * 4);
       return;
     }
 
@@ -192,7 +192,7 @@ const ListeningExercise = ({
     if (simC > 95) {
       setScore(100);
     } else {
-      setScore(simC > 50 ? wordCountInCard * simC * 0.05 : 0);
+      setScore(simC > 60 ? wordCountInCard * simC * 0.04 : 0);
     }
 
 
@@ -222,9 +222,9 @@ const ListeningExercise = ({
 
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
-      setScore(wordCountInCard * 5);
+      setScore(wordCountInCard * 4);
       setWords(wordCountInCard);
-      reviewListeningExercise(wordCountInCard * 5, 100);
+      reviewListeningExercise(wordCountInCard * 4, 100);
       return;
     }
 
@@ -234,11 +234,11 @@ const ListeningExercise = ({
     );
     setSimilarity(simC);
     setWords(wordCountInCard);
-    const points = simC > 50 ? wordCountInCard * (simC / 100) * 5 : 0;
+    const points = simC > 60 ? wordCountInCard * (simC / 100) * 4 : 0;
 
     if (simC > 95) {
       setSimilarity(100);
-      reviewListeningExercise(wordCountInCard * 5, 100);
+      reviewListeningExercise(wordCountInCard * 4, 100);
     } else {
       setScore(points);
       reviewListeningExercise(points, simC);
@@ -343,7 +343,7 @@ const ListeningExercise = ({
                               ? "#4caf50"
                               : similarity > 90
                               ? "#2196f3"
-                              : similarity > 50
+                              : similarity > 60
                               ? "#ffeb3b"
                               : "#f44336",
                           color:
@@ -351,7 +351,7 @@ const ListeningExercise = ({
                               ? "white"
                               : similarity > 90
                               ? "white"
-                              : similarity > 50
+                              : similarity > 60
                               ? "black"
                               : "white",
                           border: `solid 1px ${
@@ -359,7 +359,7 @@ const ListeningExercise = ({
                               ? "white"
                               : similarity > 90
                               ? "white"
-                              : similarity > 50
+                              : similarity > 60
                               ? "black"
                               : "white"
                           }`,
