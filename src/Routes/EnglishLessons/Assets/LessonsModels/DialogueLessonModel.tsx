@@ -1,14 +1,13 @@
 import React from "react";
 import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
-import TextAreaLesson from "../Functions/TextAreaLessons";
+import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 interface DialogueLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
 }
 
 export default function DialogueLessonModel({
-  headers,
   element,
 }: DialogueLessonModelProps) {
   function isEven(val: number) {
@@ -27,33 +26,31 @@ export default function DialogueLessonModel({
           {element.dialogue &&
             element.dialogue.map((text: any, index: number) => {
               return (
-                <div key={index}>
-                  <div
+                <div
+                  key={index}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 0.2fr",
+                  }}
+                >
+                  <p
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "1fr 0.2fr",
+                      padding: "1rem",
+                      margin: "5px",
+                      fontStyle: "italic",
+                      borderRadius: "10px",
+                      textAlign: isEven(index) ? "left" : "right",
+                      backgroundColor: isEven(index) ? "#c7dfb6" : "#c9dbf1",
                     }}
                   >
-                    <p
-                      style={{
-                        padding: "1rem",
-                        margin: "5px",
-                        fontStyle: "italic",
-                        borderRadius: "10px",
-                        textAlign: isEven(index) ? "left" : "right",
-                        backgroundColor: isEven(index) ? "#c7dfb6" : "#c9dbf1",
-                      }}
-                    >
-                      {text}
-                    </p>
-                    <button
-                      className="audio-button"
-                      onClick={() => readText(text, true)}
-                    >
-                      <i className="fa fa-volume-up" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <TextAreaLesson />
+                    {text}
+                  </p>
+                  <ArvinButton
+                    className="audio-button"
+                    onClick={() => readText(text, true)}
+                  >
+                    <i className="fa fa-volume-up" aria-hidden="true" />
+                  </ArvinButton>
                 </div>
               );
             })}
