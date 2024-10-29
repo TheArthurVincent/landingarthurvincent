@@ -192,7 +192,7 @@ const ListeningExercise = ({
     setSimilarity(simC);
     setWords(wordCountInCard);
     if (simC > 95) {
-      setScore(100);
+      setSimilarity(100);
     } else {
       setScore(simC > 60 ? wordCountInCard * simC * 0.04 : 0);
     }
