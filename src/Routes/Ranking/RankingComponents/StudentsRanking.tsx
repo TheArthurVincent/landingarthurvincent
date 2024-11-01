@@ -51,8 +51,6 @@ export default function StudentsRanking({
     id: string;
     name: string;
     lastname: string;
-    ankiEmail: string;
-    ankiPassword: string;
     dateOfBirth: string;
     doc: string;
     email: string;
@@ -70,8 +68,6 @@ export default function StudentsRanking({
     id: "",
     name: "",
     lastname: "",
-    ankiEmail: "",
-    ankiPassword: "",
     dateOfBirth: "",
     doc: "",
     email: "",

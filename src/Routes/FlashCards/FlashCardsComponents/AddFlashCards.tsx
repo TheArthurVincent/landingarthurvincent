@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { backDomain } from "../../../Resources/UniversalComponents";
+import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import AddOneFlashCard from "./AddFlashONEFlashCard";
@@ -144,6 +144,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
       setCards([]);
     } catch (error) {
       alert("Erro ao enviar cards");
+      onLoggOut()
     }
   };
 

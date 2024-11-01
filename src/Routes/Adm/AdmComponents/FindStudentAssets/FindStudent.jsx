@@ -5,6 +5,7 @@ import {
   Xp,
   backDomain,
   formatDateBr,
+  onLoggOut,
 } from "../../../../Resources/UniversalComponents";
 import { useUserContext } from "../../../../Application/SelectLanguage/SelectLanguage";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
@@ -42,8 +43,6 @@ export function FindStudent({ uploadStatus, headers }) {
   const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [picture, setPicture] = useState("");
   const [fee, setFee] = useState("");
-  const [ankiEmail, setAnkiEmail] = useState("");
-  const [ankiPassword, setAnkiPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [seeConfirmDelete, setSeeConfirmDelete] = useState(false);
   const [ID, setID] = useState("");
@@ -117,16 +116,7 @@ export function FindStudent({ uploadStatus, headers }) {
           ? response.data.formattedStudentData.id
           : ""
       );
-      setAnkiEmail(
-        response.data.formattedStudentData.ankiEmail
-          ? response.data.formattedStudentData.ankiEmail
-          : ""
-      );
-      setAnkiPassword(
-        response.data.formattedStudentData.ankiPassword
-          ? response.data.formattedStudentData.ankiPassword
-          : ""
-      );
+  
       setGoogleDriveLink(
         response.data.formattedStudentData.googleDriveLink
           ? response.data.formattedStudentData.googleDriveLink
@@ -187,10 +177,9 @@ export function FindStudent({ uploadStatus, headers }) {
       weeklyClasses,
       permissions: permissions,
       googleDriveLink: googleDriveLink,
-      ankiPassword: ankiPassword,
+
       address: newAddress,
       fee,
-      ankiEmail: ankiEmail,
       picture: picture,
     };
     if (newPassword === confirmPassword) {
@@ -264,6 +253,7 @@ export function FindStudent({ uploadStatus, headers }) {
       setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
+      onLoggOut();
     }
   };
   useEffect(() => {
@@ -417,12 +407,6 @@ export function FindStudent({ uploadStatus, headers }) {
                     <span style={cellTable}>{UniversalTexts.address}</span>
                   </TableCell>{" "}
                   <TableCell>
-                    <span style={cellTable}>{UniversalTexts.ankiEmail}</span>
-                  </TableCell>
-                  <TableCell>
-                    <span style={cellTable}>{UniversalTexts.ankiPassword}</span>
-                  </TableCell>
-                  <TableCell>
                     <span style={cellTable}>
                       {UniversalTexts.weeklyClasses}
                     </span>
@@ -493,12 +477,6 @@ export function FindStudent({ uploadStatus, headers }) {
                       </TableCell>
                       <TableCell>
                         <span style={cellTable}>{student.address}</span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={cellTable}>{student.ankiEmail}</span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={cellTable}>{student.ankiPassword}</span>
                       </TableCell>
                       <TableCell>
                         <span style={cellTable}>{student.weeklyClasses}</span>
@@ -662,23 +640,9 @@ export function FindStudent({ uploadStatus, headers }) {
               />
               <input
                 className="inputs-style"
-                value={ankiEmail}
-                onChange={(event) => setAnkiEmail(event.target.value)}
-                placeholder="E-mail do Anki"
-                type="email"
-              />
-              <input
-                className="inputs-style"
-                value={ankiPassword}
-                onChange={(event) => setAnkiPassword(event.target.value)}
-                placeholder="Senha do Anki"
-                type="text"
-              />
-              <input
-                className="inputs-style"
                 value={weeklyClasses}
                 onChange={(event) => setWeeklyClasses(event.target.value)}
-                placeholder="Senha do Anki"
+                placeholder="Aulas semanais"
                 type="text"
               />
             </form>

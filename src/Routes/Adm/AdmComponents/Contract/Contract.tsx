@@ -4,6 +4,7 @@ import { HeadersProps } from "../../../../Resources/types.universalInterfaces";
 import {
   backDomain,
   formatDateBrContract,
+  onLoggOut,
 } from "../../../../Resources/UniversalComponents";
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 import Helmets from "../../../../Resources/Helmets";
@@ -42,6 +43,7 @@ export function Contract({ headers }: HeadersProps) {
       setDateOfBirth(response.data.formattedStudentData.dateOfBirth);
     } catch (error) {
       alert("Erro ao encontrar alunos");
+      onLoggOut();
     }
   };
 
@@ -57,6 +59,7 @@ export function Contract({ headers }: HeadersProps) {
       setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
+      onLoggOut();
     }
   };
 

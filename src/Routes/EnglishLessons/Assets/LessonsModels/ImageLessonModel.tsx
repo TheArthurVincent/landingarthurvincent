@@ -8,7 +8,7 @@ import {
 } from "../Functions/EnglishActivities.Styled";
 import TextAreaLesson from "../Functions/TextAreaLessons";
 import axios from "axios";
-import { backDomain } from "../../../../Resources/UniversalComponents";
+import { backDomain, onLoggOut } from "../../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 interface ImageLessonModelProps {
   headers: MyHeadersType | null;
@@ -50,6 +50,7 @@ export default function ImageLessonModel({
       alert("Card enviado");
     } catch (error) {
       alert("Erro ao enviar cards");
+      onLoggOut()
     }
   };
 

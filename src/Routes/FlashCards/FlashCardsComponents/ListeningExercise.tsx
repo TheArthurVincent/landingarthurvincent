@@ -5,6 +5,7 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
   backDomain,
   getVideoEmbedUrl,
+  onLoggOut,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -146,6 +147,7 @@ const ListeningExercise = ({
       seeCardsToReview();
     } catch (error) {
       alert("Erro ao enviar cards");
+      onLoggOut()
     }
   };
 
@@ -158,7 +160,7 @@ const ListeningExercise = ({
     const cardText = normalizeText(
       cleanString(
         cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
-          ""
+        ""
       )
     );
     const userTranscript = normalizeText(cleanString(transcription || ""));
@@ -203,13 +205,13 @@ const ListeningExercise = ({
     const cardText = normalizeText(
       cleanString(
         cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
-          ""
+        ""
       )
     );
     const userTranscript = normalizeText(cleanString(transcription || ""));
     const wordCountInCard = wordCount(
       cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
-        ""
+      ""
     );
 
     if (userTranscript === "") {
@@ -273,8 +275,8 @@ const ListeningExercise = ({
   };
 
   // Controle do reconhecimento de fala
-  const SpeechRecognition =
-    window.SpeechRecognition || window.webkitSpeechRecognition;
+  // @ts-ignore
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
   recognition.lang = "en-US";
   recognition.interimResults = false;
@@ -289,7 +291,7 @@ const ListeningExercise = ({
     setListening(false);
     recognition.stop();
   };
-  recognition.onresult = (event) => {
+  recognition.onresult = (event: any) => {
     const speechToText = event.results[0][0].transcript;
     setTranscript(cleanString(speechToText));
     setSeeProgress(true);
@@ -347,27 +349,26 @@ const ListeningExercise = ({
                             similarity === 100
                               ? "#4caf50"
                               : similarity > 90
-                              ? "#2196f3"
-                              : similarity > 60
-                              ? "#ffeb3b"
-                              : "#f44336",
+                                ? "#2196f3"
+                                : similarity > 60
+                                  ? "#ffeb3b"
+                                  : "#f44336",
                           color:
                             similarity === 100
                               ? "white"
                               : similarity > 90
-                              ? "white"
-                              : similarity > 60
-                              ? "black"
-                              : "white",
-                          border: `solid 1px ${
-                            similarity === 100
+                                ? "white"
+                                : similarity > 60
+                                  ? "black"
+                                  : "white",
+                          border: `solid 1px ${similarity === 100
                               ? "white"
                               : similarity > 90
-                              ? "white"
-                              : similarity > 60
-                              ? "black"
-                              : "white"
-                          }`,
+                                ? "white"
+                                : similarity > 60
+                                  ? "black"
+                                  : "white"
+                            }`,
                           transition: "background-color 0.3s",
                         }}
                       >
@@ -463,7 +464,7 @@ const ListeningExercise = ({
                           }}
                           color={!playingAudio ? "blue" : "grey"}
                           style={{
-                            cursor:playingAudio ? "not-allowed":"pointer",
+                            cursor: playingAudio ? "not-allowed" : "pointer",
                             margin: "0 5px",
                             marginTop: !isDisabled ? "1rem" : 0,
                           }}
@@ -486,8 +487,8 @@ const ListeningExercise = ({
                             !enableVoice
                               ? "grey"
                               : !listening && enableVoice
-                              ? "green"
-                              : "red"
+                                ? "green"
+                                : "red"
                           }
                         >
                           <i

@@ -3,7 +3,7 @@ import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
-import { backDomain } from "../../../../Resources/UniversalComponents";
+import { backDomain, onLoggOut } from "../../../../Resources/UniversalComponents";
 import axios from "axios";
 import { Tooltip } from "@mui/material";
 
@@ -52,6 +52,7 @@ export default function SentenceLessonModel({
       alert(showThis);
     } catch (error) {
       alert("Erro ao enviar cards");
+      onLoggOut()
     }
   };
 

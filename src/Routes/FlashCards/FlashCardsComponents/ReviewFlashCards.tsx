@@ -6,6 +6,7 @@ import {
   Xp,
   backDomain,
   getVideoEmbedUrl,
+  onLoggOut,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -234,6 +235,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     } catch (error) {
       console.log(error);
       alert("Erro ao enviar cards");
+      onLoggOut()
     }
   };
 

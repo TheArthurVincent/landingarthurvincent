@@ -4,7 +4,7 @@ import GroupClasses from "./GroupClasses/GroupClasses";
 import { Login } from "@mui/icons-material";
 import { verifyToken } from "../App";
 import { Outlet, Route, Routes } from "react-router-dom";
-import { pathGenerator } from "../Resources/UniversalComponents";
+import { onLoggOut, pathGenerator } from "../Resources/UniversalComponents";
 import MyProfile from "./MyProfile/MyProfile";
 import Faq from "./Faq/Faq";
 import MyClasses from "./MyClasses/MyClasses";
@@ -36,6 +36,7 @@ export function HomePage({ headers }: HeadersProps) {
       setPicture(picture);
       setAdmin(permissions === "superadmin" ? true : false);
     } else {
+      onLoggOut();
       return;
     }
   }, []);
