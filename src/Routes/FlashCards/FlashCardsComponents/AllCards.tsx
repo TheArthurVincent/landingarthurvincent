@@ -171,18 +171,30 @@ const AllCards = ({ headers }: HeadersProps) => {
             value={category}
             onChange={(e) => {
               setCategory(e.target.value);
-              const filteredCards = fCards.filter((c: any) =>
-                c.tags.includes(e.target.value)
-              );
-              if (e.target.value !== "nofilter") {
-                setCards(filteredCards);
-              } else {
+
+              let filteredCards;
+
+              if (e.target.value === "pten") {
+                filteredCards = fCards.filter(
+                  (c: any) => c.front.language == "pt"
+                );
+              } else if (e.target.value !== "nofilter") {
+                filteredCards = fCards.filter((c: any) =>
+                  c.tags.includes(e.target.value)
+                );
+              }
+
+              if (e.target.value === "nofilter") {
                 getNewCards(studentID);
+              } else {
+                //@ts-ignore
+                setCards(filteredCards);
               }
             }}
           >
             <option value="nofilter">Ver todos os cards</option>
             <option value="vocabulary">Vocabulário</option>
+            <option value="pten">Português - Inglês</option>
             <option value="modal">Modal verbs</option>
             <option value="possessive">Possessivos</option>
             <option value="question">Question words</option>

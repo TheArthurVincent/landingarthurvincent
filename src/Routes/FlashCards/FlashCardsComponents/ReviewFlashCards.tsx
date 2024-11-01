@@ -650,13 +650,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           marginBottom: "1rem",
         }}
       >
-        <div
-          style={
-            {
-              // display: myPermissions === "superadmin" ? "block" : "none",
-            }
-          }
-        >
+        <div>
           <label htmlFor="category-select">Categoria:</label>
           <select
             id="category-select"
@@ -668,6 +662,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           >
             <option value="nofilter">Ver todos os cards</option>
             <option value="vocabulary">Vocabulário</option>
+            <option value="pten">Português - Inglês</option>
             <option value="possessive">Possessivos</option>
             <option value="be">To be</option>
             <option value="modal">Modal verbs</option>
