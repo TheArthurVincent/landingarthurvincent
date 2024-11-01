@@ -11,7 +11,6 @@ import { textFont, textTitleFont } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
 import NotFound from "./Routes/NotFound/NotFound";
-import { onLoggOut, onLoggOutFee } from "./Resources/UniversalComponents";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -24,7 +23,6 @@ const headers: MyHeadersType = {
 
 function App() {
   const [_StudentId, setStudentId] = useState<string>("");
-  const [feeU, setFeeU] = useState<boolean>(true);
 
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
