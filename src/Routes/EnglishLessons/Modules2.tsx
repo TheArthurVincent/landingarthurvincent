@@ -13,6 +13,7 @@ import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 import { HThreeModule } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "./EnglishCourses.Styled";
 import EnglishClassCourse2 from "./Class2";
+import { truncateTitle } from "./CoursesSideBar/CoursesSideBar";
 
 interface ModulesHomeProps {
   headers: MyHeadersType | null;
@@ -226,11 +227,15 @@ export default function Modules({
                                 style={{
                                   fontStyle: "italic",
                                   fontWeight: "400",
-                                  fontSize: "10px",marginLeft:"1rem"
+                                  fontSize: "10px",
+                                  marginLeft: "1rem",
                                 }}
-                              > 
+                              >
                                 {cls.tags.length > 0 &&
-                                  cls.tags.join(", ").toLowerCase()}
+                                  truncateTitle(
+                                    cls.tags.join(", ").toLowerCase(),
+                                    15
+                                  )}
                               </span>
                             </p>
                           </CourseCard>
