@@ -234,7 +234,7 @@ export default function Modules({
                                 {cls.tags.length > 0 &&
                                   truncateTitle(
                                     cls.tags.join(", ").toLowerCase(),
-                                    15
+                                    30
                                   )}
                               </span>
                             </p>
