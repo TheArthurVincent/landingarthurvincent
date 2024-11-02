@@ -147,7 +147,7 @@ const ListeningExercise = ({
       seeCardsToReview();
     } catch (error) {
       alert("Erro ao enviar cards");
-      onLoggOut()
+      onLoggOut();
     }
   };
 
@@ -196,7 +196,7 @@ const ListeningExercise = ({
     if (simC > 95) {
       setSimilarity(100);
     } else {
-      setScore(simC > 60 ? wordCountInCard * simC * 0.04 : 0);
+      setScore(simC > 60 ? wordCountInCard * 2 : 0);
     }
   };
 
@@ -236,10 +236,10 @@ const ListeningExercise = ({
       userTranscript,
       cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     );
-    setActualPointsPerWord((simC / 100) * 4);
+    setActualPointsPerWord(2);
     setSimilarity(simC);
     setWords(wordCountInCard);
-    const points = simC > 60 ? wordCountInCard * (simC / 100) * 4 : 0;
+    const points = simC > 60 ? wordCountInCard * 2 : 0;
 
     if (simC > 95) {
       setSimilarity(100);
@@ -247,7 +247,7 @@ const ListeningExercise = ({
       reviewListeningExercise(wordCountInCard * 4, 100);
     } else {
       setScore(points);
-      setActualPointsPerWord((simC / 100) * 4);
+      setActualPointsPerWord(2);
       reviewListeningExercise(points, simC);
     }
   };
@@ -540,12 +540,13 @@ const ListeningExercise = ({
           marginTop: "20px",
         }}
       >
-        <ArvinButton
+        {/*<ArvinButton
           onClick={() => setSeeVideo(!seeVideo)}
           style={{ margin: "0 5px" }}
         >
           See explanation
         </ArvinButton>
+        */}
         <ArvinButton onClick={seeCardsToReview} style={{ margin: "0 5px" }}>
           {!see ? "Start" : <i className="fa fa-refresh" />}
         </ArvinButton>
