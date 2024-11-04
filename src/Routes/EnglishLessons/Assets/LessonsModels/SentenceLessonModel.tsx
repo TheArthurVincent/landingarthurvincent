@@ -56,15 +56,7 @@ export default function SentenceLessonModel({
     }
   };
 
-  const [permissions, setPermissions] = useState<string>("");
 
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    if (user) {
-      const { permissions } = JSON.parse(user);
-      setPermissions(permissions);
-    }
-  }, []);
 
   return (
     <UlSentences grid={element.grid}>
@@ -94,14 +86,7 @@ export default function SentenceLessonModel({
             </span>
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
-            {/* <textarea
-              style={{
-                display: permissions === "superadmin" ? "block" : "none",
-              }}
-              className="comments"
-              name="comments"
-            ></textarea>
-            <br /> */}
+         
           </LiSentence>
         ))}
     </UlSentences>
