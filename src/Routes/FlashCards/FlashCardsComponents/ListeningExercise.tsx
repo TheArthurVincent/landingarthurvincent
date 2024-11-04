@@ -36,15 +36,7 @@ const normalizeText = (text: string): string => {
     .replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     .trim();
 };
-function wordBasedSimilarity(str1: string, str2: string): number {
-  const words1 = normalizeText(str1).split(" ");
-  const words2 = normalizeText(str2).split(" ");
 
-  const totalWords = Math.max(words1.length, words2.length);
-  const matchingWords = words1.filter((word) => words2.includes(word)).length;
-
-  return (matchingWords / totalWords) * 100; // Retorna similaridade em porcentagem
-}
 
 // Função para limpar a string
 function cleanString(str: string): string {
@@ -540,13 +532,6 @@ const ListeningExercise = ({
           marginTop: "20px",
         }}
       >
-        {/*<ArvinButton
-          onClick={() => setSeeVideo(!seeVideo)}
-          style={{ margin: "0 5px" }}
-        >
-          See explanation
-        </ArvinButton>
-        */}
         <ArvinButton onClick={seeCardsToReview} style={{ margin: "0 5px" }}>
           {!see ? "Start" : <i className="fa fa-refresh" />}
         </ArvinButton>

@@ -29,6 +29,7 @@ export const readText = (text: string, restart: boolean, lang?: string) => {
         break;
     }
 
+
     // Eventos de controle
     utterance.onstart = () => console.log("Leitura iniciada.");
     utterance.onend = () => console.log("Leitura finalizada.");
