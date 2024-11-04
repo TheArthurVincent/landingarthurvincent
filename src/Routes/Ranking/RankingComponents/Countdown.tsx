@@ -10,7 +10,7 @@ import {
 import { HOne } from "../../../Resources/Components/RouteBox";
 
 const Countdown: React.FC = () => {
-  const targetDate = new Date("2024-11-02T23:59:59"); 
+  const targetDate = new Date("2024-11-30T23:59:59"); 
 
   const calculateTimeLeft = () => {
     const now = new Date();
