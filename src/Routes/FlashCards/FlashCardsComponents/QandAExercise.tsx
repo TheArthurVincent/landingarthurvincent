@@ -27,15 +27,16 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [next, setNext] = useState<boolean>(false);
-  const [seeProgress, setSeeProgress] = useState(false);
   const [enableVoice, setEnableVoice] = useState(false);
   const [playingAudio, setPlayingAudio] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>("en");
-
+  const [answerStudent, setAnswerStudent] = useState<string>("en");
+  
   const [question, setQuestion] = useState<string>("");
   const [questionId, setQuestionId] = useState<string>("");
   const [transcript, setTranscript] = useState<string>("");
   const [AIResponse, setAIResponse] = useState<string>("");
+  const [justAudio, setJustAudio] = useState<boolean>(true);
 
   const [listening, setListening] = useState<boolean>(false);
 
@@ -72,15 +73,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       setQuestion(quest);
       setLanguage(lg);
       setQuestionId(questId);
-      if (response.data.question.question.text) {
-        setTimeout(() => {
-          readText(
-            `Question. ${response.data.question.question.text}`,
-            false,
-            response.data.question.question.language
-          );
-        }, 500);
-      }
+
       setLoading(false);
     } catch (error) {
       alert("Erro ao carregar cards");
@@ -96,8 +89,9 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       const response = await axios.put(
         `${backDomain}/api/v1/answerquestion/${myId}`,
         {
-          questionId: questionId,
+          questionId,
           answer,
+          isJustAudio: justAudio,
         },
         {
           headers: actualHeaders || {},
@@ -106,6 +100,8 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       console.log(response.data.correctAnswer);
       readText(`Your answer is ${response.data.message}`, false, "en");
       setAIResponse(response.data.message);
+      setAnswerStudent(response.data.answerStudent);
+      
       console.log(response.data);
       setLoading(false);
       onChange(!change);
@@ -137,10 +133,8 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   recognition.onresult = (event: any) => {
     const speechToText = event.results[0][0].transcript;
     setTranscript(cleanString(speechToText));
-    setSeeProgress(true);
     setTimeout(() => {
       setIsDisabled(false);
-      setSeeProgress(false);
       handleSeeAnswer(cleanString(speechToText));
     }, 2000);
     setEnableVoice(false);
@@ -158,13 +152,19 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   return (
-      <section id="review">
-        {see && (
-          <div>
-            {loading ? (
-              <CircularProgress />
-            ) : (
-              <>
+    <section id="review">
+      {see && (
+        <div>
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <>
+              <div
+                style={{
+                  display: seeAnswer ? "none" : "block",
+                }}
+              >
+                {" "}
                 <ArvinButton
                   disabled={playingAudio}
                   onClick={() => {
@@ -173,7 +173,13 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       setPlayingAudio(false);
                     }, 3000);
                     console.log(question);
-                    readText(language === "pt" ? `${question}` : `Question: ${question}`, false, language);
+                    readText(
+                      language === "pt"
+                        ? `${question}`
+                        : `Question: ${question}`,
+                      false,
+                      language
+                    );
                     setEnableVoice(true);
                   }}
                   color={!playingAudio ? "blue" : "grey"}
@@ -189,7 +195,6 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     <i className="fa fa-volume-up" aria-hidden="true" />
                   )}
                 </ArvinButton>
-    
                 <ArvinButton
                   style={{
                     display: !isDisabled ? "none" : "inline-block",
@@ -211,55 +216,120 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     aria-hidden="true"
                   />
                 </ArvinButton>
-    
+                <br />
+                {!justAudio ? question : ""}
+                <br />
+                <ArvinButton
+                  style={{
+                    display: !justAudio ? "none" : "block",
+                  }}
+                  onClick={() => setJustAudio(false)}
+                  color="yellow"
+                >
+                  See text
+                </ArvinButton>
+              </div>
+              <div
+                style={{
+                  display: !seeAnswer ? "none" : "block",
+                  marginTop: "1rem",
+                  padding: "1.5rem",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                }}
+              >
                 <div
                   style={{
-                    display: !seeAnswer ? "none" : "block",
-                    marginTop: "1rem",
+                    fontWeight: "600",
+                    fontSize: "1.25rem",
+                    marginBottom: "0.75rem",
                   }}
                 >
-                  <div style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>
-                    Question:
-                  </div>
-                  <div style={{ marginBottom: "1rem" }}>{question}</div>
-                  <div style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>
-                    Your Answer:
-                  </div>
-                  <div style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>
-                    Feedback:
-                  </div>
-                  <div style={{ marginBottom: "1rem" }}>{AIResponse}</div>
-           
-                  <div style={{ marginBottom: "1rem" }}>{transcript}</div>
-    
-                  <ArvinButton
-                    onClick={handleSeeQuestion}
-                    style={{ margin: "0 5px" }}
-                  >
-                    Next
-                  </ArvinButton>
+                  Question:
                 </div>
-              </>
-            )}
-          </div>
-        )}
-        <div
-          style={{
-            justifyContent: "center",
-            marginTop: "20px",
-          }}
-        >
-          <ArvinButton
-            style={{
-              margin: "0 5px",
-            }}
-            onClick={handleSeeQuestion}
-          >
-            {!see ? "Start" : <i className="fa fa-refresh" />}
-          </ArvinButton>
+                <div style={{ marginBottom: "1.25rem" }}>{question}</div>
+
+                <div
+                  style={{
+                    fontWeight: "600",
+                    fontSize: "1.25rem",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  Your Answer:
+                </div>
+
+                <div style={{ marginBottom: "1.25rem" }}>{answerStudent}</div>
+
+                <div
+                  style={{
+                    fontWeight: "600",
+                    fontSize: "1.25rem",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  Feedback:
+                </div>
+                <div
+                  onClick={() => {
+                    readText(AIResponse, false, language);
+                  }}
+                  style={{
+                    marginBottom: "1.25rem",
+                    padding: "1rem",
+                    borderRadius: "1rem",
+                    cursor: "pointer",
+                    fontSize: "1.1rem",
+                    color: "white",
+                    backgroundColor: AIResponse.includes("Correct")
+                      ? "#27ae60" // Verde técnico para "correct"
+                      : AIResponse.includes("Wrong")
+                      ? "#c0392b" // Vermelho técnico para "wrong"
+                      : "#d3d3d3",
+                  }}
+                >
+                  {AIResponse}
+                </div>
+                <div
+                  style={{
+                    marginBottom: "1rem",
+                    fontStyle: "italic",
+                    fontSize: "10px",
+                  }}
+                >
+                  {justAudio
+                    ? "You scored 7 points because you managed to answer just by listening to the audio without reading."
+                    : "You scored 3 points because you read the text."}
+                </div>
+                <ArvinButton
+                  onClick={() => {
+                    setJustAudio(true);
+                    handleSeeQuestion();
+                  }}
+                >
+                  Next
+                </ArvinButton>
+              </div>
+            </>
+          )}
         </div>
-      </section>
-    
+      )}
+      <div
+        style={{
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        <ArvinButton
+          style={{
+            margin: "0 5px",
+          }}
+          onClick={handleSeeQuestion}
+        >
+          {!see ? "Start" : <i className="fa fa-refresh" />}
+        </ArvinButton>
+      </div>
+    </section>
   );
 };
 
