@@ -72,19 +72,10 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       value: "6",
       adm: false,
       component: (
-        <QnAExercise
-          onChange={onChange}
-          change={change}
-          headers={headers}
-        />
+        <QnAExercise onChange={onChange} change={change} headers={headers} />
       ),
     },
-    {
-      title: "Add",
-      value: "2",
-      adm: true,
-      component: <AddFlashCards display="block" headers={headers} />,
-    },
+
     {
       title: "All cards",
       value: "3",
@@ -96,6 +87,12 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       value: "4",
       adm: false,
       component: <FlashcardsHistory headers={headers} />,
+    },
+    {
+      title: "Add",
+      value: "2",
+      adm: true,
+      component: <AddFlashCards display="block" headers={headers} />,
     },
   ];
 
