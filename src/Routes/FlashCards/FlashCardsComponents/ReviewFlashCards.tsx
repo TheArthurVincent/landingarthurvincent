@@ -710,12 +710,12 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           marginTop: "20px",
         }}
       >
-        <ArvinButton
+        {/* <ArvinButton
           onClick={() => setSeeVideo(!seeVideo)}
           style={{ margin: "0 5px" }}
         >
           See explanation
-        </ArvinButton>
+        </ArvinButton> */}
         <ArvinButton
           style={{
             margin: "auto",
