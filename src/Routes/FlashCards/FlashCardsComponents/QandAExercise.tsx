@@ -31,7 +31,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [playingAudio, setPlayingAudio] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>("en");
   const [answerStudent, setAnswerStudent] = useState<string>("en");
-  
+
   const [question, setQuestion] = useState<string>("");
   const [questionId, setQuestionId] = useState<string>("");
   const [transcript, setTranscript] = useState<string>("");
@@ -101,8 +101,9 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       readText(`Your answer is ${response.data.message}`, false, "en");
       setAIResponse(response.data.message);
       setAnswerStudent(response.data.answerStudent);
-      
+
       console.log(response.data);
+      setEnableVoice(false);
       setLoading(false);
       onChange(!change);
       setNext(next);
@@ -223,7 +224,10 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   style={{
                     display: !justAudio ? "none" : "block",
                   }}
-                  onClick={() => setJustAudio(false)}
+                  onClick={() => {
+                    setJustAudio(false);
+                    setEnableVoice(true);
+                  }}
                   color="yellow"
                 >
                   See text
@@ -282,9 +286,9 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     fontSize: "1.1rem",
                     color: "white",
                     backgroundColor: AIResponse.includes("Correct")
-                      ? "#27ae60" // Verde técnico para "correct"
+                      ? "#27ae60"
                       : AIResponse.includes("Wrong")
-                      ? "#c0392b" // Vermelho técnico para "wrong"
+                      ? "#c0392b"
                       : "#d3d3d3",
                   }}
                 >
