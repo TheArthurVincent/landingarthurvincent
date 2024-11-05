@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { HOne, RouteDiv } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import { Button, backDomain } from "../../../../Resources/UniversalComponents";
-// import ReactQuill from "react-quill";
-// import "react-quill/dist/quill.snow.css";
 
 export function NewPost({ headers }) {
   const [conteudo, setConteudo] = useState("");
@@ -121,21 +119,6 @@ export function NewPost({ headers }) {
           required
         />
         <div>
-          {/* <ReactQuill
-            theme="snow"
-            value={newText}
-            onChange={(value) => setNewText(value)}
-            placeholder="Texto"
-            style={{
-              alignItems: "center",
-              justifyContent: "space-around",
-              padding: "0.5rem",
-              margin: "0",
-              fontSize: "1.1rem",
-              fontWeight: 500,
-            }}
-          /> */}
-          {/* Use dangerouslySetInnerHTML apenas para exibição, se necessário */}
         </div>
         <Button style={{ marginLeft: "auto" }} type="submit">
           Criar
