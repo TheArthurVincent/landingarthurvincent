@@ -270,7 +270,7 @@ const ListeningExercise = ({
   // @ts-ignore
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-  recognition.lang = "en-US";
+  recognition.lang = (myId !== "671b99e97acd42b04d2f7507") ? "en-US" : "fr-FR";
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
