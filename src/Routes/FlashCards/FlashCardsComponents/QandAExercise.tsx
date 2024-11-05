@@ -66,9 +66,12 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         { headers: actualHeaders || {} }
       );
       console.log(response.data.question);
-      const quest = response.data.question.question.text;
+      var quest = response.data.question.question.text;
       const lg = response.data.question.question.language;
-
+if (!response.data.question.question){
+  quest = "no questions";
+  
+}
       const questId = response.data.question._id;
       setQuestion(quest);
       setLanguage(lg);
@@ -220,6 +223,19 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 <br />
                 {!justAudio ? question : ""}
                 <br />
+                <textarea
+                    style={{
+                      display: !isDisabled ? "none" : "inline-block",
+                      marginTop: "1rem",
+                      width: "85%",
+                      padding: "10px",
+                      borderRadius: "5px",
+                      border: "1px solid #ccc",
+                    }}
+                    placeholder="Use this area for reference if you need to transcribe what you hear"
+                    name=""
+                    id=""
+                  />
                 <ArvinButton
                   style={{
                     display: !justAudio ? "none" : "block",
