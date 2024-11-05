@@ -37,6 +37,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [transcript, setTranscript] = useState<string>("");
   const [AIResponse, setAIResponse] = useState<string>("");
   const [justAudio, setJustAudio] = useState<boolean>(true);
+  const [thereIsQuestion, setThereIsQuestion] = useState<boolean>(true);
 
   const [listening, setListening] = useState<boolean>(false);
 
@@ -66,17 +67,19 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         { headers: actualHeaders || {} }
       );
       console.log(response.data.question);
-      var quest = response.data.question.question.text;
-      const lg = response.data.question.question.language;
-if (!response.data.question.question){
-  quest = "no questions";
-  
-}
-      const questId = response.data.question._id;
-      setQuestion(quest);
-      setLanguage(lg);
-      setQuestionId(questId);
+      if (!response.data.question.question) {
+        setThereIsQuestion(false);
+        setLoading(false);
+      } else {
+        setThereIsQuestion(true);
 
+        var quest = response.data.question.question.text;
+        var lg = response.data.question.question.language;
+        const questId = response.data.question._id;
+        setQuestion(quest);
+        setLanguage(lg);
+        setQuestionId(questId);
+      }
       setLoading(false);
     } catch (error) {
       alert("Erro ao carregar cards");
@@ -163,173 +166,183 @@ if (!response.data.question.question){
             <CircularProgress />
           ) : (
             <>
-              <div
-                style={{
-                  display: seeAnswer ? "none" : "block",
-                }}
-              >
-                {" "}
-                <ArvinButton
-                  disabled={playingAudio}
-                  onClick={() => {
-                    setPlayingAudio(true);
-                    setTimeout(() => {
-                      setPlayingAudio(false);
-                    }, 3000);
-                    console.log(question);
-                    readText(
-                      language === "pt"
-                        ? `${question}`
-                        : `Question: ${question}`,
-                      false,
-                      language
-                    );
-                    setEnableVoice(true);
-                  }}
-                  color={!playingAudio ? "blue" : "grey"}
-                  style={{
-                    cursor: playingAudio ? "not-allowed" : "pointer",
-                    margin: "0 5px",
-                    marginTop: !isDisabled ? "1rem" : 0,
-                  }}
-                >
-                  {!isDisabled ? (
-                    `Listen again`
-                  ) : (
-                    <i className="fa fa-volume-up" aria-hidden="true" />
-                  )}
-                </ArvinButton>
-                <ArvinButton
-                  style={{
-                    display: !isDisabled ? "none" : "inline-block",
-                    cursor: enableVoice ? "pointer" : "not-allowed",
-                    margin: "0 5px",
-                  }}
-                  disabled={!enableVoice}
-                  onClick={!listening ? startListening : stopListening}
-                  color={
-                    !enableVoice
-                      ? "grey"
-                      : !listening && enableVoice
-                      ? "green"
-                      : "red"
-                  }
-                >
-                  <i
-                    className={!listening ? "fa fa-microphone" : "fa fa-stop"}
-                    aria-hidden="true"
-                  />
-                </ArvinButton>
-                <br />
-                {!justAudio ? question : ""}
-                <br />
-                <textarea
+              {thereIsQuestion ? (
+                <div>
+                  <div
                     style={{
-                      display: !isDisabled ? "none" : "inline-block",
-                      marginTop: "1rem",
-                      width: "85%",
-                      padding: "10px",
-                      borderRadius: "5px",
-                      border: "1px solid #ccc",
+                      display: seeAnswer ? "none" : "block",
                     }}
-                    placeholder="Use this area for reference if you need to transcribe what you hear"
-                    name=""
-                    id=""
-                  />
-                <ArvinButton
-                  style={{
-                    display: !justAudio ? "none" : "block",
-                  }}
-                  onClick={() => {
-                    setJustAudio(false);
-                    setEnableVoice(true);
-                  }}
-                  color="yellow"
-                >
-                  See text
-                </ArvinButton>
-              </div>
-              <div
-                style={{
-                  display: !seeAnswer ? "none" : "block",
-                  marginTop: "1rem",
-                  padding: "1.5rem",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: "600",
-                    fontSize: "1.25rem",
-                    marginBottom: "0.75rem",
-                  }}
-                >
-                  Question:
-                </div>
-                <div style={{ marginBottom: "1.25rem" }}>{question}</div>
+                  >
+                    {" "}
+                    <ArvinButton
+                      disabled={playingAudio}
+                      onClick={() => {
+                        setPlayingAudio(true);
+                        setTimeout(() => {
+                          setPlayingAudio(false);
+                        }, 3000);
+                        console.log(question);
+                        readText(
+                          language === "pt"
+                            ? `${question}`
+                            : `Question: ${question}`,
+                          false,
+                          language
+                        );
+                        setEnableVoice(true);
+                      }}
+                      color={!playingAudio ? "blue" : "grey"}
+                      style={{
+                        cursor: playingAudio ? "not-allowed" : "pointer",
+                        margin: "0 5px",
+                        marginTop: !isDisabled ? "1rem" : 0,
+                      }}
+                    >
+                      {!isDisabled ? (
+                        `Listen again`
+                      ) : (
+                        <i className="fa fa-volume-up" aria-hidden="true" />
+                      )}
+                    </ArvinButton>
+                    <ArvinButton
+                      style={{
+                        display: !isDisabled ? "none" : "inline-block",
+                        cursor: enableVoice ? "pointer" : "not-allowed",
+                        margin: "0 5px",
+                      }}
+                      disabled={!enableVoice}
+                      onClick={!listening ? startListening : stopListening}
+                      color={
+                        !enableVoice
+                          ? "grey"
+                          : !listening && enableVoice
+                          ? "green"
+                          : "red"
+                      }
+                    >
+                      <i
+                        className={
+                          !listening ? "fa fa-microphone" : "fa fa-stop"
+                        }
+                        aria-hidden="true"
+                      />
+                    </ArvinButton>
+                    <br />
+                    {!justAudio ? question : ""}
+                    <br />
+                    <textarea
+                      style={{
+                        display: !isDisabled ? "none" : "inline-block",
+                        marginTop: "1rem",
+                        width: "85%",
+                        padding: "10px",
+                        borderRadius: "5px",
+                        border: "1px solid #ccc",
+                      }}
+                      placeholder="Use this area for reference if you need to transcribe what you hear"
+                      name=""
+                      id=""
+                    />
+                    <ArvinButton
+                      style={{
+                        display: !justAudio ? "none" : "block",
+                      }}
+                      onClick={() => {
+                        setJustAudio(false);
+                        setEnableVoice(true);
+                      }}
+                      color="yellow"
+                    >
+                      See text
+                    </ArvinButton>
+                  </div>
+                  <div
+                    style={{
+                      display: !seeAnswer ? "none" : "block",
+                      marginTop: "1rem",
+                      padding: "1.5rem",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontWeight: "600",
+                        fontSize: "1.25rem",
+                        marginBottom: "0.75rem",
+                      }}
+                    >
+                      Question:
+                    </div>
+                    <div style={{ marginBottom: "1.25rem" }}>{question}</div>
 
-                <div
-                  style={{
-                    fontWeight: "600",
-                    fontSize: "1.25rem",
-                    marginBottom: "0.75rem",
-                  }}
-                >
-                  Your Answer:
-                </div>
+                    <div
+                      style={{
+                        fontWeight: "600",
+                        fontSize: "1.25rem",
+                        marginBottom: "0.75rem",
+                      }}
+                    >
+                      Your Answer:
+                    </div>
 
-                <div style={{ marginBottom: "1.25rem" }}>{answerStudent}</div>
+                    <div style={{ marginBottom: "1.25rem" }}>
+                      {answerStudent}
+                    </div>
 
-                <div
-                  style={{
-                    fontWeight: "600",
-                    fontSize: "1.25rem",
-                    marginBottom: "0.75rem",
-                  }}
-                >
-                  Feedback:
+                    <div
+                      style={{
+                        fontWeight: "600",
+                        fontSize: "1.25rem",
+                        marginBottom: "0.75rem",
+                      }}
+                    >
+                      Feedback:
+                    </div>
+                    <div
+                      onClick={() => {
+                        readText(AIResponse, false, language);
+                      }}
+                      style={{
+                        marginBottom: "1.25rem",
+                        padding: "1rem",
+                        borderRadius: "1rem",
+                        cursor: "pointer",
+                        fontSize: "1.1rem",
+                        color: "white",
+                        backgroundColor: AIResponse.includes("Correct")
+                          ? "#27ae60"
+                          : AIResponse.includes("Wrong")
+                          ? "#c0392b"
+                          : "#d3d3d3",
+                      }}
+                    >
+                      {AIResponse}
+                    </div>
+                    <div
+                      style={{
+                        marginBottom: "1rem",
+                        fontStyle: "italic",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {justAudio
+                        ? "You scored 7 points because you managed to answer just by listening to the audio without reading."
+                        : "You scored 3 points because you read the text."}
+                    </div>
+                    <ArvinButton
+                      onClick={() => {
+                        setJustAudio(true);
+                        handleSeeQuestion();
+                      }}
+                    >
+                      Next
+                    </ArvinButton>
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    readText(AIResponse, false, language);
-                  }}
-                  style={{
-                    marginBottom: "1.25rem",
-                    padding: "1rem",
-                    borderRadius: "1rem",
-                    cursor: "pointer",
-                    fontSize: "1.1rem",
-                    color: "white",
-                    backgroundColor: AIResponse.includes("Correct")
-                      ? "#27ae60"
-                      : AIResponse.includes("Wrong")
-                      ? "#c0392b"
-                      : "#d3d3d3",
-                  }}
-                >
-                  {AIResponse}
-                </div>
-                <div
-                  style={{
-                    marginBottom: "1rem",
-                    fontStyle: "italic",
-                    fontSize: "10px",
-                  }}
-                >
-                  {justAudio
-                    ? "You scored 7 points because you managed to answer just by listening to the audio without reading."
-                    : "You scored 3 points because you read the text."}
-                </div>
-                <ArvinButton
-                  onClick={() => {
-                    setJustAudio(true);
-                    handleSeeQuestion();
-                  }}
-                >
-                  Next
-                </ArvinButton>
-              </div>
+              ) : (
+                "No questions"
+              )}
             </>
           )}
         </div>
