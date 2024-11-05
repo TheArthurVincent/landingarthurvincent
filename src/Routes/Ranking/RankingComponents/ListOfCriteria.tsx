@@ -27,19 +27,20 @@ interface Button {
 export const listOfCriteria = [
   {
     title: "Aula particular",
-    comment: "A prova pode ser realizada em Março/Junho/Setembro/Dezembro",
+    comment:
+      "As provas serão realizadas a critério do professor, e avisadas com antecedência de pelo menos 1 mês.",
     icon: "fa fa-book",
     color: "rgb(230, 160, 32)",
     score: [
-      { description: "Homework Realizado", score: 625, color: "green" },
+      { description: "Homework Realizado", score: 600, color: "green" },
       {
-        description: "Homework Atrasado (> 7 dias)",
-        score: 210,
+        description: "Homework Atrasado (> 7 dias) ou incompleto",
+        score: 200,
         color: "green",
       },
       {
         description: "Prova",
-        score: 1500,
+        score: 1000,
         color: "green",
         nobutton: true,
       },
@@ -56,7 +57,34 @@ export const listOfCriteria = [
         score: 4,
         nobutton: true,
         color: "green",
-      }
+      },
+      {
+        description:
+          "Pontuação por palavra certa no Listening Exercise (caso acerte mais de 95%)",
+        score: 4,
+        nobutton: true,
+        color: "green",
+      },
+      {
+        description:
+          "Pontuação por palavra certa no Listening Exercisa (caso acerte mais entre 60% e 95%)",
+        score: 2,
+        nobutton: true,
+        color: "green",
+      },
+      {
+        description:
+          "Pontuação por resposta certa no Q&A (caso não veja o texto)",
+        score: 7,
+        nobutton: true,
+        color: "green",
+      },
+      {
+        description: "Pontuação por resposta certa no Q&A (caso veja o texto)",
+        score: 3,
+        nobutton: true,
+        color: "green",
+      },
     ],
   },
   {
@@ -66,13 +94,13 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 500,
+        score: 600,
         description: "Homework Group Class",
         text: "Homework Group Class (entregar na aula particular)",
       },
       {
-        description: "Homework Atrasado (> 7 dias atrás)",
-        score: 120,
+        description: "Homework Atrasado (> 7 dias atrás) ou incompleto",
+        score: 200,
         color: "green",
       },
       {
@@ -80,13 +108,6 @@ export const listOfCriteria = [
         score: 75,
         description: "Participou da aula em grupo",
         text: "Participou da aula em grupo",
-      },
-      {
-        color: "green",
-        score: 800,
-        nobutton: true,
-        description: "Fez Apresentação",
-        text: "Apresentação (pode fazer na aula particular)",
       },
     ],
   },
@@ -97,15 +118,15 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 50,
-        description: "Recomendação fechada",
+        score: 200,
+        description: "Recomendação de aluno (a) particular fechada",
         text: "Recomendação",
       },
       {
         color: "green",
-        score: 25,
-        description: "Instagram Post estudando marcando @thearthurvincent_",
-        text: "Instagram Post ",
+        score: 50,
+        description: "Recomendação de usuário da plataforma fechada",
+        text: "Recomendação",
       },
       {
         color: "red",
@@ -163,7 +184,7 @@ export const GridRankingExplanationCard = styled.div`
   margin: auto;
   borderradius: 5px;
   width: 20rem;
-  height: 20rem;
+  min-height: 20rem;
   text-align: center;
   @media (max-width: 800px) {
     width: 85%;

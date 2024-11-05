@@ -424,7 +424,12 @@ export default function StudentsRanking({
                     padding: "0.5rem 1rem",
                     margin: "1rem 0",
                     boxShadow: "1px 1px 10px 1px #aaa",
-                    display: item._id === user.id ? "flex" : "none",
+                    display:
+                      item._id == "671b99e97acd42b04d2f7507"
+                        ? "none"
+                        : item._id === user.id
+                        ? "flex"
+                        : "none",
                     justifyContent: "space-between",
                     background: theItems[levelNumber].color,
                     color: theItems[levelNumber].textcolor,
@@ -488,6 +493,8 @@ export default function StudentsRanking({
                         ? "flex"
                         : index < 5 && item.monthlyScore > 0
                         ? "flex"
+                        : item._id == "671b99e97acd42b04d2f7507"
+                        ? "none"
                         : "none",
                       background: theItems[levelNumber].color,
                       overflowX: "hidden",

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Tooltip } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
@@ -243,18 +243,20 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       name=""
                       id=""
                     />
-                    <ArvinButton
-                      style={{
-                        display: !justAudio ? "none" : "block",
-                      }}
-                      onClick={() => {
-                        setJustAudio(false);
-                        setEnableVoice(true);
-                      }}
-                      color="yellow"
-                    >
-                      See text
-                    </ArvinButton>
+                    <Tooltip title="Você pode clicar aqui para ler a resposta, porém, a pontuação pela resposta irá cair. Tente entender escutando!">
+                      <ArvinButton
+                        style={{
+                          display: !justAudio ? "none" : "block",
+                        }}
+                        onClick={() => {
+                          setJustAudio(false);
+                          setEnableVoice(true);
+                        }}
+                        color="yellow"
+                      >
+                        See text
+                      </ArvinButton>
+                    </Tooltip>
                   </div>
                   <div
                     style={{

@@ -1,8 +1,8 @@
 {
   "score": "Puntuação",
-  "f1st": " 1º lugar = 2 aulas extras (particulares) (55min cada);",
-  "s2nd": " 2º lugar = 1 aula extra (particular) (55min);",
-  "t3rd": " 3º lugar = 1 aula extra (particulares) (30min);",
+  "f1st": "1º lugar: 1 aula extra particular (30min) + 5% de desconto na mensalidade do próximo mês. Além disso, inicia o mês seguinte com 50 pontos;",
+  "s2nd": "2º lugar: 1 aula extra particular (30min) ou 5% de desconto na mensalidade do próximo mês (à escolha do aluno). Também inicia o mês seguinte com 25 pontos;",
+  "t3rd": "3º lugar: Inicia o mês seguinte com 25 pontos;",
   "uplevel": "Passando de Nível (5% de desconto no mês seguinte à qualificação)",
   "t3000": "Qualificação apenas para quem tem PELO MENOS 3000 pontos no mês!",
   "timeline": "Linha do tempo",

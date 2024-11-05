@@ -26,7 +26,7 @@ export default function RankingExplanationComponent() {
               backgroundColor: "white",
               display: "flex",
               justifyContent: "space-around",
-              fontSize: "1.5rem",
+              fontSize: "1rem",
               fontWeight: 1000,
               alignItems: "center",
             }}
@@ -50,6 +50,7 @@ export default function RankingExplanationComponent() {
               <p
                 key={index}
                 style={{
+                  height:"fit-content",
                   backgroundColor: primaryColor(),
                   color: textPrimaryColorContrast(),
                   display: "grid",
@@ -66,7 +67,6 @@ export default function RankingExplanationComponent() {
                   style={{
                     backgroundColor: score.color,
                     color: textSecondaryColorContrast(),
-                    fontSize: "1.1rem",
                     fontFamily: textTitleFont(),
                     fontWeight: 600,
                     padding: "5px",
