@@ -40,6 +40,7 @@ import ExerciseLessonModelLesson from "./Assets/LessonsModels/ExerciseLessonMode
 import ImageLessonModelSlide from "./Assets/SlideModels/ImageLessonModelSlide";
 import { CircularProgress } from "@mui/material";
 import QandALessonModel from "./Assets/LessonsModels/QandALessonModel";
+import QandALessonPersonalModel from "./Assets/LessonsModels/QandALessonPersonalModel";
 
 interface EnglishClassCourse2ModelProps {
   headers: MyHeadersType | null;
@@ -423,8 +424,15 @@ export default function EnglishClassCourse2({
                       headers={headers}
                       item={element.items}
                     />
-                  ) :  element.type === "qanda" ? (
+                  ) : element.type === "qanda" ? (
                     <QandALessonModel
+                      headers={headers}
+                      studentId={studentID}
+                      mainTag={theclass.mainTag}
+                      item={element}
+                    />
+                  ) : element.type === "personalqanda" ? (
+                    <QandALessonPersonalModel
                       headers={headers}
                       studentId={studentID}
                       mainTag={theclass.mainTag}
