@@ -66,7 +66,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         `${backDomain}/api/v1/get1question/${myId}`,
         { headers: actualHeaders || {} }
       );
-      if (!response.data.question.question) {
+      if (!response.data.question) {
         setThereIsQuestion(false);
         setLoading(false);
       } else {
@@ -81,6 +81,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       }
       setLoading(false);
     } catch (error) {
+      console.log(error);
       alert("Erro ao carregar cards");
     }
   };
