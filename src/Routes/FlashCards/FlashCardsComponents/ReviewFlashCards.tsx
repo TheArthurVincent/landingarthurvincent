@@ -235,7 +235,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     } catch (error) {
       console.log(error);
       alert("Erro ao enviar cards");
-      onLoggOut()
+      onLoggOut();
     }
   };
 
@@ -644,6 +644,31 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           alignItems: "center",
         }}
       />
+
+      <div
+        style={{
+          display: !isDisabled ? "none" : "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        {/* <ArvinButton
+          onClick={() => setSeeVideo(!seeVideo)}
+          style={{ margin: "0 5px" }}
+        >
+          See explanation
+        </ArvinButton> */}
+        <ArvinButton
+          style={{
+            margin: "auto",
+            display: "block",
+          }}
+          onClick={seeCardsToReview}
+        >
+          {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
+        </ArvinButton>
+      </div>
+
       <div
         style={{
           display: "flex",
@@ -701,45 +726,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             <option value="weather">Clima</option>
           </select>
         </div>
-      </div>
-
-      <div
-        style={{
-          display: !isDisabled ? "none" : "flex",
-          justifyContent: "center",
-          marginTop: "20px",
-        }}
-      >
-        {/* <ArvinButton
-          onClick={() => setSeeVideo(!seeVideo)}
-          style={{ margin: "0 5px" }}
-        >
-          See explanation
-        </ArvinButton> */}
-        <ArvinButton
-          style={{
-            margin: "auto",
-            display: "block",
-          }}
-          onClick={seeCardsToReview}
-        >
-          {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
-        </ArvinButton>
-      </div>
-
-      <div
-        style={{
-          display: seeVideo ? "block" : "none",
-          marginTop: "20px",
-          padding: "20px",
-          border: "1px solid #ccc",
-          borderRadius: "10px",
-          backgroundColor: "#f9f9f9",
-        }}
-      >
-        <IFrameVideoBlog
-          src={getVideoEmbedUrl("https://www.youtube.com/watch?v=Athon_3u2Ww")}
-        />
       </div>
     </section>
   );

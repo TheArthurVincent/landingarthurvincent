@@ -171,6 +171,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   <div
                     style={{
                       display: seeAnswer ? "none" : "block",
+                      margin: "auto",
                     }}
                   >
                     {" "}
@@ -357,7 +358,8 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       >
         <ArvinButton
           style={{
-            margin: "0 5px",
+            margin: "auto",
+            display: "block",
           }}
           onClick={handleSeeQuestion}
         >
