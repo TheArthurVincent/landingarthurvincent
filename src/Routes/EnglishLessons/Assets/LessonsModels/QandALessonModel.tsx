@@ -8,6 +8,7 @@ import axios from "axios";
 import { readText } from "../Functions/FunctionLessons";
 import { Tooltip, IconButton, Collapse, Box, Typography } from "@mui/material";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
+import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 
 interface QandALessonModelProps {
   headers: MyHeadersType | null;
@@ -57,9 +58,9 @@ export default function QandALessonModel({
       );
       alert(response.data.messageQandA);
     } catch (error) {
-      // alert("Error adding cards");
+      alert("Error adding cards");
       console.log(error);
-      // onLoggOut();
+      onLoggOut();
     }
   };
 
@@ -68,22 +69,9 @@ export default function QandALessonModel({
   };
 
   return (
-    <div
-      style={{
-        padding: "16px",
-        margin: "10px 0",
-        border: "1px solid #ddd",
-        borderRadius: "8px",
-      }}
-    >
+    <UlSentences grid={1}>
       {item.questions.map((theitem: any, index: number) => (
-        <Box
-          key={index}
-          mb={2}
-          p={2}
-          border="1px solid #f0f0f0"
-          borderRadius="8px"
-        >
+        <LiSentence key={index}>
           <div
             style={{
               display: "flex",
@@ -128,12 +116,20 @@ export default function QandALessonModel({
             </Box>
           </Collapse>
           <Box mt={2}>
-            <ArvinButton color="white" onClick={() => handleToggle(index)}>
+            <ArvinButton
+              color="white"
+              onClick={() => {
+                if (expandedIndex !== index) {
+                  readText(theitem.answer, true);
+                }
+                handleToggle(index);
+              }}
+            >
               {expandedIndex === index ? "Hide Answer" : "Show Answer"}
             </ArvinButton>
           </Box>
-        </Box>
+        </LiSentence>
       ))}
-    </div>
+    </UlSentences>
   );
 }
