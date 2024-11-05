@@ -58,14 +58,10 @@ export default function QandALessonPersonalModel({
       );
       alert(response.data.messageQandA);
     } catch (error) {
-      // alert("Error adding cards");
+      alert("Error");
       console.log(error);
-      // onLoggOut();
+      onLoggOut();
     }
-  };
-
-  const handleToggle = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
   };
 
   return (

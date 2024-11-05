@@ -57,7 +57,6 @@ export default function SentenceLessonModel({
   };
 
 
-
   return (
     <UlSentences grid={element.grid}>
       {element.sentences &&

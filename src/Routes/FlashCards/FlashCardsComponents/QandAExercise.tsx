@@ -134,6 +134,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   const stopListening = () => {
+    
     setListening(false);
     recognition.stop();
   };
@@ -329,9 +330,9 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         fontSize: "10px",
                       }}
                     >
-                      {justAudio
+                      {/* {justAudio
                         ? "You scored 7 points because you managed to answer just by listening to the audio without reading."
-                        : "You scored 3 points because you read the text."}
+                        : "You scored 3 points because you read the text."} */}
                     </div>
                     <ArvinButton
                       onClick={() => {
