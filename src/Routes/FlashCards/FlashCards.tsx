@@ -68,9 +68,9 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       ),
     },
     {
-      title: "Questions",
+      title: "Q&A",
       value: "6",
-      adm: true,
+      adm: false,
       component: (
         <QnAExercise
           onChange={onChange}
