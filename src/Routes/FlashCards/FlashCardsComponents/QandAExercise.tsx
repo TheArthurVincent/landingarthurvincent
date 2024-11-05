@@ -66,7 +66,6 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         `${backDomain}/api/v1/get1question/${myId}`,
         { headers: actualHeaders || {} }
       );
-      console.log(response.data.question);
       if (!response.data.question.question) {
         setThereIsQuestion(false);
         setLoading(false);
