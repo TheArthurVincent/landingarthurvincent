@@ -151,8 +151,15 @@ body {
 .the-hover:hover {
   cursor: pointer;
   background-color: #eee;
-  transition: 0.2s;
+  transition: 0.1s;
 }
+
+.shadow:hover {
+  box-shadow: 5px 5px 10px #aaa;
+  background-color: #eee;
+  transition: 0.1s;
+}
+
 
 .audio-button {
   padding: 0;
@@ -165,6 +172,7 @@ body {
 }
 
 .audio-button:hover {
+  transition: 0.1s;
   color: #444;
 }
 
@@ -216,6 +224,7 @@ li {
 
 .button:hover,
 .button2:hover {
+  transition: 0.1s;
   font-weight: 600;
   background-color: rgb(204, 204, 204);
 }
@@ -225,6 +234,7 @@ li {
 }
 
 .name:hover {
+  transition: 0.1s;
   background-color: #fafafa;
 }
 
@@ -267,6 +277,7 @@ li {
 }
 
 .hover-link:hover {
+  transition: 0.1s;
   color: #011042;
 }
 
@@ -275,6 +286,7 @@ li {
 }
 
 .hover-color:hover {
+  transition: 0.1s;
   border: 1px solid black;
 }
 
@@ -395,6 +407,7 @@ input.inputs-style {
 
 input.inputs-style:hover {
   background-color: #c6c6c6;
+  transition: 0.1s;
   border: 1px solid #777;
   color: #011042;
 }
@@ -448,7 +461,8 @@ input.inputs-style:focus {
 }
 
 .flashcard-date:hover {
-background-color: #eee;
+  transition: 0.1s;
+  background-color: #eee;
 }
 
 .flashcard-total-points {
@@ -496,6 +510,7 @@ textarea.inputs-style {
 
 textarea.inputs-style:hover {
   background-color: #c6c6c6;
+  transition: 0.1s;
   border: 1px solid #777;
   color: #000;
 }
@@ -518,6 +533,7 @@ textarea.inputs-style:focus {
 }
 
 .comments:hover {
+  transition: 0.1s;
   background-color: #ddffc5;
 }
 

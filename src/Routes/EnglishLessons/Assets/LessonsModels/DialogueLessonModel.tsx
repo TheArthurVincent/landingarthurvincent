@@ -8,7 +8,8 @@ interface DialogueLessonModelProps {
 }
 
 export default function DialogueLessonModel({
-  element,headers
+  element,
+  headers,
 }: DialogueLessonModelProps) {
   function isEven(val: number) {
     return val % 2 === 0;
@@ -34,6 +35,7 @@ export default function DialogueLessonModel({
                   }}
                 >
                   <p
+                    className="shadow"
                     style={{
                       padding: "1rem",
                       margin: "5px",
