@@ -71,11 +71,23 @@ export default function EnglishClassCourse2({
   const [classTitle, setClassTitle] = useState<string>("");
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
+
+
   const actualHeaders = headers || {};
 
   const getClass = async () => {
     setLoading(true);
+    const user = localStorage.getItem("loggedIn");
+    const { id, permissions } = JSON.parse(user || "");
+    setPermissions(permissions);
+    if (permissions == "superadmin") {
+      fetchStudents();
+    }
 
+    if (user) {
+      setId(id);
+      setStudentID(id);
+    }
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/course/${classId}`,
@@ -84,8 +96,8 @@ export default function EnglishClassCourse2({
 
       var clss = response.data.classDetails;
       setClassTitle(response.data.classDetails.title);
-      console.log(clss);
-      if (clss.studentsWhoCompletedIt.includes(studentID)) {
+      console.log(response.data.classDetails.studentsWhoCompletedIt,studentID);
+      if (response.data.classDetails.studentsWhoCompletedIt.includes(id)) {
         setIsCompleted(true);
       } else {
         setIsCompleted(false);
@@ -100,6 +112,18 @@ export default function EnglishClassCourse2({
   };
 
   const getClassNoLoading = async () => {
+
+    const user = localStorage.getItem("loggedIn");
+    const { id, permissions } = JSON.parse(user || "");
+    setPermissions(permissions);
+    if (permissions == "superadmin") {
+      fetchStudents();
+    }
+
+    if (user) {
+      setId(id);
+      setStudentID(id);
+    }
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/course/${classId}`,
@@ -108,8 +132,8 @@ export default function EnglishClassCourse2({
 
       var clss = response.data.classDetails;
       setClassTitle(response.data.classDetails.title);
-      console.log(clss);
-      if (clss.studentsWhoCompletedIt.includes(studentID)) {
+      console.log(response.data.classDetails.studentsWhoCompletedIt,studentID);
+      if (response.data.classDetails.studentsWhoCompletedIt.includes(id)) {
         setIsCompleted(true);
       } else {
         setIsCompleted(false);
@@ -164,20 +188,7 @@ export default function EnglishClassCourse2({
     };
   }, []);
 
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    const { id, permissions } = JSON.parse(user || "");
-    setPermissions(permissions);
-    if (permissions == "superadmin") {
-      fetchStudents();
-    }
-
-    if (user) {
-      setId(id);
-      setStudentID(id);
-    }
-  }, []);
-
+  
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const theid = event.target.value;
     setStudentID(theid);
