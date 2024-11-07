@@ -69,22 +69,27 @@ export default function EnglishClassCourse2({
   const [loading, setLoading] = useState<boolean>(false);
   const [theclass, setheClass] = useState<any>({});
   const [classTitle, setClassTitle] = useState<string>("");
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+
   const actualHeaders = headers || {};
 
   const getClass = async () => {
     setLoading(true);
+
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/course/${classId}`,
         { headers: actualHeaders }
       );
 
-      var clss = response.data;
-      setClassTitle(clss.title);
-      console.log(
-        "courseTitle",
-        `${pathGenerator(courseTitle)}/${previousClass}`
-      );
+      var clss = response.data.classDetails;
+      setClassTitle(response.data.classDetails.title);
+      console.log(clss);
+      if (clss.studentsWhoCompletedIt.includes(studentID)) {
+        setIsCompleted(true);
+      } else {
+        setIsCompleted(false);
+      }
       setheClass(clss);
       setLoading(false);
     } catch (error) {
@@ -94,9 +99,55 @@ export default function EnglishClassCourse2({
     }
   };
 
+  const getClassNoLoading = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/course/${classId}`,
+        { headers: actualHeaders }
+      );
+
+      var clss = response.data.classDetails;
+      setClassTitle(response.data.classDetails.title);
+      console.log(clss);
+      if (clss.studentsWhoCompletedIt.includes(studentID)) {
+        setIsCompleted(true);
+      } else {
+        setIsCompleted(false);
+      }
+      setheClass(clss);
+    } catch (error) {
+      console.log(error, "Erro ao obter aulas");
+    }
+  };
+  // Função para alternar o estado do switch
+  const handleToggle = async (event: any) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/course/${classId}`,
+        { studentID },
+        { headers: actualHeaders }
+      );
+      getClassNoLoading();
+    } catch (error) {
+      console.error("Erro ao atualizar o status:", error);
+    }
+  };
+
+  // Função para alternar o estado do switch
+  const verifyCheck = async () => {
+    if (theclass.studentsWhoCompletedIt.includes(studentID)) {
+      setIsCompleted(true);
+    } else {
+      setIsCompleted(false);
+    }
+  };
+
+  useEffect(() => {
+    verifyCheck();
+  }, [studentID]);
+
   useEffect(() => {
     getClass();
-    console.log("course", course);
   }, []);
 
   const handleKeyDown = (event: any) => {
@@ -179,6 +230,7 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
+
           <div
             style={{
               display: "flex",
@@ -275,6 +327,19 @@ export default function EnglishClassCourse2({
               </span>
             )}
           </div>
+          <label>
+            <input
+              type="checkbox"
+              checked={isCompleted}
+              onChange={handleToggle}
+              disabled={loading}
+            />
+            {loading
+              ? "  Atualizando..."
+              : isCompleted
+              ? "  Completed"
+              : "  Not Completed"}
+          </label>
           {thePermissions === "superadmin" && (
             <div
               style={{
