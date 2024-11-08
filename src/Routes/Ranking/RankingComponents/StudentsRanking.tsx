@@ -179,6 +179,9 @@ export default function StudentsRanking({
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
     fetchStudents();
+    setInterval(() => {
+      fetchStudents();
+    }, 5000);
   };
 
   const fetchStudents = async () => {
@@ -401,6 +404,9 @@ export default function StudentsRanking({
           style={{
             backgroundColor: textSecondaryColorContrast(),
             color: secondaryColor(),
+            position: "fixed",
+            bottom: 10,
+            left: 10,
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>

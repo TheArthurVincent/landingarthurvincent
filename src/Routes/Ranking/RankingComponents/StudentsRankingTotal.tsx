@@ -45,6 +45,9 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
 
   useEffect(() => {
     fetchStudents();
+    setInterval(() => {
+      fetchStudents();
+    }, 5000);
   }, []);
 
   return (
@@ -62,7 +65,9 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           style={{
             backgroundColor: textSecondaryColorContrast(),
             color: secondaryColor(),
-            position:"fixed"
+            position: "fixed",
+            bottom: 10,
+            left: 10,
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>
@@ -95,22 +100,13 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   src={theItems[levelNumber].image2}
                   alt="level"
                 />
-                <div
-                style={{textAlign:"center"}}
-                >
-                  <p
-                style={{fontWeight:550}}
-                  
-                  >
-                    #{index + 1} |{" "}
-                    {item.name + " " + item.lastname}
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontWeight: 550 }}>
+                    #{index + 1} | {item.name + " " + item.lastname}
                   </p>
                   {/* Exibe os pontos restantes somente se o item estiver hovered */}
                   {hoveredIndex === index && (
-                    <p
-                    style={{fontStyle:"italic",fontSize:"12px"}}
-                    
-                    >
+                    <p style={{ fontStyle: "italic", fontSize: "12px" }}>
                       {`Pontos restantes até o nível ${
                         nextLevel.text || "Desconhecido"
                       } : ${formatNumber(remainingPoints)}`}
