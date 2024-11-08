@@ -336,10 +336,10 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       {/*  */}
       {/*  */}
       {/*  */}
-      <Countdown
+      {/* <Countdown
           targetDate={new Date("2024-11-08T20:10:00")}
           text="You have until 8:10pm to score 20 points per card!"
-        />
+        /> */}
       {/*  */}
       {/*  */}
       {/*  */}

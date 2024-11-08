@@ -20,7 +20,7 @@ import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [students, setStudents] = useState<any>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Novo estado para hover
 
   const theItems = levels();
@@ -28,7 +28,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/scorestotalranking/`,
@@ -37,7 +37,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         }
       );
       setStudents(response.data.listOfStudents);
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
@@ -62,6 +62,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           style={{
             backgroundColor: textSecondaryColorContrast(),
             color: secondaryColor(),
+            position:"fixed"
           }}
         >
           <i className="fa fa-refresh" aria-hidden="true"></i>

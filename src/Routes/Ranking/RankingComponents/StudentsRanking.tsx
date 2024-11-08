@@ -81,7 +81,7 @@ export default function StudentsRanking({
   });
   const actualHeaders = headers || {};
 
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [isAdm, setIsAdm] = useState<boolean>(false);
   const [loadingScore, setLoadingScore] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(false);
@@ -182,13 +182,13 @@ export default function StudentsRanking({
   };
 
   const fetchStudents = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/scoresranking/`, {
         headers: actualHeaders,
       });
       setStudents(response.data.listOfStudents);
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       console.log("Erro ao encontrar alunos");
     }
