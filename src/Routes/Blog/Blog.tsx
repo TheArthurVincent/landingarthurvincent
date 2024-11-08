@@ -257,13 +257,13 @@ export function Blog({ headers }: HeadersProps) {
         {/*  */}
         {/*  */}
         {/* <Countdown
-          targetDate={new Date("2024-11-08T20:05:00")}
-          text="You have 5 minutes to score 20 points per card!"
+          targetDate={new Date("2024-11-08T20:10:00")}
+          text="You have until 8:10pm to score 20 points per card!"
         /> */}
-        <Countdown
+        {/* <Countdown
           targetDate={new Date("2024-11-08T20:00:00")}
           text="Tonight, for 5 minutes, each flashcard review will be worth 20 points!"
-        />
+        /> */}
         {/*  */}
         {/*  */}
         {/*  */}
