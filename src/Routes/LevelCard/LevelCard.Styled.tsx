@@ -63,7 +63,8 @@ export const NewLevelCardComponent = styled.div`
   @media (max-width: 1200px) {
     width: 85vw;
     display: flex;
-    height: 1.5rem;
+  padding: 10spx ;
+    height: 2.5rem;
     margin: auto;
     // grid-template-columns: 1fr 1fr;
     // align-items: center;

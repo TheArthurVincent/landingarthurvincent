@@ -6,7 +6,7 @@ import {
   updateInfo,
   updateScore,
 } from "../../Resources/UniversalComponents";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, LinearProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import {
   LevelCardLevel,
@@ -18,6 +18,7 @@ import {
   DivSeeBig,
 } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 interface LevelCardProps {
   headers: MyHeadersType | null;
@@ -32,18 +33,34 @@ export function LevelCard({
   picture,
   change,
 }: LevelCardProps) {
+  let theme = createTheme({
+    // Theme customization goes here as usual, including tonalOffset and/or
+    // contrastThreshold as the augmentColor() function relies on these
+  });
+
+  theme = createTheme(theme, {
+    // Custom colors created with augmentColor go here
+    palette: {
+      salmon: theme.palette.augmentColor({
+        color: {
+          main: "#333",
+        },
+        name: "#333",
+      }),
+    },
+  });
   const [pictureStudent, setPictureStudent] = useState<string>(picture);
   const [totalScore, setTotalScore] = useState<number>(0);
   const [monthlyScore, setMonthlyScore] = useState<number>(0);
   const [level, setLevel] = useState<number>(9);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [showCard, setShowCard] = useState<any>("none");
 
   const items = levels();
   const actualHeaders = headers || {};
 
   const seeScore = async (id: string) => {
-    setLoading(true);
+    // setLoading(true);
     try {
       updateInfo(id, actualHeaders);
     } catch (e) {
@@ -61,7 +78,7 @@ export function LevelCard({
       const levelDone = newValue.level;
       setLevel(levelDone);
       setShowCard("block");
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -77,6 +94,12 @@ export function LevelCard({
       window.location.assign("/login");
     }
   }, [change]);
+  const theItems = levels();
+
+  const levelNumber = updateScore(totalScore).level;
+  const nextLevel = theItems[levelNumber + 1] || {};
+  const remainingPoints =
+    (Number(nextLevel.totalScore) || 0) - (Number(totalScore) || 0);
 
   return (
     <NewLevelCardComponent
@@ -142,55 +165,115 @@ export function LevelCard({
                   <p style={{ color: "#fff" }}>
                     Monthly Score: {formatNumber(monthlyScore)}
                   </p>
+                  <Tooltip
+                    title={`Pontos restantes até o nível ${
+                      nextLevel.text || "Desconhecido"
+                    } : ${formatNumber(remainingPoints)}`}
+                  >
+                    <div
+                      style={{
+                        height: "1px",
+                        width: "100%",
+                        marginTop: "6px",
+                      }}
+                    >
+                      <ThemeProvider theme={theme}>
+                        <LinearProgress
+                          variant="determinate"
+                          //@ts-ignore
+                          color="salmon"
+                          value={100 - (remainingPoints / totalScore) * 100}
+                          style={{
+                            borderRadius: "5px",
+                            backgroundColor: items[level].color,
+                          }}
+                        />
+                      </ThemeProvider>
+                    </div>
+                  </Tooltip>
                 </DivDisapearBig>
-                <DivSeeBig>
-                  <i
-                    style={{
-                      display: "grid",
-                      alignContent: "center",
-                      borderRadius:"50%",
-                      color: items[level].textcolor,
-                      backgroundColor: items[level].color,
-                      width: "25px",
-                      height: "25px",
-                      fontSize: "15px",
-                    }}
-                    className={items[level].icon}
-                    aria-hidden="true"
-                  />{" "}
-                  <p style={{ color: "#fff" }}>
-                    <span
+                <div
+                  style={{
+                    display: "grid",
+                    gap: "5px",
+                  }}
+                >
+                  {" "}
+                  <Tooltip
+                    title={`Pontos restantes até o nível ${
+                      nextLevel.text || "Desconhecido"
+                    } : ${formatNumber(remainingPoints)}`}
+                  >
+                    <div
                       style={{
-                        fontWeight: 1000,
+                        height: "1px",
+                        width: "100%",
+                        paddingBottom: "6px",
                       }}
                     >
-                      Total Score:
-                    </span>{" "}
-                    {formatNumber(totalScore)}
-                  </p>
-                  <p style={{ color: "#fff" }}>
-                    <span
+                      <ThemeProvider theme={theme}>
+                        <LinearProgress
+                          variant="determinate"
+                          //@ts-ignore
+                          color="salmon"
+                          value={100 - (remainingPoints / totalScore) * 100}
+                          style={{
+                            borderRadius: "5px",
+                            backgroundColor: items[level].color,
+                          }}
+                        />
+                      </ThemeProvider>
+                    </div>
+                  </Tooltip>
+                  <DivSeeBig>
+                    <i
                       style={{
-                        fontWeight: 1000,
+                        display: "grid",
+                        alignContent: "center",
+                        borderRadius: "50%",
+                        color: items[level].textcolor,
+                        backgroundColor: items[level].color,
+                        width: "25px",
+                        height: "25px",
+                        fontSize: "15px",
                       }}
-                    >
-                      Monthly Score:{" "}
-                    </span>
-                    {formatNumber(monthlyScore)}
-                  </p>
-                  <i
-                    onClick={() => seeScore(_StudentId)}
-                    style={{
-                      display: showCard,
-                      cursor: "pointer",
-                      color: "#fff",
-                      fontSize: "0.8rem",
-                      margin: "0",
-                    }}
-                    className="fa fa-refresh"
-                    aria-hidden="true"
-                  />
-                </DivSeeBig>
+                      className={items[level].icon}
+                      aria-hidden="true"
+                    />{" "}
+                    <p style={{ color: "#fff" }}>
+                      <span
+                        style={{
+                          fontWeight: 1000,
+                        }}
+                      >
+                        Total Score:
+                      </span>{" "}
+                      {formatNumber(totalScore)}
+                    </p>
+                    <p style={{ color: "#fff" }}>
+                      <span
+                        style={{
+                          fontWeight: 1000,
+                        }}
+                      >
+                        Monthly Score:{" "}
+                      </span>
+                      {formatNumber(monthlyScore)}
+                    </p>
+                    <i
+                      onClick={() => seeScore(_StudentId)}
+                      style={{
+                        display: showCard,
+                        cursor: "pointer",
+                        color: "#fff",
+                        fontSize: "0.8rem",
+                        margin: "0",
+                      }}
+                      className="fa fa-refresh"
+                      aria-hidden="true"
+                    />
+                  </DivSeeBig>
+                </div>
               </>
             )}
           </div>
