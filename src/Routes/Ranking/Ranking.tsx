@@ -81,6 +81,8 @@ export default function Ranking({ headers }: HeadersProps) {
     setValue(newValue);
   };
 
+  const targetDate = new Date("2024-11-30T23:59:59")
+
   return (
     <RouteDiv className="smooth">
       <Helmets text="Ranking" />
@@ -117,7 +119,7 @@ export default function Ranking({ headers }: HeadersProps) {
             })}
           </TabList>
         </Box>
-        <Countdown />
+        <Countdown targetDate={targetDate} text="Score resets on" />
         {componentsToRender.map((component, index) => {
           return (
             <TabPanel

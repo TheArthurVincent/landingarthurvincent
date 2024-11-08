@@ -12,6 +12,7 @@ import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons"
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { languages } from "./AddFlashONEFlashCard";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
+import Countdown from "../../Ranking/RankingComponents/Countdown";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -30,7 +31,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [seeVideo, setSeeVideo] = useState<boolean>(false);
 
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
@@ -318,9 +318,15 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const handleHideModal = () => {
     setShowModal(false);
   };
+  const targetDate = new Date("2024-11-08T20:00:00");
 
   return (
     <section id="review">
+      <Countdown
+        targetDate={targetDate}
+        text="Tonight, for 5 minutes, each flashcard review will be worth 20 points!"
+      />
+
       {see && (
         <div>
           {loading ? (
@@ -647,17 +653,11 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
       <div
         style={{
-          display: !isDisabled ? "none" : "flex",
+          display: !isDisabled ? "none" : "grid",
           justifyContent: "center",
           marginTop: "20px",
         }}
       >
-        {/* <ArvinButton
-          onClick={() => setSeeVideo(!seeVideo)}
-          style={{ margin: "0 5px" }}
-        >
-          See explanation
-        </ArvinButton> */}
         <ArvinButton
           style={{
             margin: "auto",

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import {
-  formatDate,
-} from "../../../Resources/UniversalComponents";
+import { formatDate } from "../../../Resources/UniversalComponents";
 import {
   secondaryColor,
   textSecondaryColorContrast,
   textTitleFont,
 } from "../../../Styles/Styles";
-import { HOne } from "../../../Resources/Components/RouteBox";
+import { HOne, HTwo } from "../../../Resources/Components/RouteBox";
 
-const Countdown: React.FC = () => {
-  const targetDate = new Date("2024-11-30T23:59:59"); 
+interface CountDownProps {
+  text: string;
+  targetDate: Date;
+}
+
+export default function Countdown({ text, targetDate }: CountDownProps) {
+  const textToUse = text;
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -52,7 +55,9 @@ const Countdown: React.FC = () => {
         marginBottom: "2rem",
       }}
     >
-      <HOne>Score Resets on {formatDate(targetDate)}</HOne>
+      <HTwo>
+        {textToUse} {formatDate(targetDate)}
+      </HTwo>
       <div
         style={{
           backgroundColor: timeLeft.days == 0 ? "red" : secondaryColor(),
@@ -70,6 +75,4 @@ const Countdown: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Countdown;
+}
