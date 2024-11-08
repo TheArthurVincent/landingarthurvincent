@@ -49,13 +49,14 @@ interface EnglishClassCourse2ModelProps {
   courseTitle: any;
   previousClass: any;
   nextClass: any;
+  studentsWhoCompletedIt: any;
   order: number | any;
 }
 
 export default function EnglishClassCourse2({
   headers,
   classId,
-  course,
+  studentsWhoCompletedIt,
   previousClass,
   nextClass,
   order,
@@ -70,8 +71,6 @@ export default function EnglishClassCourse2({
   const [theclass, setheClass] = useState<any>({});
   const [classTitle, setClassTitle] = useState<string>("");
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
-
-
 
   const actualHeaders = headers || {};
 
@@ -96,7 +95,7 @@ export default function EnglishClassCourse2({
 
       var clss = response.data.classDetails;
       setClassTitle(response.data.classDetails.title);
-      console.log(response.data.classDetails.studentsWhoCompletedIt,studentID);
+      console.log(response.data.classDetails.studentsWhoCompletedIt, studentID);
       if (response.data.classDetails.studentsWhoCompletedIt.includes(id)) {
         setIsCompleted(true);
       } else {
@@ -112,7 +111,6 @@ export default function EnglishClassCourse2({
   };
 
   const getClassNoLoading = async () => {
-
     const user = localStorage.getItem("loggedIn");
     const { id, permissions } = JSON.parse(user || "");
     setPermissions(permissions);
@@ -132,7 +130,7 @@ export default function EnglishClassCourse2({
 
       var clss = response.data.classDetails;
       setClassTitle(response.data.classDetails.title);
-      console.log(response.data.classDetails.studentsWhoCompletedIt,studentID);
+      console.log(response.data.classDetails.studentsWhoCompletedIt, studentID);
       if (response.data.classDetails.studentsWhoCompletedIt.includes(id)) {
         setIsCompleted(true);
       } else {
@@ -188,7 +186,6 @@ export default function EnglishClassCourse2({
     };
   }, []);
 
-  
   const handleStudentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const theid = event.target.value;
     setStudentID(theid);
@@ -233,14 +230,14 @@ export default function EnglishClassCourse2({
         <CircularProgress />
       ) : (
         <>
-          <ArvinButton
+          {/* <ArvinButton
             style={{ margin: "1rem auto", display: "block" }}
             onClick={() => {
               setSeeSlides(!seeSlides);
             }}
           >
             See slides
-          </ArvinButton>
+          </ArvinButton> */}
 
           <div
             style={{
@@ -316,7 +313,21 @@ export default function EnglishClassCourse2({
                 fontSize: "18px",
               }}
             >
-              {`${order + 1}- ${theclass.title}`}
+              {`${order + 1}- ${theclass.title}`}{" "}
+              <i
+                style={{
+                  color: "white",
+                  backgroundColor: "green",
+                  padding: "1px",
+                  borderRadius: "50%",
+                  margin: "0 0.5rem",
+                }}
+                className={
+                  isCompleted
+                    ? `fa fa-check`
+                    : `fa fa-circle`
+                }
+              />
             </HOne>
             {nextClass !== "123456" ? (
               <span
@@ -338,19 +349,21 @@ export default function EnglishClassCourse2({
               </span>
             )}
           </div>
-          <label>
-            <input
-              type="checkbox"
-              checked={isCompleted}
-              onChange={handleToggle}
-              disabled={loading}
-            />
-            {loading
-              ? "  Atualizando..."
-              : isCompleted
-              ? "  Completed"
-              : "  Not Completed"}
-          </label>
+          {thePermissions === "superadmin" && (
+            <label>
+              <input
+                type="checkbox"
+                checked={isCompleted}
+                onChange={handleToggle}
+                disabled={loading}
+              />
+              {loading
+                ? "  Atualizando..."
+                : isCompleted
+                ? "  Completed"
+                : "  Not Completed"}
+            </label>
+          )}
           {thePermissions === "superadmin" && (
             <div
               style={{
@@ -400,9 +413,9 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
-          {/* {theclass.image && (
+          {theclass.image && (
             <ImgLesson src={theclass.image} alt={theclass.title} />
-          )} */}
+          )}
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
@@ -592,6 +605,21 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
+          {thePermissions === "superadmin" && (
+            <label>
+              <input
+                type="checkbox"
+                checked={isCompleted}
+                onChange={handleToggle}
+                disabled={loading}
+              />
+              {loading
+                ? "  Atualizando..."
+                : isCompleted
+                ? "  Completed"
+                : "  Not Completed"}
+            </label>
+          )}
         </>
       )}
       {/* Teacher */}

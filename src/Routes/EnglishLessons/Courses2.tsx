@@ -19,6 +19,7 @@ interface EnglishCoursesHomeProps {
 
 export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   const [loading, setLoading] = useState<boolean>(false);
+  const [stId, setStId] = useState<boolean>(false);
   const [listOfCoursesFromDatabase, setListOfCoursesFromDatabase] =
     useState<any>([]);
 
@@ -28,8 +29,8 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
     setLoading(true);
 
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
-
     const studentId = getLoggedUser.id;
+    setStId(studentId);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/courses/${studentId}`,
@@ -71,6 +72,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                 courseId={route._id}
                 title={route.title}
                 headers={headers}
+                studentId={stId}
               />
             }
           />

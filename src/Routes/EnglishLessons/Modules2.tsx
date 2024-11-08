@@ -19,11 +19,13 @@ interface ModulesHomeProps {
   headers: MyHeadersType | null;
   courseId: string;
   title: string;
+  studentId: any;
 }
 
 export default function Modules({
   headers,
   courseId,
+  studentId,
   title,
 }: ModulesHomeProps) {
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,6 +45,7 @@ export default function Modules({
       );
 
       var mod = response.data.modules;
+      console.log(response.data);
       setModules(mod);
       // Inicialize todos os módulos como visíveis
       setVisibleModules(new Array(mod.length).fill(true));
@@ -55,6 +58,8 @@ export default function Modules({
   };
 
   useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    const { id } = JSON.parse(user || "");
     getModules();
   }, []);
 
@@ -109,6 +114,7 @@ export default function Modules({
                 path={`${classItem._id}/`}
                 element={
                   <EnglishClassCourse2
+                    studentsWhoCompletedIt={classItem.studentsWhoCompletedIt}
                     headers={headers}
                     classId={classItem._id}
                     course={courseId}
@@ -212,6 +218,22 @@ export default function Modules({
                           }}
                         >
                           <CourseCard>
+                            {
+                              <i
+                                style={{
+                                  color: "white",
+                                  backgroundColor: "green",
+                                  padding: "1px",
+                                  borderRadius: "50%",
+                                  margin: "0 0.5rem",
+                                }}
+                                className={
+                                  cls.studentsWhoCompletedIt.includes(studentId)
+                                    ? `fa fa-check`
+                                    : `fa fa-circle`
+                                }
+                              />
+                            }
                             <img
                               src={
                                 cls.image
