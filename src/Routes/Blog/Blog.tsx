@@ -33,6 +33,7 @@ import {
 } from "./Blog.Styled";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
+import Countdown from "../Ranking/RankingComponents/Countdown";
 
 export function Blog({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -157,7 +158,6 @@ export function Blog({ headers }: HeadersProps) {
       setLoading(false);
     }
   }
-
   return (
     <>
       <RouteDiv>
@@ -241,6 +241,54 @@ export function Blog({ headers }: HeadersProps) {
           </div>
         </div>
         <HOne>{UniversalTexts.mural}</HOne>
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/* <Countdown
+          targetDate={new Date("2024-11-08T20:05:00")}
+          text="You have 5 minutes to score 20 points per card!"
+        /> */}
+        <Countdown
+          targetDate={new Date("2024-11-08T20:00:00")}
+          text="Tonight, for 5 minutes, each flashcard review will be worth 20 points!"
+        />
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {/*  */}
+
         {posts.map((post: any, index: number) => (
           <div
             key={index}

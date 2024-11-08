@@ -318,15 +318,56 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const handleHideModal = () => {
     setShowModal(false);
   };
-  const targetDate = new Date("2024-11-08T20:00:00");
 
   return (
     <section id="review">
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/* <Countdown
+          targetDate={new Date("2024-11-08T20:05:00")}
+          text="You have 5 minutes to score 20 points per card!"
+        /> */}
       <Countdown
-        targetDate={targetDate}
+        targetDate={new Date("2024-11-08T20:00:00")}
         text="Tonight, for 5 minutes, each flashcard review will be worth 20 points!"
       />
-
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
       {see && (
         <div>
           {loading ? (
@@ -650,7 +691,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           alignItems: "center",
         }}
       />
-
       <div
         style={{
           display: !isDisabled ? "none" : "grid",
@@ -668,7 +708,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
         </ArvinButton>
       </div>
-
       <div
         style={{
           display: "flex",
