@@ -43,9 +43,9 @@ export function LevelCard({
     palette: {
       salmon: theme.palette.augmentColor({
         color: {
-          main: "#333",
+          main: "#000",
         },
-        name: "#333",
+        name: "#000",
       }),
     },
   });
