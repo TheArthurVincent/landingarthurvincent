@@ -26,8 +26,8 @@
 
 @media (max-width: 450px) {
   *::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
   }
 
   *::-webkit-scrollbar-track {
