@@ -24,10 +24,10 @@
   margin: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 450px) {
   *::-webkit-scrollbar {
-    width: 9px;
-    height: 9px;
+    width: 5px;
+    height: 5px;
   }
 
   *::-webkit-scrollbar-track {
