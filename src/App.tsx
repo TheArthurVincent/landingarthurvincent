@@ -72,7 +72,7 @@ function App() {
     },
     { path: "/message", element: verifyToken() ? <MessageDrive /> : <Login /> },
     { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
-    { path: "/signup", element: <SignUp /> },
+    { path: "/vhsd524vs64ths98vs8", element: <SignUp /> },
   ];
 
   return (
