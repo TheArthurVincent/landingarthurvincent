@@ -37,7 +37,7 @@ export default function Ranking({ headers }: HeadersProps) {
 
   const componentsToRender = [
     {
-      title: monthInQuestion,
+      title: UniversalTexts.monthlyRanking + " " + monthInQuestion,
       value: "1",
       component: (
         <StudentsRanking monthNow={monthInQuestion} headers={headers} />
@@ -81,7 +81,7 @@ export default function Ranking({ headers }: HeadersProps) {
     setValue(newValue);
   };
 
-  const targetDate = new Date("2024-11-30T23:59:59")
+  const targetDate = new Date("2024-11-30T23:59:59");
 
   return (
     <RouteDiv className="smooth">
