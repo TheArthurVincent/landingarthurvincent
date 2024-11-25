@@ -214,8 +214,7 @@ export default function Modules({
                         <Link
                           to={cls._id}
                           style={{
-                            paddingTop: "10px",
-                            paddingBottom: "10px",
+                        
                             textDecoration: "none",
                           }}
                         >
@@ -225,7 +224,10 @@ export default function Modules({
                                 style={{
                                   color: "white",
                                   backgroundColor: "green",
-                                  padding: "1px",
+                                  paddingRight: "5px",
+                                  paddingLeft: "5px",
+                                  paddingTop: "10px",
+                                  paddingBottom: "10px",
                                   borderRadius: "50%",
                                   margin: "0 0.5rem",
                                 }}
