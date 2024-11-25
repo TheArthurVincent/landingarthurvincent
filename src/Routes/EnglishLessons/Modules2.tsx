@@ -210,7 +210,13 @@ export default function Modules({
                     }}
                   >
                     {module.classes.map((cls: any, idx: number) => (
-                      <div key={idx}>
+                      <div
+                        style={{
+                          paddingTop: "10px",
+                          paddingBottom: "10px",
+                        }}
+                        key={idx}
+                      >
                         <Link
                           to={cls._id}
                           style={{
