@@ -200,6 +200,7 @@ export function Contract({ headers }: HeadersProps) {
                   style={{
                     fontStyle: "italic",
                     listStyle: "square",
+                    fontSize: "10px",
                     padding: "0 2rem",
                   }}
                 >
@@ -215,6 +216,15 @@ export function Contract({ headers }: HeadersProps) {
                 Se o aluno não avisar ao professor com tal antecedência, o
                 professor não terá a obrigação de fazer a reposição da aula
                 particular;
+              </li>
+              <li style={liStyle}>
+                Se o aluno avisar ao professor com tal antecedência, o aluno
+                deve bater uma meta de 1000 pontos em flashcards para que seja
+                aberta a agenda de reposições;
+              </li>{" "}
+              <li style={liStyle}>
+                Se o aluno perder a aula de reposição, esta não poderá mais ser
+                reposta;
               </li>
               <li style={liStyle}>
                 Em caso de falta <strong>do professor</strong>, este reporá a
