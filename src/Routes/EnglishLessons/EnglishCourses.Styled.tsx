@@ -27,8 +27,8 @@ export const CourseItem = styled.div`
 `;
 export const CourseCard = styled.div`
   display: flex;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   align-items: center;
   justify-content: space-between;
   background-color: #f5f5f5;
