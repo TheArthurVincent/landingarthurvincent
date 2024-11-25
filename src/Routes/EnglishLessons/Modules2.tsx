@@ -210,16 +210,12 @@ export default function Modules({
                     }}
                   >
                     {module.classes.map((cls: any, idx: number) => (
-                      <div
-                        style={{
-                          paddingTop: "10px",
-                          paddingBottom: "10px",
-                        }}
-                        key={idx}
-                      >
+                      <div key={idx}>
                         <Link
                           to={cls._id}
                           style={{
+                            paddingTop: "10px",
+                            paddingBottom: "10px",
                             textDecoration: "none",
                           }}
                         >
