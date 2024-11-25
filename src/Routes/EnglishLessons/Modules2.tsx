@@ -214,29 +214,35 @@ export default function Modules({
                         <Link
                           to={cls._id}
                           style={{
-                        
                             textDecoration: "none",
                           }}
                         >
                           <CourseCard>
                             {
-                              <i
+                              <span
                                 style={{
-                                  color: "white",
-                                  backgroundColor: "green",
                                   paddingRight: "5px",
                                   paddingLeft: "5px",
                                   paddingTop: "10px",
                                   paddingBottom: "10px",
-                                  borderRadius: "50%",
-                                  margin: "0 0.5rem",
                                 }}
-                                className={
-                                  cls.studentsWhoCompletedIt.includes(studentId)
-                                    ? `fa fa-check`
-                                    : `fa fa-circle`
-                                }
-                              />
+                              >
+                                <i
+                                  style={{
+                                    color: "white",
+                                    backgroundColor: "green",
+                                    borderRadius: "50%",
+                                    margin: "0 0.5rem",
+                                  }}
+                                  className={
+                                    cls.studentsWhoCompletedIt.includes(
+                                      studentId
+                                    )
+                                      ? `fa fa-check`
+                                      : `fa fa-circle`
+                                  }
+                                />
+                              </span>
                             }
                             {/* <img
                               src={
