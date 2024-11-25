@@ -234,14 +234,14 @@ export default function Modules({
                                 }
                               />
                             }
-                            <img
+                            {/* <img
                               src={
                                 cls.image
                                   ? cls.image
                                   : "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/bg2.png?updatedAt=1687554564387"
                               }
                               alt={cls.title}
-                            />
+                            /> */}
                             <p className="hoverable-paragraph">
                               #{idx + 1} - {cls.title}
                               <span
