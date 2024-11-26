@@ -413,9 +413,9 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
-          {theclass.image && (
+          {/* {theclass.image && (
             <ImgLesson src={theclass.image} alt={theclass.title} />
-          )}
+          )} */}
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
