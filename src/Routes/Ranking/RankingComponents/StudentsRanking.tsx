@@ -370,7 +370,8 @@ export default function StudentsRanking({
                 zIndex: 1,
               }}
               src={
-                updateScore(totalScore, totalFlashCards25, totalHomeworkDone).card
+                updateScore(totalScore, totalFlashCards25, totalHomeworkDone)
+                  .card
               }
               alt=""
             />
@@ -420,19 +421,7 @@ export default function StudentsRanking({
           marginBottom: "0.5rem",
         }}
       >
-        <Button
-          onClick={() => fetchStudentsScore()}
-          style={{
-            backgroundColor: textSecondaryColorContrast(),
-            color: secondaryColor(),
-            position: "fixed",
-            bottom: 10,
-            left: 10,
-          }}
-        >
-          <i className="fa fa-refresh" aria-hidden="true"></i>
-        </Button>
-        <p>
+        <p onClick={() => fetchStudentsScore()}>
           {`Apenas os primeiros 5 colocados em ${monthNow} são mostrados na
           lista!`}
         </p>
@@ -441,11 +430,12 @@ export default function StudentsRanking({
         <div>
           <span className="top-item">
             {students.map((item: any, index: number) => {
-              const levelNumber = updateScore(
-                item.totalScore,
-                item.flashcards25Reviews,
-                item.homeworkAssignmentsDone
-              ).level -1;
+              const levelNumber =
+                updateScore(
+                  item.totalScore,
+                  item.flashcards25Reviews,
+                  item.homeworkAssignmentsDone
+                ).level - 1;
               return (
                 <>
                   <div
@@ -514,11 +504,12 @@ export default function StudentsRanking({
           </span>
           <ul>
             {students.map((item: any, index: number) => {
-              const levelNumber = updateScore(
-                item.totalScore,
-                item.flashcards25Reviews,
-                item.homeworkAssignmentsDone
-              ).level -1;
+              const levelNumber =
+                updateScore(
+                  item.totalScore,
+                  item.flashcards25Reviews,
+                  item.homeworkAssignmentsDone
+                ).level - 1;
 
               return (
                 <>
