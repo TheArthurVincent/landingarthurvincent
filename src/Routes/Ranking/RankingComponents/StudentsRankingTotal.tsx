@@ -58,8 +58,15 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   useEffect(() => {
     fetchStudents();
   }, []);
+
   useEffect(() => {
-      setTruncatedSize(window.innerWidth / 80);
+    setInterval(() => {
+      fetchStudentsNoLoading();
+    }, 1500);
+  }, []);
+
+  useEffect(() => {
+    setTruncatedSize(window.innerWidth / 80);
   }, [window.innerWidth]);
 
   return (
@@ -72,19 +79,9 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           marginBottom: "1rem",
         }}
       >
-        <Button
-          onClick={() => fetchStudents()}
-          style={{
-            backgroundColor: textSecondaryColorContrast(),
-            color: secondaryColor(),
-            position: "fixed",
-            bottom: 10,
-            left: 10,
-          }}
-        >
-          <i className="fa fa-refresh" aria-hidden="true"></i>
-        </Button>
-        <p>Este é o Ranking das pontuações TOTAIS acima de 10.000!</p>
+        <p onClick={() => fetchStudents()}>
+          Este é o Ranking das pontuações TOTAIS acima de 10.000!
+        </p>
       </div>
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
