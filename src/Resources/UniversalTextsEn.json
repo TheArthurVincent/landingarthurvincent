@@ -1,8 +1,8 @@
 {
   "timeline": "Timeline",
-  "f1st": "1st place: 1 extra private lesson (30min) + 5% discount on the next month's tuition. Additionally, starts the following month with 50 points;",
-  "s2nd": "2nd place: 1 extra private lesson (30min) or 5% discount on the next month's tuition (student’s choice). Also starts the following month with 25 points;",
-  "t3rd": "3rd place: Starts the following month with 25 points;",
+  "f1st": "1st place: 1 extra private lesson (30min) + 5% discount on next month's tuition + 200 points the following month",
+  "s2nd": "2nd place: 5% discount on next month's tuition + 150 points the following month;",
+  "t3rd": "3rd place: 100 points the following month;",
   "score": "Score",
   "uplevel": "Level Up (5% discount on the following month upon qualification)",
   "t3000": "Qualification only for those with AT LEAST 3000 points in the month!",
