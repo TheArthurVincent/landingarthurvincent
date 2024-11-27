@@ -157,7 +157,7 @@ export const fadeIn = keyframes`
   }
 `;
 export const DivFont = styled.div`
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.1rem;
   font-family: ${textTitleFont()};
   margin: 0;

@@ -41,6 +41,8 @@ export default function StudentsRanking({
     id: string;
     lastname: string;
     name: string;
+    homeworkAssignmentsDone: number;
+    flashcards25Reviews: number;
     picture: string;
     username: string;
     monthlyScore: number;
@@ -55,6 +57,8 @@ export default function StudentsRanking({
     doc: string;
     email: string;
     googleDriveLink: string;
+    homeworkAssignmentsDone: number;
+    flashcards25Reviews: number;
     permissions: string;
     phoneNumber: string;
     picture: string;
@@ -76,18 +80,21 @@ export default function StudentsRanking({
     phoneNumber: "",
     picture: "",
     username: "",
+    homeworkAssignmentsDone: 0,
+    flashcards25Reviews: 0,
     monthlyScore: 0,
     totalScore: 0,
   });
   const actualHeaders = headers || {};
 
-  const [loading, setLoading] = useState<boolean>(false);
   const [isAdm, setIsAdm] = useState<boolean>(false);
   const [loadingScore, setLoadingScore] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(false);
   const [descSpecial, setDescSpecial] = useState<string>("");
   const [plusScore, setPlusScore] = useState<number>(0);
   const [totalScore, setTotalScore] = useState<number>(0);
+  const [totalFlashCards25, setTotalFlashCards25] = useState<number>(0);
+  const [totalHomeworkDone, setTotalHomeworkDone] = useState<number>(0);
   const [monthlyScore, setMonthlyScore] = useState<number>(0);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [ID, setId] = useState<string>("");
@@ -105,6 +112,12 @@ export default function StudentsRanking({
       });
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+      setTotalFlashCards25(
+        response.data.formattedStudentData.flashcards25Reviews
+      );
+      setTotalHomeworkDone(
+        response.data.formattedStudentData.homeworkAssignmentsDone
+      );
       setId(response.data.formattedStudentData.id);
       setPic(response.data.formattedStudentData.picture);
       setName(
@@ -132,6 +145,12 @@ export default function StudentsRanking({
       });
       setTotalScore(response.data.formattedStudentData.totalScore);
       setMonthlyScore(response.data.formattedStudentData.monthlyScore);
+      setTotalFlashCards25(
+        response.data.formattedStudentData.flashcards25Reviews
+      );
+      setTotalHomeworkDone(
+        response.data.formattedStudentData.homeworkAssignmentsDone
+      );
     } catch (error: any) {
       console.log(error);
       console.error(error);
@@ -178,38 +197,33 @@ export default function StudentsRanking({
 
   const handleSeeModal = () => {
     setIsVisible(!isVisible);
-    fetchStudents();
-    setInterval(() => {
-      fetchStudents();
-    }, 5000);
+    fetchStudentsScore();
   };
 
-  const fetchStudents = async () => {
-    // setLoading(true);
+  const fetchStudentsScore = async () => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/scoresranking/`, {
         headers: actualHeaders,
       });
       setStudents(response.data.listOfStudents);
-      // setLoading(false);
     } catch (error) {
       console.log("Erro ao encontrar alunos");
     }
   };
   useEffect(() => {
-    fetchStudents();
+    fetchStudentsScore();
   }, []);
   const updateFeeStatus = async (id: string) => {
     try {
       const response = await axios.put(
-        `${backDomain}/api/v1/feeuptodate/${id}`, // ID já está na URL
-        {}, // corpo vazio, pois você está apenas atualizando o status via ID
+        `${backDomain}/api/v1/feeuptodate/${id}`,
+        {},
         {
-          headers: actualHeaders, // headers fora do objeto de dados
+          headers: actualHeaders,
         }
       );
       alert("Status atualizado");
-      fetchStudents();
+      fetchStudentsScore();
     } catch (error) {
       console.log("error", error);
     }
@@ -269,6 +283,12 @@ export default function StudentsRanking({
             </HThree>
             <HThree>
               Total Score: <strong>{formatNumber(totalScore)} </strong>
+            </HThree>
+            <HThree>
+              Homework Done: <strong>{totalHomeworkDone} </strong>{" "}
+            </HThree>
+            <HThree>
+              Flashcards 25/day: <strong>{totalFlashCards25} </strong>
             </HThree>
           </div>
         )}
@@ -338,7 +358,6 @@ export default function StudentsRanking({
             >
               see card
             </button>
-            <p></p>
           </div>
           <div
             id="the-card"
@@ -350,7 +369,9 @@ export default function StudentsRanking({
                 position: "absolute",
                 zIndex: 1,
               }}
-              src={updateScore(totalScore).card}
+              src={
+                updateScore(totalScore, totalFlashCards25, totalHomeworkDone).card
+              }
               alt=""
             />
             <img
@@ -400,7 +421,7 @@ export default function StudentsRanking({
         }}
       >
         <Button
-          onClick={() => fetchStudents()}
+          onClick={() => fetchStudentsScore()}
           style={{
             backgroundColor: textSecondaryColorContrast(),
             color: secondaryColor(),
@@ -416,80 +437,89 @@ export default function StudentsRanking({
           lista!`}
         </p>
       </div>
-      {loading ? (
-        <CircularProgress style={{ color: secondaryColor() }} />
-      ) : (
+      {
         <div>
-          {students.map((item: any, index: number) => {
-            const levelNumber = updateScore(item.totalScore).level;
-            return (
-              <>
-                <div
-                  key={index}
-                  style={{
-                    padding: "0.5rem 1rem",
-                    margin: "1rem 0",
-                    boxShadow: "1px 1px 10px 1px #aaa",
-                    display:
-                      item._id == "671b99e97acd42b04d2f7507"
-                        ? "none"
-                        : item._id === user.id
-                        ? "flex"
-                        : "none",
-                    justifyContent: "space-between",
-                    background: theItems[levelNumber].color,
-                    color: theItems[levelNumber].textcolor,
-                  }}
-                >
+          <span className="top-item">
+            {students.map((item: any, index: number) => {
+              const levelNumber = updateScore(
+                item.totalScore,
+                item.flashcards25Reviews,
+                item.homeworkAssignmentsDone
+              ).level -1;
+              return (
+                <>
                   <div
+                    key={index}
                     style={{
-                      display: "grid",
-                      justifyContent: "space-evenly",
-                      alignItems: "center",
+                      padding: "0.5rem 1rem",
+                      margin: "1rem 0",
+                      boxShadow: "1px 1px 10px 1px #aaa",
+                      display:
+                        item._id == "671b99e97acd42b04d2f7507"
+                          ? "none"
+                          : item._id === user.id
+                          ? "flex"
+                          : "none",
+                      justifyContent: "space-between",
+                      background: theItems[levelNumber].color,
+                      color: theItems[levelNumber].textcolor,
                     }}
                   >
-                    <HOne
+                    <div
                       style={{
-                        fontWeight: 600,
-                        margin: 0,
-                        padding: "5px",
-                        background: theItems[levelNumber].color,
-                        color: theItems[levelNumber].textcolor,
+                        display: "grid",
+                        justifyContent: "space-evenly",
+                        alignItems: "center",
                       }}
                     >
-                      #{index + 1} | {item.name} {abreviateName(item.lastname)}
-                    </HOne>
-                  </div>
-                  <div>
-                    <p>
-                      Monthly Score:{" "}
-                      <span
+                      <HOne
                         style={{
-                          fontWeight: "600",
+                          fontWeight: 600,
+                          margin: 0,
+                          padding: "5px",
+                          background: theItems[levelNumber].color,
+                          color: theItems[levelNumber].textcolor,
                         }}
                       >
-                        {formatNumber(item.monthlyScore)}
-                      </span>
-                    </p>
-                    <p>
-                      Total Score:{" "}
-                      <span
-                        style={{
-                          fontWeight: "600",
-                        }}
-                      >
-                        {formatNumber(item.totalScore)}
-                      </span>
-                    </p>
+                        #{index + 1} | {item.name}{" "}
+                        {abreviateName(item.lastname)}
+                      </HOne>
+                    </div>
+                    <div>
+                      <p>
+                        Monthly Score:{" "}
+                        <span
+                          style={{
+                            fontWeight: "600",
+                          }}
+                        >
+                          {formatNumber(item.monthlyScore)}
+                        </span>
+                      </p>
+                      <p>
+                        Total Score:{" "}
+                        <span
+                          style={{
+                            fontWeight: "600",
+                          }}
+                        >
+                          {formatNumber(item.totalScore)}
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </>
-            );
-          })}
-
+                </>
+              );
+            })}
+          </span>
           <ul>
             {students.map((item: any, index: number) => {
-              const levelNumber = updateScore(item.totalScore).level;
+              const levelNumber = updateScore(
+                item.totalScore,
+                item.flashcards25Reviews,
+                item.homeworkAssignmentsDone
+              ).level -1;
+
               return (
                 <>
                   <AnimatedLi
@@ -637,7 +667,7 @@ export default function StudentsRanking({
             })}
           </ul>
         </div>
-      )}
+      }
     </div>
   );
 }

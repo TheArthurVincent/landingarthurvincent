@@ -14,7 +14,11 @@ import { MyButton } from "./Components/ItemsLibrary";
 import axios from "axios";
 
 // Função que verifica o nível do aluno
-export function updateScore(totalScore) {
+export function updateScore(
+  totalScore,
+  flashcards25Reviews,
+  homeworkAssignmentsDone
+) {
   var level = 1;
   var color = "#000";
   var card =
@@ -31,40 +35,30 @@ export function updateScore(totalScore) {
     "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696";
   var background =
     "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
+
   for (let i = 0; i < levels.length; i++) {
-    if (levels[i + 1]) {
-      if (
-        totalScore >= levels[i].totalScore &&
-        totalScore < levels[i + 1].totalScore
-      ) {
-        level = i;
-        color = levels[i].color;
-        icon = levels[i].icon;
-        textcolor = levels[i].textcolor;
-        card = levels[i].card;
-        text = levels[i].text;
-        discount = levels[i].discount;
-        backgroundcolor = levels[i].backgroundcolor;
-        background = levels[i].background;
-        image2 = levels[i].image2;
-        image = levels[i].image;
-        break;
-      }
-    } else {
-      level = i;
+    if (
+      totalScore >= levels[i].totalScore &&
+      flashcards25Reviews >= levels[i].flashcards25Reviews &&
+      homeworkAssignmentsDone >= levels[i].homeworkAssignmentsDone
+    ) {
+      // Atualiza os valores para o primeiro nível encontrado
+      level = levels[i].level;
       color = levels[i].color;
       icon = levels[i].icon;
-      image = levels[i].image;
-      card = levels[i].card;
-      image2 = levels[i].image2;
+      card = levels[i].card || card; // Fallback para evitar valores undefined
       textcolor = levels[i].textcolor;
       text = levels[i].text;
-      discount = levels[i].discount;
+      discount = levels[i].discount || discount;
       backgroundcolor = levels[i].backgroundcolor;
-      background = levels[i].background;
+      image2 = levels[i].image2 || image2;
+      image = levels[i].image || image;
+      background = levels[i].background || background;
+    } else {
       break;
     }
   }
+
   return {
     level,
     color,
@@ -295,6 +289,10 @@ export const ImgResponsive3 = styled.img`
   @media (max-width: 755px) {
     display: none;
   }
+`;export const DivDis = styled.span`
+@media (max-width: 755px) {
+  display: none;
+}
 `;
 export const ImgResponsive = styled.img`
   max-width: 15rem;

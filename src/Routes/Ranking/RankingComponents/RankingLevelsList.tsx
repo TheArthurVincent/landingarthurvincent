@@ -1,11 +1,11 @@
-
-
 export const levels = () => {
   return [
     {
       level: 1,
       icon: "fa fa-star",
       color: "#f8f8f8",
+      flashcards25Reviews: 0,
+      homeworkAssignmentsDone: 0,
       textcolor: "black",
       backgroundcolor: "#EDEDED",
       text: "White Belt",
@@ -13,8 +13,10 @@ export const levels = () => {
       totalScore: 0,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785",
     },
     {
       level: 2,
@@ -22,12 +24,16 @@ export const levels = () => {
       color: "#FFD51E",
       textcolor: "black",
       backgroundcolor: "#FFE15E",
+      flashcards25Reviews: 5,
+      homeworkAssignmentsDone: 1,
       text: "Yellow Belt",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002",
       totalScore: 10000,
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/yellow.png?updatedAt=1715899273407",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/2.png?updatedAt=1715899267032",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/yellow.png?updatedAt=1715899273407",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/2.png?updatedAt=1715899267032",
     },
     {
       level: 3,
@@ -35,38 +41,50 @@ export const levels = () => {
       color: "#0D5FB8",
       textcolor: "white",
       text: "Blue Belt",
-      backgroundcolor: "#4690E1",
+      backgroundcolor: "#4690F1",
+      flashcards25Reviews: 25,
+      homeworkAssignmentsDone: 5,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
       totalScore: 22000,
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/blue.png?updatedAt=1715899268299",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/3.png?updatedAt=1715899266690",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/blue.png?updatedAt=1715899268299",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/3.png?updatedAt=1715899266690",
     },
     {
       level: 4,
       icon: "fa fa-fire",
       color: "#D80600",
       textcolor: "white",
-      backgroundcolor: "#FF6460",
+      flashcards25Reviews: 50,
+      homeworkAssignmentsDone: 8,
+      backgroundcolor: "#FF6480",
       text: "Red Belt",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/red.png?updatedAt=1711540460356",
       totalScore: 35000,
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/red.png?updatedAt=1715899270341",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/4.png?updatedAt=1715899266231",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/red.png?updatedAt=1715899270341",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/4.png?updatedAt=1715899266231",
     },
     {
       level: 5,
       icon: "fa fa-tree",
       color: "#2D9F00",
       textcolor: "white",
+      flashcards25Reviews: 75,
+      homeworkAssignmentsDone: 15,
       text: "Green Belt",
-      backgroundcolor: "#258300",
+      backgroundcolor: "#258350",
       totalScore: 50000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/green.png?updatedAt=1711540460421",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/green.png?updatedAt=1715899269178",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/5.png?updatedAt=1715899269573",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/green.png?updatedAt=1715899269178",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/5.png?updatedAt=1715899269573",
     },
     {
       level: 6,
@@ -76,23 +94,31 @@ export const levels = () => {
       textcolor: "white",
       text: "Orange Belt",
       totalScore: 66000,
+      flashcards25Reviews: 80,
+      homeworkAssignmentsDone: 20,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/orange.png?updatedAt=1715899269599",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/6.png?updatedAt=1715899267210",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/orange.png?updatedAt=1715899269599",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/6.png?updatedAt=1715899267210",
     },
     {
       level: 7,
       icon: "fa fa-moon-o",
       color: "#40004B",
-      backgroundcolor: "#40004B",
+      backgroundcolor: "#40006B",
       textcolor: "white",
+      flashcards25Reviews: 100,
+      homeworkAssignmentsDone: 30,
       text: "Purple Belt",
       totalScore: 83000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/purple.png?updatedAt=1711540461792",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/purple.png?updatedAt=1715899270084",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/7.png?updatedAt=1715899267116",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/purple.png?updatedAt=1715899270084",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/7.png?updatedAt=1715899267116",
     },
     {
       level: 8,
@@ -101,15 +127,22 @@ export const levels = () => {
       textcolor: "white",
       text: "Black Belt",
       backgroundcolor: "#111",
+      flashcards25Reviews: 150,
+      homeworkAssignmentsDone: 45,
+
       totalScore: 100000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/black.png?updatedAt=1715899272118",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/8.png?updatedAt=1715899266816",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/black.png?updatedAt=1715899272118",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/8.png?updatedAt=1715899266816",
     },
     {
       level: 9,
       icon: "fa fa-superpowers",
+      flashcards25Reviews: 250,
+      homeworkAssignmentsDone: 60,
       color: "#000",
       textcolor: "#EAC96F",
       text: "Black Belt Bronze Stripe",
@@ -117,8 +150,10 @@ export const levels = () => {
       totalScore: 125000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/bronze.png?updatedAt=1715902897571",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/9.png?updatedAt=1715899269542",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/bronze.png?updatedAt=1715902897571",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/9.png?updatedAt=1715899269542",
     },
     {
       level: 10,
@@ -127,24 +162,33 @@ export const levels = () => {
       textcolor: "silver",
       text: "Black Belt Silver Stripe",
       backgroundcolor: "#111",
+      flashcards25Reviews: 350,
+      homeworkAssignmentsDone: 70,
+
       totalScore: 160000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/silver.png?updatedAt=1715902897080",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/10.png?updatedAt=1715899266753",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/silver.png?updatedAt=1715902897080",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/10.png?updatedAt=1715899266753",
     },
     {
       level: 11,
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "yellow",
+      flashcards25Reviews: 500,
+      homeworkAssignmentsDone: 80,
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#111",
       totalScore: 200000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/golden.png?updatedAt=1715902897585",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/11.png?updatedAt=1715899268475",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/golden.png?updatedAt=1715902897585",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/11.png?updatedAt=1715899268475",
     },
     {
       color: "#00132b",
@@ -152,24 +196,31 @@ export const levels = () => {
       textcolor: "#00132b",
       level: 12,
       icon: "fa fa-eercast",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
+      flashcards25Reviews: 0,
+      homeworkAssignmentsDone: 0,
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
       text: "Supreme",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       totalScore: 1200000,
     },
     {
-      icon: "fa fa-eercast",
+      icon: "fa fa-certificate",
       level: 13,
       color: "#54bf08",
       backgroundcolor: "#ccc",
       discount: "10%",
+      flashcards25Reviews: 500,
+      homeworkAssignmentsDone: 80,
       textcolor: "#54bf08",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
       text: "loading",
-      image: "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
-      image2: "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785",
+      image:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
+      image2:
+        "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785",
     },
   ];
 };

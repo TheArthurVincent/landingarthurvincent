@@ -52,6 +52,8 @@ export function LevelCard({
   const [pictureStudent, setPictureStudent] = useState<string>(picture);
   const [totalScore, setTotalScore] = useState<number>(0);
   const [monthlyScore, setMonthlyScore] = useState<number>(0);
+  const [assignmentsDone, setAssignmentsDone] = useState<number>(0);
+  const [FC, setFC] = useState<number>(0);
   const [level, setLevel] = useState<number>(9);
   const [loading, setLoading] = useState<boolean>(false);
   const [showCard, setShowCard] = useState<any>("none");
@@ -74,9 +76,17 @@ export function LevelCard({
       setTotalScore(response.data.totalScore);
       setMonthlyScore(response.data.monthlyScore);
       setPictureStudent(response.data.picture);
-      var newValue = updateScore(response.data.totalScore);
+      setAssignmentsDone(response.data.homeworkAssignmentsDone);
+      setFC(response.data.flashcards25Reviews);
+      var newValue = updateScore(
+        response.data.totalScore,
+        response.data.flashcards25Reviews,
+        response.data.homeworkAssignmentsDone
+      );
       const levelDone = newValue.level;
-      setLevel(levelDone);
+      setLevel(levelDone - 1);
+      console.log(response.data);
+
       setShowCard("block");
       // setLoading(false);
     } catch (error) {
@@ -96,10 +106,15 @@ export function LevelCard({
   }, [change]);
   const theItems = levels();
 
-  const levelNumber = updateScore(totalScore).level;
+  const levelNumber = updateScore(totalScore, FC, assignmentsDone).level - 1;
   const nextLevel = theItems[levelNumber + 1] || {};
   const remainingPoints =
     (Number(nextLevel.totalScore) || 0) - (Number(totalScore) || 0);
+  const remainingAssignments =
+    (Number(nextLevel.homeworkAssignmentsDone) || 0) -
+    (Number(assignmentsDone) || 0);
+  const remainingFC =
+    (Number(nextLevel.flashcards25Reviews) || 0) - (Number(FC) || 0);
 
   return (
     <NewLevelCardComponent
@@ -150,68 +165,31 @@ export function LevelCard({
                 aria-hidden="true"
               />{" "}
             </DivDisapearBig>
-            {loading ? (
-              <CircularProgress
-                style={{
-                  color: items[level].color,
-                }}
-              />
-            ) : (
-              <>
-                <DivDisapearBig>
-                  <p style={{ color: "#fff" }}>
-                    Total Score: {formatNumber(totalScore)}
-                  </p>
-                  <p style={{ color: "#fff" }}>
-                    Monthly Score: {formatNumber(monthlyScore)}
-                  </p>
-                  <Tooltip
-                    title={`Pontos restantes até o nível ${
-                      nextLevel.text || "Desconhecido"
-                    } : ${formatNumber(remainingPoints)}`}
-                  >
-                    <div
-                      style={{
-                        height: "1px",
-                        width: "100%",
-                        marginTop: "6px",
-                      }}
-                    >
-                      <ThemeProvider theme={theme}>
-                        <LinearProgress
-                          variant="determinate"
-                          //@ts-ignore
-                          color="salmon"
-                          value={100 - (remainingPoints / totalScore) * 100}
-                          style={{
-                            borderRadius: "5px",
-                            backgroundColor: items[level].color,
-                          }}
-                        />
-                      </ThemeProvider>
-                    </div>
-                  </Tooltip>
-                </DivDisapearBig>
-                <div
+            <>
+              <DivDisapearBig>
+                <p style={{ color: "#fff" }}>
+                  Total Score: {formatNumber(totalScore)}
+                </p>
+                <p style={{ color: "#fff" }}>
+                  Monthly Score: {formatNumber(monthlyScore)}
+                </p>
+                {/* <div
                   style={{
-                    display: "grid",
-                    gap: "5px",
+                    height: "1px",
+                    width: "100%",
                   }}
                 >
-                  {" "}
-                  <Tooltip
-                    title={`Pontos restantes até o nível ${
-                      nextLevel.text || "Desconhecido"
-                    } : ${formatNumber(remainingPoints)}`}
-                  >
-                    <div
-                      style={{
-                        height: "1px",
-                        width: "100%",
-                        paddingBottom: "6px",
-                      }}
+                  <ThemeProvider theme={theme}>
+                    <Tooltip
+                      title={`Pontos restantes até o nível ${
+                        nextLevel.text || "Desconhecido"
+                      } : ${formatNumber(remainingPoints)}`}
                     >
-                      <ThemeProvider theme={theme}>
+                      <span
+                        style={{
+                          margin: "1px",
+                        }}
+                      >
                         <LinearProgress
                           variant="determinate"
                           //@ts-ignore
@@ -219,63 +197,151 @@ export function LevelCard({
                           value={100 - (remainingPoints / totalScore) * 100}
                           style={{
                             borderRadius: "5px",
-                            backgroundColor: items[level].color,
+                            backgroundColor: "white",
                           }}
                         />
-                      </ThemeProvider>
-                    </div>
-                  </Tooltip>
-                  <DivSeeBig>
-                    <i
-                      style={{
-                        display: "grid",
-                        alignContent: "center",
-                        borderRadius: "50%",
-                        color: items[level].textcolor,
-                        backgroundColor: items[level].color,
-                        width: "25px",
-                        height: "25px",
-                        fontSize: "15px",
-                      }}
-                      className={items[level].icon}
-                      aria-hidden="true"
-                    />{" "}
-                    <p style={{ color: "#fff" }}>
-                      <span
-                        style={{
-                          fontWeight: 1000,
-                        }}
-                      >
-                        Total Score:
-                      </span>{" "}
-                      {formatNumber(totalScore)}
-                    </p>
-                    <p style={{ color: "#fff" }}>
-                      <span
-                        style={{
-                          fontWeight: 1000,
-                        }}
-                      >
-                        Monthly Score:{" "}
                       </span>
-                      {formatNumber(monthlyScore)}
-                    </p>
-                    <i
-                      onClick={() => seeScore(_StudentId)}
+                    </Tooltip>
+
+                    <Tooltip
+                      title={`Dias de revisão mínima de 25 Flashcards até o nível ${
+                        nextLevel.text || "Desconhecido"
+                      } : ${formatNumber(remainingFC)}`}
+                    >
+                      <span
+                        style={{
+                          margin: "1px",
+                        }}
+                      >
+                        <LinearProgress
+                          variant="determinate"
+                          //@ts-ignore
+                          color="salmon"
+                          value={100 - (remainingFC / FC) * 100}
+                          style={{
+                            borderRadius: "5px",
+                            backgroundColor: "white",
+                          }}
+                        />
+                      </span>
+                    </Tooltip>
+
+                    <Tooltip
+                      title={`Tarefas de casa restantes até o nível ${
+                        nextLevel.text || "Desconhecido"
+                      } : ${formatNumber(remainingAssignments)}`}
+                    >
+                      <span
+                        style={{
+                          margin: "1px",
+                        }}
+                      >
+                        <LinearProgress
+                          variant="determinate"
+                          //@ts-ignore
+                          color="salmon"
+                          value={
+                            100 - (remainingAssignments / assignmentsDone) * 100
+                          }
+                          style={{
+                            borderRadius: "5px",
+                            backgroundColor: "white",
+                          }}
+                        />
+                      </span>
+                    </Tooltip>
+                  </ThemeProvider>
+                </div> */}
+              </DivDisapearBig>
+              <div
+                style={{
+                  display: "grid",
+                  gap: "5px",
+                }}
+              >
+                {" "}
+                {/* <Tooltip
+                  title={`Pontos restantes até o nível ${
+                    nextLevel.text || "Desconhecido"
+                  } : ${formatNumber(remainingPoints)}`}
+                >
+                  <div
+                    style={{
+                      height: "1px",
+                      width: "100%",
+                      paddingBottom: "6px",
+                    }}
+                  >
+                    <ThemeProvider theme={theme}>
+                      <span
+                        style={{
+                          margin: "1px",
+                        }}
+                      >
+                        <LinearProgress
+                          variant="determinate"
+                          //@ts-ignore
+                          color="salmon"
+                          value={100 - (remainingPoints / totalScore) * 100}
+                          style={{
+                            borderRadius: "5px",
+                            backgroundColor: "white",
+                          }}
+                        />
+                      </span>
+                    </ThemeProvider>
+                  </div>
+                </Tooltip> */}
+                <DivSeeBig>
+                  <i
+                    style={{
+                      display: "grid",
+                      alignContent: "center",
+                      borderRadius: "50%",
+                      color: items[level].textcolor,
+                      backgroundColor: items[level].color,
+                      width: "25px",
+                      height: "25px",
+                      fontSize: "15px",
+                    }}
+                    className={items[level].icon}
+                    aria-hidden="true"
+                  />{" "}
+                  <p style={{ color: "#fff" }}>
+                    <span
                       style={{
-                        display: showCard,
-                        cursor: "pointer",
-                        color: "#fff",
-                        fontSize: "0.8rem",
-                        margin: "0",
+                        fontWeight: 1000,
                       }}
-                      className="fa fa-refresh"
-                      aria-hidden="true"
-                    />
-                  </DivSeeBig>
-                </div>
-              </>
-            )}
+                    >
+                      Total Score:
+                    </span>{" "}
+                    {formatNumber(totalScore)}
+                  </p>
+                  <p style={{ color: "#fff" }}>
+                    <span
+                      style={{
+                        fontWeight: 1000,
+                      }}
+                    >
+                      Monthly Score:{" "}
+                    </span>
+                    {formatNumber(monthlyScore)}
+                  </p>
+                  <i
+                    onClick={() => seeScore(_StudentId)}
+                    style={{
+                      display: showCard,
+                      cursor: "pointer",
+                      color: "#fff",
+                      fontSize: "0.8rem",
+                      margin: "0",
+                    }}
+                    className="fa fa-refresh"
+                    aria-hidden="true"
+                  />
+                </DivSeeBig>
+              </div>
+            </>
           </div>
         </div>
       </TextLevelCard>

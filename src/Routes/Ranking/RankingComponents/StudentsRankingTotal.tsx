@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AnimatedLi2, DivFont } from "../../../Resources/Components/RouteBox";
 import {
+  DivDis,
   ImgResponsive3,
-  abreviateName,
   backDomain,
   formatNumber,
   updateScore,
@@ -11,24 +11,22 @@ import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
 import {
-  alwaysBlack,
-  alwaysWhite,
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
+import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [students, setStudents] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Novo estado para hover
-
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [truncatedSize, setTruncatedSize] = useState<number>(1000);
   const theItems = levels();
-
   const actualHeaders = headers || {};
 
   const fetchStudents = async () => {
-    // setLoading(true);
+    setLoading(true);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/scorestotalranking/`,
@@ -36,8 +34,22 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           headers: actualHeaders,
         }
       );
+      setLoading(false);
       setStudents(response.data.listOfStudents);
-      // setLoading(false);
+    } catch (error) {
+      alert("Erro ao encontrar alunos");
+    }
+  };
+
+  const fetchStudentsNoLoading = async () => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/scorestotalranking/`,
+        {
+          headers: actualHeaders,
+        }
+      );
+      setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
     }
@@ -45,19 +57,19 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
 
   useEffect(() => {
     fetchStudents();
-    setInterval(() => {
-      fetchStudents();
-    }, 5000);
   }, []);
+  useEffect(() => {
+      setTruncatedSize(window.innerWidth / 80);
+  }, [window.innerWidth]);
 
   return (
-    <div>
+    <div style={{ padding: "1rem" }}>
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-around",
-          marginBottom: "0.5rem",
+          justifyContent: "space-between",
+          marginBottom: "1rem",
         }}
       >
         <Button
@@ -77,60 +89,189 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
-        <ul>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
           {students.map((item: any, index: number) => {
-            const levelNumber = updateScore(item.totalScore).level;
-            const nextLevel = theItems[levelNumber + 1] || {};
+            const levelNumber = updateScore(
+              item.totalScore,
+              item.flashcards25Reviews,
+              item.homeworkAssignmentsDone
+            ).level;
+
+            const nextLevel = theItems[levelNumber] || {};
             const remainingPoints =
               (Number(nextLevel.totalScore) || 0) -
               (Number(item.totalScore) || 0);
+            const remainingHW =
+              (Number(nextLevel.homeworkAssignmentsDone) || 0) -
+              (Number(item.homeworkAssignmentsDone) || 0);
+            const remainingFC =
+              (Number(nextLevel.flashcards25Reviews) || 0) -
+              (Number(item.flashcards25Reviews) || 0);
 
             return (
-              <AnimatedLi2
-                key={index}
+              <div
                 style={{
-                  display: item.totalScore >= 10000 ? "flex" : "none",
-                  background: theItems[levelNumber].color,
-                  color: theItems[levelNumber].textcolor,
+                  display: item.totalScore >= 10000 ? "block" : "none",
+                  //@ts-ignore
+                  border: `1px solid ${theItems[levelNumber - 1].color}`,
+                  //@ts-ignore
+                  backgroundColor: theItems[levelNumber - 1].backgroundcolor,
+                  marginBottom: "0.5rem",
+                  borderRadius: "6px",
+                  padding: "5px",
                 }}
-                onMouseOver={() => setHoveredIndex(index)} // Define o índice atual como hovered
-                onMouseOut={() => setHoveredIndex(null)} // Limpa o hover ao remover o mouse
+                key={index}
               >
-                <ImgResponsive3
-                  src={theItems[levelNumber].image2}
-                  alt="level"
-                />
-                <div style={{ textAlign: "center" }}>
-                  <p style={{ fontWeight: 550 }}>
-                    #{index + 1} | {item.name + " " + item.lastname}
-                  </p>
-                  {/* Exibe os pontos restantes somente se o item estiver hovered */}
-                  {hoveredIndex === index && (
-                    <p style={{ fontStyle: "italic", fontSize: "12px" }}>
-                      {`Pontos restantes até o nível ${
-                        nextLevel.text || "Desconhecido"
-                      } : ${formatNumber(remainingPoints)}`}
-                    </p>
-                  )}
-                </div>
-                <DivFont
+                <AnimatedLi2
                   style={{
-                    color: alwaysWhite(),
-                    textShadow: `2px 0 ${alwaysBlack()}, -2px 0 ${alwaysBlack()}, 0 2px ${alwaysBlack()}, 0 -2px ${alwaysBlack()}, 1px 1px ${alwaysBlack()}, -1px -1px ${alwaysBlack()}, 1px -1px ${alwaysBlack()}, -1px 1px ${alwaysBlack()}`,
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "0.5rem",
+                    marginBottom: "0.5rem",
+                    background: theItems[levelNumber - 1].color,
+                    color: theItems[levelNumber - 1].textcolor,
+                    borderRadius: "8px",
+                    position: "relative",
+                  }}
+                  onMouseOver={() => setHoveredIndex(index)}
+                  onMouseOut={() => setHoveredIndex(null)}
+                >
+                  <ImgResponsive3
+                    src={theItems[levelNumber - 1].image2}
+                    alt="level"
+                    style={{ marginRight: "1rem" }}
+                  />
+                  <div style={{ flex: 1 }}>
+                    <p style={{ margin: 0, fontWeight: 550 }}>
+                      #{index + 1} | {item.name}{" "}
+                      {truncateTitle(item.lastname, truncatedSize)}
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <DivFont
+                      style={{
+                        display: "flex",
+
+                        alignItems: "center",
+                      }}
+                    >
+                      Total Score:{" "}
+                      <span
+                        style={{
+                          fontWeight: "800",
+                          padding: "0 3px",
+                          marginLeft: "3px",
+                          borderRadius: "5px",
+                          backgroundColor:
+                            theItems[levelNumber - 1].backgroundcolor,
+                        }}
+                      >
+                        {formatNumber(item.totalScore)}
+                      </span>
+                    </DivFont>
+                    <DivDis>
+                      <DivFont
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        | Homework:{" "}
+                        <span
+                          style={{
+                            fontWeight: "800",
+                            padding: "0 3px",
+                            marginLeft: "3px",
+                            borderRadius: "5px",
+                            backgroundColor:
+                              theItems[levelNumber - 1].backgroundcolor,
+                          }}
+                        >
+                          {formatNumber(item.homeworkAssignmentsDone)}
+                        </span>
+                      </DivFont>
+                    </DivDis>
+                    <DivDis>
+                      <DivFont
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        | 25 Flashcards/day:{" "}
+                        <span
+                          style={{
+                            fontWeight: "800",
+                            padding: "0 3px",
+                            marginLeft: "3px",
+                            borderRadius: "5px",
+                            backgroundColor:
+                              theItems[levelNumber - 1].backgroundcolor,
+                          }}
+                        >
+                          {formatNumber(item.flashcards25Reviews)}
+                        </span>
+                      </DivFont>
+                    </DivDis>
+                  </div>
+                </AnimatedLi2>
+
+                <div
+                  style={{
+                    background: theItems[levelNumber - 1].color,
+                    color: theItems[levelNumber - 1].textcolor,
+                    textAlign: "center",
+                    padding: "10px",
                   }}
                 >
-                  {formatNumber(item.totalScore)}
-                  <i
+                  O que resta até o nível{" "}
+                  <strong>{theItems[levelNumber].text}</strong>:
+                  <div
                     style={{
-                      color: alwaysBlack(),
-                      marginLeft: "5px",
-                      textShadow: `1px 0 ${alwaysWhite()}, -1px 0 ${alwaysWhite()}, 0 1px ${alwaysWhite()}, 0 -1px ${alwaysWhite()}, 1px 1px ${alwaysWhite()}, -1px -1px ${alwaysWhite()}, 1px -1px ${alwaysWhite()}, -1px 1px ${alwaysWhite()}`,
+                      display: "flex",
+                      padding: "0.5rem",
+                      margin: " 0 0 0.5rem 0",
+                      justifyContent: "space-between",
                     }}
-                    className={theItems[levelNumber].icon}
-                    aria-hidden="true"
-                  />
-                </DivFont>
-              </AnimatedLi2>
+                  >
+                    <p style={{ fontSize: "12px", margin: 0 }}>
+                      Pontos{" "}
+                      <span
+                        style={{
+                          fontWeight: "1000",
+                        }}
+                      >
+                        {`${
+                          remainingPoints <= 0
+                            ? 0
+                            : formatNumber(remainingPoints)
+                        }`}
+                      </span>
+                    </p>
+                    <p style={{ fontSize: "12px", margin: 0 }}>
+                      Tarefas restantes:{" "}
+                      <span
+                        style={{
+                          fontWeight: "1000",
+                        }}
+                      >
+                        {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
+                      </span>
+                    </p>
+                    <p style={{ fontSize: "12px", margin: 0 }}>
+                      Revisões de 25 cards:{" "}
+                      <span
+                        style={{
+                          fontWeight: "1000",
+                        }}
+                      >
+                        {`
+                       ${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                {/* )} */}
+              </div>
             );
           })}
         </ul>

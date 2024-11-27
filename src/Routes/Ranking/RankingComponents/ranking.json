@@ -7,72 +7,92 @@
       "color": "#eee",
       "textcolor": "black",
       "backgroundcolor": "#EDEDED",
+
+      "flashcards25Reviews": 0,
+      "homeworkAssignmentsDone": 0,
+
       "text": "White Belt",
       "discount": "0%",
       "totalScore": 0,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512"
     },
     {
+      "text": "Yellow Belt",
+      "totalScore": 10000,
+      "flashcards25Reviews": 5,
+      "homeworkAssignmentsDone": 1,
       "level": 2,
       "icon": "fa fa-bolt",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(1).png?updatedAt=1719515621259",
       "color": "#F5BD33",
       "textcolor": "black",
       "backgroundcolor": "#FFFBD3",
-      "text": "Yellow Belt",
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002",
-      "discount": "5%",
-      "totalScore": 10000
+      "discount": "5%"
     },
     {
+      "text": "Blue Belt",
+      "totalScore": 22000,
+      "flashcards25Reviews": 25,
+      "homeworkAssignmentsDone": 5,
       "level": 3,
       "icon": "fa fa-diamond",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(2).png?updatedAt=1719515621062",
       "color": "#0C55A5",
       "textcolor": "white",
       "backgroundcolor": "#E2F3FD",
-      "text": "Blue Belt",
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
-      "discount": "5%",
-      "totalScore": 22000
+      "discount": "5%"
     },
     {
+      "text": "Red Belt",
+      "totalScore": 35000,
+      "flashcards25Reviews": 50,
+      "homeworkAssignmentsDone": 8,
       "level": 4,
       "icon": "fa fa-fire",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(3).png?updatedAt=1719515621507",
       "color": "#B7050B",
       "backgroundcolor": "#FFE3E0",
       "textcolor": "white",
-      "text": "Red Belt",
       "discount": "5%",
-      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/red.png?updatedAt=1711540460356",
-      "totalScore": 35000
+      "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/red.png?updatedAt=1711540460356"
     },
     {
+      "text": "Green Belt",
+      "totalScore": 50000,
+      "flashcards25Reviews": 75,
+      "homeworkAssignmentsDone": 15,
       "level": 5,
       "icon": "fa fa-tree",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(4).png?updatedAt=1719515621087",
       "color": "#ADB762",
       "textcolor": "white",
       "backgroundcolor": "#DEFFE3",
-      "text": "Green Belt",
       "discount": "7%",
-      "totalScore": 50000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/green.png?updatedAt=1711540460421"
     },
     {
+      "text": "Orange Belt",
+      "totalScore": 66000,
+      "flashcards25Reviews": 80,
+      "homeworkAssignmentsDone": 20,
       "level": 6,
       "icon": "fa fa-sun-o",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(5).png?updatedAt=1719515621145",
       "color": "#FB6E02",
       "discount": "7%",
+
       "backgroundcolor": "#FFE1C5",
       "textcolor": "white",
-      "text": "Orange Belt",
-      "totalScore": 66000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559"
     },
     {
+      "text": "Purple Belt",
+      "totalScore": 83000,
+      "flashcards25Reviews": 100,
+      "homeworkAssignmentsDone": 30,
+
       "level": 7,
       "icon": "fa fa-moon-o",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(6).png?updatedAt=1719515621190",
@@ -80,8 +100,6 @@
       "backgroundcolor": "#D4D3FF",
       "discount": "7%",
       "textcolor": "white",
-      "text": "Purple Belt",
-      "totalScore": 83000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/purple.png?updatedAt=1711540461792"
     },
     {
@@ -93,6 +111,10 @@
       "backgroundcolor": "#eee",
       "text": "Black Belt",
       "discount": "%",
+
+      "flashcards25Reviews": 150,
+      "homeworkAssignmentsDone": 45,
+
       "totalScore": 100000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
     },
@@ -102,6 +124,10 @@
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(8).png?updatedAt=1719515621181",
       "color": "#000",
       "textcolor": "white",
+
+      "flashcards25Reviews": 250,
+      "homeworkAssignmentsDone": 60,
+
       "backgroundcolor": "#000",
       "text": "Black Belt Bronze Stripe",
       "discount": "%",
@@ -114,6 +140,10 @@
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(9).png?updatedAt=1719515621623",
       "color": "#000",
       "textcolor": "white",
+
+      "flashcards25Reviews": 350,
+      "homeworkAssignmentsDone": 70,
+
       "backgroundcolor": "#ccc",
       "text": "Black Belt Silver Stripe",
       "discount": "%",
@@ -125,6 +155,9 @@
       "icon": "fa fa-superpowers",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#000",
+
+      "flashcards25Reviews": 500,
+      "homeworkAssignmentsDone": 80,
       "textcolor": "white",
       "backgroundcolor": "#FFFBD3",
       "text": "Black Belt Golden Stripe",
@@ -134,7 +167,7 @@
     },
     {
       "level": 9,
-      "icon": "fa fa-eercast",
+      "icon": "fa fa-thermometer-full",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#00132b",
       "textcolor": "#00132b",
@@ -142,10 +175,12 @@
       "text": "Supreme",
       "discount": "10%",
       "background": "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
-      "totalScore": 1200000
+      "totalScore": 1200000,
+      "flashcards25Reviews": 0,
+      "homeworkAssignmentsDone": 0
     },
     {
-      "icon": "fa fa-eercast",
+      "icon": "fa fa-snowflake-o",
       "level": 10,
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#000",

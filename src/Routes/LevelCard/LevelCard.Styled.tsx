@@ -64,7 +64,7 @@ export const NewLevelCardComponent = styled.div`
     width: 85vw;
     display: flex;
   padding: 10spx ;
-    height: 2.5rem;
+    height: 1.5rem;
     margin: auto;
     // grid-template-columns: 1fr 1fr;
     // align-items: center;
