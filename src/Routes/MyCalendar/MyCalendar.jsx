@@ -53,11 +53,15 @@ export default function MyCalendar({ headers, thePermissions }) {
   const [tutoringsListOfOneStudent, setTutoringsListOfOneStudent] = useState(
     []
   );
+
+  const [loadingModalInfo, setLoadingModalInfo] = useState(false);
+  const [eventFull, setEventFull] = useState({});
   const [loadingTutoringDays, setLoadingTutoringDays] = useState(false);
   const [newEventId, setNewEventId] = useState("");
   const [studentsList, setStudentsList] = useState([]);
   const [events, setEvents] = useState([]);
   const [isTutoring, setIsTutoring] = useState(false);
+  const [seeReplenish, setSeeReplenish] = useState(false);
   const [status, setStatus] = useState("");
   const [isModalOfTutoringsVisible, setIsModalOfTutoringsVisible] =
     useState("");
@@ -66,6 +70,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   const [weekDay, setWeekDay] = useState("");
   const [theNewWeekDay, setTheNewWeekDay] = useState("");
   const [theNewTimeOfTutoring, setTheNewTimeOfTutoring] = useState("");
+  const [eventId, setEventId] = useState("");
   const [theNewLink, setTheNewLink] = useState("");
   const getLastMonday = (targetDate) => {
     const date = new Date(targetDate);
@@ -100,6 +105,27 @@ export default function MyCalendar({ headers, thePermissions }) {
       null;
     }
   };
+
+  const handleScheduleReplenish = async () => {
+    try {
+      const user = JSON.parse(localStorage.getItem("loggedIn"));
+      const { id } = user;
+
+      const response = await axios.put(
+        `${backDomain}/api/v1/scheduleclass/${id}?eventId=${eventId}`,
+        {
+          headers,
+        }
+      );
+
+      fetchGeneralEvents()
+    } catch (error) {
+      // onLoggOut()
+      console.error(error);
+    }
+  };
+
+
   const [isFee, setIsFee] = useState(true);
 
   const fetchGeneralEvents = async () => {
@@ -128,17 +154,15 @@ export default function MyCalendar({ headers, thePermissions }) {
         event.date = formattedDates(nextDay);
         return event;
       });
-      console.log(eventsLoop);
       setEvents(eventsLoop);
       setLoading(false);
     } catch (error) {
-      onLoggOut();
+      // onLoggOut();
     }
   };
   useEffect(() => {
     fetchGeneralEvents();
   }, []);
-
   const fetchGeneralEventsNoLoading = async () => {
     setPostNew(false);
     const user = JSON.parse(localStorage.getItem("loggedIn"));
@@ -158,10 +182,9 @@ export default function MyCalendar({ headers, thePermissions }) {
           event.date = formattedDates(nextDay);
           return event;
         });
-        console.log(eventsLoop);
         setEvents(eventsLoop);
       } catch (error) {
-        onLoggOut();
+        // onLoggOut();
       }
     } else {
       null;
@@ -260,10 +283,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       console.log(error, "Erro ao encontrar alunos");
     }
   };
-
-  const [loadingModalInfo, setLoadingModalInfo] = useState(false);
-
-  const [eventFull, setEventFull] = useState({});
   const fetchOneEvent = async (id) => {
     setLoadingModalInfo(true);
 
@@ -278,6 +297,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       const test =
         response.data.event.category == "Rep" ||
         response.data.event.category == "Tutoring" ||
+        response.data.event.category == "Marcar Reposição" ||
         response.data.event.category == "Group Class";
       if (test) {
         fetchStudents();
@@ -350,7 +370,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setDate("");
       fetchGeneralEvents();
     } catch (error) {
-      onLoggOut();
+      // onLoggOut();
       console.log(error, "Erro ao criar evento");
     }
   };
@@ -574,6 +594,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   const handleSeeModalNew = () => {
     setPostNew(true);
     fetchStudents();
+    setSeeReplenish(false);
     setNewStudentId("");
     setTheTime("");
     setTheNewLink("");
@@ -587,6 +608,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   const seeEditOneTutoring = (e) => {
     setSeeEditTutoring(true);
     setTutoringId(e.id);
+    setSeeReplenish(false);
     setLink(e.link);
     setTheNewLink("");
     setTimeOfTutoring("");
@@ -599,6 +621,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   const closeEditOneTutoring = () => {
     setSeeEditTutoring(false);
     setNewStudentId("");
+    setSeeReplenish(false);
     setTheTime("");
     setShowClasses(false);
     setTheNewLink("");
@@ -609,6 +632,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
 
   const handleCloseModal = () => {
+    setSeeReplenish(false);
     setIsVisible(false);
     setNewStudentId("");
     setTheTime("");
@@ -623,6 +647,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   };
   const handleSeeModalOfTutorings = () => {
     setNewStudentId("");
+    setSeeReplenish(false);
     setTheTime("");
     setWeekDay("");
     setTheNewLink("");
@@ -671,8 +696,15 @@ export default function MyCalendar({ headers, thePermissions }) {
       setLink(
         "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
       );
-      setDescription("Aula de reposição referente ao dia");
+      setDescription("Aula de Reposição referente ao dia");
       setIsTutoring(true);
+    }
+    if (e.target.value == "Marcar Reposição") {
+      setLink(
+        "https://us06web.zoom.us/j/85428761031?pwd=NUrme8jYCSNMjlGfyEPehIKXsFQJ0r.1"
+      );
+      setDescription("");
+      setIsTutoring(false);
     }
     if (e.target.value == "Standalone") {
       setLink(
@@ -721,7 +753,7 @@ export default function MyCalendar({ headers, thePermissions }) {
     setIsVisible(true);
     setLoadingInfo(true);
     setPostNew(checkIfNew);
-
+    setEventId(e._id);
     if (checkIfNew) {
       setLink("");
       setDate("");
@@ -733,7 +765,6 @@ export default function MyCalendar({ headers, thePermissions }) {
       setLoadingInfo(false);
     } else {
       fetchOneEvent(e._id);
-
       if (
         e.category == "Standalone" ||
         e.category == "Group Class" ||
@@ -764,7 +795,7 @@ export default function MyCalendar({ headers, thePermissions }) {
         `${backDomain}/api/v1/eventchecklist1/${newEventId}`,
         { headers }
       );
-      console.log(response, "Success");
+
       fetchOneEvent(newEventId);
     } catch (error) {
       console.log(error, "Erro");
@@ -777,7 +808,6 @@ export default function MyCalendar({ headers, thePermissions }) {
         `${backDomain}/api/v1/eventchecklist2/${newEventId}`,
         { headers }
       );
-      console.log(response, "Success");
       fetchOneEvent(newEventId);
     } catch (error) {
       console.log(error, "Erro");
@@ -790,7 +820,6 @@ export default function MyCalendar({ headers, thePermissions }) {
         `${backDomain}/api/v1/eventchecklist3/${newEventId}`,
         { headers }
       );
-      console.log(response, "Success");
       fetchOneEvent(newEventId);
     } catch (error) {
       console.log(error, "Erro");
@@ -803,7 +832,6 @@ export default function MyCalendar({ headers, thePermissions }) {
         `${backDomain}/api/v1/eventchecklist4/${newEventId}`,
         { headers }
       );
-      console.log(response, "Success");
       fetchOneEvent(newEventId);
     } catch (error) {
       console.log(error, "Erro");
@@ -816,7 +844,6 @@ export default function MyCalendar({ headers, thePermissions }) {
         `${backDomain}/api/v1/eventchecklist5/${newEventId}`,
         { headers }
       );
-      console.log(response, "Success");
       fetchOneEvent(newEventId);
     } catch (error) {
       console.log(error, "Erro");
@@ -956,7 +983,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 style={{
                   display: thePermissions == "superadmin" ? "flex" : "none",
                 }}
-                onClick={() => handleSeeModalNew()}
+                onClick={() => handleSeeModal(false)}
               >
                 <i className="fa fa-plus-square-o" aria-hidden="true" />
               </button>
@@ -1099,6 +1126,8 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   ? "#123"
                                   : event.category === "Test"
                                   ? "#333"
+                                  : event.category === "Marcar Reposição"
+                                  ? "#789456"
                                   : "#000",
                               textAlign: "center",
                               display: "grid",
@@ -1270,7 +1299,9 @@ export default function MyCalendar({ headers, thePermissions }) {
                       : category == "Group Class"
                       ? "Group Class"
                       : category == "Rep"
-                      ? "Replenishing"
+                      ? "Marcar Reposição"
+                      : category == "Marcar Reposição"
+                      ? "Janela de Marcar Reposição"
                       : category == "Prize Class"
                       ? "Prize Class"
                       : category == "Tutoring"
@@ -1285,10 +1316,11 @@ export default function MyCalendar({ headers, thePermissions }) {
                     <b>Time: </b>
                     {theTime}
                   </p>
-                  <Link to={link} target="_blank">
-                    Click here to access the class
-                  </Link>
-
+                  {category !== "Marcar Reposição" && (
+                    <Link to={link} target="_blank">
+                      Click here to access the class
+                    </Link>
+                  )}
                   <p
                     style={{
                       fontFamily: textTitleFont(),
@@ -1297,6 +1329,60 @@ export default function MyCalendar({ headers, thePermissions }) {
                   >
                     {description}
                   </p>
+                  {category == "Marcar Reposição" && (
+                    <>
+                      <div
+                        style={{
+                          padding: "1rem",
+                          display: !seeReplenish ? "flex" : "none",
+                        }}
+                      >
+                        <ArvinButton
+                          onClick={() => {
+                            setSeeReplenish(true);
+                          }}
+                        >
+                          Reservar este horário para Marcar Reposição
+                        </ArvinButton>
+                      </div>
+                      <div
+                        style={{
+                          padding: "1rem",
+                          borderRadius: "1rem",
+                          display: seeReplenish ? "grid" : "none",
+                          backgroundColor: "grey",
+                          color: "white",
+                        }}
+                      >
+                        <p>
+                          Deseja marcar este horário para marcar reposição? Esta
+                          ação não pode ser desfeita.
+                        </p>
+                        <div
+                          style={{
+                            margin: "1rem",
+                            display: "flex",
+                            justifyContent: "space-around",
+                          }}
+                        >
+                          <ArvinButton
+                            onClick={() => {
+                              setSeeReplenish(false);
+                            }}
+                            color="red"
+                          >
+                            Não
+                          </ArvinButton>
+                          <ArvinButton
+                            onClick={handleScheduleReplenish}
+                            color="green"
+                          >
+                            Sim
+                          </ArvinButton>
+                        </div>
+                      </div>
+                    </>
+                  )}
                   {thePermissions == "superadmin" && (
                     <>
                       <HTwo
@@ -1391,6 +1477,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 "Rep",
                                 "Prize Class",
                                 "Tutoring",
+                                "Marcar Reposição",
                               ].map((category, index) => {
                                 return (
                                   <option key={index} value={category}>
