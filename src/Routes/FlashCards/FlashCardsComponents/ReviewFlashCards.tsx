@@ -23,6 +23,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [myPermissions, setPermissions] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [cards, setCards] = useState<any[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const [answer, setAnswer] = useState<boolean>(false);
@@ -30,10 +31,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
+
   useEffect(() => {
     switch (category) {
       case "vocabulary":
@@ -239,88 +239,36 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [newFront, setNewFront] = useState<string>("");
-  const [newBack, setNewBack] = useState<string>("");
-  const [newLGFront, setNewLGFront] = useState<string>("");
-  const [newLGBack, setNewLGBack] = useState<string>("");
-  const [cardIdToEdit, setCardIdToEdit] = useState<string>("");
-  const [newBackComments, setNewBackComments] = useState<string>("");
-
-  const handleSeeModal = async (cardId: string) => {
-    setShowModal(true);
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/flashcardfindone/${myId}`,
-        {
-          params: { cardId },
-          headers: actualHeaders,
-        }
-      );
-      const newf = response.data.flashcard.front.text;
-      const newb = response.data.flashcard.back.text;
-      const newlf = response.data.flashcard.front.language;
-      const newlb = response.data.flashcard.back.language;
-      const newIDcard = response.data.flashcard.id;
-      const newComments = response.data.flashcard.backComments;
-
-      setNewBackComments(newComments);
-      setNewFront(newf);
-      setNewBack(newb);
-      setNewLGFront(newlf);
-      setNewLGBack(newlb);
-      setCardIdToEdit(newIDcard);
-    } catch (error) {
-      console.log(error, "Erro ao obter cards");
-    }
-  };
-
-  const handleEditCard = async (cardId: string) => {
-    setShowModal(true);
-    try {
-      const response = await axios.put(
-        `${backDomain}/api/v1/flashcard/${myId}`,
-        {
-          newFront,
-          newBack,
-          newLGBack,
-          newLGFront,
-          newBackComments,
-        },
-        {
-          headers: actualHeaders,
-          params: { cardId },
-        }
-      );
-      seeCardsToReview();
-      setShowModal(false);
-    } catch (error) {
-      console.log(error, "Erro ao obter cards");
-    }
-  };
-
-  const handleDeleteCard = async (cardId: string) => {
-    try {
-      const response = await axios.delete(
-        `${backDomain}/api/v1/flashcard/${myId}`,
-        {
-          headers: actualHeaders,
-          params: { cardId }, // Enviar cardId como parâmetro de consulta
-        }
-      );
-      seeCardsToReview();
-      setShowModal(false);
-    } catch (error) {
-      console.log(error, "Erro ao obter cards");
-    }
-  };
-
-  const handleHideModal = () => {
-    setShowModal(false);
-  };
 
   return (
     <section id="review">
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
       {/*  */}
       {/*  */}
       {/*  */}
@@ -364,6 +312,31 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       {/*  */}
       {/*  */}
       {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
       {see && (
         <div>
           {loading ? (
@@ -379,20 +352,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               <div>
                 {!cardsLength ? (
                   <>
-                    <div
-                      style={{
-                        fontSize: "10px",
-                        paddingBottom: "1rem",
-                      }}
-                    ></div>{" "}
-                    {myPermissions === "superadmin" && (
-                      <ArvinButton
-                        onClick={() => handleSeeModal(cards[0]._id)}
-                        color="yellow"
-                      >
-                        <i className="fa fa-edit" aria-hidden="true" />
-                      </ArvinButton>
-                    )}
+                
                     <ArvinButton
                       disabled={isDisabled}
                       cursor={isDisabled ? "not-allowed" : "pointer"}
@@ -592,94 +552,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           )}
         </div>
       )}
-      <div
-        style={{
-          backgroundColor: "rgba(0,0,0,0.8)",
-          top: 0,
-          left: 0,
-          display: showModal ? "block" : "none",
-          width: "1000000px",
-          height: "1000000px",
-          position: "fixed",
-        }}
-        onClick={handleHideModal}
-      />
-      <div
-        style={{
-          display: showModal ? "block" : "none",
-          backgroundColor: "white",
-          padding: "1rem",
-          position: "fixed",
-          top: "40%",
-          left: "40%",
-          boxShadow: "1px 1px 10px black",
-        }}
-        id="modal"
-      >
-        <Xp onClick={handleHideModal}>X</Xp>
-        <article id="front">
-          <input
-            style={{ maxWidth: "120px" }}
-            value={newFront}
-            onChange={(e) => {
-              setNewFront(e.target.value);
-            }}
-            type="text"
-          />
-          <select
-            style={{ maxWidth: "120px" }}
-            value={newLGFront}
-            onChange={(e) => setNewLGFront(e.target.value)}
-          >
-            {languages.map((language, langIndex) => (
-              <option key={langIndex} value={language}>
-                {language}
-              </option>
-            ))}
-          </select>
-        </article>
-        <article id="back">
-          <input
-            style={{ maxWidth: "120px" }}
-            value={newBack}
-            onChange={(e) => setNewBack(e.target.value)}
-            type="text"
-          />
-          <select
-            style={{ maxWidth: "120px" }}
-            value={newLGBack}
-            onChange={(e) => setNewLGBack(e.target.value)}
-          >
-            {languages.map((language, langIndex) => (
-              <option key={langIndex} value={language}>
-                {language}
-              </option>
-            ))}
-          </select>
-          <br />
-          <input
-            style={{ maxWidth: "120px" }}
-            value={newBackComments}
-            onChange={(e) => setNewBackComments(e.target.value)}
-            type="text"
-          />
-          <div>
-            <ArvinButton
-              onClick={() => handleDeleteCard(cardIdToEdit)}
-              color="red"
-            >
-              <i className="fa fa-trash" aria-hidden="true" />
-            </ArvinButton>
-
-            <ArvinButton
-              onClick={() => handleEditCard(cardIdToEdit)}
-              color="green"
-            >
-              <i className="fa fa-folder" aria-hidden="true" />
-            </ArvinButton>
-          </div>
-        </article>
-      </div>
+      
       <div
         style={{
           display: "flex",

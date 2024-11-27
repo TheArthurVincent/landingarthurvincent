@@ -229,6 +229,23 @@ export default function StudentsRanking({
     }
   };
 
+  
+  const updateReplenishTargetStatus = async (id: string) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/targetforreplenishuptodate/${id}`,
+        {},
+        {
+          headers: actualHeaders,
+        }
+      );
+      alert("Status atualizado");
+      fetchStudentsScore();
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   return (
     <div>
       <div
@@ -572,7 +589,6 @@ export default function StudentsRanking({
                         #{index + 1} | {item.name}{" "}
                         {abreviateName(item.lastname)}{" "}
                       </p>
-
                       <div
                         style={{
                           fontSize: "0.9rem",
@@ -598,6 +614,24 @@ export default function StudentsRanking({
                           {item.feeUpToDate
                             ? "Mensalidade em dia"
                             : "Mensalidade atrasada"}
+                        </div>
+                        <div
+                          style={{
+                            padding: "5px",
+                            display: isAdm ? "grid" : "none",
+                            marginBottom: "5px",
+                            borderRadius: "5px",
+                            maxWidth: "fit-content",
+                            cursor: "pointer",
+                            color: "white",
+                            fontWeight: 800,
+                            backgroundColor: item.replenishTarget ? "green" : "red",
+                          }}
+                          onClick={() => updateReplenishTargetStatus(item._id)}
+                        >
+                          {item.replenishTarget
+                            ? "Autorizado a repor"
+                            : "Não autorizado a repor"}
                         </div>
                         <p
                           style={{
