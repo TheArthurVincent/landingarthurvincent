@@ -120,7 +120,7 @@ export default function Ranking({ headers }: HeadersProps) {
           </TabList>
         </Box>
         <Countdown targetDate={targetDate} text="Score resets on" />
-        <HTwo></HTwo>
+        <HTwo>{user.name}{" "}{user.lastname}</HTwo>
         <p
           style={{
             padding: "1rem",
