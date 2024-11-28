@@ -25,7 +25,7 @@ export const levels = () => {
       textcolor: "black",
       backgroundcolor: "#FFE15E",
       flashcards25Reviews: 5,
-      homeworkAssignmentsDone: 1,
+      homeworkAssignmentsDone: 3,
       text: "Yellow Belt",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/yellow.png?updatedAt=1711540462002",
@@ -43,7 +43,7 @@ export const levels = () => {
       text: "Blue Belt",
       backgroundcolor: "#4690F1",
       flashcards25Reviews: 25,
-      homeworkAssignmentsDone: 5,
+      homeworkAssignmentsDone: 15,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
       totalScore: 22000,
@@ -58,7 +58,7 @@ export const levels = () => {
       color: "#D80600",
       textcolor: "white",
       flashcards25Reviews: 50,
-      homeworkAssignmentsDone: 8,
+      homeworkAssignmentsDone: 20,
       backgroundcolor: "#FF6480",
       text: "Red Belt",
       background:
@@ -75,7 +75,7 @@ export const levels = () => {
       color: "#2D9F00",
       textcolor: "white",
       flashcards25Reviews: 75,
-      homeworkAssignmentsDone: 15,
+      homeworkAssignmentsDone: 25,
       text: "Green Belt",
       backgroundcolor: "#258350",
       totalScore: 50000,
@@ -95,7 +95,7 @@ export const levels = () => {
       text: "Orange Belt",
       totalScore: 66000,
       flashcards25Reviews: 80,
-      homeworkAssignmentsDone: 20,
+      homeworkAssignmentsDone: 30,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559",
       image:
@@ -110,7 +110,7 @@ export const levels = () => {
       backgroundcolor: "#40006B",
       textcolor: "white",
       flashcards25Reviews: 100,
-      homeworkAssignmentsDone: 30,
+      homeworkAssignmentsDone: 35,
       text: "Purple Belt",
       totalScore: 83000,
       background:
@@ -164,7 +164,6 @@ export const levels = () => {
       backgroundcolor: "#111",
       flashcards25Reviews: 350,
       homeworkAssignmentsDone: 70,
-
       totalScore: 160000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",

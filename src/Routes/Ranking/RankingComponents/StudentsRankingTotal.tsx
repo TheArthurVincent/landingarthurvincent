@@ -7,7 +7,7 @@ import {
   formatNumber,
   updateScore,
 } from "../../../Resources/UniversalComponents";
-import { Button, CircularProgress } from "@mui/material";
+import { Button, CircularProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
 import {
@@ -23,7 +23,27 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [truncatedSize, setTruncatedSize] = useState<number>(1000);
   const theItems = levels();
+  const [showPointsInfo, setShowPointsInfo] = useState(false);
+  const [showHWInfo, setShowHWInfo] = useState(false);
+  const [showFCInfo, setShowFCInfo] = useState(false);
+
+  // Função para alternar a visibilidade da caixa de pontos
+  const togglePointsInfo = () => setShowPointsInfo(!showPointsInfo);
+  const toggleHWInfo = () => setShowHWInfo(!showHWInfo);
+  const toggleFCInfo = () => setShowFCInfo(!showFCInfo);
+
   const actualHeaders = headers || {};
+  const [open, setOpen] = useState(false); // Estado para controlar o modal
+
+  // Função para abrir o modal
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  // Função para fechar o modal
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const fetchStudents = async () => {
     setLoading(true);
@@ -211,62 +231,146 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     </DivDis>
                   </div>
                 </AnimatedLi2>
-
                 <div
-                  style={{
-                    background: theItems[levelNumber - 1].color,
-                    color: theItems[levelNumber - 1].textcolor,
-                    textAlign: "center",
-                    padding: "10px",
-                  }}
-                >
-                  O que resta até o nível{" "}
-                  <strong>{theItems[levelNumber].text}</strong>:
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "0.5rem",
-                      margin: " 0 0 0.5rem 0",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <p style={{ fontSize: "12px", margin: 0 }}>
-                      Pontos{" "}
-                      <span
-                        style={{
-                          fontWeight: "1000",
-                        }}
-                      >
-                        {`${
-                          remainingPoints <= 0
-                            ? 0
-                            : formatNumber(remainingPoints)
-                        }`}
-                      </span>
-                    </p>
-                    <p style={{ fontSize: "12px", margin: 0 }}>
-                      Tarefas restantes:{" "}
-                      <span
-                        style={{
-                          fontWeight: "1000",
-                        }}
-                      >
-                        {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
-                      </span>
-                    </p>
-                    <p style={{ fontSize: "12px", margin: 0 }}>
-                      Revisões de 25 cards:{" "}
-                      <span
-                        style={{
-                          fontWeight: "1000",
-                        }}
-                      >
-                        {`
-                       ${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
-                      </span>
-                    </p>
-                  </div>
-                </div>
+      style={{
+        background: theItems[levelNumber - 1].color,
+        color: theItems[levelNumber - 1].textcolor,
+        textAlign: "center",
+        padding: "5px",
+        borderRadius: "5px",
+      }}
+    >
+      O que resta até o nível{" "}
+      <strong>{theItems[levelNumber].text}</strong>:
+      <div
+        style={{
+          display: "flex",
+          padding: "0.5rem",
+          margin: "0 0 0.5rem 0",
+          justifyContent: "space-between",
+        }}
+      >
+        <p
+          style={{
+            padding: "5px",
+            borderRadius: "5px",
+            color: "white",
+          cursor:"pointer",
+            backgroundColor: remainingPoints <= 0 ? "green" : "red",
+            fontSize: "12px",
+            margin: 0,
+          }}
+          onClick={togglePointsInfo} // Alterna visibilidade ao clicar
+        >
+          Pontos{" "}
+          <span
+            style={{
+              fontWeight: "1000",
+            }}
+          >
+            {`${
+              remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
+            }`}
+          </span>
+        </p>
+        {/* Caixa de informações de pontos */}
+        {showPointsInfo && (
+          <div
+            style={{
+              backgroundColor: "#333",
+              color: "white",
+              padding: "5px",
+              borderRadius: "5px",
+              marginTop: "5px",
+              fontSize: "10px",
+              textAlign: "left",
+            }}
+          >
+            {`São necessários ${nextLevel.totalScore} pontos para passar de nível, e ${item.name} fez ${item.totalScore}`}
+          </div>
+        )}
+
+        <p
+          style={{
+            padding: "5px",
+            borderRadius: "5px",
+            color: "white",
+          cursor:"pointer",
+            backgroundColor: remainingHW <= 0 ? "green" : "red",
+            fontSize: "12px",
+            margin: 0,
+          }}
+          onClick={toggleHWInfo} // Alterna visibilidade ao clicar
+        >
+          Tarefas restantes:{" "}
+          <span
+            style={{
+              fontWeight: "1000",
+            }}
+          >
+            {` ${
+              remainingHW <= 0 ? 0 : formatNumber(remainingHW)
+            }`}
+          </span>
+        </p>
+        {/* Caixa de informações de tarefas restantes */}
+        {showHWInfo && (
+          <div
+            style={{
+              backgroundColor: "#333",
+              color: "white",
+              padding: "5px",
+              borderRadius: "5px",
+              marginTop: "5px",
+              fontSize: "10px",
+              textAlign: "left",
+            }}
+          >
+            {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar de nível, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
+          </div>
+        )}
+
+        <p
+          style={{
+            padding: "5px",
+            borderRadius: "5px",
+            color: "white",
+          cursor:"pointer",
+            backgroundColor: remainingFC <= 0 ? "green" : "red",
+            fontSize: "12px",
+            margin: 0,
+          }}
+          onClick={toggleFCInfo} // Alterna visibilidade ao clicar
+        >
+          Revisões de 25 cards:{" "}
+          <span
+            style={{
+              fontWeight: "1000",
+            }}
+          >
+            {`
+           ${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
+          </span>
+        </p>
+        {/* Caixa de informações de revisões */}
+        {showFCInfo && (
+          <div
+            style={{
+              backgroundColor: "#333",
+              color: "white",
+              padding: "5px",
+              borderRadius: "5px",
+              marginTop: "5px",
+              fontSize: "10px",
+              textAlign: "left",
+            }}
+          >
+            {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar de nível, e ${item.name} fez ${item.flashcards25Reviews}`}
+          </div>
+        )}
+      </div>
+    </div>
+
                 {/* )} */}
               </div>
             );
