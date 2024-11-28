@@ -120,10 +120,16 @@ export default function Ranking({ headers }: HeadersProps) {
           </TabList>
         </Box>
         <Countdown targetDate={targetDate} text="Score resets on" />
-        <p>
-          Monthly Score: {user.monthlyScore}, Total Score: {user.totalScore},
-          Homework Assignments Done{user.homeworkAssignmentsDone}, 25 Flashcards
-          in one day: {user.flashcards25Reviews}
+        <p
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Monthly Score: <strong>{user.monthlyScore},</strong> Total Score:{" "}
+          <strong>{user.totalScore},</strong>
+          Homework Assignments Done{" "}
+          <strong>{user.homeworkAssignmentsDone},</strong> 25 Flashcards in one
+          day: <strong>{user.flashcards25Reviews}</strong>
         </p>
         {componentsToRender.map((component, index) => {
           return (
