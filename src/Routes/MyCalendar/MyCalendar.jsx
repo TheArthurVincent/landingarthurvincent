@@ -1225,11 +1225,11 @@ export default function MyCalendar({ headers, thePermissions }) {
                                       : "#fff", // Preto para categoria não especificada
                                 }}
                               >
-                                {event.category == "Group Class"
+                                {event.category == "Group Class" ||
+                                event.category == "Standalone"
                                   ? `${event.time} | ${event.description}`
                                   : ` ${event.time} | ${event.category}`}
                               </span>
-                              {/* <br /> */}
                             </p>
                             <div
                               style={{
