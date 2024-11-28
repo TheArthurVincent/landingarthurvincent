@@ -12,6 +12,7 @@ import {
   primaryColor,
   secondaryColor,
   textPrimaryColorContrast,
+  textSecondaryColorContrast,
   textTitleFont,
   transparentWhite,
 } from "../../Styles/Styles";
@@ -118,13 +119,12 @@ export default function MyCalendar({ headers, thePermissions }) {
         }
       );
 
-      fetchGeneralEvents()
+      fetchGeneralEvents();
     } catch (error) {
       // onLoggOut()
       console.error(error);
     }
   };
-
 
   const [isFee, setIsFee] = useState(true);
 
@@ -1115,20 +1115,21 @@ export default function MyCalendar({ headers, thePermissions }) {
                               border: "1px solid #aaa",
                               backgroundColor:
                                 event.category === "Group Class"
-                                  ? "#F2F1CE"
+                                  ? "#D0D0A1" // Amarelo mais escuro, sem ser tão claro
                                   : event.category === "Rep"
-                                  ? "#ade"
+                                  ? secondaryColor() // Tom de azul mais escuro e sóbrio
                                   : event.category === "Tutoring"
-                                  ? "#eee"
+                                  ? primaryColor() // Cinza mais escuro
                                   : event.category === "Prize Class"
-                                  ? "#FCE562"
+                                  ? "#E4C12D" // Amarelo mais escuro e mais sóbrio
                                   : event.category === "Standalone"
-                                  ? "#123"
+                                  ? "#333" // Azul bem escuro
                                   : event.category === "Test"
-                                  ? "#333"
+                                  ? "#1C1C1C" // Cinza muito escuro
                                   : event.category === "Marcar Reposição"
-                                  ? "#789456"
-                                  : "#000",
+                                  ? "#000" // Verde escuro e sóbrio
+                                  : "#000", // Preto para categoria não especificada
+
                               textAlign: "center",
                               display: "grid",
                             }}
@@ -1156,6 +1157,22 @@ export default function MyCalendar({ headers, thePermissions }) {
                               style={{
                                 padding: "8px",
                                 margin: "2px",
+                                backgroundColor:
+                                  event.category === "Group Class"
+                                    ? "#D0D0A1" // Amarelo mais escuro, sem ser tão claro
+                                    : event.category === "Rep"
+                                    ? secondaryColor() // Tom de azul mais escuro e sóbrio
+                                    : event.category === "Tutoring"
+                                    ? primaryColor() // Cinza mais escuro
+                                    : event.category === "Prize Class"
+                                    ? "#E4C12D" // Amarelo mais escuro e mais sóbrio
+                                    : event.category === "Standalone"
+                                    ? "#333" // Azul bem escuro
+                                    : event.category === "Test"
+                                    ? "#1C1C1C" // Cinza muito escuro
+                                    : event.category === "Marcar Reposição"
+                                    ? "#000" // Verde escuro e sóbrio
+                                    : "#000", // Preto para categoria não especificada
                                 display: "grid",
                                 cursor: "pointer",
                                 borderRadius: "5px",
@@ -1167,15 +1184,52 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   style={{
                                     fontFamily: textTitleFont(),
                                     fontWeight: 600,
+                                    color:
+                                      event.category === "Group Class"
+                                        ? "#fff" // Amarelo mais escuro, sem ser tão claro
+                                        : event.category === "Rep"
+                                        ? textSecondaryColorContrast() // Tom de azul mais escuro e sóbrio
+                                        : event.category === "Tutoring"
+                                        ? textPrimaryColorContrast() // Cinza mais escuro
+                                        : event.category === "Prize Class"
+                                        ? "#fff" // Amarelo mais escuro e mais sóbrio
+                                        : event.category === "Standalone"
+                                        ? "#fff" // Azul bem escuro
+                                        : event.category === "Test"
+                                        ? "#fff" // Cinza muito escuro
+                                        : event.category === "Marcar Reposição"
+                                        ? "#fff" // Verde escuro e sóbrio
+                                        : "#fff", // Preto para categoria não especificada
                                   }}
                                 >
                                   {event.student}
                                 </span>
                               )}
-                              {event.category == "Group Class"
-                                ? `${event.time} | ${event.description}`
-                                : ` ${event.time} | ${event.category}`}
-                              <br />
+                              <span
+                                style={{
+                                  color:
+                                    event.category === "Group Class"
+                                      ? "#fff" // Amarelo mais escuro, sem ser tão claro
+                                      : event.category === "Rep"
+                                      ? textSecondaryColorContrast() // Tom de azul mais escuro e sóbrio
+                                      : event.category === "Tutoring"
+                                      ? textPrimaryColorContrast() // Cinza mais escuro
+                                      : event.category === "Prize Class"
+                                      ? "#fff" // Amarelo mais escuro e mais sóbrio
+                                      : event.category === "Standalone"
+                                      ? "#fff" // Azul bem escuro
+                                      : event.category === "Test"
+                                      ? "#fff" // Cinza muito escuro
+                                      : event.category === "Marcar Reposição"
+                                      ? "#fff" // Verde escuro e sóbrio
+                                      : "#fff", // Preto para categoria não especificada
+                                }}
+                              >
+                                {event.category == "Group Class"
+                                  ? `${event.time} | ${event.description}`
+                                  : ` ${event.time} | ${event.category}`}
+                              </span>
+                              {/* <br /> */}
                             </p>
                             <div
                               style={{
