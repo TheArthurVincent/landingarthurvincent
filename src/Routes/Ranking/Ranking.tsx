@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import {
@@ -120,16 +120,21 @@ export default function Ranking({ headers }: HeadersProps) {
           </TabList>
         </Box>
         <Countdown targetDate={targetDate} text="Score resets on" />
+        <HTwo></HTwo>
         <p
           style={{
+            padding: "1rem",
+            borderRadius: "1rem",
+            backgroundColor: primaryColor(),
+            color: textPrimaryColorContrast(),
             textAlign: "center",
           }}
         >
-          Monthly Score: <strong>{user.monthlyScore},{" "}</strong> Total Score:{" "}
-          <strong>{user.totalScore},{" "}</strong>
+          Monthly Score: <strong>{user.monthlyScore}, </strong> Total Score:{" "}
+          <strong>{user.totalScore}, </strong>
           Homework Assignments Done{" "}
-          <strong>{user.homeworkAssignmentsDone},{" "}</strong> 25 Flashcards in one
-          day: <strong>{" "}{user.flashcards25Reviews}</strong>
+          <strong>{user.homeworkAssignmentsDone}, </strong> 25 Flashcards in one
+          day: <strong> {user.flashcards25Reviews}</strong>
         </p>
         {componentsToRender.map((component, index) => {
           return (
