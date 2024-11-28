@@ -33,19 +33,13 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const toggleFCInfo = () => setShowFCInfo(!showFCInfo);
 
   const actualHeaders = headers || {};
-  const [open, setOpen] = useState(false); // Estado para controlar o modal
-
-  // Função para abrir o modal
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  // Função para fechar o modal
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [ID, setID] = useState(""); // Estado para controlar o modal
 
   const fetchStudents = async () => {
+    let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    setID(getLoggedUser.id);
+    console.log(getLoggedUser.id);
+
     setLoading(true);
     try {
       const response = await axios.get(
@@ -55,6 +49,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         }
       );
       setLoading(false);
+      console.log(response.data.listOfStudents);
       setStudents(response.data.listOfStudents);
     } catch (error) {
       alert("Erro ao encontrar alunos");
@@ -90,7 +85,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   }, [window.innerWidth]);
 
   return (
-    <div style={{ padding: "1rem" }}>
+    <div style={{ padding: "1rem", display: "grid" }}>
       <div
         style={{
           display: "flex",
@@ -232,144 +227,144 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   </div>
                 </AnimatedLi2>
                 <div
-      style={{
-        background: theItems[levelNumber - 1].color,
-        color: theItems[levelNumber - 1].textcolor,
-        textAlign: "center",
-        padding: "5px",
-        borderRadius: "5px",
-      }}
-    >
-      O que resta até o nível{" "}
-      <strong>{theItems[levelNumber].text}</strong>:
-      <div
-        style={{
-          display: "flex",
-          padding: "0.5rem",
-          margin: "0 0 0.5rem 0",
-          justifyContent: "space-between",
-        }}
-      >
-        <p
-          style={{
-            padding: "5px",
-            borderRadius: "5px",
-            color: "white",
-          cursor:"pointer",
-            backgroundColor: remainingPoints <= 0 ? "green" : "red",
-            fontSize: "12px",
-            margin: 0,
-          }}
-          onClick={togglePointsInfo} // Alterna visibilidade ao clicar
-        >
-          Pontos{" "}
-          <span
-            style={{
-              fontWeight: "1000",
-            }}
-          >
-            {`${
-              remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
-            }`}
-          </span>
-        </p>
-        {/* Caixa de informações de pontos */}
-        {showPointsInfo && (
-          <div
-            style={{
-              backgroundColor: "#333",
-              color: "white",
-              padding: "5px",
-              borderRadius: "5px",
-              marginTop: "5px",
-              fontSize: "10px",
-              textAlign: "left",
-            }}
-          >
-            {`São necessários ${nextLevel.totalScore} pontos para passar de nível, e ${item.name} fez ${item.totalScore}`}
-          </div>
-        )}
+                  style={{
+                    background: theItems[levelNumber - 1].color,
+                    color: theItems[levelNumber - 1].textcolor,
+                    textAlign: "center",
+                    padding: "5px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  O que resta até o nível{" "}
+                  <strong>{theItems[levelNumber].text}</strong>:
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0.5rem",
+                      margin: "0 0 0.5rem 0",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <p
+                      style={{
+                        padding: "5px",
+                        borderRadius: "5px",
+                        color: "white",
+                        cursor: "pointer",
+                        backgroundColor: remainingPoints <= 0 ? "green" : "red",
+                        fontSize: "12px",
+                        margin: 0,
+                      }}
+                      onClick={togglePointsInfo} // Alterna visibilidade ao clicar
+                    >
+                      Pontos{" "}
+                      <span
+                        style={{
+                          fontWeight: "1000",
+                        }}
+                      >
+                        {`${
+                          remainingPoints <= 0
+                            ? 0
+                            : formatNumber(remainingPoints)
+                        }`}
+                      </span>
+                    </p>
+                    {/* Caixa de informações de pontos */}
+                    {showPointsInfo && (
+                      <div
+                        style={{
+                          backgroundColor: "#333",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "5px",
+                          marginTop: "5px",
+                          fontSize: "10px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {`São necessários ${nextLevel.totalScore} pontos para passar de nível, e ${item.name} fez ${item.totalScore}`}
+                      </div>
+                    )}
 
-        <p
-          style={{
-            padding: "5px",
-            borderRadius: "5px",
-            color: "white",
-          cursor:"pointer",
-            backgroundColor: remainingHW <= 0 ? "green" : "red",
-            fontSize: "12px",
-            margin: 0,
-          }}
-          onClick={toggleHWInfo} // Alterna visibilidade ao clicar
-        >
-          Tarefas restantes:{" "}
-          <span
-            style={{
-              fontWeight: "1000",
-            }}
-          >
-            {` ${
-              remainingHW <= 0 ? 0 : formatNumber(remainingHW)
-            }`}
-          </span>
-        </p>
-        {/* Caixa de informações de tarefas restantes */}
-        {showHWInfo && (
-          <div
-            style={{
-              backgroundColor: "#333",
-              color: "white",
-              padding: "5px",
-              borderRadius: "5px",
-              marginTop: "5px",
-              fontSize: "10px",
-              textAlign: "left",
-            }}
-          >
-            {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar de nível, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
-          </div>
-        )}
+                    <p
+                      style={{
+                        padding: "5px",
+                        borderRadius: "5px",
+                        color: "white",
+                        cursor: "pointer",
+                        backgroundColor: remainingHW <= 0 ? "green" : "red",
+                        fontSize: "12px",
+                        margin: 0,
+                      }}
+                      onClick={toggleHWInfo} // Alterna visibilidade ao clicar
+                    >
+                      Tarefas restantes:{" "}
+                      <span
+                        style={{
+                          fontWeight: "1000",
+                        }}
+                      >
+                        {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
+                      </span>
+                    </p>
+                    {/* Caixa de informações de tarefas restantes */}
+                    {showHWInfo && (
+                      <div
+                        style={{
+                          backgroundColor: "#333",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "5px",
+                          marginTop: "5px",
+                          fontSize: "10px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar de nível, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
+                      </div>
+                    )}
 
-        <p
-          style={{
-            padding: "5px",
-            borderRadius: "5px",
-            color: "white",
-          cursor:"pointer",
-            backgroundColor: remainingFC <= 0 ? "green" : "red",
-            fontSize: "12px",
-            margin: 0,
-          }}
-          onClick={toggleFCInfo} // Alterna visibilidade ao clicar
-        >
-          Revisões de 25 cards:{" "}
-          <span
-            style={{
-              fontWeight: "1000",
-            }}
-          >
-            {`
+                    <p
+                      style={{
+                        padding: "5px",
+                        borderRadius: "5px",
+                        color: "white",
+                        cursor: "pointer",
+                        backgroundColor: remainingFC <= 0 ? "green" : "red",
+                        fontSize: "12px",
+                        margin: 0,
+                      }}
+                      onClick={toggleFCInfo} // Alterna visibilidade ao clicar
+                    >
+                      Revisões de 25 cards:{" "}
+                      <span
+                        style={{
+                          fontWeight: "1000",
+                        }}
+                      >
+                        {`
            ${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
-          </span>
-        </p>
-        {/* Caixa de informações de revisões */}
-        {showFCInfo && (
-          <div
-            style={{
-              backgroundColor: "#333",
-              color: "white",
-              padding: "5px",
-              borderRadius: "5px",
-              marginTop: "5px",
-              fontSize: "10px",
-              textAlign: "left",
-            }}
-          >
-            {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar de nível, e ${item.name} fez ${item.flashcards25Reviews}`}
-          </div>
-        )}
-      </div>
-    </div>
+                      </span>
+                    </p>
+                    {/* Caixa de informações de revisões */}
+                    {showFCInfo && (
+                      <div
+                        style={{
+                          backgroundColor: "#333",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "5px",
+                          marginTop: "5px",
+                          fontSize: "10px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar de nível, e ${item.name} fez ${item.flashcards25Reviews}`}
+                      </div>
+                    )}
+                  </div>
+                </div>
 
                 {/* )} */}
               </div>

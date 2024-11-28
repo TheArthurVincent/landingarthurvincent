@@ -55,7 +55,6 @@ export function LevelCard({
   const [assignmentsDone, setAssignmentsDone] = useState<number>(0);
   const [FC, setFC] = useState<number>(0);
   const [level, setLevel] = useState<number>(9);
-  const [loading, setLoading] = useState<boolean>(false);
   const [showCard, setShowCard] = useState<any>("none");
 
   const items = levels();
@@ -173,85 +172,7 @@ export function LevelCard({
                 <p style={{ color: "#fff" }}>
                   Monthly Score: {formatNumber(monthlyScore)}
                 </p>
-                {/* <div
-                  style={{
-                    height: "1px",
-                    width: "100%",
-                  }}
-                >
-                  <ThemeProvider theme={theme}>
-                    <Tooltip
-                      title={`Pontos restantes até o nível ${
-                        nextLevel.text || "Desconhecido"
-                      } : ${formatNumber(remainingPoints)}`}
-                    >
-                      <span
-                        style={{
-                          margin: "1px",
-                        }}
-                      >
-                        <LinearProgress
-                          variant="determinate"
-                          //@ts-ignore
-                          color="salmon"
-                          value={100 - (remainingPoints / totalScore) * 100}
-                          style={{
-                            borderRadius: "5px",
-                            backgroundColor: "white",
-                          }}
-                        />
-                      </span>
-                    </Tooltip>
-
-                    <Tooltip
-                      title={`Dias de revisão mínima de 25 Flashcards até o nível ${
-                        nextLevel.text || "Desconhecido"
-                      } : ${formatNumber(remainingFC)}`}
-                    >
-                      <span
-                        style={{
-                          margin: "1px",
-                        }}
-                      >
-                        <LinearProgress
-                          variant="determinate"
-                          //@ts-ignore
-                          color="salmon"
-                          value={100 - (remainingFC / FC) * 100}
-                          style={{
-                            borderRadius: "5px",
-                            backgroundColor: "white",
-                          }}
-                        />
-                      </span>
-                    </Tooltip>
-
-                    <Tooltip
-                      title={`Tarefas de casa restantes até o nível ${
-                        nextLevel.text || "Desconhecido"
-                      } : ${formatNumber(remainingAssignments)}`}
-                    >
-                      <span
-                        style={{
-                          margin: "1px",
-                        }}
-                      >
-                        <LinearProgress
-                          variant="determinate"
-                          //@ts-ignore
-                          color="salmon"
-                          value={
-                            100 - (remainingAssignments / assignmentsDone) * 100
-                          }
-                          style={{
-                            borderRadius: "5px",
-                            backgroundColor: "white",
-                          }}
-                        />
-                      </span>
-                    </Tooltip>
-                  </ThemeProvider>
-                </div> */}
+              
               </DivDisapearBig>
               <div
                 style={{
@@ -259,39 +180,7 @@ export function LevelCard({
                   gap: "5px",
                 }}
               >
-                {" "}
-                {/* <Tooltip
-                  title={`Pontos restantes até o nível ${
-                    nextLevel.text || "Desconhecido"
-                  } : ${formatNumber(remainingPoints)}`}
-                >
-                  <div
-                    style={{
-                      height: "1px",
-                      width: "100%",
-                      paddingBottom: "6px",
-                    }}
-                  >
-                    <ThemeProvider theme={theme}>
-                      <span
-                        style={{
-                          margin: "1px",
-                        }}
-                      >
-                        <LinearProgress
-                          variant="determinate"
-                          //@ts-ignore
-                          color="salmon"
-                          value={100 - (remainingPoints / totalScore) * 100}
-                          style={{
-                            borderRadius: "5px",
-                            backgroundColor: "white",
-                          }}
-                        />
-                      </span>
-                    </ThemeProvider>
-                  </div>
-                </Tooltip> */}
+            
                 <DivSeeBig>
                   <i
                     style={{
