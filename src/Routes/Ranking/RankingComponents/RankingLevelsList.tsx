@@ -128,8 +128,7 @@ export const levels = () => {
       text: "Black Belt",
       backgroundcolor: "#111",
       flashcards25Reviews: 150,
-      homeworkAssignmentsDone: 45,
-
+      homeworkAssignmentsDone: 40,
       totalScore: 100000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
