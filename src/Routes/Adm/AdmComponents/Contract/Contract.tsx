@@ -9,7 +9,6 @@ import {
 import { MyButton } from "../../../../Resources/Components/ItemsLibrary";
 import Helmets from "../../../../Resources/Helmets";
 import { HOne, HTwo } from "../../../../Resources/Components/RouteBox";
-import { HThree } from "../../../MyClasses/MyClasses.Styled";
 import { CircularProgress } from "@mui/material";
 
 export function Contract({ headers }: HeadersProps) {
@@ -34,6 +33,7 @@ export function Contract({ headers }: HeadersProps) {
           headers: actualHeaders,
         }
       );
+      console.log(response.data.formattedStudentData);
       setName(response.data.formattedStudentData.fullname);
       setFee(response.data.formattedStudentData.fee);
       setWeeklyClasses(response.data.formattedStudentData.weeklyClasses);
@@ -63,7 +63,7 @@ export function Contract({ headers }: HeadersProps) {
     }
   };
 
-  const liStyle = { listStyle: "upper-roman inside", marginBottom: "6px" };
+  const liStyle = { listStyle: "upper-roman inside", marginBottom: "4px" };
   const ulStyle = { padding: " 0 1rem" };
   const topSignature = {
     width: "25rem",
@@ -187,7 +187,6 @@ export function Contract({ headers }: HeadersProps) {
         </HTwo>
         <ul style={ulStyle}>
           <li style={{ listStyle: "none" }}>
-            <HThree>Sobre as aulas</HThree>
             <ul style={ulStyle}>
               <li style={liStyle}>
                 As aulas terão duração de 55 minutos, e os links para as aulas
@@ -209,6 +208,12 @@ export function Contract({ headers }: HeadersProps) {
                 </p>
               </li>
               <li style={liStyle}>
+                Em dias de feriado nacional, não haverá aulas;
+              </li>{" "}
+              <li style={liStyle}>
+                Nos dias entre 24/12 e 01/01, não haverá aulas;
+              </li>{" "}
+              <li style={liStyle}>
                 Se o aluno não puder comparecer à aula, deve informar o
                 professor com, no mínimo, 24 horas de antecedência;
               </li>
@@ -223,22 +228,21 @@ export function Contract({ headers }: HeadersProps) {
                 aberta a agenda de reposições;
               </li>{" "}
               <li style={liStyle}>
-                Se o aluno perder a aula de reposição, esta não poderá mais ser
-                reposta;
+                Se o aluno perder a aula de reposição, esta{" "}
+                <strong>não poderá mais ser reposta</strong>;
               </li>
               <li style={liStyle}>
                 Em caso de falta <strong>do professor</strong>, este reporá a
                 aula ao aluno em horário combinado por ambos.
               </li>
               <li style={liStyle}>
-                Os dias para reposição de aula são estabelecidos pelo professor,
-                a quem caberá encaixar o aluno na próxima janela disponível;
+                Os horários disponíveis para reposição de aula são estabelecidos
+                pelo professor;
               </li>
-            </ul>
-          </li>
-          <li style={{ listStyle: "none" }}>
-            <HThree>Sobre os descontos</HThree>
-            <ul style={ulStyle}>
+              <li style={liStyle}>
+                Caberá ao aluno agendar sua aula no calendário após bater a meta
+                de reposição.
+              </li>
               <li style={liStyle}>
                 O aluno terá direito aos descontos oferecidos na aba "Ranking",
                 por avanço de níveis ou posição no ranking de alunos, conforme o
@@ -252,11 +256,6 @@ export function Contract({ headers }: HeadersProps) {
                 ocorrerá uma vez, no mês seguinte ao fechamento do contrato do
                 aluno recomendado.
               </li>
-            </ul>
-          </li>
-          <li style={{ listStyle: "none" }}>
-            <HThree>Sobre cancelamento do curso</HThree>
-            <ul style={ulStyle}>
               <li style={liStyle}>
                 Em caso de cancelamento do curso, o aluno deve avisar o
                 professor com pelo menos <strong>1 mês de antecedência</strong>,
@@ -273,11 +272,6 @@ export function Contract({ headers }: HeadersProps) {
                 para baixar todo o material produzido nas aulas. Após este
                 prazo, o mesmo será definitivamente excluído.
               </li>
-            </ul>
-          </li>
-          <li style={{ listStyle: "none" }}>
-            <HThree>Sobre as atividades</HThree>
-            <ul style={ulStyle}>
               <li style={liStyle}>
                 O aluno deve se comprometer a realizar as atividades propostas
                 pelo professor para melhor desenvolvimento do curso;
@@ -287,8 +281,6 @@ export function Contract({ headers }: HeadersProps) {
         </ul>
         <HTwo
           style={{
-            marginTop: "1rem",
-            paddingBottom: "2rem 0",
             textAlign: "center",
           }}
         >
@@ -307,7 +299,7 @@ export function Contract({ headers }: HeadersProps) {
           <div>
             <img
               style={{
-                maxWidth: "7rem",
+                maxWidth: "6rem",
                 borderBottom: "solid 2px",
               }}
               src="https://ik.imagekit.io/vjz75qw96/assets/signature.png?updatedAt=1717680390615"
