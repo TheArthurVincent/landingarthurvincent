@@ -1127,7 +1127,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                   : event.category === "Test"
                                   ? "#1C1C1C" // Cinza muito escuro
                                   : event.category === "Marcar Reposição"
-                                  ? "#000" // Verde escuro e sóbrio
+                                  ? "#407CB1" // Verde escuro e sóbrio
                                   : "#000", // Preto para categoria não especificada
 
                               textAlign: "center",
@@ -1171,7 +1171,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     : event.category === "Test"
                                     ? "#1C1C1C" // Cinza muito escuro
                                     : event.category === "Marcar Reposição"
-                                    ? "#000" // Verde escuro e sóbrio
+                                    ? "#407CB1" // Verde escuro e sóbrio
                                     : "#000", // Preto para categoria não especificada
                                 display: "grid",
                                 cursor: "pointer",
