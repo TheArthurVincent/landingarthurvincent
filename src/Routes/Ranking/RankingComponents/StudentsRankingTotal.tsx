@@ -76,8 +76,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   useEffect(() => {
     fetchStudents();
     // setInterval(() => { fetchStudentsNoLoading() }, 3000);
-  },
-    []);
+  }, []);
 
   useEffect(() => {
     setTruncatedSize(window.innerWidth / 80);
@@ -239,16 +238,17 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "9rem",
+                      maxWidth: "7rem",
                       backgroundColor: remainingPoints <= 0 ? "green" : "red",
-                      fontSize: "12px",
+                      fontSize: "9px",
                     }}
                     onClick={() => toggleInfo("points", index)}
                   >
                     Pontos{" "}
                     <span style={{ fontWeight: "1000" }}>
-                      {`${remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
-                        }`}
+                      {`${
+                        remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
+                      }`}
                     </span>
                     {showInfo[index]?.points && (
                       <div
@@ -274,9 +274,9 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "9rem",
+                      maxWidth: "7rem",
                       backgroundColor: remainingHW <= 0 ? "green" : "red",
-                      fontSize: "12px",
+                      fontSize: "9px",
                     }}
                     onClick={() => toggleInfo("hw", index)}
                   >
@@ -308,9 +308,9 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "9rem",
+                      maxWidth: "7rem",
                       backgroundColor: remainingFC <= 0 ? "green" : "red",
-                      fontSize: "12px",
+                      fontSize: "9px",
                     }}
                     onClick={() => toggleInfo("fc", index)}
                   >
