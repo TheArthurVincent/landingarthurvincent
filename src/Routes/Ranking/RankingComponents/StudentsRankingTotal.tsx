@@ -79,7 +79,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   }, []);
 
   useEffect(() => {
-    setTruncatedSize(window.innerWidth / 80);
+    setTruncatedSize(window.innerWidth / 90);
   }, [window.innerWidth]);
 
   return (
