@@ -42,7 +42,7 @@ export const levels = () => {
       textcolor: "white",
       text: "Blue Belt",
       backgroundcolor: "#4690F1",
-      flashcards25Reviews: 25,
+      flashcards25Reviews: 30,
       homeworkAssignmentsDone: 15,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/16.png?updatedAt=1711540461480",
@@ -57,8 +57,8 @@ export const levels = () => {
       icon: "fa fa-fire",
       color: "#D80600",
       textcolor: "white",
-      flashcards25Reviews: 50,
-      homeworkAssignmentsDone: 20,
+      flashcards25Reviews: 55,
+      homeworkAssignmentsDone: 22,
       backgroundcolor: "#FF6480",
       text: "Red Belt",
       background:
@@ -74,8 +74,8 @@ export const levels = () => {
       icon: "fa fa-tree",
       color: "#2D9F00",
       textcolor: "white",
-      flashcards25Reviews: 75,
-      homeworkAssignmentsDone: 25,
+      flashcards25Reviews: 80,
+      homeworkAssignmentsDone: 27,
       text: "Green Belt",
       backgroundcolor: "#258350",
       totalScore: 50000,
@@ -95,7 +95,7 @@ export const levels = () => {
       text: "Orange Belt",
       totalScore: 66000,
       flashcards25Reviews: 80,
-      homeworkAssignmentsDone: 30,
+      homeworkAssignmentsDone: 33,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559",
       image:
@@ -110,7 +110,7 @@ export const levels = () => {
       backgroundcolor: "#40006B",
       textcolor: "white",
       flashcards25Reviews: 100,
-      homeworkAssignmentsDone: 35,
+      homeworkAssignmentsDone: 40,
       text: "Purple Belt",
       totalScore: 83000,
       background:
@@ -128,7 +128,7 @@ export const levels = () => {
       text: "Black Belt",
       backgroundcolor: "#111",
       flashcards25Reviews: 150,
-      homeworkAssignmentsDone: 40,
+      homeworkAssignmentsDone: 45,
       totalScore: 100000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",

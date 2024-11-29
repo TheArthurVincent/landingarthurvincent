@@ -12,14 +12,13 @@ import {
   formatNumber,
   updateScore,
 } from "../../../Resources/UniversalComponents";
-import { Button, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
 import {
   alwaysBlack,
   alwaysWhite,
   secondaryColor,
-  textSecondaryColorContrast,
   textTitleFont,
   transparentBlack,
 } from "../../../Styles/Styles";

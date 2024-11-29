@@ -283,7 +283,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           textAlign: "left",
                         }}
                       >
-                        {`São necessários ${nextLevel.totalScore} pontos para passar de nível, e ${item.name} fez ${item.totalScore}`}
+                        {`São necessários ${nextLevel.totalScore} pontos para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.totalScore}`}
                       </div>
                     )}
 
@@ -321,7 +321,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           textAlign: "left",
                         }}
                       >
-                        {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar de nível, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
+                        {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
                       </div>
                     )}
 
@@ -360,7 +360,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           textAlign: "left",
                         }}
                       >
-                        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar de nível, e ${item.name} fez ${item.flashcards25Reviews}`}
+                        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.flashcards25Reviews}`}
                       </div>
                     )}
                   </div>
