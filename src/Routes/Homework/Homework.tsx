@@ -305,7 +305,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     style={{
                       margin: "2px",
                       textDecoration: "none",
-                      display: index > 3 ? "none" : "grid",
+                      display:  "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
