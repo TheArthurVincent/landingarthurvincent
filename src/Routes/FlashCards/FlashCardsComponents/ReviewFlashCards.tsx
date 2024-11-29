@@ -239,7 +239,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-
   return (
     <section id="review">
       {/*  */}
@@ -288,6 +287,10 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           targetDate={new Date("2024-11-08T20:10:00")}
           text="You have until 8:10pm to score 20 points per card!"
         /> */}
+      <Countdown
+        targetDate={new Date("2024-11-29T20:00:00")}
+        text="On Nov 29th at 8pm for 7 minutes, each flashcard review will be worth 20 points!"
+      />
       {/*  */}
       {/*  */}
       {/*  */}
@@ -352,7 +355,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               <div>
                 {!cardsLength ? (
                   <>
-                
                     <ArvinButton
                       disabled={isDisabled}
                       cursor={isDisabled ? "not-allowed" : "pointer"}
@@ -552,7 +554,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           )}
         </div>
       )}
-      
+
       <div
         style={{
           display: "flex",
