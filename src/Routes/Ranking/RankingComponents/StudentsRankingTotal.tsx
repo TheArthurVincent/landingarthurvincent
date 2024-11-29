@@ -249,7 +249,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth:"8rem",
+                      maxWidth:"9rem",
                       backgroundColor: remainingPoints <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
@@ -285,7 +285,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth:"8rem",
+                      maxWidth:"9rem",
                       backgroundColor: remainingHW <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
@@ -319,7 +319,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth:"8rem",
+                      maxWidth:"9rem",
                       backgroundColor: remainingFC <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
