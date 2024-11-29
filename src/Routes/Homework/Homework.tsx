@@ -198,7 +198,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     style={{
                       margin: "2px",
                       textDecoration: "none",
-                      display: index > 3 ? "none" : "grid",
+                      display: "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
@@ -365,15 +365,6 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             </ArvinButton>
                           </>
                         )}
-                      {/* {permissions === "superadmin" && (
-                        <ArvinButton
-                          color="red"
-                          onDoubleClick={() => deleteHomework(homework._id)}
-                        >
-                          <i className="fa fa-trash" aria-hidden="true" />{" "}
-                          double click
-                        </ArvinButton>
-                      )} */}
                     </div>
                     <div>
                       <div
