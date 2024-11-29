@@ -18,7 +18,7 @@ import StudentsRanking from "./RankingComponents/StudentsRanking";
 import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
 import Countdown from "./RankingComponents/Countdown";
 import { monthInQuestion } from "./RankingComponents/RankingComponents";
-import { onLoggOut } from "../../Resources/UniversalComponents";
+import { formatNumber, onLoggOut } from "../../Resources/UniversalComponents";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -130,8 +130,8 @@ export default function Ranking({ headers }: HeadersProps) {
             textAlign: "center",
           }}
         >
-          Monthly Score: <strong>{user.monthlyScore} | </strong> Total Score:{" "}
-          <strong>{user.totalScore} | </strong>
+          Monthly Score: <strong>{formatNumber(user.monthlyScore)} | </strong> Total Score:{" "}
+          <strong>{formatNumber(user.totalScore)} | </strong>
           Homework Assignments Done{" "}
           <strong>{user.homeworkAssignmentsDone} | </strong> 25 Flashcards in one
           day: <strong> {user.flashcards25Reviews}</strong>
