@@ -59,7 +59,7 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
           padding: "8px",
           display: isHovered ? "grid" : "none",
           textAlign: "left",
-          zIndex: 500,
+          zIndex: 50000000000,
           minWidth: "fit-content",
         }}
       >
