@@ -7,20 +7,16 @@ import {
   formatNumber,
   updateScore,
 } from "../../../Resources/UniversalComponents";
-import { Button, CircularProgress, Tooltip } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
-import {
-  secondaryColor,
-  textSecondaryColorContrast,
-} from "../../../Styles/Styles";
+import { secondaryColor } from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [students, setStudents] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [truncatedSize, setTruncatedSize] = useState<number>(1000);
   const theItems = levels();
 
@@ -46,7 +42,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setID(getLoggedUser.id);
     console.log(getLoggedUser.id);
-
     setLoading(true);
     try {
       const response = await axios.get(
@@ -56,7 +51,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         }
       );
       setLoading(false);
-      console.log(response.data.listOfStudents);
       setStudents(response.data.listOfStudents);
     } catch (error) {
       alert("Erro ao encontrar alunos");
@@ -64,6 +58,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   };
 
   const fetchStudentsNoLoading = async () => {
+    console.log("oi" + new Date());
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/scorestotalranking/`,
@@ -74,18 +69,15 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
       setLoading(false);
     } catch (error) {
       alert("Erro ao encontrar alunos");
+      console.log("Erro ao encontrar alunos");
     }
   };
 
   useEffect(() => {
     fetchStudents();
-  }, []);
-
-  useEffect(() => {
-    setInterval(() => {
-      fetchStudentsNoLoading();
-    }, 1500);
-  }, []);
+    // setInterval(() => { fetchStudentsNoLoading() }, 3000);
+  },
+    []);
 
   useEffect(() => {
     setTruncatedSize(window.innerWidth / 80);
@@ -152,8 +144,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     borderRadius: "8px",
                     position: "relative",
                   }}
-                  onMouseOver={() => setHoveredIndex(index)}
-                  onMouseOut={() => setHoveredIndex(null)}
                 >
                   <ImgResponsive3
                     src={theItems[levelNumber - 1].image2}
@@ -249,7 +239,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth:"9rem",
+                      maxWidth: "9rem",
                       backgroundColor: remainingPoints <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
@@ -257,9 +247,8 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   >
                     Pontos{" "}
                     <span style={{ fontWeight: "1000" }}>
-                      {`${
-                        remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
-                      }`}
+                      {`${remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
+                        }`}
                     </span>
                     {showInfo[index]?.points && (
                       <div
@@ -285,7 +274,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth:"9rem",
+                      maxWidth: "9rem",
                       backgroundColor: remainingHW <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
@@ -319,7 +308,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth:"9rem",
+                      maxWidth: "9rem",
                       backgroundColor: remainingFC <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
