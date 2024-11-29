@@ -91,8 +91,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     setTruncatedSize(window.innerWidth / 80);
   }, [window.innerWidth]);
 
-  
-
   return (
     <div style={{ padding: "1rem", display: "grid" }}>
       <div
@@ -236,146 +234,118 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                 </AnimatedLi2>
                 <div
                   style={{
-                    background: theItems[levelNumber - 1].color,
-                    color: theItems[levelNumber - 1].textcolor,
-                    textAlign: "center",
-                    padding: "5px",
-                    borderRadius: "5px",
-                    position: "relative", // Adiciona position relative ao pai
+                    display: "flex",
+                    justifyContent: "space-between", // Alinha os elementos
+                    alignItems: "center", // Centraliza verticalmente
+                    padding: "0.5rem",
+                    margin: "0 0 0.5rem 0",
+                    zIndex: 10, // Aplica z-index geral
                   }}
                 >
-                  O que resta até o nível{" "}
-                  <strong>{theItems[levelNumber].text}</strong>:
+                  {/* Bloco de Pontos */}
                   <div
-  style={{
-    display: "flex",
-    padding: "0.5rem",
-    margin: "0 0 0.5rem 0",
-    justifyContent: "space-between",
-    position: "relative",  // Confirma que o contêiner tem position relative
-    zIndex: 10,  // Garantindo que o contêiner esteja no topo em relação aos filhos
-  }}
->
-  {/* Bloco de Pontos */}
-  <div
-    style={{
-      padding: "5px",
-      borderRadius: "5px",
-      position: "absolute", // Mantenha o posicionamento absoluto
-      left: "0", // Alinha ao lado esquerdo
-      color: "white",
-      cursor: "pointer",
-      backgroundColor: remainingPoints <= 0 ? "green" : "red",
-      fontSize: "12px",
-      margin: 0,
-      zIndex: 1,  // Definindo o z-index do bloco de pontos
-    }}
-    onClick={() => toggleInfo("points", index)}
-  >
-    Pontos{" "}
-    <span style={{ fontWeight: "1000" }}>
-      {`${remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)}`}
-    </span>
-    {showInfo[index]?.points && (
-      <div
-        style={{
-          backgroundColor: "#333",
-          color: "white",
-          padding: "5px",
-          maxWidth: "10rem",
-          zIndex: 99, // Definindo um z-index muito alto para sobrepor
-          borderRadius: "5px",
-          marginTop: "5px",
-          fontSize: "10px",
-          textAlign: "left",
-        }}
-      >
-        {`São necessários ${nextLevel.totalScore} pontos para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.totalScore}`}
-      </div>
-    )}
-  </div>
-
-  {/* Bloco de Tarefas Restantes */}
-  <div
-    style={{
-      padding: "5px",
-      borderRadius: "5px",
-      position: "absolute",
-      left: "50%",
-      transform: "translateX(-50%)",
-      color: "white",
-      cursor: "pointer",
-      backgroundColor: remainingHW <= 0 ? "green" : "red",
-      fontSize: "12px",
-      margin: 0,
-      zIndex: 2,  // Definindo o z-index do bloco de tarefas restantes
-    }}
-    onClick={() => toggleInfo("hw", index)}
-  >
-    Tarefas restantes:{" "}
-    <span style={{ fontWeight: "1000" }}>
-      {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
-    </span>
-    {showInfo[index]?.hw && (
-      <div
-        style={{
-          backgroundColor: "#333",
-          color: "white",
-          padding: "5px",
-          borderRadius: "5px",
-          marginTop: "5px",
-          zIndex: 99,
-          fontSize: "10px",
-          maxWidth: "10rem",
-          textAlign: "left",
-        }}
-      >
-        {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
-      </div>
-    )}
-  </div>
-
-  {/* Bloco de Revisões de 25 cards */}
-  <div
-    style={{
-      padding: "5px",
-      borderRadius: "5px",
-      position: "absolute",
-      right: "0",
-      color: "white",
-      cursor: "pointer",
-      backgroundColor: remainingFC <= 0 ? "green" : "red",
-      fontSize: "12px",
-      margin: 0,
-      zIndex: 3,  // Definindo o z-index do bloco de revisões
-    }}
-    onClick={() => toggleInfo("fc", index)}
-  >
-    Revisões de 25 cards:{" "}
-    <span style={{ fontWeight: "1000" }}>
-      {`${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
-    </span>
-    {showInfo[index]?.fc && (
-      <div
-        style={{
-          backgroundColor: "#333",
-          color: "white",
-          position: "relative",
-          maxWidth: "10rem",
-          zIndex: 99,  // Definindo z-index para o conteúdo de revisões
-          padding: "5px",
-          borderRadius: "5px",
-          marginTop: "5px",
-          fontSize: "10px",
-          textAlign: "left",
-        }}
-      >
-        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.flashcards25Reviews}`}
-      </div>
-    )}
-  </div>
-</div>
-
+                    style={{
+                      padding: "5px",
+                      borderRadius: "5px",
+                      color: "white",
+                      cursor: "pointer",
+                      maxWidth:"8rem",
+                      backgroundColor: remainingPoints <= 0 ? "green" : "red",
+                      fontSize: "12px",
+                    }}
+                    onClick={() => toggleInfo("points", index)}
+                  >
+                    Pontos{" "}
+                    <span style={{ fontWeight: "1000" }}>
+                      {`${
+                        remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
+                      }`}
+                    </span>
+                    {showInfo[index]?.points && (
+                      <div
+                        style={{
+                          backgroundColor: "#333",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "5px",
+                          marginTop: "5px",
+                          fontSize: "10px",
+                          textAlign: "left",
+                          zIndex: 99, // Garante sobreposição
+                        }}
+                      >
+                        {`São necessários ${nextLevel.totalScore} pontos para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.totalScore}`}
+                      </div>
+                    )}
+                  </div>
+                  {/* Bloco de Tarefas Restantes */}
+                  <div
+                    style={{
+                      padding: "5px",
+                      borderRadius: "5px",
+                      color: "white",
+                      cursor: "pointer",
+                      maxWidth:"8rem",
+                      backgroundColor: remainingHW <= 0 ? "green" : "red",
+                      fontSize: "12px",
+                    }}
+                    onClick={() => toggleInfo("hw", index)}
+                  >
+                    Tarefas restantes:{" "}
+                    <span style={{ fontWeight: "1000" }}>
+                      {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
+                    </span>
+                    {showInfo[index]?.hw && (
+                      <div
+                        style={{
+                          backgroundColor: "#333",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "5px",
+                          marginTop: "5px",
+                          fontSize: "10px",
+                          textAlign: "left",
+                          zIndex: 99, // Garante sobreposição
+                        }}
+                      >
+                        {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
+                      </div>
+                    )}
+                  </div>
+                  {/* Bloco de Revisões de 25 cards */}
+                  <div
+                    style={{
+                      padding: "5px",
+                      borderRadius: "5px",
+                      color: "white",
+                      cursor: "pointer",
+                      maxWidth:"8rem",
+                      backgroundColor: remainingFC <= 0 ? "green" : "red",
+                      fontSize: "12px",
+                    }}
+                    onClick={() => toggleInfo("fc", index)}
+                  >
+                    Revisões de 25 cards:{" "}
+                    <span style={{ fontWeight: "1000" }}>
+                      {`${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
+                    </span>
+                    {showInfo[index]?.fc && (
+                      <div
+                        style={{
+                          backgroundColor: "#333",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "5px",
+                          marginTop: "5px",
+                          fontSize: "10px",
+                          textAlign: "left",
+                          zIndex: 99, // Garante sobreposição
+                        }}
+                      >
+                        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.flashcards25Reviews}`}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             );
