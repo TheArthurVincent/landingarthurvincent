@@ -16,7 +16,7 @@ export default function Countdown({ text, targetDate }: CountDownProps) {
   const textToUse = text;
 
   const calculateTimeLeft = () => {
-    const now = new Date();
+    var now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
     let timeLeft = {
