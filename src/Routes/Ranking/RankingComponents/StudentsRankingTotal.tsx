@@ -75,7 +75,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
 
   useEffect(() => {
     fetchStudents();
-    setInterval(() => { fetchStudentsNoLoading() },1000);
+    // setInterval(() => { fetchStudentsNoLoading() },1000);
   }, []);
 
   useEffect(() => {
