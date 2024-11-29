@@ -130,10 +130,10 @@ export default function Ranking({ headers }: HeadersProps) {
             textAlign: "center",
           }}
         >
-          Monthly Score: <strong>{user.monthlyScore}, </strong> Total Score:{" "}
-          <strong>{user.totalScore}, </strong>
+          Monthly Score: <strong>{user.monthlyScore} | </strong> Total Score:{" "}
+          <strong>{user.totalScore} | </strong>
           Homework Assignments Done{" "}
-          <strong>{user.homeworkAssignmentsDone}, </strong> 25 Flashcards in one
+          <strong>{user.homeworkAssignmentsDone} | </strong> 25 Flashcards in one
           day: <strong> {user.flashcards25Reviews}</strong>
         </p>
         {componentsToRender.map((component, index) => {
