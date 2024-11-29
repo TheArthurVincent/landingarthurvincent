@@ -45,7 +45,7 @@
     {
       "text": "Red Belt",
       "totalScore": 35000,
-      "flashcards25Reviews": 55,
+      "flashcards25Reviews": 50,
       "homeworkAssignmentsDone": 22,
       "level": 4,
       "icon": "fa fa-fire",
@@ -59,7 +59,7 @@
     {
       "text": "Green Belt",
       "totalScore": 50000,
-      "flashcards25Reviews": 80,
+      "flashcards25Reviews": 62,
       "homeworkAssignmentsDone": 27,
       "level": 5,
       "icon": "fa fa-tree",
