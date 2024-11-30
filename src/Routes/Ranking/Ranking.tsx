@@ -81,7 +81,7 @@ export default function Ranking({ headers }: HeadersProps) {
     setValue(newValue);
   };
 
-  const targetDate = new Date("2024-11-30T23:59:59");
+  const targetDate = new Date("2024-11-30T18:00:00");
 
   return (
     <RouteDiv className="smooth">
