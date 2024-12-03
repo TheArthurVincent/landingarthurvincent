@@ -280,7 +280,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     }}
                     onClick={() => toggleInfo("hw", index)}
                   >
-                    Tarefas restantes:{" "}
+                    Lições de casa restantes:{" "}
                     <span style={{ fontWeight: "1000" }}>
                       {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
                     </span>
@@ -297,7 +297,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99, // Garante sobreposição
                         }}
                       >
-                        {`São necessários ${nextLevel.homeworkAssignmentsDone} tarefas para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
+                        {`São necessários ${nextLevel.homeworkAssignmentsDone} lições de casa para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
                       </div>
                     )}
                   </div>
