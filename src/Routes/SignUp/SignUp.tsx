@@ -11,9 +11,7 @@ import {
 import {
   lightGreyColor,
   primaryColor,
-  secondaryColor,
   textPrimaryColorContrast,
-  textSecondaryColorContrast,
 } from "../../Styles/Styles";
 
 import { InputFieldSignUp } from "./SignUpAssets/SignUp.Styled";
@@ -84,7 +82,7 @@ export function SignUp() {
       setButton("...");
       alert(error);
       setButton("Cadastrar");
-      reset();
+      // reset();
     }
   };
 

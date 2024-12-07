@@ -209,11 +209,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     <Tooltip title="Dia de entrega">
                       <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
                     </Tooltip>
-                    <Tooltip title="Dia que a aula foi dada">
-                      <HTwo>
-                        Title: {formatDateBr(homework.assignmentDate)}
-                      </HTwo>
-                    </Tooltip>
+             
                     <div>
                       <span>
                         <i
@@ -316,11 +312,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     <Tooltip title="Dia de entrega">
                       <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
                     </Tooltip>
-                    <Tooltip title="Dia que a aula foi dada">
-                      <HTwo>
-                        Title: {formatDateBr(homework.assignmentDate)}
-                      </HTwo>
-                    </Tooltip>
+     
                     <div>
                       <span>
                         <i
