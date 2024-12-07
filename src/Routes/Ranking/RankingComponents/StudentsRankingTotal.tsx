@@ -57,21 +57,25 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     }
   };
 
-  const fetchStudentsNoLoading = async () => {
-    console.log("oi" + new Date());
-    try {
-      const response = await axios.get(
-        `${backDomain}/api/v1/scorestotalranking/`,
-        {
-          headers: actualHeaders,
-        }
-      );
-      setLoading(false);
-    } catch (error) {
-      alert("Erro ao encontrar alunos");
-      console.log("Erro ao encontrar alunos");
+  const sortedStudents = [...students].sort((a, b) => {
+    const levelA = updateScore(
+      a.totalScore,
+      a.flashcards25Reviews,
+      a.homeworkAssignmentsDone
+    ).level;
+    const levelB = updateScore(
+      b.totalScore,
+      b.flashcards25Reviews,
+      b.homeworkAssignmentsDone
+    ).level;
+
+    if (levelA === levelB) {
+      // Se os níveis forem iguais, ordena por pontuação em ordem decrescente
+      return b.totalScore - a.totalScore;
     }
-  };
+    // Ordena por nível em ordem crescente
+    return levelB - levelA;
+  });
 
   useEffect(() => {
     fetchStudents();
@@ -100,7 +104,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
         <ul style={{ listStyleType: "none", padding: 0 }}>
-          {students.map((item: any, index: number) => {
+          {sortedStudents.map((item: any, index: number) => {
             const levelNumber = updateScore(
               item.totalScore,
               item.flashcards25Reviews,
