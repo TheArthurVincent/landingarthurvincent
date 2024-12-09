@@ -71,13 +71,6 @@ export const UlSentences = styled.ul<UlSentencesProps>`
       : props.grid < 3
       ? "1fr"
       : "1fr"};
-
-  @media (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 500px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 export const LiGridImageLessons = styled.li`
