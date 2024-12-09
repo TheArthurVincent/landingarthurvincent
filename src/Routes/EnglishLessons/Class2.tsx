@@ -41,6 +41,7 @@ import ImageLessonModelSlide from "./Assets/SlideModels/ImageLessonModelSlide";
 import { CircularProgress } from "@mui/material";
 import QandALessonModel from "./Assets/LessonsModels/QandALessonModel";
 import QandALessonPersonalModel from "./Assets/LessonsModels/QandALessonPersonalModel";
+import NoFlashcardsSentenceLessonModel from "./Assets/LessonsModels/NoFlashcardsSentenceLessonModel";
 
 interface EnglishClassCourse2ModelProps {
   headers: MyHeadersType | null;
@@ -322,11 +323,7 @@ export default function EnglishClassCourse2({
                   borderRadius: "50%",
                   margin: "0 0.5rem",
                 }}
-                className={
-                  isCompleted
-                    ? `fa fa-check`
-                    : `fa fa-circle`
-                }
+                className={isCompleted ? `fa fa-check` : `fa fa-circle`}
               />
             </HOne>
             {nextClass !== "123456" ? (
@@ -475,6 +472,11 @@ export default function EnglishClassCourse2({
                     <SentenceLessonModel
                       mainTag={theclass.mainTag}
                       studentId={studentID}
+                      element={element}
+                      headers={headers}
+                    />
+                  ) : element.type === "nfsentences" ? (
+                    <NoFlashcardsSentenceLessonModel
                       element={element}
                       headers={headers}
                     />
