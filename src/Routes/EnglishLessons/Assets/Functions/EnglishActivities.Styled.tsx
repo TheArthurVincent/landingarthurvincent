@@ -23,7 +23,7 @@ export const LiSentence = styled.li`
   list-style: none;
   margin-bottom: 10px;
   padding: 10px;
-  border: solid 1px #ddd;
+  border: solid 1px #eee;
   border-radius: 8px;
   background-color: none;
 
