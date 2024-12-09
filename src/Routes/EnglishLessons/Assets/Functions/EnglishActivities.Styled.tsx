@@ -66,12 +66,10 @@ export const UlSentences = styled.ul<UlSentencesProps>`
   gap: 0.8rem;
 
   grid-template-columns: ${(props) =>
-    props.grid === 4
-      ? "1fr 1fr 1fr 1fr"
-      : props.grid === 3
+    props.grid >= 3
       ? "1fr 1fr 1fr"
-      : props.grid === 2
-      ? "1fr 1fr"
+      : props.grid < 3
+      ? "1fr"
       : "1fr"};
 
   @media (max-width: 800px) {
