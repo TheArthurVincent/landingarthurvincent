@@ -54,14 +54,14 @@ export const listOfCriteria = [
     score: [
       {
         description: "Revisou um card",
-        score: 4,
+        score: 3,
         nobutton: true,
         color: "green",
       },
       {
         description:
           "Pontuação por palavra certa no Listening Exercise (caso acerte mais de 95%)",
-        score: 4,
+        score: 3,
         nobutton: true,
         color: "green",
       },

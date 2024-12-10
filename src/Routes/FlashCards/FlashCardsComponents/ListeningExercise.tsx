@@ -175,7 +175,7 @@ const ListeningExercise = ({
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
       setWords(wordCountInCard);
-      setScore(wordCountInCard * 4);
+      setScore(wordCountInCard * 3);
       return;
     }
 
@@ -217,10 +217,10 @@ const ListeningExercise = ({
 
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
-      setScore(wordCountInCard * 4);
-      setActualPointsPerWord(4);
+      setScore(wordCountInCard * 3);
+      setActualPointsPerWord(3);
       setWords(wordCountInCard);
-      reviewListeningExercise(wordCountInCard * 4, 100);
+      reviewListeningExercise(wordCountInCard * 3, 100);
       return;
     }
 
@@ -231,12 +231,12 @@ const ListeningExercise = ({
     setActualPointsPerWord(2);
     setSimilarity(simC);
     setWords(wordCountInCard);
-    const points = simC > 60 ? wordCountInCard * 2 : 0;
+    const points = simC > 60 ? wordCountInCard  : 0;
 
     if (simC > 95) {
       setSimilarity(100);
-      setActualPointsPerWord(4);
-      reviewListeningExercise(wordCountInCard * 4, 100);
+      setActualPointsPerWord(3);
+      reviewListeningExercise(wordCountInCard * 3, 100);
     } else {
       setScore(points);
       setActualPointsPerWord(2);
@@ -426,9 +426,6 @@ const ListeningExercise = ({
                       <p>
                         This sentence has <b>{words}</b> words
                       </p>{" "}
-                      {/* <p>
-                        You scored <b>{actualPointsPerWord}</b> per word
-                      </p> */}
                       <p>
                         You scored <b>{score.toFixed()}</b> points
                       </p>
