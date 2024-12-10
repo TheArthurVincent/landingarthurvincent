@@ -68,7 +68,7 @@ export const listOfCriteria = [
       {
         description:
           "Pontuação por palavra certa no Listening Exercisa (caso acerte mais entre 60% e 95%)",
-        score: 2,
+        score: 1,
         nobutton: true,
         color: "green",
       },
