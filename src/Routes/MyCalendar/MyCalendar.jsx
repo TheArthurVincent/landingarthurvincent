@@ -107,24 +107,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-  const handleScheduleReplenish = async () => {
-    try {
-      const user = JSON.parse(localStorage.getItem("loggedIn"));
-      const { id } = user;
-
-      const response = await axios.put(
-        `${backDomain}/api/v1/scheduleclass/${id}?eventId=${eventId}`,
-        {
-          headers,
-        }
-      );
-
-      fetchGeneralEvents();
-    } catch (error) {
-      // onLoggOut()
-      console.error(error);
-    }
-  };
 
   const [isFee, setIsFee] = useState(true);
 
@@ -969,6 +951,27 @@ export default function MyCalendar({ headers, thePermissions }) {
     let final = `${day}/${month}/${year}`;
     return final;
   }
+  
+  
+  const handleScheduleReplenish = async () => {
+    try {
+      const user = JSON.parse(localStorage.getItem("loggedIn"));
+      const { id } = user;
+
+      const response = await axios.put(
+        `${backDomain}/api/v1/scheduleclass/${id}?eventId=${eventId}`,
+        {
+          headers,
+        }
+      );
+
+      fetchGeneralEvents();
+      handleCloseModal()
+    } catch (error) {
+      // onLoggOut()
+      console.error(error);
+    }
+  };
 
   return (
     <>
