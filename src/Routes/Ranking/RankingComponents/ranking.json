@@ -17,7 +17,7 @@
     {
       "text": "Yellow Belt",
       "totalScore": 10000,
-      "flashcards25Reviews": 5,
+      "flashcards25Reviews": 10,
       "homeworkAssignmentsDone": 3,
       "level": 2,
       "icon": "fa fa-bolt",
@@ -46,7 +46,7 @@
       "text": "Red Belt",
       "totalScore": 35000,
       "flashcards25Reviews": 50,
-      "homeworkAssignmentsDone": 22,
+      "homeworkAssignmentsDone": 25,
       "level": 4,
       "icon": "fa fa-fire",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(3).png?updatedAt=1719515621507",
@@ -59,8 +59,8 @@
     {
       "text": "Green Belt",
       "totalScore": 50000,
-      "flashcards25Reviews": 62,
-      "homeworkAssignmentsDone": 27,
+      "flashcards25Reviews": 70,
+      "homeworkAssignmentsDone": 30,
       "level": 5,
       "icon": "fa fa-tree",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(4).png?updatedAt=1719515621087",
@@ -73,8 +73,8 @@
     {
       "text": "Orange Belt",
       "totalScore": 66000,
-      "flashcards25Reviews": 80,
-      "homeworkAssignmentsDone": 33,
+      "flashcards25Reviews": 90,
+      "homeworkAssignmentsDone": 35,
       "level": 6,
       "icon": "fa fa-sun-o",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(5).png?updatedAt=1719515621145",
@@ -87,7 +87,7 @@
     {
       "text": "Purple Belt",
       "totalScore": 83000,
-      "flashcards25Reviews": 100,
+      "flashcards25Reviews": 110,
       "homeworkAssignmentsDone": 40,
       "level": 7,
       "icon": "fa fa-moon-o",
@@ -108,7 +108,7 @@
       "text": "Black Belt",
       "discount": "%",
       "flashcards25Reviews": 150,
-      "homeworkAssignmentsDone": 45,
+      "homeworkAssignmentsDone": 50,
       "totalScore": 100000,
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
     },
@@ -118,10 +118,8 @@
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(8).png?updatedAt=1719515621181",
       "color": "#000",
       "textcolor": "white",
-
       "flashcards25Reviews": 250,
       "homeworkAssignmentsDone": 60,
-
       "backgroundcolor": "#000",
       "text": "Black Belt Bronze Stripe",
       "discount": "%",
@@ -134,10 +132,8 @@
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(9).png?updatedAt=1719515621623",
       "color": "#000",
       "textcolor": "white",
-
       "flashcards25Reviews": 350,
       "homeworkAssignmentsDone": 70,
-
       "backgroundcolor": "#ccc",
       "text": "Black Belt Silver Stripe",
       "discount": "%",
