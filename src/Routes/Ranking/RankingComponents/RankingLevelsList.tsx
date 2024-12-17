@@ -176,7 +176,7 @@ export const levels = () => {
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "yellow",
-      flashcards25Reviews: 500,
+      flashcards25Reviews: 450,
       homeworkAssignmentsDone: 80,
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#111",
@@ -209,7 +209,7 @@ export const levels = () => {
       color: "#54bf08",
       backgroundcolor: "#ccc",
       discount: "10%",
-      flashcards25Reviews: 500,
+      flashcards25Reviews:450,
       homeworkAssignmentsDone: 80,
       textcolor: "#54bf08",
       background:
