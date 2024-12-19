@@ -27,11 +27,16 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const toggleInfo = (type: "points" | "hw" | "fc", index: number) => {
     setShowInfo((prevState) => {
       const newState = { ...prevState };
+  
+      // Garante que a estrutura para o índice existe
       if (!newState[index]) {
-        newState[index] = { points: false, hw: false, fc: false }; // Inicia visibilidade para o item
+        newState[index] = { points: false, hw: false, fc: false };
       }
-      // Alterna a visibilidade do tipo de informação
+  
+      // Alterna a visibilidade do tipo específico
       newState[index][type] = !newState[index][type];
+  
+      console.log("Toggling:", type, index, newState[index][type]); // Estado atualizado para o item específico
       return newState;
     });
   };
@@ -82,9 +87,9 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     // setInterval(() => { fetchStudentsNoLoading() },1000);
   }, []);
 
-  useEffect(() => {
-    setTruncatedSize(window.innerWidth / 90);
-  }, [window.innerWidth]);
+  // useEffect(() => {
+  //   setTruncatedSize(window.innerWidth / 90);
+  // }, [window.innerWidth]);
 
   return (
     <div style={{ padding: "1rem", display: "grid" }}>
@@ -156,10 +161,11 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   <div style={{ flex: 1 }}>
                     <p style={{ margin: 0, fontWeight: 550 }}>
                       #{index + 1} | {item.name}{" "}
-                      {truncateTitle(item.lastname, truncatedSize)}
+                      {/* {truncateTitle(item.lastname, truncatedSize)} */}
+                      {item.lastname}
                     </p>
                   </div>
-                  <div
+                  {/* <div
                     style={{
                       display: "flex",
                       gap: "0.5rem",
@@ -223,7 +229,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                         </span>
                       </DivFont>
                     </DivDis>
-                  </div>
+                  </div> */}
                 </AnimatedLi2>
                 <div
                   style={{
@@ -242,17 +248,16 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "7rem",
+                      maxWidth: "14rem",
+                      fontFamily: "Athiti",
                       backgroundColor: remainingPoints <= 0 ? "green" : "red",
-                      fontSize: "9px",
+                      fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("points", index)}
                   >
-                    Pontos{" "}
+                    Total Score:{" "}
                     <span style={{ fontWeight: "1000" }}>
-                      {`${
-                        remainingPoints <= 0 ? 0 : formatNumber(remainingPoints)
-                      }`}
+                      {formatNumber(item.totalScore)}
                     </span>
                     {showInfo[index]?.points && (
                       <div
@@ -267,7 +272,15 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99, // Garante sobreposição
                         }}
                       >
-                        {`São necessários ${nextLevel.totalScore} pontos para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.totalScore}`}
+                        {`São necessários ${
+                          nextLevel.totalScore
+                        } pontos para passar para o nível ${
+                          nextLevel.text
+                        }, e ${item.name} fez ${item.totalScore}. Faltam ${
+                          remainingPoints <= 0
+                            ? 0
+                            : formatNumber(remainingPoints)
+                        }`}
                       </div>
                     )}
                   </div>
@@ -278,15 +291,16 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "7rem",
+                      maxWidth: "14rem",
+                      fontFamily: "Athiti",
                       backgroundColor: remainingHW <= 0 ? "green" : "red",
-                      fontSize: "9px",
+                      fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("hw", index)}
                   >
-                    Lições de casa restantes:{" "}
+                    Homework assignments:{" "}
                     <span style={{ fontWeight: "1000" }}>
-                      {` ${remainingHW <= 0 ? 0 : formatNumber(remainingHW)}`}
+                      {formatNumber(item.homeworkAssignmentsDone)}
                     </span>
                     {showInfo[index]?.hw && (
                       <div
@@ -301,7 +315,15 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99, // Garante sobreposição
                         }}
                       >
-                        {`São necessários ${nextLevel.homeworkAssignmentsDone} lições de casa para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}`}
+                        {`São necessários ${
+                          nextLevel.homeworkAssignmentsDone
+                        } lições de casa para passar para o nível ${
+                          nextLevel.text
+                        }, e ${item.name} fez ${
+                          item.homeworkAssignmentsDone
+                        }. Faltam ${
+                          remainingHW <= 0 ? 0 : formatNumber(remainingHW)
+                        }`}
                       </div>
                     )}
                   </div>
@@ -312,15 +334,16 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "7rem",
+                      maxWidth: "14rem",
+                      fontFamily: "Athiti",
                       backgroundColor: remainingFC <= 0 ? "green" : "red",
-                      fontSize: "9px",
+                      fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("fc", index)}
                   >
-                    Revisões de 25 cards:{" "}
+                    Flashcard daily reviews:{" "}
                     <span style={{ fontWeight: "1000" }}>
-                      {`${remainingFC <= 0 ? 0 : formatNumber(remainingFC)}`}
+                      {formatNumber(item.flashcards25Reviews)}
                     </span>
                     {showInfo[index]?.fc && (
                       <div
@@ -335,7 +358,15 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99, // Garante sobreposição
                         }}
                       >
-                        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.flashcards25Reviews}`}
+                        {`São necessários ${
+                          nextLevel.flashcards25Reviews
+                        } dias com pelo menos 25 revisões de cards para passar para o nível ${
+                          nextLevel.text
+                        }, e ${item.name} fez ${
+                          item.flashcards25Reviews
+                        }. Faltam ${
+                          remainingFC <= 0 ? 0 : formatNumber(remainingFC)
+                        }`}
                       </div>
                     )}
                   </div>

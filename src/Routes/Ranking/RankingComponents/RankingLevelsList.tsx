@@ -140,13 +140,13 @@ export const levels = () => {
     {
       level: 9,
       icon: "fa fa-superpowers",
-      flashcards25Reviews: 250,
+      flashcards25Reviews: 220,
       homeworkAssignmentsDone: 60,
       color: "#000",
       textcolor: "#EAC96F",
       text: "Black Belt Bronze Stripe",
       backgroundcolor: "#111",
-      totalScore: 125000,
+      totalScore: 150000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
       image:
@@ -161,9 +161,9 @@ export const levels = () => {
       textcolor: "silver",
       text: "Black Belt Silver Stripe",
       backgroundcolor: "#111",
-      flashcards25Reviews: 350,
+      flashcards25Reviews: 300,
       homeworkAssignmentsDone: 70,
-      totalScore: 160000,
+      totalScore: 200000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
       image:
@@ -176,11 +176,11 @@ export const levels = () => {
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "yellow",
-      flashcards25Reviews: 450,
+      flashcards25Reviews: 400,
       homeworkAssignmentsDone: 80,
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#111",
-      totalScore: 200000,
+      totalScore: 250000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
       image:
