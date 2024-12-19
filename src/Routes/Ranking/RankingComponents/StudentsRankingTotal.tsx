@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi2, DivFont } from "../../../Resources/Components/RouteBox";
+import { AnimatedLi2 } from "../../../Resources/Components/RouteBox";
 import {
-  DivDis,
   ImgResponsive3,
   backDomain,
   formatNumber,
@@ -12,12 +11,10 @@ import axios from "axios";
 import { levels } from "./RankingLevelsList";
 import { secondaryColor } from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
-import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [students, setStudents] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [truncatedSize, setTruncatedSize] = useState<number>(1000);
   const theItems = levels();
 
   const [showInfo, setShowInfo] = useState<{
@@ -27,21 +24,20 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const toggleInfo = (type: "points" | "hw" | "fc", index: number) => {
     setShowInfo((prevState) => {
       const newState = { ...prevState };
-  
-      // Garante que a estrutura para o índice existe
+
       if (!newState[index]) {
         newState[index] = { points: false, hw: false, fc: false };
       }
-  
-      // Alterna a visibilidade do tipo específico
+
       newState[index][type] = !newState[index][type];
-  
-      console.log("Toggling:", type, index, newState[index][type]); // Estado atualizado para o item específico
+
+      console.log("Toggling:", type, index, newState[index][type]);
+
       return newState;
     });
   };
   const actualHeaders = headers || {};
-  const [ID, setID] = useState(""); // Estado para controlar o modal
+  const [ID, setID] = useState("");
 
   const fetchStudents = async () => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
@@ -75,21 +71,15 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     ).level;
 
     if (levelA === levelB) {
-      // Se os níveis forem iguais, ordena por pontuação em ordem decrescente
       return b.totalScore - a.totalScore;
     }
-    // Ordena por nível em ordem crescente
+
     return levelB - levelA;
   });
 
   useEffect(() => {
     fetchStudents();
-    // setInterval(() => { fetchStudentsNoLoading() },1000);
   }, []);
-
-  // useEffect(() => {
-  //   setTruncatedSize(window.innerWidth / 90);
-  // }, [window.innerWidth]);
 
   return (
     <div style={{ padding: "1rem", display: "grid" }}>
@@ -135,7 +125,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   border: `1px solid ${theItems[levelNumber - 1].color}`,
                   //@ts-ignore
                   backgroundColor: "#000",
-                  // backgroundColor: theItems[levelNumber - 1].backgroundcolor,
+
                   marginBottom: "0.5rem",
                   borderRadius: "5px",
                   padding: "5px",
@@ -161,85 +151,18 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   />
                   <div style={{ flex: 1 }}>
                     <p style={{ margin: 0, fontWeight: 550 }}>
-                      #{index + 1} | {item.name}{" "}
-                      {/* {truncateTitle(item.lastname, truncatedSize)} */}
-                      {item.lastname}
+                      #{index + 1} | {item.name} {item.lastname}
                     </p>
                   </div>
-                  {/* <div
-                    style={{
-                      display: "flex",
-                      gap: "0.5rem",
-                    }}
-                  >
-                    <DivFont
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      Total Score:{" "}
-                      <span
-                        style={{
-                          fontWeight: "800",
-                          padding: "0 3px",
-                          marginLeft: "3px",
-                          borderRadius: "5px",
-                          backgroundColor:
-                            theItems[levelNumber - 1].backgroundcolor,
-                        }}
-                      >
-                        {formatNumber(item.totalScore)}
-                      </span>
-                    </DivFont>
-                    <DivDis>
-                      <DivFont
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        | Homework:{" "}
-                        <span
-                          style={{
-                            fontWeight: "800",
-                            padding: "0 3px",
-                            marginLeft: "3px",
-                            borderRadius: "5px",
-                            backgroundColor:
-                              theItems[levelNumber - 1].backgroundcolor,
-                          }}
-                        >
-                          {formatNumber(item.homeworkAssignmentsDone)}
-                        </span>
-                      </DivFont>
-                    </DivDis>
-                    <DivDis>
-                      <DivFont
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        | 25 Flashcards/day:{" "}
-                        <span
-                          style={{
-                            fontWeight: "800",
-                            padding: "0 3px",
-                            marginLeft: "3px",
-                            borderRadius: "5px",
-                            backgroundColor:
-                              theItems[levelNumber - 1].backgroundcolor,
-                          }}
-                        >
-                          {formatNumber(item.flashcards25Reviews)}
-                        </span>
-                      </DivFont>
-                    </DivDis>
-                  </div> */}
                 </AnimatedLi2>
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between", // Alinha os elementos
-                    alignItems: "center", // Centraliza verticalmente
+                    justifyContent: "space-between",
+                    alignItems: "center",
                     padding: "0.5rem",
                     margin: "0 0 0.5rem 0",
-                    zIndex: 10, // Aplica z-index geral
+                    zIndex: 10,
                   }}
                 >
                   {/* Bloco de Pontos */}
@@ -270,7 +193,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           marginTop: "5px",
                           fontSize: "10px",
                           textAlign: "left",
-                          zIndex: 99, // Garante sobreposição
+                          zIndex: 99,
                         }}
                       >
                         {`São necessários ${
@@ -313,7 +236,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           marginTop: "5px",
                           fontSize: "10px",
                           textAlign: "left",
-                          zIndex: 99, // Garante sobreposição
+                          zIndex: 99,
                         }}
                       >
                         {`São necessários ${
@@ -356,7 +279,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           marginTop: "5px",
                           fontSize: "10px",
                           textAlign: "left",
-                          zIndex: 99, // Garante sobreposição
+                          zIndex: 99,
                         }}
                       >
                         {`São necessários ${
