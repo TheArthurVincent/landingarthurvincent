@@ -94,13 +94,13 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 600,
+        score: 750,
         description: "Homework Group Class",
         text: "Homework Group Class (entregar na aula particular)",
       },
       {
         description: "Homework Atrasado (> 7 dias atrás) ou incompleto",
-        score: 200,
+        score: 250,
         color: "green",
       },
       {
