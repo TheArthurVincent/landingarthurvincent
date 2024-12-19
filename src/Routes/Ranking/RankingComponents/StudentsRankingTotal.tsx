@@ -134,7 +134,8 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   //@ts-ignore
                   border: `1px solid ${theItems[levelNumber - 1].color}`,
                   //@ts-ignore
-                  backgroundColor: theItems[levelNumber - 1].backgroundcolor,
+                  backgroundColor: "#000",
+                  // backgroundColor: theItems[levelNumber - 1].backgroundcolor,
                   marginBottom: "0.5rem",
                   borderRadius: "6px",
                   padding: "5px",
