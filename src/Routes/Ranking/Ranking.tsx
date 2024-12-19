@@ -120,22 +120,141 @@ export default function Ranking({ headers }: HeadersProps) {
           </TabList>
         </Box>
         <Countdown targetDate={targetDate} text="Score resets on" />
-        <HTwo>{user.name}{" "}{user.lastname}</HTwo>
+        <HTwo>
+          {user.name} {user.lastname}
+        </HTwo>
         <p
           style={{
             padding: "1rem",
-            borderRadius: "1rem",
+            borderRadius: "12px",
             backgroundColor: primaryColor(),
             color: textPrimaryColorContrast(),
             textAlign: "center",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "1rem", // Espaçamento entre as divs
           }}
         >
-          Monthly Score: <strong>{user.monthlyScore} | </strong> Total Score:{" "}
-          <strong>{user.totalScore} | </strong>
-          Homework Assignments Done{" "}
-          <strong>{user.homeworkAssignmentsDone} | </strong> 25 Flashcards in one
-          day: <strong> {user.flashcards25Reviews}</strong>
+          <div
+            style={{
+              flex: 1,
+              textAlign: "center",
+              padding: "5px",
+              borderRadius: "10px",
+              backgroundColor: "#FFD000", // Fundo dourado
+              fontSize: "12px",
+              color: "black",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+            }}
+          >
+            <strong
+              style={{
+                fontSize: "9px",
+              }}
+            >
+              Monthly Score:
+            </strong>
+            <p
+              style={{
+                fontFamily: "Athiti",
+                fontWeight: "700",
+                margin: 0,
+                color: "#333",
+              }}
+            >
+              {user.monthlyScore}
+            </p>
+          </div>
+          <div
+            style={{
+              flex: 1,
+              textAlign: "center",
+              padding: "5px",
+              borderRadius: "10px",
+              backgroundColor: "#4CAF50", // Fundo verde
+              fontSize: "12px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+            }}
+          >
+            <strong
+              style={{
+                fontSize: "9px",
+              }}
+            >
+              Total Score:
+            </strong>
+            <p
+              style={{
+                fontFamily: "Athiti",
+                fontWeight: "700",
+                margin: 0,
+                color: "#fff",
+              }}
+            >
+              {formatNumber(user.totalScore)}
+            </p>
+          </div>
+          <div
+            style={{
+              flex: 1,
+              textAlign: "center",
+              padding: "5px",
+              borderRadius: "10px",
+              backgroundColor: "#FF5722", // Fundo laranja
+              fontSize: "12px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+            }}
+          >
+            <strong
+              style={{
+                fontSize: "9px",
+              }}
+            >
+              Homework Assignments:
+            </strong>
+            <p
+              style={{
+                fontFamily: "Athiti",
+                fontWeight: "700",
+                margin: 0,
+                color: "#fff",
+              }}
+            >
+              {formatNumber(user.homeworkAssignmentsDone)}
+            </p>
+          </div>
+          <div
+            style={{
+              flex: 1,
+              textAlign: "center",
+              padding: "5px",
+              borderRadius: "10px",
+              backgroundColor: "#2196F3", // Fundo azul
+              fontSize: "12px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+            }}
+          >
+            <strong
+              style={{
+                fontSize: "9px",
+              }}
+            >
+              Flashcard Daily Reviews:
+            </strong>
+            <p
+              style={{
+                fontFamily: "Athiti",
+                fontWeight: "700",
+                margin: 0,
+                color: "#fff",
+              }}
+            >
+              {formatNumber(user.flashcards25Reviews)}
+            </p>
+          </div>
         </p>
+
         {componentsToRender.map((component, index) => {
           return (
             <TabPanel
