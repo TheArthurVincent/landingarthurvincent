@@ -137,7 +137,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   backgroundColor: "#000",
                   // backgroundColor: theItems[levelNumber - 1].backgroundcolor,
                   marginBottom: "0.5rem",
-                  borderRadius: "6px",
+                  borderRadius: "5px",
                   padding: "5px",
                 }}
                 key={index}
@@ -150,7 +150,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     marginBottom: "0.5rem",
                     background: theItems[levelNumber - 1].color,
                     color: theItems[levelNumber - 1].textcolor,
-                    borderRadius: "8px",
+                    borderRadius: "5px",
                     position: "relative",
                   }}
                 >
