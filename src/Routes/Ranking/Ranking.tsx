@@ -192,7 +192,7 @@ export default function Ranking({ headers }: HeadersProps) {
                 color: "#fff",
               }}
             >
-              {formatNumber(user.totalScore)}
+              {user.totalScore}
             </p>
           </div>
           <div
@@ -221,7 +221,7 @@ export default function Ranking({ headers }: HeadersProps) {
                 color: "#fff",
               }}
             >
-              {formatNumber(user.homeworkAssignmentsDone)}
+              {user.homeworkAssignmentsDone}
             </p>
           </div>
           <div
@@ -250,7 +250,7 @@ export default function Ranking({ headers }: HeadersProps) {
                 color: "#fff",
               }}
             >
-              {formatNumber(user.flashcards25Reviews)}
+              {user.flashcards25Reviews}
             </p>
           </div>
         </p>
