@@ -42,7 +42,9 @@ export const readText = (
 
     // Selecionar a voz (se especificada)
     const voices = synth.getVoices();
-    const filteredVoices = voices.filter((voice) => voice.lang === "en-US" || voice.lang === "en-GB");
+    const filteredVoices = voices.filter(
+      (voice) => voice.lang === "en-US" || voice.lang === "en-GB"
+    );
     // const filteredVoices = voices
 
     console.log(filteredVoices);
@@ -51,8 +53,10 @@ export const readText = (
       var voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
       var voiceChrome = voiceNumber ? filteredVoices[2] : filteredVoices[3];
     } else {
-      var voiceEdge = Number(currentEvenOdd) ? filteredVoices[7] : filteredVoices[10];
-      var voiceChrome = Number(currentEvenOdd) ? filteredVoices[2] : filteredVoices[3];
+      var voiceEdge = Number(currentEvenOdd)
+        ? filteredVoices[7]
+        : filteredVoices[10];
+      var voiceChrome = filteredVoices[3];
     }
 
     if (voiceEdge) {
