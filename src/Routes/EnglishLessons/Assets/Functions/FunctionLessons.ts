@@ -64,3 +64,5 @@ export const pauseSpeech = () => {
     console.log("Erro: text-to-speech não suportado.");
   }
 };
+
+
