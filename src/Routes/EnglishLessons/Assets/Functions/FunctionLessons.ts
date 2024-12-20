@@ -4,23 +4,36 @@ export const readText = (
   lang?: string,
   voiceNumber?: boolean
 ) => {
-  // Gerenciar o objeto evenOdd no localStorage
   const evenOddKey = "evenOdd";
+  const theSentenceKey = "theSentence";
+  const theRateKey = "theRate";
+
   const currentEvenOdd = localStorage.getItem(evenOddKey);
+  const currentSentence = localStorage.getItem(theSentenceKey);
+  let theRate = parseFloat(localStorage.getItem(theRateKey) || "1");
 
   if (currentEvenOdd === null) {
-    // Se não existir, cria com valor inicial 1
     localStorage.setItem(evenOddKey, "1");
-    console.log(`Criado ${evenOddKey}: 1`);
   } else {
-    // Alterna o valor entre 0 e 1
-    const newValue = currentEvenOdd === "1" ? "0" : "1";
-    localStorage.setItem(evenOddKey, newValue);
-    console.log(`Atualizado ${evenOddKey}:`, Number(newValue));
+    const newEvenOdd = currentEvenOdd === "1" ? "0" : "1";
+    localStorage.setItem(evenOddKey, newEvenOdd);
+  }
+
+  if (currentSentence === null) {
+    localStorage.setItem(theSentenceKey, text);
+    localStorage.setItem(theRateKey, "1");
+  } else if (currentSentence === text) {
+    theRate = theRate === 0.8 ? 1 : 0.8;
+    localStorage.setItem(theRateKey, theRate.toString());
+  } else {
+    theRate = 1;
+    localStorage.setItem(theSentenceKey, text);
+    localStorage.setItem(theRateKey, "1");
   }
 
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;
+
     if (!synth) {
       console.error("speechSynthesis não está disponível.");
       return;
@@ -32,60 +45,35 @@ export const readText = (
 
     const utterance = new SpeechSynthesisUtterance(text);
 
-    // Definir o idioma
     utterance.lang = getLanguageCode(lang);
+    utterance.rate = theRate;
+    utterance.pitch = 1;
+    utterance.volume = 1;
 
-    // Configurações adicionais (opcional)
-    utterance.rate = Number(currentEvenOdd) ? 0.8 : Number(currentEvenOdd); // Velocidade normal
-    utterance.pitch = 1; // Tom neutro
-    utterance.volume = 1; // Volume máximo
-
-    // Selecionar a voz (se especificada)
     const voices = synth.getVoices();
     const filteredVoices = voices.filter(
       (voice) => voice.lang === "en-US" || voice.lang === "en-GB"
     );
-    // const filteredVoices = voices
 
-    console.log(filteredVoices);
-
+    let selectedVoice;
     if (voiceNumber) {
-      var voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
-      var voiceChrome = voiceNumber ? filteredVoices[2] : filteredVoices[3];
-
-      utterance.rate = 1; // Velocidade normal
+      const voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
+      const voiceChrome = voiceNumber ? filteredVoices[2] : filteredVoices[3];
+      selectedVoice = voiceEdge || voiceChrome;
+      utterance.rate = 1;
     } else {
-      var voiceEdge = Number(currentEvenOdd)
-        ? filteredVoices[7]
-        : filteredVoices[10];
-      var voiceChrome = filteredVoices[3];
+      const voiceEdge = filteredVoices[10];
+      const voiceChrome = filteredVoices[3];
+      selectedVoice = voiceEdge || voiceChrome;
     }
 
-    if (voiceEdge) {
-      const selectedVoice = voices.find(
-        (voice) => voice.name === voiceEdge.name
-      );
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
-        console.log(selectedVoice);
-      }
-    } else if (voiceChrome) {
-      const selectedVoice = voices.find(
-        (voice) => voice.name === voiceChrome.name
-      );
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
-        console.log(selectedVoice);
-      }
+    if (selectedVoice) {
+      utterance.voice = selectedVoice;
+      console.log("Voz selecionada:", selectedVoice);
     } else {
-      console.log(
-        `Voz "${
-          voiceChrome + " and " + voiceEdge
-        }" não encontrada. Usando a padrão.`
-      );
+      console.warn("Nenhuma voz correspondente encontrada. Usando a padrão.");
     }
 
-    // Eventos de controle
     utterance.onstart = () => console.log("Leitura iniciada.");
     utterance.onend = () => console.log("Leitura finalizada.");
     utterance.onerror = (e) => console.error("Erro na leitura:", e);
@@ -117,7 +105,6 @@ const getLanguageCode = (lang?: string): string => {
   }
 };
 
-// Exemplo de como obter as vozes disponíveis
 export const listVoices = () => {
   if ("speechSynthesis" in window) {
     const voices = window.speechSynthesis.getVoices();
