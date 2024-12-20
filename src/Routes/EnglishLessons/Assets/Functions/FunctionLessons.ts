@@ -36,7 +36,7 @@ export const readText = (
     utterance.lang = getLanguageCode(lang);
 
     // Configurações adicionais (opcional)
-    utterance.rate = 0.85; // Velocidade normal
+    utterance.rate = Number(currentEvenOdd) ? 0.8 : Number(currentEvenOdd); // Velocidade normal
     utterance.pitch = 1; // Tom neutro
     utterance.volume = 1; // Volume máximo
 
@@ -52,6 +52,8 @@ export const readText = (
     if (voiceNumber) {
       var voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
       var voiceChrome = voiceNumber ? filteredVoices[2] : filteredVoices[3];
+
+      utterance.rate = 1; // Velocidade normal
     } else {
       var voiceEdge = Number(currentEvenOdd)
         ? filteredVoices[7]
