@@ -167,6 +167,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                 >
                   {/* Bloco de Pontos */}
                   <div
+                    className="hover-color2"
                     style={{
                       padding: "5px",
                       borderRadius: "5px",
@@ -174,7 +175,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       cursor: "pointer",
                       maxWidth: "14rem",
                       fontFamily: "Athiti",
-                      backgroundColor: remainingPoints <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("points", index)}
@@ -186,7 +186,8 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     {showInfo[index]?.points && (
                       <div
                         style={{
-                          backgroundColor: "#333",
+                          backgroundColor:
+                            remainingPoints <= 0 ? "green" : "red",
                           color: "white",
                           padding: "5px",
                           borderRadius: "5px",
@@ -210,6 +211,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   </div>
                   {/* Bloco de Tarefas Restantes */}
                   <div
+                    className="hover-color2"
                     style={{
                       padding: "5px",
                       borderRadius: "5px",
@@ -217,7 +219,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       cursor: "pointer",
                       maxWidth: "14rem",
                       fontFamily: "Athiti",
-                      backgroundColor: remainingHW <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("hw", index)}
@@ -229,7 +230,8 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     {showInfo[index]?.hw && (
                       <div
                         style={{
-                          backgroundColor: "#333",
+                          backgroundColor: remainingHW <= 0 ? "green" : "red",
+
                           color: "white",
                           padding: "5px",
                           borderRadius: "5px",
@@ -253,6 +255,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   </div>
                   {/* Bloco de Revisões de 25 cards */}
                   <div
+                    className="hover-color2"
                     style={{
                       padding: "5px",
                       borderRadius: "5px",
@@ -260,7 +263,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       cursor: "pointer",
                       maxWidth: "14rem",
                       fontFamily: "Athiti",
-                      backgroundColor: remainingFC <= 0 ? "green" : "red",
                       fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("fc", index)}
@@ -272,7 +274,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     {showInfo[index]?.fc && (
                       <div
                         style={{
-                          backgroundColor: "#333",
+                          backgroundColor: remainingFC <= 0 ? "green" : "red",
                           color: "white",
                           padding: "5px",
                           borderRadius: "5px",

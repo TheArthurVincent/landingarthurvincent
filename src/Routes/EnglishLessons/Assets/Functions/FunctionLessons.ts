@@ -5,49 +5,50 @@ export const readText = (text: string, restart: boolean, lang?: string) => {
       console.error("speechSynthesis não está disponível.");
       return;
     }
-    synth.cancel();
+
+    if (restart) {
+      synth.cancel();
+    }
 
     const utterance = new SpeechSynthesisUtterance(text);
 
     // Definir o idioma
-    switch (lang) {
-      case "pt":
-        utterance.lang = "pt-BR";
-        break;
-      case "fr":
-        utterance.lang = "fr-FR";
-        break;
-      case "it":
-        utterance.lang = "it-IT";
-        break;
-      case "de":
-        utterance.lang = "de-DE";
-        break;
-      case "en":
-      default:
-        utterance.lang = "en-US";
-        break;
-    }
+    utterance.lang = getLanguageCode(lang);
 
+    // Configurações adicionais (opcional)
+    utterance.rate = 1; // Velocidade normal
+    utterance.pitch = 1; // Tom neutro
+    utterance.volume = 1; // Volume máximo
 
     // Eventos de controle
     utterance.onstart = () => console.log("Leitura iniciada.");
     utterance.onend = () => console.log("Leitura finalizada.");
     utterance.onerror = (e) => console.error("Erro na leitura:", e);
 
-    if (restart) {
-      synth.cancel();
+    if (restart || !synth.speaking || synth.paused) {
       synth.speak(utterance);
     } else if (synth.speaking) {
       synth.pause();
-    } else if (synth.paused) {
-      synth.resume();
-    } else {
-      synth.speak(utterance);
     }
   } else {
     alert("Seu navegador não suporta a síntese de fala!");
     console.log("Erro: text-to-speech não suportado.");
+  }
+};
+
+const getLanguageCode = (lang?: string): string => {
+  switch (lang) {
+    case "pt":
+      return "pt-BR";
+    case "fr":
+      return "fr-FR";
+    case "it":
+      return "it-IT";
+    case "de":
+      return "de-DE";
+    case "en":
+    default:
+      return "en-US";
   }
 };
 
@@ -56,6 +57,7 @@ export const pauseSpeech = () => {
     const synth = window.speechSynthesis;
     if (synth.speaking) {
       synth.pause();
+      console.log("Fala pausada.");
     }
   } else {
     alert("Seu navegador não suporta a síntese de fala!");

@@ -24,6 +24,8 @@
   margin: 0;
 }
 
+
+
 @media (max-width: 450px) {
   *::-webkit-scrollbar {
     width: 5px;
@@ -106,6 +108,7 @@ h4 {
     background: #777;
   }
 }
+
 .hoverable-paragraph .hidden-span {
   visibility: hidden;
   transition: visibility 0.2s;
@@ -283,6 +286,10 @@ li {
 
 .hover-color {
   border: 1px solid white;
+}
+
+.hover-color2:hover {
+  background-color: grey;
 }
 
 .hover-color:hover {
