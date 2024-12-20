@@ -49,7 +49,9 @@ export default function DialogueLessonModel({
                   </p>
                   <ArvinButton
                     className="audio-button"
-                    onClick={() => readText(text, true)}
+                    onClick={() =>
+                      readText(text, true, "en", isEven(index) ? true : false)
+                    }
                   >
                     <i className="fa fa-volume-up" aria-hidden="true" />
                   </ArvinButton>
