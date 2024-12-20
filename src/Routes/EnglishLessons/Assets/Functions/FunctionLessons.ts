@@ -49,10 +49,10 @@ export const readText = (
 
     if (voiceNumber) {
       var voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
-      var voiceChrome = voiceNumber ? filteredVoices[4] : filteredVoices[3];
+      var voiceChrome = voiceNumber ? filteredVoices[2] : filteredVoices[3];
     } else {
       var voiceEdge = Number(currentEvenOdd) ? filteredVoices[7] : filteredVoices[10];
-      var voiceChrome = Number(currentEvenOdd) ? filteredVoices[4] : filteredVoices[3];
+      var voiceChrome = Number(currentEvenOdd) ? filteredVoices[2] : filteredVoices[3];
     }
 
     if (voiceEdge) {
