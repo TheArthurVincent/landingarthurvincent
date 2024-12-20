@@ -59,7 +59,8 @@ export const readText = (
     if (voiceNumber) {
       const voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
       const voiceChrome = voiceNumber ? filteredVoices[5] : filteredVoices[3];
-      selectedVoice = voiceEdge || voiceChrome;
+      const generaVoices = voiceNumber ? filteredVoices[0] : filteredVoices[1];
+      selectedVoice = voiceEdge || voiceChrome || generaVoices;
       utterance.rate = 1;
       console.log(filteredVoices)
     } else {
