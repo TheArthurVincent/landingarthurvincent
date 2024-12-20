@@ -9,7 +9,7 @@ import {
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
-import { secondaryColor } from "../../../Styles/Styles";
+import { secondaryColor, textFont } from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
@@ -43,7 +43,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setID(getLoggedUser.id);
     console.log(getLoggedUser.id);
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/scorestotalranking/`,
@@ -51,7 +51,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           headers: actualHeaders,
         }
       );
-      setLoading(false);
+      // setLoading(false);
       setStudents(response.data.listOfStudents);
     } catch (error) {
       alert("Erro ao encontrar alunos");
@@ -82,7 +82,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   }, []);
 
   return (
-    <div style={{ padding: "1rem", display: "grid" }}>
+    <div style={{ display: "grid" }}>
       <div
         style={{
           display: "flex",
@@ -91,9 +91,12 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           marginBottom: "1rem",
         }}
       >
-        <p onClick={() => fetchStudents()}>
-          Este é o Ranking das pontuações TOTAIS acima de 10.000!
-        </p>
+        <div
+          style={{
+            textAlign: "center",
+          }}
+          onClick={() => fetchStudents()}
+        >{`> 10.000!`}</div>
       </div>
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
@@ -125,7 +128,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                   border: `1px solid ${theItems[levelNumber - 1].color}`,
                   //@ts-ignore
                   backgroundColor: "#000",
-
                   marginBottom: "0.5rem",
                   borderRadius: "5px",
                   padding: "5px",
@@ -173,14 +175,18 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "14rem",
-                      fontFamily: "Athiti",
+                      maxWidth: "11rem",
                       fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("points", index)}
                   >
                     Total Score:{" "}
-                    <span style={{ fontWeight: "1000" }}>
+                    <span
+                      style={{
+                        fontWeight: "1000",
+                        fontFamily: "Athiti",
+                      }}
+                    >
                       {formatNumber(item.totalScore)}
                     </span>
                     {showInfo[index]?.points && (
@@ -192,7 +198,8 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           padding: "5px",
                           borderRadius: "5px",
                           marginTop: "5px",
-                          fontSize: "10px",
+                          fontSize: "12px",
+                          fontFamily: textFont(),
                           textAlign: "left",
                           zIndex: 99,
                         }}
@@ -217,26 +224,30 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "14rem",
-                      fontFamily: "Athiti",
+                      maxWidth: "11rem",
                       fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("hw", index)}
                   >
                     Homework assignments:{" "}
-                    <span style={{ fontWeight: "1000" }}>
+                    <span
+                      style={{
+                        fontWeight: "1000",
+                        fontFamily: "Athiti",
+                      }}
+                    >
                       {formatNumber(item.homeworkAssignmentsDone)}
                     </span>
                     {showInfo[index]?.hw && (
                       <div
                         style={{
                           backgroundColor: remainingHW <= 0 ? "green" : "red",
-
                           color: "white",
                           padding: "5px",
                           borderRadius: "5px",
                           marginTop: "5px",
-                          fontSize: "10px",
+                          fontSize: "12px",
+                          fontFamily: textFont(),
                           textAlign: "left",
                           zIndex: 99,
                         }}
@@ -261,14 +272,19 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                       borderRadius: "5px",
                       color: "white",
                       cursor: "pointer",
-                      maxWidth: "14rem",
-                      fontFamily: "Athiti",
+
+                      maxWidth: "11rem",
                       fontSize: "12px",
                     }}
                     onClick={() => toggleInfo("fc", index)}
                   >
                     Flashcard daily reviews:{" "}
-                    <span style={{ fontWeight: "1000" }}>
+                    <span
+                      style={{
+                        fontWeight: "1000",
+                        fontFamily: "Athiti",
+                      }}
+                    >
                       {formatNumber(item.flashcards25Reviews)}
                     </span>
                     {showInfo[index]?.fc && (
@@ -279,7 +295,8 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           padding: "5px",
                           borderRadius: "5px",
                           marginTop: "5px",
-                          fontSize: "10px",
+                          fontSize: "12px",
+                          fontFamily: textFont(),
                           textAlign: "left",
                           zIndex: 99,
                         }}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
+import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import {
@@ -18,7 +17,7 @@ import StudentsRanking from "./RankingComponents/StudentsRanking";
 import StudentsHistoryOfWinners from "./RankingComponents/StudentsHistoryOfWinners";
 import Countdown from "./RankingComponents/Countdown";
 import { monthInQuestion } from "./RankingComponents/RankingComponents";
-import { formatNumber, onLoggOut } from "../../Resources/UniversalComponents";
+import { onLoggOut } from "../../Resources/UniversalComponents";
 
 export default function Ranking({ headers }: HeadersProps) {
   const { UniversalTexts } = useUserContext();
@@ -120,140 +119,145 @@ export default function Ranking({ headers }: HeadersProps) {
           </TabList>
         </Box>
         <Countdown targetDate={targetDate} text="Score resets on" />
-        <HTwo>
-          {user.name} {user.lastname}
-        </HTwo>
-        <p
+        <div
           style={{
-            padding: "1rem",
-            borderRadius: "12px",
+            padding: "10px",
+            display: "grid",
+            gap: "10px",
+            borderRadius: "10px",
             backgroundColor: primaryColor(),
             color: textPrimaryColorContrast(),
             textAlign: "center",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "1rem", // Espaçamento entre as divs
           }}
         >
+          {user.name} {user.lastname}
           <div
             style={{
-              flex: 1,
-              textAlign: "center",
-              padding: "5px",
-              borderRadius: "10px",
-              backgroundColor: "#FFD000", // Fundo dourado
-              fontSize: "12px",
-              color: "black",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "1rem",
             }}
           >
-            <strong
+            <div
               style={{
-                fontSize: "9px",
+                flex: 1,
+                textAlign: "center",
+                padding: "5px",
+                borderRadius: "10px",
+                backgroundColor: "#FFD000", // Fundo dourado
+                fontSize: "12px",
+                color: "black",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
               }}
             >
-              Monthly Score:
-            </strong>
-            <p
+              <strong
+                style={{
+                  fontSize: "9px",
+                }}
+              >
+                Monthly Score:
+              </strong>
+              <p
+                style={{
+                  fontFamily: "Athiti",
+                  fontWeight: "700",
+                  margin: 0,
+                  color: "#333",
+                }}
+              >
+                {user.monthlyScore}
+              </p>
+            </div>
+            <div
               style={{
-                fontFamily: "Athiti",
-                fontWeight: "700",
-                margin: 0,
-                color: "#333",
+                flex: 1,
+                textAlign: "center",
+                padding: "5px",
+                borderRadius: "10px",
+                backgroundColor: "#4CAF50", // Fundo verde
+                fontSize: "12px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
               }}
             >
-              {user.monthlyScore}
-            </p>
+              <strong
+                style={{
+                  fontSize: "9px",
+                }}
+              >
+                Total Score:
+              </strong>
+              <p
+                style={{
+                  fontFamily: "Athiti",
+                  fontWeight: "700",
+                  margin: 0,
+                  color: "#fff",
+                }}
+              >
+                {user.totalScore}
+              </p>
+            </div>
+            <div
+              style={{
+                flex: 1,
+                textAlign: "center",
+                padding: "5px",
+                borderRadius: "10px",
+                backgroundColor: "#FF5722", // Fundo laranja
+                fontSize: "12px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+              }}
+            >
+              <strong
+                style={{
+                  fontSize: "9px",
+                }}
+              >
+                Homework Assignments:
+              </strong>
+              <p
+                style={{
+                  fontFamily: "Athiti",
+                  fontWeight: "700",
+                  margin: 0,
+                  color: "#fff",
+                }}
+              >
+                {user.homeworkAssignmentsDone}
+              </p>
+            </div>
+            <div
+              style={{
+                flex: 1,
+                textAlign: "center",
+                padding: "5px",
+                borderRadius: "10px",
+                backgroundColor: "#2196F3", // Fundo azul
+                fontSize: "12px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
+              }}
+            >
+              <strong
+                style={{
+                  fontSize: "9px",
+                }}
+              >
+                Flashcard Daily Reviews:
+              </strong>
+              <p
+                style={{
+                  fontFamily: "Athiti",
+                  fontWeight: "700",
+                  margin: 0,
+                  color: "#fff",
+                }}
+              >
+                {user.flashcards25Reviews}
+              </p>
+            </div>
           </div>
-          <div
-            style={{
-              flex: 1,
-              textAlign: "center",
-              padding: "5px",
-              borderRadius: "10px",
-              backgroundColor: "#4CAF50", // Fundo verde
-              fontSize: "12px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
-            }}
-          >
-            <strong
-              style={{
-                fontSize: "9px",
-              }}
-            >
-              Total Score:
-            </strong>
-            <p
-              style={{
-                fontFamily: "Athiti",
-                fontWeight: "700",
-                margin: 0,
-                color: "#fff",
-              }}
-            >
-              {user.totalScore}
-            </p>
-          </div>
-          <div
-            style={{
-              flex: 1,
-              textAlign: "center",
-              padding: "5px",
-              borderRadius: "10px",
-              backgroundColor: "#FF5722", // Fundo laranja
-              fontSize: "12px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
-            }}
-          >
-            <strong
-              style={{
-                fontSize: "9px",
-              }}
-            >
-              Homework Assignments:
-            </strong>
-            <p
-              style={{
-                fontFamily: "Athiti",
-                fontWeight: "700",
-                margin: 0,
-                color: "#fff",
-              }}
-            >
-              {user.homeworkAssignmentsDone}
-            </p>
-          </div>
-          <div
-            style={{
-              flex: 1,
-              textAlign: "center",
-              padding: "5px",
-              borderRadius: "10px",
-              backgroundColor: "#2196F3", // Fundo azul
-              fontSize: "12px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
-            }}
-          >
-            <strong
-              style={{
-                fontSize: "9px",
-              }}
-            >
-              Flashcard Daily Reviews:
-            </strong>
-            <p
-              style={{
-                fontFamily: "Athiti",
-                fontWeight: "700",
-                margin: 0,
-                color: "#fff",
-              }}
-            >
-              {user.flashcards25Reviews}
-            </p>
-          </div>
-        </p>
+        </div>
 
         {componentsToRender.map((component, index) => {
           return (

@@ -52,19 +52,25 @@ export default function Countdown({ text, targetDate }: CountDownProps) {
     <div
       style={{
         textAlign: "center",
-        marginBottom: "2rem",
+        marginBottom: "1rem",
       }}
     >
-      <HTwo>
+      <p
+        style={{
+          margin: "10px",
+          fontSize:"11px",
+          fontWeight:700
+        }}
+      >
         {textToUse} {formatDate(targetDate)}
-      </HTwo>
+      </p>
       <div
         style={{
           backgroundColor: timeLeft.days == 0 ? "red" : secondaryColor(),
           color: textSecondaryColorContrast(),
-          borderRadius: "1rem",
-          fontSize: "1.1rem",
-          padding: "8px 12px",
+          borderRadius: "8px",
+          fontSize: "1rem",
+          padding: "6px 8px",
           fontFamily: textTitleFont(),
           fontWeight: 600,
           display: "inline",
