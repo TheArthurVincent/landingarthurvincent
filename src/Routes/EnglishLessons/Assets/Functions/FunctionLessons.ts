@@ -53,14 +53,15 @@ export const readText = (
     const voices = synth.getVoices();
     const filteredVoices = voices.filter(
       (voice) => voice.lang === "en-US" || voice.lang === "en-GB"
-    );
+    );    
 
     let selectedVoice;
     if (voiceNumber) {
       const voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
-      const voiceChrome = voiceNumber ? filteredVoices[2] : filteredVoices[3];
+      const voiceChrome = voiceNumber ? filteredVoices[5] : filteredVoices[3];
       selectedVoice = voiceEdge || voiceChrome;
       utterance.rate = 1;
+      console.log(filteredVoices)
     } else {
       const voiceEdge = filteredVoices[10];
       const voiceChrome = filteredVoices[3];
