@@ -209,7 +209,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     <Tooltip title="Dia de entrega">
                       <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
                     </Tooltip>
-             
+
                     <div>
                       <span>
                         <i
@@ -218,10 +218,11 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${homework?.status == "done"
+                          className={`fa fa-${
+                            homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                            }`}
+                          }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -301,7 +302,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     style={{
                       margin: "2px",
                       textDecoration: "none",
-                      display:  "grid",
+                      display: "grid",
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
@@ -312,7 +313,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                     <Tooltip title="Dia de entrega">
                       <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
                     </Tooltip>
-     
+
                     <div>
                       <span>
                         <i
@@ -321,10 +322,11 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             color:
                               homework?.status == "done" ? "green" : "orange",
                           }}
-                          className={`fa fa-${homework?.status == "done"
+                          className={`fa fa-${
+                            homework?.status == "done"
                               ? "check-circle"
                               : "ellipsis-h"
-                            }`}
+                          }`}
                           aria-hidden="true"
                         />{" "}
                         {homework?.status}
@@ -355,6 +357,17 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                             >
                               Just status
                             </ArvinButton>
+                            {permissions === "superadmin" && (
+                              <ArvinButton
+                                color="red"
+                                onDoubleClick={() =>
+                                  deleteHomework(homework._id)
+                                }
+                              >
+                                <i className="fa fa-trash" aria-hidden="true" />{" "}
+                                Double Click
+                              </ArvinButton>
+                            )}
                           </>
                         )}
                     </div>
