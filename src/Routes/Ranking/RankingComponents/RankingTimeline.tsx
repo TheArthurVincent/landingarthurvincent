@@ -154,7 +154,7 @@ export default function RankingTimeline({
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr>
-                <th style={{ border: "1px solid black", padding: "8px", backgroundColor: "#f2f2f2" }}>Tipo</th>
+                {/* <th style={{ border: "1px solid black", padding: "8px", backgroundColor: "#f2f2f2" }}>Tipo</th> */}
                 <th style={{ border: "1px solid black", padding: "8px", backgroundColor: "#f2f2f2" }}>Score</th>
                 <th style={{ border: "1px solid black", padding: "8px", backgroundColor: "#f2f2f2" }}>Data</th>
                 <th style={{ border: "1px solid black", padding: "8px", backgroundColor: "#f2f2f2" }}>Descrição</th>
