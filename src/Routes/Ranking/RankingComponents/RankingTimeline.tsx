@@ -189,8 +189,8 @@ export default function RankingTimeline({
 
                 return (
                   <tr key={index}>
-                    <td style={{ border: "1px solid black", padding: "8px" }}>
-                      {/* <i
+                    {/* <td style={{ border: "1px solid black", padding: "8px" }}>
+                      <i
                         style={{
                           backgroundColor: variables.color,
                           color: "white",
@@ -201,9 +201,9 @@ export default function RankingTimeline({
                         }}
                         className={variables.type}
                         aria-hidden="true"
-                      /> */}
+                      />
                       {variables.type}
-                    </td>
+                    </td> */}
                     <td
                       style={{
                         border: "1px solid black",
