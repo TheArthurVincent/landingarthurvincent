@@ -2,21 +2,21 @@ export const readText = (
   text: string,
   restart: boolean,
   lang?: string,
-  voiceNumber?: boolean
+  voiceBoolean?: boolean
 ) => {
-  const evenOddKey = "evenOdd";
   const theSentenceKey = "theSentence";
   const theRateKey = "theRate";
-
-  const currentEvenOdd = localStorage.getItem(evenOddKey);
+  console.log("voiceBoolean: ", voiceBoolean);
+  const currentEvenOdd = localStorage.getItem("evenOdd");
   const currentSentence = localStorage.getItem(theSentenceKey);
   let theRate = parseFloat(localStorage.getItem(theRateKey) || "1");
 
   if (currentEvenOdd === null) {
-    localStorage.setItem(evenOddKey, "1");
+    //@ts-ignore
+    localStorage.setItem("evenOdd", true);
   } else {
-    const newEvenOdd = currentEvenOdd === "1" ? "0" : "1";
-    localStorage.setItem(evenOddKey, newEvenOdd);
+    //@ts-ignore
+    localStorage.setItem("evenOdd", voiceBoolean ? false : true);
   }
 
   if (currentSentence === null) {
@@ -51,29 +51,29 @@ export const readText = (
     utterance.volume = 1;
 
     const voices = synth.getVoices();
-    const filteredVoices = voices.filter(
-      (voice) => voice.lang === "en-US" || voice.lang === "en-GB"
-    );    
+    const filteredVoices = voices.filter((voice) => voice.lang == "en-US");
+    const filteredVoicesUK = voices.filter((voice) => voice.lang == "en-GB");
 
     let selectedVoice;
-    if (voiceNumber) {
-      const voiceEdge = voiceNumber ? filteredVoices[7] : filteredVoices[10];
-      const voiceChrome = voiceNumber ? filteredVoices[5] : filteredVoices[3];
-      const generaVoices = voiceNumber ? filteredVoices[0] : filteredVoices[1];
-      selectedVoice = voiceEdge || voiceChrome || generaVoices;
-      utterance.rate = 1;
-      console.log(filteredVoices)
-    } else {
-      const voiceEdge = filteredVoices[10];
-      const voiceChrome = filteredVoices[3];
-      selectedVoice = voiceEdge || voiceChrome;
-    }
 
-    if (selectedVoice) {
+    const userAgent = navigator.userAgent;
+    if (voiceBoolean && !userAgent.includes("iOS")) {
+      console.log("currentEvenOdd: ", currentEvenOdd);
+      const voiceEdge = currentEvenOdd ? filteredVoices[4] : filteredVoices[5];
+      const generalVoices = currentEvenOdd ? filteredVoices[0] : filteredVoicesUK[0];
+      selectedVoice = voiceEdge || generalVoices;
+      utterance.rate = 1;
       utterance.voice = selectedVoice;
-      console.log("Voz selecionada:", selectedVoice);
+
+    } else if (userAgent.includes("iOS")) {
+      utterance.rate = 1;
+      utterance.voice = filteredVoices[0];
     } else {
-      console.warn("Nenhuma voz correspondente encontrada. Usando a padrão.");
+      const voiceEdge = filteredVoices[4];
+      const generalVoices = filteredVoices[0];
+      selectedVoice = voiceEdge || generalVoices;
+      utterance.rate = 1;
+      utterance.voice = selectedVoice;
     }
 
     utterance.onstart = () => console.log("Leitura iniciada.");
@@ -87,7 +87,6 @@ export const readText = (
     }
   } else {
     alert("Seu navegador não suporta a síntese de fala!");
-    console.log("Erro: text-to-speech não suportado.");
   }
 };
 
@@ -110,7 +109,6 @@ const getLanguageCode = (lang?: string): string => {
 export const listVoices = () => {
   if ("speechSynthesis" in window) {
     const voices = window.speechSynthesis.getVoices();
-    console.log("Vozes disponíveis:", voices);
     return voices;
   } else {
     console.error("speechSynthesis não está disponível no navegador.");

@@ -243,11 +243,35 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     <section id="review">
       {/*  */}
       {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
       <Countdown
         targetDate={new Date("2024-12-31T23:59:59")}
         text="You have until December 31st 2024 to score 10 points per card!"
       />
     
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
+      {/*  */}
       {/*  */}
       {/*  */}
       {/*  */}
