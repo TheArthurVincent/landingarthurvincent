@@ -61,10 +61,13 @@ export const readText = (
       console.log("currentEvenOdd: ", currentEvenOdd);
       const voiceEdge = currentEvenOdd ? filteredVoices[4] : filteredVoices[5];
       const generalVoices = currentEvenOdd ? filteredVoices[0] : filteredVoicesUK[0];
-      selectedVoice = voiceEdge || generalVoices;
+      if (filteredVoices[5]) {
+        selectedVoice = voiceEdge;
+      } else {
+        selectedVoice = generalVoices;
+      }
       utterance.rate = 1;
       utterance.voice = selectedVoice;
-
     } else if (userAgent.includes("iOS")) {
       utterance.rate = 1;
       utterance.voice = filteredVoices[0];
