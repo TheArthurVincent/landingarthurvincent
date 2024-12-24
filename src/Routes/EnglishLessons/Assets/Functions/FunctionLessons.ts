@@ -57,10 +57,18 @@ export const readText = (
     let selectedVoice;
 
     const userAgent = navigator.userAgent;
+    console.log(
+      "userAgent.includes(Windows)",
+      userAgent.includes("Windows"),
+      navigator
+    );
+
     if (voiceBoolean && !userAgent.includes("iOS")) {
       console.log("currentEvenOdd: ", currentEvenOdd);
       const voiceEdge = currentEvenOdd ? filteredVoices[4] : filteredVoices[5];
-      const generalVoices = currentEvenOdd ? filteredVoices[0] : filteredVoicesUK[0];
+      const generalVoices = currentEvenOdd
+        ? filteredVoices[0]
+        : filteredVoicesUK[0];
       if (filteredVoices[5]) {
         selectedVoice = voiceEdge;
       } else {
@@ -68,7 +76,13 @@ export const readText = (
       }
       utterance.rate = 1;
       utterance.voice = selectedVoice;
-    } else if (userAgent.includes("iOS")) {
+    } else if (
+      userAgent.includes("iOS") ||
+      userAgent.includes("Apple") ||
+      userAgent.includes("iPhone") ||
+      userAgent.includes("iPad") ||
+      userAgent.includes("apple")
+    ) {
       utterance.rate = 1;
       utterance.voice = filteredVoices[0];
     } else {
