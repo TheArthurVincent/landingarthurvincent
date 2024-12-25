@@ -9,7 +9,6 @@ import { alwaysWhite } from "../../Styles/Styles";
 import { RouteDiv } from "../../Resources/Components/RouteBox";
 import NewPost from "./AdmComponents/PostsManagement/NewPost";
 import NewTutoring from "./AdmComponents/ClassesManagement/NewTutoring";
-import { ManageGroupClasses } from "./AdmComponents/GroupClassManagement/ManageCourses";
 import Helmets from "../../Resources/Helmets";
 import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Contract from "./AdmComponents/Contract/Contract";
@@ -33,34 +32,34 @@ export function Adm({ headers }: HeadersProps) {
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
       component: <NewStudent headers={headers} />,
     },
-    {
-      title: "Aulas em grupo",
-      value: "3",
-      tooltip: "Aulas em grupo",
-      component: <ManageGroupClasses headers={headers} />,
-    },
+    // {
+    //   title: "Aulas em grupo",
+    //   value: "3",
+    //   tooltip: "Aulas em grupo",
+    //   component: <ManageGroupClasses headers={headers} />,
+    // },
     {
       title: "Postagens",
-      value: "4",
+      value: "3",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost headers={headers} />,
     },
     {
       title: "Gerar contrato",
-      value: "6",
+      value: "4",
       tooltip: "Geração do contrato de um aluno específico.",
       component: <Contract headers={headers} />,
     },
     {
       title: "Gerar recibo",
-      value: "7",
+      value: "5",
       tooltip: "Geração do recibo de um aluno específico.",
       component: <Invoice headers={headers} />,
     },
     {
       title: "Manual do aluno",
-      value: "8",
+      value: "6",
       tooltip: "Manual do aluno.",
       component: <Manual />,
     },

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HOne } from "../../../../Resources/Components/RouteBox";
+import { HOne, HTwo } from "../../../../Resources/Components/RouteBox";
 import axios from "axios";
 import { DivGrid, backDomain } from "../../../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
@@ -101,8 +101,7 @@ export function NewTutoring({ headers }) {
 
   return (
     <>
-      <HOne>Postar aula particular dada</HOne>
-
+      <HTwo>Postar aula particular dada</HTwo>
       {loadingS ? (
         <CircularProgress />
       ) : (
@@ -146,7 +145,7 @@ export function NewTutoring({ headers }) {
             <div
               style={{
                 cursor: "pointer",
-                padding: "1rem",
+                borderRadius: "1rem",
                 backgroundColor: lightGreyColor(),
               }}
               onClick={handleAddTutoring}
@@ -196,14 +195,6 @@ export function NewTutoring({ headers }) {
                   }}
                 />
                 <input
-                  style={{
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                    padding: "0.5rem",
-                    margin: "0",
-                    fontSize: "1.1rem",
-                    fontWeight: 500,
-                  }}
                   type="date"
                   placeholder="Data"
                   value={tutoring.date}
@@ -284,22 +275,11 @@ export function NewTutoring({ headers }) {
       )}
 
       <div>
-        <HThree>Homework</HThree>
-        <div
-          style={{
-            display: "grid",
-            padding: "1rem",
-            border: `solid 2px ${lightGreyColor()}`,
-          }}
-        >
+        <HTwo>Homework</HTwo>
+        <div>
           <input
             style={{
-              alignItems: "center",
-              justifyContent: "space-around",
               padding: "0.5rem",
-              margin: "0",
-              fontSize: "1.1rem",
-              fontWeight: 500,
             }}
             type="date"
             placeholder="Data"
@@ -317,9 +297,7 @@ export function NewTutoring({ headers }) {
             <HTMLEditor onChange={handleHWDescriptionChange} />
           </div>
         </div>{" "}
-        <ArvinButton onClick={postHW}>
-          Postar só HW -
-        </ArvinButton>
+        <ArvinButton onClick={postHW}>Postar só HW -</ArvinButton>
       </div>
     </>
   );
