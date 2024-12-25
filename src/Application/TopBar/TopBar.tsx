@@ -143,12 +143,12 @@ export const TopBar: FC = () => {
       icon: "user",
       display: "block",
     },
-    {
-      title: UniversalTexts.groupClasses,
-      endpoint: "/group-classes",
-      display: "block",
-      icon: "users",
-    },
+    // {
+    //   title: UniversalTexts.groupClasses,
+    //   endpoint: "/group-classes",
+    //   display: "block",
+    //   icon: "users",
+    // },
     {
       title: "Courses",
       endpoint: "/english-courses",

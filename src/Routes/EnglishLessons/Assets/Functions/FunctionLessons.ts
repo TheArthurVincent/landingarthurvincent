@@ -6,7 +6,6 @@ export const readText = (
 ) => {
   const theSentenceKey = "theSentence";
   const theRateKey = "theRate";
-  console.log("voiceBoolean: ", voiceBoolean);
   const currentEvenOdd = localStorage.getItem("evenOdd");
   const currentSentence = localStorage.getItem(theSentenceKey);
   let theRate = parseFloat(localStorage.getItem(theRateKey) || "1");
@@ -57,12 +56,6 @@ export const readText = (
     let selectedVoice;
 
     const userAgent = navigator.userAgent;
-    console.log(
-      "userAgent.includes(Windows)",
-      userAgent.includes("Windows"),
-      navigator
-    );
-
     if (voiceBoolean && !userAgent.includes("iOS")) {
       console.log("currentEvenOdd: ", currentEvenOdd);
       const voiceEdge = currentEvenOdd ? filteredVoices[4] : filteredVoices[5];

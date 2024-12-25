@@ -59,10 +59,10 @@ export function HomePage({ headers }: HeadersProps) {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
     },
-    {
-      title: "Group Classes",
-      component: <GroupClasses headers={headers} />,
-    },
+    // {
+    //   title: "Group Classes",
+    //   component: <GroupClasses headers={headers} />,
+    // },
     {
       title: "Homework",
       component: (
