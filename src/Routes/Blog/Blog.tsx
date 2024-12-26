@@ -4,6 +4,7 @@ import {
   BlogPostTitle,
   BackgroundClickBlog,
   HTwo,
+  HOne,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
@@ -28,14 +29,9 @@ import {
   IFrameVideoPannel,
   ImgBlog,
   InternDivModal,
-  SpanDisapear,
 } from "./Blog.Styled";
-import {
-  HeadersProps,
-  MyHeadersType,
-} from "../../Resources/types.universalInterfaces";
+import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
-import LevelCard from "../LevelCard/LevelCard";
 import LevelCardBlog from "../LevelCard/LevelCardBlog";
 
 interface BlogProps {
@@ -246,6 +242,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <DivMarginBorder>
+            <HOne>Level Card</HOne>
             <LevelCardBlog
               change={change}
               headers={headers}
@@ -254,6 +251,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             />
           </DivMarginBorder>
           <DivMarginBorder>
+            <HOne>Information Wall</HOne>
             {posts.map((post: any, index: number) => (
               <div
                 key={index}

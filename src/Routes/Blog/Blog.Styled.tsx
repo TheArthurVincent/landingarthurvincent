@@ -179,8 +179,8 @@ export const IFrameVideoPannel = styled.iframe`
     min-height: 40vh;
   }
   @media (max-width: 480px) {
-    min-width: 90vw;
-    min-height: 35vh;
+    min-width: 85vw;
+    min-height: 25vh;
   }
   @media (max-width: 400px) {
     min-width: 90vw;

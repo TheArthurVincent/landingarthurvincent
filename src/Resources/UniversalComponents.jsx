@@ -130,8 +130,21 @@ export const DivGrid = styled.div`
 `;
 export const DivMarginBorder = styled.div`
   border: 1px solid #ccc;
+  border-radius: 5px;
   width: 100%;
   height: 100%;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 1000px) {
+    width: 98%;
+    min-height: 40vh;
+  }
 `;
 export const DivFlex = styled.div`
   display: flex;

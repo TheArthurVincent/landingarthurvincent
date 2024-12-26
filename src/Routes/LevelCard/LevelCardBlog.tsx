@@ -12,7 +12,6 @@ import {
   LevelCardPhotoBlogLevel,
   DivCardBlogLevel,
   TextLevelBlogCard,
-  DivDisapearBig,
 } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { createTheme } from "@mui/material/styles";
@@ -122,10 +121,7 @@ export function LevelCardBlog({
         <div style={{ display: showCard }}>
           <div
             style={{
-              marginBottom: "1rem",
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
+              textAlign: "center",
             }}
           >
             <i
@@ -133,8 +129,6 @@ export function LevelCardBlog({
               style={{
                 display: showCard,
                 cursor: "pointer",
-                fontSize: "0.8rem",
-                margin: "0",
               }}
               className="fa fa-refresh"
               aria-hidden="true"
@@ -142,11 +136,16 @@ export function LevelCardBlog({
             <>
               <div
                 style={{
+                  fontSize: "1rem",
                   marginTop: "0.5rem",
                 }}
               >
-                <p>Total Score: {formatNumber(totalScore)}</p>
-                <p>Monthly Score: {formatNumber(monthlyScore)}</p>
+                <p>
+                  <b>Total Score:</b> {formatNumber(totalScore)}
+                </p>
+                <p>
+                  <b>Monthly Score:</b> {formatNumber(monthlyScore)}
+                </p>
               </div>
             </>
           </div>
