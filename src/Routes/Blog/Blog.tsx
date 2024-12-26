@@ -269,7 +269,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <DivMarginBorder>
-            <HOne>Level Card</HOne>
+            <HOne>
+            {UniversalTexts.levelCard}
+
+            </HOne>
             <LevelCardBlog
               change={change}
               headers={headers}
@@ -278,7 +281,9 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             />
           </DivMarginBorder>
           <DivMarginBorder>
-            <HOne>Information Wall</HOne>
+            <HOne>
+              {UniversalTexts.mural}
+              </HOne>
             {posts.map((post: any, index: number) => (
               <div
                 key={index}
@@ -344,7 +349,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             ))}
           </DivMarginBorder>
           <DivMarginBorder>
-            <HOne>Next Homework Assignment</HOne>
+            <HOne>
+            {UniversalTexts.nextHomeworkAssignment}
+
+            </HOne>
 
             <span>
               <i

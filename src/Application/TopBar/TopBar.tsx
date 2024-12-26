@@ -120,7 +120,7 @@ export const TopBar: FC = () => {
       display: "block",
     },
     {
-      title: "Homework",
+      title:UniversalTexts.homework,
       endpoint: "/homework",
       icon: "book",
       display: "block",
@@ -150,7 +150,7 @@ export const TopBar: FC = () => {
     //   icon: "users",
     // },
     {
-      title: "Courses",
+      title: UniversalTexts.theCourses,
       endpoint: "/english-courses",
       icon: "address-book-o",
       display: "block",

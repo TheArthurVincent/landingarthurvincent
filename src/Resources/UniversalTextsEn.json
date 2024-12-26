@@ -32,7 +32,14 @@
   "faq": "FAQ",
   "editTurorings": "Edit tutorings",
   "myProfile": "My Profile",
+
   "mural": "Information wall",
+  "theCourses": "Courses",
+  "homework": "Homework",
+  "levelCard":"Level Card",
+  "nextHomeworkAssignment":"Next Homework Assignment",
+
+
   "confirmNewPassword": "Confirm New Password",
   "newPassword": "New Password",
   "previousGroupClasses": "Previous Group Classes",
