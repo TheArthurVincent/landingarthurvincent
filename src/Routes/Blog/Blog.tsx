@@ -3,7 +3,6 @@ import {
   RouteDiv,
   BlogPostTitle,
   BackgroundClickBlog,
-  HOne,
   HTwo,
 } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
@@ -14,11 +13,11 @@ import {
   getVideoEmbedUrl,
   Xp,
   UniversalButtonsDivFlex,
+  DivFlex,
+  DivMarginBorder,
 } from "../../Resources/UniversalComponents";
 import {
-  alwaysBlack,
   alwaysWhite,
-  lightGreyColor,
   secondaryColor,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
@@ -26,16 +25,27 @@ import { Button, CircularProgress, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   DivModal,
-  IFrameVideoBlog,
+  IFrameVideoPannel,
   ImgBlog,
   InternDivModal,
   SpanDisapear,
 } from "./Blog.Styled";
-import { HeadersProps } from "../../Resources/types.universalInterfaces";
+import {
+  HeadersProps,
+  MyHeadersType,
+} from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
-import Countdown from "../Ranking/RankingComponents/Countdown";
+import LevelCard from "../LevelCard/LevelCard";
+import LevelCardBlog from "../LevelCard/LevelCardBlog";
 
-export function Blog({ headers }: HeadersProps) {
+interface BlogProps {
+  headers: MyHeadersType | null;
+  studentIdd: string;
+  picture: string;
+  change: boolean;
+}
+
+export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
   const { UniversalTexts } = useUserContext();
   // Strings
   const [newTitle, setNewTitle] = useState<string>("");
@@ -151,8 +161,6 @@ export function Blog({ headers }: HeadersProps) {
       console.log(response.data.listOfPosts);
     } catch (error) {
       // @ts-ignore
-      console.log(error.response.data.error);
-      // @ts-ignore
       alert(error.response.data.error);
       window.location.assign("/login");
       setLoading(false);
@@ -206,7 +214,6 @@ export function Blog({ headers }: HeadersProps) {
               >
                 <span className="hover-link">
                   <i className="fa fa-folder" aria-hidden="true" />
-                  <SpanDisapear>{UniversalTexts.personalFolder}</SpanDisapear>
                 </span>
               </Link>
             </Tooltip>
@@ -232,122 +239,86 @@ export function Blog({ headers }: HeadersProps) {
                     className="fa fa-whatsapp"
                     aria-hidden="true"
                   />
-                  <SpanDisapear style={{ paddingLeft: "5px" }}>
-                    {UniversalTexts.talkToTheTeacher}
-                  </SpanDisapear>
                 </span>
               </Link>
             </Tooltip>
           </div>
         </div>
-        <HOne>{UniversalTexts.mural}</HOne>
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/* <Countdown
-          targetDate={new Date("2024-11-29T20:10:00")}
-          text="You have until 8:07pm to score 20 points per card!"
-        /> */}
-        {/* <Countdown
-          targetDate={new Date("2024-11-29T20:00:00")}
-          text="On Nov 29th at 8pm for 7 minutes, each flashcard review will be worth 20 points!"
-          /> */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/*  */}
-
-        {posts.map((post: any, index: number) => (
-          <div
-            key={index}
-            style={{
-              maxWidth: "100%",
-              display: "grid",
-              alignItems: "center",
-              justifyContent: "center",
-              border: `solid 1px ${lightGreyColor()} `,
-              marginBottom: "1rem",
-              textDecoration: "none",
-            }}
-          >
-            {post.title && (
-              <BlogPostTitle>
-                <span
-                  style={{
-                    maxWidth: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2rem",
-                  }}
-                >
-                  {!loading && (
-                    <button
+        <DivFlex>
+          <DivMarginBorder>
+            <LevelCardBlog
+              change={change}
+              headers={headers}
+              _StudentId={_StudentId}
+              picture={picture}
+            />
+          </DivMarginBorder>
+          <DivMarginBorder>
+            {posts.map((post: any, index: number) => (
+              <div
+                key={index}
+                style={{
+                  maxWidth: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "10px",
+                  textDecoration: "none",
+                }}
+              >
+                {post.title && (
+                  <BlogPostTitle>
+                    <span
                       style={{
-                        cursor: "pointer",
-                        display: permissions == "superadmin" ? "grid" : "none",
+                        maxWidth: "100%",
+                        display: "flex",
+                        alignItems: "center",
                       }}
-                      onClick={() => seeEdition(post._id)}
                     >
-                      <i className="fa fa-edit" aria-hidden="true" />
-                    </button>
-                  )}
-                  <HTwo> {post.title}</HTwo>
-                </span>
-                {post.createdAt && (
-                  <SpanDisapear>{formatDate(post.createdAt)}</SpanDisapear>
+                      {!loading && (
+                        <button
+                          style={{
+                            cursor: "pointer",
+                            display:
+                              permissions == "superadmin" ? "grid" : "none",
+                          }}
+                          onClick={() => seeEdition(post._id)}
+                        >
+                          <i className="fa fa-edit" aria-hidden="true" />
+                        </button>
+                      )}
+                      <HTwo> {post.title}</HTwo>
+                    </span>
+                    {post.createdAt && (
+                      <span>{formatDate(post.createdAt)}</span>
+                    )}
+                  </BlogPostTitle>
                 )}
-              </BlogPostTitle>
-            )}
-            {post.videoUrl ? (
-              <IFrameVideoBlog src={getVideoEmbedUrl(post.videoUrl)} />
-            ) : post.img ? (
-              <ImgBlog src={post.img} alt="logo" />
-            ) : null}
-            <div
-              style={{
-                margin: "1rem",
-                fontSize: "1.1rem",
-                display: "block",
-                padding: "1rem 0",
-              }}
-              className="limited-text"
-            >
-              <div dangerouslySetInnerHTML={{ __html: post.text }} />
-            </div>
-          </div>
-        ))}
+                {post.videoUrl ? (
+                  <div
+                    style={{
+                      margin: "auto",
+                    }}
+                  >
+                    <IFrameVideoPannel src={getVideoEmbedUrl(post.videoUrl)} />
+                  </div>
+                ) : post.img ? (
+                  <ImgBlog src={post.img} alt="logo" />
+                ) : null}
+                <div
+                  style={{
+                    margin: "1rem",
+                    fontSize: "1.1rem",
+                    display: "block",
+                    padding: "1rem 0",
+                  }}
+                  className="limited-text"
+                >
+                  <div dangerouslySetInnerHTML={{ __html: post.text }} />
+                </div>
+              </div>
+            ))}
+          </DivMarginBorder>
+        </DivFlex>
       </RouteDiv>
       <DivModal
         className="modal"

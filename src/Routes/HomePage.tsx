@@ -52,17 +52,20 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "Blog",
       path: "/",
-      levelcard: true,
-      component: <Blog headers={headers} />,
+      levelcard: false,
+      component: (
+        <Blog
+          change={change}
+          headers={headers}
+          studentIdd={_StudentId}
+          picture={picture}
+        />
+      ),
     },
     {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
     },
-    // {
-    //   title: "Group Classes",
-    //   component: <GroupClasses headers={headers} />,
-    // },
     {
       title: "Homework",
       component: (
@@ -84,7 +87,6 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "Ranking",
-      levelcard: true,
       component: <Ranking headers={headers} />,
     },
     {
@@ -110,7 +112,12 @@ export function HomePage({ headers }: HeadersProps) {
         verifyToken() && admin ? (
           <Adm headers={headers} />
         ) : (
-          <Blog headers={headers} />
+          <Blog
+            change={change}
+            headers={headers}
+            studentIdd={_StudentId}
+            picture={picture}
+          />
         ),
     },
   ];

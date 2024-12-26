@@ -172,7 +172,6 @@ export function LevelCard({
                 <p style={{ color: "#fff" }}>
                   Monthly Score: {formatNumber(monthlyScore)}
                 </p>
-              
               </DivDisapearBig>
               <div
                 style={{
@@ -180,7 +179,6 @@ export function LevelCard({
                   gap: "5px",
                 }}
               >
-            
                 <DivSeeBig>
                   <i
                     style={{

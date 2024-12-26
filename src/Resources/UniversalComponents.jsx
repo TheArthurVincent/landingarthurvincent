@@ -128,12 +128,18 @@ export const DivGrid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+export const DivMarginBorder = styled.div`
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 100%;
+`;
 export const DivFlex = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 2rem;
-  @media (max-width: 750px) {
+  gap: 10px;
+  margin-top: 10px;
+  @media (max-width: 1000px) {
     flex-direction: column;
   }
 `;
@@ -289,10 +295,11 @@ export const ImgResponsive3 = styled.img`
   @media (max-width: 755px) {
     display: none;
   }
-`;export const DivDis = styled.span`
-@media (max-width: 755px) {
-  display: none;
-}
+`;
+export const DivDis = styled.span`
+  @media (max-width: 755px) {
+    display: none;
+  }
 `;
 export const ImgResponsive = styled.img`
   max-width: 15rem;

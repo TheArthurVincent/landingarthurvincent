@@ -88,14 +88,9 @@ export const SpanIcon = styled.span`
 `;
 export const BlogPostTitle = styled.div`
   padding: 0rem 0.5rem;
-  margin: 0.5rem;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 2.5rem;
-  font-size: 1rem;
-  // color: ${textPrimaryColorContrast()};
   @media (max-width: 650px) {
     margin: 3px;
   }
