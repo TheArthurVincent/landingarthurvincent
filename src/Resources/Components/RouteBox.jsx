@@ -28,12 +28,10 @@ export const RouteDiv = styled.div`
   color: ${alwaysBlack()};
   padding: 0.5rem;
   box-shadow: 1px 1px 5px 1px #777;
-  width: 60rem;
-  margin-bottom: 1rem;
+  width: 91vw;
   height: 100%;
-  margin: auto;
-  @media (max-width: 995px) {
-    width: 95vw;
+  @media (max-width: 1200px) {
+    width: 99vw;
   }
 `;
 
@@ -48,12 +46,17 @@ export const OverFlow = styled.div`
   `;
 export const BlogRouteSizeControlBox = styled.div`
   display: flex;
-  margin: 1rem auto;
+  margin: 10px;
+  margin-left: 98px;
+  margin-top: 50px;
+  margin-bottom: 22px;
   max-width: 90vw;
   gap: 0.2rem;
-  @media (max-width: 1203px) {
+  @media (max-width: 1200px) {
     display: flex;
-    max-width: 100vw;
+    max-width: 95vw;
+    margin-right:auto;
+    margin-left:auto;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;

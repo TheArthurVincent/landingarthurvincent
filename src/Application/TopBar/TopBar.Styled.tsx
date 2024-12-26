@@ -16,8 +16,29 @@ export const TopBarContainer = styled.header`
   align-items: center;
   display: flex;
   padding: 5px;
-  box-shadow: 1px 1px 10px 1px #555;
   width: 100%;
+  height: 35px;
+  @media print {
+    display: none;
+  }
+`;
+
+export const TopBarVerticalContainer = styled.header`
+  top: 0;
+  left: 0;
+  z-index: 8;
+  position: fixed;
+  background-color: ${alwaysWhite()};
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  padding: 1px;
+  height: 100%;
+  width: 90px;
+  @media (max-width: 1200px) {
+    display: none;
+  }
   @media print {
     display: none;
   }
@@ -28,14 +49,11 @@ export const TopBarNavigation = styled.div`
   gap: 2rem;
   display: flex;
   z-index: 4;
-  font-size: 13px;
+  font-size: 11px;
   padding: 5px;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
-  @media (max-width: 1200px) {
-    display: none;
-  }
 `;
 export const TopBarNavigationBurger = styled.div`
   position: fixed;

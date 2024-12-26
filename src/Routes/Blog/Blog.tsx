@@ -219,7 +219,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             </p>
           </div>
           <div style={{ display: "flex", gap: "5px" }}>
-            <Tooltip title={UniversalTexts.personalFolder}>
+            {/* <Tooltip title={UniversalTexts.personalFolder}>
               <Link
                 target="_blank"
                 style={{
@@ -239,8 +239,8 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                   <i className="fa fa-folder" aria-hidden="true" />
                 </span>
               </Link>
-            </Tooltip>
-            <Tooltip title={UniversalTexts.talkToTheTeacher}>
+            </Tooltip> */}
+            {/* <Tooltip title={UniversalTexts.talkToTheTeacher}>
               <Link
                 target="_blank"
                 style={{
@@ -264,15 +264,12 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                   />
                 </span>
               </Link>
-            </Tooltip>
+            </Tooltip> */}
           </div>
         </div>
         <DivFlex>
           <DivMarginBorder>
-            <HOne>
-            {UniversalTexts.levelCard}
-
-            </HOne>
+            <HOne>{UniversalTexts.levelCard}</HOne>
             <LevelCardBlog
               change={change}
               headers={headers}
@@ -281,9 +278,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             />
           </DivMarginBorder>
           <DivMarginBorder>
-            <HOne>
-              {UniversalTexts.mural}
-              </HOne>
+            <HOne>{UniversalTexts.mural}</HOne>
             {posts.map((post: any, index: number) => (
               <div
                 key={index}
@@ -349,10 +344,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             ))}
           </DivMarginBorder>
           <DivMarginBorder>
-            <HOne>
-            {UniversalTexts.nextHomeworkAssignment}
-
-            </HOne>
+            <HOne>{UniversalTexts.nextHomeworkAssignment}</HOne>
 
             <span>
               <i
@@ -381,7 +373,9 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               Access the class here
             </Link>
           </DivMarginBorder>
-          <DivMarginBorder></DivMarginBorder>
+          <DivMarginBorder>
+            <HOne>{UniversalTexts.monthlyChallenge}</HOne>
+          </DivMarginBorder>
         </DivFlex>
       </RouteDiv>
       <DivModal

@@ -11,7 +11,6 @@ export const CoursesList = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
-
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
   }
@@ -25,13 +24,10 @@ export const StyledDiv = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   @media (max-width: 1200px) {
-    min-width: 25vw;
+    min-width: 15vw;
   }
-  @media (max-width: 700px) {
-    min-width: 50vw;
-  }
-  @media (max-width: 300px) {
-    min-width: 80vw;
+  @media (max-width: 900px) {
+    min-width: 30vw;
   }
 `;
 export const CourseItem = styled.div`

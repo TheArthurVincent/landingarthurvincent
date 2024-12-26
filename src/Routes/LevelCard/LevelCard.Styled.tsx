@@ -82,7 +82,7 @@ export const NewLevelCardComponent = styled.div`
     // justify-content: space-between;
   }
   @media (max-width: 985px) {
-    width: 92vw;
+    // width: 92vw;
   }
 `;
 

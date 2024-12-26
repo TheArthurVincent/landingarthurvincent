@@ -86,7 +86,7 @@ export const SpanHover = styled.span`
   padding: 0 8px;
   font-weight: 500;
   gap: 5px;
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: solid #66666600 2px;
@@ -152,7 +152,7 @@ export const DivFlex = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     grid-template-columns: 1fr;
   }
 `;

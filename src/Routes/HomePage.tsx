@@ -19,6 +19,8 @@ import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import AppFooter from "../Application/Footer/Footer";
 import EnglishCourses from "./EnglishLessons/Courses2";
+import { TopBarVertical } from "../Application/TopBar/TopBarVertical";
+import { useUserContext } from "../Application/SelectLanguage/SelectLanguage";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -26,12 +28,14 @@ export function HomePage({ headers }: HeadersProps) {
   const [_StudentId, setStudentId] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
   const [change, setChange] = useState<boolean>(true);
+  const [theGoogleDriveLink, setGoogleDriveLink] = useState<string>("");
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions, picture, id } = JSON.parse(user);
+      const { permissions, picture, id, googleDriveLink } = JSON.parse(user);
       setPermissions(permissions);
+      setGoogleDriveLink(googleDriveLink);
       setStudentId(id || _StudentId);
       setPicture(picture);
       setAdmin(permissions === "superadmin" ? true : false);
@@ -47,6 +51,8 @@ export function HomePage({ headers }: HeadersProps) {
       setSee(true);
     }, 700);
   }, []);
+
+  const { handleLanguageChange, UniversalTexts } = useUserContext();
 
   const appRoutes = [
     {
@@ -68,6 +74,7 @@ export function HomePage({ headers }: HeadersProps) {
     },
     {
       title: "Homework",
+      levelcard: true,
       component: (
         <Homework change={change} setChange={setChange} headers={headers} />
       ),
@@ -86,6 +93,7 @@ export function HomePage({ headers }: HeadersProps) {
       ),
     },
     {
+      levelcard: true,
       title: "Ranking",
       component: <Ranking headers={headers} />,
     },
@@ -132,6 +140,7 @@ export function HomePage({ headers }: HeadersProps) {
       }}
     >
       <TopBar />
+      <TopBarVertical theGoogleDriveLink={theGoogleDriveLink} />
       <Routes>
         {appRoutes.map((component, index) => {
           return (
@@ -142,20 +151,22 @@ export function HomePage({ headers }: HeadersProps) {
               }/*`}
               element={
                 verifyToken() ? (
-                  <BlogRouteSizeControlBox
-                    style={{ gap: "1rem", marginTop: "4.5rem" }}
-                    className="smooth"
-                  >
-                    {component.component}
-                    {component.levelcard && (
-                      <LevelCard
-                        change={change}
-                        headers={headers}
-                        _StudentId={_StudentId}
-                        picture={picture}
-                      />
-                    )}
-                  </BlogRouteSizeControlBox>
+                  <>
+                    <BlogRouteSizeControlBox
+                      style={{ gap: "1rem" }}
+                      className="smooth"
+                    >
+                      {component.component}
+                      {component.levelcard && (
+                        <LevelCard
+                          change={change}
+                          headers={headers}
+                          _StudentId={_StudentId}
+                          picture={picture}
+                        />
+                      )}
+                    </BlogRouteSizeControlBox>
+                  </>
                 ) : (
                   <Login />
                 )

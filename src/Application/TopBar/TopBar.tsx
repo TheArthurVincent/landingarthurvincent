@@ -120,7 +120,7 @@ export const TopBar: FC = () => {
       display: "block",
     },
     {
-      title:UniversalTexts.homework,
+      title: UniversalTexts.homework,
       endpoint: "/homework",
       icon: "book",
       display: "block",
@@ -160,7 +160,7 @@ export const TopBar: FC = () => {
       endpoint: "/my-profile",
       display: "block",
       icon: "user-o",
-    }
+    },
     //, {
     //   title: UniversalTexts.faq,
     //   endpoint: "/faq",
@@ -286,7 +286,7 @@ export const TopBar: FC = () => {
         )}
       </TopBarNavigationBurger>
       <BackgroundClick onClick={handleVisible} style={{ display: visible }} />
-      <TopBarNavigation>
+      {/*<TopBarNavigation>
         <div
           style={{
             display: "flex",
@@ -346,35 +346,34 @@ export const TopBar: FC = () => {
               );
             })}
         </div>
-      </TopBarNavigation>
+      </TopBarNavigation> */}
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
-        {" "}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <SpanDisapear>
-            <form
-              style={{
-                display: seeItems ? "block" : "none",
-              }}
-            >
-              <select
-                id="language"
-                name="language"
-                onChange={(e) => handleLanguageChange(e.target.value)}
-                defaultValue="en"
-              >
-                <option value="en">EN-US</option>
-                <option value="pt">PT-BR</option>
-              </select>
-            </form>
-          </SpanDisapear>
-          <ArvinButton
-            style={{ display: seeItems ? "block" : "none" }}
-            onClick={onLoggOut}
-          >
-            {" "}
-            {UniversalTexts.leaveButton}
-          </ArvinButton>
-        </div>
+          {/* <SpanDisapear> */}
+      <form
+        style={{
+          display: seeItems ? "block" : "none",
+        }}
+      >
+        <select
+          id="language"
+          name="language"
+          onChange={(e) => handleLanguageChange(e.target.value)}
+          defaultValue="en"
+        >
+          <option value="en">EN-US</option>
+          <option value="pt">PT-BR</option>
+        </select>
+      </form>
+      {/* </SpanDisapear> */}
+      <ArvinButton
+        style={{ display: seeItems ? "block" : "none" }}
+        onClick={onLoggOut}
+      >
+        {" "}
+        {UniversalTexts.leaveButton}
+      </ArvinButton>
+      </div>
       </div>
     </TopBarContainer>
   );

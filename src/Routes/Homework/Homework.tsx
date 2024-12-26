@@ -13,6 +13,7 @@ import axios from "axios";
 import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { listOfCriteria } from "../Ranking/RankingComponents/ListOfCriteria";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 interface HWProps {
   headers: MyHeadersType | null;
@@ -129,6 +130,8 @@ export default function Homework({ headers, setChange, change }: HWProps) {
       alert("Erro ao encontrar alunos");
     }
   };
+    const { UniversalTexts } = useUserContext();
+  
 
   const pointsMadeHW = listOfCriteria[0].score[0].score;
   const pointsLateHW = listOfCriteria[0].score[1].score;
@@ -141,7 +144,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
   return (
     <RouteDiv className="smooth">
       <Helmets text="Homework" />
-      <HOne>Homework</HOne>
+      <HOne>{UniversalTexts.homework}</HOne>
       <div
         style={{
           display: "flex",
