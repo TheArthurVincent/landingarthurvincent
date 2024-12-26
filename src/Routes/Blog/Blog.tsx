@@ -344,36 +344,34 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             ))}
           </DivMarginBorder>
           <DivMarginBorder>
+            <HOne>Next Homework Assignment</HOne>
+
+            <span>
+              <i
+                style={{
+                  display: "inline",
+                  color: nextTutoring?.status == "done" ? "green" : "orange",
+                }}
+                className={`fa fa-${
+                  nextTutoring?.status == "done" ? "check-circle" : "ellipsis-h"
+                }`}
+                aria-hidden="true"
+              />{" "}
+              {nextTutoring?.status}
+            </span>
             <div>
-              <span>
-                <i
-                  style={{
-                    display: "inline",
-                    color: nextTutoring?.status == "done" ? "green" : "orange",
-                  }}
-                  className={`fa fa-${
-                    nextTutoring?.status == "done"
-                      ? "check-circle"
-                      : "ellipsis-h"
-                  }`}
-                  aria-hidden="true"
-                />{" "}
-                {nextTutoring?.status}
-              </span>
-              <div>
-                <div
-                  style={{
-                    padding: "1rem",
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: nextTutoring?.description,
-                  }}
-                />
-              </div>
-              <Link target="_blank" to={nextTutoring?.googleDriveLink}>
-                Access the class here
-              </Link>
+              <div
+                style={{
+                  padding: "1rem",
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: nextTutoring?.description,
+                }}
+              />
             </div>
+            <Link target="_blank" to={nextTutoring?.googleDriveLink}>
+              Access the class here
+            </Link>
           </DivMarginBorder>
           <DivMarginBorder></DivMarginBorder>
         </DivFlex>
