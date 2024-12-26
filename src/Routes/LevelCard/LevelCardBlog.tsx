@@ -3,6 +3,7 @@ import { levels } from "../Ranking/RankingComponents/RankingLevelsList";
 import {
   backDomain,
   formatNumber,
+  onLoggOut,
   updateInfo,
   updateScore,
 } from "../../Resources/UniversalComponents";
@@ -49,6 +50,7 @@ export function LevelCardBlog({
   const [FC, setFC] = useState<number>(0);
   const [level, setLevel] = useState<number>(9);
   const [showCard, setShowCard] = useState<any>("none");
+  
 
   const items = levels();
   const actualHeaders = headers || {};
@@ -145,6 +147,12 @@ export function LevelCardBlog({
                 </p>
                 <p>
                   <b>Monthly Score:</b> {formatNumber(monthlyScore)}
+                </p>
+                <p>
+                  <b>Homework Assignments:</b> {formatNumber(assignmentsDone)}
+                </p>
+                <p>
+                  <b>Flashcard Daily Reviews:</b> {formatNumber(FC)}
                 </p>
               </div>
             </>

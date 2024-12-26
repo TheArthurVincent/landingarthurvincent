@@ -29,6 +29,8 @@ export const RouteDiv = styled.div`
   padding: 0.5rem;
   box-shadow: 1px 1px 5px 1px #777;
   width: 60rem;
+  margin-bottom: 1rem;
+  height: 100%;
   margin: auto;
   @media (max-width: 995px) {
     width: 95vw;

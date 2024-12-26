@@ -19,7 +19,9 @@ import {
 } from "../../Resources/UniversalComponents";
 import {
   alwaysWhite,
+  primaryColor,
   secondaryColor,
+  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
@@ -64,6 +66,15 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     },
   ]);
 
+  const [user, setUser] = useState<any>({});
+
+  useEffect(() => {
+    const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
+    if (user) {
+      setUser(theuser);
+    } else {
+    }
+  }, []);
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
@@ -309,13 +320,21 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                     display: "block",
                     padding: "1rem 0",
                   }}
-                  className="limited-text"
+                  className="limited-text"  
                 >
                   <div dangerouslySetInnerHTML={{ __html: post.text }} />
                 </div>
               </div>
             ))}
           </DivMarginBorder>
+          <DivMarginBorder>
+        
+        
+          </DivMarginBorder>
+          <DivMarginBorder>
+        
+        
+        </DivMarginBorder>
         </DivFlex>
       </RouteDiv>
       <DivModal
