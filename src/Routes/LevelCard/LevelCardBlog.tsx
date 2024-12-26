@@ -13,6 +13,7 @@ import {
   LevelCardPhotoBlogLevel,
   DivCardBlogLevel,
   TextLevelBlogCard,
+  ExternalDivCardBlogLevel,
 } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { createTheme } from "@mui/material/styles";
@@ -50,7 +51,6 @@ export function LevelCardBlog({
   const [FC, setFC] = useState<number>(0);
   const [level, setLevel] = useState<number>(9);
   const [showCard, setShowCard] = useState<any>("none");
-  
 
   const items = levels();
   const actualHeaders = headers || {};
@@ -100,17 +100,7 @@ export function LevelCardBlog({
   }, [change]);
 
   return (
-    <div
-      style={{
-        color: "black",
-        padding: "12px 8px",
-        display: "grid",
-        textAlign: "center",
-        minHeight: "400px",
-        fontSize: "12px",
-        justifyContent: "center",
-      }}
-    >
+    <ExternalDivCardBlogLevel>
       <DivCardBlogLevel>
         <LevelCardBlogLevel
           style={{ display: showCard }}
@@ -159,7 +149,7 @@ export function LevelCardBlog({
           </div>
         </div>
       </TextLevelBlogCard>
-    </div>
+    </ExternalDivCardBlogLevel>
   );
 }
 

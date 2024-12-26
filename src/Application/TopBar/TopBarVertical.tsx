@@ -107,7 +107,7 @@ export const TopBarVertical: FC<ItemSideBarProps> = ({
         <div
           style={{
             display: "grid",
-            gap: "1rem",
+            gap: "20px",
           }}
         >
           {allLinksForUser.map((link, index) => {

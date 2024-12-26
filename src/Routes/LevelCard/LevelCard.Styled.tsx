@@ -18,11 +18,21 @@ export const DivCardLevel = styled.div`
     display: none;
   }
 `;
+
 export const DivCardBlogLevel = styled.div`
   position: relative;
   width: 7rem;
   height: 7rem;
   margin: auto;
+`;
+export const ExternalDivCardBlogLevel = styled.div`
+  color: black;
+  padding: 12px 8px;
+  display: grid;
+  text-align: center;
+  min-height: 400px;
+  font-size: 12px;
+  justify-content: center;
 `;
 export const DivDisapearBig = styled.div`
   margin-top: 0.5rem;
@@ -142,12 +152,6 @@ export const LevelCardPhotoLevel = styled.img`
   position: absolute;
   top: 17%;
   left: 0%;
-  @media (max-width: 1200px) {
-    top: 7%;
-    left: -68%;
-    width: 4rem;
-    height: 4rem;
-  }
   @media (max-width: 487px) {
     left: -15%;
   }

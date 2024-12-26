@@ -140,7 +140,7 @@ export function HomePage({ headers }: HeadersProps) {
       }}
     >
       <TopBar />
-      <TopBarVertical theGoogleDriveLink={theGoogleDriveLink} />
+      {/* <TopBarVertical theGoogleDriveLink={theGoogleDriveLink} /> */}
       <Routes>
         {appRoutes.map((component, index) => {
           return (

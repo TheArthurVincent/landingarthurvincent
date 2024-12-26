@@ -17,7 +17,7 @@ export const TopBarContainer = styled.header`
   display: flex;
   padding: 5px;
   width: 100%;
-  height: 35px;
+  height: 40px;
   @media print {
     display: none;
   }
