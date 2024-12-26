@@ -19,9 +19,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import {
   alwaysWhite,
-  primaryColor,
   secondaryColor,
-  textPrimaryColorContrast,
   textSecondaryColorContrast,
 } from "../../Styles/Styles";
 import { Button, CircularProgress, Tooltip } from "@mui/material";
@@ -59,6 +57,8 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
   const [seeConfirmDelete, setSeeConfirmDelete] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const [nextTutoring, setNextTutoring] = useState<any>();
+
   // Loading
   const [posts, setPosts] = useState<any>([
     {
@@ -68,20 +68,36 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
 
   const [user, setUser] = useState<any>({});
 
+  const fetchClasses = async (studentId: string) => {
+    setLoading(true);
+
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/homeworknext/${studentId}`,
+        {
+          headers: actualHeaders,
+        }
+      );
+      const tt = response.data.tutoringHomeworkList;
+      setNextTutoring(tt);
+      setLoading(false);
+    } catch (error) {
+      console.log(error, "erro ao listar homework");
+    }
+  };
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     if (user) {
       setUser(theuser);
     } else {
     }
-  }, []);
-  useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
     setGoogleDriveLink(getLoggedUser.googleDriveLink);
+    fetchClasses(getLoggedUser.id);
   }, []);
 
   const handleSeeModal = () => {
@@ -320,7 +336,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                     display: "block",
                     padding: "1rem 0",
                   }}
-                  className="limited-text"  
+                  className="limited-text"
                 >
                   <div dangerouslySetInnerHTML={{ __html: post.text }} />
                 </div>
@@ -328,13 +344,38 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             ))}
           </DivMarginBorder>
           <DivMarginBorder>
-        
-        
+            <div>
+              <span>
+                <i
+                  style={{
+                    display: "inline",
+                    color: nextTutoring?.status == "done" ? "green" : "orange",
+                  }}
+                  className={`fa fa-${
+                    nextTutoring?.status == "done"
+                      ? "check-circle"
+                      : "ellipsis-h"
+                  }`}
+                  aria-hidden="true"
+                />{" "}
+                {nextTutoring?.status}
+              </span>
+              <div>
+                <div
+                  style={{
+                    padding: "1rem",
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: nextTutoring?.description,
+                  }}
+                />
+              </div>
+              <Link target="_blank" to={nextTutoring?.googleDriveLink}>
+                Access the class here
+              </Link>
+            </div>
           </DivMarginBorder>
-          <DivMarginBorder>
-        
-        
-        </DivMarginBorder>
+          <DivMarginBorder></DivMarginBorder>
         </DivFlex>
       </RouteDiv>
       <DivModal

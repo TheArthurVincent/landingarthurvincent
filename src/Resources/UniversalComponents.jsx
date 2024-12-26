@@ -132,7 +132,7 @@ export const DivMarginBorder = styled.div`
   border: 1px solid #fff;
   border-radius: 5px;
   width: 93%;
-  height: 91%;
+  height: fit-content;
   padding: 16px;
   box-shadow: 0 4px 6px #ccc;
   background-color: #fff;
