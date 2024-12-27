@@ -552,7 +552,7 @@ export default function StudentsRanking({
                           objectFit: "cover",
                           margin: "auto",
                           borderRadius: "50%",
-                          border: `solid ${alwaysWhite()} 3px`,
+                          border: `solid ${alwaysWhite()} 2px`,
                         }}
                         src={item.picture}
                       />
