@@ -71,7 +71,7 @@ export function Adm({ headers }: HeadersProps) {
   };
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv className="smooth box-shadow-pattern ">
       <Helmets text="Adm" />
       <TabContext value={value}>
         <span className="no-print">

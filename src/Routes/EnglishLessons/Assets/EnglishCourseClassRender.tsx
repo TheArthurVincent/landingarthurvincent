@@ -144,7 +144,7 @@ export default function EnglishLessonsRender({
 
   return (
     <>
-      <RouteDiv>
+      <RouteDiv className="box-shadow-pattern">
         <ArvinButton
           style={{ margin: "1rem auto", display: "block" }}
           onClick={() => {
@@ -389,6 +389,7 @@ export default function EnglishLessonsRender({
                     id={myId}
                     headers={headers}
                     element={element}
+                    mainTag={""}
                   />
                 ) : element.type === "exercise" ? (
                   <ExerciseLessonModel headers={headers} item={element.items} />

@@ -14,13 +14,12 @@ export default function RankingExplanation() {
         padding: "1rem",
       }}
     >
-      
       <div
+        className="box-shadow-pattern"
         style={{
           padding: "1.5rem",
           backgroundColor: "#f9f9f9",
           borderRadius: "8px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           maxWidth: "800px",
           margin: "2rem auto",
           fontFamily: "Arial, sans-serif",

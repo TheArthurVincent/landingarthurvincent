@@ -83,7 +83,7 @@ export default function Ranking({ headers }: HeadersProps) {
   const targetDate = new Date("2024-12-31T18:00:00");
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv className="smooth box-shadow-pattern ">
       <Helmets text="Ranking" />
       <HOne>Ranking</HOne>
       <TabContext value={value}>
@@ -145,11 +145,11 @@ export default function Ranking({ headers }: HeadersProps) {
                 textAlign: "center",
                 padding: "5px",
                 borderRadius: "10px",
-                backgroundColor: "#FFD000", // Fundo dourado
+                backgroundColor: "#FFD000",
                 fontSize: "12px",
                 color: "black",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
               }}
+              className="box-shadow-pattern"
             >
               <strong
                 style={{
@@ -177,8 +177,8 @@ export default function Ranking({ headers }: HeadersProps) {
                 borderRadius: "10px",
                 backgroundColor: "#4CAF50", // Fundo verde
                 fontSize: "12px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
               }}
+              className="box-shadow-pattern"
             >
               <strong
                 style={{
@@ -206,8 +206,8 @@ export default function Ranking({ headers }: HeadersProps) {
                 borderRadius: "10px",
                 backgroundColor: "#FF5722", // Fundo laranja
                 fontSize: "12px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
               }}
+              className="box-shadow-pattern"
             >
               <strong
                 style={{
@@ -228,6 +228,7 @@ export default function Ranking({ headers }: HeadersProps) {
               </p>
             </div>
             <div
+              className="box-shadow-pattern"
               style={{
                 flex: 1,
                 textAlign: "center",
@@ -235,7 +236,6 @@ export default function Ranking({ headers }: HeadersProps) {
                 borderRadius: "10px",
                 backgroundColor: "#2196F3", // Fundo azul
                 fontSize: "12px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
               }}
             >
               <strong

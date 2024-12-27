@@ -161,7 +161,7 @@ export default function GroupClasses({ headers }) {
   }
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv className="smooth box-shadow-pattern ">
       <Helmets text="Group Classes" />
       <>
         {!loading ? (

@@ -17,7 +17,7 @@ const WarningText: React.FC<WarningTextProps> = ({ text }) => {
         marginRight: "auto",
         marginLeft: "auto",
         display: "grid",
-        boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)",
+
         maxWidth: "15rem",
         gap: "1rem",
       }}

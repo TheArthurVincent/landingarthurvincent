@@ -228,7 +228,6 @@ export default function StudentsRanking({
     }
   };
 
-  
   const updateReplenishTargetStatus = async (id: string) => {
     try {
       const response = await axios.put(
@@ -456,10 +455,10 @@ export default function StudentsRanking({
                 <>
                   <div
                     key={index}
+                    className="box-shadow-pattern"
                     style={{
                       padding: "0.5rem 1rem",
                       margin: "1rem 0",
-                      boxShadow: "1px 1px 10px 1px #aaa",
                       display:
                         item._id == "671b99e97acd42b04d2f7507"
                           ? "none"
@@ -542,9 +541,9 @@ export default function StudentsRanking({
                       background: theItems[levelNumber].color,
                       overflowX: "hidden",
                       borderRadius: "5rem",
-                      boxShadow: "1px 1px 10px 1px #aaa",
                       color: theItems[levelNumber].textcolor,
                     }}
+                    className="box-shadow-pattern"
                   >
                     <div
                       style={{
@@ -624,7 +623,9 @@ export default function StudentsRanking({
                             cursor: "pointer",
                             color: "white",
                             fontWeight: 800,
-                            backgroundColor: item.replenishTarget ? "green" : "red",
+                            backgroundColor: item.replenishTarget
+                              ? "green"
+                              : "red",
                           }}
                           onClick={() => updateReplenishTargetStatus(item._id)}
                         >

@@ -46,7 +46,7 @@ function Faq({ headers }: HeadersProps) {
   }, []);
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv className="smooth box-shadow-pattern ">
       <Helmets text="FAQ" />
       <HOne>{UniversalTexts.faq}</HOne> <BackToHomePage />
       <Input

@@ -107,7 +107,6 @@ export default function MyCalendar({ headers, thePermissions }) {
     }
   };
 
-
   const [isFee, setIsFee] = useState(true);
 
   const fetchGeneralEvents = async () => {
@@ -951,8 +950,7 @@ export default function MyCalendar({ headers, thePermissions }) {
     let final = `${day}/${month}/${year}`;
     return final;
   }
-  
-  
+
   const handleScheduleReplenish = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("loggedIn"));
@@ -966,7 +964,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       );
 
       fetchGeneralEvents();
-      handleCloseModal()
+      handleCloseModal();
     } catch (error) {
       // onLoggOut()
       console.error(error);
@@ -976,7 +974,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   return (
     <>
       {headers ? (
-        <RouteDiv className="smooth">
+        <RouteDiv className="smooth box-shadow-pattern ">
           <Helmets text="Calendar" />
           <div>
             <HOne>{UniversalTexts.calendar}</HOne>
@@ -1109,11 +1107,11 @@ export default function MyCalendar({ headers, thePermissions }) {
                         })
                         .map((event, index) => (
                           <div
+                            className="box-shadow-pattern"
                             style={{
                               margin: "4px",
                               marginBottom: "1rem",
                               padding: "2px",
-                              boxShadow: "2px 2px 20px 2px #ccc",
                               borderRadius: "5px",
                               border: "1px solid #aaa",
                               backgroundColor:
@@ -1316,11 +1314,10 @@ export default function MyCalendar({ headers, thePermissions }) {
             />
 
             <div
-              className="modal"
+              className="modal box-shadow-pattern"
               style={{
                 position: "fixed",
                 display: isVisible ? "block" : "none",
-                boxShadow: "5px 5px 5px grey",
                 zIndex: 100,
                 backgroundColor: alwaysWhite(),
                 width: "20rem",
@@ -1767,14 +1764,12 @@ export default function MyCalendar({ headers, thePermissions }) {
               onClick={handleCloseModalOfTutorings}
             />
             <div
-              className="modal"
+              className="modal box-shadow-pattern"
               style={{
                 position: "fixed",
-
                 display: isModalOfTutoringsVisible ? "block" : "none",
                 zIndex: 100,
                 backgroundColor: alwaysWhite(),
-                boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
                 padding: "1rem",
                 width: "20rem",
                 height: "30rem",

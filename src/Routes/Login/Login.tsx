@@ -25,11 +25,7 @@ export function Login() {
     e.preventDefault();
     setFail(false);
 
-    setButton(
-      <CircularProgress
-        style={{ color: secondaryColor() }}
-      />
-    );
+    setButton(<CircularProgress style={{ color: secondaryColor() }} />);
 
     try {
       const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {
@@ -85,9 +81,9 @@ export function Login() {
                 backgroundColor: "#fff",
                 maxWidth: "fit-content",
                 margin: "auto",
-                boxShadow: "3px 3px 8px rgba(0, 0, 0, 0.5)",
                 borderRadius: "10px",
               }}
+              className="box-shadow-pattern"
             >
               <div style={{ margin: "0 auto" }}>{myLogo}</div>
               <InputField

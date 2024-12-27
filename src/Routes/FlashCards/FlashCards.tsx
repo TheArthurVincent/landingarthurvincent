@@ -99,7 +99,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   const displayIsAdm = myPermissions === "superadmin" ? "block" : "none";
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv className="smooth box-shadow-pattern ">
       <Helmets text="Flashcards" />
       <TabContext value={value}>
         <Box

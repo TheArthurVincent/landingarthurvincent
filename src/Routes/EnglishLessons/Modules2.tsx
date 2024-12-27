@@ -102,7 +102,7 @@ export default function Modules({
   }, [searchQuery, modules]);
 
   return (
-    <RouteDiv>
+    <RouteDiv className="box-shadow-pattern" >
       <Routes>
         {modules.map((module: any, index: number) =>
           module.classes.map((classItem: any, index2: number) => {

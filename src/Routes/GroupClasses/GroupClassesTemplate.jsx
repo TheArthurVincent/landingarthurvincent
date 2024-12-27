@@ -116,7 +116,7 @@ export default function GroupClassesTemplate({
       {/* <CoursesSideBar courses={courses} /> */}
       <TopBar />
       <RouteSizeControlBox>
-        <RouteDiv>
+        <RouteDiv className="box-shadow-pattern" >
           <div>
             <HOne>{title}</HOne>
             <HTwo>{chosenTitle}</HTwo>
