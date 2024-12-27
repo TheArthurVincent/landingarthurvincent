@@ -50,7 +50,7 @@ export const BlogRouteSizeControlBox = styled.div`
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 55px;
+  margin-top: 60px;
   margin-bottom: 22px;
   max-width: 80vw;
   gap: 0.2rem;

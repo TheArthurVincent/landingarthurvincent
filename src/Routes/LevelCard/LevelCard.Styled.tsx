@@ -86,13 +86,6 @@ export const NewLevelCardComponent = styled.div`
     display: flex;
     padding: 10spx;
     height: 1.5rem;
-    margin: auto;
-    // grid-template-columns: 1fr 1fr;
-    // align-items: center;
-    // justify-content: space-between;
-  }
-  @media (max-width: 985px) {
-    // width: 92vw;
   }
 `;
 
