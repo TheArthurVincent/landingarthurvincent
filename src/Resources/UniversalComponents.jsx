@@ -129,7 +129,7 @@ export const DivGrid = styled.div`
   }
 `;
 export const DivMarginBorder = styled.div.attrs({
-  className: 'box-shadow-white',
+  className: "box-shadow-white",
 })`
   border: 1px solid #fff;
   width: 95%;
@@ -293,7 +293,7 @@ export function InputFieldNotRequired({
 }
 
 export const ImgResponsive0 = styled.img`
-  max-width: 5rem;
+  max-width: 3.5rem;
   margin-right: 1rem;
   @media (max-width: 755px) {
     display: none;

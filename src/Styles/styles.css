@@ -435,6 +435,11 @@ input.inputs-style:focus {
   box-shadow: 0 4px 6px #555;
 }
 
+.pointer-text:hover {
+  cursor: pointer;
+  font-weight: 800;
+}
+
 .flashcard-history-upper {
   display: grid;
   grid-template-columns: 1fr 1fr;

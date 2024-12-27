@@ -170,13 +170,21 @@ export const DivFont = styled.div`
     font-size: 1rem;
   }
 `;
+
 export const AnimatedLi = styled.li`
   padding: 0.2rem 1rem;
   margin-bottom: 5px;
   list-style: none;
+  grid-template-columns: 0.5fr 1fr 0.5fr; 
+  animation: ${fadeIn} 0.3s forwards;
+  display: grid;
   justify-content: space-between;
   align-items: center;
-  animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;
+  text-align: center;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 100%; /* Garante altura uniforme */
 `;
 export const AnimatedLi2 = styled.li`
   padding: 0.5rem 1rem;
