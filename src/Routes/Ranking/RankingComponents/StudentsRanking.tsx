@@ -430,18 +430,6 @@ export default function StudentsRanking({
           <p>New ... Belt!. Congratulations, @</p>
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          marginBottom: "0.5rem",
-        }}
-      >
-        <p onClick={() => fetchStudentsScore()}>
-          {`Apenas os primeiros 5 colocados em ${monthNow} são mostrados na
-          lista!`}
-        </p>
-      </div>
       {
         <div>
           <span className="top-item">
