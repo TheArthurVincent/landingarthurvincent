@@ -128,7 +128,9 @@ export const DivGrid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-export const DivMarginBorder = styled.div`
+export const DivMarginBorder = styled.div.attrs({
+  className: 'box-shadow-white',
+})`
   border: 1px solid #fff;
   width: 95%;
   height: fit-content;

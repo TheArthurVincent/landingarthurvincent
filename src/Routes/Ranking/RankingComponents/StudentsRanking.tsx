@@ -455,7 +455,7 @@ export default function StudentsRanking({
                 <>
                   <div
                     key={index}
-                    className="box-shadow-pattern"
+                    className="box-shadow-white"
                     style={{
                       padding: "0.5rem 1rem",
                       margin: "1rem 0",
@@ -543,7 +543,7 @@ export default function StudentsRanking({
                       borderRadius: "5rem",
                       color: theItems[levelNumber].textcolor,
                     }}
-                    className="box-shadow-pattern"
+                    className="box-shadow-white"
                   >
                     <div
                       style={{

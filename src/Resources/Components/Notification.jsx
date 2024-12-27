@@ -27,7 +27,7 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
 
   return (
     <Not
-      className="box-shadow-pattern notification"
+      className="box-shadow-white notification"
       style={{
         backgroundColor:
           color === 1

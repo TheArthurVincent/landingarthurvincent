@@ -7,7 +7,9 @@ import {
   textTitleFont,
 } from "../../Styles/Styles";
 
-export const TopBarContainer = styled.header`
+export const TopBarContainer = styled.header.attrs({
+  className: 'box-shadow-black',
+})`
   top: 0;
   z-index: 7;
   position: fixed;
@@ -55,7 +57,9 @@ export const TopBarNavigation = styled.div`
   justify-content: space-evenly;
   list-style: none;
 `;
-export const TopBarNavigationBurger = styled.div`
+export const TopBarNavigationBurger = styled.div.attrs({
+  className: 'box-shadow-black',
+})`
   position: fixed;
   top: 0;
   left: 0;
@@ -66,7 +70,6 @@ export const TopBarNavigationBurger = styled.div`
   gap: 1.5rem;
   background-color: ${alwaysWhite()};
   padding: 2rem 1.5rem;
-  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
   border-right: 1px solid ${secondaryColor()};
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 
@@ -74,10 +77,6 @@ export const TopBarNavigationBurger = styled.div`
     animation-name: slideInLeftNoOpacity;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
-  }
-
-  &:hover {
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
   }
 
   a {

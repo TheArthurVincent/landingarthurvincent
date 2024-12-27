@@ -81,7 +81,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       <Helmets text="Courses" />
       {displayRouteDiv ? (
         !loading ? (
-          <RouteDiv className="box-shadow-pattern" >
+          <RouteDiv >
             <HOne>Escolha um curso</HOne>
             <ArvinButton onClick={getCourses}>
               <i className="fa fa-refresh" aria-hidden={true} />

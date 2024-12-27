@@ -394,7 +394,7 @@ const AllCards = ({ headers }: HeadersProps) => {
           left: "40%",
         }}
         id="modal"
-        className="box-shadow-pattern"
+        className="box-shadow-white"
       >
         <Xp onClick={handleHideModal}>X</Xp>
         <article id="front">

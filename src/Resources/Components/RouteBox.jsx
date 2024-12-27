@@ -22,12 +22,13 @@ export const RouteSizeControlBox = styled.div`
   }
 `;
 
-export const RouteDiv = styled.div`
+export const RouteDiv = styled.div.attrs({
+  className: "box-shadow-black smooth",
+})`
   background-color: ${alwaysWhite()};
   border-radius: 0.5rem;
   color: ${alwaysBlack()};
   padding: 0.5rem;
-  box-shadow: 1px 1px 5px 1px #777;
   width: 90vw;
   height: 100%;
   @media (max-width: 1200px) {

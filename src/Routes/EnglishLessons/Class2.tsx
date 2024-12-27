@@ -363,7 +363,7 @@ export default function EnglishClassCourse2({
           )}
           {thePermissions === "superadmin" && (
             <div
-              className="box-shadow-pattern"
+              className="box-shadow-white"
               style={{
                 height: "3rem",
                 padding: "0 10px ",

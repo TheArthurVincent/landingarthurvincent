@@ -83,7 +83,7 @@ export function Login() {
                 margin: "auto",
                 borderRadius: "10px",
               }}
-              className="box-shadow-pattern"
+              className="box-shadow-white"
             >
               <div style={{ margin: "0 auto" }}>{myLogo}</div>
               <InputField

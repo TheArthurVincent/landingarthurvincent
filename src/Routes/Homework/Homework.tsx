@@ -142,7 +142,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
   }, []);
 
   return (
-    <RouteDiv className="smooth box-shadow-pattern ">
+    <RouteDiv>
       <Helmets text="Homework" />
       <HOne>{UniversalTexts.homework}</HOne>
       <div

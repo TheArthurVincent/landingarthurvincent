@@ -81,7 +81,7 @@ export function MyProfile({ headers }: HeadersProps) {
   return (
     <>
       {headers ? (
-        <RouteDiv className="smooth box-shadow-pattern  grid-flex">
+        <RouteDiv className="grid-flex">
           <Helmets text="My Profile" />
           {loading ? (
             <CircularProgress />
@@ -97,7 +97,7 @@ export function MyProfile({ headers }: HeadersProps) {
                     backgroundColor: "#f7f9fc",
                     borderRadius: "10px",
                   }}
-                  className="box-shadow-pattern"
+                  className="box-shadow-white"
                 >
                   <ArvinButton
                     onClick={() => updateInfo(user.id, headers)}
@@ -129,7 +129,7 @@ export function MyProfile({ headers }: HeadersProps) {
                         borderRadius: "50%",
                         objectFit: "cover",
                       }}
-                      className="box-shadow-pattern"
+                      className="box-shadow-white"
                       src={user.picture}
                       alt="Profile"
                     />
@@ -175,7 +175,7 @@ export function MyProfile({ headers }: HeadersProps) {
                   borderRadius: "10px",
                   marginTop: "2rem",
                 }}
-                className="box-shadow-pattern"
+                className="box-shadow-white"
               >
                 <form style={{ textAlign: "center" }}>
                   <HOne>{UniversalTexts.newPassword}</HOne>
@@ -228,7 +228,7 @@ export function MyProfile({ headers }: HeadersProps) {
           )}
         </RouteDiv>
       ) : (
-        <RouteDiv className="box-shadow-pattern">
+        <RouteDiv>
           Nenhum usuário logado
         </RouteDiv>
       )}

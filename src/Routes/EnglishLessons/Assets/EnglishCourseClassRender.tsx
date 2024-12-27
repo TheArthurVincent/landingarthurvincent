@@ -144,7 +144,7 @@ export default function EnglishLessonsRender({
 
   return (
     <>
-      <RouteDiv className="box-shadow-pattern">
+      <RouteDiv>
         <ArvinButton
           style={{ margin: "1rem auto", display: "block" }}
           onClick={() => {

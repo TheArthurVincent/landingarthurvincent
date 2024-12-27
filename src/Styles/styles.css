@@ -425,11 +425,16 @@ input.inputs-style:focus {
   color: #000000;
 }
 
-.box-shadow-pattern {
-  padding: 16px;
+.box-shadow-white {
   border-radius: 5px;
   box-shadow: 0 4px 6px #eee;
 }
+
+.box-shadow-black {
+  padding: 16px;
+  box-shadow: 0 4px 6px #555;
+}
+
 .flashcard-history-upper {
   display: grid;
   grid-template-columns: 1fr 1fr;

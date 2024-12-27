@@ -191,7 +191,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
   }
   return (
     <>
-      <RouteDiv className="box-shadow-pattern" >
+      <RouteDiv>
         <Helmets text="Home Page" />
         <div
           style={{
@@ -268,7 +268,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
           </div>
         </div>
         <DivFlex>
-          <DivMarginBorder className="box-shadow-pattern">
+          <DivMarginBorder>
             <HOne>{UniversalTexts.levelCard}</HOne>
             <LevelCardBlog
               change={change}
@@ -277,7 +277,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               picture={picture}
             />
           </DivMarginBorder>
-          <DivMarginBorder className="box-shadow-pattern">
+          <DivMarginBorder>
             <HOne>{UniversalTexts.mural}</HOne>
             {posts.map((post: any, index: number) => (
               <div
@@ -343,7 +343,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               </div>
             ))}
           </DivMarginBorder>
-          <DivMarginBorder className="box-shadow-pattern">
+          <DivMarginBorder>
             <HOne>{UniversalTexts.nextHomeworkAssignment}</HOne>
 
             <span>
@@ -373,7 +373,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               Access the class here
             </Link>
           </DivMarginBorder>
-          <DivMarginBorder className="box-shadow-pattern">
+          <DivMarginBorder>
             <HOne>{UniversalTexts.monthlyChallenge}</HOne>
           </DivMarginBorder>
         </DivFlex>

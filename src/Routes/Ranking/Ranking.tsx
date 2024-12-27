@@ -83,7 +83,7 @@ export default function Ranking({ headers }: HeadersProps) {
   const targetDate = new Date("2024-12-31T18:00:00");
 
   return (
-    <RouteDiv className="smooth box-shadow-pattern ">
+    <RouteDiv>
       <Helmets text="Ranking" />
       <HOne>Ranking</HOne>
       <TabContext value={value}>
@@ -149,7 +149,7 @@ export default function Ranking({ headers }: HeadersProps) {
                 fontSize: "12px",
                 color: "black",
               }}
-              className="box-shadow-pattern"
+              className="box-shadow-white"
             >
               <strong
                 style={{
@@ -178,7 +178,7 @@ export default function Ranking({ headers }: HeadersProps) {
                 backgroundColor: "#4CAF50", // Fundo verde
                 fontSize: "12px",
               }}
-              className="box-shadow-pattern"
+              className="box-shadow-white"
             >
               <strong
                 style={{
@@ -207,7 +207,7 @@ export default function Ranking({ headers }: HeadersProps) {
                 backgroundColor: "#FF5722", // Fundo laranja
                 fontSize: "12px",
               }}
-              className="box-shadow-pattern"
+              className="box-shadow-white"
             >
               <strong
                 style={{
@@ -228,7 +228,7 @@ export default function Ranking({ headers }: HeadersProps) {
               </p>
             </div>
             <div
-              className="box-shadow-pattern"
+              className="box-shadow-white"
               style={{
                 flex: 1,
                 textAlign: "center",

@@ -263,7 +263,7 @@ export function MyClasses({ headers }) {
                 backgroundColor: "#fff",
                 marginBottom: "16px",
               }}
-              className="box-shadow-pattern"
+              className="box-shadow-white"
             >
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "8px" }}

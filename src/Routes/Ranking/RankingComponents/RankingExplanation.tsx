@@ -15,7 +15,7 @@ export default function RankingExplanation() {
       }}
     >
       <div
-        className="box-shadow-pattern"
+        className="box-shadow-white"
         style={{
           padding: "1.5rem",
           backgroundColor: "#f9f9f9",

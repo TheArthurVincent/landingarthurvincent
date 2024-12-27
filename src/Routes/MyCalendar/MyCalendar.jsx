@@ -974,7 +974,7 @@ export default function MyCalendar({ headers, thePermissions }) {
   return (
     <>
       {headers ? (
-        <RouteDiv className="smooth box-shadow-pattern ">
+        <RouteDiv>
           <Helmets text="Calendar" />
           <div>
             <HOne>{UniversalTexts.calendar}</HOne>
@@ -1107,7 +1107,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         })
                         .map((event, index) => (
                           <div
-                            className="box-shadow-pattern"
+                            className="box-shadow-white"
                             style={{
                               margin: "4px",
                               marginBottom: "1rem",
@@ -1314,7 +1314,7 @@ export default function MyCalendar({ headers, thePermissions }) {
             />
 
             <div
-              className="modal box-shadow-pattern"
+              className="modal box-shadow-white"
               style={{
                 position: "fixed",
                 display: isVisible ? "block" : "none",
@@ -1764,7 +1764,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               onClick={handleCloseModalOfTutorings}
             />
             <div
-              className="modal box-shadow-pattern"
+              className="modal box-shadow-white"
               style={{
                 position: "fixed",
                 display: isModalOfTutoringsVisible ? "block" : "none",

@@ -266,7 +266,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       padding: "1.5rem",
                       borderRadius: "8px",
                     }}
-                    className="box-shadow-pattern"
+                    className="box-shadow-white"
                   >
                     <div
                       style={{

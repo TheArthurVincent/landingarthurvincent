@@ -53,7 +53,7 @@ export default function ImageLessonModelSlide({
                   objectPosition: "center",
                   borderRadius: "10px",
                 }}
-                className="box-shadow-pattern"
+                className="box-shadow-white"
                 src={image.img}
               />
             </div>
