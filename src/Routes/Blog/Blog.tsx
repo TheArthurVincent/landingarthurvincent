@@ -17,12 +17,8 @@ import {
   DivFlex,
   DivMarginBorder,
 } from "../../Resources/UniversalComponents";
-import {
-  alwaysWhite,
-  secondaryColor,
-  textSecondaryColorContrast,
-} from "../../Styles/Styles";
-import { Button, CircularProgress, Tooltip } from "@mui/material";
+import { alwaysWhite, secondaryColor } from "../../Styles/Styles";
+import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   DivModal,
@@ -218,54 +214,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               {name}!
             </p>
           </div>
-          <div style={{ display: "flex", gap: "5px" }}>
-            {/* <Tooltip title={UniversalTexts.personalFolder}>
-              <Link
-                target="_blank"
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  gap: "5px",
-                  alignItems: "center",
-                  textDecoration: "none",
-                }}
-                to={googleDriveLink}
-              >
-                <span className="hover-link">
-                  <i className="fa fa-folder" aria-hidden="true" />
-                </span>
-              </Link>
-            </Tooltip> */}
-            {/* <Tooltip title={UniversalTexts.talkToTheTeacher}>
-              <Link
-                target="_blank"
-                style={{
-                  maxWidth: "100%",
-                  backgroundColor: secondaryColor(),
-                  color: textSecondaryColorContrast(),
-                  padding: "10px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  textDecoration: "none",
-                  gap: "5px",
-                  alignItems: "center",
-                }}
-                to="https://wa.me/5511915857807"
-              >
-                <span className="hover-link">
-                  <i
-                    style={{ maxWidth: "100%" }}
-                    className="fa fa-whatsapp"
-                    aria-hidden="true"
-                  />
-                </span>
-              </Link>
-            </Tooltip> */}
-          </div>
+          <div style={{ display: "flex", gap: "5px" }}></div>
         </div>
         <DivFlex>
           <DivMarginBorder>

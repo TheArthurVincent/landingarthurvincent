@@ -6,7 +6,6 @@ import {
   updateInfo,
   updateScore,
 } from "../../Resources/UniversalComponents";
-import { CircularProgress, LinearProgress, Tooltip } from "@mui/material";
 import axios from "axios";
 import {
   LevelCardLevel,
@@ -18,7 +17,7 @@ import {
   DivSeeBig,
 } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
 interface LevelCardProps {
   headers: MyHeadersType | null;
@@ -107,13 +106,6 @@ export function LevelCard({
 
   const levelNumber = updateScore(totalScore, FC, assignmentsDone).level - 1;
   const nextLevel = theItems[levelNumber + 1] || {};
-  const remainingPoints =
-    (Number(nextLevel.totalScore) || 0) - (Number(totalScore) || 0);
-  const remainingAssignments =
-    (Number(nextLevel.homeworkAssignmentsDone) || 0) -
-    (Number(assignmentsDone) || 0);
-  const remainingFC =
-    (Number(nextLevel.flashcards25Reviews) || 0) - (Number(FC) || 0);
 
   return (
     <NewLevelCardComponent
