@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AnimatedLi2 } from "../../../Resources/Components/RouteBox";
+import { AnimatedLi2, HTwo } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive3,
   backDomain,
@@ -16,6 +16,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const [students, setStudents] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const theItems = levels();
+  const [isAdm, setIsAdm] = useState<string>("student");
 
   const [showInfo, setShowInfo] = useState<{
     [key: number]: { [key: string]: boolean };
@@ -42,6 +43,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const fetchStudents = async () => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setID(getLoggedUser.id);
+    setIsAdm(getLoggedUser.permissions);
     console.log(getLoggedUser.id);
     // setLoading(true);
     try {
@@ -81,23 +83,25 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     fetchStudents();
   }, []);
 
+  const verifySee = (adm: string, score: number) => {
+    if (adm == "superadmin") {
+      return "block";
+    } else if (score >= 22000) {
+      return "block";
+    } else {
+      return "none";
+    }
+  };
   return (
     <div style={{ display: "grid" }}>
-      <div
+      <HTwo
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: "1rem",
+          margin: 0,
+          padding: 0,
         }}
-      >
-        <div
-          style={{
-            textAlign: "center",
-          }}
-          onClick={() => fetchStudents()}
-        >{`> 10.000!`}</div>
-      </div>
+        onClick={() => fetchStudents()}
+      >{`> 22.000 only!`}</HTwo>
+     
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
@@ -120,10 +124,11 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
               (Number(nextLevel.flashcards25Reviews) || 0) -
               (Number(item.flashcards25Reviews) || 0);
 
+
             return (
               <div
                 style={{
-                  display: item.totalScore >= 10000 ? "block" : "none",
+                  display: verifySee(isAdm, item.totalScore),
                   //@ts-ignore
                   border: `1px solid ${theItems[levelNumber - 1].color}`,
                   //@ts-ignore
