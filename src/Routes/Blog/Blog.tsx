@@ -218,6 +218,36 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <DivMarginBorder>
+            <HOne>{UniversalTexts.nextHomeworkAssignment}</HOne>
+
+            <span>
+              <i
+                style={{
+                  display: "inline",
+                  color: nextTutoring?.status == "done" ? "green" : "orange",
+                }}
+                className={`fa fa-${
+                  nextTutoring?.status == "done" ? "check-circle" : "ellipsis-h"
+                }`}
+                aria-hidden="true"
+              />{" "}
+              {nextTutoring?.status}
+            </span>
+            <div>
+              <div
+                style={{
+                  padding: "1rem",
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: nextTutoring?.description,
+                }}
+              />
+            </div>
+            <Link target="_blank" to={nextTutoring?.googleDriveLink}>
+              Access the class here
+            </Link>
+          </DivMarginBorder>
+          <DivMarginBorder>
             <HOne>{UniversalTexts.levelCard}</HOne>
             <LevelCardBlog
               change={change}
@@ -225,6 +255,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               _StudentId={_StudentId}
               picture={picture}
             />
+          </DivMarginBorder>
+
+          <DivMarginBorder>
+            <HOne>{UniversalTexts.monthlyChallenge}</HOne>
           </DivMarginBorder>
           <DivMarginBorder>
             <HOne>{UniversalTexts.mural}</HOne>
@@ -291,39 +325,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                 </div>
               </div>
             ))}
-          </DivMarginBorder>
-          <DivMarginBorder>
-            <HOne>{UniversalTexts.nextHomeworkAssignment}</HOne>
-
-            <span>
-              <i
-                style={{
-                  display: "inline",
-                  color: nextTutoring?.status == "done" ? "green" : "orange",
-                }}
-                className={`fa fa-${
-                  nextTutoring?.status == "done" ? "check-circle" : "ellipsis-h"
-                }`}
-                aria-hidden="true"
-              />{" "}
-              {nextTutoring?.status}
-            </span>
-            <div>
-              <div
-                style={{
-                  padding: "1rem",
-                }}
-                dangerouslySetInnerHTML={{
-                  __html: nextTutoring?.description,
-                }}
-              />
-            </div>
-            <Link target="_blank" to={nextTutoring?.googleDriveLink}>
-              Access the class here
-            </Link>
-          </DivMarginBorder>
-          <DivMarginBorder>
-            <HOne>{UniversalTexts.monthlyChallenge}</HOne>
           </DivMarginBorder>
         </DivFlex>
       </RouteDiv>
