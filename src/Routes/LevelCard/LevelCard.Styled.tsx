@@ -35,14 +35,14 @@ export const ExternalDivCardBlogLevel = styled.div`
   justify-content: center;
 `;
 export const DivDisapearBig = styled.div`
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   @media (max-width: 1200px) {
     display: none;
   }
 `;
 export const DivSeeBig = styled.div`
   display: none;
-  font-size: 0.8rem;
+  font-size: 8px;
   @media (max-width: 1200px) {
     display: flex;
     gap: 1rem;

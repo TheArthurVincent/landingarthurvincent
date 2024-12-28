@@ -18,6 +18,7 @@ import {
 } from "./LevelCard.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { createTheme } from "@mui/material/styles";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 interface LevelCardProps {
   headers: MyHeadersType | null;
@@ -106,6 +107,7 @@ export function LevelCard({
 
   const levelNumber = updateScore(totalScore, FC, assignmentsDone).level - 1;
   const nextLevel = theItems[levelNumber + 1] || {};
+  const { UniversalTexts } = useUserContext();
 
   return (
     <NewLevelCardComponent
@@ -128,41 +130,38 @@ export function LevelCard({
           {" "}
           <DivDisapearBig>
             <i
-              style={{ fontSize: "1.5rem" }}
+              onClick={() => seeScore(_StudentId)}
+              style={{
+                cursor:"pointer",
+                fontSize: "1.5rem",
+              }}
               className={items[level].icon}
               aria-hidden="true"
             />{" "}
           </DivDisapearBig>
           <div
             style={{
-              marginBottom: "1rem",
-              display: "flex",
+              marginTop: "5px",
+              display: "grid",
               gap: "10px",
+              fontSize: "10px",
               alignItems: "center",
             }}
           >
-            {" "}
-            <DivDisapearBig>
-              <i
-                onClick={() => seeScore(_StudentId)}
-                style={{
-                  display: showCard,
-                  cursor: "pointer",
-                  color: "#fff",
-                  fontSize: "0.8rem",
-                  margin: "0",
-                }}
-                className="fa fa-refresh"
-                aria-hidden="true"
-              />{" "}
-            </DivDisapearBig>
             <>
               <DivDisapearBig>
                 <p style={{ color: "#fff" }}>
-                  Total Score: {formatNumber(totalScore)}
+                  {UniversalTexts.totalScore}: {formatNumber(totalScore)}
                 </p>
                 <p style={{ color: "#fff" }}>
-                  Monthly Score: {formatNumber(monthlyScore)}
+                  {UniversalTexts.monthlyScore}: {formatNumber(monthlyScore)}
+                </p>
+                <p style={{ color: "#fff" }}>
+                  {UniversalTexts.homework}: {formatNumber(assignmentsDone)}
+                </p>
+                <p style={{ color: "#fff" }}>
+                  {UniversalTexts.flashcardsDailyReviews}:{" "}
+                  {formatNumber(FC)}
                 </p>
               </DivDisapearBig>
               <div
@@ -173,15 +172,12 @@ export function LevelCard({
               >
                 <DivSeeBig>
                   <i
+                    onClick={() => seeScore(_StudentId)}
                     style={{
                       display: "grid",
-                      alignContent: "center",
-                      borderRadius: "50%",
-                      color: items[level].textcolor,
-                      backgroundColor: items[level].color,
-                      width: "25px",
-                      height: "25px",
-                      fontSize: "15px",
+                      alignItems: "center",
+                      color: "white",
+                      fontSize: "12px",
                     }}
                     className={items[level].icon}
                     aria-hidden="true"
@@ -192,7 +188,7 @@ export function LevelCard({
                         fontWeight: 1000,
                       }}
                     >
-                      Total Score:
+                      {UniversalTexts.totalScore}:{" "}
                     </span>{" "}
                     {formatNumber(totalScore)}
                   </p>
@@ -202,22 +198,10 @@ export function LevelCard({
                         fontWeight: 1000,
                       }}
                     >
-                      Monthly Score:{" "}
+                      {UniversalTexts.monthlyScore}:{" "}
                     </span>
                     {formatNumber(monthlyScore)}
                   </p>
-                  <i
-                    onClick={() => seeScore(_StudentId)}
-                    style={{
-                      display: showCard,
-                      cursor: "pointer",
-                      color: "#fff",
-                      fontSize: "0.8rem",
-                      margin: "0",
-                    }}
-                    className="fa fa-refresh"
-                    aria-hidden="true"
-                  />
                 </DivSeeBig>
               </div>
             </>
