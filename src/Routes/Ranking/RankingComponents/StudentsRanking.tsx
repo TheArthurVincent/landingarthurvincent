@@ -234,7 +234,6 @@ export default function StudentsRanking({
 
   const theItems = levels();
 
-  
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(getLoggedUser);
@@ -493,10 +492,19 @@ export default function StudentsRanking({
                   item.homeworkAssignmentsDone
                 ).level - 1;
 
+              const verifySee = (adm: boolean, index: number) => {
+                if (adm) {
+                  return "block";
+                } else if (index < 5) {
+                  return "block";
+                } else {
+                  return "none";
+                }
+              };
               return (
                 <div
                   style={{
-                    display: index < 5 ? "block" : "none",
+                    display: verifySee(isAdm, index),
                   }}
                 >
                   <AnimatedLi
