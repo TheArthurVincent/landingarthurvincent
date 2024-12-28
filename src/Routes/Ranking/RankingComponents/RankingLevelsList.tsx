@@ -94,7 +94,7 @@ export const levels = () => {
       textcolor: "white",
       text: "Orange Belt",
       totalScore: 66000,
-      flashcards25Reviews: 85,
+      flashcards25Reviews: 80,
       homeworkAssignmentsDone: 35,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/orange.png?updatedAt=1711540461559",
@@ -109,7 +109,7 @@ export const levels = () => {
       color: "#40004B",
       backgroundcolor: "#400060",
       textcolor: "white",
-      flashcards25Reviews: 110,
+      flashcards25Reviews: 100,
       homeworkAssignmentsDone: 40,
       text: "Purple Belt",
       totalScore: 83000,
