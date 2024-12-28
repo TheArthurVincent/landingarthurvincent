@@ -186,6 +186,20 @@ export const AnimatedLi = styled.li`
   border-radius: 4px;
   height: 100%; /* Garante altura uniforme */
 `;
+export const AnimatedLi3 = styled.li`
+  padding: 0.2rem 1rem;
+  margin-bottom: 5px;
+  list-style: none;
+  grid-template-columns: 0.5fr 1fr 0.5fr; 
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background: #f9f9f9;
+  border: 2px solid #000;
+  border-radius:2px;
+  height: 100%; /* Garante altura uniforme */
+`;
 export const AnimatedLi2 = styled.li`
   padding: 0.5rem 1rem;
   margin-bottom: 5px;

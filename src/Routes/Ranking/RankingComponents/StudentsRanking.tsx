@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   AnimatedLi,
+  AnimatedLi3,
   DivFont,
   HOne,
 } from "../../../Resources/Components/RouteBox";
@@ -27,6 +28,7 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
 import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
+import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 
 interface StudentsRankingProps {
   headers: MyHeadersType | null;
@@ -228,6 +230,7 @@ export default function StudentsRanking({
       console.log("error", error);
     }
   };
+  const { UniversalTexts } = useUserContext();
 
   const updateReplenishTargetStatus = async (id: string) => {
     try {
@@ -432,80 +435,6 @@ export default function StudentsRanking({
       </div>
       {
         <div>
-          <span className="top-item">
-            {students.map((item: any, index: number) => {
-              const levelNumber =
-                updateScore(
-                  item.totalScore,
-                  item.flashcards25Reviews,
-                  item.homeworkAssignmentsDone
-                ).level - 1;
-              return (
-                <>
-                  <div
-                    key={index}
-                    className="box-shadow-white"
-                    style={{
-                      padding: "0.5rem 1rem",
-                      margin: "1rem 0",
-                      display:
-                        item._id == "671b99e97acd42b04d2f7507"
-                          ? "none"
-                          : item._id === user.id
-                          ? "flex"
-                          : "none",
-                      justifyContent: "space-between",
-                      background: theItems[levelNumber].color,
-                      color: theItems[levelNumber].textcolor,
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "grid",
-                        justifyContent: "space-evenly",
-                        alignItems: "center",
-                      }}
-                    >
-                      <HOne
-                        style={{
-                          fontWeight: 600,
-                          margin: 0,
-                          padding: "5px",
-                          background: theItems[levelNumber].color,
-                          color: theItems[levelNumber].textcolor,
-                        }}
-                      >
-                        #{index + 1} | {item.name}{" "}
-                        {abreviateName(item.lastname)}
-                      </HOne>
-                    </div>
-                    <div>
-                      <p>
-                        Monthly Score:{" "}
-                        <span
-                          style={{
-                            fontWeight: "600",
-                          }}
-                        >
-                          {formatNumber(item.monthlyScore)}
-                        </span>
-                      </p>
-                      <p>
-                        Total Score:{" "}
-                        <span
-                          style={{
-                            fontWeight: "600",
-                          }}
-                        >
-                          {formatNumber(item.totalScore)}
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </>
-              );
-            })}
-          </span>
           <ul>
             {students.map((item: any, index: number) => {
               const levelNumber =
@@ -671,6 +600,169 @@ export default function StudentsRanking({
               );
             })}
           </ul>
+          <span className="top-item">
+            {students.map((item: any, index: number) => {
+              const levelNumber =
+                updateScore(
+                  item.totalScore,
+                  item.flashcards25Reviews,
+                  item.homeworkAssignmentsDone
+                ).level - 1;
+              return (
+                <>
+                  <AnimatedLi3
+                    key={index + item.picture}
+                    style={{
+                      display:
+                        item._id === user.id
+                          ? "flex"
+                          : index <= 4
+                          ? "flex"
+                          : "none",
+                      background: theItems[levelNumber].color,
+                      overflowX: "hidden",
+                      borderRadius: "1rem",
+                      color: theItems[levelNumber].textcolor,
+                    }}
+                    className="box-shadow-white"
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <ImgResponsive0
+                        src={theItems[levelNumber].image2}
+                        alt="level"
+                      />
+                      <img
+                        style={{
+                          width: "3rem",
+                          height: "3rem",
+                          objectFit: "cover",
+                          margin: "auto",
+                          borderRadius: "50%",
+                          border: `solid ${alwaysWhite()} 2px`,
+                        }}
+                        src={item.picture}
+                      />
+                    </div>
+                    <p
+                      style={{
+                        fontWeight: 600,
+                        width: "10rem",
+                        fontFamily: textTitleFont(),
+                        padding: "5px",
+                        textAlign: "left",
+                        background: theItems[levelNumber].color,
+                        color: theItems[levelNumber].textcolor,
+                      }}
+                    >
+                      #{index + 1} |{" "}
+                      {item.name + " " + abreviateName(item.lastname)}
+                    </p>
+                    <div
+                      style={{
+                        display: isAdm ? "grid" : "none",
+                        // display: "none",
+                        alignItems: "center",
+                        fontSize: "0.5rem",
+                      }}
+                    >
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          alignItems: "center",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: item.feeUpToDate ? "green" : "red",
+                        }}
+                        onClick={() => updateFeeStatus(item._id)}
+                      >
+                        {item.feeUpToDate ? "Fee Ok" : "Late Fee"}
+                      </div>
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          alignItems: "center",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: item.replenishTarget
+                            ? "green"
+                            : "red",
+                        }}
+                        onClick={() => updateReplenishTargetStatus(item._id)}
+                      >
+                        {item.replenishTarget ? "Replenish" : "Non-Replenish"}
+                      </div>
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          alignItems: "center",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: "#456",
+                        }}
+                        onClick={() => seeEdition(item._id)}
+                      >
+                        {formatNumber(item.totalScore)} +
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "grid",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: "0.9rem",
+                          borderRadius: "0.5rem",
+                          marginBottom: "0.2rem",
+                          padding: "5px",
+                        }}
+                      >
+                        <DivFont
+                          style={{
+                            textAlign: "center",
+                            color: alwaysWhite(),
+                            textShadow: `2px 0 ${alwaysBlack()},
+                             -2px 0 ${alwaysBlack()}, 
+                             0 2px ${alwaysBlack()},
+                              0 -2px ${alwaysBlack()},
+                               1px 1px ${alwaysBlack()},
+                                -1px -1px ${alwaysBlack()},
+                                 1px -1px ${alwaysBlack()},
+                                  -1px 1px ${alwaysBlack()}`,
+                          }}
+                        >
+                          {formatNumber(item.monthlyScore)}{" "}
+                        </DivFont>
+                      </div>
+                    </div>
+                  </AnimatedLi3>
+                </>
+              );
+            })}
+          </span>
         </div>
       }
     </div>
