@@ -171,19 +171,42 @@ export const DivFont = styled.div`
   }
 `;
 
+const changeColors = (color1, color2) => keyframes`
+  0% {
+    background-color: ${color1};
+  }
+  50% {
+    background-color: ${color2};
+  }
+  100% {
+    background-color: ${color1};
+  }
+`;
 export const AnimatedLi = styled.li`
   padding: 0.2rem 1rem;
   margin-bottom: 5px;
   list-style: none;
-  grid-template-columns: 0.5fr 1fr 0.5fr; 
-  animation: ${fadeIn} 0.3s forwards;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  height: 100%; /* Garante altura uniforme */
+`;
+
+export const AnimatedLi3 = styled.li`
+  padding: 0.2rem 1rem;
+  margin-bottom: 5px;
+  list-style: none;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
   display: grid;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 2px solid #000;
+  border-radius: 2px;
   height: 100%; /* Garante altura uniforme */
 `;
 export const AnimatedLi2 = styled.li`
