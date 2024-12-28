@@ -10,7 +10,7 @@ import Helmets from "../../Resources/Helmets";
 export default function NotFound() {
   return (
     <RouteSizeControlBox>
-      <RouteDiv>
+      <RouteDiv >
         <Helmets text="Not Found!" />
         <BackToHomePage />
         <HOne>Page Not Found!</HOne>

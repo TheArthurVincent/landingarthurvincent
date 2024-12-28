@@ -124,7 +124,6 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             : primaryColor2()}
         100%
     );
-    box-shadow: 1px 1px 10px 1px #bbb;
     border-radius: 10px;
   }
 

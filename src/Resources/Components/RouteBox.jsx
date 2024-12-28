@@ -22,15 +22,16 @@ export const RouteSizeControlBox = styled.div`
   }
 `;
 
-export const RouteDiv = styled.div`
+export const RouteDiv = styled.div.attrs({
+  className: "box-shadow-black smooth",
+})`
   background-color: ${alwaysWhite()};
   border-radius: 0.5rem;
   color: ${alwaysBlack()};
   padding: 0.5rem;
-  box-shadow: 1px 1px 5px 1px #777;
-  width: 60rem;
-  margin: auto;
-  @media (max-width: 995px) {
+  width: 90vw;
+  height: 100%;
+  @media (max-width: 1200px) {
     width: 95vw;
   }
 `;
@@ -46,15 +47,24 @@ export const OverFlow = styled.div`
   `;
 export const BlogRouteSizeControlBox = styled.div`
   display: flex;
-  margin: 1rem auto;
-  max-width: 90vw;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  margin-bottom: 22px;
+  max-width: 80vw;
   gap: 0.2rem;
-  @media (max-width: 1203px) {
+  @media (max-width: 1200px) {
     display: flex;
-    max-width: 100vw;
+    max-width: 80vw;
+    margin-right: auto;
+    margin-left: auto;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+  }
+  @media (max-width: 600px) {
+    max-width: 70vw;
   }
   &.smooth {
     animation-name: slideInLeft;
@@ -88,14 +98,9 @@ export const SpanIcon = styled.span`
 `;
 export const BlogPostTitle = styled.div`
   padding: 0rem 0.5rem;
-  margin: 0.5rem;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 2.5rem;
-  font-size: 1rem;
-  // color: ${textPrimaryColorContrast()};
   @media (max-width: 650px) {
     margin: 3px;
   }
@@ -165,13 +170,21 @@ export const DivFont = styled.div`
     font-size: 1rem;
   }
 `;
+
 export const AnimatedLi = styled.li`
   padding: 0.2rem 1rem;
   margin-bottom: 5px;
   list-style: none;
+  grid-template-columns: 0.5fr 1fr 0.5fr; 
+  animation: ${fadeIn} 0.3s forwards;
+  display: grid;
   justify-content: space-between;
   align-items: center;
-  animation: ${fadeIn} ${({ index }) => index * 0.3}s forwards;
+  text-align: center;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 100%; /* Garante altura uniforme */
 `;
 export const AnimatedLi2 = styled.li`
   padding: 0.5rem 1rem;

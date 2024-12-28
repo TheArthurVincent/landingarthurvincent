@@ -11,7 +11,6 @@ export const CoursesList = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
-
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
   }
@@ -20,18 +19,15 @@ export const StyledDiv = styled.div`
   padding: 0px 0px 10px 0px;
   margin: 10px auto;
   border: 1px solid ${lightGreyColor()};
-  width: 20vw;
+  width: 10vw;
   height: 61vh;
   overflow-y: auto;
   overflow-x: hidden;
   @media (max-width: 1200px) {
-    min-width: 25vw;
+    min-width: 20vw;
   }
-  @media (max-width: 700px) {
-    min-width: 50vw;
-  }
-  @media (max-width: 300px) {
-    min-width: 80vw;
+  @media (max-width: 900px) {
+    min-width: 30vw;
   }
 `;
 export const CourseItem = styled.div`

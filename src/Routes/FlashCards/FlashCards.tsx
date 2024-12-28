@@ -44,7 +44,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
 
   const componentsToRender = [
     {
-      title: "Review Exercise",
+      title: "Review",
       value: "1",
       adm: false,
       component: (
@@ -56,7 +56,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       ),
     },
     {
-      title: "Listening Exercise",
+      title: "Listening",
       value: "5",
       adm: false,
       component: (
@@ -67,23 +67,23 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
         />
       ),
     },
-    {
-      title: "Q&A",
-      value: "6",
-      adm: false,
-      component: (
-        <QnAExercise onChange={onChange} change={change} headers={headers} />
-      ),
-    },
+    // {
+    //   title: "Q&A",
+    //   value: "6",
+    //   adm: false,
+    //   component: (
+    //     <QnAExercise onChange={onChange} change={change} headers={headers} />
+    //   ),
+    // },
 
     {
-      title: "All cards",
+      title: "My Cards",
       value: "3",
       adm: false,
       component: <AllCards headers={headers} />,
     },
     {
-      title: "Reviews History",
+      title: "History",
       value: "4",
       adm: false,
       component: <FlashcardsHistory headers={headers} />,
@@ -99,7 +99,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   const displayIsAdm = myPermissions === "superadmin" ? "block" : "none";
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv>
       <Helmets text="Flashcards" />
       <TabContext value={value}>
         <Box

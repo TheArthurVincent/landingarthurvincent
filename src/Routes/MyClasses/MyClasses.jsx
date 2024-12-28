@@ -3,9 +3,19 @@ import Helmets from "../../Resources/Helmets";
 import React, { useEffect, useState } from "react";
 import { RouteDiv, HOne, HTwo } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { IFrameVideoClass, backDomain, getVideoEmbedUrl, onLoggOut } from "../../Resources/UniversalComponents";
+import {
+  IFrameVideoClass,
+  backDomain,
+  getVideoEmbedUrl,
+  onLoggOut,
+} from "../../Resources/UniversalComponents";
 import { ClassBox, TransectionMenu } from "./MyClasses.Styled";
-import { alwaysBlack, primaryColor, secondaryColor, textPrimaryColorContrast } from "../../Styles/Styles";
+import {
+  alwaysBlack,
+  primaryColor,
+  secondaryColor,
+  textPrimaryColorContrast,
+} from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
@@ -48,7 +58,7 @@ export function MyClasses({ headers }) {
         headers,
       });
       setClasses(response.data.formattedTutoringFromParticularStudent);
-    } catch (error) { }
+    } catch (error) {}
   }
 
   const fetchStudents = async () => {
@@ -63,7 +73,8 @@ export function MyClasses({ headers }) {
       } catch (error) {
         alert("Erro ao encontrar alunos");
       }
-    } else { }
+    } else {
+    }
   };
 
   useEffect(() => {
@@ -199,104 +210,125 @@ export function MyClasses({ headers }) {
   };
 
   return (
-    <RouteDiv style={{ transition: 'all 0.3s ease' }}>
-  <Helmets text="My Classes" />
-  
-  {permissions === "superadmin" && (
-    <div style={{ marginBottom: '16px' }}>
-      <select
-        onChange={handleStudentChange}
-        name="students"
-        value={newID}
-        style={{
-          padding: '8px',
-          borderRadius: '4px',
-          border: '1px solid #ccc',
-          fontSize: '16px',
-          width: '100%',
-          maxWidth: '300px',
-          boxSizing: 'border-box'
-        }}
-      >
-        <option value="" hidden>Selecione um aluno</option>
-        {studentsList.map((student) => (
-          <option key={student.id} value={student.id}>
-            {student.name} {student.lastname}
-          </option>
-        ))}
-      </select>
-    </div>
-  )}
-  
-  {!loading ? (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <HOne style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-        {UniversalTexts.myClasses}
-      </HOne>
-      <ClassesSideBar />
-      {currentClasses.map((classItem) => (
-        <ClassBox
-          key={classItem.id}
+    <RouteDiv style={{ transition: "all 0.3s ease" }}>
+      <Helmets text="My Classes" />
+
+      {permissions === "superadmin" && (
+        <div style={{ marginBottom: "16px" }}>
+          <select
+            onChange={handleStudentChange}
+            name="students"
+            value={newID}
+            style={{
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+              fontSize: "16px",
+              width: "100%",
+              maxWidth: "300px",
+              boxSizing: "border-box",
+            }}
+          >
+            <option value="" hidden>
+              Selecione um aluno
+            </option>
+            {studentsList.map((student) => (
+              <option key={student.id} value={student.id}>
+                {student.name} {student.lastname}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {!loading ? (
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <HOne
+            style={{
+              fontSize: "24px",
+              fontWeight: "bold",
+              marginBottom: "16px",
+            }}
+          >
+            {UniversalTexts.myClasses}
+          </HOne>
+          <ClassesSideBar />
+          {currentClasses.map((classItem) => (
+            <ClassBox
+              key={classItem.id}
+              style={{
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                padding: "16px",
+                backgroundColor: "#fff",
+                marginBottom: "16px",
+              }}
+              className="box-shadow-white"
+            >
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+              >
+                {permissions === "superadmin" && (
+                  <ArvinButton
+                    color="red"
+                    onClick={() =>
+                      handleDelete(classItem.id, studentNXTId || studentId)
+                    }
+                    style={{
+                      backgroundColor: "red",
+                      color: "#fff",
+                      border: "none",
+                      padding: "8px 16px",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontSize: "14px",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Apagar aula
+                  </ArvinButton>
+                )}
+                <HTwo
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "normal",
+                    margin: "0",
+                  }}
+                >
+                  {classItem.date}
+                </HTwo>
+                {classItem.attachments && (
+                  <Link
+                    to={classItem.attachments}
+                    target="_blank"
+                    style={{
+                      color: "#007bff",
+                      textDecoration: "none",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Arquivos da aula
+                  </Link>
+                )}
+                <IFrameVideoBlog src={getVideoEmbedUrl(classItem.videoUrl)} />
+              </div>
+            </ClassBox>
+          ))}
+          {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
+        </div>
+      ) : (
+        <div
           style={{
-            border: '1px solid #ddd',
-            borderRadius: '8px',
-            padding: '16px',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            backgroundColor: '#fff',
-            marginBottom: '16px'
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {permissions === "superadmin" && (
-              <ArvinButton
-                color="red"
-                onClick={() => handleDelete(classItem.id, studentNXTId || studentId)}
-                style={{
-                  backgroundColor: 'red',
-                  color: '#fff',
-                  border: 'none',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  marginBottom: '8px'
-                }}
-              >
-                Apagar aula
-              </ArvinButton>
-            )}
-            <HTwo style={{ fontSize: '18px', fontWeight: 'normal', margin: '0' }}>
-              {classItem.date}
-            </HTwo>
-            {classItem.attachments && (
-              <Link
-                to={classItem.attachments}
-                target="_blank"
-                style={{
-                  color: '#007bff',
-                  textDecoration: 'none',
-                  fontSize: '14px'
-                }}
-              >
-                Arquivos da aula
-              </Link>
-            )}
-            <IFrameVideoBlog
-              src={getVideoEmbedUrl(classItem.videoUrl)}
- 
-            />
-          </div>
-        </ClassBox>
-      ))}
-      {itemsPerPage > 2 && classes.length > 2 && <ClassesSideBar />}
-    </div>
-  ) : (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-      <CircularProgress style={{ color: secondaryColor() }} />
-    </div>
-  )}
-</RouteDiv>
-
+          <CircularProgress style={{ color: secondaryColor() }} />
+        </div>
+      )}
+    </RouteDiv>
   );
 }
 

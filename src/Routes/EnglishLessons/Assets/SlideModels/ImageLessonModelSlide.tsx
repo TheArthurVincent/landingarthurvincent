@@ -10,8 +10,6 @@ export default function ImageLessonModelSlide({
   headers,
   element,
 }: ImageLessonModelSlideProps) {
-
-
   return (
     <div
       className="sentences"
@@ -54,8 +52,8 @@ export default function ImageLessonModelSlide({
                   margin: "auto",
                   objectPosition: "center",
                   borderRadius: "10px",
-                  boxShadow: "1px 1px 12px 3px #bbb",
                 }}
+                className="box-shadow-white"
                 src={image.img}
               />
             </div>

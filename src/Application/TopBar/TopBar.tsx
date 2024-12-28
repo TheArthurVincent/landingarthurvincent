@@ -55,7 +55,7 @@ const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
           top: "100%",
           left: 0,
           backgroundColor: "#fff",
-          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+
           padding: "8px",
           display: isHovered ? "grid" : "none",
           textAlign: "left",
@@ -120,7 +120,7 @@ export const TopBar: FC = () => {
       display: "block",
     },
     {
-      title: "Homework",
+      title: UniversalTexts.homework,
       endpoint: "/homework",
       icon: "book",
       display: "block",
@@ -150,7 +150,7 @@ export const TopBar: FC = () => {
     //   icon: "users",
     // },
     {
-      title: "Courses",
+      title: UniversalTexts.theCourses,
       endpoint: "/english-courses",
       icon: "address-book-o",
       display: "block",
@@ -160,7 +160,7 @@ export const TopBar: FC = () => {
       endpoint: "/my-profile",
       display: "block",
       icon: "user-o",
-    }
+    },
     //, {
     //   title: UniversalTexts.faq,
     //   endpoint: "/faq",
@@ -286,55 +286,31 @@ export const TopBar: FC = () => {
         )}
       </TopBarNavigationBurger>
       <BackgroundClick onClick={handleVisible} style={{ display: visible }} />
-      <TopBarNavigation>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            gap: "1rem",
-          }}
-        >
-          {allLinksForUser.map((link, index) => {
-            return (
-              <NavLink
-                key={index}
-                style={{
-                  display: seeItems ? "block" : "none",
-                  color: location.pathname.includes(link.endpoint)
-                    ? secondaryColor()
-                    : primaryColor(),
-                  paddingBottom: "5px",
-
-                  cursor: location.pathname.includes(link.endpoint)
-                    ? "default"
-                    : "pointer",
-                  textDecoration: "none",
-                }}
-                to={link.endpoint}
-              >
-                <SpanHover>
-                  <i className={`fa fa-${link.icon}`} />
-                  {link.title}
-                </SpanHover>
-              </NavLink>
-            );
-          })}
-          {permissions === "superadmin" &&
-            seeItems &&
-            toAdm.map((link, index) => {
+      <SpanDisapear>
+        <TopBarNavigation>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+              gap: "1rem",
+            }}
+          >
+            {allLinksForUser.map((link, index) => {
               return (
                 <NavLink
                   key={index}
                   style={{
+                    display: seeItems ? "block" : "none",
                     color: location.pathname.includes(link.endpoint)
                       ? secondaryColor()
                       : primaryColor(),
-                    textDecoration: "none",
                     paddingBottom: "5px",
-                    borderBottom: location.pathname.includes(link.endpoint)
-                      ? `solid 1px ${primaryColor()}`
-                      : "none",
+
+                    cursor: location.pathname.includes(link.endpoint)
+                      ? "default"
+                      : "pointer",
+                    textDecoration: "none",
                   }}
                   to={link.endpoint}
                 >
@@ -345,28 +321,54 @@ export const TopBar: FC = () => {
                 </NavLink>
               );
             })}
-        </div>
-      </TopBarNavigation>
+            {permissions === "superadmin" &&
+              seeItems &&
+              toAdm.map((link, index) => {
+                return (
+                  <NavLink
+                    key={index}
+                    style={{
+                      color: location.pathname.includes(link.endpoint)
+                        ? secondaryColor()
+                        : primaryColor(),
+                      textDecoration: "none",
+                      paddingBottom: "5px",
+                      borderBottom: location.pathname.includes(link.endpoint)
+                        ? `solid 1px ${primaryColor()}`
+                        : "none",
+                    }}
+                    to={link.endpoint}
+                  >
+                    <SpanHover>
+                      <i className={`fa fa-${link.icon}`} />
+                      {link.title}
+                    </SpanHover>
+                  </NavLink>
+                );
+              })}
+          </div>
+        </TopBarNavigation>
+      </SpanDisapear>
+
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
-        {" "}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <SpanDisapear>
-            <form
-              style={{
-                display: seeItems ? "block" : "none",
-              }}
+          {/* <SpanDisapear> */}
+          <form
+            style={{
+              display: seeItems ? "block" : "none",
+            }}
+          >
+            <select
+              id="language"
+              name="language"
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              defaultValue="en"
             >
-              <select
-                id="language"
-                name="language"
-                onChange={(e) => handleLanguageChange(e.target.value)}
-                defaultValue="en"
-              >
-                <option value="en">EN-US</option>
-                <option value="pt">PT-BR</option>
-              </select>
-            </form>
-          </SpanDisapear>
+              <option value="en">EN-US</option>
+              <option value="pt">PT-BR</option>
+            </select>
+          </form>
+          {/* </SpanDisapear> */}
           <ArvinButton
             style={{ display: seeItems ? "block" : "none" }}
             onClick={onLoggOut}

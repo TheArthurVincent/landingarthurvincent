@@ -27,7 +27,7 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
 
   return (
     <Not
-      className="notification"
+      className="box-shadow-white notification"
       style={{
         backgroundColor:
           color === 1
@@ -44,7 +44,6 @@ const Notification = ({ text, color, reload /*, showNotification */ }) => {
         minWidth: "10rem",
         fontWeight: 500,
         border: "white solid 2px",
-        boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.5)",
         position: "fixed",
         top: 50,
         right: 20,

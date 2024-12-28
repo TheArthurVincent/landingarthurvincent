@@ -363,11 +363,11 @@ export default function EnglishClassCourse2({
           )}
           {thePermissions === "superadmin" && (
             <div
+              className="box-shadow-white"
               style={{
                 height: "3rem",
                 padding: "0 10px ",
                 backgroundColor: alwaysWhite(),
-                boxShadow: "1px 1px 10px 2px grey",
                 position: "fixed",
                 cursor: "pointer",
                 display: "flex",

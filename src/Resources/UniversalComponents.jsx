@@ -86,7 +86,7 @@ export const SpanHover = styled.span`
   padding: 0 8px;
   font-weight: 500;
   gap: 5px;
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: solid #66666600 2px;
@@ -128,13 +128,28 @@ export const DivGrid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+export const DivMarginBorder = styled.div.attrs({
+  className: "box-shadow-white",
+})`
+  border: 1px solid #fff;
+  width: 95%;
+  height: fit-content;
+  background-color: #fbfbfb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  @media (max-width: 1000px) {
+    width: 98%;
+    min-height: 40vh;
+  }
+`;
+
 export const DivFlex = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-around;
   align-items: center;
-  gap: 2rem;
-  @media (max-width: 750px) {
-    flex-direction: column;
+  gap: 1rem;
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -278,7 +293,7 @@ export function InputFieldNotRequired({
 }
 
 export const ImgResponsive0 = styled.img`
-  max-width: 5rem;
+  max-width: 3.5rem;
   margin-right: 1rem;
   @media (max-width: 755px) {
     display: none;
@@ -289,10 +304,11 @@ export const ImgResponsive3 = styled.img`
   @media (max-width: 755px) {
     display: none;
   }
-`;export const DivDis = styled.span`
-@media (max-width: 755px) {
-  display: none;
-}
+`;
+export const DivDis = styled.span`
+  @media (max-width: 755px) {
+    display: none;
+  }
 `;
 export const ImgResponsive = styled.img`
   max-width: 15rem;

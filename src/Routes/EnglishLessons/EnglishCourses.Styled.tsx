@@ -6,7 +6,6 @@ export const CoursesList = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
-
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
   }

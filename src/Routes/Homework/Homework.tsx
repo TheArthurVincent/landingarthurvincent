@@ -13,6 +13,8 @@ import axios from "axios";
 import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { listOfCriteria } from "../Ranking/RankingComponents/ListOfCriteria";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { HThree } from "../MyClasses/MyClasses.Styled";
 
 interface HWProps {
   headers: MyHeadersType | null;
@@ -53,6 +55,8 @@ export default function Homework({ headers, setChange, change }: HWProps) {
   const actualHeaders = headers || {};
 
   const fetchClasses = async (studentId: string) => {
+    setLoading(true);
+
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/homework/${studentId}`,
@@ -129,6 +133,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
       alert("Erro ao encontrar alunos");
     }
   };
+  const { UniversalTexts } = useUserContext();
 
   const pointsMadeHW = listOfCriteria[0].score[0].score;
   const pointsLateHW = listOfCriteria[0].score[1].score;
@@ -139,9 +144,9 @@ export default function Homework({ headers, setChange, change }: HWProps) {
   }, []);
 
   return (
-    <RouteDiv className="smooth">
+    <RouteDiv>
       <Helmets text="Homework" />
-      <HOne>Homework</HOne>
+      <HOne>{UniversalTexts.homework}</HOne>
       <div
         style={{
           display: "flex",
@@ -177,14 +182,13 @@ export default function Homework({ headers, setChange, change }: HWProps) {
       ) : (
         <Box sx={{ width: "100%" }}>
           <Tabs value={tabValue} onChange={handleTabChange}>
-            <Tab label="Tutorings" />
-            <Tab label="Group Classes" />
+            <Tab label={UniversalTexts.tutorings} />
+            <Tab label={UniversalTexts.groupClasses} />
           </Tabs>
           {tabValue === 0 && (
             <Box>
-              <HTwo>Tutorings</HTwo>
               <p style={{ textAlign: "center", marginBottom: "1rem" }}>
-                As atividades abaixo são referentes às suas aulas particulares.
+                {UniversalTexts.activitiesBelowTutoring}
               </p>
               <ul
                 style={{
@@ -195,6 +199,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                 {tutoringList.map((homework: any, index: number) => (
                   <li
                     key={index}
+                    className="box-shadow-white"
                     style={{
                       margin: "2px",
                       textDecoration: "none",
@@ -202,16 +207,13 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
-                      borderRadius: "10px",
-                      border: `1px solid #aaa`,
                     }}
                   >
-                    <Tooltip title="Dia de entrega">
-                      <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
-                    </Tooltip>
-
-                    <div>
+                    <HTwo>
+                      {UniversalTexts.dueDate} {formatDateBr(homework.dueDate)}
                       <span>
+                        {" "}
+                        ({homework?.status}){" "}
                         <i
                           style={{
                             display: "inline",
@@ -224,11 +226,9 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                               : "ellipsis-h"
                           }`}
                           aria-hidden="true"
-                        />{" "}
-                        {homework?.status}
+                        />
                       </span>
-                      <br />
-                    </div>
+                    </HTwo>
                     <div style={{ display: "flex", gap: "5px" }}>
                       {homework.status &&
                         permissions === "superadmin" &&
@@ -285,9 +285,8 @@ export default function Homework({ headers, setChange, change }: HWProps) {
           )}
           {tabValue === 1 && (
             <Box>
-              <HTwo>Group Classes</HTwo>
               <p style={{ textAlign: "center", marginBottom: "1rem" }}>
-                As atividades abaixo são referentes às aulas em grupo!
+                {UniversalTexts.activitiesBelowGC}
               </p>
               <ul
                 style={{
@@ -299,6 +298,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                 {groupList.map((homework: any, index: number) => (
                   <li
                     key={index}
+                    className="box-shadow-white"
                     style={{
                       margin: "2px",
                       textDecoration: "none",
@@ -306,16 +306,13 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                       gap: "8px",
                       listStyle: "none",
                       padding: "1rem",
-                      borderRadius: "10px",
-                      border: `1px solid #aaa`,
                     }}
                   >
-                    <Tooltip title="Dia de entrega">
-                      <HOne>Due date: {formatDateBr(homework.dueDate)}</HOne>
-                    </Tooltip>
-
-                    <div>
+                    <HTwo>
+                      {UniversalTexts.dueDate} {formatDateBr(homework.dueDate)}{" "}
                       <span>
+                        {" "}
+                        ({homework?.status}){" "}
                         <i
                           style={{
                             display: "inline",
@@ -328,11 +325,9 @@ export default function Homework({ headers, setChange, change }: HWProps) {
                               : "ellipsis-h"
                           }`}
                           aria-hidden="true"
-                        />{" "}
-                        {homework?.status}
+                        />
                       </span>
-                      <br />
-                    </div>
+                    </HTwo>
                     <div style={{ display: "flex", gap: "5px" }}>
                       {homework.status &&
                         permissions === "superadmin" &&

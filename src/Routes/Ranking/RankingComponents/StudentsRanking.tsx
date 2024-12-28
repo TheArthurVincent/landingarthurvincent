@@ -26,6 +26,7 @@ import { listOfButtons } from "./ListOfCriteria";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
+import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
 
 interface StudentsRankingProps {
   headers: MyHeadersType | null;
@@ -228,7 +229,6 @@ export default function StudentsRanking({
     }
   };
 
-  
   const updateReplenishTargetStatus = async (id: string) => {
     try {
       const response = await axios.put(
@@ -420,7 +420,7 @@ export default function StudentsRanking({
                 left: name.length < 15 ? "5rem" : "3.4rem",
                 top: "5rem",
                 fontFamily: textTitleFont(),
-                fontWeight: 800,
+
                 fontSize: "1.4rem",
               }}
             >
@@ -429,18 +429,6 @@ export default function StudentsRanking({
           </div>
           <p>New ... Belt!. Congratulations, @</p>
         </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          marginBottom: "0.5rem",
-        }}
-      >
-        <p onClick={() => fetchStudentsScore()}>
-          {`Apenas os primeiros 5 colocados em ${monthNow} são mostrados na
-          lista!`}
-        </p>
       </div>
       {
         <div>
@@ -456,10 +444,10 @@ export default function StudentsRanking({
                 <>
                   <div
                     key={index}
+                    className="box-shadow-white"
                     style={{
                       padding: "0.5rem 1rem",
                       margin: "1rem 0",
-                      boxShadow: "1px 1px 10px 1px #aaa",
                       display:
                         item._id == "671b99e97acd42b04d2f7507"
                           ? "none"
@@ -541,10 +529,10 @@ export default function StudentsRanking({
                         : "none",
                       background: theItems[levelNumber].color,
                       overflowX: "hidden",
-                      borderRadius: "5rem",
-                      boxShadow: "1px 1px 10px 1px #aaa",
+                      borderRadius: "1rem",
                       color: theItems[levelNumber].textcolor,
                     }}
+                    className="box-shadow-white"
                   >
                     <div
                       style={{
@@ -559,15 +547,91 @@ export default function StudentsRanking({
                       />
                       <img
                         style={{
-                          width: "4.5rem",
-                          height: "4.5rem",
+                          width: "3rem",
+                          height: "3rem",
                           objectFit: "cover",
                           margin: "auto",
                           borderRadius: "50%",
-                          border: `solid ${alwaysWhite()} 3px`,
+                          border: `solid ${alwaysWhite()} 2px`,
                         }}
                         src={item.picture}
                       />
+                    </div>
+                    <p
+                      style={{
+                        fontWeight: 600,
+                        width: "10rem",
+                        fontFamily: textTitleFont(),
+                        padding: "5px",
+                        textAlign: "left",
+                        background: theItems[levelNumber].color,
+                        color: theItems[levelNumber].textcolor,
+                      }}
+                    >
+                      #{index + 1} |{" "}
+                      {item.name + " " + abreviateName(item.lastname)}
+                    </p>
+                    <div
+                      style={{
+                        display: isAdm ? "grid" : "none",
+                        // display: "none",
+                        alignItems: "center",
+                        fontSize: "0.5rem",
+                      }}
+                    >
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          alignItems: "center",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: item.feeUpToDate ? "green" : "red",
+                        }}
+                        onClick={() => updateFeeStatus(item._id)}
+                      >
+                        {item.feeUpToDate ? "Fee Ok" : "Late Fee"}
+                      </div>
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          alignItems: "center",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: item.replenishTarget
+                            ? "green"
+                            : "red",
+                        }}
+                        onClick={() => updateReplenishTargetStatus(item._id)}
+                      >
+                        {item.replenishTarget ? "Replenish" : "Non-Replenish"}
+                      </div>
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          alignItems: "center",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: "#456",
+                        }}
+                        onClick={() => seeEdition(item._id)}
+                      >
+                        {formatNumber(item.totalScore)} +
+                      </div>
                     </div>
                     <div
                       style={{
@@ -576,18 +640,6 @@ export default function StudentsRanking({
                         alignItems: "center",
                       }}
                     >
-                      <p
-                        style={{
-                          fontWeight: 600,
-                          fontFamily: textTitleFont(),
-                          padding: "5px",
-                          background: theItems[levelNumber].color,
-                          color: theItems[levelNumber].textcolor,
-                        }}
-                      >
-                        #{index + 1} | {item.name}{" "}
-                        {abreviateName(item.lastname)}{" "}
-                      </p>
                       <div
                         style={{
                           fontSize: "0.9rem",
@@ -596,54 +648,9 @@ export default function StudentsRanking({
                           padding: "5px",
                         }}
                       >
-                        <div
-                          style={{
-                            padding: "5px",
-                            display: isAdm ? "grid" : "none",
-                            marginBottom: "5px",
-                            borderRadius: "5px",
-                            maxWidth: "fit-content",
-                            cursor: "pointer",
-                            color: "white",
-                            fontWeight: 800,
-                            backgroundColor: item.feeUpToDate ? "green" : "red",
-                          }}
-                          onClick={() => updateFeeStatus(item._id)}
-                        >
-                          {item.feeUpToDate
-                            ? "Mensalidade em dia"
-                            : "Mensalidade atrasada"}
-                        </div>
-                        <div
-                          style={{
-                            padding: "5px",
-                            display: isAdm ? "grid" : "none",
-                            marginBottom: "5px",
-                            borderRadius: "5px",
-                            maxWidth: "fit-content",
-                            cursor: "pointer",
-                            color: "white",
-                            fontWeight: 800,
-                            backgroundColor: item.replenishTarget ? "green" : "red",
-                          }}
-                          onClick={() => updateReplenishTargetStatus(item._id)}
-                        >
-                          {item.replenishTarget
-                            ? "Autorizado a repor"
-                            : "Não autorizado a repor"}
-                        </div>
-                        <p
-                          style={{
-                            textAlign: "center",
-                          }}
-                        >
-                          Monthly Score:
-                        </p>
-
                         <DivFont
                           style={{
                             textAlign: "center",
-
                             color: alwaysWhite(),
                             textShadow: `2px 0 ${alwaysBlack()},
                              -2px 0 ${alwaysBlack()}, 
@@ -658,32 +665,6 @@ export default function StudentsRanking({
                           {formatNumber(item.monthlyScore)}{" "}
                         </DivFont>
                       </div>
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "1rem",
-                        display: isAdm ? "grid" : "none",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        color: theItems[levelNumber].textcolor,
-                      }}
-                    >
-                      <ArvinButton
-                        onClick={() => seeEdition(item._id)}
-                        color="white"
-                      >
-                        +
-                      </ArvinButton>
-                      <p
-                        style={{
-                          fontFamily: textTitleFont(),
-                          fontWeight: "600",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        {formatNumber(item.totalScore)}
-                      </p>
                     </div>
                   </AnimatedLi>
                 </>

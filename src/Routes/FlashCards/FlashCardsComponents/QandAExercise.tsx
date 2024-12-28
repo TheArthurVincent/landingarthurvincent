@@ -124,7 +124,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     // @ts-ignore
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-  recognition.lang = (myId !== "671b99e97acd42b04d2f7507") ? "en-US" : "fr-FR";
+  recognition.lang = myId !== "671b99e97acd42b04d2f7507" ? "en-US" : "fr-FR";
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
@@ -134,7 +134,6 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   const stopListening = () => {
-
     setListening(false);
     recognition.stop();
   };
@@ -266,8 +265,8 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       marginTop: "1rem",
                       padding: "1.5rem",
                       borderRadius: "8px",
-                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
                     }}
+                    className="box-shadow-white"
                   >
                     <div
                       style={{

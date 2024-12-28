@@ -9,3 +9,6 @@ export interface ItemTopBarProps {
   title: string;
   list: LinkItem[];
 }
+export interface ItemSideBarProps {
+  theGoogleDriveLink:string;
+}

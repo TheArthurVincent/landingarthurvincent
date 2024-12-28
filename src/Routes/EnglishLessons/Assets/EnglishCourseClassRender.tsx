@@ -389,6 +389,7 @@ export default function EnglishLessonsRender({
                     id={myId}
                     headers={headers}
                     element={element}
+                    mainTag={""}
                   />
                 ) : element.type === "exercise" ? (
                   <ExerciseLessonModel headers={headers} item={element.items} />

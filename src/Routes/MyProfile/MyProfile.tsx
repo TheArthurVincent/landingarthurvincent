@@ -81,7 +81,7 @@ export function MyProfile({ headers }: HeadersProps) {
   return (
     <>
       {headers ? (
-        <RouteDiv className="smooth grid-flex">
+        <RouteDiv className="grid-flex">
           <Helmets text="My Profile" />
           {loading ? (
             <CircularProgress />
@@ -96,8 +96,8 @@ export function MyProfile({ headers }: HeadersProps) {
                     padding: "1rem",
                     backgroundColor: "#f7f9fc",
                     borderRadius: "10px",
-                    boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
                   }}
+                  className="box-shadow-white"
                 >
                   <ArvinButton
                     onClick={() => updateInfo(user.id, headers)}
@@ -128,8 +128,8 @@ export function MyProfile({ headers }: HeadersProps) {
                         height: "8rem",
                         borderRadius: "50%",
                         objectFit: "cover",
-                        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
                       }}
+                      className="box-shadow-white"
                       src={user.picture}
                       alt="Profile"
                     />
@@ -173,9 +173,9 @@ export function MyProfile({ headers }: HeadersProps) {
                   padding: "2rem",
                   backgroundColor: "#fff",
                   borderRadius: "10px",
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
                   marginTop: "2rem",
                 }}
+                className="box-shadow-white"
               >
                 <form style={{ textAlign: "center" }}>
                   <HOne>{UniversalTexts.newPassword}</HOne>
@@ -228,7 +228,9 @@ export function MyProfile({ headers }: HeadersProps) {
           )}
         </RouteDiv>
       ) : (
-        <RouteDiv>Nenhum usuário logado</RouteDiv>
+        <RouteDiv>
+          Nenhum usuário logado
+        </RouteDiv>
       )}
     </>
   );

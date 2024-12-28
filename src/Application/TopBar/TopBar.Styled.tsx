@@ -7,7 +7,9 @@ import {
   textTitleFont,
 } from "../../Styles/Styles";
 
-export const TopBarContainer = styled.header`
+export const TopBarContainer = styled.header.attrs({
+  className: 'box-shadow-black',
+})`
   top: 0;
   z-index: 7;
   position: fixed;
@@ -16,8 +18,29 @@ export const TopBarContainer = styled.header`
   align-items: center;
   display: flex;
   padding: 5px;
-  box-shadow: 1px 1px 10px 1px #555;
   width: 100%;
+  height: 40px;
+  @media print {
+    display: none;
+  }
+`;
+
+export const TopBarVerticalContainer = styled.header`
+  top: 0;
+  left: 0;
+  z-index: 8;
+  position: fixed;
+  background-color: ${alwaysWhite()};
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  padding: 1px;
+  height: 100%;
+  width: 90px;
+  @media (max-width: 1200px) {
+    display: none;
+  }
   @media print {
     display: none;
   }
@@ -28,16 +51,15 @@ export const TopBarNavigation = styled.div`
   gap: 2rem;
   display: flex;
   z-index: 4;
-  font-size: 13px;
+  font-size: 11px;
   padding: 5px;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
-  @media (max-width: 1200px) {
-    display: none;
-  }
 `;
-export const TopBarNavigationBurger = styled.div`
+export const TopBarNavigationBurger = styled.div.attrs({
+  className: 'box-shadow-black',
+})`
   position: fixed;
   top: 0;
   left: 0;
@@ -48,7 +70,6 @@ export const TopBarNavigationBurger = styled.div`
   gap: 1.5rem;
   background-color: ${alwaysWhite()};
   padding: 2rem 1.5rem;
-  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
   border-right: 1px solid ${secondaryColor()};
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 
@@ -56,10 +77,6 @@ export const TopBarNavigationBurger = styled.div`
     animation-name: slideInLeftNoOpacity;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
-  }
-
-  &:hover {
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
   }
 
   a {

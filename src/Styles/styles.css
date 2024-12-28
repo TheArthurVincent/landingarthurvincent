@@ -425,6 +425,20 @@ input.inputs-style:focus {
   color: #000000;
 }
 
+.box-shadow-white {
+  border-radius: 5px;
+  box-shadow: 0 4px 6px #eee;
+}
+
+.box-shadow-black {
+  padding: 16px;
+  box-shadow: 0 4px 6px #555;
+}
+
+.pointer-text:hover {
+  cursor: pointer;
+  font-weight: 800;
+}
 
 .flashcard-history-upper {
   display: grid;

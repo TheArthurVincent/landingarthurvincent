@@ -392,9 +392,9 @@ const AllCards = ({ headers }: HeadersProps) => {
           position: "fixed",
           top: "40%",
           left: "40%",
-          boxShadow: "1px 1px 10px black",
         }}
         id="modal"
+        className="box-shadow-white"
       >
         <Xp onClick={handleHideModal}>X</Xp>
         <article id="front">
