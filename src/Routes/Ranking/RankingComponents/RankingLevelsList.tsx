@@ -140,13 +140,13 @@ export const levels = () => {
     {
       level: 9,
       icon: "fa fa-superpowers",
+      totalScore: 150000,
       flashcards25Reviews: 220,
       homeworkAssignmentsDone: 65,
       color: "#000",
       textcolor: "#EAC96F",
       text: "Black Belt Bronze Stripe",
       backgroundcolor: "#111",
-      totalScore: 150000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
       image:
@@ -156,14 +156,15 @@ export const levels = () => {
     },
     {
       level: 10,
+      totalScore: 200000,
+      flashcards25Reviews: 300,
+      homeworkAssignmentsDone: 80,
+
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "silver",
       text: "Black Belt Silver Stripe",
       backgroundcolor: "#111",
-      flashcards25Reviews: 300,
-      homeworkAssignmentsDone: 80,
-      totalScore: 200000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
       image:
@@ -173,14 +174,14 @@ export const levels = () => {
     },
     {
       level: 11,
+      totalScore: 250000,
+      flashcards25Reviews: 400,
+      homeworkAssignmentsDone: 100,
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "yellow",
-      flashcards25Reviews: 400,
-      homeworkAssignmentsDone: 100,
       text: "Black Belt Golden Stripe",
       backgroundcolor: "#111",
-      totalScore: 250000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288",
       image:
@@ -189,19 +190,19 @@ export const levels = () => {
         "https://ik.imagekit.io/vjz75qw96/assets/pngs/11.png?updatedAt=1715899268475",
     },
     {
+      level: 12,
+      totalScore: 2500000,
+      flashcards25Reviews: 450,
+      homeworkAssignmentsDone: 150,
+      text: "Supreme",
       color: "#00132b",
       backgroundcolor: "#00132b",
       textcolor: "#00132b",
-      level: 12,
       icon: "fa fa-eercast",
-      flashcards25Reviews: 0,
-      homeworkAssignmentsDone: 0,
       image:
         "https://ik.imagekit.io/vjz75qw96/assets/pngs/supreme.png?updatedAt=1715899271630",
-      text: "Supreme",
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/Thumbs%20de%20aulas.jpg?updatedAt=1703950987210",
-      totalScore: 1200000,
     },
     {
       icon: "fa fa-certificate",
@@ -209,7 +210,7 @@ export const levels = () => {
       color: "#54bf08",
       backgroundcolor: "#ccc",
       discount: "10%",
-      flashcards25Reviews:450,
+      flashcards25Reviews: 450,
       homeworkAssignmentsDone: 80,
       textcolor: "#54bf08",
       background:

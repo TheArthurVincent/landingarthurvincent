@@ -440,6 +440,11 @@ input.inputs-style:focus {
   font-weight: 800;
 }
 
+.pointer-big:hover {
+  cursor: pointer;
+color:#000
+}
+
 .flashcard-history-upper {
   display: grid;
   grid-template-columns: 1fr 1fr;
