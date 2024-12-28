@@ -234,6 +234,7 @@ export default function StudentsRanking({
 
   const theItems = levels();
 
+  
   useEffect(() => {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setUser(getLoggedUser);
