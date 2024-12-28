@@ -141,7 +141,7 @@
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
     },
     {
-      "level": 9,
+      "level": 11,
       "icon": "fa fa-superpowers",
       "totalScore": 250000,
       "flashcards25Reviews": 400,
@@ -155,10 +155,10 @@
       "background": "https://ik.imagekit.io/vjz75qw96/assets/bg/black.png?updatedAt=1711540461288"
     },
     {
-      "level": 9,
+      "level": 12,
       "totalScore": 1000000,
-      "flashcards25Reviews": 500,
-      "homeworkAssignmentsDone": 500,
+      "flashcards25Reviews": 450,
+      "homeworkAssignmentsDone": 150,
       "icon": "fa fa-thermometer-full",
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#00132b",
@@ -170,7 +170,7 @@
     },
     {
       "icon": "fa fa-snowflake-o",
-      "level": 10,
+      "level": 13,
       "card": "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171",
       "color": "#000",
       "backgroundcolor": "#ccc",
