@@ -59,7 +59,7 @@
     {
       "text": "Green Belt",
       "totalScore": 50000,
-      "flashcards25Reviews": 60,
+      "flashcards25Reviews": 65,
       "homeworkAssignmentsDone": 30,
       "level": 5,
       "icon": "fa fa-tree",
@@ -73,7 +73,7 @@
     {
       "text": "Orange Belt",
       "totalScore": 66000,
-      "flashcards25Reviews": 80,
+      "flashcards25Reviews": 85,
       "homeworkAssignmentsDone": 35,
       "level": 6,
       "icon": "fa fa-sun-o",
@@ -87,7 +87,7 @@
     {
       "text": "Purple Belt",
       "totalScore": 83000,
-      "flashcards25Reviews": 100,
+      "flashcards25Reviews": 110,
       "homeworkAssignmentsDone": 40,
       "level": 7,
       "icon": "fa fa-moon-o",
