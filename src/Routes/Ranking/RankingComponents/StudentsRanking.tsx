@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  AnimatedLi,
-  AnimatedLi3,
-  DivFont,
-  HOne,
-} from "../../../Resources/Components/RouteBox";
+import { DivFont, HTwo } from "../../../Resources/Components/RouteBox";
 import {
   ImgResponsive0,
   Xp,
@@ -29,6 +24,7 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
 import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
+import styled, { keyframes } from "styled-components";
 
 interface StudentsRankingProps {
   headers: MyHeadersType | null;
@@ -88,6 +84,53 @@ export default function StudentsRanking({
     totalScore: 0,
   });
   const actualHeaders = headers || {};
+
+  const changeColors = (color1: string, color2: string) => keyframes`
+  0% {
+    background-color: ${color1};
+  }
+  50% {
+    background-color: ${color2};
+  }
+  100% {
+    background-color: ${color1};
+  }
+`;
+  interface AnimatedLiProps {
+    color1: string;
+    color2: string;
+    index: number;
+    item: any;
+    background: string;
+    textColor: string;
+  }
+  const fadeIn = keyframes`
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  `;
+  const AnimatedLi = styled.li<AnimatedLiProps>`
+    padding: 0.2rem 1rem;
+    margin-bottom: 5px;
+    list-style: none;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    animation: ${fadeIn} 0.3s forwards,
+      ${(props) => changeColors(props.color1, props.color2)} 3s infinite;
+    border-radius: 4px;
+    height: 100%; /* Garante altura uniforme */
+    background: ${(props) => props.background};
+    color: ${(props) => props.textColor};
+    overflow-x: hidden;
+  `;
 
   const [isAdm, setIsAdm] = useState<boolean>(false);
   const [loadingScore, setLoadingScore] = useState<boolean>(false);
@@ -435,7 +478,12 @@ export default function StudentsRanking({
       </div>
       {
         <div>
-          <ul>
+          <ul
+            className="border-radius-white"
+            style={{
+              margin: "20px 0px",
+            }}
+          >
             {students.map((item: any, index: number) => {
               const levelNumber =
                 updateScore(
@@ -445,22 +493,29 @@ export default function StudentsRanking({
                 ).level - 1;
 
               return (
-                <>
+                <div
+                  style={{
+                    display: index < 5 ? "block" : "none",
+                  }}
+                >
                   <AnimatedLi
-                    key={index + item.picture}
                     style={{
-                      display: isAdm
-                        ? "flex"
-                        : index < 5 && item.monthlyScore > 0
-                        ? "flex"
-                        : item._id == "671b99e97acd42b04d2f7507"
-                        ? "none"
-                        : "none",
-                      background: theItems[levelNumber].color,
-                      overflowX: "hidden",
-                      borderRadius: "1rem",
-                      color: theItems[levelNumber].textcolor,
+                      border:
+                        item._id !== user.id
+                          ? "none"
+                          : `2px groove ${theItems[levelNumber].backgroundcolor}`,
                     }}
+                    key={index + item.picture}
+                    color1={theItems[levelNumber].color}
+                    color2={
+                      item._id !== user.id
+                        ? theItems[levelNumber].color
+                        : theItems[levelNumber].backgroundcolor
+                    }
+                    index={index}
+                    item={item}
+                    background={theItems[levelNumber].color}
+                    textColor={theItems[levelNumber].textcolor}
                     className="box-shadow-white"
                   >
                     <div
@@ -492,8 +547,8 @@ export default function StudentsRanking({
                         width: "10rem",
                         fontFamily: textTitleFont(),
                         padding: "5px",
+                        backgroundColor: "none",
                         textAlign: "left",
-                        background: theItems[levelNumber].color,
                         color: theItems[levelNumber].textcolor,
                       }}
                     >
@@ -596,7 +651,7 @@ export default function StudentsRanking({
                       </div>
                     </div>
                   </AnimatedLi>
-                </>
+                </div>
               );
             })}
           </ul>
@@ -609,21 +664,31 @@ export default function StudentsRanking({
                   item.homeworkAssignmentsDone
                 ).level - 1;
               return (
-                <>
-                  <AnimatedLi3
-                    key={index + item.picture}
+                <div
+                  style={{
+                    display:
+                      item._id === user.id && index > 4 ? "block" : "none",
+                  }}
+                >
+                  <HTwo>{UniversalTexts.you}</HTwo>
+                  <AnimatedLi
                     style={{
-                      display:
-                        item._id === user.id
-                          ? "flex"
-                          : index <= 4
-                          ? "flex"
-                          : "none",
-                      background: theItems[levelNumber].color,
-                      overflowX: "hidden",
-                      borderRadius: "1rem",
-                      color: theItems[levelNumber].textcolor,
+                      border:
+                        item._id !== user.id
+                          ? "none"
+                          : `2px groove ${theItems[levelNumber].backgroundcolor}`,
                     }}
+                    key={index + item.picture}
+                    color1={theItems[levelNumber].color}
+                    color2={
+                      item._id !== user.id
+                        ? theItems[levelNumber].color
+                        : theItems[levelNumber].backgroundcolor
+                    }
+                    index={index}
+                    item={item}
+                    background={theItems[levelNumber].color}
+                    textColor={theItems[levelNumber].textcolor}
                     className="box-shadow-white"
                   >
                     <div
@@ -652,11 +717,11 @@ export default function StudentsRanking({
                     <p
                       style={{
                         fontWeight: 600,
-                        width: "10rem",
+                        width: "fit-content",
                         fontFamily: textTitleFont(),
                         padding: "5px",
                         textAlign: "left",
-                        background: theItems[levelNumber].color,
+                        backgroundColor: "none",
                         color: theItems[levelNumber].textcolor,
                       }}
                     >
@@ -666,7 +731,6 @@ export default function StudentsRanking({
                     <div
                       style={{
                         display: isAdm ? "grid" : "none",
-                        // display: "none",
                         alignItems: "center",
                         fontSize: "0.5rem",
                       }}
@@ -758,8 +822,8 @@ export default function StudentsRanking({
                         </DivFont>
                       </div>
                     </div>
-                  </AnimatedLi3>
-                </>
+                  </AnimatedLi>
+                </div>
               );
             })}
           </span>
