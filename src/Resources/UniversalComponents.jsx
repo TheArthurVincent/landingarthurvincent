@@ -139,16 +139,14 @@ export const DivMarginBorder = styled.div.attrs({
     min-height: 40vh;
   }
 `;
-
 export const DivFlex = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-around;
-  align-items: top;
+  grid-template-rows: auto auto;
+  grid-auto-flow: dense;
   gap: 1rem;
-  @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
-  }
+  justify-items: start;
+  align-items: start;
 `;
 
 export const Button = styled.button`
