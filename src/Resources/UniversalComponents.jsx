@@ -147,7 +147,7 @@ export const DivFlex = styled.div`
   align-items: start;
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
-    height: fit-content;
+    max-height: fit-content;
   }
 `;
 
