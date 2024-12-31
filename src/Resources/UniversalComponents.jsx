@@ -147,7 +147,7 @@ export const DivFlex = styled.div`
   gap: 1rem;
   justify-items: start;
   align-items: start;
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     grid-template-columns: 1fr;
   }
 `;
