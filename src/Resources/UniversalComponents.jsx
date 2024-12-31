@@ -132,11 +132,11 @@ export const DivMarginBorder = styled.div.attrs({
   border: 1px solid #fff;
   width: 95%;
   height: fit-content;
+  max-height: fit-content;
   background-color: #fbfbfb;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   @media (max-width: 1000px) {
     width: 98%;
-    min-height: 40vh;
   }
 `;
 export const DivFlex = styled.div`
