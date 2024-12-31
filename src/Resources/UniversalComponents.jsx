@@ -35,26 +35,26 @@ export function updateScore(
     "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696";
   var background =
     "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
-    for (let i = 0; i < levels.length; i++) {
-      if (
-        totalScore >= levels[i].totalScore &&
-        flashcards25Reviews >= levels[i].flashcards25Reviews &&
-        homeworkAssignmentsDone >= levels[i].homeworkAssignmentsDone
-      ) {
-        // Atualiza os valores para o nível mais alto atendido
-        level = levels[i].level;
-        color = levels[i].color;
-        icon = levels[i].icon;
-        card = levels[i].card || card;
-        textcolor = levels[i].textcolor;
-        text = levels[i].text;
-        discount = levels[i].discount || discount;
-        backgroundcolor = levels[i].backgroundcolor;
-        image2 = levels[i].image2 || image2;
-        image = levels[i].image || image;
-        background = levels[i].background || background;
-      }
+  for (let i = 0; i < levels.length; i++) {
+    if (
+      totalScore >= levels[i].totalScore &&
+      flashcards25Reviews >= levels[i].flashcards25Reviews &&
+      homeworkAssignmentsDone >= levels[i].homeworkAssignmentsDone
+    ) {
+      // Atualiza os valores para o nível mais alto atendido
+      level = levels[i].level;
+      color = levels[i].color;
+      icon = levels[i].icon;
+      card = levels[i].card || card;
+      textcolor = levels[i].textcolor;
+      text = levels[i].text;
+      discount = levels[i].discount || discount;
+      backgroundcolor = levels[i].backgroundcolor;
+      image2 = levels[i].image2 || image2;
+      image = levels[i].image || image;
+      background = levels[i].background || background;
     }
+  }
 
   return {
     level,
@@ -128,6 +128,7 @@ export const DivGrid = styled.div`
 export const DivMarginBorder = styled.div.attrs({
   className: "box-shadow-white",
 })`
+  padding: 20px 10px;
   border: 1px solid #fff;
   width: 95%;
   height: fit-content;
