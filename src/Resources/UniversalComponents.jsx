@@ -147,6 +147,9 @@ export const DivFlex = styled.div`
   gap: 1rem;
   justify-items: start;
   align-items: start;
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Button = styled.button`
