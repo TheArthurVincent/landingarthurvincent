@@ -144,7 +144,7 @@ export const DivFlex = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-around;
-  align-items: center;
+  align-items: top;
   gap: 1rem;
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
