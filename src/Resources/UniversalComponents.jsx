@@ -142,8 +142,6 @@ export const DivMarginBorder = styled.div.attrs({
 export const DivFlex = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-auto-flow: dense;
   gap: 1rem;
   justify-items: start;
   align-items: start;
