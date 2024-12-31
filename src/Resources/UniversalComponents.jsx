@@ -12,13 +12,18 @@ import { Helmet } from "react-helmet";
 import { MyButton } from "./Components/ItemsLibrary";
 import axios from "axios";
 
+import { levels } from "../Routes/Ranking/RankingComponents/RankingLevelsList";
+
 // Função que verifica o nível do aluno
-import { levels } from "../Routes/Ranking/RankingComponents/ranking.json";
+
+const items = levels();
+
 export function updateScore(
   totalScore,
   flashcards25Reviews,
   homeworkAssignmentsDone
 ) {
+  console.log("levels", items);
   var level = 1;
   var color = "#000";
   var card =
@@ -35,24 +40,24 @@ export function updateScore(
     "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696";
   var background =
     "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
-  for (let i = 0; i < levels.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     if (
-      totalScore >= levels[i].totalScore &&
-      flashcards25Reviews >= levels[i].flashcards25Reviews &&
-      homeworkAssignmentsDone >= levels[i].homeworkAssignmentsDone
+      totalScore >= items[i].totalScore &&
+      flashcards25Reviews >= items[i].flashcards25Reviews &&
+      homeworkAssignmentsDone >= items[i].homeworkAssignmentsDone
     ) {
       // Atualiza os valores para o nível mais alto atendido
-      level = levels[i].level;
-      color = levels[i].color;
-      icon = levels[i].icon;
-      card = levels[i].card || card;
-      textcolor = levels[i].textcolor;
-      text = levels[i].text;
-      discount = levels[i].discount || discount;
-      backgroundcolor = levels[i].backgroundcolor;
-      image2 = levels[i].image2 || image2;
-      image = levels[i].image || image;
-      background = levels[i].background || background;
+      level = items[i].level;
+      color = items[i].color;
+      icon = items[i].icon;
+      card = items[i].card || card;
+      textcolor = items[i].textcolor;
+      text = items[i].text;
+      discount = items[i].discount || discount;
+      backgroundcolor = items[i].backgroundcolor;
+      image2 = items[i].image2 || image2;
+      image = items[i].image || image;
+      background = items[i].background || background;
     }
   }
 

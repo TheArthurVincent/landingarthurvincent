@@ -79,8 +79,6 @@ export function LevelCardBlog({
       );
       const levelDone = newValue.level;
       setLevel(levelDone - 1);
-      console.log(response.data);
-
       setShowCard("block");
       // setLoading(false);
     } catch (error) {
@@ -113,6 +111,8 @@ export function LevelCardBlog({
         <div style={{ display: showCard }}>
           <div
             style={{
+              fontSize: "1rem",
+              marginTop: "2rem",
               textAlign: "center",
             }}
           >
@@ -125,27 +125,18 @@ export function LevelCardBlog({
               className="fa fa-refresh"
               aria-hidden="true"
             />{" "}
-            <>
-              <div
-                style={{
-                  fontSize: "1rem",
-                  marginTop: "0.5rem",
-                }}
-              >
-                <p>
-                  <b>Total Score:</b> {formatNumber(totalScore)}
-                </p>
-                <p>
-                  <b>Monthly Score:</b> {formatNumber(monthlyScore)}
-                </p>
-                <p>
-                  <b>Homework Assignments:</b> {formatNumber(assignmentsDone)}
-                </p>
-                <p>
-                  <b>Flashcard Daily Reviews:</b> {formatNumber(FC)}
-                </p>
-              </div>
-            </>
+            <p>
+              <b>Total Score:</b> {formatNumber(totalScore)}
+            </p>
+            <p>
+              <b>Monthly Score:</b> {formatNumber(monthlyScore)}
+            </p>
+            <p>
+              <b>Homework Assignments:</b> {formatNumber(assignmentsDone)}
+            </p>
+            <p>
+              <b>Flashcard Daily Reviews:</b> {formatNumber(FC)}
+            </p>
           </div>
         </div>
       </TextLevelBlogCard>
