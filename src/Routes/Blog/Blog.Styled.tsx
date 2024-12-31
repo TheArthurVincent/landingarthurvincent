@@ -151,14 +151,20 @@ export const IFrameVideoBlog = styled.iframe`
 `;
 
 export const IFrameVideoPannel = styled.iframe`
-  min-width: 500px;
-  min-height: 300px;
+  min-width: 37vw;
+  min-height: 62vh;
+
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
   position: relative;
   border: none;
-  @media (max-width: 1000px) {
+  @media (max-width: 2000px) {
+    min-width: 37vw;
+    min-height: 50vh;
+  }
+
+  @media (max-width: 1200px) {
     min-width: 90vw;
     min-height: 60vh;
   }

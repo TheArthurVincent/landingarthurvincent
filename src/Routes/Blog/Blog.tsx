@@ -29,6 +29,7 @@ import {
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import LevelCardBlog from "../LevelCard/LevelCardBlog";
+import Countdown from "../Ranking/RankingComponents/Countdown";
 
 interface BlogProps {
   headers: MyHeadersType | null;
@@ -162,6 +163,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       fetchData();
     }
   };
+  const targetDate = new Date();
 
   async function fetchData(): Promise<void> {
     setLoading(true);
@@ -219,7 +221,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         <DivFlex>
           <DivMarginBorder>
             <HOne>{UniversalTexts.nextHomeworkAssignment}</HOne>
-
             <span>
               <i
                 style={{
@@ -259,6 +260,135 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
 
           <DivMarginBorder>
             <HOne>{UniversalTexts.monthlyChallenge}</HOne>
+
+            <div
+              style={{
+                backgroundColor: "#f9f9f9",
+                lineHeight: "1.6",
+              }}
+            >
+              <h3 style={{ marginBottom: "1rem", color: "#333" }}>
+                {UniversalTexts.accessVideo}{" "}
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/watch?v=P6FORpg0KVo"
+                  style={{
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {UniversalTexts.theFollowingVideo}
+                </a>
+              </h3>
+              <ul style={{ marginTop: "1rem", paddingLeft: "1.5rem" }}>
+                <li
+                  style={{
+                    border: "1px #ddd solid",
+                    margin: "5px",
+                    borderRadius: "10px",
+                    padding: "10px",
+                  }}
+                >
+                  {UniversalTexts.by} <strong>10/01/2025</strong>,{" "}
+                  {UniversalTexts.recordAudio}
+                  <Countdown
+                    targetDate={new Date("2025-01-10T18:00:00")}
+                    text={UniversalTexts.endOfMonthlyChallenge}
+                  />
+                </li>
+                <li
+                  style={{
+                    border: "1px #ddd solid",
+                    margin: "5px",
+                    borderRadius: "10px",
+                    padding: "10px",
+                  }}
+                >
+                  {UniversalTexts.by} <strong>17/01/2025</strong>,{" "}
+                  {UniversalTexts.recordAudio} -{" "}
+                  <a href="http://www.linguee.com.br" target="_blank">
+                    Linguee WebSite
+                  </a>
+                  <Countdown
+                    targetDate={new Date("2025-01-17T18:00:00")}
+                    text={UniversalTexts.endOfMonthlyChallenge}
+                  />
+                </li>
+                <li
+                  style={{
+                    border: "1px #ddd solid",
+                    margin: "5px",
+                    borderRadius: "10px",
+                    padding: "10px",
+                  }}
+                >
+                  {UniversalTexts.by} <strong>24/01/2025</strong>,{" "}
+                  {UniversalTexts.noteWords}
+                  <Countdown
+                    targetDate={new Date("2025-01-24T18:00:00")}
+                    text={UniversalTexts.endOfMonthlyChallenge}
+                  />
+                </li>
+                <li
+                  style={{
+                    border: "1px #ddd solid",
+                    margin: "5px",
+                    borderRadius: "10px",
+                    padding: "10px",
+                  }}
+                >
+                  {UniversalTexts.by} <strong>31/01/2025</strong>,{" "}
+                  {UniversalTexts.answerQuestions}
+                  <ul
+                    style={{
+                      margin: "1rem",
+                      paddingLeft: "1.5rem",
+                      fontStyle: "italic",
+                      listStyleType: "circle",
+                    }}
+                  >
+                    <li>
+                      What was Luis von Ahn's main goal in creating Duolingo?
+                    </li>
+                    <li>
+                      What techniques does Duolingo use to make learning more
+                      engaging?
+                    </li>
+                    <li>
+                      According to the video, what is one of the biggest
+                      challenges for online learning platforms?
+                    </li>
+                    <li>
+                      What did you find most interesting about Duolingo's
+                      approach presented in the video?
+                    </li>
+                    <li>
+                      Have you ever used an app to learn something? If yes, what
+                      was your experience like?
+                    </li>
+                    <li>
+                      Do you think learning should be more fun or more
+                      structured? Why?
+                    </li>
+                  </ul>
+                </li>
+                <Countdown
+                  targetDate={new Date("2025-01-31T18:00:00")}
+                  text={UniversalTexts.endOfMonthlyChallenge}
+                />
+              </ul>
+              <p
+                style={{
+                  textAlign: "center",
+                  padding: "1rem",
+                  margin: "1rem",
+                  borderRadius: "1rem",
+                  backgroundColor: "yellow",
+                }}
+              >
+                {UniversalTexts.prize}
+              </p>
+            </div>
           </DivMarginBorder>
           <DivMarginBorder>
             <HOne>{UniversalTexts.mural}</HOne>
