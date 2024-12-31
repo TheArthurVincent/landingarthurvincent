@@ -25,7 +25,7 @@ interface modelProps {
   place: string;
   picture: string;
   img: string;
-  monthlyScore: number;
+  // monthlyScore: number;
   name: string;
   borderRadius: any;
   lastname: string;
@@ -38,7 +38,7 @@ function ModelListItem({
   name,
   lastname,
   img,
-  monthlyScore,
+  // monthlyScore,
 }: modelProps) {
   return (
     <AnimatedLi
@@ -92,7 +92,7 @@ function ModelListItem({
             <b>
               {name} {lastname}
             </b>
-            <DivFont
+            {/* <DivFont
               style={{
                 textAlign: "center",
                 color: alwaysWhite(),
@@ -107,7 +107,7 @@ function ModelListItem({
               }}
             >
               {formatNumber(monthlyScore)}
-            </DivFont>
+            </DivFont> */}
           </div>
         </div>
         <img
@@ -240,7 +240,6 @@ export default function StudentsHistoryOfWinners({
       place: "1st",
       idx: 0,
       month: monthNow,
-
       backgroundColor: "gold radial-gradient(white, gold)",
       img: "https://ik.imagekit.io/vjz75qw96/assets/icons/10.png?updatedAt=1719494355076",
     },
@@ -248,7 +247,6 @@ export default function StudentsHistoryOfWinners({
       place: "2nd",
       idx: 1,
       month: monthNow,
-
       backgroundColor: "grey radial-gradient(white, grey)",
       img: "https://ik.imagekit.io/vjz75qw96/assets/icons/11.png?updatedAt=1719494355185",
     },
@@ -341,7 +339,7 @@ export default function StudentsHistoryOfWinners({
                       }
                       name={item.name}
                       lastname={item.lastname}
-                      monthlyScore={item.monthlyScore}
+                      // monthlyScore={item.monthlyScore}
                       picture={item.picture}
                     />
                   </span>
