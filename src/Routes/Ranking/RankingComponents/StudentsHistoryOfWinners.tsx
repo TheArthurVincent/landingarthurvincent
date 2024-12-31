@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  AnimatedLi,
-  DivFont,
-  HOne,
-} from "../../../Resources/Components/RouteBox";
-import {
-  backDomain,
-  formatNumber,
-} from "../../../Resources/UniversalComponents";
+import { AnimatedLi, HOne } from "../../../Resources/Components/RouteBox";
+import { backDomain } from "../../../Resources/UniversalComponents";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
-import {
-  alwaysBlack,
-  alwaysWhite,
-  lightGreyColor,
-} from "../../../Styles/Styles";
+import { lightGreyColor } from "../../../Styles/Styles";
 
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
@@ -25,7 +14,6 @@ interface modelProps {
   place: string;
   picture: string;
   img: string;
-  // monthlyScore: number;
   name: string;
   borderRadius: any;
   lastname: string;
@@ -38,7 +26,6 @@ function ModelListItem({
   name,
   lastname,
   img,
-  // monthlyScore,
 }: modelProps) {
   return (
     <AnimatedLi
@@ -92,22 +79,6 @@ function ModelListItem({
             <b>
               {name} {lastname}
             </b>
-            {/* <DivFont
-              style={{
-                textAlign: "center",
-                color: alwaysWhite(),
-                textShadow: `2px 0 ${alwaysBlack()},
-                -2px 0 ${alwaysBlack()}, 
-                0 2px ${alwaysBlack()},
-                0 -2px ${alwaysBlack()},
-                1px 1px ${alwaysBlack()},
-                -1px -1px ${alwaysBlack()},
-                1px -1px ${alwaysBlack()},
-                -1px 1px ${alwaysBlack()}`,
-              }}
-            >
-              {formatNumber(monthlyScore)}
-            </DivFont> */}
           </div>
         </div>
         <img
@@ -339,7 +310,6 @@ export default function StudentsHistoryOfWinners({
                       }
                       name={item.name}
                       lastname={item.lastname}
-                      // monthlyScore={item.monthlyScore}
                       picture={item.picture}
                     />
                   </span>
@@ -349,68 +319,6 @@ export default function StudentsHistoryOfWinners({
           );
         })
       )}
-
-      {/* {isAdm && (
-        <div ref={a}>
-          {loading ? (
-            <CircularProgress style={{ color: secondaryColor() }} />
-          ) : (
-            <ul
-              style={{
-                height: "30rem",
-                border: `#eee 1px solid`,
-                background: `${alwaysWhite()} radial-gradient(white, ${alwaysWhite()})`,
-                padding: "1rem",
-                borderRadius: "5px",
-                width: "70vw",
-                maxWidth: "40rem",
-                display: "grid",
-                textAlign: "center",
-                margin: "auto",
-              }}
-            >
-              <HOne>{monthNow}</HOne>
-              {thisMonth.map((item, index) => {
-                return (
-                  <>
-                    <ModelListItem
-                      borderRadius={
-                        index == 0 ? "1rem" : index == 1 ? "2rem" : "3rem"
-                      }
-                      key={index}
-                      backgroundColor={
-                        index == 0
-                          ? gold.backgroundColor
-                          : index == 1
-                          ? silver.backgroundColor
-                          : bronze.backgroundColor
-                      }
-                      img={
-                        index == 0
-                          ? gold.img
-                          : index == 1
-                          ? silver.img
-                          : bronze.img
-                      }
-                      place={
-                        index == 0
-                          ? gold.place
-                          : index == 1
-                          ? silver.place
-                          : bronze.place
-                      }
-                      name={students[index].name}
-                      lastname={students[index].lastname}
-                      monthlyScore={students[index].monthlyScore}
-                      picture={students[index].picture}
-                    />
-                  </>
-                );
-              })}
-            </ul>
-          )}
-        </div>
-      )} */}
     </>
   );
 }
