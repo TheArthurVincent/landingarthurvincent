@@ -413,13 +413,13 @@ export default function StudentsRanking({
                 +
               </ArvinButton>
             </div>
-            <button
+            <ArvinButton
               onClick={() => {
                 setCard(!card);
               }}
             >
-              see card
-            </button>
+              See card
+            </ArvinButton>
           </div>
           <div
             id="the-card"
@@ -466,14 +466,17 @@ export default function StudentsRanking({
                 left: name.length < 15 ? "5rem" : "3.4rem",
                 top: "5rem",
                 fontFamily: textTitleFont(),
-
                 fontSize: "1.4rem",
               }}
             >
               {name}
             </p>
           </div>
-          <p>New ... Belt!. Congratulations, @</p>
+          <p>
+            New{" "}
+            {updateScore(totalScore, totalFlashCards25, totalHomeworkDone).text}
+            !! Congratulations, {name}
+          </p>
         </div>
       </div>
       {

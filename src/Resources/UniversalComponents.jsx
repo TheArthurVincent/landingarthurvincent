@@ -23,7 +23,6 @@ export function updateScore(
   flashcards25Reviews,
   homeworkAssignmentsDone
 ) {
-  console.log("levels", items);
   var level = 1;
   var color = "#000";
   var card =
