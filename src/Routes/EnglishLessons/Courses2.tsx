@@ -61,7 +61,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   }, [loc.pathname]);
 
   return (
-    <div>
+    <RouteDiv>
       <Routes>
         {listOfCoursesFromDatabase.map((route: any, idx: number) => (
           <Route
@@ -81,7 +81,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       <Helmets text="Courses" />
       {displayRouteDiv ? (
         !loading ? (
-          <RouteDiv >
+          <RouteDiv>
             <HOne>Escolha um curso</HOne>
             <ArvinButton onClick={getCourses}>
               <i className="fa fa-refresh" aria-hidden={true} />
@@ -168,6 +168,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         )
       ) : null}
       <Outlet />
-    </div>
+    </RouteDiv>
   );
 }
