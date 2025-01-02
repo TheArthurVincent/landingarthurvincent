@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteDivCourses,
+} from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -102,11 +106,7 @@ export default function Modules({
   }, [searchQuery, modules]);
 
   return (
-    <RouteDiv
-      style={{
-        maxWidth: "1500px",
-      }}
-    >
+    <RouteDivCourses>
       <Routes>
         {modules.map((module: any, index: number) =>
           module.classes.map((classItem: any, index2: number) => {
@@ -154,7 +154,6 @@ export default function Modules({
                 marginBottom: "1rem",
                 justifyContent: "left",
                 gap: "1rem",
-
               }}
             >
               <span
@@ -287,6 +286,6 @@ export default function Modules({
         </div>
       ) : null}
       <Outlet />
-    </RouteDiv>
+    </RouteDivCourses>
   );
 }

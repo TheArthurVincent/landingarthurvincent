@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import {
+  HOne,
+  RouteDiv,
+  RouteDivCourses,
+} from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -85,7 +89,11 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       <Helmets text="Courses" />
       {displayRouteDiv ? (
         !loading ? (
-          <RouteDiv>
+          <RouteDivCourses
+            style={{
+              maxWidth: "1500px",
+            }}
+          >
             <HOne>Escolha um curso</HOne>
             <ArvinButton onClick={getCourses}>
               <i className="fa fa-refresh" aria-hidden={true} />
@@ -166,7 +174,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                   ))}
               </ul>
             </div>
-          </RouteDiv>
+          </RouteDivCourses>
         ) : (
           <CircularProgress />
         )

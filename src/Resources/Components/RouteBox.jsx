@@ -36,6 +36,22 @@ export const RouteDiv = styled.div.attrs({
   }
 `;
 
+export const RouteDivCourses = styled.div.attrs({
+  className: "box-shadow-black smooth",
+})`
+  background-color: ${alwaysWhite()};
+  border-radius: 0.5rem;
+  color: ${alwaysBlack()};
+  padding: 0.5rem;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  @media (max-width: 1200px) {
+    width: 95vw;
+  }
+`;
+
 export const OverFlow = styled.div`
   max-height: 15rem,
   overflow: auto,
