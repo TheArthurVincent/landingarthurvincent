@@ -24,8 +24,6 @@ export default function ExerciseLessonModel({
               {" "}
               {theitem}
               <br />
-              <br />
-              <TextAreaLesson />
             </div>
           );
         })}{" "}
