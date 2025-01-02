@@ -67,7 +67,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   return (
     <div
       style={{
-        maxWidth: "1000px",
+        minWidth: "1000px",
       }}
     >
       <Routes>
@@ -98,7 +98,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
             <ArvinButton onClick={getCourses}>
               <i className="fa fa-refresh" aria-hidden={true} />
             </ArvinButton>
-            <br />
             <br />
             <div>
               <ul
