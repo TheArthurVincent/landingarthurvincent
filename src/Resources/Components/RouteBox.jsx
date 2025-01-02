@@ -43,13 +43,10 @@ export const RouteDivCourses = styled.div.attrs({
   border-radius: 0.5rem;
   color: ${alwaysBlack()};
   padding: 0.5rem;
-  max-width: 1000px;
+  max-width: 15d00px;
   margin-right: auto;
   margin-left: auto;
   height: 100%;
-  @media (max-width: 1200px) {
-    width: 95vw;
-  }
 `;
 
 export const OverFlow = styled.div`
