@@ -95,7 +95,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
               <i className="fa fa-refresh" aria-hidden={true} />
             </ArvinButton>
             <br />
-            <br />
             <div>
               <ul
                 style={{
