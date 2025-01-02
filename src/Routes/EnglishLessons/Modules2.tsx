@@ -102,7 +102,11 @@ export default function Modules({
   }, [searchQuery, modules]);
 
   return (
-    <RouteDiv >
+    <RouteDiv
+      style={{
+        maxWidth: "1500px",
+      }}
+    >
       <Routes>
         {modules.map((module: any, index: number) =>
           module.classes.map((classItem: any, index2: number) => {
@@ -150,7 +154,7 @@ export default function Modules({
                 marginBottom: "1rem",
                 justifyContent: "left",
                 gap: "1rem",
-                
+
               }}
             >
               <span
