@@ -32,7 +32,7 @@ export const listOfCriteria = [
     icon: "fa fa-book",
     color: "rgb(230, 160, 32)",
     score: [
-      { description: "Homework Realizado", score: 600, color: "green" },
+      { description: "Homework Realizado", score: 750, color: "green" },
       {
         description: "Homework Atrasado (> 7 dias) ou incompleto",
         score: 200,
@@ -67,24 +67,24 @@ export const listOfCriteria = [
       },
       {
         description:
-          "Pontuação por palavra certa no Listening Exercisa (caso acerte mais entre 60% e 95%)",
+          "Pontuação por palavra certa no Listening Exercise (caso acerte mais entre 60% e 95%)",
         score: 1,
         nobutton: true,
         color: "green",
       },
-      {
-        description:
-          "Pontuação por resposta certa no Q&A (caso não veja o texto)",
-        score: 7,
-        nobutton: true,
-        color: "green",
-      },
-      {
-        description: "Pontuação por resposta certa no Q&A (caso veja o texto)",
-        score: 3,
-        nobutton: true,
-        color: "green",
-      },
+      // {
+      //   description:
+      //     "Pontuação por resposta certa no Q&A (caso não veja o texto)",
+      //   score: 7,
+      //   nobutton: true,
+      //   color: "green",
+      // },
+      // {
+      //   description: "Pontuação por resposta certa no Q&A (caso veja o texto)",
+      //   score: 3,
+      //   nobutton: true,
+      //   color: "green",
+      // },
     ],
   },
   {
