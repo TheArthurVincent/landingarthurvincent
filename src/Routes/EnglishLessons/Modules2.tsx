@@ -150,6 +150,7 @@ export default function Modules({
                 marginBottom: "1rem",
                 justifyContent: "left",
                 gap: "1rem",
+                
               }}
             >
               <span

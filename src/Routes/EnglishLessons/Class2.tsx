@@ -231,15 +231,6 @@ export default function EnglishClassCourse2({
         <CircularProgress />
       ) : (
         <>
-          {/* <ArvinButton
-            style={{ margin: "1rem auto", display: "block" }}
-            onClick={() => {
-              setSeeSlides(!seeSlides);
-            }}
-          >
-            See slides
-          </ArvinButton> */}
-
           <div
             style={{
               display: "flex",
