@@ -61,7 +61,11 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   }, [loc.pathname]);
 
   return (
-    <RouteDiv>
+    <div
+      style={{
+        maxWidth: "1000px",
+      }}
+    >
       <Routes>
         {listOfCoursesFromDatabase.map((route: any, idx: number) => (
           <Route
@@ -168,6 +172,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
         )
       ) : null}
       <Outlet />
-    </RouteDiv>
+    </div>
   );
 }
