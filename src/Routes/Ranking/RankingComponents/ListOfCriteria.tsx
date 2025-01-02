@@ -118,7 +118,7 @@ export const listOfCriteria = [
     score: [
       {
         color: "green",
-        score: 200,
+        score: 250,
         description: "Recomendação de aluno (a) particular fechada",
         text: "Recomendação",
       },
