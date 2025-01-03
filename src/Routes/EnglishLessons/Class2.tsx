@@ -479,8 +479,8 @@ export default function EnglishClassCourse2({
                   ) : element.type === "html" ? (
                     <div
                       style={{
-                        padding: "1rem",
-                        display: "grid",
+                        padding: "5px",
+                        // display: "grid",
                         justifyContent: "center",
                       }}
                     >
