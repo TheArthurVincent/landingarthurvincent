@@ -69,7 +69,7 @@ export const UlSentences = styled.ul<UlSentencesProps>`
       ? "1fr 1fr 1fr"
       : props.grid == 4
       ? "1fr 1fr 1fr 1fr"
-      : props.grid < 3
+      : props.grid == 2
       ? "1fr"
       : "1fr"};
   @media (max-width: 750px) {
