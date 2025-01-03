@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   HOne,
-  RouteDiv,
   RouteDivCourses,
 } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
@@ -18,6 +17,7 @@ import { HThreeModule } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "./EnglishCourses.Styled";
 import EnglishClassCourse2 from "./Class2";
 import { truncateTitle } from "./CoursesSideBar/CoursesSideBar";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 interface ModulesHomeProps {
   headers: MyHeadersType | null;
@@ -38,6 +38,8 @@ export default function Modules({
   const [filtered, setFiltered] = useState([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
+    const { UniversalTexts } = useUserContext();
+  
   const actualHeaders = headers || {};
 
   const getModules = async () => {
