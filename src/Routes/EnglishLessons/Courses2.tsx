@@ -65,11 +65,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
   }, [loc.pathname]);
 
   return (
-    <div
-      style={{
-        maxWidth: "1000px",
-      }}
-    >
+    <div>
       <Routes>
         {listOfCoursesFromDatabase.map((route: any, idx: number) => (
           <Route
@@ -98,7 +94,6 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
             <ArvinButton onClick={getCourses}>
               <i className="fa fa-refresh" aria-hidden={true} />
             </ArvinButton>
-            <br />
             <br />
             <div>
               <ul

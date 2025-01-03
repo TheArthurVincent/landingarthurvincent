@@ -229,275 +229,279 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
           <div style={{ display: "flex", gap: "5px" }}></div>
         </div>
         <DivFlex>
-          <DivMarginBorder>
-            <HOne
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => toggleVisibility("1")}
-            >
-              {UniversalTexts.nextHomeworkAssignment}
-            </HOne>
-            {visible["1"] && (
-              <div>
+          <div className="grid-flex-2">
+            <DivMarginBorder>
+              <HOne
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={() => toggleVisibility("1")}
+              >
+                {UniversalTexts.nextHomeworkAssignment}
+              </HOne>
+              {visible["1"] && (
                 <div>
                   <div>
-                    <i
-                      style={{
-                        display: "inline",
-                        color:
-                          nextTutoring?.status == "done" ? "green" : "orange",
-                      }}
-                      className={`fa fa-${
-                        nextTutoring?.status == "done"
-                          ? "check-circle"
-                          : "ellipsis-h"
-                      }`}
-                      aria-hidden="true"
-                    />{" "}
-                    {nextTutoring?.status}
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        padding: "1rem",
-                      }}
-                      dangerouslySetInnerHTML={{
-                        __html: nextTutoring?.description,
-                      }}
-                    />
-                  </div>
-                </div>
-                <Link target="_blank" to={nextTutoring?.googleDriveLink}>
-                  Access the class here
-                </Link>
-              </div>
-            )}
-          </DivMarginBorder>
-          <DivMarginBorder>
-            <HOne
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => toggleVisibility("3")}
-            >
-              {UniversalTexts.monthlyChallenge}
-            </HOne>
-            {visible["3"] && (
-              <div
-                style={{
-                  backgroundColor: "#f9f9f9",
-                  lineHeight: "1.6",
-                }}
-              >
-                <h3 style={{ marginBottom: "1rem", color: "#333" }}>
-                  {UniversalTexts.accessVideo}{" "}
-                  <a
-                    target="_blank"
-                    href="https://www.youtube.com/watch?v=P6FORpg0KVo"
-                    style={{
-                      textDecoration: "none",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {UniversalTexts.theFollowingVideo}
-                  </a>
-                </h3>
-                <ul style={{ marginTop: "1rem", paddingLeft: "1.5rem" }}>
-                  <li
-                    style={{
-                      border: "1px #ddd solid",
-                      margin: "5px",
-                      borderRadius: "10px",
-                      padding: "10px",
-                    }}
-                  >
-                    {UniversalTexts.by} <strong>10/01/2025</strong>,{" "}
-                    {UniversalTexts.recordAudio}
-                    <Countdown
-                      targetDate={new Date("2025-01-10T18:00:00")}
-                      text={UniversalTexts.endOfMonthlyChallenge}
-                    />
-                  </li>
-                  <li
-                    style={{
-                      border: "1px #ddd solid",
-                      margin: "5px",
-                      borderRadius: "10px",
-                      padding: "10px",
-                    }}
-                  >
-                    {UniversalTexts.by} <strong>17/01/2025</strong>,{" "}
-                    {UniversalTexts.recordAudio} -{" "}
-                    <a href="http://www.linguee.com.br" target="_blank">
-                      Linguee WebSite
-                    </a>
-                    <Countdown
-                      targetDate={new Date("2025-01-17T18:00:00")}
-                      text={UniversalTexts.endOfMonthlyChallenge}
-                    />
-                  </li>
-                  <li
-                    style={{
-                      border: "1px #ddd solid",
-                      margin: "5px",
-                      borderRadius: "10px",
-                      padding: "10px",
-                    }}
-                  >
-                    {UniversalTexts.by} <strong>24/01/2025</strong>,{" "}
-                    {UniversalTexts.noteWords}
-                    <Countdown
-                      targetDate={new Date("2025-01-24T18:00:00")}
-                      text={UniversalTexts.endOfMonthlyChallenge}
-                    />
-                  </li>
-                  <li
-                    style={{
-                      border: "1px #ddd solid",
-                      margin: "5px",
-                      borderRadius: "10px",
-                      padding: "10px",
-                    }}
-                  >
-                    {UniversalTexts.by} <strong>31/01/2025</strong>,{" "}
-                    {UniversalTexts.answerQuestions}
-                    <ul
-                      style={{
-                        margin: "1rem",
-                        paddingLeft: "1.5rem",
-                        fontStyle: "italic",
-                        listStyleType: "circle",
-                      }}
-                    >
-                      <li>
-                        What was Luis von Ahn's main goal in creating Duolingo?
-                      </li>
-                      <li>
-                        What techniques does Duolingo use to make learning more
-                        engaging?
-                      </li>
-                      <li>
-                        According to the video, what is one of the biggest
-                        challenges for online learning platforms?
-                      </li>
-                      <li>
-                        What did you find most interesting about Duolingo's
-                        approach presented in the video?
-                      </li>
-                      <li>
-                        Have you ever used an app to learn something? If yes,
-                        what was your experience like?
-                      </li>
-                      <li>
-                        Do you think learning should be more fun or more
-                        structured? Why?
-                      </li>
-                    </ul>
-                  </li>
-                  <Countdown
-                    targetDate={new Date("2025-01-31T18:00:00")}
-                    text={UniversalTexts.endOfMonthlyChallenge}
-                  />
-                </ul>
-                <p
-                  style={{
-                    textAlign: "center",
-                    padding: "1rem",
-                    margin: "1rem",
-                    borderRadius: "1rem",
-                    backgroundColor: "yellow",
-                  }}
-                >
-                  {UniversalTexts.prize}
-                </p>
-              </div>
-            )}
-          </DivMarginBorder>
-          <DivMarginBorder>
-            <HOne onClick={() => toggleVisibility("2")}>
-              {UniversalTexts.levelCard}
-            </HOne>
-            <LevelCardBlog
-              change={change}
-              headers={headers}
-              _StudentId={_StudentId}
-              picture={picture}
-            />
-          </DivMarginBorder>
-
-          <DivMarginBorder>
-            <HOne onClick={() => toggleVisibility("4")}>
-              {UniversalTexts.mural}
-            </HOne>
-            <div>
-              {posts.map((post: any, index: number) => (
-                <div
-                  key={index}
-                  style={{
-                    maxWidth: "100%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "10px",
-                    textDecoration: "none",
-                  }}
-                >
-                  {post.title && (
-                    <BlogPostTitle>
-                      <span
+                    <div>
+                      <i
                         style={{
-                          maxWidth: "100%",
-                          display: "flex",
-                          alignItems: "center",
+                          display: "inline",
+                          color:
+                            nextTutoring?.status == "done" ? "green" : "orange",
                         }}
-                      >
-                        {!loading && (
-                          <button
-                            style={{
-                              cursor: "pointer",
-                              display:
-                                permissions == "superadmin" ? "grid" : "none",
-                            }}
-                            onClick={() => seeEdition(post._id)}
-                          >
-                            <i className="fa fa-edit" aria-hidden="true" />
-                          </button>
-                        )}
-                        <HTwo> {post.title}</HTwo>
-                      </span>
-                      {post.createdAt && (
-                        <span>{formatDate(post.createdAt)}</span>
-                      )}
-                    </BlogPostTitle>
-                  )}
-                  {post.videoUrl ? (
-                    <div
-                      style={{
-                        margin: "auto",
-                      }}
-                    >
-                      <IFrameVideoPannel
-                        src={getVideoEmbedUrl(post.videoUrl)}
+                        className={`fa fa-${
+                          nextTutoring?.status == "done"
+                            ? "check-circle"
+                            : "ellipsis-h"
+                        }`}
+                        aria-hidden="true"
+                      />{" "}
+                      {nextTutoring?.status}
+                    </div>
+                    <div>
+                      <div
+                        style={{
+                          padding: "1rem",
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: nextTutoring?.description,
+                        }}
                       />
                     </div>
-                  ) : post.img ? (
-                    <ImgBlog src={post.img} alt="logo" />
-                  ) : null}
-                  <div
-                    style={{
-                      margin: "1rem",
-                      fontSize: "1.1rem",
-                      display: "block",
-                      padding: "1rem 0",
-                    }}
-                    className="limited-text"
-                  >
-                    <div dangerouslySetInnerHTML={{ __html: post.text }} />
                   </div>
+                  <Link target="_blank" to={nextTutoring?.googleDriveLink}>
+                    Access the class here
+                  </Link>
                 </div>
-              ))}
-            </div>
-          </DivMarginBorder>
+              )}
+            </DivMarginBorder>
+            <DivMarginBorder>
+              <HOne onClick={() => toggleVisibility("2")}>
+                {UniversalTexts.levelCard}
+              </HOne>
+              <LevelCardBlog
+                change={change}
+                headers={headers}
+                _StudentId={_StudentId}
+                picture={picture}
+              />
+            </DivMarginBorder>
+          </div>
+          <div className="grid-flex-2">
+            <DivMarginBorder>
+              <HOne
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={() => toggleVisibility("3")}
+              >
+                {UniversalTexts.monthlyChallenge}
+              </HOne>
+              {visible["3"] && (
+                <div
+                  style={{
+                    backgroundColor: "#f9f9f9",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  <h3 style={{ marginBottom: "1rem", color: "#333" }}>
+                    {UniversalTexts.accessVideo}{" "}
+                    <a
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=P6FORpg0KVo"
+                      style={{
+                        textDecoration: "none",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {UniversalTexts.theFollowingVideo}
+                    </a>
+                  </h3>
+                  <ul style={{ marginTop: "1rem", paddingLeft: "1.5rem" }}>
+                    <li
+                      style={{
+                        border: "1px #ddd solid",
+                        margin: "5px",
+                        borderRadius: "10px",
+                        padding: "10px",
+                      }}
+                    >
+                      {UniversalTexts.by} <strong>10/01/2025</strong>,{" "}
+                      {UniversalTexts.recordAudio}
+                      <Countdown
+                        targetDate={new Date("2025-01-10T18:00:00")}
+                        text={UniversalTexts.endOfMonthlyChallenge}
+                      />
+                    </li>
+                    <li
+                      style={{
+                        border: "1px #ddd solid",
+                        margin: "5px",
+                        borderRadius: "10px",
+                        padding: "10px",
+                      }}
+                    >
+                      {UniversalTexts.by} <strong>17/01/2025</strong>,{" "}
+                      {UniversalTexts.recordAudio} -{" "}
+                      <a href="http://www.linguee.com.br" target="_blank">
+                        Linguee WebSite
+                      </a>
+                      <Countdown
+                        targetDate={new Date("2025-01-17T18:00:00")}
+                        text={UniversalTexts.endOfMonthlyChallenge}
+                      />
+                    </li>
+                    <li
+                      style={{
+                        border: "1px #ddd solid",
+                        margin: "5px",
+                        borderRadius: "10px",
+                        padding: "10px",
+                      }}
+                    >
+                      {UniversalTexts.by} <strong>24/01/2025</strong>,{" "}
+                      {UniversalTexts.noteWords}
+                      <Countdown
+                        targetDate={new Date("2025-01-24T18:00:00")}
+                        text={UniversalTexts.endOfMonthlyChallenge}
+                      />
+                    </li>
+                    <li
+                      style={{
+                        border: "1px #ddd solid",
+                        margin: "5px",
+                        borderRadius: "10px",
+                        padding: "10px",
+                      }}
+                    >
+                      {UniversalTexts.by} <strong>31/01/2025</strong>,{" "}
+                      {UniversalTexts.answerQuestions}
+                      <ul
+                        style={{
+                          margin: "1rem",
+                          paddingLeft: "1.5rem",
+                          fontStyle: "italic",
+                          listStyleType: "circle",
+                        }}
+                      >
+                        <li>
+                          What was Luis von Ahn's main goal in creating
+                          Duolingo?
+                        </li>
+                        <li>
+                          What techniques does Duolingo use to make learning
+                          more engaging?
+                        </li>
+                        <li>
+                          According to the video, what is one of the biggest
+                          challenges for online learning platforms?
+                        </li>
+                        <li>
+                          What did you find most interesting about Duolingo's
+                          approach presented in the video?
+                        </li>
+                        <li>
+                          Have you ever used an app to learn something? If yes,
+                          what was your experience like?
+                        </li>
+                        <li>
+                          Do you think learning should be more fun or more
+                          structured? Why?
+                        </li>
+                      </ul>
+                    </li>
+                    <Countdown
+                      targetDate={new Date("2025-01-31T18:00:00")}
+                      text={UniversalTexts.endOfMonthlyChallenge}
+                    />
+                  </ul>
+                  <p
+                    style={{
+                      textAlign: "center",
+                      padding: "1rem",
+                      margin: "1rem",
+                      borderRadius: "1rem",
+                      backgroundColor: "yellow",
+                    }}
+                  >
+                    {UniversalTexts.prize}
+                  </p>
+                </div>
+              )}
+            </DivMarginBorder>
+            <DivMarginBorder>
+              <HOne onClick={() => toggleVisibility("4")}>
+                {UniversalTexts.mural}
+              </HOne>
+              <div>
+                {posts.map((post: any, index: number) => (
+                  <div
+                    key={index}
+                    style={{
+                      maxWidth: "100%",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "10px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {post.title && (
+                      <BlogPostTitle>
+                        <span
+                          style={{
+                            maxWidth: "100%",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          {!loading && (
+                            <button
+                              style={{
+                                cursor: "pointer",
+                                display:
+                                  permissions == "superadmin" ? "grid" : "none",
+                              }}
+                              onClick={() => seeEdition(post._id)}
+                            >
+                              <i className="fa fa-edit" aria-hidden="true" />
+                            </button>
+                          )}
+                          <HTwo> {post.title}</HTwo>
+                        </span>
+                        {post.createdAt && (
+                          <span>{formatDate(post.createdAt)}</span>
+                        )}
+                      </BlogPostTitle>
+                    )}
+                    {post.videoUrl ? (
+                      <div
+                        style={{
+                          margin: "auto",
+                        }}
+                      >
+                        <IFrameVideoPannel
+                          src={getVideoEmbedUrl(post.videoUrl)}
+                        />
+                      </div>
+                    ) : post.img ? (
+                      <ImgBlog src={post.img} alt="logo" />
+                    ) : null}
+                    <div
+                      style={{
+                        margin: "1rem",
+                        fontSize: "1.1rem",
+                        display: "block",
+                        padding: "1rem 0",
+                      }}
+                      className="limited-text"
+                    >
+                      <div dangerouslySetInnerHTML={{ __html: post.text }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </DivMarginBorder>
+          </div>
         </DivFlex>
       </RouteDiv>
       <DivModal

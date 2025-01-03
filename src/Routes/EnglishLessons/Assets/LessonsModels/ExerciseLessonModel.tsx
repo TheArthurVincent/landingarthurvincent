@@ -21,7 +21,6 @@ export default function ExerciseLessonModel({
         {item.map((theitem: string, index: number) => {
           return (
             <div key={index}>
-              {" "}
               {theitem}
               <br />
             </div>
