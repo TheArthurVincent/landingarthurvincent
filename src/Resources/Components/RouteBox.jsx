@@ -46,7 +46,7 @@ export const RouteDivCourses = styled.div.attrs({
   margin-right: auto;
   margin-left: auto;
   height: 100%;
-  max-width: 1000px;
+  width: 1000px;
   @media (max-width: 1200px) {
     width: 95vw;
   }
