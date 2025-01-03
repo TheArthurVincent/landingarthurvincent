@@ -64,7 +64,6 @@ export const UlSentences = styled.ul<UlSentencesProps>`
   padding: 0.5rem;
   display: grid;
   gap: 0.8rem;
-
   grid-template-columns: ${(props) =>
     props.grid == 3
       ? "1fr 1fr 1fr"
@@ -73,6 +72,9 @@ export const UlSentences = styled.ul<UlSentencesProps>`
       : props.grid < 3
       ? "1fr"
       : "1fr"};
+  @media (max-width: 750px) {
+    grid-template-columns: ${(props) => (props.grid >= 3 ? "1fr 1fr" : "1fr")};
+  }
 `;
 
 export const LiGridImageLessons = styled.li`
