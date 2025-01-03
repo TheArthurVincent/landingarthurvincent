@@ -46,6 +46,7 @@ export const RouteDivCourses = styled.div.attrs({
   margin-right: auto;
   margin-left: auto;
   height: 100%;
+  width: 95vw;
 `;
 
 export const OverFlow = styled.div`

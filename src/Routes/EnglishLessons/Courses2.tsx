@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   HOne,
   RouteDiv,
-  RouteDivCourses,
 } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
@@ -16,6 +15,7 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import Modules from "./Modules2";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
@@ -64,6 +64,8 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
     setDisplayRouteDiv(isRootPath);
   }, [loc.pathname]);
 
+  const { UniversalTexts } = useUserContext();
+
   return (
     <div>
       <Routes>
@@ -85,16 +87,11 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
       <Helmets text="Courses" />
       {displayRouteDiv ? (
         !loading ? (
-          <RouteDivCourses
-            style={{
-              maxWidth: "1500px",
-            }}
-          >
-            <HOne>Escolha um curso</HOne>
+          <RouteDiv>
+            <HOne>{UniversalTexts.theCourses}</HOne>
             <ArvinButton onClick={getCourses}>
               <i className="fa fa-refresh" aria-hidden={true} />
             </ArvinButton>
-            <br />
             <div>
               <ul
                 style={{
@@ -169,7 +166,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                   ))}
               </ul>
             </div>
-          </RouteDivCourses>
+          </RouteDiv>
         ) : (
           <CircularProgress />
         )
