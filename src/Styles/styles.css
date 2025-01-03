@@ -442,7 +442,13 @@ input.inputs-style:focus {
 
 .pointer-big:hover {
   cursor: pointer;
-color:#000
+  color: #000
+}
+
+.grid-flex-2 {
+  gap: 5px;
+  display: grid;
+  width: 100%
 }
 
 .flashcard-history-upper {

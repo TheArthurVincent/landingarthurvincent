@@ -145,7 +145,7 @@ export const DivMarginBorder = styled.div.attrs({
 export const DivFlex = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 5px;
   justify-items: start;
   align-items: start;
   @media (max-width: 1200px) {
