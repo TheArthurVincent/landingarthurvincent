@@ -342,14 +342,15 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                       }}
                     >
                       {UniversalTexts.by} <strong>17/01/2025</strong>,{" "}
-                      {UniversalTexts.recordAudio} -{" "}
-                      <a href="http://www.linguee.com.br" target="_blank">
-                        Linguee WebSite
-                      </a>
+                      {UniversalTexts.recordAudio}
+                    
                       <Countdown
                         targetDate={new Date("2025-01-17T18:00:00")}
                         text={UniversalTexts.endOfMonthlyChallenge}
-                      />
+                      /> - {" "}
+                        <a href="http://www.linguee.com.br" target="_blank">
+                        Linguee WebSite
+                      </a>
                     </li>
                     <li
                       style={{
