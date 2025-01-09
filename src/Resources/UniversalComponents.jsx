@@ -770,7 +770,7 @@ export function isDev() {
   ) {
     return "https://arvin-backstagin.9kwq6c.easypanel.host";
   } else {
-    return "https://apiprod.arthurvincent.com.br";
+    return "https://arvin-backprod.9kwq6c.easypanel.host/";
   }
 }
 // export function isDev() {
