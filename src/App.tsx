@@ -27,6 +27,8 @@ function App() {
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
       document.body.style.backgroundColor = "#266";
+    } else if (window.location.hostname === "staging") {
+      document.body.style.backgroundColor = "yellow";
     }
   };
   useEffect(() => {
