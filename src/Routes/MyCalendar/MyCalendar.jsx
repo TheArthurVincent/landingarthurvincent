@@ -138,7 +138,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setEvents(eventsLoop);
       setLoading(false);
     } catch (error) {
-      // onLoggOut();
+      onLoggOut();
     }
   };
   useEffect(() => {
