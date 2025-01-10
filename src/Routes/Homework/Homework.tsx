@@ -147,6 +147,28 @@ export default function Homework({ headers, setChange, change }: HWProps) {
     <RouteDiv>
       <Helmets text="Homework" />
       <HOne>{UniversalTexts.homework}</HOne>
+      <ArvinButton onClick={() => fetchClasses(studentID)}>
+        <i className="fa fa-refresh" aria-hidden="true" />
+      </ArvinButton>
+      {permissions == "superadmin" && (
+        <div
+          style={{
+            display: "inline",
+          }}
+        >
+          <select onChange={handleStudentChange} value={studentID}>
+            {studentsList.map((student: any, index: number) => (
+              <option key={index} value={student.id}>
+                {student.name + " " + student.lastname}{" "}
+              </option>
+            ))}
+          </select>
+          <ArvinButton color="green" onClick={fetchStudents}>
+            <i className="fa fa-refresh" aria-hidden="true" />
+            <i className="fa fa-user" aria-hidden="true" />
+          </ArvinButton>
+        </div>
+      )}
       <div>
         <p style={{ textAlign: "center", marginBottom: "1rem" }}>
           {UniversalTexts.activitiesBelowTutoring}
@@ -247,28 +269,28 @@ export default function Homework({ headers, setChange, change }: HWProps) {
 //     justifyContent: "space-between",
 //   }}
 // >
-//   <ArvinButton onClick={() => fetchClasses(studentID)}>
-//     <i className="fa fa-refresh" aria-hidden="true" />
-//   </ArvinButton>
-//   {permissions == "superadmin" && (
-//     <div
-//       style={{
-//         display: "inline",
-//       }}
-//     >
-//       <select onChange={handleStudentChange} value={studentID}>
-//         {studentsList.map((student: any, index: number) => (
-//           <option key={index} value={student.id}>
-//             {student.name + " " + student.lastname}{" "}
-//           </option>
-//         ))}
-//       </select>
-//       <ArvinButton color="green" onClick={fetchStudents}>
-//         <i className="fa fa-refresh" aria-hidden="true" />
-//         <i className="fa fa-user" aria-hidden="true" />
-//       </ArvinButton>
-//     </div>
-//   )}
+// <ArvinButton onClick={() => fetchClasses(studentID)}>
+//   <i className="fa fa-refresh" aria-hidden="true" />
+// </ArvinButton>
+// {permissions == "superadmin" && (
+//   <div
+//     style={{
+//       display: "inline",
+//     }}
+//   >
+//     <select onChange={handleStudentChange} value={studentID}>
+//       {studentsList.map((student: any, index: number) => (
+//         <option key={index} value={student.id}>
+//           {student.name + " " + student.lastname}{" "}
+//         </option>
+//       ))}
+//     </select>
+//     <ArvinButton color="green" onClick={fetchStudents}>
+//       <i className="fa fa-refresh" aria-hidden="true" />
+//       <i className="fa fa-user" aria-hidden="true" />
+//     </ArvinButton>
+//   </div>
+// )}
 // </div>
 // {loading ? (
 //   <CircularProgress />
