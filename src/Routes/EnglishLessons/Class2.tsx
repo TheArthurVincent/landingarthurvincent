@@ -42,6 +42,7 @@ import { CircularProgress } from "@mui/material";
 import QandALessonModel from "./Assets/LessonsModels/QandALessonModel";
 import QandALessonPersonalModel from "./Assets/LessonsModels/QandALessonPersonalModel";
 import NoFlashcardsSentenceLessonModel from "./Assets/LessonsModels/NoFlashcardsSentenceLessonModel";
+import AudioSoundTrack from "./Assets/LessonsModels/AudioSoundTrack";
 
 interface EnglishClassCourse2ModelProps {
   headers: MyHeadersType | null;
@@ -317,6 +318,7 @@ export default function EnglishClassCourse2({
                 className={isCompleted ? `fa fa-check` : `fa fa-circle`}
               />
             </HOne>
+
             {nextClass !== "123456" ? (
               <span
                 style={{
@@ -401,14 +403,13 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
-          {/* {theclass.image && (
-            <ImgLesson src={theclass.image} alt={theclass.title} />
-          )} */}
+
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
             </div>
           )}
+
           {theclass.description && (
             <p
               style={{
@@ -445,6 +446,7 @@ export default function EnglishClassCourse2({
                   {element.video && element.subtitle && (
                     <VideoLessonModel element={element} />
                   )}
+
                   {element.comments && (
                     <p
                       style={{
@@ -462,8 +464,8 @@ export default function EnglishClassCourse2({
                   {element.type === "sentences" ? (
                     <SentenceLessonModel
                       mainTag={theclass.mainTag}
-                      studentId={studentID}
                       element={element}
+                      studentId={studentID}
                       headers={headers}
                     />
                   ) : element.type === "nfsentences" ? (
@@ -512,6 +514,16 @@ export default function EnglishClassCourse2({
                       studentId={studentID}
                       mainTag={theclass.mainTag}
                       item={element}
+                    />
+                  ) : element.type === "audiosoundtrack" ? (
+                    <AudioSoundTrack
+                      headers={headers}
+                      text={element.text}
+                      studentId={studentID}
+                      mainTag={theclass.mainTag}
+                      element={element}
+                      link={element.link}
+                      subtitle={element.subtitle}
                     />
                   ) : element.type === "personalqanda" ? (
                     <QandALessonPersonalModel
