@@ -109,11 +109,13 @@ export default function AudioSoundTrack({
         </a>
       </div>
       <p
-      style={{
-        margin:"2rem",
-        textAlign:"center"
-      }}
-      >{text}</p>
+        style={{
+          margin: "2rem",
+          textAlign: "center",
+        }}
+      >
+        {text}
+      </p>
       <UlSentences grid={element.grid}>
         {element.sentences &&
           element.sentences.map((sentence: any, i: number) => (

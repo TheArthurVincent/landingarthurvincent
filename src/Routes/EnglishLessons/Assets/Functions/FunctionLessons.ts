@@ -49,41 +49,16 @@ export const readText = (
     utterance.pitch = 1;
     utterance.volume = 1;
 
-    const voices = synth.getVoices();
-    const filteredVoices = voices.filter((voice) => voice.lang == "en-US");
-    const filteredVoicesUK = voices.filter((voice) => voice.lang == "en-GB");
-
-    let selectedVoice;
-
     const userAgent = navigator.userAgent;
-    if (voiceBoolean && !userAgent.includes("iOS")) {
-      console.log("currentEvenOdd: ", currentEvenOdd);
-      const voiceEdge = currentEvenOdd ? filteredVoices[4] : filteredVoices[5];
-      const generalVoices = currentEvenOdd
-        ? filteredVoices[0]
-        : filteredVoicesUK[0];
-      if (filteredVoices[5]) {
-        selectedVoice = voiceEdge;
-      } else {
-        selectedVoice = generalVoices;
-      }
+
+    if (voiceBoolean) {
       utterance.rate = 1;
-      utterance.voice = selectedVoice;
     } else if (
-      userAgent.includes("iOS") ||
-      userAgent.includes("Apple") ||
-      userAgent.includes("iPhone") ||
-      userAgent.includes("iPad") ||
       userAgent.includes("apple")
     ) {
       utterance.rate = 1;
-      utterance.voice = filteredVoices[0];
     } else {
-      const voiceEdge = filteredVoices[4];
-      const generalVoices = filteredVoices[0];
-      selectedVoice = voiceEdge || generalVoices;
       utterance.rate = 1;
-      utterance.voice = selectedVoice;
     }
 
     utterance.onstart = () => console.log("Leitura iniciada.");

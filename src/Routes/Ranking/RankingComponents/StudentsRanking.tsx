@@ -22,7 +22,6 @@ import { listOfButtons } from "./ListOfCriteria";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { HThree } from "../../MyClasses/MyClasses.Styled";
-import { truncateTitle } from "../../EnglishLessons/CoursesSideBar/CoursesSideBar";
 import { useUserContext } from "../../../Application/SelectLanguage/SelectLanguage";
 import styled, { keyframes } from "styled-components";
 
