@@ -519,6 +519,7 @@ export default function EnglishClassCourse2({
                     <AudioSoundTrack
                       headers={headers}
                       text={element.text}
+                      src={element.src}
                       studentId={studentID}
                       mainTag={theclass.mainTag}
                       element={element}
