@@ -16,6 +16,7 @@ interface AudioSoundTrackProps {
   link: string;
   studentId: string;
   mainTag: string;
+  src: string;
   text: string;
   element: any;
 }
@@ -24,6 +25,7 @@ export default function AudioSoundTrack({
   headers,
   subtitle,
   studentId,
+  src,
   link,
   element,
   mainTag,
@@ -73,7 +75,7 @@ export default function AudioSoundTrack({
         scrolling="no"
         frameBorder="no"
         allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2008978979&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+        src={src}
       />
       <div
         style={{
