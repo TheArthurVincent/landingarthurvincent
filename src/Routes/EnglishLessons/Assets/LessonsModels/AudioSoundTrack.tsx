@@ -108,44 +108,50 @@ export default function AudioSoundTrack({
           -
         </a>
       </div>
-      <p
-        style={{
-          margin: "2rem",
-          textAlign: "center",
-        }}
-      >
-        {text}
-      </p>
-      <UlSentences grid={element.grid}>
-        {element.sentences &&
-          element.sentences.map((sentence: any, i: number) => (
-            <LiSentence key={i}>
-              <Tooltip title="Add to flashcards">
-                <ArvinButton
-                  color="white"
-                  onClick={() =>
-                    addNewCards(sentence.english, sentence.portuguese)
-                  }
+      {text && (
+        <p
+          style={{
+            margin: "2rem",
+            textAlign: "center",
+          }}
+        >
+          {text}
+        </p>
+      )}
+      {element.sentences && (
+        <UlSentences grid={element.grid}>
+          {element.sentences &&
+            element.sentences.map((sentence: any, i: number) => (
+              <LiSentence key={i}>
+                <Tooltip title="Add to flashcards">
+                  <ArvinButton
+                    color="white"
+                    onClick={() =>
+                      addNewCards(sentence.english, sentence.portuguese)
+                    }
+                  >
+                    <i className="fa fa-files-o" aria-hidden="true" />
+                  </ArvinButton>
+                </Tooltip>
+                <br />
+                <br />
+                <strong>{sentence.english}</strong>
+                <span
+                  className="audio-button"
+                  onClick={() => {
+                    readText(sentence.english, true);
+                  }}
                 >
-                  <i className="fa fa-files-o" aria-hidden="true" />
-                </ArvinButton>
-              </Tooltip>
-              <br />
-              <br />
-              <strong>{sentence.english}</strong>
-              <span
-                className="audio-button"
-                onClick={() => {
-                  readText(sentence.english, true);
-                }}
-              >
-                <i className="fa fa-volume-up" aria-hidden="true" />
-              </span>
-              <br />
-              <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
-            </LiSentence>
-          ))}
-      </UlSentences>
+                  <i className="fa fa-volume-up" aria-hidden="true" />
+                </span>
+                <br />
+                <span style={{ fontStyle: "italic" }}>
+                  {sentence.portuguese}
+                </span>
+              </LiSentence>
+            ))}
+        </UlSentences>
+      )}
     </>
   );
 }
