@@ -75,7 +75,7 @@ export default function AudioSoundTrack({
         scrolling="no"
         frameBorder="no"
         allow="autoplay"
-        src={src}
+        src={src ? src : ""}
       />
       <div
         style={{
