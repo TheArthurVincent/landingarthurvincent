@@ -37,7 +37,6 @@ const normalizeText = (text: string): string => {
     .trim();
 };
 
-
 // Função para limpar a string
 function cleanString(str: string): string {
   return str
@@ -183,12 +182,20 @@ const ListeningExercise = ({
       userTranscript,
       cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     );
-    setSimilarity(simC);
-    setWords(wordCountInCard);
-    if (simC > 95) {
-      setSimilarity(100);
-    } else {
-      setScore(simC > 60 ? wordCountInCard * 2 : 0);
+
+    if (simC >= 98) {
+      setSimilarity(simC);
+      setWords(wordCountInCard);
+      setScore(wordCountInCard * 3);
+    } else if (simC >= 60 && simC < 98) {
+      setSimilarity(98);
+      setWords(wordCountInCard);
+      setScore(wordCountInCard * 2);
+      return;
+    } else if (simC < 60) {
+      setSimilarity(simC);
+      setWords(wordCountInCard);
+      setScore(0);
     }
   };
 
@@ -231,9 +238,10 @@ const ListeningExercise = ({
     setActualPointsPerWord(2);
     setSimilarity(simC);
     setWords(wordCountInCard);
-    const points = simC > 60 ? wordCountInCard  : 0;
+    // const points = simC > 60 ? wordCountInCard : 0;
+    const points = score;
 
-    if (simC > 95) {
+    if (simC > 98) {
       setSimilarity(100);
       setActualPointsPerWord(3);
       reviewListeningExercise(wordCountInCard * 3, 100);
@@ -270,7 +278,7 @@ const ListeningExercise = ({
   // @ts-ignore
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-  recognition.lang = (myId !== "671b99e97acd42b04d2f7507") ? "en-US" : "fr-FR";
+  recognition.lang = myId !== "671b99e97acd42b04d2f7507" ? "en-US" : "fr-FR";
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
@@ -340,7 +348,7 @@ const ListeningExercise = ({
                           backgroundColor:
                             similarity === 100
                               ? "#4caf50"
-                              : similarity > 90
+                              : similarity > 98
                                 ? "#2196f3"
                                 : similarity > 60
                                   ? "#ffeb3b"
@@ -348,14 +356,14 @@ const ListeningExercise = ({
                           color:
                             similarity === 100
                               ? "white"
-                              : similarity > 90
+                              : similarity > 98
                                 ? "white"
                                 : similarity > 60
                                   ? "black"
                                   : "white",
                           border: `solid 1px ${similarity === 100
                               ? "white"
-                              : similarity > 90
+                              : similarity > 98
                                 ? "white"
                                 : similarity > 60
                                   ? "black"
