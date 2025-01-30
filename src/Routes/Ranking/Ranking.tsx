@@ -94,7 +94,6 @@ export default function Ranking({ headers }: HeadersProps) {
             backgroundColor: alwaysWhite(),
             justifyContent: "space-between",
           }}
-          sx={{ borderBottom: 1, borderColor: "divider" }}
         >
           <TabList
             onChange={handleChange}
