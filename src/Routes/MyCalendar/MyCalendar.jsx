@@ -1180,10 +1180,10 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 fontSize: "0.7rem",
                               }}
                             >
-                              {event.student && (
+                              {event.student ? (
                                 <span
                                   style={{
-                                    fontFamily: textTitleFont(),
+                                    fontSize: "8px",
                                     fontWeight: 600,
                                     color:
                                       event.category === "Group Class"
@@ -1205,32 +1205,32 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 >
                                   {event.student}
                                 </span>
+                              ) : (
+                                <span
+                                  style={{
+                                    fontSize: "8px",
+                                    fontWeight: 600,
+                                    color:
+                                      event.category === "Group Class"
+                                        ? "#fff" // Amarelo mais escuro, sem ser tão claro
+                                        : event.category === "Rep"
+                                        ? textSecondaryColorContrast() // Tom de azul mais escuro e sóbrio
+                                        : event.category === "Tutoring"
+                                        ? textPrimaryColorContrast() // Cinza mais escuro
+                                        : event.category === "Prize Class"
+                                        ? "#fff" // Amarelo mais escuro e mais sóbrio
+                                        : event.category === "Standalone"
+                                        ? "#fff" // Azul bem escuro
+                                        : event.category === "Test"
+                                        ? "#fff" // Cinza muito escuro
+                                        : event.category === "Marcar Reposição"
+                                        ? "#fff" // Verde escuro e sóbrio
+                                        : "#fff", // Preto para categoria não especificada
+                                  }}
+                                >
+                                  {event.description}
+                                </span>
                               )}
-                              <span
-                                style={{
-                                  color:
-                                    event.category === "Group Class"
-                                      ? "#fff" // Amarelo mais escuro, sem ser tão claro
-                                      : event.category === "Rep"
-                                      ? textSecondaryColorContrast() // Tom de azul mais escuro e sóbrio
-                                      : event.category === "Tutoring"
-                                      ? textPrimaryColorContrast() // Cinza mais escuro
-                                      : event.category === "Prize Class"
-                                      ? "#fff" // Amarelo mais escuro e mais sóbrio
-                                      : event.category === "Standalone"
-                                      ? "#fff" // Azul bem escuro
-                                      : event.category === "Test"
-                                      ? "#fff" // Cinza muito escuro
-                                      : event.category === "Marcar Reposição"
-                                      ? "#fff" // Verde escuro e sóbrio
-                                      : "#fff", // Preto para categoria não especificada
-                                }}
-                              >
-                                {event.category == "Group Class" ||
-                                event.category == "Standalone"
-                                  ? `${event.time} | ${event.description}`
-                                  : ` ${event.time} | ${event.category}`}
-                              </span>
                             </p>
                             <div
                               style={{
@@ -1263,29 +1263,18 @@ export default function MyCalendar({ headers, thePermissions }) {
                                       : event.status == "desmarcado"
                                       ? "red"
                                       : "#000",
-                                  fontSize: "0.6rem",
+                                  fontSize: "8px",
                                   padding: "5px",
                                   fontWeight: 600,
                                 }}
                               >
-                                {event.status == "marcado"
-                                  ? "Scheduled"
-                                  : event.status == "desmarcado"
-                                  ? "Canceled"
-                                  : "Realized"}
-                                {event.status !== "desmarcado" &&
-                                  thePermissions == "superadmin" && (
-                                    <i
-                                      className="fa fa-envelope-o"
-                                      aria-hidden="true"
-                                      onClick={() => reminderEmail(event._id)}
-                                      style={{
-                                        cursor: "pointer",
-                                        fontSize: "10px",
-                                        color: "grey",
-                                      }}
-                                    />
-                                  )}
+                                <span
+                                  style={{
+                                    fontSize: "8px",
+                                  }}
+                                >
+                                  {` ${event.time} | ${event.category}`}
+                                </span>
                               </div>
                             </div>
                           </div>
