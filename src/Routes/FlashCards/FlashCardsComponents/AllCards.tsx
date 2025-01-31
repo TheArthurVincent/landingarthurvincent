@@ -342,8 +342,9 @@ const AllCards = ({ headers }: HeadersProps) => {
                 <br />
                 <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
                 <div>Listening Rate: {card.listeningRate.toFixed(1)}</div>
-
-                <div>Easy Reviews: {card.easyReviews}</div>
+                <div>Easy Reviews Streak: {card.easyReviews}</div>
+                <div> Updated: {card.createdAt}</div>
+                <div> Created: { card.updatedAt}</div>
                 <div>
                   Tags:{" "}
                   {card.tags.map((thetag: string, index: number) => {
