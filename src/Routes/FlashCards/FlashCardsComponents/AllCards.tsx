@@ -279,95 +279,106 @@ const AllCards = ({ headers }: HeadersProps) => {
                 style={{
                   padding: "1rem",
                   margin: "5px",
+                  display: "flex",
+                  justifyContent: "space-between",
                   backgroundColor: "#fff",
                 }}
               >
-                <div>
-                  {perm === "superadmin" && (
-                    <ArvinButton
-                      onClick={() => {
-                        handleSeeModal(card._id);
-                      }}
-                      color="yellow"
-                    >
-                      <i className="fa fa-edit" aria-hidden="true" />
-                    </ArvinButton>
-                  )}
-                  {card.front.language && card.front.language !== "pt" && (
-                    <button
-                      className="audio-button"
-                      onClick={() =>
-                        readText(card.front.text, true, card.front.language)
-                      }
-                    >
-                      <i className="fa fa-volume-up" aria-hidden="true" />
-                    </button>
-                  )}
-                  <div
-                    style={{
-                      fontWeight: 600,
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: card.front.text,
-                    }}
-                  />
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: card.back.text,
-                    }}
-                  />
-                  {card.back.language && card.back.language !== "pt" && (
-                    <button
-                      className="audio-button"
-                      onClick={() =>
-                        readText(card.back.text, true, card.back.language)
-                      }
-                    >
-                      <i className="fa fa-volume-up" aria-hidden="true" />
-                    </button>
-                  )}
-                </div>
-                <br />
-                <div
+                <span
                   style={{
-                    fontStyle: "italic",
+                    fontSize: "12px",
                   }}
-                  dangerouslySetInnerHTML={{
-                    __html: card.backComments,
-                  }}
-                />
-                <br />
-                <br />
-                <div>Reviewed {Math.round(card.numberOfReviews)} times</div>
-                <br />
-                <div>Review Rate: {card.reviewRate.toFixed(1)}</div>
-                <div>Listening Rate: {card.listeningRate.toFixed(1)}</div>
-                <div>Easy Reviews Streak: {card.easyReviews}</div>
-                <div> Updated: {card.createdAt}</div>
-                <div> Created: { card.updatedAt}</div>
-                <div>
-                  Tags:{" "}
-                  {card.tags.map((thetag: string, index: number) => {
-                    return (
-                      <span
-                        style={{
-                          fontStyle: "italic",
-                        }}
-                        key={index}
-                      >
-                        {thetag};{" "}
-                      </span>
-                    );
-                  })}
-                </div>
-
-                {perm == "superadmin" && (
+                >
                   <div>
-                    Review Rate Total: {card.reviewRate}
-                    <br />
-                    Listening Rate Total: {card.listeningRate}
+                    {perm === "superadmin" && (
+                      <ArvinButton
+                        onClick={() => {
+                          handleSeeModal(card._id);
+                        }}
+                        color="yellow"
+                      >
+                        <i className="fa fa-edit" aria-hidden="true" />
+                      </ArvinButton>
+                    )}
+                    {card.front.language && card.front.language !== "pt" && (
+                      <button
+                        className="audio-button"
+                        onClick={() =>
+                          readText(card.front.text, true, card.front.language)
+                        }
+                      >
+                        <i className="fa fa-volume-up" aria-hidden="true" />
+                      </button>
+                    )}
+                    <div
+                      style={{
+                        fontWeight: 600,
+                      }}
+                      dangerouslySetInnerHTML={{
+                        __html: card.front.text,
+                      }}
+                    />
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: card.back.text,
+                      }}
+                    />
+                    {card.back.language && card.back.language !== "pt" && (
+                      <button
+                        className="audio-button"
+                        onClick={() =>
+                          readText(card.back.text, true, card.back.language)
+                        }
+                      >
+                        <i className="fa fa-volume-up" aria-hidden="true" />
+                      </button>
+                    )}
                   </div>
-                )}
+                  <div>
+                    <div
+                      style={{
+                        fontStyle: "italic",
+                      }}
+                      dangerouslySetInnerHTML={{
+                        __html: card.backComments,
+                      }}
+                    />
+                  </div>
+                </span>
+                <span>
+                  <ul
+                    style={{
+                      fontSize: "10px",
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr 1fr",
+                    }}
+                  >
+                    <li>Reviewed {Math.round(card.numberOfReviews)} times</li>
+                    <li> Review Rate Total: {card.reviewRate}</li>
+                    <li> Created: {card.updatedAt}</li>
+                    <li>
+                      Tags:{" "}
+                      {card.tags.map((thetag: string, index: number) => {
+                        return (
+                          <span
+                            style={{
+                              fontStyle: "italic",
+                            }}
+                            key={index}
+                          >
+                            {thetag};{" "}
+                          </span>
+                        );
+                      })}
+                    </li>
+                  </ul>
+                </span>
+                <ArvinButton
+                  onClick={() => handleDeleteCard(card._id)}
+                  color="red"
+                >
+                  <i className="fa fa-trash" aria-hidden="true" />
+                </ArvinButton>
               </div>
             ))}
           </div>
