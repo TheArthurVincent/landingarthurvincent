@@ -262,9 +262,9 @@ const AllCards = ({ headers }: HeadersProps) => {
             </div>
           )}
         </div>
-        {loading ? (
+        {/* {loading ? (
           <CircularProgress />
-        ) : (
+        ) : ( */}
           <div
             style={{
               padding: "5px",
@@ -384,7 +384,7 @@ const AllCards = ({ headers }: HeadersProps) => {
               </div>
             ))}
           </div>
-        )}
+        {/* )} */}
       </div>
       <div
         style={{
