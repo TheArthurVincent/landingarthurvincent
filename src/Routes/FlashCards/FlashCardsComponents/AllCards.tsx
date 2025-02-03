@@ -373,12 +373,14 @@ const AllCards = ({ headers }: HeadersProps) => {
                     </li>
                   </ul>
                 </span>
-                <ArvinButton
-                  onClick={() => handleDeleteCard(card._id)}
-                  color="red"
-                >
-                  <i className="fa fa-trash" aria-hidden="true" />
-                </ArvinButton>
+                {perm === "superadmin" && (
+                  <ArvinButton
+                    onClick={() => handleDeleteCard(card._id)}
+                    color="red"
+                  >
+                    <i className="fa fa-trash" aria-hidden="true" />
+                  </ArvinButton>
+                )}
               </div>
             ))}
           </div>
