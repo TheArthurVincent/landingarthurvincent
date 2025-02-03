@@ -52,7 +52,6 @@ const AllCards = ({ headers }: HeadersProps) => {
   };
 
   const getNewCards = async (id?: any) => {
-    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/cards/${id}`, {
         headers: actualHeaders,
@@ -60,10 +59,8 @@ const AllCards = ({ headers }: HeadersProps) => {
       const list = response.data.allFlashCards;
       setCards(list);
       setFCards(list);
-      setLoading(false);
     } catch (error) {
       console.log("Erro ao obter cards");
-      setLoading(false);
     }
   };
   const [category, setCategory] = useState("");
