@@ -262,9 +262,9 @@ const AllCards = ({ headers }: HeadersProps) => {
             </div>
           )}
         </div>
-        {loading ? (
+        {/* {loading ? (
           <CircularProgress />
-        ) : (
+        ) : ( */}
           <div
             style={{
               padding: "5px",
@@ -373,17 +373,18 @@ const AllCards = ({ headers }: HeadersProps) => {
                     </li>
                   </ul>
                 </span>
-                    {perm === "superadmin" && (
-                      <ArvinButton
-                  onClick={() => handleDeleteCard(card._id)}
-                  color="red"
-                >
-                  <i className="fa fa-trash" aria-hidden="true" />
-                </ArvinButton>)}
+                {perm === "superadmin" && (
+                  <ArvinButton
+                    onClick={() => handleDeleteCard(card._id)}
+                    color="red"
+                  >
+                    <i className="fa fa-trash" aria-hidden="true" />
+                  </ArvinButton>
+                )}
               </div>
             ))}
           </div>
-        )}
+        {/* )} */}
       </div>
       <div
         style={{
