@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import {
-  backDomain,
-  onLoggOut,
-} from "../../../Resources/UniversalComponents";
+import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 
