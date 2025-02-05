@@ -153,6 +153,32 @@ const AllCards = ({ headers }: HeadersProps) => {
   const handleHideModal = () => {
     setShowModal(false);
   };
+  const plusComp = async (cardId: string) => {
+    try {
+        const response = await axios.put(
+            `${backDomain}/api/v1/plusflashcard/${studentID}`,
+            { cardId },  // Enviar cardId no corpo
+            { headers: actualHeaders }
+        );
+        getNewCards(studentID);
+    } catch (error) {
+        console.log(error, "Erro ao atualizar a complexidade");
+    }
+};
+
+const minusComp = async (cardId: string) => {
+    try {
+        const response = await axios.put(
+            `${backDomain}/api/v1/minusflashcard/${studentID}`,
+            { cardId },  // Enviar cardId no corpo
+            { headers: actualHeaders }
+        );
+        getNewCards(studentID);
+    } catch (error) {
+        console.log(error, "Erro ao atualizar a complexidade");
+    }
+};
+
 
   ///////////////////////
 
@@ -262,129 +288,132 @@ const AllCards = ({ headers }: HeadersProps) => {
             </div>
           )}
         </div>
-        {/* {loading ? (
-          <CircularProgress />
-        ) : ( */}
-          <div
-            style={{
-              padding: "5px",
-              overflowX: "auto",
-              backgroundColor: "#eee",
-              maxHeight: "50vh",
-            }}
-          >
-            {cards.map((card: any, index: number) => (
-              <div
-                key={index}
+
+        <div
+          style={{
+            padding: "5px",
+            overflowX: "auto",
+            backgroundColor: "#eee",
+            maxHeight: "50vh",
+          }}
+        >
+          {cards.map((card: any, index: number) => (
+            <div
+              key={index}
+              style={{
+                padding: "1rem",
+                margin: "5px",
+                display: "flex",
+                justifyContent: "space-between",
+                backgroundColor: "#fff",
+              }}
+            >
+              <span
                 style={{
-                  padding: "1rem",
-                  margin: "5px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  backgroundColor: "#fff",
+                  fontSize: "12px",
                 }}
               >
-                <span
+                <div>
+                  {perm === "superadmin" && (
+                    <ArvinButton
+                      onClick={() => {
+                        handleSeeModal(card._id);
+                      }}
+                      color="yellow"
+                    >
+                      <i className="fa fa-edit" aria-hidden="true" />
+                    </ArvinButton>
+                  )}
+                  {card.front.language && card.front.language !== "pt" && (
+                    <button
+                      className="audio-button"
+                      onClick={() =>
+                        readText(card.front.text, true, card.front.language)
+                      }
+                    >
+                      <i className="fa fa-volume-up" aria-hidden="true" />
+                    </button>
+                  )}
+                  <div
+                    style={{
+                      fontWeight: 600,
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: card.front.text,
+                    }}
+                  />
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: card.back.text,
+                    }}
+                  />
+                  {card.back.language && card.back.language !== "pt" && (
+                    <button
+                      className="audio-button"
+                      onClick={() =>
+                        readText(card.back.text, true, card.back.language)
+                      }
+                    >
+                      <i className="fa fa-volume-up" aria-hidden="true" />
+                    </button>
+                  )}
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontStyle: "italic",
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: card.backComments,
+                    }}
+                  />
+                </div>
+              </span>
+              <span>
+                <ul
                   style={{
-                    fontSize: "12px",
+                    fontSize: "10px",
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr 1fr",
                   }}
                 >
-                  <div>
-                    {perm === "superadmin" && (
-                      <ArvinButton
-                        onClick={() => {
-                          handleSeeModal(card._id);
-                        }}
-                        color="yellow"
-                      >
-                        <i className="fa fa-edit" aria-hidden="true" />
-                      </ArvinButton>
-                    )}
-                    {card.front.language && card.front.language !== "pt" && (
-                      <button
-                        className="audio-button"
-                        onClick={() =>
-                          readText(card.front.text, true, card.front.language)
-                        }
-                      >
-                        <i className="fa fa-volume-up" aria-hidden="true" />
-                      </button>
-                    )}
-                    <div
-                      style={{
-                        fontWeight: 600,
-                      }}
-                      dangerouslySetInnerHTML={{
-                        __html: card.front.text,
-                      }}
-                    />
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: card.back.text,
-                      }}
-                    />
-                    {card.back.language && card.back.language !== "pt" && (
-                      <button
-                        className="audio-button"
-                        onClick={() =>
-                          readText(card.back.text, true, card.back.language)
-                        }
-                      >
-                        <i className="fa fa-volume-up" aria-hidden="true" />
-                      </button>
-                    )}
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        fontStyle: "italic",
-                      }}
-                      dangerouslySetInnerHTML={{
-                        __html: card.backComments,
-                      }}
-                    />
-                  </div>
-                </span>
-                <span>
-                  <ul
-                    style={{
-                      fontSize: "10px",
-                      display: "grid",
-                      gridTemplateColumns: "1fr 1fr 1fr",
-                    }}
-                  >
-                    <li>Reviewed {Math.round(card.numberOfReviews)} times</li>
-                    <li> Review Rate Total: {card.reviewRate}</li>
-                    <li> Created: {card.updatedAt}</li>
-                    <li>
-                      Tags:{" "}
-                      {card.tags.map((thetag: string, index: number) => {
-                        return (
-                          <span
-                            style={{
-                              fontStyle: "italic",
-                            }}
-                            key={index}
-                          >
-                            {thetag};{" "}
-                          </span>
-                        );
-                      })}
-                    </li>
-                  </ul>
-                </span>
-                {perm === "superadmin" && (
-                  <ArvinButton
-                    onClick={() => handleDeleteCard(card._id)}
-                    color="red"
-                  >
-                    <i className="fa fa-trash" aria-hidden="true" />
-                  </ArvinButton>
-                )}
-              </div>
-            ))}
-          </div>
-        {/* )} */}
+                  <li>Reviewed {Math.round(card.numberOfReviews)} times</li>
+                  <li> Review Rate Total: {card.reviewRate}</li>
+                  <li>
+                    {" "}
+                    Complexity Rate Total: {card.complexityRate}{" "}
+                    <button onClick={() => plusComp(card._id)}>+</button>
+                    <button onClick={() => minusComp(card._id)}>-</button>
+                  </li>
+                  <li> Created: {card.updatedAt}</li>
+                  <li>
+                    Tags:{" "}
+                    {card.tags.map((thetag: string, index: number) => {
+                      return (
+                        <span
+                          style={{
+                            fontStyle: "italic",
+                          }}
+                          key={index}
+                        >
+                          {thetag};{" "}
+                        </span>
+                      );
+                    })}
+                  </li>
+                </ul>
+              </span>
+              {perm === "superadmin" && (
+                <ArvinButton
+                  onClick={() => handleDeleteCard(card._id)}
+                  color="red"
+                >
+                  <i className="fa fa-trash" aria-hidden="true" />
+                </ArvinButton>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
       <div
         style={{

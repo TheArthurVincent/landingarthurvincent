@@ -3,16 +3,11 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
-  Xp,
   backDomain,
-  getVideoEmbedUrl,
   onLoggOut,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
-import { languages } from "./AddFlashONEFlashCard";
-import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
-import Countdown from "../../Ranking/RankingComponents/Countdown";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
