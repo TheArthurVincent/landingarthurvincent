@@ -326,7 +326,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                         padding: "10px",
                       }}
                     >
-                      {UniversalTexts.by} <strong>10/01/2025</strong>,{" "}
+                      {UniversalTexts.by} <strong>02-28-2025</strong>,{" "}
                       {UniversalTexts.recordAudio}
                       <Countdown
                         targetDate={new Date("2025-02-28T18:00:00")}
