@@ -304,7 +304,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                     lineHeight: "1.6",
                   }}
                 >
-                  <h3 style={{ marginBottom: "1rem", color: "#333" }}>
+                  {/* <h3 style={{ marginBottom: "1rem", color: "#333" }}>
                     {UniversalTexts.accessVideo}{" "}
                     <a
                       target="_blank"
@@ -316,7 +316,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                     >
                       {UniversalTexts.theFollowingVideo}
                     </a>
-                  </h3>
+                  </h3> */}
                   <ul style={{ marginTop: "1rem", paddingLeft: "1.5rem" }}>
                     <li
                       style={{
@@ -329,92 +329,11 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                       {UniversalTexts.by} <strong>10/01/2025</strong>,{" "}
                       {UniversalTexts.recordAudio}
                       <Countdown
-                        targetDate={new Date("2025-01-10T18:00:00")}
+                        targetDate={new Date("2025-02-28T18:00:00")}
                         text={UniversalTexts.endOfMonthlyChallenge}
                       />
                     </li>
-                    <li
-                      style={{
-                        border: "1px #ddd solid",
-                        margin: "5px",
-                        borderRadius: "10px",
-                        padding: "10px",
-                      }}
-                    >
-                      {UniversalTexts.by} <strong>17/01/2025</strong>,{" "}
-                      {UniversalTexts.recordAudio}
-                    
-                      <Countdown
-                        targetDate={new Date("2025-01-17T18:00:00")}
-                        text={UniversalTexts.endOfMonthlyChallenge}
-                      /> 
-                    </li>
-                    <li
-                      style={{
-                        border: "1px #ddd solid",
-                        margin: "5px",
-                        borderRadius: "10px",
-                        padding: "10px",
-                      }}
-                    >
-                      {UniversalTexts.by} <strong>24/01/2025</strong>,{" "}
-                      {UniversalTexts.noteWords}- {" "}
-                        <a href="http://www.linguee.com.br" target="_blank">
-                        Linguee WebSite
-                      </a>
-                      <Countdown
-                        targetDate={new Date("2025-01-24T18:00:00")}
-                        text={UniversalTexts.endOfMonthlyChallenge}
-                      />
-                    </li>
-                    <li
-                      style={{
-                        border: "1px #ddd solid",
-                        margin: "5px",
-                        borderRadius: "10px",
-                        padding: "10px",
-                      }}
-                    >
-                      {UniversalTexts.by} <strong>31/01/2025</strong>,{" "}
-                      {UniversalTexts.answerQuestions}
-                      <ul
-                        style={{
-                          margin: "1rem",
-                          paddingLeft: "1.5rem",
-                          fontStyle: "italic",
-                          listStyleType: "circle",
-                        }}
-                      >
-                        <li>
-                          What was Luis von Ahn's main goal in creating
-                          Duolingo?
-                        </li>
-                        <li>
-                          What techniques does Duolingo use to make learning
-                          more engaging?
-                        </li>
-                        <li>
-                          According to the video, what is one of the biggest
-                          challenges for online learning platforms?
-                        </li>
-                        <li>
-                          What did you find most interesting about Duolingo's
-                          approach presented in the video?
-                        </li>
-                        <li>
-                          Have you ever used an app to learn something? If yes,
-                          what was your experience like?
-                        </li>
-                        <li>
-                          Do you think learning should be more fun or more
-                          structured? Why?
-                        </li>
-                      </ul>
-                    </li>
-                    <Countdown
-                      targetDate={new Date("2025-01-31T18:00:00")}
-                      text={UniversalTexts.endOfMonthlyChallenge}
-                    />
+                 
                   </ul>
                   <p
                     style={{
