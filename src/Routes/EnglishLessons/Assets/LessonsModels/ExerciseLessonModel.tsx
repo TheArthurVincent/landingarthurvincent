@@ -17,16 +17,16 @@ export default function ExerciseLessonModel({
         margin: "10px 0",
       }}
     >
-      <div>
+      <ol>
         {item.map((theitem: string, index: number) => {
           return (
-            <div key={index}>
+            <li key={index}>
               {theitem}
               <br />
-            </div>
+            </li>
           );
         })}{" "}
-      </div>
+      </ol>
     </div>
   );
 }

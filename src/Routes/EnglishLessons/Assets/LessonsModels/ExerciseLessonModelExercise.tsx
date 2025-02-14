@@ -21,16 +21,15 @@ export default function ExerciseLessonModelLesson({
         margin: "10px 0",
       }}
     >
-      <div>
+      <ol>
         {item.map((theitem: string, index: number) => {
           return (
-            <div style={{ fontSize: "1.5rem" }} key={index}>
+            <li style={{ fontSize: "1.5rem" }} key={index}>
               {theitem}
-              <HTMLJustWrite onChange={handleHWDescriptionChange} />
-            </div>
+            </li>
           );
         })}{" "}
-      </div>
+      </ol>
     </div>
   );
 }
