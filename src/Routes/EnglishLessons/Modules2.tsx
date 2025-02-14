@@ -205,7 +205,7 @@ export default function Modules({
                 <HThreeModule onClick={() => toggleModuleVisibility(index)}>
                   {index + 1} |{" "}
                   {module.moduleTitle ? module.moduleTitle : `Module #${index}`}{" "}
-                  - {module.classes.length} classes
+                  - {module.classes.length} Lessons
                 </HThreeModule>
                 {visibleModules[index] && (
                   <div
