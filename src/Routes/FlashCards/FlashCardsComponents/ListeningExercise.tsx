@@ -146,7 +146,7 @@ const ListeningExercise = ({
     readText(
       cards[0]?.front?.text.replace(/\s+/g, " "), // Substitui múltiplos espaços por um espaço
       false,
-      "en"
+      cards[0]?.front?.language
     );
     const cardText = normalizeText(
       cleanString(
