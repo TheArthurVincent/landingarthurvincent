@@ -263,19 +263,19 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       onClick={() => {
                         setBackCardVisible(!backCardVisible);
                         setAnswer(!answer);
-                        {
-                          cards.length > 0 && cards[0].back.language == "en"
-                            ? readText(
-                                backCardVisible
-                                  ? cards[0].back.text
-                                  : cards[0].front.text,
-                                true,
-                                backCardVisible
-                                  ? cards[0].back.language
-                                  : cards[0].front.language
-                              )
-                            : null;
-                        }
+                        // {
+                        //   cards.length > 0 && cards[0].back.language == "en"
+                        //     ? readText(
+                        //         backCardVisible
+                        //           ? cards[0].back.text
+                        //           : cards[0].front.text,
+                        //         true,
+                        //         backCardVisible
+                        //           ? cards[0].back.language
+                        //           : cards[0].front.language
+                        //       )
+                        //     : null;
+                        // }
                       }}
                     >
                       {isDisabled ? (
