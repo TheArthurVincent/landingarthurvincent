@@ -210,7 +210,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         response.data.dueFlashcards.length > 0 &&
         response.data.dueFlashcards[0].front.language &&
         response.data.dueFlashcards[0].front &&
-        response.data.dueFlashcards[0].front.language == "en"
+        response.data.dueFlashcards[0].front.language !== "pt"
           ? readText(
               response.data.dueFlashcards[0].front?.text,
               false,
