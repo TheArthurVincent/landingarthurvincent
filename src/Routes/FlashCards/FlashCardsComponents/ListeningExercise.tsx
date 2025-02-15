@@ -146,7 +146,7 @@ const ListeningExercise = ({
     readText(
       cards[0]?.front?.text.replace(/\s+/g, " "), // Substitui múltiplos espaços por um espaço
       false,
-      "en"
+      cards[0]?.front?.language
     );
     const cardText = normalizeText(
       cleanString(
@@ -278,7 +278,7 @@ const ListeningExercise = ({
   // @ts-ignore
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-  recognition.lang = myId !== "671b99e97acd42b04d2f7507" ? "en-US" : "fr-FR";
+  recognition.lang = cards[0]?.front?.language == "en" ? "en-US" : "fr-FR";
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
@@ -453,7 +453,9 @@ const ListeningExercise = ({
                               cards[0]?.front?.text.replace(/\s+/g, " ")
                             );
                             readText(
-                              cards[0]?.front?.text.replace(/\s+/g, " "),
+                              cards[0]?.front?.language == "en"
+                                ? cards[0]?.front?.text.replace(/\s+/g, " ")
+                                : cards[0]?.front?.text,
                               false,
                               cards[0]?.front?.language
                             );
