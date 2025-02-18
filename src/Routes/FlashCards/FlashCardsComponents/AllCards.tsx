@@ -190,7 +190,7 @@ const minusComp = async (cardId: string) => {
           maxWidth: "40rem",
         }}
       >
-        <>
+        {/* <>
           {" "}
           <select
             id="category-select"
@@ -256,7 +256,7 @@ const minusComp = async (cardId: string) => {
             <option value="professions">Profissões</option>
             <option value="weather">Clima</option>
           </select>
-        </>
+        </> */}
 
         <div
           style={{
