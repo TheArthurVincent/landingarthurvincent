@@ -19,8 +19,6 @@ import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import AppFooter from "../Application/Footer/Footer";
 import EnglishCourses from "./EnglishLessons/Courses2";
-import { TopBarVertical } from "../Application/TopBar/TopBarVertical";
-import { useUserContext } from "../Application/SelectLanguage/SelectLanguage";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -28,14 +26,12 @@ export function HomePage({ headers }: HeadersProps) {
   const [_StudentId, setStudentId] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
   const [change, setChange] = useState<boolean>(true);
-  const [theGoogleDriveLink, setGoogleDriveLink] = useState<string>("");
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions, picture, id, googleDriveLink } = JSON.parse(user);
+      const { permissions, picture, id  } = JSON.parse(user);
       setPermissions(permissions);
-      setGoogleDriveLink(googleDriveLink);
       setStudentId(id || _StudentId);
       setPicture(picture);
       setAdmin(permissions === "superadmin" ? true : false);
@@ -51,8 +47,6 @@ export function HomePage({ headers }: HeadersProps) {
       setSee(true);
     }, 700);
   }, []);
-
-  const { handleLanguageChange, UniversalTexts } = useUserContext();
 
   const appRoutes = [
     {

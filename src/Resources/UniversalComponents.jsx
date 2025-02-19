@@ -777,14 +777,6 @@ export function isDev() {
   }
 }
 
-// export function isDev() {
-//   if (window.location.hostname === "localhost") {
-//     return "http://localhost:3502";
-//   } else {
-//     return "https://arvin-backstagin.9kwq6c.easypanel.host";
-//   }
-// }
-
 export const backDomain = isDev();
 export const updateInfo = async (id, headers) => {
   try {
