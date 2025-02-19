@@ -339,21 +339,19 @@ export default function EnglishClassCourse2({
               </span>
             )}
           </div>
-          {thePermissions === "superadmin" && (
-            <label>
-              <input
-                type="checkbox"
-                checked={isCompleted}
-                onChange={handleToggle}
-                disabled={loading}
-              />
-              {loading
-                ? "  Atualizando..."
-                : isCompleted
-                ? "  Completed"
-                : "  Not Completed"}
-            </label>
-          )}
+          <label>
+            <input
+              type="checkbox"
+              checked={isCompleted}
+              onChange={handleToggle}
+              disabled={loading}
+            />
+            {loading
+              ? "  Atualizando..."
+              : isCompleted
+              ? "  Completed"
+              : "  Not Completed"}
+          </label>
           {thePermissions === "superadmin" && (
             <div
               className="box-shadow-white"
@@ -403,7 +401,6 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
-
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
