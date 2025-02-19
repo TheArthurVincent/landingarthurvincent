@@ -764,12 +764,16 @@ export const ButtonButton = (text) => {
 
 export function isDev() {
   if (window.location.hostname === "localhost") {
+    console.log("Pegou o back local");
     return "http://localhost:3502";
   } else if (
     window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
   ) {
+    console.log("Pegou o back prod");
     return "https://arvin-backprod.9kwq6c.easypanel.host";
   } else {
+    console.log("Pegou o back staging");
+
     return "https://arvin-backstagin.9kwq6c.easypanel.host";
   }
 }
