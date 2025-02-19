@@ -50,6 +50,11 @@ export function MyProfile({ headers }: HeadersProps) {
     }
   };
 
+  
+
+
+
+
   useEffect(() => {
     setLoading(true);
     try {
@@ -71,12 +76,8 @@ export function MyProfile({ headers }: HeadersProps) {
     { title: UniversalTexts.email, data: user.email },
     { title: UniversalTexts.username, data: user.username },
     { title: UniversalTexts.dateOfBirth, data: formatDateBr(user.dateOfBirth) },
-    {
-      title: UniversalTexts.googleDriveLink,
-      data: user.googleDriveLink,
-      link: user.googleDriveLink,
-    },
   ];
+
 
   return (
     <>
@@ -88,7 +89,7 @@ export function MyProfile({ headers }: HeadersProps) {
           ) : (
             <>
               <div>
-                <ul
+                <div
                   style={{
                     display: "grid",
                     gap: "10px",
@@ -100,7 +101,11 @@ export function MyProfile({ headers }: HeadersProps) {
                   className="box-shadow-white"
                 >
                   <ArvinButton
-                    onClick={() => updateInfo(user.id, headers)}
+                    onClick={() => {
+                      alert("Atualizando Perfil");
+                      updateInfo(user.id, headers);
+                      window.location.reload();
+                    }}
                     color="navy"
                     style={{
                       backgroundColor: "#1a73e8",
@@ -133,7 +138,7 @@ export function MyProfile({ headers }: HeadersProps) {
                       src={user.picture}
                       alt="Profile"
                     />
-                    <div>
+                    <ul>
                       {myProfileList.map((item, index) => (
                         <li
                           key={index}
@@ -148,25 +153,39 @@ export function MyProfile({ headers }: HeadersProps) {
                           <SpanDisapear>
                             <b>{item.title}: </b>
                           </SpanDisapear>
-                          {item.link ? (
-                            <NavLink
-                              to={item.link}
-                              style={{
-                                color: "#1a73e8",
-                                textDecoration: "underline",
-                              }}
-                              target="_blank"
-                            >
-                              Google Drive Folder
-                            </NavLink>
-                          ) : (
-                            <span>{item.data}</span>
-                          )}
+
+                          <span>{item.data}</span>
                         </li>
                       ))}
-                    </div>
+                      <li
+                        style={{
+                          listStyle: "none",
+                          padding: "0.5rem 0",
+                          fontSize: "1rem",
+                          lineHeight: "1.5",
+                          color: "#333",
+                        }}
+                      >
+                        Tutoree/Aluno Particular? {user.tutoree ? "Yes" : "No"}
+                      </li>
+                      {user.tutoree && (
+                        <li
+                          style={{
+                            listStyle: "none",
+                            padding: "0.5rem 0",
+                            fontSize: "1rem",
+                            lineHeight: "1.5",
+                            color: "#333",
+                          }}
+                        >
+                          <NavLink to={user.googleDriveLink} target="blank">
+                            {UniversalTexts.googleDriveLink}
+                          </NavLink>
+                        </li>
+                      )}
+                    </ul>
                   </div>
-                </ul>
+                </div>
               </div>
               <div
                 style={{
@@ -228,9 +247,7 @@ export function MyProfile({ headers }: HeadersProps) {
           )}
         </RouteDiv>
       ) : (
-        <RouteDiv>
-          Nenhum usuário logado
-        </RouteDiv>
+        <RouteDiv>Nenhum usuário logado</RouteDiv>
       )}
     </>
   );

@@ -7,6 +7,7 @@ export interface User {
     dateOfBirth: string;
     email: string;
     username: string;
+    tutoree: boolean;
     googleDriveLink: string;
     monthlyScore: number;
     totalScore: number;
