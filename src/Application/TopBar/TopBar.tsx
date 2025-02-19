@@ -41,15 +41,15 @@ export const TopBar: FC = () => {
   ];
   const toTutoree: LinkItem[] = [
     {
-      title: UniversalTexts.myClasses,
-      endpoint: "/my-classes",
-      icon: "user",
-      display: "block",
-    },
-    {
       title: UniversalTexts.homework,
       endpoint: "/homework",
       icon: "book",
+      display: "block",
+    },
+    {
+      title: UniversalTexts.myClasses,
+      endpoint: "/my-classes",
+      icon: "user",
       display: "block",
     },
   ];

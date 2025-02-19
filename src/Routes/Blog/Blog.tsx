@@ -229,48 +229,15 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         <DivFlex>
           <div className="grid-flex-2">
             <DivMarginBorder>
-              <HOne
-                style={{
-                  cursor: "pointer",
-                }}
-                onClick={() => toggleVisibility("1")}
-              >
-                {UniversalTexts.nextHomeworkAssignment}
-              </HOne>
-              {visible["1"] && (
-                <div>
-                  <div>
-                    <div>
-                      <i
-                        style={{
-                          display: "inline",
-                          color:
-                            nextTutoring?.status == "done" ? "green" : "orange",
-                        }}
-                        className={`fa fa-${nextTutoring?.status == "done"
-                            ? "check-circle"
-                            : "ellipsis-h"
-                          }`}
-                        aria-hidden="true"
-                      />{" "}
-                      {nextTutoring?.status}
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          padding: "1rem",
-                        }}
-                        dangerouslySetInnerHTML={{
-                          __html: nextTutoring?.description,
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <Link target="_blank" to={nextTutoring?.googleDriveLink}>
-                    Access the class here
-                  </Link>
-                </div>
-              )}
+              <HOne>{UniversalTexts.continueToStudy}</HOne>
+              <div className="lesson-container">
+                <a
+                  href="/english-courses/english-grammar/667ac3574b4d6245dc8f383c"
+                  className="lesson-link"
+                >
+                  English Grammar - First Steps
+                </a>
+              </div>
             </DivMarginBorder>
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
@@ -286,101 +253,89 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
           </div>
           <div className="grid-flex-2">
             <DivMarginBorder>
-              <HOne
-                style={{
-                  cursor: "pointer",
-                }}
-                onClick={() => toggleVisibility("3")}
-              >
-                {UniversalTexts.continueToStudy}
-              </HOne>
-              {visible["3"] &&
-                <div>
-<NavLink to="/english-courses/english-grammar/667ac3574b4d6245dc8f383c">po</NavLink>
-                </div>
-
-              }
+              <HOne>Flashcards</HOne>
+              <div className="lesson-container">
+                <a href="/flash-cards" className="lesson-link">
+                  {UniversalTexts.continueToReview}
+                </a>
+              </div>
             </DivMarginBorder>
             <DivMarginBorder>
-              <HOne>
-                Flashcards
+              <HOne onClick={() => toggleVisibility("4")}>
+                {UniversalTexts.mural}
               </HOne>
-            </DivMarginBorder>
-          </div>
-          <DivMarginBorder>
-            <HOne onClick={() => toggleVisibility("4")}>
-              {UniversalTexts.mural}
-            </HOne>
-            <div>
-              {posts.map((post: any, index: number) => (
-                <div
-                  key={index}
-                  style={{
-                    maxWidth: "100%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "10px",
-                    textDecoration: "none",
-                  }}
-                >
-                  {post.title && (
-                    <BlogPostTitle>
-                      <span
+              <div>
+                {posts.map((post: any, index: number) => (
+                  <div
+                    key={index}
+                    style={{
+                      maxWidth: "100%",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "10px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {post.title && (
+                      <BlogPostTitle>
+                        <span
+                          style={{
+                            maxWidth: "100%",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          {!loading && (
+                            <button
+                              style={{
+                                cursor: "pointer",
+                                display:
+                                  permissions == "superadmin" ? "grid" : "none",
+                              }}
+                              onClick={() => seeEdition(post._id)}
+                            >
+                              <i className="fa fa-edit" aria-hidden="true" />
+                            </button>
+                          )}
+                          <HTwo> {post.title}</HTwo>
+                        </span>
+                        {post.createdAt && (
+                          <span>{formatDate(post.createdAt)}</span>
+                        )}
+                      </BlogPostTitle>
+                    )}
+                    {post.videoUrl ? (
+                      <div
                         style={{
-                          maxWidth: "100%",
-                          display: "flex",
-                          alignItems: "center",
+                          margin: "auto",
                         }}
                       >
-                        {!loading && (
-                          <button
-                            style={{
-                              cursor: "pointer",
-                              display:
-                                permissions == "superadmin" ? "grid" : "none",
-                            }}
-                            onClick={() => seeEdition(post._id)}
-                          >
-                            <i className="fa fa-edit" aria-hidden="true" />
-                          </button>
-                        )}
-                        <HTwo> {post.title}</HTwo>
-                      </span>
-                      {post.createdAt && (
-                        <span>{formatDate(post.createdAt)}</span>
-                      )}
-                    </BlogPostTitle>
-                  )}
-                  {post.videoUrl ? (
+                        <IFrameVideoPannel
+                          src={getVideoEmbedUrl(post.videoUrl)}
+                        />
+                      </div>
+                    ) : post.img ? (
+                      <ImgBlog src={post.img} alt="logo" />
+                    ) : null}
                     <div
                       style={{
-                        margin: "auto",
+                        margin: "1rem",
+                        fontSize: "1.1rem",
+                        display: "block",
+                        padding: "1rem 0",
                       }}
+                      className="limited-text"
                     >
-                      <IFrameVideoPannel
-                        src={getVideoEmbedUrl(post.videoUrl)}
-                      />
+                      <div dangerouslySetInnerHTML={{ __html: post.text }} />
                     </div>
-                  ) : post.img ? (
-                    <ImgBlog src={post.img} alt="logo" />
-                  ) : null}
-                  <div
-                    style={{
-                      margin: "1rem",
-                      fontSize: "1.1rem",
-                      display: "block",
-                      padding: "1rem 0",
-                    }}
-                    className="limited-text"
-                  >
-                    <div dangerouslySetInnerHTML={{ __html: post.text }} />
                   </div>
-                </div>
-              ))}
-            </div>
-          </DivMarginBorder>
+                ))}
+              </div>
+            </DivMarginBorder>
+          </div>
         </DivFlex>
       </RouteDiv>
+
       <DivModal
         className="modal"
         style={{
