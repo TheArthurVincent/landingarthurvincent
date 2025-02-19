@@ -26,11 +26,11 @@ function App() {
 
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
-      document.body.style.backgroundColor = "#266";
+      document.body.style.backgroundColor = "#000";
     } else if (
       window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
     ) {
-      document.body.style.backgroundColor = "yellow";
+      document.body.style.backgroundColor = "orange";
     }
   };
   useEffect(() => {
