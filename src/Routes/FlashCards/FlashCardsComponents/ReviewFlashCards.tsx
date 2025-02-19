@@ -187,7 +187,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       seeCardsToReview();
       timerDisabled();
     } catch (error) {
-      alert("Erro ao enviar cards");
+      onLoggOut();
     }
   };
 
@@ -263,19 +263,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       onClick={() => {
                         setBackCardVisible(!backCardVisible);
                         setAnswer(!answer);
-                        // {
-                        //   cards.length > 0 && cards[0].back.language == "en"
-                        //     ? readText(
-                        //         backCardVisible
-                        //           ? cards[0].back.text
-                        //           : cards[0].front.text,
-                        //         true,
-                        //         backCardVisible
-                        //           ? cards[0].back.language
-                        //           : cards[0].front.language
-                        //       )
-                        //     : null;
-                        // }
                       }}
                     >
                       {isDisabled ? (

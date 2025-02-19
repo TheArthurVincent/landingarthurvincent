@@ -794,8 +794,14 @@ export const updateInfo = async (id, headers) => {
 };
 
 export const onLoggOut = () => {
-  localStorage.removeItem("authorization");
-  localStorage.removeItem("loggedIn");
+  const user = localStorage.getItem("loggedIn");
+  const auth = localStorage.getItem("authorization");
+  if (user) {
+    localStorage.removeItem("loggedIn");
+  }
+  if (auth) {
+    localStorage.removeItem("authorization");
+  }
   alert("Faça login novamente");
   window.location.assign("/login");
 };

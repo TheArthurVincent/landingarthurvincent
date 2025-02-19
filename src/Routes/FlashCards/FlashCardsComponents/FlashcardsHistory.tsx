@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { backDomain } from "../../../Resources/UniversalComponents";
+import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 import { CircularProgress } from "@mui/material";
 import { HOne } from "../../../Resources/Components/RouteBox";
@@ -87,6 +87,7 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
       console.log("Erro ao obter cards", error);
       setFlashcardHistory([]);
       setLoading(false);
+      onLoggOut();
     }
   };
 

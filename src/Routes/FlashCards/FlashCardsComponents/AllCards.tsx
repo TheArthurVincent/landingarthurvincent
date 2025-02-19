@@ -3,6 +3,7 @@ import axios from "axios";
 import {
   backDomain,
   formatDateBr,
+  onLoggOut,
   Xp,
 } from "../../../Resources/UniversalComponents";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
@@ -64,6 +65,7 @@ const AllCards = ({ headers }: HeadersProps) => {
     } catch (error) {
       console.log("Erro ao obter cards");
       setLoading(false);
+      onLoggOut();
     }
   };
   const [category, setCategory] = useState("");
@@ -77,7 +79,7 @@ const AllCards = ({ headers }: HeadersProps) => {
       setStudentsList(response.data.listOfStudents);
       setLoadingStudents(false);
     } catch (error) {
-      alert("Erro ao encontrar alunos");
+      onLoggOut();
     }
   };
 
@@ -108,6 +110,7 @@ const AllCards = ({ headers }: HeadersProps) => {
       setCardIdToEdit(newIDcard);
     } catch (error) {
       console.log(error, "Erro ao obter cards");
+      onLoggOut();
     }
   };
   const handleEditCard = async (cardId: string) => {
@@ -131,6 +134,7 @@ const AllCards = ({ headers }: HeadersProps) => {
       setShowModal(false);
     } catch (error) {
       console.log(error, "Erro ao obter cards");
+      onLoggOut();
     }
   };
 
@@ -147,6 +151,7 @@ const AllCards = ({ headers }: HeadersProps) => {
       setShowModal(false);
     } catch (error) {
       console.log(error, "Erro ao apagar cards");
+      onLoggOut();
     }
   };
 
@@ -155,30 +160,31 @@ const AllCards = ({ headers }: HeadersProps) => {
   };
   const plusComp = async (cardId: string) => {
     try {
-        const response = await axios.put(
-            `${backDomain}/api/v1/plusflashcard/${studentID}`,
-            { cardId },  // Enviar cardId no corpo
-            { headers: actualHeaders }
-        );
-        getNewCards(studentID);
+      const response = await axios.put(
+        `${backDomain}/api/v1/plusflashcard/${studentID}`,
+        { cardId }, // Enviar cardId no corpo
+        { headers: actualHeaders }
+      );
+      getNewCards(studentID);
     } catch (error) {
-        console.log(error, "Erro ao atualizar a complexidade");
+      console.log(error, "Erro ao atualizar a complexidade");
+      onLoggOut();
     }
-};
+  };
 
-const minusComp = async (cardId: string) => {
+  const minusComp = async (cardId: string) => {
     try {
-        const response = await axios.put(
-            `${backDomain}/api/v1/minusflashcard/${studentID}`,
-            { cardId },  // Enviar cardId no corpo
-            { headers: actualHeaders }
-        );
-        getNewCards(studentID);
+      const response = await axios.put(
+        `${backDomain}/api/v1/minusflashcard/${studentID}`,
+        { cardId }, // Enviar cardId no corpo
+        { headers: actualHeaders }
+      );
+      getNewCards(studentID);
     } catch (error) {
-        console.log(error, "Erro ao atualizar a complexidade");
+      console.log(error, "Erro ao atualizar a complexidade");
+      onLoggOut();
     }
-};
-
+  };
 
   ///////////////////////
 
@@ -190,74 +196,6 @@ const minusComp = async (cardId: string) => {
           maxWidth: "40rem",
         }}
       >
-        {/* <>
-          {" "}
-          <select
-            id="category-select"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-
-              let filteredCards;
-
-              if (e.target.value === "pten") {
-                filteredCards = fCards.filter(
-                  (c: any) => c.front.language == "pt"
-                );
-              } else if (e.target.value !== "nofilter") {
-                filteredCards = fCards.filter((c: any) =>
-                  c.tags.includes(e.target.value)
-                );
-              }
-
-              if (e.target.value === "nofilter") {
-                getNewCards(studentID);
-              } else {
-                //@ts-ignore
-                setCards(filteredCards);
-              }
-            }}
-          >
-            <option value="nofilter">Ver todos os cards</option>
-            <option value="vocabulary">Vocabulário</option>
-            <option value="pten">Português - Inglês</option>
-            <option value="modal">Modal verbs</option>
-            <option value="possessive">Possessivos</option>
-            <option value="question">Question words</option>
-            <option value="irregularpast">Irregular Past</option>
-            <option value="did">Did & Didn't</option>
-            <option value="do">Do & Does</option>
-            <option value="dont">Don't & Doesn't</option>
-            <option value="presentperfect">Present Perfect</option>
-            <option value="pastperfect">Past Perfect</option>
-            <option value="be">To be</option>
-            <option value="travel">Viagem</option>
-            <option value="bodyparts">Partes do corpo</option>
-            <option value="businessenglish">Inglês para negócios</option>
-            <option value="family">Família</option>
-            <option value="animals">Animais</option>
-            <option value="fruits">Frutas</option>
-            <option value="food">Comida</option>
-            <option value="colors">Cores</option>
-            <option value="house">Casa</option>
-            <option value="supermarket">Supermercado</option>
-            <option value="weather">Clima</option>
-            <option value="clothes">Roupas</option>
-            <option value="time">Horários</option>
-            <option value="daysanddates">Dias e Datas</option>
-            <option value="car">Carro</option>
-            <option value="road">Estrada</option>
-            <option value="personality">Personalidade</option>
-            <option value="nature">Natureza</option>
-            <option value="numbers">Números</option>
-            <option value="transportation">Transporte</option>
-            <option value="office">Escritório</option>
-            <option value="diseases">Doenças</option>
-            <option value="professions">Profissões</option>
-            <option value="weather">Clima</option>
-          </select>
-        </> */}
-
         <div
           style={{
             display: "flex",
