@@ -1,9 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import RankingExplanation from "../Ranking/RankingComponents/RankingExplanation";
 import { HTwo } from "../../Resources/Components/RouteBox";
-import { HThree } from "../MyClasses/MyClasses.Styled";
-import Manual from "../Adm/AdmComponents/Manual/Manual";
 
 export const contentFaq = [
   {
