@@ -19,7 +19,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import { alwaysWhite, secondaryColor } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   DivModal,
   IFrameVideoPannel,
@@ -48,7 +48,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
   const [newImg, setNewImg] = useState<string>("");
   const [newUrlVideo, setNewUrlVideo] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [googleDriveLink, setGoogleDriveLink] = useState<string>("");
   const [permissions, setPermissions] = useState<string>("");
   // Booleans
   const [seeConfirmDelete, setSeeConfirmDelete] = useState<boolean>(false);
@@ -93,7 +92,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
-    setGoogleDriveLink(getLoggedUser.googleDriveLink);
     fetchClasses(getLoggedUser.id);
   }, []);
 
@@ -249,11 +247,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                           color:
                             nextTutoring?.status == "done" ? "green" : "orange",
                         }}
-                        className={`fa fa-${
-                          nextTutoring?.status == "done"
+                        className={`fa fa-${nextTutoring?.status == "done"
                             ? "check-circle"
                             : "ellipsis-h"
-                        }`}
+                          }`}
                         aria-hidden="true"
                       />{" "}
                       {nextTutoring?.status}
@@ -295,133 +292,93 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                 }}
                 onClick={() => toggleVisibility("3")}
               >
-                {UniversalTexts.monthlyChallenge}
+                {UniversalTexts.continueToStudy}
               </HOne>
-              {visible["3"] && (
-                <div
-                  style={{
-                    backgroundColor: "#f9f9f9",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  {/* <h3 style={{ marginBottom: "1rem", color: "#333" }}>
-                    {UniversalTexts.accessVideo}{" "}
-                    <a
-                      target="_blank"
-                      href="https://www.youtube.com/watch?v=P6FORpg0KVo"
-                      style={{
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {UniversalTexts.theFollowingVideo}
-                    </a>
-                  </h3> */}
-                  <ul style={{ marginTop: "1rem", paddingLeft: "1.5rem" }}>
-                    <li
-                      style={{
-                        border: "1px #ddd solid",
-                        margin: "5px",
-                        borderRadius: "10px",
-                        padding: "10px",
-                      }}
-                    >
-                      {UniversalTexts.by} <strong>02-28-2025</strong>,{" "}
-                      {UniversalTexts.recordAudio}
-                      <Countdown
-                        targetDate={new Date("2025-02-28T18:00:00")}
-                        text={UniversalTexts.endOfMonthlyChallenge}
-                      />
-                    </li>
-                 
-                  </ul>
-                  <p
-                    style={{
-                      textAlign: "center",
-                      padding: "1rem",
-                      margin: "1rem",
-                      borderRadius: "1rem",
-                      backgroundColor: "yellow",
-                    }}
-                  >
-                    {UniversalTexts.prize}
-                  </p>
+              {visible["3"] &&
+                <div>
+<NavLink to="/english-courses/english-grammar/667ac3574b4d6245dc8f383c">po</NavLink>
                 </div>
-              )}
+
+              }
             </DivMarginBorder>
             <DivMarginBorder>
-              <HOne onClick={() => toggleVisibility("4")}>
-                {UniversalTexts.mural}
+              <HOne>
+                Flashcards
               </HOne>
-              <div>
-                {posts.map((post: any, index: number) => (
-                  <div
-                    key={index}
-                    style={{
-                      maxWidth: "100%",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "10px",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {post.title && (
-                      <BlogPostTitle>
-                        <span
-                          style={{
-                            maxWidth: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          {!loading && (
-                            <button
-                              style={{
-                                cursor: "pointer",
-                                display:
-                                  permissions == "superadmin" ? "grid" : "none",
-                              }}
-                              onClick={() => seeEdition(post._id)}
-                            >
-                              <i className="fa fa-edit" aria-hidden="true" />
-                            </button>
-                          )}
-                          <HTwo> {post.title}</HTwo>
-                        </span>
-                        {post.createdAt && (
-                          <span>{formatDate(post.createdAt)}</span>
-                        )}
-                      </BlogPostTitle>
-                    )}
-                    {post.videoUrl ? (
-                      <div
-                        style={{
-                          margin: "auto",
-                        }}
-                      >
-                        <IFrameVideoPannel
-                          src={getVideoEmbedUrl(post.videoUrl)}
-                        />
-                      </div>
-                    ) : post.img ? (
-                      <ImgBlog src={post.img} alt="logo" />
-                    ) : null}
-                    <div
-                      style={{
-                        margin: "1rem",
-                        fontSize: "1.1rem",
-                        display: "block",
-                        padding: "1rem 0",
-                      }}
-                      className="limited-text"
-                    >
-                      <div dangerouslySetInnerHTML={{ __html: post.text }} />
-                    </div>
-                  </div>
-                ))}
-              </div>
             </DivMarginBorder>
           </div>
+          <DivMarginBorder>
+            <HOne onClick={() => toggleVisibility("4")}>
+              {UniversalTexts.mural}
+            </HOne>
+            <div>
+              {posts.map((post: any, index: number) => (
+                <div
+                  key={index}
+                  style={{
+                    maxWidth: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "10px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {post.title && (
+                    <BlogPostTitle>
+                      <span
+                        style={{
+                          maxWidth: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        {!loading && (
+                          <button
+                            style={{
+                              cursor: "pointer",
+                              display:
+                                permissions == "superadmin" ? "grid" : "none",
+                            }}
+                            onClick={() => seeEdition(post._id)}
+                          >
+                            <i className="fa fa-edit" aria-hidden="true" />
+                          </button>
+                        )}
+                        <HTwo> {post.title}</HTwo>
+                      </span>
+                      {post.createdAt && (
+                        <span>{formatDate(post.createdAt)}</span>
+                      )}
+                    </BlogPostTitle>
+                  )}
+                  {post.videoUrl ? (
+                    <div
+                      style={{
+                        margin: "auto",
+                      }}
+                    >
+                      <IFrameVideoPannel
+                        src={getVideoEmbedUrl(post.videoUrl)}
+                      />
+                    </div>
+                  ) : post.img ? (
+                    <ImgBlog src={post.img} alt="logo" />
+                  ) : null}
+                  <div
+                    style={{
+                      margin: "1rem",
+                      fontSize: "1.1rem",
+                      display: "block",
+                      padding: "1rem 0",
+                    }}
+                    className="limited-text"
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: post.text }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </DivMarginBorder>
         </DivFlex>
       </RouteDiv>
       <DivModal
