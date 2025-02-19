@@ -769,12 +769,11 @@ export function isDev() {
   } else if (
     window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
   ) {
+    console.log("Pegou o back staging");
+    return "https://arvin-backstagin.9kwq6c.easypanel.host";
+  } else {
     console.log("Pegou o back prod");
     return "https://arvin-backprod.9kwq6c.easypanel.host";
-  } else {
-    console.log("Pegou o back staging");
-
-    return "https://arvin-backstagin.9kwq6c.easypanel.host";
   }
 }
 
