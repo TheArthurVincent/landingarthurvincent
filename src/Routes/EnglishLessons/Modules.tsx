@@ -15,7 +15,7 @@ import axios from "axios";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 import { HThreeModule } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "./EnglishCourses.Styled";
-import EnglishClassCourse2 from "./Class2";
+import EnglishClassCourse2 from "./Class";
 import { truncateTitle } from "./CoursesSideBar/CoursesSideBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 

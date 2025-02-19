@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
-import Modules from "./Modules2";
+import Modules from "./Modules";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 interface EnglishCoursesHomeProps {
