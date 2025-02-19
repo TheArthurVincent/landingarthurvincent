@@ -15,82 +15,9 @@ import {
 } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { primaryColor, secondaryColor } from "../../Styles/Styles";
-import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
+import { LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
-
-const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const isAnyLinkActive = list.some((link) =>
-    location.pathname.includes(link.endpoint)
-  );
-
-  return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{ position: "relative", display: "inline-block" }}
-    >
-      <div style={{ cursor: "pointer" }}>
-        <SpanHover
-          style={{
-            textDecoration: "none",
-            color: isAnyLinkActive ? secondaryColor() : primaryColor(),
-          }}
-        >
-          {title}
-        </SpanHover>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "100%",
-          left: 0,
-          backgroundColor: "#fff",
-
-          padding: "8px",
-          display: isHovered ? "grid" : "none",
-          textAlign: "left",
-          zIndex: 50000000000,
-          minWidth: "fit-content",
-        }}
-      >
-        {list.map((link, index) => (
-          <NavLink
-            key={index}
-            style={{
-              color: location.pathname.includes(link.endpoint)
-                ? primaryColor()
-                : primaryColor(),
-              cursor: location.pathname.includes(link.endpoint)
-                ? "default"
-                : "pointer",
-              display: link.display,
-              textDecoration: "none",
-              paddingBottom: "5px",
-              borderBottom: location.pathname.includes(link.endpoint)
-                ? `solid 1px ${primaryColor()}`
-                : "none",
-            }}
-            to={link.endpoint}
-          >
-            <SpanHover style={{ textDecoration: "none", whiteSpace: "nowrap" }}>
-              {link.title}
-            </SpanHover>
-          </NavLink>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
@@ -158,12 +85,12 @@ export const TopBar: FC = () => {
       display: "block",
       icon: "user-o",
     },
-    //, {
-    //   title: UniversalTexts.faq,
-    //   endpoint: "/faq",
-    //   icon: "question",
-    //   display: "block",
-    // },
+    {
+      title: UniversalTexts.faq,
+      endpoint: "/faq",
+      icon: "question",
+      display: "block",
+    },
   ];
 
   const handleVisible = () => {
