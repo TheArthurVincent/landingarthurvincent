@@ -48,6 +48,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
   const [newImg, setNewImg] = useState<string>("");
   const [newUrlVideo, setNewUrlVideo] = useState<string>("");
   const [name, setName] = useState<string>("");
+  const [classId, setClassId] = useState<string>("");
   const [permissions, setPermissions] = useState<string>("");
   // Booleans
   const [seeConfirmDelete, setSeeConfirmDelete] = useState<boolean>(false);
@@ -81,6 +82,36 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       console.log(error, "erro ao listar homework");
     }
   };
+
+  var [loadingLC, setLoadingLC] = useState<Boolean>(true);
+  var [course, setCourse] = useState<Boolean>(true);
+  var [module, setModule] = useState<Boolean>(true);
+  var [lesson, setLesson] = useState<Boolean>(true);
+  const fetchLastClassId = async (classid: string) => {
+    setLoadingLC(true);
+
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/lesson/${classid}`,
+        {
+          headers: actualHeaders,
+        }
+      );
+
+      const cour = response.data.course.title;
+      const mod = response.data.module.title;
+      const less = response.data.classDetails.title;
+
+      setCourse(cour);
+      setModule(mod);
+      setLesson(less);
+
+      console.log(response.data);
+      setLoadingLC(false);
+    } catch (error) {
+      console.log(error, "erro ao listar homework");
+    }
+  };
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     if (user) {
@@ -92,7 +123,9 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
+    setClassId(getLoggedUser.lastClassId);
     fetchClasses(getLoggedUser.id);
+    fetchLastClassId(getLoggedUser.lastClassId);
   }, []);
 
   const handleSeeModal = () => {
@@ -232,10 +265,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               <HOne>{UniversalTexts.continueToStudy}</HOne>
               <div className="lesson-container">
                 <a
-                  href="/english-courses/english-grammar/667ac3574b4d6245dc8f383c"
+                  href={`/english-courses/english-grammar/${classId}`}
                   className="lesson-link"
                 >
-                  English Grammar - First Steps
+                  {`${course} - ${module} - ${lesson}`}
                 </a>
               </div>
             </DivMarginBorder>

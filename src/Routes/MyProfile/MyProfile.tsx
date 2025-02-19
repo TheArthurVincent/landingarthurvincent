@@ -50,11 +50,6 @@ export function MyProfile({ headers }: HeadersProps) {
     }
   };
 
-  
-
-
-
-
   useEffect(() => {
     setLoading(true);
     try {
@@ -77,7 +72,6 @@ export function MyProfile({ headers }: HeadersProps) {
     { title: UniversalTexts.username, data: user.username },
     { title: UniversalTexts.dateOfBirth, data: formatDateBr(user.dateOfBirth) },
   ];
-
 
   return (
     <>
