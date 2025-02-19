@@ -341,6 +341,9 @@ export default function EnglishClassCourse2({
           </div>
           <label>
             <input
+              style={{
+                cursor: "pointer",
+              }}
               type="checkbox"
               checked={isCompleted}
               onChange={handleToggle}
@@ -608,21 +611,22 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
-          {thePermissions === "superadmin" && (
-            <label>
-              <input
-                type="checkbox"
-                checked={isCompleted}
-                onChange={handleToggle}
-                disabled={loading}
-              />
-              {loading
-                ? "  Atualizando..."
-                : isCompleted
-                ? "  Completed"
-                : "  Not Completed"}
-            </label>
-          )}
+          <label>
+            <input
+              style={{
+                cursor: "pointer",
+              }}
+              type="checkbox"
+              checked={isCompleted}
+              onChange={handleToggle}
+              disabled={loading}
+            />
+            {loading
+              ? "  Atualizando..."
+              : isCompleted
+              ? "  Completed"
+              : "  Not Completed"}
+          </label>
         </>
       )}
       {/* Teacher */}
