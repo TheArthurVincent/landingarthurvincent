@@ -261,17 +261,21 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <div className="grid-flex-2">
-            <DivMarginBorder>
-              <HOne>{UniversalTexts.continueToStudy}</HOne>
-              <div className="lesson-container">
-                <a
-                  href={`/english-courses/english-grammar/${classId}`}
-                  className="lesson-link"
-                >
-                  {`${course} - ${module} - ${lesson}`}
-                </a>
-              </div>
-            </DivMarginBorder>
+            {loadingLC ? (
+              <CircularProgress />
+            ) : (
+              <DivMarginBorder>
+                <HOne>{UniversalTexts.continueToStudy}</HOne>
+                <div className="lesson-container">
+                  <a
+                    href={`/english-courses/english-grammar/${classId}`}
+                    className="lesson-link"
+                  >
+                    {`${course} - ${module} - ${lesson}`}
+                  </a>
+                </div>
+              </DivMarginBorder>
+            )}
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
                 {UniversalTexts.levelCard}
