@@ -156,6 +156,27 @@ export default function EnglishClassCourse2({
     }
   };
 
+  const handleCurrentClass = async () => {
+    console.log(classId);
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/handlecurrentclass/${studentID}`,
+        { classId },
+        { headers: actualHeaders }
+      );
+
+      console.log("updated", response.data);
+    } catch (error) {
+      console.error("Erro ao atualizar o status:", error);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleCurrentClass();
+    }, 5000);
+  }, [studentID]);
+
   // Função para alternar o estado do switch
   const verifyCheck = async () => {
     if (theclass.studentsWhoCompletedIt.includes(studentID)) {
@@ -354,6 +375,20 @@ export default function EnglishClassCourse2({
               ? "  Completed"
               : "  Not Completed"}
           </label>
+          {thePermissions == "superadmin" && (
+            <div
+              onClick={handleCurrentClass}
+              style={{
+                margin: "5px",
+                padding: "5px",
+                cursor: "pointer",
+                backgroundColor: "#eee",
+                display: "inline",
+              }}
+            >
+              handleCurrentClass
+            </div>
+          )}
           {thePermissions === "superadmin" && (
             <div
               className="box-shadow-white"
