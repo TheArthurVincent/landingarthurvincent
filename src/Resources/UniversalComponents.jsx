@@ -767,7 +767,8 @@ export function isDev() {
     console.log("Pegou o back local");
     return "http://localhost:3502";
   } else if (
-    window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
+    window.location.hostname === "arvin-staging.9kwq6c.easypanel.host" ||
+    window.location.hostname.includes("easypanel")
   ) {
     console.log("Pegou o back staging");
     return "https://arvin-backstagin.9kwq6c.easypanel.host";

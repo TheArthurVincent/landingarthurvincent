@@ -29,7 +29,8 @@ function App() {
     if (window.location.hostname === "localhost") {
       document.body.style.backgroundColor = "#000";
     } else if (
-      window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
+      window.location.hostname === "arvin-staging.9kwq6c.easypanel.host" ||
+      window.location.hostname.includes("easypanel")
     ) {
       document.body.style.backgroundColor = "orange";
     }
