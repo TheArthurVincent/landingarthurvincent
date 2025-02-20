@@ -97,7 +97,6 @@ export default function EnglishClassCourse2({
 
       var clss = response.data.classDetails;
       setClassTitle(response.data.classDetails.title);
-      console.log(response.data.classDetails.studentsWhoCompletedIt, studentID);
       if (response.data.classDetails.studentsWhoCompletedIt.includes(id)) {
         setIsCompleted(true);
       } else {

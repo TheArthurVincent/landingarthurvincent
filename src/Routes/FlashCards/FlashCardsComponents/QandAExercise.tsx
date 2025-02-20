@@ -103,12 +103,9 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           headers: actualHeaders || {},
         }
       );
-      console.log(response.data.correctAnswer);
       readText(`Your answer is ${response.data.message}`, false, "en");
       setAIResponse(response.data.message);
       setAnswerStudent(response.data.answerStudent);
-
-      console.log(response.data);
       setEnableVoice(false);
       setLoading(false);
       onChange(!change);
@@ -182,7 +179,6 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         setTimeout(() => {
                           setPlayingAudio(false);
                         }, 3000);
-                        console.log(question);
                         readText(
                           language === "pt"
                             ? `${question}`

@@ -48,7 +48,6 @@ export default function SentenceLessonModel({
         response.data.addedNewFlashcards +
         ", cards não adicionados:" +
         response.data.invalidNewCards;
-      console.log(showThis, element);
       alert(showThis);
     } catch (error) {
       alert("Erro ao enviar cards");

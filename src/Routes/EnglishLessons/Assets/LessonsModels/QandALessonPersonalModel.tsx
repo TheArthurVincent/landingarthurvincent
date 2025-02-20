@@ -23,9 +23,6 @@ export default function QandALessonPersonalModel({
   mainTag,
   studentId,
 }: QandALessonPersonalModelProps) {
-  useEffect(() => {
-    console.log(item.questions);
-  }, []);
 
   const actualHeaders = headers || {};
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);

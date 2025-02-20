@@ -29,7 +29,6 @@ export const TopBar: FC = () => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     setPermissions(getLoggedUser.permissions);
     setTutoree(getLoggedUser.tutoree);
-    console.log(getLoggedUser.tutoree);
   }, []);
 
   const toAdm: LinkItem[] = [

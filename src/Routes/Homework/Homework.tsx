@@ -139,9 +139,6 @@ export default function Homework({ headers, setChange, change }: HWProps) {
   const pointsLateHW = listOfCriteria[0].score[1].score;
   const pointsMadeGC = listOfCriteria[2].score[0].score;
   const pointsLateGC = listOfCriteria[2].score[1].score;
-  useEffect(() => {
-    console.log(pointsMadeHW, pointsLateHW, pointsMadeGC, pointsLateGC);
-  }, []);
 
   return (
     <RouteDiv>

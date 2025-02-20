@@ -32,8 +32,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
 
       newState[index][type] = !newState[index][type];
 
-      console.log("Toggling:", type, index, newState[index][type]);
-
       return newState;
     });
   };
@@ -44,7 +42,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setID(getLoggedUser.id);
     setIsAdm(getLoggedUser.permissions);
-    console.log(getLoggedUser.id);
     // setLoading(true);
     try {
       const response = await axios.get(

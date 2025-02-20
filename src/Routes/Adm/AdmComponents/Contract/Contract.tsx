@@ -33,7 +33,6 @@ export function Contract({ headers }: HeadersProps) {
           headers: actualHeaders,
         }
       );
-      console.log(response.data.formattedStudentData);
       setName(response.data.formattedStudentData.fullname);
       setFee(response.data.formattedStudentData.fee);
       setWeeklyClasses(response.data.formattedStudentData.weeklyClasses);

@@ -87,7 +87,6 @@ function HTMLEditor({ onChange }) {
     const handleChange = () => {
       const htmlContent =
         editorRef.current.querySelector(".ql-editor").innerHTML;
-      console.log(editor.getText());
       onChange(htmlContent);
     };
 

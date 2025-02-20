@@ -219,7 +219,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           : null;
       }
       setCards(response.data.dueFlashcards);
-      console.log(response.data.dueFlashcards);
       setCardsLength(thereAreCards);
       setBackCardVisible(true);
       timerDisabled();
