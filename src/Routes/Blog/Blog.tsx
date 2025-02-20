@@ -106,7 +106,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       setModule(mod);
       setLesson(less);
 
-      setLoadingLC(false);
     } catch (error) {
       console.log(error, "erro ao listar homework");
     }
@@ -125,6 +124,8 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     setClassId(getLoggedUser.lastClassId);
     fetchClasses(getLoggedUser.id);
     fetchLastClassId(getLoggedUser.lastClassId);
+    setLoadingLC(false);
+
   }, []);
 
   const handleSeeModal = () => {
