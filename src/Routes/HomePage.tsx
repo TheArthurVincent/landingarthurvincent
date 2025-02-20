@@ -30,7 +30,7 @@ export function HomePage({ headers }: HeadersProps) {
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions, picture, id  } = JSON.parse(user);
+      const { permissions, picture, id } = JSON.parse(user);
       setPermissions(permissions);
       setStudentId(id || _StudentId);
       setPicture(picture);
@@ -134,7 +134,6 @@ export function HomePage({ headers }: HeadersProps) {
       }}
     >
       <TopBar />
-      {/* <TopBarVertical theGoogleDriveLink={theGoogleDriveLink} /> */}
       <Routes>
         {appRoutes.map((component, index) => {
           return (

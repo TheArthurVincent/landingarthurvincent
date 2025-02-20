@@ -11,6 +11,7 @@ import { textFont, textTitleFont } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
 import NotFound from "./Routes/NotFound/NotFound";
+import ChangePassword from "./Routes/ChangePassword/ChangePassword";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -77,6 +78,7 @@ function App() {
     { path: "/message", element: verifyToken() ? <MessageDrive /> : <Login /> },
     { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
     { path: "/vhsd524vs64ths98vs8", element: <SignUp /> },
+    { path: "/changepassword", element: <ChangePassword /> },
   ];
 
   return (
