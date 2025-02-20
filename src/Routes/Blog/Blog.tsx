@@ -83,13 +83,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     }
   };
 
-  var [loadingLC, setLoadingLC] = useState<Boolean>(true);
   var [course, setCourse] = useState<Boolean>(true);
   var [module, setModule] = useState<Boolean>(true);
   var [lesson, setLesson] = useState<Boolean>(true);
   const fetchLastClassId = async (classid: string) => {
-    setLoadingLC(true);
-
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/lesson/${classid}`,
@@ -105,10 +102,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       setCourse(cour);
       setModule(mod);
       setLesson(less);
-
-      setTimeout(() => {
-        setLoadingLC(false);
-      }, 200);
     } catch (error) {
       console.log(error, "erro ao listar homework");
     }
@@ -126,9 +119,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     setPermissions(getLoggedUser.permissions);
     setClassId(getLoggedUser.lastClassId);
     fetchClasses(getLoggedUser.id);
-    setTimeout(() => {
-      fetchLastClassId(getLoggedUser.lastClassId);
-    }, 150);
+    fetchLastClassId(getLoggedUser.lastClassId);
   }, []);
 
   const handleSeeModal = () => {
@@ -264,21 +255,17 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <div className="grid-flex-2">
-            {loadingLC ? (
-              <CircularProgress />
-            ) : (
-              <DivMarginBorder>
-                <HOne>{UniversalTexts.continueToStudy}</HOne>
-                <div className="lesson-container">
-                  <a
-                    href={`/english-courses/english-grammar/${classId}`}
-                    className="lesson-link"
-                  >
-                    {`${course} - ${module} - ${lesson}`}
-                  </a>
-                </div>
-              </DivMarginBorder>
-            )}
+            <DivMarginBorder>
+              <HOne>{UniversalTexts.continueToStudy}</HOne>
+              <div className="lesson-container">
+                <a
+                  href={`/english-courses/english-grammar/${classId}`}
+                  className="lesson-link"
+                >
+                  {`${course} - ${module} - ${lesson}`}
+                </a>
+              </div>
+            </DivMarginBorder>
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
                 {UniversalTexts.levelCard}
