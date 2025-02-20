@@ -83,10 +83,13 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     }
   };
 
-  var [course, setCourse] = useState<Boolean>(true);
-  var [module, setModule] = useState<Boolean>(true);
-  var [lesson, setLesson] = useState<Boolean>(true);
+  var [course, setCourse] = useState<String>("");
+  var [module, setModule] = useState<String>("");
+  var [lesson, setLesson] = useState<String>("");
+  var [loadingLESSON, setLoadingLESSON] = useState<Boolean>(true);
   const fetchLastClassId = async (classid: string) => {
+    setLoadingLESSON(true);
+
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/lesson/${classid}`,
@@ -95,13 +98,24 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         }
       );
 
-      const cour = response.data.course.title;
-      const mod = response.data.module.title;
-      const less = response.data.classDetails.title;
-
+      var cour = response.data.course.title;
+      var mod = response.data.module.title;
+      var less = response.data.classDetails.title;
       setCourse(cour);
       setModule(mod);
       setLesson(less);
+
+      console.log(
+        "cour: ",
+        cour,
+        "mod: ",
+        mod,
+        "less: ",
+        less,
+        "classId: ",
+        classId
+      );
+      setLoadingLESSON(false);
     } catch (error) {
       console.log(error, "erro ao listar homework");
     }
@@ -114,12 +128,15 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     }
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
+    console.log(getLoggedUser);
+    setClassId(getLoggedUser.lastClassId);
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
-    setClassId(getLoggedUser.lastClassId);
     fetchClasses(getLoggedUser.id);
-    fetchLastClassId(getLoggedUser.lastClassId);
+    setTimeout(() => {
+      fetchLastClassId(getLoggedUser.lastClassId);
+    }, 1000);
   }, []);
 
   const handleSeeModal = () => {
@@ -188,7 +205,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       fetchData();
     }
   };
-  const targetDate = new Date();
 
   async function fetchData(): Promise<void> {
     setLoading(true);
@@ -256,15 +272,30 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         <DivFlex>
           <div className="grid-flex-2">
             <DivMarginBorder>
-              <HOne>{UniversalTexts.continueToStudy}</HOne>
-              <div className="lesson-container">
-                <a
-                  href={`/english-courses/english-grammar/${classId}`}
-                  className="lesson-link"
-                >
-                  {`${course} - ${module} - ${lesson}`}
-                </a>
-              </div>
+              {loadingLESSON ? (
+                <CircularProgress />
+              ) : (
+                <>
+                  <HOne>{UniversalTexts.continueToStudy}</HOne>
+                  <div className="lesson-container">
+                    <a
+                      href={`/english-courses/english-grammar/${classId}`}
+                      className="lesson-link"
+                    >
+                      <>{`${course} - ${module} - ${lesson}`}</>
+                    </a>
+                    <a
+                      style={{
+                        marginTop: "10px",
+                      }}
+                      href={`/homework`}
+                      className="lesson-link"
+                    >
+                      {UniversalTexts.nextHomeworkAssignment}
+                    </a>
+                  </div>
+                </>
+              )}
             </DivMarginBorder>
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
