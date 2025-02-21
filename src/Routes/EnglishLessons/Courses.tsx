@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  HOne,
-  RouteDivCourses,
-} from "../../Resources/Components/RouteBox";
+import { HOne, RouteDivCourses } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { Link, Outlet, Route, Routes, useLocation } from "react-router-dom";
@@ -90,7 +87,13 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
           <RouteDivCourses>
             <HOne>{UniversalTexts.theCourses}</HOne>
             <ArvinButton onClick={getCourses}>
-              <i className="fa fa-refresh" aria-hidden={true} />
+              <span
+                style={{
+                  marginBottom: "12px",
+                }}
+              >
+                <i className="fa fa-refresh" aria-hidden={true} />
+              </span>
             </ArvinButton>
             <div>
               <ul
