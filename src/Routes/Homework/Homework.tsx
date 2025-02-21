@@ -10,11 +10,9 @@ import {
   updateInfo,
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
-import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { listOfCriteria } from "../Ranking/RankingComponents/ListOfCriteria";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { HThree } from "../MyClasses/MyClasses.Styled";
 
 interface HWProps {
   headers: MyHeadersType | null;

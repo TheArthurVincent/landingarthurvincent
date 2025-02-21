@@ -9,7 +9,7 @@ import {
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
-import { secondaryColor, textFont } from "../../../Styles/Styles";
+import { secondaryColor, textFont, textTitleFont } from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
@@ -186,7 +186,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     <span
                       style={{
                         fontWeight: "1000",
-                        fontFamily: "Athiti",
+                        fontFamily: textTitleFont(),
                       }}
                     >
                       {formatNumber(item.totalScore)}
@@ -235,7 +235,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     <span
                       style={{
                         fontWeight: "1000",
-                        fontFamily: "Athiti",
+                        fontFamily: textTitleFont(),
                       }}
                     >
                       {formatNumber(item.homeworkAssignmentsDone)}
@@ -284,7 +284,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     <span
                       style={{
                         fontWeight: "1000",
-                        fontFamily: "Athiti",
+                        fontFamily: textTitleFont(),
                       }}
                     >
                       {formatNumber(item.flashcards25Reviews)}
