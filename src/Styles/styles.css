@@ -170,6 +170,9 @@ body {
   cursor: pointer;
   border: none;
 }
+.bgwhite {
+  background-color: white;
+}
 
 .audio-button:hover {
   transition: 0.1s;

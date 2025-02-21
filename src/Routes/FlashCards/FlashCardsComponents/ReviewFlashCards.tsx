@@ -308,7 +308,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           </div>
                         </div>
                         <br />
-                        <br />
                       </div>
                     )}
                     <div
@@ -340,7 +339,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           <span>
                             <div
                               style={{
+                                fontSize: "20px",
                                 marginBottom: "15px",
+                                fontStyle: "italic",
                               }}
                             >
                               {cards[0]?.front?.text}
@@ -349,7 +350,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           {cards[0].front.language &&
                             cards[0].front.language !== "pt" && (
                               <button
-                                className="audio-button"
+                                className="audio-button bgwhite"
                                 onClick={() =>
                                   readText(
                                     cards[0].front.text,
@@ -382,18 +383,18 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                                     fontSize: "11px",
                                     marginBottom: "15px",
                                   }}
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0]?.front?.text,
-                                  }}
-                                />
+                                >
+                                  {cards[0]?.front?.text}
+                                </div>
                                 <div
                                   style={{
+                                    fontSize: "20px",
                                     marginBottom: "15px",
+                                    fontStyle: "italic",
                                   }}
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0]?.back?.text,
-                                  }}
-                                />
+                                >
+                                  {cards[0]?.back?.text}
+                                </div>
                                 <div
                                   style={{
                                     fontSize: "12px",
@@ -410,7 +411,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           {cards[0].back.language &&
                             cards[0].back.language !== "pt" && (
                               <button
-                                className="audio-button"
+                                className="audio-button bgwhite"
                                 onClick={() =>
                                   readText(
                                     cards[0].back.text,
@@ -469,58 +470,56 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       <div
         style={{
           display: "flex",
-          gap: "10px",
+          justifyContent: "center",
+          margin: "10px",
           alignItems: "center",
-          marginBottom: "1rem",
         }}
       >
-        <div>
-          <label htmlFor="category-select">Categoria:</label>
-          <select
-            id="category-select"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-              seeCardsToReview;
-            }}
-          >
-            <option value="nofilter">Ver todos os cards</option>
-            <option value="possessive">Possessivos</option>
-            <option value="be">To be</option>
-            <option value="modal">Modal verbs</option>
-            <option value="question">Question words</option>
-            <option value="do">Do & Does</option>
-            <option value="dont">Don't & Doesn't</option>
-            <option value="did">Did & Didn't</option>
-            <option value="irregularpast">Irregular Past</option>
-            <option value="presentperfect">Present Perfect</option>
-            <option value="pastperfect">Past Perfect</option>
-            <option value="travel">Viagem</option>
-            <option value="bodyparts">Partes do corpo</option>
-            <option value="businessenglish">Inglês para negócios</option>
-            <option value="family">Família</option>
-            <option value="animals">Animais</option>
-            <option value="fruits">Frutas</option>
-            <option value="food">Comida</option>
-            <option value="colors">Cores</option>
-            <option value="house">Casa</option>
-            <option value="supermarket">Supermercado</option>
-            <option value="weather">Clima</option>
-            <option value="clothes">Roupas</option>
-            <option value="time">Horários</option>
-            <option value="daysanddates">Dias e Datas</option>
-            <option value="car">Carro</option>
-            <option value="road">Estrada</option>
-            <option value="personality">Personalidade</option>
-            <option value="nature">Natureza</option>
-            <option value="numbers">Números</option>
-            <option value="transportation">Transporte</option>
-            <option value="office">Escritório</option>
-            <option value="diseases">Doenças</option>
-            <option value="professions">Profissões</option>
-            <option value="weather">Clima</option>
-          </select>
-        </div>
+        {/* <label htmlFor="category-select">Categoria:</label> */}
+        <select
+          id="category-select"
+          value={category}
+          onChange={(e) => {
+            setCategory(e.target.value);
+            seeCardsToReview;
+          }}
+        >
+          <option value="nofilter">Ver todos os cards</option>
+          <option value="be">To be</option>
+          <option value="possessive">Possessivos</option>
+          <option value="modal">Modal verbs</option>
+          <option value="question">Question words</option>
+          <option value="do">Do & Does</option>
+          <option value="dont">Don't & Doesn't</option>
+          <option value="did">Did & Didn't</option>
+          <option value="irregularpast">Irregular Past</option>
+          <option value="presentperfect">Present Perfect</option>
+          <option value="pastperfect">Past Perfect</option>
+          <option value="travel">Viagem</option>
+          <option value="bodyparts">Partes do corpo</option>
+          <option value="businessenglish">Inglês para negócios</option>
+          <option value="family">Família</option>
+          <option value="animals">Animais</option>
+          <option value="fruits">Frutas</option>
+          <option value="food">Comida</option>
+          <option value="colors">Cores</option>
+          <option value="house">Casa</option>
+          <option value="supermarket">Supermercado</option>
+          <option value="weather">Clima</option>
+          <option value="clothes">Roupas</option>
+          <option value="time">Horários</option>
+          <option value="daysanddates">Dias e Datas</option>
+          <option value="car">Carro</option>
+          <option value="road">Estrada</option>
+          <option value="personality">Personalidade</option>
+          <option value="nature">Natureza</option>
+          <option value="numbers">Números</option>
+          <option value="transportation">Transporte</option>
+          <option value="office">Escritório</option>
+          <option value="diseases">Doenças</option>
+          <option value="professions">Profissões</option>
+          <option value="weather">Clima</option>
+        </select>
       </div>
     </section>
   );
