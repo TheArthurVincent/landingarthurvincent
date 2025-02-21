@@ -12,6 +12,7 @@ import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
 import NotFound from "./Routes/NotFound/NotFound";
 import ChangePassword from "./Routes/ChangePassword/ChangePassword";
+import ChangePasswordSendEmail from "./Routes/ChangePassword/ChangePasswordSendEmail";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -80,6 +81,7 @@ function App() {
     { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
     { path: "/vhsd524vs64ths98vs8", element: <SignUp /> },
     { path: "/changepassword", element: <ChangePassword /> },
+    { path: "/sentchangepassword", element: <ChangePasswordSendEmail /> },
   ];
 
   return (

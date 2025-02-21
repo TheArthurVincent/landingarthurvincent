@@ -16,7 +16,10 @@ export function ChangePassword() {
   const [email, setEmail] = useState<string>("");
   const [button, setButton] = useState<any>("Enviar");
 
-  const handleSendPassword = () => {};
+  const handleSendPassword = () => {
+    alert("email-enviado");
+    window.location.assign("/login");
+  };
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
 
