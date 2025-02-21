@@ -58,12 +58,13 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
         />
       ),
     },
+
     {
-      title: UniversalTexts.vocabulary,
+      title: UniversalTexts.listening,
       value: "2",
       adm: false,
       component: (
-        <ReviewFlashCardsVocabulary
+        <ListeningExercise
           onChange={onChange}
           change={change}
           headers={headers}
@@ -71,11 +72,11 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       ),
     },
     {
-      title: UniversalTexts.listening,
+      title: UniversalTexts.vocabulary,
       value: "3",
       adm: false,
       component: (
-        <ListeningExercise
+        <ReviewFlashCardsVocabulary
           onChange={onChange}
           change={change}
           headers={headers}
