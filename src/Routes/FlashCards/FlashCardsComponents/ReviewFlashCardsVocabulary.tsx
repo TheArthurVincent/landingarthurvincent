@@ -217,7 +217,7 @@ const ReviewFlashCardsVocabulary = ({
                         <div>
                           <span
                             style={{
-                              fontSize: "12px",
+                              fontSize: "15px",
                             }}
                           >
                             {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
@@ -230,7 +230,7 @@ const ReviewFlashCardsVocabulary = ({
                           <span>
                             <div
                               style={{
-                                fontSize: "30px",
+                                fontSize: "20px",
                                 fontFamily: textTitleFont(),
                                 fontWeight: 600,
                                 marginBottom: "10px",
@@ -271,7 +271,7 @@ const ReviewFlashCardsVocabulary = ({
                               <>
                                 <div
                                   style={{
-                                    fontSize: "12px",
+                                    fontSize: "15px",
                                     marginBottom: "15px",
                                   }}
                                 >
@@ -289,14 +289,13 @@ const ReviewFlashCardsVocabulary = ({
                                 </div>
                                 <div
                                   style={{
-                                    fontSize: "30px",
+                                    fontSize: "15px",
                                     fontStyle: "italic",
                                     marginBottom: "15px",
                                   }}
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0]?.backComments,
-                                  }}
-                                />
+                                >
+                                  {cards[0]?.backComments},
+                                </div>
                               </>
                             ) || " "}
                           </span>
