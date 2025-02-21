@@ -9,7 +9,7 @@ import {
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
-import { secondaryColor, textFont } from "../../../Styles/Styles";
+import { secondaryColor, textFont, textTitleFont } from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
@@ -32,8 +32,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
 
       newState[index][type] = !newState[index][type];
 
-      console.log("Toggling:", type, index, newState[index][type]);
-
       return newState;
     });
   };
@@ -44,7 +42,6 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     setID(getLoggedUser.id);
     setIsAdm(getLoggedUser.permissions);
-    console.log(getLoggedUser.id);
     // setLoading(true);
     try {
       const response = await axios.get(
@@ -189,7 +186,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     <span
                       style={{
                         fontWeight: "1000",
-                        fontFamily: "Athiti",
+                        fontFamily: textTitleFont(),
                       }}
                     >
                       {formatNumber(item.totalScore)}
@@ -238,7 +235,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     <span
                       style={{
                         fontWeight: "1000",
-                        fontFamily: "Athiti",
+                        fontFamily: textTitleFont(),
                       }}
                     >
                       {formatNumber(item.homeworkAssignmentsDone)}
@@ -287,7 +284,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                     <span
                       style={{
                         fontWeight: "1000",
-                        fontFamily: "Athiti",
+                        fontFamily: textTitleFont(),
                       }}
                     >
                       {formatNumber(item.flashcards25Reviews)}

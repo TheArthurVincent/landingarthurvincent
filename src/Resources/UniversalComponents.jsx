@@ -762,22 +762,19 @@ export const ButtonButton = (text) => {
   );
 };
 
-// export function isDev() {
-//   if (window.location.hostname === "localhost") {
-//     return "http://localhost:3502";
-//   } else if (
-//     window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
-//   ) {
-//     return "https://arvin-backstagin.9kwq6c.easypanel.host";
-//   } else {
-//     return "https://apiprod.arthurvincent.com.br";
-//   }
-// }
 export function isDev() {
   if (window.location.hostname === "localhost") {
+    console.log("Pegou o back local");
     return "http://localhost:3502";
-  } else {
+  } else if (
+    window.location.hostname === "arvin-staging.9kwq6c.easypanel.host" ||
+    window.location.hostname.includes("easypanel")
+  ) {
+    console.log("Pegou o back staging");
     return "https://arvin-backstagin.9kwq6c.easypanel.host";
+  } else {
+    console.log("Pegou o back prod");
+    return "https://arvin-backprod.9kwq6c.easypanel.host";
   }
 }
 
@@ -798,8 +795,14 @@ export const updateInfo = async (id, headers) => {
 };
 
 export const onLoggOut = () => {
-  localStorage.removeItem("authorization");
-  localStorage.removeItem("loggedIn");
+  const user = localStorage.getItem("loggedIn");
+  const auth = localStorage.getItem("authorization");
+  if (user) {
+    localStorage.removeItem("loggedIn");
+  }
+  if (auth) {
+    localStorage.removeItem("authorization");
+  }
   alert("Faça login novamente");
   window.location.assign("/login");
 };

@@ -266,7 +266,6 @@ export default function StudentsRanking({
           headers: actualHeaders,
         }
       );
-      alert("Status atualizado");
       fetchStudentsScore();
     } catch (error) {
       console.log("error", error);
@@ -274,6 +273,20 @@ export default function StudentsRanking({
   };
   const { UniversalTexts } = useUserContext();
 
+  const updateTutoree = async (id: string) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/tutoree/${id}`,
+        {},
+        {
+          headers: actualHeaders,
+        }
+      );
+      fetchStudentsScore();
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   const updateReplenishTargetStatus = async (id: string) => {
     try {
       const response = await axios.put(
@@ -283,7 +296,6 @@ export default function StudentsRanking({
           headers: actualHeaders,
         }
       );
-      alert("Status atualizado");
       fetchStudentsScore();
     } catch (error) {
       console.log("error", error);
@@ -609,6 +621,23 @@ export default function StudentsRanking({
                         onClick={() => updateReplenishTargetStatus(item._id)}
                       >
                         {item.replenishTarget ? "Replenish" : "Non-Replenish"}
+                      </div>{" "}
+                      <div
+                        className="pointer-text"
+                        style={{
+                          padding: "5px",
+                          display: "grid",
+                          alignItems: "center",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          textAlign: "center",
+                          width: "fit-content",
+                          color: "white",
+                          backgroundColor: item.tutoree ? "blue" : "orange",
+                        }}
+                        onClick={() => updateTutoree(item._id)}
+                      >
+                        {item.tutoree ? "Tutoree" : "Not a tutoreee"}
                       </div>
                       <div
                         className="pointer-text"

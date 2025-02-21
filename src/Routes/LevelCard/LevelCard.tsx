@@ -84,8 +84,6 @@ export function LevelCard({
       );
       const levelDone = newValue.level;
       setLevel(levelDone - 1);
-      console.log(response.data);
-
       setShowCard("block");
       // setLoading(false);
     } catch (error) {

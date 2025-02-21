@@ -11,6 +11,8 @@ import { textFont, textTitleFont } from "./Styles/Styles";
 import Login from "./Routes/Login/Login";
 import HomePage from "./Routes/HomePage";
 import NotFound from "./Routes/NotFound/NotFound";
+import ChangePassword from "./Routes/ChangePassword/ChangePassword";
+import ChangePasswordSendEmail from "./Routes/ChangePassword/ChangePasswordSendEmail";
 
 export const verifyToken = () => {
   const token = localStorage.getItem("authorization");
@@ -26,11 +28,12 @@ function App() {
 
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
-      document.body.style.backgroundColor = "#266";
+      document.body.style.backgroundColor = "#000";
     } else if (
-      window.location.hostname === "arvin-staging.9kwq6c.easypanel.host"
+      window.location.hostname === "arvin-staging.9kwq6c.easypanel.host" ||
+      window.location.hostname.includes("easypanel")
     ) {
-      document.body.style.backgroundColor = "yellow";
+      document.body.style.backgroundColor = "orange";
     }
   };
   useEffect(() => {
@@ -77,6 +80,8 @@ function App() {
     { path: "/message", element: verifyToken() ? <MessageDrive /> : <Login /> },
     { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
     { path: "/vhsd524vs64ths98vs8", element: <SignUp /> },
+    { path: "/changepassword", element: <ChangePassword /> },
+    { path: "/sentchangepassword", element: <ChangePasswordSendEmail /> },
   ];
 
   return (

@@ -19,7 +19,7 @@ import {
 } from "../../Resources/UniversalComponents";
 import { alwaysWhite, secondaryColor } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   DivModal,
   IFrameVideoPannel,
@@ -48,7 +48,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
   const [newImg, setNewImg] = useState<string>("");
   const [newUrlVideo, setNewUrlVideo] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [googleDriveLink, setGoogleDriveLink] = useState<string>("");
+  const [classId, setClassId] = useState<string>("");
   const [permissions, setPermissions] = useState<string>("");
   // Booleans
   const [seeConfirmDelete, setSeeConfirmDelete] = useState<boolean>(false);
@@ -82,6 +82,44 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       console.log(error, "erro ao listar homework");
     }
   };
+
+  var [course, setCourse] = useState<String>("");
+  var [module, setModule] = useState<String>("");
+  var [lesson, setLesson] = useState<String>("");
+  var [loadingLESSON, setLoadingLESSON] = useState<Boolean>(true);
+  const fetchLastClassId = async (classid: string) => {
+    setLoadingLESSON(true);
+
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/lesson/${classid}`,
+        {
+          headers: actualHeaders,
+        }
+      );
+
+      var cour = response.data.course.title;
+      var mod = response.data.module.title;
+      var less = response.data.classDetails.title;
+      setCourse(cour);
+      setModule(mod);
+      setLesson(less);
+
+      console.log(
+        "cour: ",
+        cour,
+        "mod: ",
+        mod,
+        "less: ",
+        less,
+        "classId: ",
+        classId
+      );
+      setLoadingLESSON(false);
+    } catch (error) {
+      console.log(error, "erro ao listar homework");
+    }
+  };
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     if (user) {
@@ -90,11 +128,15 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     }
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
+    console.log(getLoggedUser);
+    setClassId(getLoggedUser.lastClassId);
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);
     setPermissions(getLoggedUser.permissions);
-    setGoogleDriveLink(getLoggedUser.googleDriveLink);
     fetchClasses(getLoggedUser.id);
+    setTimeout(() => {
+      fetchLastClassId(getLoggedUser.lastClassId);
+    }, 1000);
   }, []);
 
   const handleSeeModal = () => {
@@ -163,7 +205,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       fetchData();
     }
   };
-  const targetDate = new Date();
 
   async function fetchData(): Promise<void> {
     setLoading(true);
@@ -230,50 +271,18 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <div className="grid-flex-2">
+        
+
+
+
+
             <DivMarginBorder>
-              <HOne
-                style={{
-                  cursor: "pointer",
-                }}
-                onClick={() => toggleVisibility("1")}
-              >
-                {UniversalTexts.nextHomeworkAssignment}
-              </HOne>
-              {visible["1"] && (
-                <div>
-                  <div>
-                    <div>
-                      <i
-                        style={{
-                          display: "inline",
-                          color:
-                            nextTutoring?.status == "done" ? "green" : "orange",
-                        }}
-                        className={`fa fa-${
-                          nextTutoring?.status == "done"
-                            ? "check-circle"
-                            : "ellipsis-h"
-                        }`}
-                        aria-hidden="true"
-                      />{" "}
-                      {nextTutoring?.status}
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          padding: "1rem",
-                        }}
-                        dangerouslySetInnerHTML={{
-                          __html: nextTutoring?.description,
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <Link target="_blank" to={nextTutoring?.googleDriveLink}>
-                    Access the class here
-                  </Link>
-                </div>
-              )}
+              <HOne>Flashcards</HOne>
+              <div className="lesson-container">
+                <a href="/flash-cards" className="lesson-link">
+                  {UniversalTexts.continueToReview}
+                </a>
+              </div>
             </DivMarginBorder>
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
@@ -288,67 +297,35 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             </DivMarginBorder>
           </div>
           <div className="grid-flex-2">
-            <DivMarginBorder>
-              <HOne
-                style={{
-                  cursor: "pointer",
-                }}
-                onClick={() => toggleVisibility("3")}
-              >
-                {UniversalTexts.monthlyChallenge}
-              </HOne>
-              {visible["3"] && (
-                <div
-                  style={{
-                    backgroundColor: "#f9f9f9",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  {/* <h3 style={{ marginBottom: "1rem", color: "#333" }}>
-                    {UniversalTexts.accessVideo}{" "}
+          
+
+          <DivMarginBorder>
+              {loadingLESSON ? (
+                <CircularProgress />
+              ) : (
+                <>
+                  <HOne>{UniversalTexts.continueToStudy}</HOne>
+                  <div className="lesson-container">
                     <a
-                      target="_blank"
-                      href="https://www.youtube.com/watch?v=P6FORpg0KVo"
-                      style={{
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                      }}
+                      href={`/english-courses/english-grammar/${classId}`}
+                      className="lesson-link"
                     >
-                      {UniversalTexts.theFollowingVideo}
+                      <>{`${course} - ${module} - ${lesson}`}</>
                     </a>
-                  </h3> */}
-                  <ul style={{ marginTop: "1rem", paddingLeft: "1.5rem" }}>
-                    <li
+                    <a
                       style={{
-                        border: "1px #ddd solid",
-                        margin: "5px",
-                        borderRadius: "10px",
-                        padding: "10px",
+                        marginTop: "10px",
                       }}
+                      href={`/homework`}
+                      className="lesson-link"
                     >
-                      {UniversalTexts.by} <strong>02-28-2025</strong>,{" "}
-                      {UniversalTexts.recordAudio}
-                      <Countdown
-                        targetDate={new Date("2025-02-28T18:00:00")}
-                        text={UniversalTexts.endOfMonthlyChallenge}
-                      />
-                    </li>
-                 
-                  </ul>
-                  <p
-                    style={{
-                      textAlign: "center",
-                      padding: "1rem",
-                      margin: "1rem",
-                      borderRadius: "1rem",
-                      backgroundColor: "yellow",
-                    }}
-                  >
-                    {UniversalTexts.prize}
-                  </p>
-                </div>
+                      {UniversalTexts.nextHomeworkAssignment}
+                    </a>
+                  </div>
+                </>
               )}
             </DivMarginBorder>
+
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("4")}>
                 {UniversalTexts.mural}
@@ -424,6 +401,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
           </div>
         </DivFlex>
       </RouteDiv>
+
       <DivModal
         className="modal"
         style={{

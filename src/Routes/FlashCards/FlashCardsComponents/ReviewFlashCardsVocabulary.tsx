@@ -5,13 +5,18 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { textTitleFont } from "../../../Styles/Styles";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
   onChange: any;
   change: boolean;
 }
-const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
+const ReviewFlashCardsVocabulary = ({
+  headers,
+  onChange,
+  change,
+}: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [myPermissions, setPermissions] = useState<string>("");
@@ -23,121 +28,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
-  const [category, setCategory] = useState<string>("nofilter");
-  const [textColor, setTextColor] = useState<string>("#000");
-
-  useEffect(() => {
-    switch (category) {
-      case "vocabulary":
-        setTextColor("#D0F5D0"); // Verde ainda mais claro
-        break;
-      case "possessive":
-        setTextColor("#D6EBF5"); // Azul ainda mais claro
-        break;
-      case "be":
-        setTextColor("#FAE9D3"); // Bege claro mais suave
-        break;
-      case "modal":
-        setTextColor("#EEEEEE"); // Cinza ainda mais claro
-        break;
-      case "question":
-        setTextColor("#D9F3F6"); // Azul pálido mais claro
-        break;
-      case "do":
-        setTextColor("#DDE3EF"); // Azul ardósia ainda mais claro
-        break;
-      case "dont":
-        setTextColor("#FFFFF5"); // Amarelo claro muito suave
-        break;
-      case "did":
-        setTextColor("#FFFEEF"); // Amarelo limão mais suave
-        break;
-      case "irregularpast":
-        setTextColor("#F7F4C2"); // Amarelo claro ainda mais suave
-        break;
-      case "presentperfect":
-        setTextColor("#F1FFFF"); // Azul muito claro e suave
-        break;
-      case "pastperfect":
-        setTextColor("#F5F5FA"); // Lavanda pastel ainda mais suave
-        break;
-      case "travel":
-        setTextColor("#F0F8FF"); // Azul claríssimo
-        break;
-      case "bodyparts":
-        setTextColor("#FFF5F5"); // Rosa claríssimo
-        break;
-      case "businessenglish":
-        setTextColor("#E8F6EF"); // Verde claríssimo
-        break;
-      case "family":
-        setTextColor("#FFEFD5"); // Pêssego claro
-        break;
-      case "animals":
-        setTextColor("#F0FFF0"); // Verde hortelã claríssimo
-        break;
-      case "fruits":
-        setTextColor("#FFF8DC"); // Creme claro
-        break;
-      case "food":
-        setTextColor("#FFF5EE"); // Laranja claríssimo
-        break;
-      case "colors":
-        setTextColor("#F5F5F5"); // Branco sujo
-        break;
-      case "house":
-        setTextColor("#F0F5FF"); // Azul clarinho
-        break;
-      case "supermarket":
-        setTextColor("#FAF0E6"); // Linho claro
-        break;
-      case "weather":
-        setTextColor("#F0FFFF"); // Azul gelo
-        break;
-      case "clothes":
-        setTextColor("#FFF0F5"); // Lavanda rosada
-        break;
-      case "time":
-        setTextColor("#F5F5DC"); // Bege claro
-        break;
-      case "daysanddates":
-        setTextColor("#FFFFE0"); // Amarelo claro
-        break;
-      case "car":
-        setTextColor("#FFFAFA"); // Branco neve
-        break;
-      case "road":
-        setTextColor("#F5F0E1"); // Creme pálido
-        break;
-      case "personality":
-        setTextColor("#FFE4E1"); // Rosa claro
-        break;
-      case "nature":
-        setTextColor("#F0FFF0"); // Verde menta
-        break;
-      case "numbers":
-        setTextColor("#FAFAD2"); // Amarelo claro
-        break;
-      case "transportation":
-        setTextColor("#F5FFFA"); // Verde menta claro
-        break;
-      case "office":
-        setTextColor("#F8F8FF"); // Branco fantasma
-        break;
-      case "diseases":
-        setTextColor("#FFFACD"); // Amarelo claro
-        break;
-      case "professions":
-        setTextColor("#F8F8FF"); // Branco fantasma
-        break;
-      case "weather":
-        setTextColor("#FFFACD"); // Amarelo claro
-        break;
-      default:
-        setTextColor("#fff"); // Cor padrão (branco)
-        break;
-    }
-  }, [category]);
 
   const timerDisabled = () => {
     if (myPermissions !== "superadmin") {
@@ -196,6 +86,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     setAnswer(false);
     setBackCardVisible(false);
     setSee(true);
+    var category = "vocabulary";
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/flashcards/${myId}`,
@@ -308,6 +199,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           </div>
                         </div>
                         <br />
+                        <br />
                       </div>
                     )}
                     <div
@@ -318,7 +210,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     >
                       <div
                         style={{
-                          backgroundColor: textColor,
                           display: !backCardVisible ? "none" : "block",
                         }}
                         className="flashcard-front"
@@ -326,7 +217,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         <div>
                           <span
                             style={{
-                              fontSize: "12px",
+                              fontSize: "15px",
                             }}
                           >
                             {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
@@ -340,8 +231,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                             <div
                               style={{
                                 fontSize: "20px",
-                                marginBottom: "15px",
-                                fontStyle: "italic",
+                                fontFamily: textTitleFont(),
+                                fontWeight: 600,
+                                marginBottom: "10px",
                               }}
                             >
                               {cards[0]?.front?.text}
@@ -377,10 +269,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                           <span>
                             {(
                               <>
-                                {" "}
                                 <div
                                   style={{
-                                    fontSize: "11px",
+                                    fontSize: "15px",
                                     marginBottom: "15px",
                                   }}
                                 >
@@ -388,23 +279,23 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                                 </div>
                                 <div
                                   style={{
-                                    fontSize: "20px",
-                                    marginBottom: "15px",
-                                    fontStyle: "italic",
+                                    fontSize: "30px",
+                                    fontWeight: 600,
+                                    fontFamily: textTitleFont(),
+                                    marginBottom: "10px",
                                   }}
                                 >
                                   {cards[0]?.back?.text}
                                 </div>
                                 <div
                                   style={{
-                                    fontSize: "12px",
+                                    fontSize: "15px",
                                     fontStyle: "italic",
                                     marginBottom: "15px",
                                   }}
-                                  dangerouslySetInnerHTML={{
-                                    __html: cards[0]?.backComments,
-                                  }}
-                                />
+                                >
+                                  {cards[0]?.backComments},
+                                </div>
                               </>
                             ) || " "}
                           </span>
@@ -467,62 +358,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
         </ArvinButton>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          margin: "10px",
-          alignItems: "center",
-        }}
-      >
-        {/* <label htmlFor="category-select">Categoria:</label> */}
-        <select
-          id="category-select"
-          value={category}
-          onChange={(e) => {
-            setCategory(e.target.value);
-            seeCardsToReview;
-          }}
-        >
-          <option value="nofilter">Ver todos os cards</option>
-          <option value="be">To be</option>
-          <option value="possessive">Possessivos</option>
-          <option value="modal">Modal verbs</option>
-          <option value="question">Question words</option>
-          <option value="do">Do & Does</option>
-          <option value="dont">Don't & Doesn't</option>
-          <option value="did">Did & Didn't</option>
-          <option value="irregularpast">Irregular Past</option>
-          <option value="presentperfect">Present Perfect</option>
-          <option value="pastperfect">Past Perfect</option>
-          <option value="travel">Viagem</option>
-          <option value="bodyparts">Partes do corpo</option>
-          <option value="businessenglish">Inglês para negócios</option>
-          <option value="family">Família</option>
-          <option value="animals">Animais</option>
-          <option value="fruits">Frutas</option>
-          <option value="food">Comida</option>
-          <option value="colors">Cores</option>
-          <option value="house">Casa</option>
-          <option value="supermarket">Supermercado</option>
-          <option value="weather">Clima</option>
-          <option value="clothes">Roupas</option>
-          <option value="time">Horários</option>
-          <option value="daysanddates">Dias e Datas</option>
-          <option value="car">Carro</option>
-          <option value="road">Estrada</option>
-          <option value="personality">Personalidade</option>
-          <option value="nature">Natureza</option>
-          <option value="numbers">Números</option>
-          <option value="transportation">Transporte</option>
-          <option value="office">Escritório</option>
-          <option value="diseases">Doenças</option>
-          <option value="professions">Profissões</option>
-          <option value="weather">Clima</option>
-        </select>
-      </div>
     </section>
   );
 };
 
-export default ReviewFlashCards;
+export default ReviewFlashCardsVocabulary;

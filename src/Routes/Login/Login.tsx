@@ -9,6 +9,7 @@ import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
 import { Alert, Button, CircularProgress } from "@mui/material";
 import Helmets from "../../Resources/Helmets";
+import { NavLink } from "react-router-dom";
 
 export function Login() {
   const [email, setEmail] = useState<string>("");
@@ -100,6 +101,15 @@ export function Login() {
                 placeholder="Senha"
                 type={passwordVisible ? "text" : "password"}
               />
+              {/* <div
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <NavLink to="/changepassword">
+                  Esqueci minha senha
+                </NavLink>
+              </div> */}
               <div
                 style={{
                   display: "flex",

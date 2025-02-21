@@ -24,8 +24,6 @@
   margin: 0;
 }
 
-
-
 @media (max-width: 450px) {
   *::-webkit-scrollbar {
     width: 5px;
@@ -163,7 +161,6 @@ body {
   transition: 0.1s;
 }
 
-
 .audio-button {
   padding: 0;
   padding-left: 10px;
@@ -172,6 +169,9 @@ body {
   font-size: 1rem;
   cursor: pointer;
   border: none;
+}
+.bgwhite {
+  background-color: white;
 }
 
 .audio-button:hover {
@@ -263,6 +263,19 @@ li {
   text-align: center;
   padding: 1rem;
 }
+
+.flashcard-front-vocabulary,
+.flashcard-back-vocabulary {
+  border-radius: 5px;
+  font-size: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
 
 .flashcard-front {
   background-color: white;
@@ -442,13 +455,13 @@ input.inputs-style:focus {
 
 .pointer-big:hover {
   cursor: pointer;
-  color: #000
+  color: #000;
 }
 
 .grid-flex-2 {
   gap: 5px;
   display: grid;
-  width: 100%
+  width: 100%;
 }
 
 .flashcard-history-upper {
@@ -522,7 +535,6 @@ input.inputs-style:focus {
   margin: 5px 0;
 }
 
-
 textarea.inputs-style {
   float: right;
   margin: 0 auto;
@@ -551,6 +563,32 @@ textarea.inputs-style:focus {
   background-color: #ffffff;
   border: 1px solid #434343;
   color: #000000;
+}
+
+.lesson-container {
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.lesson-link {
+  display: inline-block;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.lesson-link:hover {
+  background-color: #cce5ff;
+  color: #0056b3;
 }
 
 .comments {
@@ -588,4 +626,3 @@ textarea.inputs-style:focus {
     display: none;
   }
 }
-

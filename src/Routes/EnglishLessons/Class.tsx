@@ -97,7 +97,6 @@ export default function EnglishClassCourse2({
 
       var clss = response.data.classDetails;
       setClassTitle(response.data.classDetails.title);
-      console.log(response.data.classDetails.studentsWhoCompletedIt, studentID);
       if (response.data.classDetails.studentsWhoCompletedIt.includes(id)) {
         setIsCompleted(true);
       } else {
@@ -157,18 +156,53 @@ export default function EnglishClassCourse2({
     }
   };
 
-  // Função para alternar o estado do switch
+  const handleCurrentClass = async () => {
+    console.log(classId);
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    if (loggedIn) {
+      var loggedInData = JSON.parse(loggedIn);
+      loggedInData.lastClassId = classId;
+      localStorage.setItem("loggedIn", JSON.stringify(loggedInData));
+      console.log("atualizado", loggedInData);
+    }
+
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/handlecurrentclass/${loggedInData.id}`,
+        { classId },
+        { headers: actualHeaders }
+      );
+
+      console.log("updated", response.data);
+    } catch (error) {
+      console.error("Erro ao atualizar o status:", error);
+    }
+  };
+
   const verifyCheck = async () => {
-    if (theclass.studentsWhoCompletedIt.includes(studentID)) {
+    if (
+      theclass &&
+      Array.isArray(theclass.studentsWhoCompletedIt) &&
+      theclass.studentsWhoCompletedIt.length > 0 &&
+      theclass.studentsWhoCompletedIt.includes(studentID)
+    ) {
       setIsCompleted(true);
     } else {
       setIsCompleted(false);
     }
   };
+  
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleCurrentClass();
+    }, 5000);
+  }, [studentID]);
 
   useEffect(() => {
     verifyCheck();
-  }, [studentID]);
+  }, [theclass]);
 
   useEffect(() => {
     getClass();
@@ -339,20 +373,35 @@ export default function EnglishClassCourse2({
               </span>
             )}
           </div>
-          {thePermissions === "superadmin" && (
-            <label>
-              <input
-                type="checkbox"
-                checked={isCompleted}
-                onChange={handleToggle}
-                disabled={loading}
-              />
-              {loading
-                ? "  Atualizando..."
-                : isCompleted
-                ? "  Completed"
-                : "  Not Completed"}
-            </label>
+          <label>
+            <input
+              style={{
+                cursor: "pointer",
+              }}
+              type="checkbox"
+              checked={isCompleted}
+              onChange={handleToggle}
+              disabled={loading}
+            />
+            {loading
+              ? "  Atualizando..."
+              : isCompleted
+              ? "  Completed"
+              : "  Not Completed"}
+          </label>
+          {thePermissions == "superadmin" && (
+            <div
+              onClick={handleCurrentClass}
+              style={{
+                margin: "5px",
+                padding: "5px",
+                cursor: "pointer",
+                backgroundColor: "#eee",
+                display: "inline",
+              }}
+            >
+              handleCurrentClass
+            </div>
           )}
           {thePermissions === "superadmin" && (
             <div
@@ -403,7 +452,6 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
-
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
@@ -611,21 +659,22 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
-          {thePermissions === "superadmin" && (
-            <label>
-              <input
-                type="checkbox"
-                checked={isCompleted}
-                onChange={handleToggle}
-                disabled={loading}
-              />
-              {loading
-                ? "  Atualizando..."
-                : isCompleted
-                ? "  Completed"
-                : "  Not Completed"}
-            </label>
-          )}
+          <label>
+            <input
+              style={{
+                cursor: "pointer",
+              }}
+              type="checkbox"
+              checked={isCompleted}
+              onChange={handleToggle}
+              disabled={loading}
+            />
+            {loading
+              ? "  Atualizando..."
+              : isCompleted
+              ? "  Completed"
+              : "  Not Completed"}
+          </label>
         </>
       )}
       {/* Teacher */}

@@ -15,7 +15,7 @@ import axios from "axios";
 import { darkGreyColor, secondaryColor } from "../../Styles/Styles";
 import { HThreeModule } from "../MyClasses/MyClasses.Styled";
 import { CourseCard } from "./EnglishCourses.Styled";
-import EnglishClassCourse2 from "./Class2";
+import EnglishClassCourse2 from "./Class";
 import { truncateTitle } from "./CoursesSideBar/CoursesSideBar";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
@@ -51,7 +51,6 @@ export default function Modules({
       );
 
       var mod = response.data.modules;
-      console.log(response.data);
       setModules(mod);
       // Inicialize todos os módulos como visíveis
       setVisibleModules(new Array(mod.length).fill(true));
@@ -193,7 +192,6 @@ export default function Modules({
             placeholder="Search classes by name..."
             value={searchQuery}
             onChange={(e) => {
-              console.log(e.target.value, searchQuery);
               setSearchQuery(e.target.value);
             }}
             style={{ borderRadius: "0.3rem", padding: "0.3rem" }}

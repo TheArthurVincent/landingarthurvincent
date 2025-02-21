@@ -16,6 +16,8 @@ import { onLoggOut } from "../../Resources/UniversalComponents";
 import FlashcardsHistory from "./FlashCardsComponents/FlashcardsHistory";
 import ListeningExercise from "./FlashCardsComponents/ListeningExercise";
 import QnAExercise from "./FlashCardsComponents/QandAExercise";
+import ReviewFlashCardsVocabulary from "./FlashCardsComponents/ReviewFlashCardsVocabulary";
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 
 interface FlashCardsProps {
   headers: MyHeadersType | null;
@@ -26,6 +28,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   useState<number>(0);
   const [myPermissions, setPermissions] = useState<string>("");
   const [value, setValue] = useState<string>("1");
+  const { UniversalTexts } = useUserContext();
 
   const handleChange = (event: any, newValue: string) => {
     event.preventDefault();
@@ -44,7 +47,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
 
   const componentsToRender = [
     {
-      title: "Review",
+      title: UniversalTexts.sentences,
       value: "1",
       adm: false,
       component: (
@@ -55,12 +58,25 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
         />
       ),
     },
+
     {
-      title: "Listening",
-      value: "5",
+      title: UniversalTexts.listening,
+      value: "2",
       adm: false,
       component: (
         <ListeningExercise
+          onChange={onChange}
+          change={change}
+          headers={headers}
+        />
+      ),
+    },
+    {
+      title: UniversalTexts.vocabulary,
+      value: "3",
+      adm: false,
+      component: (
+        <ReviewFlashCardsVocabulary
           onChange={onChange}
           change={change}
           headers={headers}
@@ -77,20 +93,20 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
     // },
 
     {
-      title: "My Cards",
-      value: "3",
+      title: UniversalTexts.myCards,
+      value: "4",
       adm: false,
       component: <AllCards headers={headers} />,
     },
     {
-      title: "History",
-      value: "4",
+      title: UniversalTexts.history,
+      value: "5",
       adm: false,
       component: <FlashcardsHistory headers={headers} />,
     },
     {
-      title: "Add",
-      value: "2",
+      title: UniversalTexts.add,
+      value: "5",
       adm: true,
       component: <AddFlashCards display="block" headers={headers} />,
     },

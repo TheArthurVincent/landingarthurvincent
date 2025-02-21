@@ -165,7 +165,7 @@ export default function MyCalendar({ headers, thePermissions }) {
         });
         setEvents(eventsLoop);
       } catch (error) {
-        // onLoggOut();
+        onLoggOut();
       }
     } else {
       null;
@@ -351,7 +351,7 @@ export default function MyCalendar({ headers, thePermissions }) {
       setDate("");
       fetchGeneralEvents();
     } catch (error) {
-      // onLoggOut();
+      onLoggOut();
       console.log(error, "Erro ao criar evento");
     }
   };

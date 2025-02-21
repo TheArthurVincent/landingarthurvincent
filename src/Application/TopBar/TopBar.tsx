@@ -15,92 +15,20 @@ import {
 } from "../../Resources/UniversalComponents";
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { primaryColor, secondaryColor } from "../../Styles/Styles";
-import { ItemTopBarProps, LinkItem } from "./TopBarTypes";
+import { LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
-
-const ItemTopBar: FC<ItemTopBarProps> = ({ title, list }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const isAnyLinkActive = list.some((link) =>
-    location.pathname.includes(link.endpoint)
-  );
-
-  return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{ position: "relative", display: "inline-block" }}
-    >
-      <div style={{ cursor: "pointer" }}>
-        <SpanHover
-          style={{
-            textDecoration: "none",
-            color: isAnyLinkActive ? secondaryColor() : primaryColor(),
-          }}
-        >
-          {title}
-        </SpanHover>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "100%",
-          left: 0,
-          backgroundColor: "#fff",
-
-          padding: "8px",
-          display: isHovered ? "grid" : "none",
-          textAlign: "left",
-          zIndex: 50000000000,
-          minWidth: "fit-content",
-        }}
-      >
-        {list.map((link, index) => (
-          <NavLink
-            key={index}
-            style={{
-              color: location.pathname.includes(link.endpoint)
-                ? primaryColor()
-                : primaryColor(),
-              cursor: location.pathname.includes(link.endpoint)
-                ? "default"
-                : "pointer",
-              display: link.display,
-              textDecoration: "none",
-              paddingBottom: "5px",
-              borderBottom: location.pathname.includes(link.endpoint)
-                ? `solid 1px ${primaryColor()}`
-                : "none",
-            }}
-            to={link.endpoint}
-          >
-            <SpanHover style={{ textDecoration: "none", whiteSpace: "nowrap" }}>
-              {link.title}
-            </SpanHover>
-          </NavLink>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
   const [permissions, setPermissions] = useState<string>("");
-  const [seeItems, setSeeItems] = useState(true);
+  const [tutoree, setTutoree] = useState<string>("");
 
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
     setPermissions(getLoggedUser.permissions);
+    setTutoree(getLoggedUser.tutoree);
   }, []);
 
   const toAdm: LinkItem[] = [
@@ -111,18 +39,26 @@ export const TopBar: FC = () => {
       display: "none",
     },
   ];
+  const toTutoree: LinkItem[] = [
+    {
+      title: UniversalTexts.homework,
+      endpoint: "/homework",
+      icon: "book",
+      display: "block",
+    },
+    {
+      title: UniversalTexts.myClasses,
+      endpoint: "/my-classes",
+      icon: "user",
+      display: "block",
+    },
+  ];
 
   const allLinksForUser = [
     {
       title: UniversalTexts.calendar,
       endpoint: "/my-calendar",
       icon: "calendar",
-      display: "block",
-    },
-    {
-      title: UniversalTexts.homework,
-      endpoint: "/homework",
-      icon: "book",
       display: "block",
     },
     {
@@ -138,18 +74,6 @@ export const TopBar: FC = () => {
       display: "block",
     },
     {
-      title: UniversalTexts.myClasses,
-      endpoint: "/my-classes",
-      icon: "user",
-      display: "block",
-    },
-    // {
-    //   title: UniversalTexts.groupClasses,
-    //   endpoint: "/group-classes",
-    //   display: "block",
-    //   icon: "users",
-    // },
-    {
       title: UniversalTexts.theCourses,
       endpoint: "/english-courses",
       icon: "address-book-o",
@@ -161,12 +85,12 @@ export const TopBar: FC = () => {
       display: "block",
       icon: "user-o",
     },
-    //, {
-    //   title: UniversalTexts.faq,
-    //   endpoint: "/faq",
-    //   icon: "question",
-    //   display: "block",
-    // },
+    {
+      title: UniversalTexts.faq,
+      endpoint: "/faq",
+      icon: "question",
+      display: "block",
+    },
   ];
 
   const handleVisible = () => {
@@ -179,13 +103,7 @@ export const TopBar: FC = () => {
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
       <SpanDisapear>
         <Link to="/">
-          <LogoStyle
-            style={{
-              display: seeItems ? "block" : "none",
-            }}
-          >
-            {myLogo}
-          </LogoStyle>
+          <LogoStyle>{myLogo}</LogoStyle>
         </Link>
       </SpanDisapear>
       <TopBarNavigationBurger
@@ -220,6 +138,34 @@ export const TopBar: FC = () => {
               {UniversalTexts.homePage}
             </span>
           </NavLink>
+          {tutoree &&
+            toTutoree.map((link, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  style={{
+                    color: location.pathname.includes(link.endpoint)
+                      ? secondaryColor()
+                      : primaryColor(),
+                    paddingBottom: "5px",
+                    cursor: location.pathname.includes(link.endpoint)
+                      ? "default"
+                      : "pointer",
+                    display: link.display,
+                    textDecoration: "none",
+                  }}
+                  to={link.endpoint}
+                >
+                  <span
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    {link.title}
+                  </span>
+                </NavLink>
+              );
+            })}
           {allLinksForUser.map((link, index) => {
             return (
               <NavLink
@@ -249,41 +195,40 @@ export const TopBar: FC = () => {
             );
           })}
         </div>
-        {seeItems && (
-          <div
-            style={{
-              display: permissions == "superadmin" ? "block" : "none",
-            }}
-          >
-            {toAdm.map((link, index) => {
-              return (
-                <NavLink
-                  style={{
-                    color: location.pathname.includes(link.endpoint)
-                      ? secondaryColor()
-                      : primaryColor(),
-                    paddingBottom: "5px",
 
-                    cursor: location.pathname.includes(link.endpoint)
-                      ? "default"
-                      : "pointer",
-                    textDecoration: "none",
+        <div
+          style={{
+            display: permissions == "superadmin" ? "block" : "none",
+          }}
+        >
+          {toAdm.map((link, index) => {
+            return (
+              <NavLink
+                style={{
+                  color: location.pathname.includes(link.endpoint)
+                    ? secondaryColor()
+                    : primaryColor(),
+                  paddingBottom: "5px",
+
+                  cursor: location.pathname.includes(link.endpoint)
+                    ? "default"
+                    : "pointer",
+                  textDecoration: "none",
+                }}
+                key={index}
+                to={link.endpoint}
+              >
+                <span
+                  style={{
+                    textAlign: "center",
                   }}
-                  key={index}
-                  to={link.endpoint}
                 >
-                  <span
-                    style={{
-                      textAlign: "center",
-                    }}
-                  >
-                    {link.title}
-                  </span>
-                </NavLink>
-              );
-            })}
-          </div>
-        )}
+                  {link.title}
+                </span>
+              </NavLink>
+            );
+          })}
+        </div>
       </TopBarNavigationBurger>
       <BackgroundClick onClick={handleVisible} style={{ display: visible }} />
       <SpanDisapear>
@@ -296,12 +241,36 @@ export const TopBar: FC = () => {
               gap: "1rem",
             }}
           >
+            {tutoree &&
+              toTutoree.map((link, index) => {
+                return (
+                  <NavLink
+                    key={index}
+                    style={{
+                      color: location.pathname.includes(link.endpoint)
+                        ? secondaryColor()
+                        : primaryColor(),
+                      paddingBottom: "5px",
+
+                      cursor: location.pathname.includes(link.endpoint)
+                        ? "default"
+                        : "pointer",
+                      textDecoration: "none",
+                    }}
+                    to={link.endpoint}
+                  >
+                    <SpanHover>
+                      <i className={`fa fa-${link.icon}`} />
+                      {link.title}
+                    </SpanHover>
+                  </NavLink>
+                );
+              })}
             {allLinksForUser.map((link, index) => {
               return (
                 <NavLink
                   key={index}
                   style={{
-                    display: seeItems ? "block" : "none",
                     color: location.pathname.includes(link.endpoint)
                       ? secondaryColor()
                       : primaryColor(),
@@ -322,7 +291,6 @@ export const TopBar: FC = () => {
               );
             })}
             {permissions === "superadmin" &&
-              seeItems &&
               toAdm.map((link, index) => {
                 return (
                   <NavLink
@@ -352,12 +320,7 @@ export const TopBar: FC = () => {
 
       <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          {/* <SpanDisapear> */}
-          <form
-            style={{
-              display: seeItems ? "block" : "none",
-            }}
-          >
+          <form>
             <select
               id="language"
               name="language"
@@ -368,11 +331,7 @@ export const TopBar: FC = () => {
               <option value="pt">PT-BR</option>
             </select>
           </form>
-          {/* </SpanDisapear> */}
-          <ArvinButton
-            style={{ display: seeItems ? "block" : "none" }}
-            onClick={onLoggOut}
-          >
+          <ArvinButton onClick={onLoggOut}>
             {" "}
             {UniversalTexts.leaveButton}
           </ArvinButton>

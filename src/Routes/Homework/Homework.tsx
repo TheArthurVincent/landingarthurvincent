@@ -10,11 +10,9 @@ import {
   updateInfo,
 } from "../../Resources/UniversalComponents";
 import axios from "axios";
-import { CircularProgress, Tab, Tabs, Box, Tooltip } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { listOfCriteria } from "../Ranking/RankingComponents/ListOfCriteria";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { HThree } from "../MyClasses/MyClasses.Styled";
 
 interface HWProps {
   headers: MyHeadersType | null;
@@ -139,9 +137,6 @@ export default function Homework({ headers, setChange, change }: HWProps) {
   const pointsLateHW = listOfCriteria[0].score[1].score;
   const pointsMadeGC = listOfCriteria[2].score[0].score;
   const pointsLateGC = listOfCriteria[2].score[1].score;
-  useEffect(() => {
-    console.log(pointsMadeHW, pointsLateHW, pointsMadeGC, pointsLateGC);
-  }, []);
 
   return (
     <RouteDiv>
