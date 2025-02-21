@@ -271,7 +271,35 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <div className="grid-flex-2">
+        
+
+
+
+
             <DivMarginBorder>
+              <HOne>Flashcards</HOne>
+              <div className="lesson-container">
+                <a href="/flash-cards" className="lesson-link">
+                  {UniversalTexts.continueToReview}
+                </a>
+              </div>
+            </DivMarginBorder>
+            <DivMarginBorder>
+              <HOne onClick={() => toggleVisibility("2")}>
+                {UniversalTexts.levelCard}
+              </HOne>
+              <LevelCardBlog
+                change={change}
+                headers={headers}
+                _StudentId={_StudentId}
+                picture={picture}
+              />
+            </DivMarginBorder>
+          </div>
+          <div className="grid-flex-2">
+          
+
+          <DivMarginBorder>
               {loadingLESSON ? (
                 <CircularProgress />
               ) : (
@@ -297,27 +325,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                 </>
               )}
             </DivMarginBorder>
-            <DivMarginBorder>
-              <HOne onClick={() => toggleVisibility("2")}>
-                {UniversalTexts.levelCard}
-              </HOne>
-              <LevelCardBlog
-                change={change}
-                headers={headers}
-                _StudentId={_StudentId}
-                picture={picture}
-              />
-            </DivMarginBorder>
-          </div>
-          <div className="grid-flex-2">
-            <DivMarginBorder>
-              <HOne>Flashcards</HOne>
-              <div className="lesson-container">
-                <a href="/flash-cards" className="lesson-link">
-                  {UniversalTexts.continueToReview}
-                </a>
-              </div>
-            </DivMarginBorder>
+
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("4")}>
                 {UniversalTexts.mural}
