@@ -261,6 +261,19 @@ li {
   padding: 1rem;
 }
 
+.flashcard-front-vocabulary,
+.flashcard-back-vocabulary {
+  border-radius: 5px;
+  font-size: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+
 .flashcard-front {
   background-color: white;
   box-shadow: 5px 5px 10px #555;

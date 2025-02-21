@@ -10,6 +10,7 @@ import {
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
+import { textTitleFont } from "../../../Styles/Styles";
 
 function highlightDifferences(original: string, userInput: string): string {
   const originalWords = original.split(" ");
@@ -151,7 +152,7 @@ const ListeningExercise = ({
     const cardText = normalizeText(
       cleanString(
         cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
-        ""
+          ""
       )
     );
     const userTranscript = normalizeText(cleanString(transcription || ""));
@@ -204,13 +205,13 @@ const ListeningExercise = ({
     const cardText = normalizeText(
       cleanString(
         cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
-        ""
+          ""
       )
     );
     const userTranscript = normalizeText(cleanString(transcription || ""));
     const wordCountInCard = wordCount(
       cards[0]?.front?.text.replace(/\s+/g, " ") || // Substitui múltiplos espaços por um espaço
-      ""
+        ""
     );
 
     if (userTranscript === "") {
@@ -275,8 +276,9 @@ const ListeningExercise = ({
   };
 
   // Controle do reconhecimento de fala
+  const SpeechRecognition =
   // @ts-ignore
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
   recognition.lang = cards[0]?.front?.language == "en" ? "en-US" : "fr-FR";
   recognition.interimResults = false;
@@ -349,26 +351,27 @@ const ListeningExercise = ({
                             similarity === 100
                               ? "#4caf50"
                               : similarity > 98
-                                ? "#2196f3"
-                                : similarity > 60
-                                  ? "#ffeb3b"
-                                  : "#f44336",
+                              ? "#2196f3"
+                              : similarity > 60
+                              ? "#ffeb3b"
+                              : "#f44336",
                           color:
                             similarity === 100
                               ? "white"
                               : similarity > 98
-                                ? "white"
-                                : similarity > 60
-                                  ? "black"
-                                  : "white",
-                          border: `solid 1px ${similarity === 100
+                              ? "white"
+                              : similarity > 60
+                              ? "black"
+                              : "white",
+                          border: `solid 1px ${
+                            similarity === 100
                               ? "white"
                               : similarity > 98
-                                ? "white"
-                                : similarity > 60
-                                  ? "black"
-                                  : "white"
-                            }`,
+                              ? "white"
+                              : similarity > 60
+                              ? "black"
+                              : "white"
+                          }`,
                           transition: "background-color 0.3s",
                         }}
                       >
@@ -388,7 +391,7 @@ const ListeningExercise = ({
                       >
                         <p
                           style={{
-                            fontFamily: "Athiti",
+                            fontFamily: textTitleFont(),
                             fontSize: "1rem",
                             fontWeight: 600,
                           }}
@@ -486,8 +489,8 @@ const ListeningExercise = ({
                             !enableVoice
                               ? "grey"
                               : !listening && enableVoice
-                                ? "green"
-                                : "red"
+                              ? "green"
+                              : "red"
                           }
                         >
                           <i
