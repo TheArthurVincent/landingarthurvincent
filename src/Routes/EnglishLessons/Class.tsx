@@ -158,9 +158,18 @@ export default function EnglishClassCourse2({
 
   const handleCurrentClass = async () => {
     console.log(classId);
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    if (loggedIn) {
+      var loggedInData = JSON.parse(loggedIn);
+      loggedInData.lastClassId = classId;
+      localStorage.setItem("loggedIn", JSON.stringify(loggedInData));
+      console.log("atualizado", loggedInData);
+    }
+
     try {
       const response = await axios.put(
-        `${backDomain}/api/v1/handlecurrentclass/${studentID}`,
+        `${backDomain}/api/v1/handlecurrentclass/${loggedInData.id}`,
         { classId },
         { headers: actualHeaders }
       );
@@ -171,24 +180,29 @@ export default function EnglishClassCourse2({
     }
   };
 
+  const verifyCheck = async () => {
+    if (
+      theclass &&
+      Array.isArray(theclass.studentsWhoCompletedIt) &&
+      theclass.studentsWhoCompletedIt.length > 0 &&
+      theclass.studentsWhoCompletedIt.includes(studentID)
+    ) {
+      setIsCompleted(true);
+    } else {
+      setIsCompleted(false);
+    }
+  };
+  
+
   useEffect(() => {
     setTimeout(() => {
       handleCurrentClass();
     }, 5000);
   }, [studentID]);
 
-  // Função para alternar o estado do switch
-  const verifyCheck = async () => {
-    if (theclass.studentsWhoCompletedIt.includes(studentID)) {
-      setIsCompleted(true);
-    } else {
-      setIsCompleted(false);
-    }
-  };
-
   useEffect(() => {
     verifyCheck();
-  }, [studentID]);
+  }, [theclass]);
 
   useEffect(() => {
     getClass();
