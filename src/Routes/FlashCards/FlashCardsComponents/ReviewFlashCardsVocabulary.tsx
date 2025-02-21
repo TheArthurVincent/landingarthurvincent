@@ -242,7 +242,7 @@ const ReviewFlashCardsVocabulary = ({
                           {cards[0].front.language &&
                             cards[0].front.language !== "pt" && (
                               <button
-                                className="audio-button"
+                                className="audio-button bgwhite"
                                 onClick={() =>
                                   readText(
                                     cards[0].front.text,
@@ -303,7 +303,7 @@ const ReviewFlashCardsVocabulary = ({
                           {cards[0].back.language &&
                             cards[0].back.language !== "pt" && (
                               <button
-                                className="audio-button"
+                                className="audio-button bgwhite"
                                 onClick={() =>
                                   readText(
                                     cards[0].back.text,
