@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Tooltip } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
@@ -28,6 +28,17 @@ const ReviewFlashCardsVocabulary = ({
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
+
+  const [sentence1, setSentence1] = useState<string>(
+    "Spongebob lives in bikini bottom"
+  );
+  const [sentence1ptbr, setSentence1ptbr] = useState<string>(
+    "Bob esponja mora na fenda do biquini"
+  );
+  const [sentence2, setSentence2] = useState<string>("");
+  const [sentence2ptbr, setSentence2ptbr] = useState<string>("");
+  const [sentence3, setSentence3] = useState<string>("");
+  const [sentence3ptbr, setSentence3ptbr] = useState<string>("");
 
   const timerDisabled = () => {
     if (myPermissions !== "superadmin") {
@@ -89,7 +100,7 @@ const ReviewFlashCardsVocabulary = ({
     var category = "vocabulary";
     try {
       const response = await axios.get(
-        `${backDomain}/api/v1/flashcards/${myId}`,
+        `${backDomain}/api/v1/flashcardsvocabulary/${myId}`,
         {
           headers: actualHeaders,
           params: { category },
@@ -109,6 +120,38 @@ const ReviewFlashCardsVocabulary = ({
             )
           : null;
       }
+      console.log(response.data.responseAI);
+
+      const sentencesBroken = response.data.responseAI
+        .split("\n")
+        .filter((line: any) => line.trim() !== "");
+
+      // Step 2: Extract English and Portuguese parts
+      // @ts-ignore
+      const parsedSentences = sentencesBroken.map((sentence) => {
+        const parts = sentence.split(" // ");
+        return {
+          en: parts[0].replace(/^\d+\.\s*/, "").trim(),
+          pt: parts[1] ? parts[1].trim() : "",
+        };
+      });
+
+      // Step 3: Assign to variables
+      const sentenceOneEn = parsedSentences[0].en;
+      const sentenceOnePt = parsedSentences[0].pt;
+      const sentenceTwoEn = parsedSentences[1].en;
+      const sentenceTwoPt = parsedSentences[1].pt;
+      const sentenceThreeEn = parsedSentences[2].en;
+      const sentenceThreePt = parsedSentences[2].pt;
+
+      // Output
+
+      setSentence1(sentenceOneEn);
+      setSentence1ptbr(sentenceOnePt);
+      setSentence2(sentenceTwoEn);
+      setSentence2ptbr(sentenceTwoPt);
+      setSentence3(sentenceThreeEn);
+      setSentence3ptbr(sentenceThreePt);
       setCards(response.data.dueFlashcards);
       setCardsLength(thereAreCards);
       setBackCardVisible(true);
@@ -294,7 +337,123 @@ const ReviewFlashCardsVocabulary = ({
                                     marginBottom: "15px",
                                   }}
                                 >
-                                  {cards[0]?.backComments},
+                                  {cards[0]?.backComments}
+                                </div>
+                                <div>
+                                  <p>
+                                    <span
+                                      style={{
+                                        fontWeight: 800,
+                                      }}
+                                    >
+                                      {sentence1}
+                                    </span>
+                                    <br />
+                                    <span>{sentence1ptbr}</span>
+                                    <button
+                                      className="audio-button bgwhite"
+                                      onClick={() =>
+                                        readText(
+                                          sentence1,
+                                          true,
+                                          cards[0].front.language
+                                        )
+                                      }
+                                    >
+                                      <i
+                                        className="fa fa-volume-up"
+                                        aria-hidden="true"
+                                      />
+                                    </button>
+                                    <Tooltip title="Add to flashcards">
+                                      <ArvinButton
+                                        color="white"
+                                        // onClick={() =>}
+                                        // addNewCards(sentence.english, sentence.portuguese)
+                                      >
+                                        <i
+                                          className="fa fa-files-o"
+                                          aria-hidden="true"
+                                        />
+                                      </ArvinButton>
+                                    </Tooltip>
+                                  </p>
+                                  <p>
+                                    <span
+                                      style={{
+                                        fontWeight: 800,
+                                      }}
+                                    >
+                                      {sentence2}
+                                    </span>
+                                    <br />
+                                    <span>{sentence2ptbr}</span>
+                                    <button
+                                      className="audio-button bgwhite"
+                                      onClick={() =>
+                                        readText(
+                                          sentence2,
+                                          true,
+                                          cards[0].front.language
+                                        )
+                                      }
+                                    >
+                                      <i
+                                        className="fa fa-volume-up"
+                                        aria-hidden="true"
+                                      />
+                                    </button>
+                                    <Tooltip title="Add to flashcards">
+                                      <ArvinButton
+                                        color="white"
+                                        // onClick={() =>}
+                                        // addNewCards(sentence.english, sentence.portuguese)
+                                      >
+                                        <i
+                                          className="fa fa-files-o"
+                                          aria-hidden="true"
+                                        />
+                                      </ArvinButton>
+                                    </Tooltip>
+                                  </p>
+                                  <p>
+                                    <span
+                                      style={{
+                                        fontWeight: 800,
+                                      }}
+                                    >
+                                      {sentence3}
+                                    </span>
+                                    <br />
+                                    <span>{sentence3ptbr}</span>
+                                    <button
+                                      className="audio-button bgwhite"
+                                      onClick={() =>
+                                        readText(
+                                          sentence3,
+                                          true,
+                                          cards[0].front.language
+                                        )
+                                      }
+                                    >
+                                      <i
+                                        className="fa fa-volume-up"
+                                        aria-hidden="true"
+                                      />
+                                    </button>
+                                    <Tooltip title="Add to flashcards">
+                                      <ArvinButton
+                                        color="white"
+                                        // onClick={() =>}
+                                        // addNewCards(sentence.english, sentence.portuguese)
+                                      >
+                                        <i
+                                          className="fa fa-files-o"
+                                          aria-hidden="true"
+                                        />
+                                      </ArvinButton>
+                                    </Tooltip>
+                                  </p>
                                 </div>
                               </>
                             ) || " "}

@@ -91,7 +91,6 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
     //     <QnAExercise onChange={onChange} change={change} headers={headers} />
     //   ),
     // },
-
     {
       title: UniversalTexts.myCards,
       value: "4",
