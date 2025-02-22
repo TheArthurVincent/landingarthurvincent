@@ -322,22 +322,13 @@ const ReviewFlashCardsVocabulary = ({
                                 </div>
                                 <div
                                   style={{
-                                    fontSize: "30px",
+                                    fontSize: "10px",
                                     fontWeight: 600,
                                     fontFamily: textTitleFont(),
                                     marginBottom: "10px",
                                   }}
                                 >
                                   {cards[0]?.back?.text}
-                                </div>
-                                <div
-                                  style={{
-                                    fontSize: "15px",
-                                    fontStyle: "italic",
-                                    marginBottom: "15px",
-                                  }}
-                                >
-                                  {cards[0]?.backComments}
                                 </div>
                                 <div>
                                   <p>
