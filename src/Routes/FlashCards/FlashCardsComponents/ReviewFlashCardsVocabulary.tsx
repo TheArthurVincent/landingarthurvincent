@@ -69,8 +69,9 @@ const ReviewFlashCardsVocabulary = ({
         response.data.invalidNewCards;
       alert(showThis);
     } catch (error) {
-      alert("Erro ao enviar cards");
-      onLoggOut();
+      // alert("Erro ao enviar cards");
+      // onLoggOut();
+      console.log(error)
     }
   };
 
@@ -96,7 +97,9 @@ const ReviewFlashCardsVocabulary = ({
       onChange(!change);
       seeCardsToReview();
     } catch (error) {
-      onLoggOut();
+      // onLoggOut();
+      console.log(error)
+
     }
   };
   const seeCardsToReview = async () => {
@@ -131,6 +134,7 @@ const ReviewFlashCardsVocabulary = ({
       const sentencesBroken = response.data.responseAI
         .split("\n")
         .filter((line: any) => line.trim() !== "");
+        console.log(sentencesBroken)
 
       const parsedSentences = sentencesBroken.map((sentence: any) => {
         const parts = sentence.split(" // ");
@@ -163,8 +167,10 @@ const ReviewFlashCardsVocabulary = ({
       setHeardSentences([false, false, false]);
     } catch (error) {
       console.log(error);
-      alert("Erro ao enviar cards");
-      onLoggOut();
+      // alert("Erro ao enviar cards");
+      // onLoggOut();
+      console.log(error)
+
     }
   };
 
@@ -259,17 +265,6 @@ const ReviewFlashCardsVocabulary = ({
                       }}
                     >
                       <div>
-                        <span
-                          style={{
-                            fontSize: "15px",
-                          }}
-                        >
-                          {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
-                          {Math.round(cards[0]?.numberOfReviews) == 1
-                            ? "review"
-                            : "reviews"}
-                        </span>
-                        <br />
                         <span>
                           <div
                             style={{
