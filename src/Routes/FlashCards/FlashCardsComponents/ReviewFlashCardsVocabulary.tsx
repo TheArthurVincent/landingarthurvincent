@@ -312,14 +312,7 @@ const ReviewFlashCardsVocabulary = ({
                           <span>
                             {(
                               <>
-                                <div
-                                  style={{
-                                    fontSize: "15px",
-                                    marginBottom: "15px",
-                                  }}
-                                >
-                                  {cards[0]?.front?.text}
-                                </div>
+                               
                                 <div
                                   style={{
                                     fontSize: "10px",
@@ -407,7 +400,7 @@ const ReviewFlashCardsVocabulary = ({
                                       </ArvinButton>
                                     </Tooltip>
                                   </p>
-                                  <p>
+                                  {/* <p>
                                     <span
                                       style={{
                                         fontWeight: 800,
@@ -444,29 +437,11 @@ const ReviewFlashCardsVocabulary = ({
                                         />
                                       </ArvinButton>
                                     </Tooltip>
-                                  </p>
+                                  </p> */}
                                 </div>
                               </>
                             ) || " "}
                           </span>
-                          {cards[0].back.language &&
-                            cards[0].back.language !== "pt" && (
-                              <button
-                                className="audio-button bgwhite"
-                                onClick={() =>
-                                  readText(
-                                    cards[0].back.text,
-                                    true,
-                                    cards[0].back.language
-                                  )
-                                }
-                              >
-                                <i
-                                  className="fa fa-volume-up"
-                                  aria-hidden="true"
-                                />
-                              </button>
-                            )}
                         </div>
                       </div>
                     </div>
