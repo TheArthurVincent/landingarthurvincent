@@ -40,6 +40,41 @@ const ReviewFlashCardsVocabulary = ({
   const [sentence3, setSentence3] = useState<string>("");
   const [sentence3ptbr, setSentence3ptbr] = useState<string>("");
 
+
+  const addNewCards = async (frontText: string, backText: string) => {
+    const newCards = [
+      {
+        front: {
+          text: frontText,
+          language: "en",
+        },
+        back: {
+          text: backText,
+          language: "pt",
+        },
+        tags: [""],
+      },
+    ];
+
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/flashcard/${myId}`,
+        { newCards },
+        { headers: actualHeaders }
+      );
+      const showThis =
+        "cards adicionados:" +
+        response.data.addedNewFlashcards +
+        ", cards não adicionados:" +
+        response.data.invalidNewCards;
+      alert(showThis);
+    } catch (error) {
+      alert("Erro ao enviar cards");
+      onLoggOut();
+    }
+  };
+
+
   const timerDisabled = () => {
     if (myPermissions !== "superadmin") {
       setCount(3);
@@ -305,6 +340,7 @@ const ReviewFlashCardsVocabulary = ({
                       <div
                         style={{
                           display: backCardVisible ? "none" : "block",
+                          width:"200%"
                         }}
                         className="flashcard-back"
                       >
@@ -352,8 +388,9 @@ const ReviewFlashCardsVocabulary = ({
                                     <Tooltip title="Add to flashcards">
                                       <ArvinButton
                                         color="white"
-                                        // onClick={() =>}
-                                        // addNewCards(sentence.english, sentence.portuguese)
+                                        onClick={() =>
+                                        addNewCards(sentence1, sentence1ptbr)
+                                      }
                                       >
                                         <i
                                           className="fa fa-files-o"
@@ -374,6 +411,7 @@ const ReviewFlashCardsVocabulary = ({
                                     <span>{sentence2ptbr}</span>
                                     <button
                                       className="audio-button bgwhite"
+                                      
                                       onClick={() =>
                                         readText(
                                           sentence2,
@@ -390,8 +428,9 @@ const ReviewFlashCardsVocabulary = ({
                                     <Tooltip title="Add to flashcards">
                                       <ArvinButton
                                         color="white"
-                                        // onClick={() =>}
-                                        // addNewCards(sentence.english, sentence.portuguese)
+                                        onClick={() =>
+                                          addNewCards(sentence2, sentence2ptbr)
+                                        }
                                       >
                                         <i
                                           className="fa fa-files-o"
@@ -400,7 +439,7 @@ const ReviewFlashCardsVocabulary = ({
                                       </ArvinButton>
                                     </Tooltip>
                                   </p>
-                                  {/* <p>
+                                  <p>
                                     <span
                                       style={{
                                         fontWeight: 800,
@@ -428,8 +467,9 @@ const ReviewFlashCardsVocabulary = ({
                                     <Tooltip title="Add to flashcards">
                                       <ArvinButton
                                         color="white"
-                                        // onClick={() =>}
-                                        // addNewCards(sentence.english, sentence.portuguese)
+                                        onClick={() =>
+                                          addNewCards(sentence3, sentence3ptbr)
+                                        }
                                       >
                                         <i
                                           className="fa fa-files-o"
@@ -437,7 +477,7 @@ const ReviewFlashCardsVocabulary = ({
                                         />
                                       </ArvinButton>
                                     </Tooltip>
-                                  </p> */}
+                                  </p>
                                 </div>
                               </>
                             ) || " "}
