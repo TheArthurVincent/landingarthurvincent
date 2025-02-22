@@ -26,22 +26,19 @@ const ReviewFlashCardsVocabulary = ({
   const [heardSentences, setHeardSentences] = useState([false, false, false]);
   const [allHeard, setAllHeard] = useState(false);
   const [sentence1, setSentence1] = useState<string>("");
-  const [sentence1IsolatedWord, setSentence1IsolatedWord] =
-    useState<string>("");
+  const [sentence1Highlighted, setSentence1Highlighted] = useState<string>("");
   const [sentence1ptbr, setSentence1ptbr] = useState<string>("");
-  const [sentence1ptbrIsolatedWord, setSentence1ptbrIsolatedWord] =
+  const [sentence1ptbrHighlighted, setSentence1ptbrHighlighted] =
     useState<string>("");
   const [sentence2, setSentence2] = useState<string>("");
-  const [sentence2IsolatedWord, setSentence2IsolatedWord] =
-    useState<string>("");
+  const [sentence2Highlighted, setSentence2Highlighted] = useState<string>("");
   const [sentence2ptbr, setSentence2ptbr] = useState<string>("");
-  const [sentence2ptbrIsolatedWord, setSentence2ptbrIsolatedWord] =
+  const [sentence2ptbrHighlighted, setSentence2ptbrHighlighted] =
     useState<string>("");
   const [sentence3, setSentence3] = useState<string>("");
-  const [sentence3IsolatedWord, setSentence3IsolatedWord] =
-    useState<string>("");
+  const [sentence3Highlighted, setSentence3Highlighted] = useState<string>("");
   const [sentence3ptbr, setSentence3ptbr] = useState<string>("");
-  const [sentence3ptbrIsolatedWord, setSentence3ptbrIsolatedWord] =
+  const [sentence3ptbrHighlighted, setSentence3ptbrHighlighted] =
     useState<string>("");
 
   const addNewCards = async (frontText: string, backText: string) => {
@@ -137,31 +134,28 @@ const ReviewFlashCardsVocabulary = ({
 
       const parsedSentences = sentencesBroken.map((sentence: any) => {
         const parts = sentence.split(" // ");
-        const enMatch = parts[0].match(/^(.*)\s*\((.*?)\)$/);
-        const ptMatch = parts[1] ? parts[1].match(/^(.*)\s*\((.*?)\)$/) : null;
-
         return {
-          en: enMatch ? enMatch[1].trim() : parts[0].trim(),
-          enWord: enMatch ? enMatch[2].trim() : "",
-          pt: ptMatch ? ptMatch[1].trim() : parts[1].trim(),
-          ptWord: ptMatch ? ptMatch[2].trim() : "",
+          en: parts[0].trim(),
+          enHighlighted: parts[1].trim(),
+          pt: parts[2].trim(),
+          ptHighlighted: parts[3].trim(),
         };
       });
 
       setSentence1(parsedSentences[0].en);
-      setSentence1IsolatedWord(parsedSentences[0].enWord);
+      setSentence1Highlighted(parsedSentences[0].enHighlighted);
       setSentence1ptbr(parsedSentences[0].pt);
-      setSentence1ptbrIsolatedWord(parsedSentences[0].ptWord);
+      setSentence1ptbrHighlighted(parsedSentences[0].ptHighlighted);
 
       setSentence2(parsedSentences[1].en);
-      setSentence2IsolatedWord(parsedSentences[1].enWord);
+      setSentence2Highlighted(parsedSentences[1].enHighlighted);
       setSentence2ptbr(parsedSentences[1].pt);
-      setSentence2ptbrIsolatedWord(parsedSentences[1].ptWord);
+      setSentence2ptbrHighlighted(parsedSentences[1].ptHighlighted);
 
       setSentence3(parsedSentences[2].en);
-      setSentence3IsolatedWord(parsedSentences[2].enWord);
+      setSentence3Highlighted(parsedSentences[2].enHighlighted);
       setSentence3ptbr(parsedSentences[2].pt);
-      setSentence3ptbrIsolatedWord(parsedSentences[2].ptWord);
+      setSentence3ptbrHighlighted(parsedSentences[2].ptHighlighted);
 
       setCards(response.data.dueFlashcards);
       setCardsLength(thereAreCards);
@@ -174,13 +168,6 @@ const ReviewFlashCardsVocabulary = ({
     }
   };
 
-  const highlightWord = (sentence: any, word: any) => {
-    const regex = new RegExp(`\\b${word}\\b`, "gi");
-    return sentence.replace(
-      regex,
-      `<span style='color: red; margin: 0; padding: 0; font-weight: bold;'>${word}</span>`
-    );
-  };
   const handleReadText = (index: any, text: string, language: string) => {
     readText(text, true, language);
     const newHeardSentences = [...heardSentences];
@@ -191,19 +178,22 @@ const ReviewFlashCardsVocabulary = ({
 
   const sentences = [
     {
+      highlighted: sentence1Highlighted,
+      highlightedpt: sentence1ptbrHighlighted,
       text: sentence1,
       translation: sentence1ptbr,
-      isolated: sentence1IsolatedWord,
     },
     {
+      highlighted: sentence2Highlighted,
+      highlightedpt: sentence2ptbrHighlighted,
       text: sentence2,
       translation: sentence2ptbr,
-      isolated: sentence2IsolatedWord,
     },
     {
+      highlighted: sentence3Highlighted,
+      highlightedpt: sentence3ptbrHighlighted,
       text: sentence3,
       translation: sentence3ptbr,
-      isolated: sentence3IsolatedWord,
     },
   ];
   return (
@@ -365,21 +355,19 @@ const ReviewFlashCardsVocabulary = ({
                                             fontWeight: 800,
                                           }}
                                           dangerouslySetInnerHTML={{
-                                            __html: highlightWord(
-                                              sentence.text,
-                                              sentence.isolated
-                                            ),
+                                            __html: sentence.highlighted,
                                           }}
-                                        ></span>
+                                        />
                                         <span
                                           style={{
                                             display: "flex",
                                             gap: "10px",
                                             justifyContent: "flex-start",
                                           }}
-                                        >
-                                          {sentence.translation}
-                                        </span>
+                                          dangerouslySetInnerHTML={{
+                                            __html: sentence.highlightedpt,
+                                          }}
+                                        />
                                       </span>
                                     </p>
                                   ))}
