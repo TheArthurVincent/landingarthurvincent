@@ -19,27 +19,30 @@ const ReviewFlashCardsVocabulary = ({
 }: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
-  const [myPermissions, setPermissions] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [cards, setCards] = useState<any[]>([]);
-  const [isDisabled, setIsDisabled] = useState<boolean>(true);
-  const [answer, setAnswer] = useState<boolean>(false);
   const [cardsLength, setCardsLength] = useState<boolean>(true);
   const [see, setSee] = useState<boolean>(false);
-  const [count, setCount] = useState<number>(4);
-  const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
-
-  const [sentence1, setSentence1] = useState<string>(
-    "Spongebob lives in bikini bottom"
-  );
-  const [sentence1ptbr, setSentence1ptbr] = useState<string>(
-    "Bob esponja mora na fenda do biquini"
-  );
+  const [heardSentences, setHeardSentences] = useState([false, false, false]);
+  const [allHeard, setAllHeard] = useState(false);
+  const [sentence1, setSentence1] = useState<string>("");
+  const [sentence1IsolatedWord, setSentence1IsolatedWord] =
+    useState<string>("");
+  const [sentence1ptbr, setSentence1ptbr] = useState<string>("");
+  const [sentence1ptbrIsolatedWord, setSentence1ptbrIsolatedWord] =
+    useState<string>("");
   const [sentence2, setSentence2] = useState<string>("");
+  const [sentence2IsolatedWord, setSentence2IsolatedWord] =
+    useState<string>("");
   const [sentence2ptbr, setSentence2ptbr] = useState<string>("");
+  const [sentence2ptbrIsolatedWord, setSentence2ptbrIsolatedWord] =
+    useState<string>("");
   const [sentence3, setSentence3] = useState<string>("");
+  const [sentence3IsolatedWord, setSentence3IsolatedWord] =
+    useState<string>("");
   const [sentence3ptbr, setSentence3ptbr] = useState<string>("");
-
+  const [sentence3ptbrIsolatedWord, setSentence3ptbrIsolatedWord] =
+    useState<string>("");
 
   const addNewCards = async (frontText: string, backText: string) => {
     const newCards = [
@@ -74,63 +77,34 @@ const ReviewFlashCardsVocabulary = ({
     }
   };
 
-
-  const timerDisabled = () => {
-    if (myPermissions !== "superadmin") {
-      setCount(3);
-      setIsDisabled(true);
-
-      setTimeout(() => {
-        setCount(2);
-      }, 1000);
-
-      setTimeout(() => {
-        setCount(1);
-      }, 2000);
-
-      setTimeout(() => {
-        setIsDisabled(false);
-      }, 3000);
-    } else {
-      setIsDisabled(false);
-    }
-  };
-
-  const [totalS, setTotalScore] = useState(0);
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { totalScore, permissions, id } = JSON.parse(user);
+      const { id } = JSON.parse(user);
       setId(id);
-      setPermissions(permissions);
-      setTotalScore(totalScore);
     }
-    setAnswer(false);
   }, []);
 
   const actualHeaders = headers || {};
 
   const reviewCard = async (id: string, difficulty: string) => {
     setLoading(true);
+    var sentenceMining = true;
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/reviewflashcard/${myId}`,
-        { flashcardId: id, difficulty },
+        { flashcardId: id, difficulty, sentenceMining },
         { headers: actualHeaders }
       );
-      setAnswer(false);
       onChange(!change);
       seeCardsToReview();
-      timerDisabled();
     } catch (error) {
       onLoggOut();
     }
   };
-
   const seeCardsToReview = async () => {
+    setAllHeard(false);
     setLoading(true);
-    setAnswer(false);
-    setBackCardVisible(false);
     setSee(true);
     var category = "vocabulary";
     try {
@@ -143,55 +117,56 @@ const ReviewFlashCardsVocabulary = ({
       );
       const thereAreCards =
         response.data.dueFlashcards.length > 0 ? false : true;
-      {
+
+      if (
         response.data.dueFlashcards.length > 0 &&
         response.data.dueFlashcards[0].front.language &&
         response.data.dueFlashcards[0].front &&
         response.data.dueFlashcards[0].front.language !== "pt"
-          ? readText(
-              response.data.dueFlashcards[0].front?.text,
-              false,
-              response.data.dueFlashcards[0].front.language
-            )
-          : null;
+      ) {
+        readText(
+          response.data.dueFlashcards[0].front?.text,
+          false,
+          response.data.dueFlashcards[0].front.language
+        );
       }
-      console.log(response.data.responseAI);
 
       const sentencesBroken = response.data.responseAI
         .split("\n")
         .filter((line: any) => line.trim() !== "");
 
-      // Step 2: Extract English and Portuguese parts
-      // @ts-ignore
-      const parsedSentences = sentencesBroken.map((sentence) => {
+      const parsedSentences = sentencesBroken.map((sentence: any) => {
         const parts = sentence.split(" // ");
+        const enMatch = parts[0].match(/^(.*)\s*\((.*?)\)$/);
+        const ptMatch = parts[1] ? parts[1].match(/^(.*)\s*\((.*?)\)$/) : null;
+
         return {
-          en: parts[0].replace(/^\d+\.\s*/, "").trim(),
-          pt: parts[1] ? parts[1].trim() : "",
+          en: enMatch ? enMatch[1].trim() : parts[0].trim(),
+          enWord: enMatch ? enMatch[2].trim() : "",
+          pt: ptMatch ? ptMatch[1].trim() : parts[1].trim(),
+          ptWord: ptMatch ? ptMatch[2].trim() : "",
         };
       });
 
-      // Step 3: Assign to variables
-      const sentenceOneEn = parsedSentences[0].en;
-      const sentenceOnePt = parsedSentences[0].pt;
-      const sentenceTwoEn = parsedSentences[1].en;
-      const sentenceTwoPt = parsedSentences[1].pt;
-      const sentenceThreeEn = parsedSentences[2].en;
-      const sentenceThreePt = parsedSentences[2].pt;
+      setSentence1(parsedSentences[0].en);
+      setSentence1IsolatedWord(parsedSentences[0].enWord);
+      setSentence1ptbr(parsedSentences[0].pt);
+      setSentence1ptbrIsolatedWord(parsedSentences[0].ptWord);
 
-      // Output
+      setSentence2(parsedSentences[1].en);
+      setSentence2IsolatedWord(parsedSentences[1].enWord);
+      setSentence2ptbr(parsedSentences[1].pt);
+      setSentence2ptbrIsolatedWord(parsedSentences[1].ptWord);
 
-      setSentence1(sentenceOneEn);
-      setSentence1ptbr(sentenceOnePt);
-      setSentence2(sentenceTwoEn);
-      setSentence2ptbr(sentenceTwoPt);
-      setSentence3(sentenceThreeEn);
-      setSentence3ptbr(sentenceThreePt);
+      setSentence3(parsedSentences[2].en);
+      setSentence3IsolatedWord(parsedSentences[2].enWord);
+      setSentence3ptbr(parsedSentences[2].pt);
+      setSentence3ptbrIsolatedWord(parsedSentences[2].ptWord);
+
       setCards(response.data.dueFlashcards);
       setCardsLength(thereAreCards);
-      setBackCardVisible(true);
-      timerDisabled();
       setLoading(false);
+      setHeardSentences([false, false, false]);
     } catch (error) {
       console.log(error);
       alert("Erro ao enviar cards");
@@ -199,6 +174,38 @@ const ReviewFlashCardsVocabulary = ({
     }
   };
 
+  const highlightWord = (sentence: any, word: any) => {
+    const regex = new RegExp(`\\b${word}\\b`, "gi");
+    return sentence.replace(
+      regex,
+      `<span style='color: red; margin: 0; padding: 0; font-weight: bold;'>${word}</span>`
+    );
+  };
+  const handleReadText = (index: any, text: string, language: string) => {
+    readText(text, true, language);
+    const newHeardSentences = [...heardSentences];
+    newHeardSentences[index] = true;
+    setHeardSentences(newHeardSentences);
+    setAllHeard(newHeardSentences.every((heard) => heard));
+  };
+
+  const sentences = [
+    {
+      text: sentence1,
+      translation: sentence1ptbr,
+      isolated: sentence1IsolatedWord,
+    },
+    {
+      text: sentence2,
+      translation: sentence2ptbr,
+      isolated: sentence2IsolatedWord,
+    },
+    {
+      text: sentence3,
+      translation: sentence3ptbr,
+      isolated: sentence3IsolatedWord,
+    },
+  ];
   return (
     <section id="review">
       {/*  */}
@@ -224,260 +231,158 @@ const ReviewFlashCardsVocabulary = ({
               <div>
                 {!cardsLength ? (
                   <>
-                    <ArvinButton
-                      disabled={isDisabled}
-                      cursor={isDisabled ? "not-allowed" : "pointer"}
-                      color={isDisabled ? "grey" : "navy"}
-                      onClick={() => {
-                        setBackCardVisible(!backCardVisible);
-                        setAnswer(!answer);
-                      }}
-                    >
-                      {isDisabled ? (
-                        <span>{count}</span>
-                      ) : (
-                        <span>{answer ? "Back" : "Answer"}</span>
-                      )}
-                    </ArvinButton>
-                    <br />
-                    <br />
-                    {answer && (
-                      <div>
-                        <div
-                          style={{
-                            justifyContent: "center",
-                            display: "flex",
-                            gap: "5px",
-                            marginBottom: "10px",
-                            marginTop: "5px",
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: "grid",
-                              gap: "5px",
-                            }}
+                    <div>
+                      <div
+                        style={{
+                          justifyContent: "center",
+                          display: "flex",
+                          gap: "5px",
+                          marginBottom: "10px",
+                          marginTop: "5px",
+                        }}
+                      >
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <ArvinButton
+                            cursor={allHeard ? "pointer" : "not-allowed"}
+                            disabled={!allHeard}
+                            onClick={() => reviewCard(cards[0]._id, "hard")}
+                            color={allHeard ? "red" : "grey"}
                           >
-                            <ArvinButton
-                              onClick={() => {
-                                reviewCard(cards[0]._id, "hard");
-                              }}
-                              color="red"
-                            >
-                              I missed (Errei)
-                            </ArvinButton>
-                          </div>
-                          <div style={{ display: "grid", gap: "5px" }}>
-                            <ArvinButton
-                              onClick={() => reviewCard(cards[0]._id, "easy")}
-                              color="green"
-                            >
-                              I got it! (Acertei)
-                            </ArvinButton>
-                          </div>
+                            Complex (Complexa)
+                          </ArvinButton>{" "}
+                          <ArvinButton
+                            cursor={allHeard ? "pointer" : "not-allowed"}
+                            disabled={!allHeard}
+                            onClick={() => reviewCard(cards[0]._id, "easy")}
+                            color={allHeard ? "green" : "grey"}
+                          >
+                            Easy (Fácil)
+                          </ArvinButton>
                         </div>
-                        <br />
-                        <br />
                       </div>
-                    )}
+                      <br />
+                    </div>
+
                     <div
                       style={{
                         margin: "auto",
                       }}
-                      className={`flashcard ${answer ? "flip" : ""}`}
                     >
-                      <div
-                        style={{
-                          display: !backCardVisible ? "none" : "block",
-                        }}
-                        className="flashcard-front"
-                      >
-                        <div>
-                          <span
+                      <div>
+                        <span
+                          style={{
+                            fontSize: "15px",
+                          }}
+                        >
+                          {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
+                          {Math.round(cards[0]?.numberOfReviews) == 1
+                            ? "review"
+                            : "reviews"}
+                        </span>
+                        <br />
+                        <span>
+                          <div
                             style={{
-                              fontSize: "15px",
+                              fontSize: "20px",
+                              fontFamily: textTitleFont(),
+                              fontWeight: 600,
+                              marginBottom: "10px",
                             }}
                           >
-                            {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
-                            {Math.round(cards[0]?.numberOfReviews) == 1
-                              ? "review"
-                              : "reviews"}
-                          </span>
-                          <br />
-                          <br />
-                          <span>
-                            <div
-                              style={{
-                                fontSize: "20px",
-                                fontFamily: textTitleFont(),
-                                fontWeight: 600,
-                                marginBottom: "10px",
-                              }}
-                            >
-                              {cards[0]?.front?.text}
-                            </div>
-                          </span>
-                          {cards[0].front.language &&
-                            cards[0].front.language !== "pt" && (
-                              <button
-                                className="audio-button bgwhite"
-                                onClick={() =>
-                                  readText(
-                                    cards[0].front.text,
-                                    true,
-                                    cards[0].front.language
-                                  )
-                                }
-                              >
-                                <i
-                                  className="fa fa-volume-up"
-                                  aria-hidden="true"
-                                />
-                              </button>
-                            )}
-                        </div>
+                            {cards[0]?.front?.text}
+                          </div>
+                        </span>
                       </div>
-                      <div
-                        style={{
-                          display: backCardVisible ? "none" : "block",
-                          width:"200%"
-                        }}
-                        className="flashcard-back"
-                      >
+                      <div>
                         <div>
                           <span>
                             {(
                               <>
-                               
-                                <div
-                                  style={{
-                                    fontSize: "10px",
-                                    fontWeight: 600,
-                                    fontFamily: textTitleFont(),
-                                    marginBottom: "10px",
-                                  }}
-                                >
-                                  {cards[0]?.back?.text}
-                                </div>
                                 <div>
-                                  <p>
-                                    <span
+                                  {sentences.map((sentence, index) => (
+                                    <p
+                                      key={index}
                                       style={{
-                                        fontWeight: 800,
+                                        display: "flex",
+                                        justifyContent: "flex-start",
+                                        gap: "1rem",
+                                        marginBottom: "10px",
                                       }}
                                     >
-                                      {sentence1}
-                                    </span>
-                                    <br />
-                                    <span>{sentence1ptbr}</span>
-                                    <button
-                                      className="audio-button bgwhite"
-                                      onClick={() =>
-                                        readText(
-                                          sentence1,
-                                          true,
-                                          cards[0].front.language
-                                        )
-                                      }
-                                    >
-                                      <i
-                                        className="fa fa-volume-up"
-                                        aria-hidden="true"
-                                      />
-                                    </button>
-                                    <Tooltip title="Add to flashcards">
-                                      <ArvinButton
-                                        color="white"
-                                        onClick={() =>
-                                        addNewCards(sentence1, sentence1ptbr)
-                                      }
+                                      <Tooltip
+                                        title={
+                                          !heardSentences[index]
+                                            ? "Listen first!"
+                                            : "Add to flashcards"
+                                        }
                                       >
-                                        <i
-                                          className="fa fa-files-o"
-                                          aria-hidden="true"
-                                        />
-                                      </ArvinButton>
-                                    </Tooltip>
-                                  </p>
-                                  <p>
-                                    <span
-                                      style={{
-                                        fontWeight: 800,
-                                      }}
-                                    >
-                                      {sentence2}
-                                    </span>
-                                    <br />
-                                    <span>{sentence2ptbr}</span>
-                                    <button
-                                      className="audio-button bgwhite"
-                                      
-                                      onClick={() =>
-                                        readText(
-                                          sentence2,
-                                          true,
-                                          cards[0].front.language
-                                        )
-                                      }
-                                    >
-                                      <i
-                                        className="fa fa-volume-up"
-                                        aria-hidden="true"
-                                      />
-                                    </button>
-                                    <Tooltip title="Add to flashcards">
+                                        <ArvinButton
+                                          color={
+                                            !heardSentences[index]
+                                              ? "white"
+                                              : "green"
+                                          }
+                                          cursor={
+                                            !heardSentences[index]
+                                              ? "not-allowed"
+                                              : "pointer"
+                                          }
+                                          onClick={() =>
+                                            addNewCards(
+                                              sentence.text,
+                                              sentence.translation
+                                            )
+                                          }
+                                          disabled={!heardSentences[index]}
+                                        >
+                                          <i
+                                            className="fa fa-files-o"
+                                            aria-hidden="true"
+                                          />
+                                        </ArvinButton>
+                                      </Tooltip>
                                       <ArvinButton
-                                        color="white"
+                                        className="audio-button bgwhite"
                                         onClick={() =>
-                                          addNewCards(sentence2, sentence2ptbr)
+                                          handleReadText(
+                                            index,
+                                            sentence.text,
+                                            cards[0].front.language
+                                          )
                                         }
                                       >
                                         <i
-                                          className="fa fa-files-o"
+                                          className="fa fa-volume-up"
                                           aria-hidden="true"
                                         />
                                       </ArvinButton>
-                                    </Tooltip>
-                                  </p>
-                                  <p>
-                                    <span
-                                      style={{
-                                        fontWeight: 800,
-                                      }}
-                                    >
-                                      {sentence3}
-                                    </span>
-                                    <br />
-                                    <span>{sentence3ptbr}</span>
-                                    <button
-                                      className="audio-button bgwhite"
-                                      onClick={() =>
-                                        readText(
-                                          sentence3,
-                                          true,
-                                          cards[0].front.language
-                                        )
-                                      }
-                                    >
-                                      <i
-                                        className="fa fa-volume-up"
-                                        aria-hidden="true"
-                                      />
-                                    </button>
-                                    <Tooltip title="Add to flashcards">
-                                      <ArvinButton
-                                        color="white"
-                                        onClick={() =>
-                                          addNewCards(sentence3, sentence3ptbr)
-                                        }
-                                      >
-                                        <i
-                                          className="fa fa-files-o"
-                                          aria-hidden="true"
-                                        />
-                                      </ArvinButton>
-                                    </Tooltip>
-                                  </p>
+                                      <span>
+                                        <span
+                                          style={{
+                                            display: "flex",
+                                            gap: "10px",
+                                            justifyContent: "flex-start",
+                                            fontWeight: 800,
+                                          }}
+                                          dangerouslySetInnerHTML={{
+                                            __html: highlightWord(
+                                              sentence.text,
+                                              sentence.isolated
+                                            ),
+                                          }}
+                                        ></span>
+                                        <span
+                                          style={{
+                                            display: "flex",
+                                            gap: "10px",
+                                            justifyContent: "flex-start",
+                                          }}
+                                        >
+                                          {sentence.translation}
+                                        </span>
+                                      </span>
+                                    </p>
+                                  ))}
                                 </div>
                               </>
                             ) || " "}
@@ -508,7 +413,7 @@ const ReviewFlashCardsVocabulary = ({
       />
       <div
         style={{
-          display: !isDisabled ? "none" : "grid",
+          // display: !isDisabled ? "none" : "grid",
           justifyContent: "center",
           marginTop: "20px",
         }}
