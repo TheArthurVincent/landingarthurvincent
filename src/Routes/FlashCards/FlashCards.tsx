@@ -16,8 +16,8 @@ import { onLoggOut } from "../../Resources/UniversalComponents";
 import FlashcardsHistory from "./FlashCardsComponents/FlashcardsHistory";
 import ListeningExercise from "./FlashCardsComponents/ListeningExercise";
 import QnAExercise from "./FlashCardsComponents/QandAExercise";
-import ReviewFlashCardsVocabulary from "./FlashCardsComponents/ReviewFlashCardsVocabulary";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import SentenceMining from "./FlashCardsComponents/SentenceMining";
 
 interface FlashCardsProps {
   headers: MyHeadersType | null;
@@ -52,7 +52,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       adm: false,
       component: (
         <ReviewFlashCards
-          onChange={onChange}
+          onChange={onChange} 
           change={change}
           headers={headers}
         />
@@ -76,11 +76,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       value: "3",
       adm: false,
       component: (
-        <ReviewFlashCardsVocabulary
-          onChange={onChange}
-          change={change}
-          headers={headers}
-        />
+        <SentenceMining onChange={onChange} change={change} headers={headers} />
       ),
     },
     // {
