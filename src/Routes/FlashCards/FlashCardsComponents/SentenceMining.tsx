@@ -281,7 +281,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             fontSize: "16px",
           }}
         />
-        {/* <select
+        <select
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
           style={{
@@ -297,7 +297,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <option value="pt">Portuguese</option>
           <option value="es">Spanish</option>
           <option value="fr">French</option>
-        </select> */}
+        </select>
 
         <ArvinButton
           disabled={word == ""}
