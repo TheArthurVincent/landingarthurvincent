@@ -264,7 +264,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       >
         <input
           type="text"
-          placeholder="Mine a word"
+          placeholder="What word would you like to know more about?"
           value={word}
           maxLength={15}
           onChange={(e) => setWord(e.target.value)}
