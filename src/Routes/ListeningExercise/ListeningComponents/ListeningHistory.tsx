@@ -17,7 +17,7 @@ interface GroupedHistory {
   totalScore: number;
 }
 
-const FlashcardsHistory = ({ headers }: HeadersProps) => {
+const ListeningHistory = ({ headers }: HeadersProps) => {
   const [flashcardHistory, setFlashcardHistory] = useState<FlashcardItem[]>([]);
   const [listeningFlashcardHistory, setListeningFlashcardHistory] = useState<
     FlashcardItem[]
@@ -30,9 +30,6 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
   const [expandedListeningDays, setExpandedListeningDays] = useState<
     Record<string, boolean>
   >({});
-  const [expandedQADays, setExpandedQADays] = useState<Record<string, boolean>>(
-    {}
-  );
   const [loading, setLoading] = useState<boolean>(true);
 
   const toggleFlashcardDay = (date: string) => {
@@ -49,12 +46,6 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
     }));
   };
 
-  const toggleQADay = (date: string) => {
-    setExpandedQADays((prevState) => ({
-      ...prevState,
-      [date]: !prevState[date],
-    }));
-  };
 
   const actualHeaders = headers || {};
   const getNewCards = async (id?: string) => {
@@ -117,25 +108,23 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
     return <CircularProgress />;
   }
 
-  const groupedHistory = groupByDay2(flashcardHistory);
   const groupedListeningHistory = groupByDay2(listeningFlashcardHistory);
 
   return (
     <div className="flashcard-history-upper">
-      {/* Flashcard Reviews */}
       <div>
-        <HOne>Flashcard Reviews</HOne>
-        {flashcardHistory.length > 0 ? (
+        <HOne>Listening Exercises</HOne>
+        {listeningFlashcardHistory.length > 0 ? (
           <div className="flashcard-history-list">
-            {Object.entries(groupedHistory).map(([date, group]) => (
+            {Object.entries(groupedListeningHistory).map(([date, group]) => (
               <div key={date} className="flashcard-day">
                 <h2
                   className="flashcard-date"
-                  onClick={() => toggleFlashcardDay(date)}
+                  onClick={() => toggleListeningDay(date)}
                 >
-                  {date} - Total Points: {group.totalScore}
+                  {date} - Total Points: {group.totalScore.toFixed()}
                 </h2>
-                {expandedFlashcardsDays[date] && (
+                {expandedListeningDays[date] && (
                   <div className="flashcard-items">
                     {group.items.map((item) => (
                       <div key={item._id} className="flashcard-item">
@@ -157,11 +146,11 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
             ))}
           </div>
         ) : (
-          <p>No flashcard history found.</p>
+          <p>No listening flashcard history found.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default FlashcardsHistory;
+export default ListeningHistory;

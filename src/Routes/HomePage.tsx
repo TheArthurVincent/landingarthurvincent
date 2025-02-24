@@ -19,6 +19,8 @@ import FlashCards from "./FlashCards/FlashCards";
 import Homework from "./Homework/Homework";
 import AppFooter from "../Application/Footer/Footer";
 import EnglishCourses from "./EnglishLessons/Courses";
+import Listening from "./ListeningExercise/Listening";
+import SentenceMining from "./SentenceMining/SentenceMining";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -94,6 +96,18 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "English Courses",
       component: <EnglishCourses headers={headers} />,
+    },
+    {
+      title: "Listening",
+      component: (
+        <Listening change={change} onChange={setChange} headers={headers} />
+      ),
+    },
+    {
+      title: "Sentence Mining",
+      component: (
+        <SentenceMining onChange={setChange} change={change} headers={headers} />
+      ),
     },
     {
       title: "Live Classes",

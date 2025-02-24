@@ -9,22 +9,19 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import AddFlashCards from "./FlashCardsComponents/AddFlashCards";
-import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
-import AllCards from "./FlashCardsComponents/AllCards";
+import AllCards from "../FlashCards/FlashCardsComponents/AllCards";
 import { onLoggOut } from "../../Resources/UniversalComponents";
-import FlashcardsHistory from "./FlashCardsComponents/FlashcardsHistory";
-import ListeningExercise from "../ListeningExercise/ListeningComponents/ListeningExercise";
-import QnAExercise from "./FlashCardsComponents/QandAExercise";
+import ListeningExercise from "./ListeningComponents/ListeningExercise";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import SentenceMining from "../SentenceMining/SentenceMining";
+import ListeningHistory from "./ListeningComponents/ListeningHistory";
 
-interface FlashCardsProps {
+interface ListeningProps {
   headers: MyHeadersType | null;
   onChange: any;
   change: boolean;
 }
-const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
+const Listening = ({ headers, onChange, change }: ListeningProps) => {
   useState<number>(0);
   const [myPermissions, setPermissions] = useState<string>("");
   const [value, setValue] = useState<string>("1");
@@ -47,12 +44,12 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
 
   const componentsToRender = [
     {
-      title: UniversalTexts.sentences,
+      title: UniversalTexts.listening,
       value: "1",
       adm: false,
       component: (
-        <ReviewFlashCards
-          onChange={onChange} 
+        <ListeningExercise
+          onChange={onChange}
           change={change}
           headers={headers}
         />
@@ -60,21 +57,9 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
     },
     {
       title: UniversalTexts.myCards,
-      value: "4",
+      value: "2",
       adm: false,
-      component: <AllCards headers={headers} />,
-    },
-    {
-      title: UniversalTexts.history,
-      value: "5",
-      adm: false,
-      component: <FlashcardsHistory headers={headers} />,
-    },
-    {
-      title: UniversalTexts.add,
-      value: "5",
-      adm: true,
-      component: <AddFlashCards display="block" headers={headers} />,
+      component: <ListeningHistory headers={headers} />,
     },
   ];
 
@@ -135,4 +120,4 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   );
 };
 
-export default FlashCards;
+export default Listening;
