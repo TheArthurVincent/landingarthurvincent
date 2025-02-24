@@ -26,7 +26,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [context, setContext] = useState<string>("  ");
   const [language, setLanguage] = useState<string>("en");
 
-  const youglishBaseUrl = `https://youglish.com/pronounce/${word}/english`;
+  const youglishBaseUrl = `https://youglish.com/pronounce/${word}/english/us`;
 
   const [sentences, setSentences] = useState([
     { text: "", translation: "", added: false },
@@ -182,7 +182,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Ver mais exemplos no YouGlish
+                      Ver mais exemplos em vídeos
                     </a>
                   </p>
                 </div>
