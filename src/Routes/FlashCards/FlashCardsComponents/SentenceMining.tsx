@@ -20,15 +20,10 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [heardSentences, setHeardSentences] = useState([false, false, false]);
   const [allHeard, setAllHeard] = useState(false);
   const [sentence1, setSentence1] = useState<string>("");
-  const [sentence1Highlighted, setSentence1Highlighted] = useState<string>("");
   const [sentence1ptbr, setSentence1ptbr] = useState<string>("");
   const [explanation, setExplanation] = useState<string>("");
   const [sentence2, setSentence2] = useState<string>("");
-  const [sentence2Highlighted, setSentence2Highlighted] = useState<string>("");
   const [sentence2ptbr, setSentence2ptbr] = useState<string>("");
-  const [sentence3, setSentence3] = useState<string>("");
-  const [sentence3Highlighted, setSentence3Highlighted] = useState<string>("");
-  const [sentence3ptbr, setSentence3ptbr] = useState<string>("");
   const [word, setWord] = useState<string>("");
   const [context, setContext] = useState<string>("  ");
   const [language, setLanguage] = useState<string>("en");
@@ -60,10 +55,10 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       alert(showThis);
       onChange(!change);
     } catch (error) {
-      alert(error);
+      // @ts-ignore
+      alert(error.response.data.error);
       setLoading(false);
       // onLoggOut();
-      console.log(error);
     }
   };
 
@@ -78,7 +73,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const actualHeaders = headers || {};
 
   const seeCardsToReview = async () => {
-    setAllHeard(false);
     setLoading(true);
     setSee(true);
 
@@ -92,22 +86,18 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       );
 
       setSentence1(response.data.sentence1);
-      setSentence1Highlighted(response.data.htmlEnglish1);
       setSentence1ptbr(response.data.translation1);
       setExplanation(response.data.explanation);
 
       setSentence2(response.data.sentence2);
-      setSentence2Highlighted(response.data.htmlEnglish2);
       setSentence2ptbr(response.data.translation2);
 
-      setSentence3(response.data.sentence3);
-      setSentence3Highlighted(response.data.htmlEnglish3);
-      setSentence3ptbr(response.data.translation3);
       setLoading(false);
       setHeardSentences([false, false, false]);
     } catch (error) {
       console.log(error);
-      alert(error);
+      // @ts-ignore
+      alert(error.response.data.error);
       // onLoggOut();
       console.log(error);
     }
@@ -123,19 +113,12 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
   const sentences = [
     {
-      highlighted: sentence1Highlighted,
       text: sentence1,
       translation: sentence1ptbr,
     },
     {
-      highlighted: sentence2Highlighted,
       text: sentence2,
       translation: sentence2ptbr,
-    },
-    {
-      highlighted: sentence3Highlighted,
-      text: sentence3,
-      translation: sentence3ptbr,
     },
   ];
   return (
@@ -220,7 +203,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         <span
                           style={{ fontWeight: 800, fontSize: "16px" }}
                           dangerouslySetInnerHTML={{
-                            __html: sentence.highlighted,
+                            __html: sentence.text,
                           }}
                         />
                         <br />
