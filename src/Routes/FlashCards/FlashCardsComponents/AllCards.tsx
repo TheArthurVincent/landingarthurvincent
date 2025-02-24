@@ -253,14 +253,22 @@ const AllCards = ({ headers }: HeadersProps) => {
               >
                 <div>
                   {perm === "superadmin" && (
-                    <ArvinButton
-                      onClick={() => {
-                        handleSeeModal(card._id);
-                      }}
-                      color="yellow"
-                    >
-                      <i className="fa fa-edit" aria-hidden="true" />
-                    </ArvinButton>
+                    <>
+                      <ArvinButton
+                        onClick={() => {
+                          handleSeeModal(card._id);
+                        }}
+                        color="yellow"
+                      >
+                        <i className="fa fa-edit" aria-hidden="true" />
+                      </ArvinButton>
+                      <ArvinButton
+                        onClick={() => handleDeleteCard(card._id)}
+                        color="red"
+                      >
+                        <i className="fa fa-trash" aria-hidden="true" />
+                      </ArvinButton>
+                    </>
                   )}
                   {card.front.language && card.front.language !== "pt" && (
                     <button
@@ -307,7 +315,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                   />
                 </div>
               </span>
-              <span>
+              {/* <span>
                 <ul
                   style={{
                     fontSize: "10px",
@@ -341,14 +349,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                   </li>
                 </ul>
               </span>
-              {perm === "superadmin" && (
-                <ArvinButton
-                  onClick={() => handleDeleteCard(card._id)}
-                  color="red"
-                >
-                  <i className="fa fa-trash" aria-hidden="true" />
-                </ArvinButton>
-              )}
+              */}
             </div>
           ))}
         </div>
