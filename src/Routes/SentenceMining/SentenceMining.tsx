@@ -273,6 +273,18 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             borderRadius: "8px",
           }}
         >
+          <RadioGroup
+            row
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          >
+            <FormControlLabel value="en" control={<Radio />} label="English" />
+            <FormControlLabel
+              value="pt"
+              control={<Radio />}
+              label="Português"
+            />
+          </RadioGroup>
           <input
             type="text"
             placeholder="What word would you like to know more about?"
@@ -352,22 +364,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
           <FormControl>
             <FormLabel>Language</FormLabel>
-            <RadioGroup
-              row
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-            >
-              <FormControlLabel
-                value="en"
-                control={<Radio />}
-                label="English"
-              />
-              <FormControlLabel
-                value="pt"
-                control={<Radio />}
-                label="Português"
-              />
-            </RadioGroup>
           </FormControl>
           <ArvinButton
             disabled={word === ""}
