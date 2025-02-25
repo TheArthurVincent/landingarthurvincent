@@ -272,7 +272,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             borderRadius: "8px",
           }}
         >
-          <FormControl>
+          {/* <FormControl>
             <RadioGroup
               row
               value={language}
@@ -289,7 +289,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 label="Português"
               />
             </RadioGroup>
-          </FormControl>
+          </FormControl> */}
           <input
             type="text"
             placeholder="What word would you like to know more about?"
