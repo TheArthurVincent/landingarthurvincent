@@ -56,9 +56,9 @@ export const TopBar: FC = () => {
 
   const allLinksForUser = [
     {
-      title: UniversalTexts.calendar,
-      endpoint: "/my-calendar",
-      icon: "calendar",
+      title: UniversalTexts.theCourses,
+      endpoint: "/english-courses",
+      icon: "address-book-o",
       display: "block",
     },
     {
@@ -68,15 +68,27 @@ export const TopBar: FC = () => {
       display: "block",
     },
     {
-      title: "Ranking",
-      endpoint: "/ranking",
-      icon: "th-list",
+      title: "Listening",
+      endpoint: "listening",
+      icon: "assistive-listening-systems",
       display: "block",
     },
     {
-      title: UniversalTexts.theCourses,
-      endpoint: "/english-courses",
-      icon: "address-book-o",
+      title: "Sentence Mining",
+      endpoint: "sentence-mining",
+      icon: "search",
+      display: "block",
+    },
+    {
+      title: UniversalTexts.calendar,
+      endpoint: "/my-calendar",
+      icon: "calendar",
+      display: "block",
+    },
+    {
+      title: "Ranking",
+      endpoint: "/ranking",
+      icon: "th-list",
       display: "block",
     },
     {

@@ -271,11 +271,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         </div>
         <DivFlex>
           <div className="grid-flex-2">
-        
-
-
-
-
             <DivMarginBorder>
               <HOne>Flashcards</HOne>
               <div className="lesson-container">
@@ -297,9 +292,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
             </DivMarginBorder>
           </div>
           <div className="grid-flex-2">
-          
-
-          <DivMarginBorder>
+            <DivMarginBorder>
               {loadingLESSON ? (
                 <CircularProgress />
               ) : (
@@ -307,7 +300,10 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                   <HOne>{UniversalTexts.continueToStudy}</HOne>
                   <div className="lesson-container">
                     <a
-                      href={`/english-courses/english-grammar/${classId}`}
+                      href={`/english-courses/${course
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")
+                        .replace(/[^\w\-]+/g, "")}/${classId}`}
                       className="lesson-link"
                     >
                       <>{`${course} - ${module} - ${lesson}`}</>

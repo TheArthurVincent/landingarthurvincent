@@ -101,7 +101,7 @@ export function Login() {
                 placeholder="Senha"
                 type={passwordVisible ? "text" : "password"}
               />
-              {/* <div
+              <div
                 style={{
                   textAlign: "center",
                 }}
@@ -109,7 +109,7 @@ export function Login() {
                 <NavLink to="/changepassword">
                   Esqueci minha senha
                 </NavLink>
-              </div> */}
+              </div>
               <div
                 style={{
                   display: "flex",
