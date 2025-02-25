@@ -4,7 +4,6 @@ import {
   CircularProgress,
   FormControl,
   FormControlLabel,
-  FormLabel,
   Radio,
   RadioGroup,
   Tooltip,
@@ -274,7 +273,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           }}
         >
           <FormControl>
-            <FormLabel>Language</FormLabel>
             <RadioGroup
               row
               value={language}
@@ -323,7 +321,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           }}
         /> */}
           <FormControl>
-            <FormLabel>Choose the tense</FormLabel>
             <RadioGroup
               row
               value={tense}
@@ -345,7 +342,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
           {/* Input para escolher o tipo de frase */}
           <FormControl>
-            <FormLabel>Choose the sentence type</FormLabel>
             <RadioGroup
               row
               value={sentenceType}
