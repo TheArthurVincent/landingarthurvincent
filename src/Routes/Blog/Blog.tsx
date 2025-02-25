@@ -300,7 +300,7 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
                   <HOne>{UniversalTexts.continueToStudy}</HOne>
                   <div className="lesson-container">
                     <a
-                      href={`/english-courses/${module
+                      href={`/english-courses/${course
                         .toLowerCase()
                         .replace(/\s+/g, "-")
                         .replace(/[^\w\-]+/g, "")}/${classId}`}
