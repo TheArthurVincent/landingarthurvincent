@@ -320,6 +320,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             fontSize: "16px",
           }}
         /> */}
+          Somente palavras em inglês!
           <FormControl>
             <RadioGroup
               row
@@ -339,7 +340,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               />
             </RadioGroup>
           </FormControl>
-
           {/* Input para escolher o tipo de frase */}
           <FormControl>
             <RadioGroup
@@ -364,7 +364,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               />
             </RadioGroup>
           </FormControl>
-
           <ArvinButton
             disabled={word === ""}
             cursor={word !== "" ? "pointer" : "not-allowed"}
