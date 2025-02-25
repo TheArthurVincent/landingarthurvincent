@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { CircularProgress, Tooltip } from "@mui/material";
+import {
+  CircularProgress,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  Tooltip,
+} from "@mui/material";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { backDomain } from "../../Resources/UniversalComponents";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
@@ -22,6 +30,8 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [allHeard, setAllHeard] = useState(false);
   const [word, setWord] = useState<string>("");
   const [explanation, setExplanation] = useState<string>("");
+  const [tense, setTense] = useState<string>("Present");
+  const [sentenceType, setSentenceType] = useState<string>("Affirmative");
 
   const [context, setContext] = useState<string>("  ");
   const [language, setLanguage] = useState<string>("en");
@@ -52,7 +62,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         `${backDomain}/api/v1/flashcardsvocabulary/${myId}`,
         {
           headers: actualHeaders,
-          params: { context, language, word },
+          params: { context, language, word, tense, sentenceType },
         }
       );
 
@@ -293,6 +303,72 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             fontSize: "16px",
           }}
         /> */}
+          <FormControl>
+            <FormLabel>Choose the tense</FormLabel>
+            <RadioGroup
+              row
+              value={tense}
+              onChange={(e) => setTense(e.target.value)}
+            >
+              <FormControlLabel value="Past" control={<Radio />} label="Past" />
+              <FormControlLabel
+                value="Present"
+                control={<Radio />}
+                label="Present"
+              />
+              <FormControlLabel
+                value="Future"
+                control={<Radio />}
+                label="Future"
+              />
+            </RadioGroup>
+          </FormControl>
+
+          {/* Input para escolher o tipo de frase */}
+          <FormControl>
+            <FormLabel>Choose the sentence type</FormLabel>
+            <RadioGroup
+              row
+              value={sentenceType}
+              onChange={(e) => setSentenceType(e.target.value)}
+            >
+              <FormControlLabel
+                value="Affirmative"
+                control={<Radio />}
+                label="Affirmative"
+              />
+              <FormControlLabel
+                value="Negative"
+                control={<Radio />}
+                label="Negative"
+              />
+              <FormControlLabel
+                value="Question"
+                control={<Radio />}
+                label="Question"
+              />
+            </RadioGroup>
+          </FormControl>
+
+          <FormControl>
+            <FormLabel>Language</FormLabel>
+            <RadioGroup
+              row
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+            >
+              <FormControlLabel
+                value="en"
+                control={<Radio />}
+                label="English"
+              />
+              <FormControlLabel
+                value="pt"
+                control={<Radio />}
+                label="Português"
+              />
+            </RadioGroup>
+          </FormControl>
           <ArvinButton
             disabled={word === ""}
             cursor={word !== "" ? "pointer" : "not-allowed"}
