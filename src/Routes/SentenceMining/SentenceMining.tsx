@@ -320,6 +320,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             fontSize: "16px",
           }}
         /> */}
+        Somente palavras em inglês!
           <FormControl>
             <RadioGroup
               row
