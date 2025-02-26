@@ -14,10 +14,7 @@ import ReviewFlashCards from "./FlashCardsComponents/ReviewFlashCards";
 import AllCards from "./FlashCardsComponents/AllCards";
 import { onLoggOut } from "../../Resources/UniversalComponents";
 import FlashcardsHistory from "./FlashCardsComponents/FlashcardsHistory";
-import ListeningExercise from "../ListeningExercise/ListeningComponents/ListeningExercise";
-import QnAExercise from "./FlashCardsComponents/QandAExercise";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import SentenceMining from "../SentenceMining/SentenceMining";
 
 interface FlashCardsProps {
   headers: MyHeadersType | null;
