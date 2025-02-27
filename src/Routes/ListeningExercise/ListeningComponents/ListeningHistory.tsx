@@ -18,26 +18,14 @@ interface GroupedHistory {
 }
 
 const ListeningHistory = ({ headers }: HeadersProps) => {
-  const [flashcardHistory, setFlashcardHistory] = useState<FlashcardItem[]>([]);
   const [listeningFlashcardHistory, setListeningFlashcardHistory] = useState<
     FlashcardItem[]
   >([]);
-  const [QAReviewHistory, setQAReviewHistory] = useState<FlashcardItem[]>([]);
 
-  const [expandedFlashcardsDays, setExpandedFlashcardsDays] = useState<
-    Record<string, boolean>
-  >({});
   const [expandedListeningDays, setExpandedListeningDays] = useState<
     Record<string, boolean>
   >({});
   const [loading, setLoading] = useState<boolean>(true);
-
-  const toggleFlashcardDay = (date: string) => {
-    setExpandedFlashcardsDays((prevState) => ({
-      ...prevState,
-      [date]: !prevState[date],
-    }));
-  };
 
   const toggleListeningDay = (date: string) => {
     setExpandedListeningDays((prevState) => ({
@@ -45,7 +33,6 @@ const ListeningHistory = ({ headers }: HeadersProps) => {
       [date]: !prevState[date],
     }));
   };
-
 
   const actualHeaders = headers || {};
   const getNewCards = async (id?: string) => {
@@ -58,25 +45,16 @@ const ListeningHistory = ({ headers }: HeadersProps) => {
         }
       );
       console.log(response.data);
-      setFlashcardHistory(
-        Array.isArray(response.data.flashcardReviewHistory)
-          ? response.data.flashcardReviewHistory
-          : []
-      );
+
       setListeningFlashcardHistory(
         Array.isArray(response.data.listeningReviewHistory)
           ? response.data.listeningReviewHistory
           : []
       );
-      setQAReviewHistory(
-        Array.isArray(response.data.QAReviewHistory)
-          ? response.data.QAReviewHistory
-          : []
-      );
+
       setLoading(false);
     } catch (error) {
       console.log("Erro ao obter cards", error);
-      setFlashcardHistory([]);
       setLoading(false);
       onLoggOut();
     }

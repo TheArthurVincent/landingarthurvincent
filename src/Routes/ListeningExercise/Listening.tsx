@@ -9,11 +9,9 @@ import {
   textPrimaryColorContrast,
 } from "../../Styles/Styles";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import AllCards from "../FlashCards/FlashCardsComponents/AllCards";
 import { onLoggOut } from "../../Resources/UniversalComponents";
 import ListeningExercise from "./ListeningComponents/ListeningExercise";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import SentenceMining from "../SentenceMining/SentenceMining";
 import ListeningHistory from "./ListeningComponents/ListeningHistory";
 
 interface ListeningProps {
@@ -56,7 +54,7 @@ const Listening = ({ headers, onChange, change }: ListeningProps) => {
       ),
     },
     {
-      title: UniversalTexts.myCards,
+      title: UniversalTexts.history,
       value: "2",
       adm: false,
       component: <ListeningHistory headers={headers} />,
