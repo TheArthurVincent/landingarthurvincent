@@ -252,7 +252,6 @@ const AllCards = ({ headers }: HeadersProps) => {
                 }}
               >
                 <div>
-                  {perm === "superadmin" && (
                     <>
                       <ArvinButton
                         onClick={() => {
@@ -269,7 +268,6 @@ const AllCards = ({ headers }: HeadersProps) => {
                         <i className="fa fa-trash" aria-hidden="true" />
                       </ArvinButton>
                     </>
-                  )}
                   {card.front.language && card.front.language !== "pt" && (
                     <button
                       className="audio-button"
