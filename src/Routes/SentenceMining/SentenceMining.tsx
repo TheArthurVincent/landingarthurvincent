@@ -26,18 +26,22 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [see, setSee] = useState<boolean>(false);
   const [heardSentences, setHeardSentences] = useState([false, false, false]);
-  const [allHeard, setAllHeard] = useState(false);
   const [word, setWord] = useState<string>("");
+  const [finalWord, setFinalWord] = useState<string>("");
+  const [allHeard, setAllHeard] = useState(false);
+  const [disabledButton, setDisabledButton] = useState(true);
+
   const [explanation, setExplanation] = useState<string>("");
   const [tense, setTense] = useState<string>("Present");
   const [sentenceType, setSentenceType] = useState<string>("Affirmative");
 
   const [context, setContext] = useState<string>("  ");
-  const [language, setLanguage] = useState<string>("en");
+  const [language, setLanguage] = useState<string>("");
 
   const youglishBaseUrl = `https://youglish.com/pronounce/${word}/english/us`;
 
   const [sentences, setSentences] = useState([
+    { text: "", translation: "", added: false },
     { text: "", translation: "", added: false },
     { text: "", translation: "", added: false },
   ]);
@@ -65,6 +69,8 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         }
       );
 
+      setFinalWord(response.data.adaptedWord);
+
       setSentences([
         {
           text: response.data.sentence1,
@@ -74,6 +80,11 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         {
           text: response.data.sentence2,
           translation: response.data.translation2,
+          added: false,
+        },
+        {
+          text: response.data.sentence3,
+          translation: response.data.translation3,
           added: false,
         },
       ]);
@@ -153,7 +164,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       marginBottom: "10px",
                     }}
                   >
-                    <HOne>{sentences[0].text}</HOne>
+                    <HOne>{finalWord}</HOne>
                     <div
                       style={{
                         fontStyle: "italic",
@@ -180,7 +191,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         color: "#555",
                       }}
                     >
-                      {/* Aqui ficaria a explicação, caso queira adicionar */}
                     </div>
                   </div>
                 </div>
@@ -272,30 +282,16 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             borderRadius: "8px",
           }}
         >
-          {/* <FormControl>
-            <RadioGroup
-              row
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-            >
-              <FormControlLabel
-                value="en"
-                control={<Radio />}
-                label="English"
-              />
-              <FormControlLabel
-                value="pt"
-                control={<Radio />}
-                label="Português"
-              />
-            </RadioGroup>
-          </FormControl> */}
           <input
             type="text"
             placeholder="What word would you like to know more about?"
             value={word}
-            maxLength={15}
-            onChange={(e) => setWord(e.target.value)}
+            maxLength={20}
+            onChange={(e) => {
+              setWord(e.target.value);
+              setDisabledButton(true);
+              setLanguage("");
+            }}
             style={{
               padding: "8px",
               fontWeight: 600,
@@ -306,26 +302,14 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               fontSize: "16px",
             }}
           />
-          {/* <input
-          type="text"
-          placeholder="Choose a context"
-          value={context}
-          onChange={(e) => setContext(e.target.value)}
-          style={{
-            padding: "8px",
-            width: "100%",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            fontFamily: textTitleFont(),
-            fontSize: "16px",
-          }}
-        /> */}
-          Somente palavras em inglês!
+
           <FormControl>
             <RadioGroup
               row
               value={tense}
-              onChange={(e) => setTense(e.target.value)}
+              onChange={(e) => {
+                setTense(e.target.value);
+              }}
             >
               <FormControlLabel value="Past" control={<Radio />} label="Past" />
               <FormControlLabel
@@ -340,34 +324,31 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               />
             </RadioGroup>
           </FormControl>
-          {/* Input para escolher o tipo de frase */}
           <FormControl>
             <RadioGroup
               row
-              value={sentenceType}
-              onChange={(e) => setSentenceType(e.target.value)}
+              value={language}
+              onChange={(e) => {
+                setLanguage(e.target.value);
+                setDisabledButton(false);
+              }}
             >
               <FormControlLabel
-                value="Affirmative"
+                value="en"
                 control={<Radio />}
-                label="Affirmative"
+                label="English"
               />
               <FormControlLabel
-                value="Negative"
+                value="pt"
                 control={<Radio />}
-                label="Negative"
-              />
-              <FormControlLabel
-                value="Question"
-                control={<Radio />}
-                label="Question"
+                label="Português"
               />
             </RadioGroup>
           </FormControl>
           <ArvinButton
-            disabled={word === ""}
-            cursor={word !== "" ? "pointer" : "not-allowed"}
-            color={word !== "" ? "blue" : "grey"}
+            disabled={word === "" && !disabledButton}
+            cursor={word !== "" && !disabledButton ? "pointer" : "not-allowed"}
+            color={word !== "" && !disabledButton ? "blue" : "grey"}
             onClick={seeCardsToReview}
           >
             Mine new word
