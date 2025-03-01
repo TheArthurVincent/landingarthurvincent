@@ -38,11 +38,12 @@ import TextLessonModelSlide from "./Assets/SlideModels/TextLessonModelSlide";
 import TextsWithTranslateSlideLessonModel from "./Assets/SlideModels/TextWithNoAudio";
 import ExerciseLessonModelLesson from "./Assets/LessonsModels/ExerciseLessonModelExercise";
 import ImageLessonModelSlide from "./Assets/SlideModels/ImageLessonModelSlide";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, TextareaAutosize } from "@mui/material";
 import QandALessonModel from "./Assets/LessonsModels/QandALessonModel";
 import QandALessonPersonalModel from "./Assets/LessonsModels/QandALessonPersonalModel";
 import NoFlashcardsSentenceLessonModel from "./Assets/LessonsModels/NoFlashcardsSentenceLessonModel";
 import AudioSoundTrack from "./Assets/LessonsModels/AudioSoundTrack";
+import TextAreaLesson from "./Assets/Functions/TextAreaLessons";
 
 interface EnglishClassCourse2ModelProps {
   headers: MyHeadersType | null;
@@ -73,6 +74,7 @@ export default function EnglishClassCourse2({
   const [theclass, setheClass] = useState<any>({});
   const [classTitle, setClassTitle] = useState<string>("");
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [commentsTrigger, setCommentsTrigger] = useState<boolean>(false);
 
   const actualHeaders = headers || {};
 
@@ -104,6 +106,7 @@ export default function EnglishClassCourse2({
       }
       setheClass(clss);
       setLoading(false);
+      setCommentsTrigger(true);
     } catch (error) {
       console.log(error, "Erro ao obter aulas");
       onLoggOut();
@@ -192,7 +195,6 @@ export default function EnglishClassCourse2({
       setIsCompleted(false);
     }
   };
-  
 
   useEffect(() => {
     setTimeout(() => {
@@ -252,7 +254,56 @@ export default function EnglishClassCourse2({
   };
 
   const [showCourses, setShowCourses] = useState(true);
+  const [comment, setComment] = useState("");
   const [arrow, setArrow] = useState(false);
+  const [loadingComments, setLoadingComments] = useState(false);
+  const [myComments, setMyComments] = useState([]);
+  const [comments, setComments] = useState([]);
+  const getComments = async () => {
+    setLoadingComments(true);
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/comments/${classId}/${myId}`,
+        { headers: actualHeaders }
+      );
+      const com = response.data.comments;
+      const myCom = response.data.myComments;
+      setComments(com);
+      setMyComments(myCom);
+      setLoadingComments(false);
+    } catch (error) {
+      console.log(error, "Erro ao comentar");
+      setLoadingComments(false);
+
+      // onLoggOut();
+    }
+  };
+  const sendComment = async () => {
+    try {
+      const response = await axios.post(
+        `${backDomain}/api/v1/comment/`,
+        {
+          studentID: myId,
+          lessonID: classId,
+          comment,
+        },
+        { headers: actualHeaders }
+      );
+
+      window.alert("Comentário enviado. Você será respondido em breve!");
+      setComment("");
+      getComments();
+    } catch (error) {
+      console.log(error, "Erro ao comentar");
+      // onLoggOut();
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      getComments();
+    }, 500);
+  }, [commentsTrigger]);
 
   const handleShowCourses = () => {
     setShowCourses(!showCourses);
@@ -340,6 +391,30 @@ export default function EnglishClassCourse2({
                 fontSize: "18px",
               }}
             >
+              <div>
+                <HTwo>Leave a comment</HTwo>
+                <textarea
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                    console.log(comment);
+                  }}
+                  className="comments2"
+                  value={comment}
+                />
+                <button onClick={sendComment}>Enviar comentário</button>
+                {loadingComments ? (
+                  <CircularProgress />
+                ) : (
+                  <>
+                    {comments.map((comment: any, index: number) => {
+                      return <div key={index}>{comment.comment}</div>;
+                    })}{" "}
+                    {myComments.map((comment: any, index: number) => {
+                      return <div key={index}>{comment.comment}</div>;
+                    })}
+                  </>
+                )}
+              </div>
               {`${order + 1}- ${theclass.title}`}{" "}
               <i
                 style={{
@@ -601,6 +676,10 @@ export default function EnglishClassCourse2({
                   ) : (
                     <></>
                   )}
+                  <div>
+                    <HTwo>Leave a comment</HTwo>
+                    <textarea className="comments2" value={"value"} />
+                  </div>
                 </div>
               ))}
           <div
