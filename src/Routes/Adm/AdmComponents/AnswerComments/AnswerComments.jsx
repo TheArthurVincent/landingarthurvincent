@@ -103,23 +103,26 @@ export function AllComments({ headers }) {
               {comment.comment}
             </p>
             <br />
-            <ArvinButton
-              variant="contained"
-              sx={{ marginTop: 1, background: secondaryColor }}
-              onClick={() => {
-                handleOpenModal(comment);
-                console.log(comment);
-              }}
-            >
-              Responder
-            </ArvinButton>
-            <ArvinButton
-              variant="contained"
-              sx={{ marginTop: 1, background: secondaryColor }}
-              onClick={() => deleteComment(comment.id)}
-            >
-              Rejeitar
-            </ArvinButton>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <ArvinButton
+                color="red"
+                variant="contained"
+                sx={{ marginTop: 1, background: secondaryColor }}
+                onDoubleClick={() => deleteComment(comment.id)}
+              >
+                Clique duas vezes para rejeitar
+              </ArvinButton>
+              <ArvinButton
+                variant="contained"
+                sx={{ marginTop: 1, background: secondaryColor }}
+                onClick={() => {
+                  handleOpenModal(comment);
+                  console.log(comment);
+                }}
+              >
+                Responder
+              </ArvinButton>
+            </div>
           </Box>
         ))
       )}
