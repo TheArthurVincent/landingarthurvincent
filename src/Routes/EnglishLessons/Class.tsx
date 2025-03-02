@@ -851,7 +851,7 @@ export default function EnglishClassCourse2({
                               {formatDateBr(new Date(comment.date))}
                             </span>
                           </div>
-                          {thePermissions && (
+                          {thePermissions == "superadmin" && (
                             <span>
                               <ArvinButton
                                 onClick={() => deleteComment(comment.id)}
@@ -880,14 +880,20 @@ export default function EnglishClassCourse2({
                           }}
                         >
                           {comment.comment}{" "}
-                          <span>
-                            <ArvinButton
-                              onClick={() => deleteComment(comment.id)}
-                              color="red"
-                            >
-                              <i className="fa fa-trash" aria-hidden="true" />
-                            </ArvinButton>
-                          </span>
+                          {thePermissions ==
+                            "superadmin"(
+                              <span>
+                                <ArvinButton
+                                  onClick={() => deleteComment(comment.id)}
+                                  color="red"
+                                >
+                                  <i
+                                    className="fa fa-trash"
+                                    aria-hidden="true"
+                                  />
+                                </ArvinButton>
+                              </span>
+                            )}
                         </li>
                       ))}
                     </ul>
