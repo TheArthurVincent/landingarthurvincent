@@ -880,20 +880,16 @@ export default function EnglishClassCourse2({
                           }}
                         >
                           {comment.comment}{" "}
-                          {thePermissions ==
-                            "superadmin"(
-                              <span>
-                                <ArvinButton
-                                  onClick={() => deleteComment(comment.id)}
-                                  color="red"
-                                >
-                                  <i
-                                    className="fa fa-trash"
-                                    aria-hidden="true"
-                                  />
-                                </ArvinButton>
-                              </span>
-                            )}
+                          {thePermissions == "superadmin" && (
+                            <span>
+                              <ArvinButton
+                                onClick={() => deleteComment(comment.id)}
+                                color="red"
+                              >
+                                <i className="fa fa-trash" aria-hidden="true" />
+                              </ArvinButton>
+                            </span>
+                          )}
                         </li>
                       ))}
                     </ul>
