@@ -14,6 +14,7 @@ import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Contract from "./AdmComponents/Contract/Contract";
 import Invoice from "./AdmComponents/Invoice/Invoice";
 import Manual from "./AdmComponents/Manual/Manual";
+import AllComments from "./AdmComponents/AnswerComments/AnswerComments";
 
 export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
@@ -38,6 +39,12 @@ export function Adm({ headers }: HeadersProps) {
     //   tooltip: "Aulas em grupo",
     //   component: <ManageGroupClasses headers={headers} />,
     // },
+    {
+      title: "Responder Comentários",
+      value: "31",
+      tooltip: "Responder Comentários",
+      component: <AllComments headers={headers} />,
+    },
     {
       title: "Postagens",
       value: "3",
