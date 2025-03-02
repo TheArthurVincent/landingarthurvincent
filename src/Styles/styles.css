@@ -170,6 +170,7 @@ body {
   cursor: pointer;
   border: none;
 }
+
 .bgwhite {
   background-color: white;
 }
@@ -601,6 +602,7 @@ textarea.inputs-style:focus {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .comments2 {
   padding: 2px 2px 2px 1rem;
   color: #424364;
@@ -609,12 +611,20 @@ textarea.inputs-style:focus {
   width: 95%;
   margin-top: 10px;
   margin-bottom: 10px;
+  border: none;
+
+}
+
+.comments2:focus {
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 
-.comments:hover, .comments2:hover  {
+.comments:hover,
+.comments2:hover {
   transition: 0.1s;
-  background-color: #ddffc5;
+  background-color: #f4ffec;
 }
 
 .comments:focus {

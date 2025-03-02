@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+// @ts-nocheck
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import {
   backDomain,
+  formatDateBr,
   getVideoEmbedUrl,
   onLoggOut,
   pathGenerator,
@@ -44,7 +46,70 @@ import QandALessonPersonalModel from "./Assets/LessonsModels/QandALessonPersonal
 import NoFlashcardsSentenceLessonModel from "./Assets/LessonsModels/NoFlashcardsSentenceLessonModel";
 import AudioSoundTrack from "./Assets/LessonsModels/AudioSoundTrack";
 import TextAreaLesson from "./Assets/Functions/TextAreaLessons";
-
+import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+const styles = {
+  container: {
+    maxWidth: "90vw",
+    margin: "20px auto",
+    padding: "10px",
+    borderRadius: "8px",
+  },
+  title: {
+    fontSize: "20px",
+    fontWeight: "bold",
+    marginBottom: "10px",
+    textAlign: "center",
+  },
+  commentList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  },
+  commentBox: {
+    display: "flex",
+    alignItems: "flex-start",
+    padding: "10px",
+    border: "1px solid #ddd",
+    borderRadius: "6px",
+    backgroundColor: "#fff",
+  },
+  userImage: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    marginRight: "10px",
+    border: "2px solid #ccc",
+  },
+  commentContent: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "5px",
+    flex: 1,
+    wordWrap: "break-word",
+    overflowWrap: "break-word",
+  },
+  commentText: {
+    wordWrap: "break-word",
+    overflowWrap: "break-word",
+    fontSize: "14px",
+    color: "#333",
+    marginBottom: "5px",
+  },
+  answerText: {
+    fontSize: "13px",
+    color: "#555",
+    backgroundColor: "#e9e9e9",
+    padding: "5px",
+    borderRadius: "4px",
+    marginTop: "5px",
+  },
+  commentDate: {
+    fontSize: "12px",
+    color: "#777",
+    marginTop: "5px",
+  },
+};
 interface EnglishClassCourse2ModelProps {
   headers: MyHeadersType | null;
   classId: any;
@@ -65,24 +130,29 @@ export default function EnglishClassCourse2({
   order,
   courseTitle,
 }: EnglishClassCourse2ModelProps) {
+  const { UniversalTexts } = useUserContext();
+
   const [studentsList, setStudentsList] = useState<any>([]);
   const [studentID, setStudentID] = useState<string>("");
   const [myId, setId] = useState<string>("");
   const [thePermissions, setPermissions] = useState<string>("");
+  const [thePicture, setPicture] = useState<string>("");
   const [seeSlides, setSeeSlides] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [theclass, setheClass] = useState<any>({});
   const [classTitle, setClassTitle] = useState<string>("");
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [commentsTrigger, setCommentsTrigger] = useState<boolean>(false);
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const actualHeaders = headers || {};
 
   const getClass = async () => {
     setLoading(true);
     const user = localStorage.getItem("loggedIn");
-    const { id, permissions } = JSON.parse(user || "");
+    const { id, permissions, picture } = JSON.parse(user || "");
     setPermissions(permissions);
+    setPicture(picture);
     if (permissions == "superadmin") {
       fetchStudents();
     }
@@ -260,7 +330,6 @@ export default function EnglishClassCourse2({
   const [myComments, setMyComments] = useState([]);
   const [comments, setComments] = useState([]);
   const getComments = async () => {
-    setLoadingComments(true);
     try {
       const response = await axios.get(
         `${backDomain}/api/v1/comments/${classId}/${myId}`,
@@ -270,11 +339,9 @@ export default function EnglishClassCourse2({
       const myCom = response.data.myComments;
       setComments(com);
       setMyComments(myCom);
-      setLoadingComments(false);
+      console.log(response.data);
     } catch (error) {
-      console.log(error, "Erro ao comentar");
-      setLoadingComments(false);
-
+      console.log(error, "Erro ao buscar comentários");
       // onLoggOut();
     }
   };
@@ -310,6 +377,21 @@ export default function EnglishClassCourse2({
     setArrow(!arrow);
   };
 
+  const deleteComment = async (id: any) => {
+    try {
+      const response = await axios.delete(
+        `${backDomain}/api/v1/comment/${id}`,
+        { headers: actualHeaders }
+      );
+
+      window.alert("Comentário excluído!");
+      setComment("");
+      getComments();
+    } catch (error) {
+      console.log(error, "Erro ao comentar");
+      // onLoggOut();
+    }
+  };
   return (
     <div>
       <Helmets text={classTitle} />
@@ -358,6 +440,7 @@ export default function EnglishClassCourse2({
               {theclass.title}
             </span>
           </div>
+
           <div
             style={{
               display: "flex",
@@ -391,30 +474,6 @@ export default function EnglishClassCourse2({
                 fontSize: "18px",
               }}
             >
-              <div>
-                <HTwo>Leave a comment</HTwo>
-                <textarea
-                  onChange={(e) => {
-                    setComment(e.target.value);
-                    console.log(comment);
-                  }}
-                  className="comments2"
-                  value={comment}
-                />
-                <button onClick={sendComment}>Enviar comentário</button>
-                {loadingComments ? (
-                  <CircularProgress />
-                ) : (
-                  <>
-                    {comments.map((comment: any, index: number) => {
-                      return <div key={index}>{comment.comment}</div>;
-                    })}{" "}
-                    {myComments.map((comment: any, index: number) => {
-                      return <div key={index}>{comment.comment}</div>;
-                    })}
-                  </>
-                )}
-              </div>
               {`${order + 1}- ${theclass.title}`}{" "}
               <i
                 style={{
@@ -676,10 +735,6 @@ export default function EnglishClassCourse2({
                   ) : (
                     <></>
                   )}
-                  <div>
-                    <HTwo>Leave a comment</HTwo>
-                    <textarea className="comments2" value={"value"} />
-                  </div>
                 </div>
               ))}
           <div
@@ -738,6 +793,109 @@ export default function EnglishClassCourse2({
           >
             See slides
           </ArvinButton>
+          <div>
+            <HTwo>{UniversalTexts.leaveAComment}</HTwo>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              {" "}
+              <img
+                style={styles.userImage} //klç
+                src={thePicture}
+                alt="User"
+              />
+              <textarea
+                onChange={(e) => {
+                  setComment(e.target.value);
+                }}
+                type="text"
+                className="comments2"
+                value={comment}
+              />
+            </div>
+            <div>
+              <ArvinButton
+                style={{
+                  display: "flex",
+                  marginLeft: "auto",
+                }}
+                onClick={sendComment}
+              >
+                {UniversalTexts.leaveAComment}
+              </ArvinButton>
+
+              <>
+                {comments.length > 0 && (
+                  <div style={styles.container}>
+                    <HTwo>{UniversalTexts.comments}</HTwo>
+                    <div style={styles.commentList}>
+                      {comments.map((comment: any, index: number) => (
+                        <div key={index} style={styles.commentBox}>
+                          <img
+                            style={styles.userImage}
+                            src={comment.photo}
+                            alt="User"
+                          />
+                          <div style={styles.commentContent}>
+                            <p style={styles.commentText}>{comment.comment}</p>
+                            {comment.answer && (
+                              <p style={styles.answerText}>
+                                <strong>Resposta:</strong> {comment.answer}
+                              </p>
+                            )}
+                            <span style={styles.commentDate}>
+                              {formatDateBr(new Date(comment.date))}
+                            </span>
+                          </div>
+                          {thePermissions && (
+                            <span>
+                              <ArvinButton
+                                onClick={() => deleteComment(comment.id)}
+                                color="red"
+                              >
+                                <i className="fa fa-trash" aria-hidden="true" />
+                              </ArvinButton>
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {myComments.length > 0 && (
+                  <div style={styles.container}>
+                    <HTwo>{UniversalTexts.myPendingComments}</HTwo>
+                    <ul style={styles.commentList}>
+                      {myComments.map((comment: any, index: number) => (
+                        <li
+                          key={index}
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                          }}
+                        >
+                          {comment.comment}{" "}
+                          <span>
+                            <ArvinButton
+                              onClick={() => deleteComment(comment.id)}
+                              color="red"
+                            >
+                              <i className="fa fa-trash" aria-hidden="true" />
+                            </ArvinButton>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </>
+            </div>
+          </div>
           <label>
             <input
               style={{
