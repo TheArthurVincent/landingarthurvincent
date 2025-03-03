@@ -71,14 +71,14 @@ export const TopBar: FC = () => {
     },
     {
       title: "Listening",
-      endpoint: "listening",
+      endpoint: "/listening",
       icon: "assistive-listening-systems",
       display: "block",
       isLearning: true,
     },
     {
       title: "Sentence Mining",
-      endpoint: "sentence-mining",
+      endpoint: "/sentence-mining",
       icon: "search",
       display: "block",
       isLearning: true,
@@ -109,6 +109,19 @@ export const TopBar: FC = () => {
     },
   ];
 
+  const learningLinks = allLinksForUser
+    .filter((link) => link.isLearning)
+    .map((link: any, index: number) => {
+      return link.endpoint;
+    });
+  const tutoreeLinks = toTutoree.map((link: any, index: number) => {
+    return link.endpoint;
+  });
+
+  const linksToShow = [...tutoreeLinks, ...learningLinks];
+  useEffect(() => {
+    console.log(linksToShow);
+  }, []);
   const handleVisible = () => {
     setVisible(visible === "flex" ? "none" : "flex");
   };
@@ -265,7 +278,17 @@ export const TopBar: FC = () => {
                 onMouseEnter={() => setDropdownVisible(true)}
                 onMouseLeave={() => setDropdownVisible(false)}
               >
-                <SpanHover style={{ cursor: "pointer" }}>
+                <SpanHover
+                  style={{
+                    cursor: "pointer",
+
+                    color: linksToShow.some((link) =>
+                      location.pathname.includes(link)
+                    )
+                      ? secondaryColor()
+                      : primaryColor(),
+                  }}
+                >
                   <i className="fa fa-book" /> {UniversalTexts.learning}
                 </SpanHover>
                 {dropdownVisible && (
@@ -280,32 +303,6 @@ export const TopBar: FC = () => {
                       left: "0",
                     }}
                   >
-                    {allLinksForUser
-                      .filter((link) => link.isLearning)
-                      .map((link: any, index: any) => (
-                        <NavLink
-                          key={index}
-                          to={link.endpoint}
-                          style={{
-                            margin: "5px",
-                            color: location.pathname.includes(link.endpoint)
-                              ? secondaryColor()
-                              : primaryColor(),
-                            paddingBottom: "5px",
-
-                            cursor: location.pathname.includes(link.endpoint)
-                              ? "default"
-                              : "pointer",
-                            textDecoration: "none",
-                          }}
-                        >
-                          <SpanHover>
-                            <i className={`fa fa-${link.icon}`} />
-                            {link.title}
-                          </SpanHover>
-                        </NavLink>
-                      ))}
-
                     {tutoree &&
                       toTutoree.map((link, index) => {
                         return (
@@ -332,6 +329,31 @@ export const TopBar: FC = () => {
                           </NavLink>
                         );
                       })}
+                    {allLinksForUser
+                      .filter((link) => link.isLearning)
+                      .map((link: any, index: any) => (
+                        <NavLink
+                          key={index}
+                          to={link.endpoint}
+                          style={{
+                            margin: "5px",
+                            color: location.pathname.includes(link.endpoint)
+                              ? secondaryColor()
+                              : primaryColor(),
+                            paddingBottom: "5px",
+
+                            cursor: location.pathname.includes(link.endpoint)
+                              ? "default"
+                              : "pointer",
+                            textDecoration: "none",
+                          }}
+                        >
+                          <SpanHover>
+                            <i className={`fa fa-${link.icon}`} />
+                            {link.title}
+                          </SpanHover>
+                        </NavLink>
+                      ))}
                   </div>
                 )}
               </div>
