@@ -44,7 +44,6 @@ const ListeningHistory = ({ headers }: HeadersProps) => {
           headers: actualHeaders,
         }
       );
-      console.log(response.data);
 
       setListeningFlashcardHistory(
         Array.isArray(response.data.listeningReviewHistory)

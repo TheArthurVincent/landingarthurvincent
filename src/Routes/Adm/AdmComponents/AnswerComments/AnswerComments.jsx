@@ -41,7 +41,6 @@ export function AllComments({ headers }) {
 
   const handleOpenModal = (comment) => {
     setSelectedComment(comment);
-    console.log(comment);
     setIsModalOpen(true);
   };
 
@@ -69,7 +68,6 @@ export function AllComments({ headers }) {
         { response: responseText, student: selectedComment },
         { headers }
       );
-      console.log("foi", response);
       handleCloseModal();
       fetchComments();
     } catch (error) {
@@ -117,7 +115,6 @@ export function AllComments({ headers }) {
                 sx={{ marginTop: 1, background: secondaryColor }}
                 onClick={() => {
                   handleOpenModal(comment);
-                  console.log(comment);
                 }}
               >
                 Responder

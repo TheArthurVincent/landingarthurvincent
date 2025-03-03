@@ -119,9 +119,7 @@ export const TopBar: FC = () => {
   });
 
   const linksToShow = [...tutoreeLinks, ...learningLinks];
-  useEffect(() => {
-    console.log(linksToShow);
-  }, []);
+
   const handleVisible = () => {
     setVisible(visible === "flex" ? "none" : "flex");
   };

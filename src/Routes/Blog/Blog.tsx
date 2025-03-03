@@ -104,17 +104,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
       setCourse(cour);
       setModule(mod);
       setLesson(less);
-
-      console.log(
-        "cour: ",
-        cour,
-        "mod: ",
-        mod,
-        "less: ",
-        less,
-        "classId: ",
-        classId
-      );
       setLoadingLESSON(false);
     } catch (error) {
       console.log(error, "erro ao listar homework");
