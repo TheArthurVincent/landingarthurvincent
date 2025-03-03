@@ -60,24 +60,28 @@ export const TopBar: FC = () => {
       endpoint: "/english-courses",
       icon: "address-book-o",
       display: "block",
+      isLearning: true,
     },
     {
       title: "Flashcards",
       endpoint: "/flash-cards",
       icon: "clone",
       display: "block",
+      isLearning: true,
     },
     {
       title: "Listening",
       endpoint: "listening",
       icon: "assistive-listening-systems",
       display: "block",
+      isLearning: true,
     },
     {
       title: "Sentence Mining",
       endpoint: "sentence-mining",
       icon: "search",
       display: "block",
+      isLearning: true,
     },
     {
       title: UniversalTexts.calendar,
@@ -110,6 +114,8 @@ export const TopBar: FC = () => {
   };
   const location = useLocation();
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1);
+  const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
+
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
@@ -253,12 +259,92 @@ export const TopBar: FC = () => {
               gap: "1rem",
             }}
           >
-            {tutoree &&
-              toTutoree.map((link, index) => {
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+              <div
+                style={{ position: "relative" }}
+                onMouseEnter={() => setDropdownVisible(true)}
+                onMouseLeave={() => setDropdownVisible(false)}
+              >
+                <SpanHover style={{ cursor: "pointer" }}>
+                  <i className="fa fa-book" /> {UniversalTexts.learning}
+                </SpanHover>
+                {dropdownVisible && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      background: "white",
+                      boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+                      borderRadius: "5px",
+                      padding: "10px",
+                      top: "100%",
+                      left: "0",
+                    }}
+                  >
+                    {allLinksForUser
+                      .filter((link) => link.isLearning)
+                      .map((link: any, index: any) => (
+                        <NavLink
+                          key={index}
+                          to={link.endpoint}
+                          style={{
+                            margin: "5px",
+                            color: location.pathname.includes(link.endpoint)
+                              ? secondaryColor()
+                              : primaryColor(),
+                            paddingBottom: "5px",
+
+                            cursor: location.pathname.includes(link.endpoint)
+                              ? "default"
+                              : "pointer",
+                            textDecoration: "none",
+                          }}
+                        >
+                          <SpanHover>
+                            <i className={`fa fa-${link.icon}`} />
+                            {link.title}
+                          </SpanHover>
+                        </NavLink>
+                      ))}
+
+                    {tutoree &&
+                      toTutoree.map((link, index) => {
+                        return (
+                          <NavLink
+                            key={index}
+                            style={{
+                              margin: "5px",
+                              color: location.pathname.includes(link.endpoint)
+                                ? secondaryColor()
+                                : primaryColor(),
+                              paddingBottom: "5px",
+
+                              cursor: location.pathname.includes(link.endpoint)
+                                ? "default"
+                                : "pointer",
+                              textDecoration: "none",
+                            }}
+                            to={link.endpoint}
+                          >
+                            <SpanHover>
+                              <i className={`fa fa-${link.icon}`} />
+                              {link.title}
+                            </SpanHover>
+                          </NavLink>
+                        );
+                      })}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {allLinksForUser
+              .filter((link) => !link.isLearning)
+              .map((link, index) => {
                 return (
                   <NavLink
                     key={index}
                     style={{
+                      margin: "5px",
                       color: location.pathname.includes(link.endpoint)
                         ? secondaryColor()
                         : primaryColor(),
@@ -278,30 +364,6 @@ export const TopBar: FC = () => {
                   </NavLink>
                 );
               })}
-            {allLinksForUser.map((link, index) => {
-              return (
-                <NavLink
-                  key={index}
-                  style={{
-                    color: location.pathname.includes(link.endpoint)
-                      ? secondaryColor()
-                      : primaryColor(),
-                    paddingBottom: "5px",
-
-                    cursor: location.pathname.includes(link.endpoint)
-                      ? "default"
-                      : "pointer",
-                    textDecoration: "none",
-                  }}
-                  to={link.endpoint}
-                >
-                  <SpanHover>
-                    <i className={`fa fa-${link.icon}`} />
-                    {link.title}
-                  </SpanHover>
-                </NavLink>
-              );
-            })}
             {permissions === "superadmin" &&
               toAdm.map((link, index) => {
                 return (
