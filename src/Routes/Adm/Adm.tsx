@@ -82,7 +82,6 @@ export function Adm({ headers }: HeadersProps) {
       <Helmets text="Adm" />
       <TabContext value={value}>
         <span className="no-print">
-          {" "}
           <Box
             style={{
               display: "flex",

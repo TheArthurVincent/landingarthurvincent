@@ -353,6 +353,7 @@ export default function EnglishClassCourse2({
           studentID: myId,
           lessonID: classId,
           comment,
+          lesson: window.location.href,
         },
         { headers: actualHeaders }
       );
@@ -520,8 +521,8 @@ export default function EnglishClassCourse2({
             {loading
               ? "  Atualizando..."
               : isCompleted
-                ? "  Completed"
-                : "  Not Completed"}
+              ? "  Completed"
+              : "  Not Completed"}
           </label>
           {thePermissions == "superadmin" && (
             <div
@@ -911,8 +912,8 @@ export default function EnglishClassCourse2({
             {loading
               ? "  Atualizando..."
               : isCompleted
-                ? "  Completed"
-                : "  Not Completed"}
+              ? "  Completed"
+              : "  Not Completed"}
           </label>
         </>
       )}

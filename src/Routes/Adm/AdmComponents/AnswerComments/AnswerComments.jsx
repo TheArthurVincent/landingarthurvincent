@@ -41,6 +41,7 @@ export function AllComments({ headers }) {
 
   const handleOpenModal = (comment) => {
     setSelectedComment(comment);
+    console.log(comment);
     setIsModalOpen(true);
   };
 
@@ -65,14 +66,13 @@ export function AllComments({ headers }) {
     try {
       const response = await axios.post(
         `${backDomain}/api/v1/commentreply/${selectedComment.id}`,
-        { response: responseText },
+        { response: responseText, student: selectedComment },
         { headers }
       );
       console.log("foi", response);
       handleCloseModal();
       fetchComments();
     } catch (error) {
-      wewweffwe;
       console.error("Erro ao enviar resposta", error);
     }
   };
