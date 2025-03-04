@@ -49,13 +49,6 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
     }));
   };
 
-  const toggleQADay = (date: string) => {
-    setExpandedQADays((prevState) => ({
-      ...prevState,
-      [date]: !prevState[date],
-    }));
-  };
-
   const actualHeaders = headers || {};
   const getNewCards = async (id?: string) => {
     try {
@@ -66,7 +59,6 @@ const FlashcardsHistory = ({ headers }: HeadersProps) => {
           headers: actualHeaders,
         }
       );
-      console.log(response.data);
       setFlashcardHistory(
         Array.isArray(response.data.flashcardReviewHistory)
           ? response.data.flashcardReviewHistory

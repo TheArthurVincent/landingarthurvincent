@@ -452,9 +452,6 @@ const ListeningExercise = ({
                             setTimeout(() => {
                               setPlayingAudio(false);
                             }, 3000);
-                            console.log(
-                              cards[0]?.front?.text.replace(/\s+/g, " ")
-                            );
                             readText(
                               cards[0]?.front?.language == "en"
                                 ? cards[0]?.front?.text.replace(/\s+/g, " ")

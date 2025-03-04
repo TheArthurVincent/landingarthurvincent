@@ -9,6 +9,8 @@ import {
   Hamburguer,
 } from "./TopBar.Styled";
 import {
+  backDomain,
+  formatDateBr,
   LogoSVG,
   onLoggOut,
   SpanHover,
@@ -18,17 +20,49 @@ import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import { LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
+import axios from "axios";
 
 export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
   const { handleLanguageChange, UniversalTexts } = useUserContext();
   const [permissions, setPermissions] = useState<string>("");
+  const [theNotifications, setNotifications] = useState<number>(0);
+  const [id, setid] = useState<string>("");
   const [tutoree, setTutoree] = useState<string>("");
+  var [myNotifications, setMyNotifications] = useState<any>([]);
+
+  const updateNumberOfNotifications = async (id: any) => {
+    try {
+      const response = await axios.get(
+        `${backDomain}/api/v1/numberofnotifications/${id}`
+      );
+      const notifications = response.data.notifications;
+      const listOfNotifications = response.data.listOfNotifications;
+      const notif = localStorage.getItem("notifications");
+      if (notif) {
+        localStorage.removeItem("notifications");
+      }
+
+      localStorage.setItem("notifications", JSON.stringify(notifications));
+      setNotifications(notifications);
+      setMyNotifications(response.data.listOfNotifications);
+    } catch (error) {
+      console.log(error, "Erro ao atualizar dados");
+    }
+  };
 
   useEffect(() => {
     const getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "{}");
+    const notifications = JSON.parse(
+      localStorage.getItem("notifications") || "{}"
+    );
     setPermissions(getLoggedUser.permissions);
+    setNotifications(notifications);
     setTutoree(getLoggedUser.tutoree);
+    setid(getLoggedUser.id);
+    setTimeout(() => {
+      updateNumberOfNotifications(getLoggedUser.id);
+    }, 1000);
   }, []);
 
   const toAdm: LinkItem[] = [
@@ -118,6 +152,9 @@ export const TopBar: FC = () => {
     return link.endpoint;
   });
 
+  var [dropdownNotificationsVisible, setDropdownNotificationsVisible] =
+    useState<boolean>(false);
+
   const linksToShow = [...tutoreeLinks, ...learningLinks];
 
   const handleVisible = () => {
@@ -127,6 +164,13 @@ export const TopBar: FC = () => {
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1);
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
 
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [selectedNotification, setSelectedNotification] = useState<Notification | null>(null);
+
+  const openModal = (notification: Notification) => {
+    setSelectedNotification(notification);
+    setModalVisible(true);
+  };
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
@@ -412,7 +456,80 @@ export const TopBar: FC = () => {
         </TopBarNavigation>
       </SpanDisapear>
 
-      <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
+      <div
+        onClick={() =>
+          setDropdownNotificationsVisible(!dropdownNotificationsVisible)
+        }
+        style={{ display: "flex", gap: "3rem", alignItems: "center" }}
+      >
+        <div
+          style={{
+            position: "relative",
+            cursor: "pointer",
+            display: "inline-block",
+          }}
+        >
+          <i className="fa fa-bell" style={{ fontSize: "1rem" }} />
+          {theNotifications > 0 && (
+            <span
+              style={{
+                position: "absolute",
+                top: "11px",
+                right: "-9px",
+                backgroundColor: "red",
+                color: "white",
+                fontSize: "8px",
+                fontWeight: "bold",
+                padding: "3px",
+                borderRadius: "50%",
+                minWidth: "5px",
+                minHeight: "5px",
+                textAlign: "center",
+              }}
+            >
+              {theNotifications > 99 ? "99+" : theNotifications}
+            </span>
+          )}
+
+          {dropdownNotificationsVisible && (
+            <div
+              style={{
+                position: "absolute",
+                top: "30px",
+                right: "0",
+                background: "white",
+                boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+                borderRadius: "5px",
+                padding: "10px",
+                minWidth: "200px",
+                zIndex: 1000,
+              }}
+            >
+              {myNotifications.length > 0 ? (
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {myNotifications.map((notification: any, index: number) => (
+                    <li
+                      key={index}
+                      style={{
+                        padding: "5px 0",
+                        borderBottom: "1px solid #ddd",
+                      }}
+                    >
+                      <Link target="_blank" to={notification.link}>
+                        {notification.message}
+                        {formatDateBr(notification.date)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p style={{ margin: 0, textAlign: "center" }}>
+                  No notifications
+                </p>
+              )}
+            </div>
+          )}
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <form>
             <select

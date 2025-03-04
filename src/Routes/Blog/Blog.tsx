@@ -117,7 +117,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
     }
     let getLoggedUser = JSON.parse(localStorage.getItem("loggedIn") || "");
     fetchData();
-    console.log(getLoggedUser);
     setClassId(getLoggedUser.lastClassId);
     setName(getLoggedUser.name);
     setStudentId(getLoggedUser.id || _StudentId);

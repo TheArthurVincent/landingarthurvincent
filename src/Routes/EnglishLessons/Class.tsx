@@ -230,14 +230,12 @@ export default function EnglishClassCourse2({
   };
 
   const handleCurrentClass = async () => {
-    console.log(classId);
     const loggedIn = localStorage.getItem("loggedIn");
 
     if (loggedIn) {
       var loggedInData = JSON.parse(loggedIn);
       loggedInData.lastClassId = classId;
       localStorage.setItem("loggedIn", JSON.stringify(loggedInData));
-      console.log("atualizado", loggedInData);
     }
 
     try {
@@ -247,7 +245,6 @@ export default function EnglishClassCourse2({
         { headers: actualHeaders }
       );
 
-      console.log("updated", response.data);
     } catch (error) {
       console.error("Erro ao atualizar o status:", error);
     }
@@ -339,7 +336,6 @@ export default function EnglishClassCourse2({
       const myCom = response.data.myComments;
       setComments(com);
       setMyComments(myCom);
-      console.log(response.data);
     } catch (error) {
       console.log(error, "Erro ao buscar comentários");
       // onLoggOut();
