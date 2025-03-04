@@ -1,41 +1,81 @@
 import React, { useState } from "react";
-import { primaryColor, secondaryColor } from "../../Styles/Styles";
-import {
-  LogoSVG,
-} from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import Helmets from "../../Resources/Helmets";
-import { HOne } from "../../Resources/Components/RouteBox";
-import { NavLink } from "react-router-dom";
+import { backDomain, InputField } from "../../Resources/UniversalComponents";
+import axios from "axios";
+import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
+import { RouteDiv } from "../../Resources/Components/RouteBox";
 
 export function ChangePasswordSendEmail() {
-  const [email, setEmail] = useState<string>("");
-  const [button, setButton] = useState<any>("Enviar");
+  const [Password, setPassword] = useState<string>("");
+  const [Password1, setPassword1] = useState<string>("");
 
-  const handleSendPassword = () => {};
-
-  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
-
+  const handleSendPassword = async () => {
+    const str = window.location.pathname;
+    const match = str.split("/");
+    const id = match ? match[2] : null;
+    console.log(id)
+    
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/resetpasswordfinal/${id}`,
+        {
+          newPassword: Password,
+        }
+      );
+      setTimeout(() => {
+        alert("Senha alterada");
+        window.location.assign("/login");
+      }, 500);
+    } catch (error) {
+      console.log(error, "Erro ao atualizar dados");
+    }
+  };
   return (
-    <div
-      style={{
-        overflow: "hidden",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Helmets text={"Login"} />
-      <div style={{ width: "100vw" }}>
-        <div style={{ margin: "auto" }}>
-          <div style={{ alignItems: "center", display: "grid" }}>
-            <HOne>E-mail Enviado</HOne>
-            <NavLink to="/">Voltar ao Login</NavLink>
-          </div>
+    <RouteDiv>
+      <div
+        style={{
+          overflow: "hidden",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gap: "10px",
+          }}
+        >
+          <Helmets text={"Reset Password"} />
+          <InputField
+            value={Password}
+            onChange={(event: any) => setPassword(event.target.value)}
+            id="name"
+            placeholder="Nova Senha"
+            type="password"
+          />{" "}
+          <InputField
+            value={Password1}
+            onChange={(event: any) => setPassword1(event.target.value)}
+            id="name"
+            placeholder="Confirmar Nova Senha"
+            type="password"
+          />
+          <ArvinButton
+            style={{
+              display: "flex",
+              marginLeft: "auto",
+            }}
+            onClick={handleSendPassword}
+            disabled={Password1 !== Password}
+          >
+            Alterar Senha
+          </ArvinButton>
         </div>
       </div>
-    </div>
+    </RouteDiv>
   );
 }
 

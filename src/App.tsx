@@ -80,8 +80,8 @@ function App() {
     { path: "/message", element: verifyToken() ? <MessageDrive /> : <Login /> },
     { path: "*", element: verifyToken() ? <NotFound /> : <Login /> },
     { path: "/vhsd524vs64ths98vs8", element: <SignUp /> },
-    { path: "/reset-password", element: <ChangePassword /> },
-    { path: "/sentchangepassword", element: <ChangePasswordSendEmail /> },
+    { path: "/changepassword", element: <ChangePassword /> },
+    { path: "/reset-password/*", element: <ChangePasswordSendEmail /> },
   ];
 
   return (
