@@ -15,6 +15,7 @@ import {
   onLoggOut,
   SpanHover,
 } from "../../Resources/UniversalComponents";
+
 import { useUserContext } from "../SelectLanguage/SelectLanguage";
 import { primaryColor, secondaryColor } from "../../Styles/Styles";
 import { LinkItem } from "./TopBarTypes";
@@ -23,6 +24,7 @@ import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
 import axios from "axios";
 import { Box, Modal } from "@mui/material";
 import { HThree, HTwo } from "../../Resources/Components/RouteBox";
+import socket, { registerUser } from "./socket";
 
 export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
@@ -38,20 +40,27 @@ export const TopBar: FC = () => {
       const response = await axios.get(
         `${backDomain}/api/v1/numberofnotifications/${id}`
       );
+
       const notifications = response.data.notifications;
       const listOfNotifications = response.data.listOfNotifications;
-      const notif = localStorage.getItem("notifications");
-      if (notif) {
-        localStorage.removeItem("notifications");
-      }
 
       localStorage.setItem("notifications", JSON.stringify(notifications));
       setNotifications(notifications);
-      setMyNotifications(response.data.listOfNotifications);
+      setMyNotifications(listOfNotifications);
+      registerUser(id);
     } catch (error) {
       console.log(error, "Erro ao atualizar dados");
     }
   };
+
+  useEffect(() => {
+    socket.on("receive_notification", (data) => {
+      updateNumberOfNotifications(id);
+    });
+    return () => {
+      socket.off("receive_notification");
+    };
+  }, [myNotifications]);
 
   const updateViewed = async (id: any) => {
     try {
@@ -592,8 +601,8 @@ export const TopBar: FC = () => {
             position: "fixed",
             top: 0,
             left: 0,
-            width: "100000000000000000px",
-            height: "100000000000000000px",
+            width: "1000000000000px",
+            height: "10000000000px",
             zIndex: 100000,
           }}
         />

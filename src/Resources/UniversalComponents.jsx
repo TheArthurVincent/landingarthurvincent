@@ -11,10 +11,9 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { MyButton } from "./Components/ItemsLibrary";
 import axios from "axios";
+import { io } from "socket.io-client";
 
 import { levels } from "../Routes/Ranking/RankingComponents/RankingLevelsList";
-
-// Função que verifica o nível do aluno
 
 const items = levels();
 
@@ -45,7 +44,6 @@ export function updateScore(
       flashcards25Reviews >= items[i].flashcards25Reviews &&
       homeworkAssignmentsDone >= items[i].homeworkAssignmentsDone
     ) {
-      // Atualiza os valores para o nível mais alto atendido
       level = items[i].level;
       color = items[i].color;
       icon = items[i].icon;
@@ -74,8 +72,6 @@ export function updateScore(
     background,
   };
 }
-
-// Função que verifica o nível do aluno
 
 export const UniversalButtonsDivFlex = styled.div`
   display: flex;
@@ -783,7 +779,7 @@ export const updateInfo = async (id, headers) => {
     });
     const userInfo = response.data.formattedStudentData;
     let loggedIn = JSON.parse(localStorage.getItem("loggedIn")) || {};
-    // Mescla as informações do userInfo com o loggedIn
+
     loggedIn = Object.assign(loggedIn, userInfo);
     localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
   } catch (error) {
@@ -810,3 +806,11 @@ export const onLoggOutFee = () => {
   alert("Sua mensalidade está atrasada. Fale com o professor. :)");
   window.location.assign("/login");
 };
+
+const socket = io(backDomain);
+
+export const registerUser = (studentID) => {
+  socket.emit("register", studentID);
+};
+
+export default socket;
