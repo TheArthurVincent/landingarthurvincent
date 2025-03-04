@@ -21,6 +21,8 @@ import { LinkItem } from "./TopBarTypes";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { SpanDisapear } from "../../Routes/Blog/Blog.Styled";
 import axios from "axios";
+import { Box, Modal } from "@mui/material";
+import { HThree, HTwo } from "../../Resources/Components/RouteBox";
 
 export const TopBar: FC = () => {
   const [visible, setVisible] = useState<string>("none");
@@ -46,6 +48,16 @@ export const TopBar: FC = () => {
       localStorage.setItem("notifications", JSON.stringify(notifications));
       setNotifications(notifications);
       setMyNotifications(response.data.listOfNotifications);
+    } catch (error) {
+      console.log(error, "Erro ao atualizar dados");
+    }
+  };
+
+  const updateViewed = async (id: any) => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/notification/${id}`
+      );
     } catch (error) {
       console.log(error, "Erro ao atualizar dados");
     }
@@ -164,13 +176,35 @@ export const TopBar: FC = () => {
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 1);
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
 
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [selectedNotification, setSelectedNotification] = useState<Notification | null>(null);
+  const [selectedNotification, setSelectedNotification] = useState<any>({});
 
-  const openModal = (notification: Notification) => {
+  const openModal = (notification: any) => {
+    console.log(notification);
     setSelectedNotification(notification);
-    setModalVisible(true);
+    updateViewed(notification._id);
+
+    setModalOpen(true);
   };
+
+  const [modalOpen, setModalOpen] = useState<boolean>(false); // Estado do modal
+  const handleClose = () => {
+    updateNumberOfNotifications(id);
+    setModalOpen(false);
+  };
+
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "white",
+    boxShadow: 24,
+    p: 4,
+    borderRadius: "10px",
+    textAlign: "center",
+  };
+
   return (
     <TopBarContainer>
       <Hamburguer onClick={handleVisible}>☰</Hamburguer>
@@ -496,29 +530,47 @@ export const TopBar: FC = () => {
               style={{
                 position: "absolute",
                 top: "30px",
-                right: "0",
+                right: "-184px",
                 background: "white",
                 boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
                 borderRadius: "5px",
                 padding: "10px",
                 minWidth: "200px",
-                zIndex: 1000,
+                zIndex: 100000000,
               }}
             >
               {myNotifications.length > 0 ? (
-                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    maxHeight: "300px",
+                    overflow: "auto",
+                    padding: "10px",
+                    margin: 0,
+                  }}
+                >
                   {myNotifications.map((notification: any, index: number) => (
                     <li
                       key={index}
+                      onClick={() => {
+                        openModal(notification);
+                      }}
                       style={{
                         padding: "5px 0",
                         borderBottom: "1px solid #ddd",
+                        backgroundColor: !notification.isViewed
+                          ? "#eee"
+                          : "#fff",
                       }}
                     >
-                      <Link target="_blank" to={notification.link}>
-                        {notification.message}
+                      {notification.message}
+                      <p
+                        style={{
+                          fontSize: "10px",
+                        }}
+                      >
                         {formatDateBr(notification.date)}
-                      </Link>
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -530,6 +582,20 @@ export const TopBar: FC = () => {
             </div>
           )}
         </div>
+        <div
+          onClick={() =>
+            setDropdownNotificationsVisible(!dropdownNotificationsVisible)
+          }
+          style={{
+            display: dropdownNotificationsVisible ? "block" : "none",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100000000000000000px",
+            height: "100000000000000000px",
+            zIndex: 100000,
+          }}
+        />
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <form>
             <select
@@ -548,6 +614,15 @@ export const TopBar: FC = () => {
           </ArvinButton>
         </div>
       </div>
+      <Modal open={modalOpen} onClose={handleClose}>
+        <Box sx={modalStyle}>
+          <Link target="_blank" to={selectedNotification.link}>
+            <HTwo>{selectedNotification.message}</HTwo>
+          </Link>
+          <HThree>{formatDateBr(selectedNotification.date)}</HThree>
+          <ArvinButton onClick={handleClose}>x</ArvinButton>
+        </Box>
+      </Modal>
     </TopBarContainer>
   );
 };
