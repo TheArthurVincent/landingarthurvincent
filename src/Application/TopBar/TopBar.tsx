@@ -535,7 +535,7 @@ export const TopBar: FC = () => {
                 boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
                 borderRadius: "5px",
                 padding: "10px",
-                minWidth: "200px",
+                minWidth: "250px",
                 zIndex: 100000000,
               }}
             >
@@ -545,7 +545,7 @@ export const TopBar: FC = () => {
                     listStyle: "none",
                     maxHeight: "300px",
                     overflow: "auto",
-                    padding: "10px",
+                    padding: "2px",
                     margin: 0,
                   }}
                 >
@@ -556,14 +556,14 @@ export const TopBar: FC = () => {
                         openModal(notification);
                       }}
                       style={{
-                        padding: "5px 0",
+                        listStyle: "none",
+                        padding: "5px",
                         borderBottom: "1px solid #ddd",
                         backgroundColor: !notification.isViewed
-                          ? "#eee"
+                          ? "#ddd"
                           : "#fff",
                       }}
                     >
-                      {notification.message}
                       <p
                         style={{
                           fontSize: "10px",
@@ -571,6 +571,7 @@ export const TopBar: FC = () => {
                       >
                         {formatDateBr(notification.date)}
                       </p>
+                      {notification.message}
                     </li>
                   ))}
                 </ul>
