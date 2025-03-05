@@ -52,6 +52,15 @@ export const TopBar: FC = () => {
       console.log(error, "Erro ao atualizar dados");
     }
   };
+  const handleSeeAll = async () => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/notificationsseeall/${id}`
+      );
+    } catch (error) {
+      console.log(error, "Erro ao atualizar dados");
+    }
+  };
 
   useEffect(() => {
     socket.on("receive_notification", (data) => {
@@ -500,9 +509,10 @@ export const TopBar: FC = () => {
       </SpanDisapear>
 
       <div
-        onClick={() =>
-          setDropdownNotificationsVisible(!dropdownNotificationsVisible)
-        }
+        onClick={() => {
+          setDropdownNotificationsVisible(!dropdownNotificationsVisible);
+          handleSeeAll();
+        }}
         style={{ display: "flex", gap: "3rem", alignItems: "center" }}
       >
         <div
@@ -569,7 +579,7 @@ export const TopBar: FC = () => {
                         padding: "5px",
                         borderBottom: "1px solid #ddd",
                         backgroundColor: !notification.isViewed
-                          ? "#ddd"
+                          ? "#eee"
                           : "#fff",
                       }}
                     >
@@ -593,9 +603,10 @@ export const TopBar: FC = () => {
           )}
         </div>
         <div
-          onClick={() =>
-            setDropdownNotificationsVisible(!dropdownNotificationsVisible)
-          }
+          onClick={() => {
+            updateNumberOfNotifications(id);
+            setDropdownNotificationsVisible(!dropdownNotificationsVisible);
+          }}
           style={{
             display: dropdownNotificationsVisible ? "block" : "none",
             position: "fixed",
