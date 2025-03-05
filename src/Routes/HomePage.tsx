@@ -10,7 +10,7 @@ import Faq from "./Faq/Faq";
 import MyClasses from "./MyClasses/MyClasses";
 import MyCalendar from "./MyCalendar/MyCalendar";
 import Adm from "./Adm/Adm";
-import Blog from "./Blog/Blog";
+import Blog from "./Blog/HomePageContent";
 import { LevelCard } from "./LevelCard/LevelCard";
 import { BlogRouteSizeControlBox } from "../Resources/Components/RouteBox";
 import { HeadersProps } from "../Resources/types.universalInterfaces";
@@ -21,6 +21,7 @@ import AppFooter from "../Application/Footer/Footer";
 import EnglishCourses from "./EnglishLessons/Courses";
 import Listening from "./ListeningExercise/Listening";
 import SentenceMining from "./SentenceMining/SentenceMining";
+import BlogPosts from "./Blog/BlogPosts";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -106,7 +107,11 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "Sentence Mining",
       component: (
-        <SentenceMining onChange={setChange} change={change} headers={headers} />
+        <SentenceMining
+          onChange={setChange}
+          change={change}
+          headers={headers}
+        />
       ),
     },
     {
@@ -120,6 +125,10 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "My Profile",
       component: <MyProfile headers={headers} />,
+    },
+    {
+      title: "Posts",
+      component: <BlogPosts headers={headers} />,
     },
     {
       path: "/adm-businessmanagement",
