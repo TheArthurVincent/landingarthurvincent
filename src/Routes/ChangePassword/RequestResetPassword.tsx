@@ -12,7 +12,7 @@ import Helmets from "../../Resources/Helmets";
 import { HOne } from "../../Resources/Components/RouteBox";
 import { NavLink } from "react-router-dom";
 
-export function ChangePassword() {
+function RequestResetPassword() {
   const [email, setEmail] = useState<string>("");
 
   const handleSendPassword = async () => {
@@ -20,10 +20,12 @@ export function ChangePassword() {
       const response = await axios.put(
         `${backDomain}/api/v1/resetpassword/${email}`
       );
-      alert("email-enviado");
+      alert("Verifique seu email");
       window.location.assign("/login");
-    } catch (error) {
-      console.log(error, "Erro ao atualizar dados");
+    } catch (error: any) {
+      window.alert(error.response.data.message);
+      console.log(error.response.data.message);
+      setEmail("");
     }
   };
 
@@ -43,8 +45,7 @@ export function ChangePassword() {
       <div style={{ width: "100vw" }}>
         <div style={{ margin: "auto" }}>
           <div style={{ alignItems: "center", display: "grid" }}>
-            <form
-              onSubmit={handleSendPassword}
+            <div
               style={{
                 display: "grid",
                 alignItems: "center",
@@ -75,19 +76,19 @@ export function ChangePassword() {
                 }}
               >
                 <Button
+                  onClick={handleSendPassword}
                   disabled={email == "" ? true : false}
                   style={{
                     backgroundColor: "#eee",
                     color: primaryColor(),
                     marginLeft: "auto",
                   }}
-                  type="submit"
                 >
-                  Enviar{" "} 
+                  Enviar{" "}
                 </Button>
               </div>
               <NavLink to="/">Voltar ao Login</NavLink>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -95,4 +96,4 @@ export function ChangePassword() {
   );
 }
 
-export default ChangePassword;
+export default RequestResetPassword;

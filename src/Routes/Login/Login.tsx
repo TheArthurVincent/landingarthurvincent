@@ -107,7 +107,7 @@ export function Login() {
                   textAlign: "center",
                 }}
               >
-                <NavLink to="/changepassword">Esqueci minha senha</NavLink>
+                <NavLink to="/request-reset-password">Esqueci minha senha</NavLink>
               </div>
               <div
                 style={{

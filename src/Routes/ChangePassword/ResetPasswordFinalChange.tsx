@@ -6,7 +6,7 @@ import axios from "axios";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { RouteDiv } from "../../Resources/Components/RouteBox";
 
-export function ChangePasswordSendEmail() {
+function ResetPasswordFinalChange() {
   const [Password, setPassword] = useState<string>("");
   const [Password1, setPassword1] = useState<string>("");
 
@@ -14,8 +14,8 @@ export function ChangePasswordSendEmail() {
     const str = window.location.pathname;
     const match = str.split("/");
     const id = match ? match[2] : null;
-    console.log(id)
-    
+    console.log(id);
+
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/resetpasswordfinal/${id}`,
@@ -79,4 +79,4 @@ export function ChangePasswordSendEmail() {
   );
 }
 
-export default ChangePasswordSendEmail;
+export default ResetPasswordFinalChange;
