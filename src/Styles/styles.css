@@ -170,6 +170,7 @@ body {
   cursor: pointer;
   border: none;
 }
+
 .bgwhite {
   background-color: white;
 }
@@ -602,9 +603,28 @@ textarea.inputs-style:focus {
   margin-bottom: 10px;
 }
 
-.comments:hover {
+.comments2 {
+  padding: 2px 2px 2px 1rem;
+  color: #424364;
+  font-style: italic;
+  font-size: 1rem;
+  width: 95%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+
+}
+
+.comments2:focus {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+
+.comments:hover,
+.comments2:hover {
   transition: 0.1s;
-  background-color: #ddffc5;
+  background-color: #f4ffec;
 }
 
 .comments:focus {

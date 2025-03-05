@@ -33,7 +33,7 @@ export function Login() {
         email,
         password,
       });
-      const { token, loggedIn } = response.data;
+      const { token, loggedIn, notifications } = response.data;
       localStorage.removeItem("authorization");
       localStorage.removeItem("loggedIn");
 
@@ -46,6 +46,7 @@ export function Login() {
       }
 
       localStorage.setItem("authorization", `${token}`);
+      localStorage.setItem("notifications", JSON.stringify(notifications));
       localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
       setButton("Sucesso");
       window.location.assign("/");
@@ -106,9 +107,7 @@ export function Login() {
                   textAlign: "center",
                 }}
               >
-                <NavLink to="/changepassword">
-                  Esqueci minha senha
-                </NavLink>
+                <NavLink to="/request-reset-password">Esqueci minha senha</NavLink>
               </div>
               <div
                 style={{

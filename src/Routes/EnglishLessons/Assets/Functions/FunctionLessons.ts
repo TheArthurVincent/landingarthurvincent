@@ -61,8 +61,6 @@ export const readText = (
       utterance.rate = 1;
     }
 
-    utterance.onstart = () => console.log("Leitura iniciada.");
-    utterance.onend = () => console.log("Leitura finalizada.");
     utterance.onerror = (e) => console.error("Erro na leitura:", e);
 
     if (restart || !synth.speaking || synth.paused) {

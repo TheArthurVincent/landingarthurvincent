@@ -14,6 +14,7 @@ import { HeadersProps } from "../../Resources/types.universalInterfaces";
 import Contract from "./AdmComponents/Contract/Contract";
 import Invoice from "./AdmComponents/Invoice/Invoice";
 import Manual from "./AdmComponents/Manual/Manual";
+import AllComments from "./AdmComponents/AnswerComments/AnswerComments";
 
 export function Adm({ headers }: HeadersProps) {
   const [value, setValue] = useState("1");
@@ -32,34 +33,34 @@ export function Adm({ headers }: HeadersProps) {
         "Edite informações de alunos cadastrados, como dados, permissões e senha, ou mesmo exclua um aluno se necessário.",
       component: <NewStudent headers={headers} />,
     },
-    // {
-    //   title: "Aulas em grupo",
-    //   value: "3",
-    //   tooltip: "Aulas em grupo",
-    //   component: <ManageGroupClasses headers={headers} />,
-    // },
+    {
+      title: "Responder Comentários",
+      value: "3",
+      tooltip: "Responder Comentários",
+      component: <AllComments headers={headers} />,
+    },
     {
       title: "Postagens",
-      value: "3",
+      value: "4",
       tooltip:
         "Faça uma nova postagem que será vista por todos os alunos na página inicial.",
       component: <NewPost headers={headers} />,
     },
     {
       title: "Gerar contrato",
-      value: "4",
+      value: "5",
       tooltip: "Geração do contrato de um aluno específico.",
       component: <Contract headers={headers} />,
     },
     {
       title: "Gerar recibo",
-      value: "5",
+      value: "6",
       tooltip: "Geração do recibo de um aluno específico.",
       component: <Invoice headers={headers} />,
     },
     {
       title: "Manual do aluno",
-      value: "6",
+      value: "7",
       tooltip: "Manual do aluno.",
       component: <Manual />,
     },
@@ -75,7 +76,6 @@ export function Adm({ headers }: HeadersProps) {
       <Helmets text="Adm" />
       <TabContext value={value}>
         <span className="no-print">
-          {" "}
           <Box
             style={{
               display: "flex",

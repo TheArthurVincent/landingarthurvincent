@@ -7,18 +7,26 @@ import {
 } from "../../Resources/UniversalComponents";
 import "font-awesome/css/font-awesome.min.css";
 import axios from "axios";
-import { Button, CircularProgress } from "@mui/material";
+import { Button } from "@mui/material";
 import Helmets from "../../Resources/Helmets";
 import { HOne } from "../../Resources/Components/RouteBox";
 import { NavLink } from "react-router-dom";
 
-export function ChangePassword() {
+function RequestResetPassword() {
   const [email, setEmail] = useState<string>("");
-  const [button, setButton] = useState<any>("Enviar");
 
-  const handleSendPassword = () => {
-    alert("email-enviado");
-    window.location.assign("/login");
+  const handleSendPassword = async () => {
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/resetpassword/${email}`
+      );
+      alert("Verifique seu email");
+      window.location.assign("/login");
+    } catch (error: any) {
+      window.alert(error.response.data.message);
+      console.log(error.response.data.message);
+      setEmail("");
+    }
   };
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
@@ -37,8 +45,7 @@ export function ChangePassword() {
       <div style={{ width: "100vw" }}>
         <div style={{ margin: "auto" }}>
           <div style={{ alignItems: "center", display: "grid" }}>
-            <form
-              onSubmit={handleSendPassword}
+            <div
               style={{
                 display: "grid",
                 alignItems: "center",
@@ -61,7 +68,6 @@ export function ChangePassword() {
                 placeholder="E-mail"
                 type="text"
               />
-
               <div
                 style={{
                   display: "flex",
@@ -70,18 +76,19 @@ export function ChangePassword() {
                 }}
               >
                 <Button
+                  onClick={handleSendPassword}
+                  disabled={email == "" ? true : false}
                   style={{
                     backgroundColor: "#eee",
                     color: primaryColor(),
                     marginLeft: "auto",
                   }}
-                  type="submit"
                 >
-                  {button}
+                  Enviar{" "}
                 </Button>
               </div>
               <NavLink to="/">Voltar ao Login</NavLink>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -89,4 +96,4 @@ export function ChangePassword() {
   );
 }
 
-export default ChangePassword;
+export default RequestResetPassword;

@@ -286,7 +286,6 @@ export function FindStudent({ uploadStatus, headers }) {
       authorization: headers.Authorization,
     };
     try {
-      console.log(headersBack);
       const response = await axios.put(
         `${backDomain}/api/v1/resetmonthscoresecurethepoints`,
         null,
