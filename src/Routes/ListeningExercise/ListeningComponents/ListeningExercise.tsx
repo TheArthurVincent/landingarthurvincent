@@ -17,7 +17,7 @@ function highlightDifferences(original: string, userInput: string): string {
   const userWords = userInput.split(" ");
   const highlightedWords = userWords.map((word, index) => {
     if (originalWords[index] && originalWords[index] !== word) {
-      return `<span style="color: red; font-weight: 600;">${word}</span>`;
+      return `<span style="color: red; font-weight: 400;">${word}</span>`;
     }
     return `<span style="color: green">${word}</span>`;
   });
@@ -188,12 +188,12 @@ const ListeningExercise = ({
       setSimilarity(simC);
       setWords(wordCountInCard);
       setScore(wordCountInCard * 3);
-    } else if (simC >= 60 && simC < 98) {
+    } else if (simC >= 40 && simC < 98) {
       setSimilarity(98);
       setWords(wordCountInCard);
       setScore(wordCountInCard * 2);
       return;
-    } else if (simC < 60) {
+    } else if (simC < 40) {
       setSimilarity(simC);
       setWords(wordCountInCard);
       setScore(0);
@@ -239,7 +239,7 @@ const ListeningExercise = ({
     setActualPointsPerWord(2);
     setSimilarity(simC);
     setWords(wordCountInCard);
-    // const points = simC > 60 ? wordCountInCard : 0;
+    // const points = simC > 40 ? wordCountInCard : 0;
     const points = score;
 
     if (simC > 98) {
@@ -308,7 +308,7 @@ const ListeningExercise = ({
   recognition.onspeechend = () => {
     setTimeout(() => {
       stopListening();
-    }, 5000);
+    }, 4000);
   };
   recognition.onerror = () => {
     stopListening();
@@ -349,10 +349,10 @@ const ListeningExercise = ({
                           borderRadius: "10px",
                           backgroundColor:
                             similarity === 100
-                              ? "#4caf50"
+                              ? "#4caf40"
                               : similarity > 98
                               ? "#2196f3"
-                              : similarity > 60
+                              : similarity > 40
                               ? "#ffeb3b"
                               : "#f44336",
                           color:
@@ -360,7 +360,7 @@ const ListeningExercise = ({
                               ? "white"
                               : similarity > 98
                               ? "white"
-                              : similarity > 60
+                              : similarity > 40
                               ? "black"
                               : "white",
                           border: `solid 1px ${
@@ -368,7 +368,7 @@ const ListeningExercise = ({
                               ? "white"
                               : similarity > 98
                               ? "white"
-                              : similarity > 60
+                              : similarity > 40
                               ? "black"
                               : "white"
                           }`,
@@ -376,8 +376,8 @@ const ListeningExercise = ({
                         }}
                       >
                         {similarity}% correct{" "}
-                        {similarity < 60 && (
-                          <span>(You need at least 60% to score)</span>
+                        {similarity < 40 && (
+                          <span>(You need at least 40% to score)</span>
                         )}
                       </p>
                       <div
@@ -393,7 +393,7 @@ const ListeningExercise = ({
                           style={{
                             fontFamily: textTitleFont(),
                             fontSize: "1rem",
-                            fontWeight: 600,
+                            fontWeight: 400,
                           }}
                         >
                           {cards[0]?.front?.text.replace(/\s+/g, " ")}
