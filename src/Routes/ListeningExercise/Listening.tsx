@@ -65,7 +65,7 @@ const Listening = ({ headers, onChange, change }: ListeningProps) => {
 
   return (
     <RouteDiv>
-      <Helmets text="Flashcards" />
+      <Helmets text="Listening Exercise" />
       <TabContext value={value}>
         <Box
           style={{

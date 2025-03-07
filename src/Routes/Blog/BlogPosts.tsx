@@ -164,7 +164,7 @@ export function BlogPosts({ headers }: BlogPostsProps) {
         maxWidth:"900px"
       }}
       >
-        <Helmets text="Home Page" />
+        <Helmets text="Blog Posts" />
         <div
           style={{
             margin: "1rem 0.5rem 0 0",
