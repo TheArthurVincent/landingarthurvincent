@@ -14,6 +14,7 @@ import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { textTitleFont } from "../../Styles/Styles";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
+import Helmets from "../../Resources/Helmets";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -144,6 +145,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
   return (
     <RouteDiv>
+      <Helmets text="Sentence Mining" />
       <section
         id="review"
         style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}
@@ -190,8 +192,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         fontSize: "16px",
                         color: "#555",
                       }}
-                    >
-                    </div>
+                    ></div>
                   </div>
                 </div>
                 <div style={{ textAlign: "center", padding: "20px" }}>
