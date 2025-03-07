@@ -57,19 +57,19 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
     },
     {
       title: UniversalTexts.myCards,
-      value: "4",
+      value: "2",
       adm: false,
       component: <AllCards headers={headers} />,
     },
     {
       title: UniversalTexts.history,
-      value: "5",
+      value: "3",
       adm: false,
       component: <FlashcardsHistory headers={headers} />,
     },
     {
       title: UniversalTexts.add,
-      value: "5",
+      value: "4",
       adm: true,
       component: <AddFlashCards display="block" headers={headers} />,
     },
