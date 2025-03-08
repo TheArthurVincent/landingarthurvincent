@@ -187,7 +187,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       seeCardsToReview();
       timerDisabled();
     } catch (error) {
-      onLoggOut();
+      // onLoggOut();
+      console.log(error);
     }
   };
 
@@ -226,7 +227,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     } catch (error) {
       console.log(error);
       alert("Erro ao enviar cards");
-      onLoggOut();
+      // onLoggOut();
+      console.log(error);
     }
   };
 
@@ -475,13 +477,11 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           alignItems: "center",
         }}
       >
-        {/* <label htmlFor="category-select">Categoria:</label> */}
         <select
           id="category-select"
           value={category}
           onChange={(e) => {
             setCategory(e.target.value);
-            seeCardsToReview;
           }}
         >
           <option value="nofilter">Ver todos os cards</option>
