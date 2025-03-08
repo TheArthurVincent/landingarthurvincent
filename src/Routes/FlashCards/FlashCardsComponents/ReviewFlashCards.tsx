@@ -160,6 +160,70 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
+  const [timerCardCount, setTimerCardCount] = useState(19);
+  const timerCard = () => {
+    setTimerCardCount(19);
+    setTimeout(() => {
+      setTimerCardCount(19);
+    }, 1000);
+
+    setTimeout(() => {
+      setTimerCardCount(18);
+    }, 2000);
+
+    setTimeout(() => {
+      setTimerCardCount(17);
+    }, 3000);
+    setTimeout(() => {
+      setTimerCardCount(16);
+    }, 4000);
+    setTimeout(() => {
+      setTimerCardCount(15);
+    }, 5000);
+    setTimeout(() => {
+      setTimerCardCount(14);
+    }, 6000);
+    setTimeout(() => {
+      setTimerCardCount(13);
+    }, 7000);
+    setTimeout(() => {
+      setTimerCardCount(12);
+    }, 8000);
+    setTimeout(() => {
+      setTimerCardCount(11);
+    }, 9000);
+    setTimeout(() => {
+      setTimerCardCount(10);
+    }, 11000);
+    setTimeout(() => {
+      setTimerCardCount(9);
+    }, 10000);
+    setTimeout(() => {
+      setTimerCardCount(8);
+    }, 12000);
+    setTimeout(() => {
+      setTimerCardCount(7);
+    }, 13000);
+    setTimeout(() => {
+      setTimerCardCount(6);
+    }, 14000);
+    setTimeout(() => {
+      setTimerCardCount(5);
+    }, 15000);
+    setTimeout(() => {
+      setTimerCardCount(4);
+    }, 16000);
+    setTimeout(() => {
+      setTimerCardCount(3);
+    }, 17000);
+    setTimeout(() => {
+      setTimerCardCount(2);
+    }, 18000);
+    setTimeout(() => {
+      setTimerCardCount(1);
+    }, 19000);
+  };
+
   const [totalS, setTotalScore] = useState(0);
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
@@ -179,7 +243,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     try {
       const response = await axios.put(
         `${backDomain}/api/v1/reviewflashcard/${myId}`,
-        { flashcardId: id, difficulty },
+        { flashcardId: id, difficulty, timerCardCount },
         { headers: actualHeaders }
       );
       setAnswer(false);
@@ -193,6 +257,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   const seeCardsToReview = async () => {
+    timerCard();
     setLoading(true);
     setAnswer(false);
     setBackCardVisible(false);
