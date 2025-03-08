@@ -160,9 +160,27 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
+
+  const [totalS, setTotalScore] = useState(0);
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    if (user) {
+      const { totalScore, permissions, id } = JSON.parse(user);
+      setId(id);
+      setPermissions(permissions);
+      setTotalScore(totalScore);
+    }
+    setAnswer(false);
+  }, []);
+
+  const actualHeaders = headers || {};
+
+
   const [timerCardCount, setTimerCardCount] = useState(19);
+
   const timerCard = () => {
-    setTimerCardCount(19);
+    setTimerCardCount(20);
+
     setTimeout(() => {
       setTimerCardCount(19);
     }, 1000);
@@ -224,38 +242,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }, 19000);
   };
 
-  const [totalS, setTotalScore] = useState(0);
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    if (user) {
-      const { totalScore, permissions, id } = JSON.parse(user);
-      setId(id);
-      setPermissions(permissions);
-      setTotalScore(totalScore);
-    }
-    setAnswer(false);
-  }, []);
-
-  const actualHeaders = headers || {};
-
-  const reviewCard = async (id: string, difficulty: string) => {
-    setLoading(true);
-    try {
-      const response = await axios.put(
-        `${backDomain}/api/v1/reviewflashcard/${myId}`,
-        { flashcardId: id, difficulty, timerCardCount },
-        { headers: actualHeaders }
-      );
-      setAnswer(false);
-      onChange(!change);
-      seeCardsToReview();
-      timerDisabled();
-    } catch (error) {
-      // onLoggOut();
-      console.log(error);
-    }
-  };
-
   const seeCardsToReview = async () => {
     timerCard();
     setLoading(true);
@@ -288,6 +274,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       setCardsLength(thereAreCards);
       setBackCardVisible(true);
       timerDisabled();
+      timerCard();
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -297,6 +284,24 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
+  
+  const reviewCard = async (id: string, difficulty: string) => {
+    setLoading(true);
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/reviewflashcard/${myId}`,
+        { flashcardId: id, difficulty, timerCardCount },
+        { headers: actualHeaders }
+      );
+      setAnswer(false);
+      onChange(!change);
+      seeCardsToReview();
+      timerDisabled();
+    } catch (error) {
+      // onLoggOut();
+      console.log(error);
+    }
+  };
   return (
     <section id="review">
       {/*  */}
