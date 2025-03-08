@@ -347,9 +347,9 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             </RadioGroup>
           </FormControl>
           <ArvinButton
-            disabled={word === "" && !disabledButton ? false : true}
-            cursor={word !== "" && !disabledButton ? "pointer" : "not-allowed"}
-            color={word !== "" && !disabledButton ? "blue" : "grey"}
+            disabled={word == "" || disabledButton}
+            cursor={word == "" || disabledButton ? "not-allowed" : "pointer"}
+            color={word == "" || disabledButton ? "grey" : "blue"}
             onClick={seeCardsToReview}
           >
             Mine new word
