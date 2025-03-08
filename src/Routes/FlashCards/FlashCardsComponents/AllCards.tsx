@@ -158,35 +158,6 @@ const AllCards = ({ headers }: HeadersProps) => {
   const handleHideModal = () => {
     setShowModal(false);
   };
-  const plusComp = async (cardId: string) => {
-    try {
-      const response = await axios.put(
-        `${backDomain}/api/v1/plusflashcard/${studentID}`,
-        { cardId }, // Enviar cardId no corpo
-        { headers: actualHeaders }
-      );
-      getNewCards(studentID);
-    } catch (error) {
-      console.log(error, "Erro ao atualizar a complexidade");
-      onLoggOut();
-    }
-  };
-
-  const minusComp = async (cardId: string) => {
-    try {
-      const response = await axios.put(
-        `${backDomain}/api/v1/minusflashcard/${studentID}`,
-        { cardId }, // Enviar cardId no corpo
-        { headers: actualHeaders }
-      );
-      getNewCards(studentID);
-    } catch (error) {
-      console.log(error, "Erro ao atualizar a complexidade");
-      onLoggOut();
-    }
-  };
-
-  ///////////////////////
 
   return (
     <>
@@ -313,7 +284,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                   />
                 </div>
               </span>
-              {/* <span>
+              <span>
                 <ul
                   style={{
                     fontSize: "10px",
@@ -323,12 +294,6 @@ const AllCards = ({ headers }: HeadersProps) => {
                 >
                   <li>Reviewed {Math.round(card.numberOfReviews)} times</li>
                   <li> Review Rate Total: {card.reviewRate}</li>
-                  <li>
-                    {" "}
-                    Complexity Rate Total: {card.complexityRate}{" "}
-                    <button onClick={() => plusComp(card._id)}>+</button>
-                    <button onClick={() => minusComp(card._id)}>-</button>
-                  </li>
                   <li> Created: {card.updatedAt}</li>
                   <li>
                     Tags:{" "}
@@ -347,7 +312,7 @@ const AllCards = ({ headers }: HeadersProps) => {
                   </li>
                 </ul>
               </span>
-              */}
+             
             </div>
           ))}
         </div>

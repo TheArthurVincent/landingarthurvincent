@@ -90,7 +90,6 @@ export function HomePage({ headers }: HeadersProps) {
       ),
     },
     {
-      levelcard: true,
       title: "Ranking",
       component: <Ranking headers={headers} />,
     },
@@ -99,12 +98,14 @@ export function HomePage({ headers }: HeadersProps) {
       component: <EnglishCourses headers={headers} />,
     },
     {
+      levelcard: true,
       title: "Listening",
       component: (
         <Listening change={change} onChange={setChange} headers={headers} />
       ),
     },
     {
+      levelcard: true,
       title: "Sentence Mining",
       component: (
         <SentenceMining

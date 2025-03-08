@@ -27,10 +27,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   const [value, setValue] = useState<string>("1");
   const { UniversalTexts } = useUserContext();
 
-  const handleChange = (event: any, newValue: string) => {
-    event.preventDefault();
-    setValue(newValue);
-  };
+
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
@@ -41,6 +38,11 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       onLoggOut();
     }
   }, []);
+
+  const handleChange = (event: any, newValue: string) => {
+    event.preventDefault();
+    setValue(newValue);
+  };
 
   const componentsToRender = [
     {

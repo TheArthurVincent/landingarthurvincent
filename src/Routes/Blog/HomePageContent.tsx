@@ -208,7 +208,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         setLoading(false);
       }, 300);
 
-      console.log(response.data.listOfPosts);
     } catch (error) {
       // @ts-ignore
       alert(error.response.data.error);

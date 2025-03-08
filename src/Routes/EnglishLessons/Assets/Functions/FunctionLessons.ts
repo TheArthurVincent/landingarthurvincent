@@ -4,32 +4,6 @@ export const readText = (
   lang?: string,
   voiceBoolean?: boolean
 ) => {
-  const theSentenceKey = "theSentence";
-  const theRateKey = "theRate";
-  const currentEvenOdd = localStorage.getItem("evenOdd");
-  const currentSentence = localStorage.getItem(theSentenceKey);
-  let theRate = parseFloat(localStorage.getItem(theRateKey) || "1");
-
-  if (currentEvenOdd === null) {
-    //@ts-ignore
-    localStorage.setItem("evenOdd", true);
-  } else {
-    //@ts-ignore
-    localStorage.setItem("evenOdd", voiceBoolean ? false : true);
-  }
-
-  if (currentSentence === null) {
-    localStorage.setItem(theSentenceKey, text);
-    localStorage.setItem(theRateKey, "1");
-  } else if (currentSentence === text) {
-    theRate = theRate === 0.8 ? 1 : 0.8;
-    localStorage.setItem(theRateKey, theRate.toString());
-  } else {
-    theRate = 1;
-    localStorage.setItem(theSentenceKey, text);
-    localStorage.setItem(theRateKey, "1");
-  }
-
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;
 
@@ -45,21 +19,9 @@ export const readText = (
     const utterance = new SpeechSynthesisUtterance(text);
 
     utterance.lang = getLanguageCode(lang);
-    utterance.rate = theRate;
+    utterance.rate = 0.8;
     utterance.pitch = 1;
     utterance.volume = 1;
-
-    const userAgent = navigator.userAgent;
-
-    if (voiceBoolean) {
-      utterance.rate = 1;
-    } else if (
-      userAgent.includes("apple")
-    ) {
-      utterance.rate = 1;
-    } else {
-      utterance.rate = 1;
-    }
 
     utterance.onerror = (e) => console.error("Erro na leitura:", e);
 
