@@ -279,7 +279,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     } catch (error) {
       console.log(error);
       alert("Erro ao enviar cards");
-      // onLoggOut();
+      onLoggOut();
       console.log(error);
     }
   };
@@ -298,7 +298,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       seeCardsToReview();
       timerDisabled();
     } catch (error) {
-      // onLoggOut();
+      onLoggOut();
       console.log(error);
     }
   };

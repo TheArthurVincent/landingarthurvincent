@@ -139,7 +139,7 @@ const ListeningExercise = ({
       seeCardsToReview();
     } catch (error) {
       alert("Erro ao enviar cards");
-      onLoggOut();
+      // onLoggOut();
     }
   };
 
