@@ -68,7 +68,7 @@ export default function QandALessonPersonalModel({
         padding: "16px",
         margin: "10px 0",
         border: "1px solid #ddd",
-        borderRadius: "8px",
+        borderRadius: "6px",
       }}
     >
       {item.questions.map((theitem: any, index: number) => (

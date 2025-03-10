@@ -19,7 +19,7 @@ export default function RankingExplanation() {
         style={{
           padding: "1.5rem",
           backgroundColor: "#f9f9f9",
-          borderRadius: "8px",
+          borderRadius: "6px",
           maxWidth: "800px",
           margin: "2rem auto",
           fontFamily: "Arial, sans-serif",

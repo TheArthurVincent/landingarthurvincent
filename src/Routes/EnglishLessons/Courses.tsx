@@ -112,7 +112,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
                       key={idx}
                       style={{
                         listStyle: "none",
-                        borderRadius: "10px",
+                        borderRadius: "6px",
                         overflow: "hidden",
                         transition: "transform 0.3s",
                       }}

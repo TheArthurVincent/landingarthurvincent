@@ -19,7 +19,7 @@ export const readText = (
     const utterance = new SpeechSynthesisUtterance(text);
 
     utterance.lang = getLanguageCode(lang);
-    utterance.rate = 0.8;
+    utterance.rate = 0.9;
     utterance.pitch = 1;
     utterance.volume = 1;
 

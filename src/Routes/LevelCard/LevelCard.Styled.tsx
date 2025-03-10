@@ -73,7 +73,7 @@ export const NewLevelCardComponent = styled.div`
   display: grid;
   position: sticky;
   top: 60px;
-  border-radius: 1rem;
+  border-radius: 6px;
   text-align: center;
   color: white;
   min-width: 200px;
@@ -82,7 +82,7 @@ export const NewLevelCardComponent = styled.div`
   justify-content: center;
   text-align: center;
   @media (max-width: 1200px) {
-    width: 85vw;
+    width: 95vw;
     display: flex;
     padding: 10spx;
     height: 1.5rem;

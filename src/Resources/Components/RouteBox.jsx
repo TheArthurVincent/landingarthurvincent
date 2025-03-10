@@ -26,7 +26,7 @@ export const RouteDiv = styled.div.attrs({
   className: "box-shadow-black smooth",
 })`
   background-color: ${alwaysWhite()};
-  border-radius: 0.5rem;
+  border-radius: 6px;
   color: ${alwaysBlack()};
   padding: 0.5rem;
   width: 90vw;
@@ -40,7 +40,7 @@ export const RouteDivCourses = styled.div.attrs({
   className: "box-shadow-black smooth",
 })`
   background-color: ${alwaysWhite()};
-  border-radius: 0.5rem;
+  border-radius: 6px;
   color: ${alwaysBlack()};
   padding: 0.5rem;
   margin-right: auto;
@@ -108,7 +108,7 @@ export const SpanIcon = styled.span`
     gap: 0.2rem;
     font-size: 0.8rem;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 6px;
     background-color: ${alwaysBlack()};
   }
 `;
@@ -207,7 +207,7 @@ export const AnimatedLi = styled.li`
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 6px;
   height: 100%; /* Garante altura uniforme */
 `;
 
@@ -222,7 +222,7 @@ export const AnimatedLi3 = styled.li`
   text-align: center;
   background: #f9f9f9;
   border: 2px solid #000;
-  border-radius: 2px;
+  border-radius: 6px;
   height: 100%; /* Garante altura uniforme */
 `;
 export const AnimatedLi2 = styled.li`

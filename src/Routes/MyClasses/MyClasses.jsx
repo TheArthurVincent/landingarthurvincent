@@ -125,16 +125,9 @@ export function MyClasses({ headers }) {
             alignItems: "center",
           }}
         >
-          <Button
-            style={{
-              backgroundColor: primaryColor(),
-              color: textPrimaryColorContrast(),
-            }}
-            onClick={handlePrevPage}
-            disabled={currentPage === 1}
-          >
+          <ArvinButton onClick={handlePrevPage} disabled={currentPage === 1}>
             {UniversalTexts.previousButton}
-          </Button>
+          </ArvinButton>
           <span
             style={{
               color: alwaysBlack(),
@@ -142,16 +135,12 @@ export function MyClasses({ headers }) {
           >
             {currentPage}/{totalPages}
           </span>
-          <Button
-            style={{
-              backgroundColor: primaryColor(),
-              color: textPrimaryColorContrast(),
-            }}
+          <ArvinButton
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           >
             {UniversalTexts.nextButton}
-          </Button>
+          </ArvinButton>
         </div>
         <div style={{ display: "flex", gap: "3rem" }}>
           <div
@@ -258,7 +247,7 @@ export function MyClasses({ headers }) {
               key={classItem.id}
               style={{
                 border: "1px solid #ddd",
-                borderRadius: "8px",
+                borderRadius: "6px",
                 padding: "16px",
                 backgroundColor: "#fff",
                 marginBottom: "16px",

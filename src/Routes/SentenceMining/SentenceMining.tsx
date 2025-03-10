@@ -12,7 +12,12 @@ import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { backDomain } from "../../Resources/UniversalComponents";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
-import { textTitleFont } from "../../Styles/Styles";
+import {
+  darkGreyColor,
+  lightGreyColor,
+  secondaryColor,
+  textTitleFont,
+} from "../../Styles/Styles";
 import { HOne, RouteDiv } from "../../Resources/Components/RouteBox";
 import Helmets from "../../Resources/Helmets";
 
@@ -280,7 +285,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             marginTop: "20px",
             gap: "10px",
             padding: "15px",
-            borderRadius: "8px",
+            borderRadius: "6px",
           }}
         >
           <input
@@ -298,7 +303,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               fontWeight: 600,
               fontFamily: textTitleFont(),
               width: "100%",
-              borderRadius: "5px",
+              borderRadius: "6px",
               border: "1px solid #ccc",
               fontSize: "16px",
             }}
@@ -312,15 +317,40 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 setTense(e.target.value);
               }}
             >
-              <FormControlLabel value="Past" control={<Radio />} label="Past" />
+              <FormControlLabel
+                value="Past"
+                control={
+                  <Radio
+                    sx={{
+                      color: darkGreyColor(),
+                      "&.Mui-checked": { color: secondaryColor() },
+                    }}
+                  />
+                }
+                label="Past"
+              />
               <FormControlLabel
                 value="Present"
-                control={<Radio />}
+                control={
+                  <Radio
+                    sx={{
+                      color: darkGreyColor(),
+                      "&.Mui-checked": { color: secondaryColor() },
+                    }}
+                  />
+                }
                 label="Present"
               />
               <FormControlLabel
                 value="Future"
-                control={<Radio />}
+                control={
+                  <Radio
+                    sx={{
+                      color: darkGreyColor(),
+                      "&.Mui-checked": { color: secondaryColor() },
+                    }}
+                  />
+                }
                 label="Future"
               />
             </RadioGroup>
@@ -336,12 +366,28 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             >
               <FormControlLabel
                 value="en"
-                control={<Radio />}
+                control={
+                  <Radio
+                    sx={{
+                      color: darkGreyColor(),
+
+                      "&.Mui-checked": { color: secondaryColor() },
+                    }}
+                  />
+                }
                 label="English"
               />
               <FormControlLabel
                 value="pt"
-                control={<Radio />}
+                control={
+                  <Radio
+                    sx={{
+                      color: darkGreyColor(),
+
+                      "&.Mui-checked": { color: secondaryColor() },
+                    }}
+                  />
+                }
                 label="Português"
               />
             </RadioGroup>
@@ -349,7 +395,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <ArvinButton
             disabled={word == "" || disabledButton}
             cursor={word == "" || disabledButton ? "not-allowed" : "pointer"}
-            color={word == "" || disabledButton ? "grey" : "blue"}
+            color={word == "" || disabledButton ? "grey" : "green"}
             onClick={seeCardsToReview}
           >
             Mine new word

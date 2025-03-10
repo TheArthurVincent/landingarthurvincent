@@ -118,13 +118,14 @@ export default function StudentsRanking({
     margin-bottom: 5px;
     list-style: none;
     grid-template-columns: 0.5fr 1fr 0.5fr;
+    box-shadow: 5px 5px 10px #aaa;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     animation: ${fadeIn} 0.3s forwards,
       ${(props) => changeColors(props.color1, props.color2)} 3s infinite;
-    border-radius: 4px;
+    border-radius: 6px;
     height: 100%; /* Garante altura uniforme */
     background: ${(props) => props.background};
     color: ${(props) => props.textColor};
@@ -592,7 +593,7 @@ export default function StudentsRanking({
                           padding: "5px",
                           display: "grid",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           alignItems: "center",
                           textAlign: "center",
                           width: "fit-content",
@@ -610,7 +611,7 @@ export default function StudentsRanking({
                           display: "grid",
                           alignItems: "center",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           textAlign: "center",
                           width: "fit-content",
                           color: "white",
@@ -629,7 +630,7 @@ export default function StudentsRanking({
                           display: "grid",
                           alignItems: "center",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           textAlign: "center",
                           width: "fit-content",
                           color: "white",
@@ -646,7 +647,7 @@ export default function StudentsRanking({
                           display: "grid",
                           alignItems: "center",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           textAlign: "center",
                           width: "fit-content",
                           color: "white",
@@ -781,7 +782,7 @@ export default function StudentsRanking({
                           padding: "5px",
                           display: "grid",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           alignItems: "center",
                           textAlign: "center",
                           width: "fit-content",
@@ -799,7 +800,7 @@ export default function StudentsRanking({
                           display: "grid",
                           alignItems: "center",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           textAlign: "center",
                           width: "fit-content",
                           color: "white",
@@ -818,7 +819,7 @@ export default function StudentsRanking({
                           display: "grid",
                           alignItems: "center",
                           marginBottom: "5px",
-                          borderRadius: "5px",
+                          borderRadius: "6px",
                           textAlign: "center",
                           width: "fit-content",
                           color: "white",

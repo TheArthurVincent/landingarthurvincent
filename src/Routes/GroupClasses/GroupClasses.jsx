@@ -179,7 +179,7 @@ export default function GroupClasses({ headers }) {
                   backgroundColor: secondaryColor(),
                   color: textSecondaryColorContrast(),
                   padding: "10px",
-                  borderRadius: "5px",
+                  borderRadius: "6px",
                   display: "flex",
                   gap: "5px",
                   alignItems: "center",

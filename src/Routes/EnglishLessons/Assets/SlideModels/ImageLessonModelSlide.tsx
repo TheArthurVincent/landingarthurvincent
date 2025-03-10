@@ -51,7 +51,7 @@ export default function ImageLessonModelSlide({
                   display: "block",
                   margin: "auto",
                   objectPosition: "center",
-                  borderRadius: "10px",
+                  borderRadius: "6px",
                 }}
                 className="box-shadow-white"
                 src={image.img}

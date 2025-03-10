@@ -463,7 +463,7 @@ export const BackToHomePage = () => {
           backgroundColor: primaryColor(),
           color: textPrimaryColorContrast(),
           padding: "0.4rem",
-          borderRadius: "10px",
+          borderRadius: "6px",
           fontSize: "12px",
           textDecoration: "none",
         }}

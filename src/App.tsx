@@ -27,12 +27,12 @@ function App() {
 
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
-      document.body.style.backgroundColor = "#000";
+      document.body.style.backgroundColor = "#fff";
     } else if (
       window.location.hostname === "arvin-staging.9kwq6c.easypanel.host" ||
       window.location.hostname.includes("easypanel")
     ) {
-      document.body.style.backgroundColor = "orange";
+      document.body.style.backgroundColor = "#54bf08";
     }
   };
   useEffect(() => {

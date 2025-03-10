@@ -329,7 +329,7 @@ const ListeningExercise = ({
                 margin: "auto",
                 textAlign: "center",
                 padding: "20px",
-                borderRadius: "10px",
+                borderRadius: "6px",
               }}
             >
               {!cardsLength ? (
@@ -346,7 +346,7 @@ const ListeningExercise = ({
                       <p
                         style={{
                           padding: "10px",
-                          borderRadius: "10px",
+                          borderRadius: "6px",
                           backgroundColor:
                             similarity === 100
                               ? "#4caf40"
@@ -384,7 +384,7 @@ const ListeningExercise = ({
                         style={{
                           display: "grid",
                           border: "solid 1px #ccc",
-                          borderRadius: "10px",
+                          borderRadius: "6px",
                           padding: "15px",
                           backgroundColor: "#fff",
                         }}
@@ -400,7 +400,7 @@ const ListeningExercise = ({
                         </p>
                         <p
                           style={{
-                            fontFamily: "Lato",
+                            fontFamily: "Helvetica",
                             fontSize: "12px",
                             fontWeight: 400,
                             color: "#555",
@@ -413,7 +413,7 @@ const ListeningExercise = ({
                         style={{
                           display: "grid",
                           border: "solid 1px #ccc",
-                          borderRadius: "10px",
+                          borderRadius: "6px",
                           padding: "15px",
                           backgroundColor: "#fff",
                         }}
@@ -517,7 +517,7 @@ const ListeningExercise = ({
                       marginTop: "1rem",
                       width: "85%",
                       padding: "10px",
-                      borderRadius: "5px",
+                      borderRadius: "6px",
                       border: "1px solid #ccc",
                     }}
                     placeholder="Use this area for reference if you need to transcribe what you hear"
@@ -550,7 +550,7 @@ const ListeningExercise = ({
           marginTop: "20px",
           padding: "20px",
           border: "1px solid #ccc",
-          borderRadius: "10px",
+          borderRadius: "6px",
           backgroundColor: "#f9f9f9",
         }}
       >
