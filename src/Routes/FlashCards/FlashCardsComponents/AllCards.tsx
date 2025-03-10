@@ -61,13 +61,29 @@ const AllCards = ({ headers }: HeadersProps) => {
       const list = response.data.allFlashCards;
       setCards(list);
       setFCards(list);
-      setLoading(false);
+      setLoading(false);  
     } catch (error) {
       console.log("Erro ao obter cards");
       setLoading(false);
       onLoggOut();
     }
   };
+
+  const getNewCardsNoLoading = async (id?: any) => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/cards/${id}`, {
+        headers: actualHeaders,
+      });
+      const list = response.data.allFlashCards;
+      setCards(list);
+      setFCards(list);
+    } catch (error) {
+      console.log("Erro ao obter cards");
+      onLoggOut();
+    }
+  };
+
+  
   const [category, setCategory] = useState("");
   const fetchStudents = async () => {
     setLoadingStudents(true);
@@ -130,7 +146,7 @@ const AllCards = ({ headers }: HeadersProps) => {
           headers: actualHeaders,
         }
       );
-      getNewCards(studentID);
+      getNewCardsNoLoading(studentID);
       setShowModal(false);
     } catch (error) {
       console.log(error, "Erro ao obter cards");
@@ -147,7 +163,7 @@ const AllCards = ({ headers }: HeadersProps) => {
           headers: actualHeaders,
         }
       );
-      getNewCards(studentID);
+      getNewCardsNoLoading(studentID);
       setShowModal(false);
     } catch (error) {
       console.log(error, "Erro ao apagar cards");
@@ -197,7 +213,7 @@ const AllCards = ({ headers }: HeadersProps) => {
             </div>
           )}
         </div>
-
+{loading ? <CircularProgress/>:
         <div
           style={{
             padding: "5px",
@@ -315,7 +331,7 @@ const AllCards = ({ headers }: HeadersProps) => {
              
             </div>
           ))}
-        </div>
+        </div>}
       </div>
       <div
         style={{
