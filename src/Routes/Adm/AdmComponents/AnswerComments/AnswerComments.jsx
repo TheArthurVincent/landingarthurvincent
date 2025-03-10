@@ -7,12 +7,10 @@ import {
   TextField,
   Box,
   Typography,
+  Paper,
 } from "@mui/material";
 import { backDomain } from "../../../../Resources/UniversalComponents";
-import { secondaryColor } from "../../../../Styles/Styles";
 import { HOne } from "../../../../Resources/Components/RouteBox";
-import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
-import { HThree } from "../../../MyClasses/MyClasses.Styled";
 
 export function AllComments({ headers }) {
   const [comments, setComments] = useState([]);
@@ -48,22 +46,20 @@ export function AllComments({ headers }) {
     setIsModalOpen(false);
     setResponseText("");
   };
+
   const deleteComment = async (id) => {
     try {
-      const response = await axios.delete(
-        `${backDomain}/api/v1/comment/${id}`,
-        { headers }
-      );
+      await axios.delete(`${backDomain}/api/v1/comment/${id}`, { headers });
       window.alert("Comentário excluído!");
       fetchComments();
     } catch (error) {
-      console.log(error, "Erro ao comentar");
+      console.log(error, "Erro ao excluir comentário");
     }
   };
 
   const handleSubmitResponse = async () => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${backDomain}/api/v1/commentreply/${selectedComment.id}`,
         { response: responseText, student: selectedComment },
         { headers }
@@ -82,45 +78,29 @@ export function AllComments({ headers }) {
         <CircularProgress />
       ) : (
         comments.map((comment, index) => (
-          <Box
-            key={index}
-            sx={{
-              padding: 2,
-              marginBottom: 2,
-              borderRadius: "8px",
-              background: "#fafafa",
-            }}
-          >
-            <HThree>{comment.name}</HThree>
-            <p
-              style={{
-                padding: "1rem",
-              }}
-              variant="body1"
-            >
+          <Paper key={index} sx={{ padding: 2, marginBottom: 2 }} elevation={3}>
+            <Typography variant="h6">{comment.name}</Typography>
+            <Typography variant="body1" sx={{ padding: "1rem 0" }}>
               {comment.comment}
-            </p>
-            <br />
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <ArvinButton
-                color="red"
+            </Typography>
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Button
+                color="error"
                 variant="contained"
-                sx={{ marginTop: 1, background: secondaryColor }}
+                sx={{ marginTop: 1 }}
                 onDoubleClick={() => deleteComment(comment.id)}
               >
                 Clique duas vezes para rejeitar
-              </ArvinButton>
-              <ArvinButton
+              </Button>
+              <Button
                 variant="contained"
-                sx={{ marginTop: 1, background: secondaryColor }}
-                onClick={() => {
-                  handleOpenModal(comment);
-                }}
+                sx={{ marginTop: 1 }}
+                onClick={() => handleOpenModal(comment)}
               >
                 Responder
-              </ArvinButton>
-            </div>
-          </Box>
+              </Button>
+            </Box>
+          </Paper>
         ))
       )}
 
@@ -152,12 +132,12 @@ export function AllComments({ headers }) {
           <Box
             sx={{ display: "flex", justifyContent: "flex-end", marginTop: 2 }}
           >
-            <ArvinButton onClick={handleCloseModal} sx={{ marginRight: 1 }}>
+            <Button onClick={handleCloseModal} sx={{ marginRight: 1 }}>
               Cancelar
-            </ArvinButton>
-            <ArvinButton variant="contained" onClick={handleSubmitResponse}>
+            </Button>
+            <Button variant="contained" onClick={handleSubmitResponse}>
               Enviar
-            </ArvinButton>
+            </Button>
           </Box>
         </Box>
       </Modal>
