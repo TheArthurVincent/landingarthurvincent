@@ -48,7 +48,7 @@ export function SignUp() {
     setUpload(!upload);
     setButton("Cadastrar");
   };
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     setButton(<CircularProgress style={{ color: primaryColor() }} />);
     let newStudent = {
