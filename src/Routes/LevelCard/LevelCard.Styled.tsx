@@ -82,7 +82,7 @@ export const NewLevelCardComponent = styled.div`
   justify-content: center;
   text-align: center;
   @media (max-width: 1200px) {
-    width: 85vw;
+    width: 95vw;
     display: flex;
     padding: 10spx;
     height: 1.5rem;
