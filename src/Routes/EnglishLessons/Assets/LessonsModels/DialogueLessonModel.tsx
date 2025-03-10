@@ -40,7 +40,7 @@ export default function DialogueLessonModel({
                       padding: "1rem",
                       margin: "5px",
                       fontStyle: "italic",
-                      borderRadius: "10px",
+                      borderRadius: "6px",
                       textAlign: isEven(index) ? "left" : "right",
                       backgroundColor: isEven(index) ? "#c7dfb6" : "#c9dbf1",
                     }}

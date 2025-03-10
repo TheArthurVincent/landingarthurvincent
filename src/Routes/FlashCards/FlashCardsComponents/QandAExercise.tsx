@@ -233,7 +233,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         marginTop: "1rem",
                         width: "85%",
                         padding: "10px",
-                        borderRadius: "5px",
+                        borderRadius: "6px",
                         border: "1px solid #ccc",
                       }}
                       placeholder="Use this area for reference if you need to transcribe what you hear"
@@ -260,7 +260,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       display: !seeAnswer ? "none" : "block",
                       marginTop: "1rem",
                       padding: "1.5rem",
-                      borderRadius: "8px",
+                      borderRadius: "6px",
                     }}
                     className="box-shadow-white"
                   >
@@ -305,7 +305,7 @@ const QnAExercise = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       style={{
                         marginBottom: "1.25rem",
                         padding: "1rem",
-                        borderRadius: "1rem",
+                        borderRadius: "6px",
                         cursor: "pointer",
                         fontSize: "1.1rem",
                         color: "white",

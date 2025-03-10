@@ -280,7 +280,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             marginTop: "20px",
             gap: "10px",
             padding: "15px",
-            borderRadius: "8px",
+            borderRadius: "6px",
           }}
         >
           <input
@@ -298,7 +298,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               fontWeight: 600,
               fontFamily: textTitleFont(),
               width: "100%",
-              borderRadius: "5px",
+              borderRadius: "6px",
               border: "1px solid #ccc",
               fontSize: "16px",
             }}

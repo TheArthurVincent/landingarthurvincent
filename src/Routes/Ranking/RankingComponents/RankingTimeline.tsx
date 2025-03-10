@@ -93,7 +93,7 @@ export default function RankingTimeline({
       style={{
         top: "10%",
         fontSize:"10px",
-        borderRadius: "1rem",
+        borderRadius: "6px",
         left: "30%",
         color: primaryColor(),
         backgroundColor: textPrimaryColorContrast(),

@@ -70,7 +70,7 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
   color: ${(props) => (props.color === "white" ? "black" : alwaysWhite())};
   padding: 3px 1rem;
   font-family: ${textTitleFont()};
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
   cursor: ${(props) =>
     props.cursor === "not-allowed" ? "not-allowed" : "pointer"};
@@ -124,7 +124,7 @@ export const ArvinButton = styled.button<ArvinButtonProps>`
             : primaryColor2()}
         100%
     );
-    border-radius: 10px;
+    border-radius: 6px;
   }
 
   &:active {
@@ -142,7 +142,7 @@ export const MyButton = styled.button<ButtonProps>`
   color: ${(props) => props.textcolor || alwaysWhite()};
   padding: 5px 1.2rem;
   font-family: ${textTitleFont()};
-  border-radius: 10px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
   display: inline;
@@ -157,7 +157,7 @@ export const MyButton = styled.button<ButtonProps>`
     );
 
     box-shadow: 1px 1px 10px 1px #bbb;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   &:active {

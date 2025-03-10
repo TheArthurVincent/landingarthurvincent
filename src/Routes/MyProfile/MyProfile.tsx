@@ -90,7 +90,7 @@ export function MyProfile({ headers }: HeadersProps) {
                     color: alwaysBlack(),
                     padding: "1rem",
                     backgroundColor: "#f7f9fc",
-                    borderRadius: "10px",
+                    borderRadius: "6px",
                   }}
                   className="box-shadow-white"
                 >
@@ -105,7 +105,7 @@ export function MyProfile({ headers }: HeadersProps) {
                       backgroundColor: "#1a73e8",
                       color: "#fff",
                       padding: "0.5rem 1rem",
-                      borderRadius: "8px",
+                      borderRadius: "6px",
                       cursor: "pointer",
                       transition: "opacity 0.3s ease",
                     }}
@@ -185,7 +185,7 @@ export function MyProfile({ headers }: HeadersProps) {
                 style={{
                   padding: "2rem",
                   backgroundColor: "#fff",
-                  borderRadius: "10px",
+                  borderRadius: "6px",
                   marginTop: "2rem",
                 }}
                 className="box-shadow-white"
@@ -202,7 +202,7 @@ export function MyProfile({ headers }: HeadersProps) {
                       marginBottom: "1rem",
                       padding: "0.75rem",
                       width: "100%",
-                      borderRadius: "8px",
+                      borderRadius: "6px",
                       border: "1px solid #ccc",
                       fontSize: "1rem",
                     }}
@@ -217,7 +217,7 @@ export function MyProfile({ headers }: HeadersProps) {
                       marginBottom: "1rem",
                       padding: "0.75rem",
                       width: "100%",
-                      borderRadius: "8px",
+                      borderRadius: "6px",
                       border: "1px solid #ccc",
                       fontSize: "1rem",
                     }}
@@ -227,7 +227,7 @@ export function MyProfile({ headers }: HeadersProps) {
                       color: "#fff",
                       backgroundColor: "#138017",
                       padding: "0.75rem 2rem",
-                      borderRadius: "8px",
+                      borderRadius: "6px",
                       fontSize: "1rem",
                       cursor: "pointer",
                     }}

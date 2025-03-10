@@ -1112,7 +1112,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                               margin: "4px",
                               marginBottom: "1rem",
                               padding: "2px",
-                              borderRadius: "5px",
+                              borderRadius: "6px",
                               border: "1px solid #aaa",
                               backgroundColor:
                                 event.category === "Group Class"
@@ -1176,7 +1176,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                     : "#000", // Preto para categoria não especificada
                                 display: "grid",
                                 cursor: "pointer",
-                                borderRadius: "5px",
+                                borderRadius: "6px",
                                 fontSize: "0.7rem",
                               }}
                             >
@@ -1238,7 +1238,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                                 gap: "0.5rem",
                                 flexDirection: "column",
                                 margin: "2px",
-                                borderRadius: "5px",
+                                borderRadius: "6px",
                                 alignItems: "center",
                                 justifyContent: "center",
                                 backgroundColor:
@@ -1295,7 +1295,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 top: "0",
                 left: "0",
                 position: "fixed",
-                borderRadius: "5px",
+                borderRadius: "6px",
                 zIndex: 99,
                 display: isVisible ? "block" : "none",
               }}
@@ -1391,7 +1391,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                       <div
                         style={{
                           padding: "1rem",
-                          borderRadius: "1rem",
+                          borderRadius: "6px",
                           display: seeReplenish ? "grid" : "none",
                           backgroundColor: "grey",
                           color: "white",

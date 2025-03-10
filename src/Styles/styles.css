@@ -11,11 +11,11 @@
 
 *::-webkit-scrollbar-track {
   background: #ddd;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 7px;
+  border-radius: 6px;
   background-color: grey;
 }
 
@@ -256,7 +256,7 @@ li {
 
 .flashcard-front,
 .flashcard-back {
-  border-radius: 5px;
+  border-radius: 6px;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
@@ -267,7 +267,7 @@ li {
 
 .flashcard-front-vocabulary,
 .flashcard-back-vocabulary {
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 20px;
   backface-visibility: hidden;
   display: flex;
@@ -398,9 +398,9 @@ input.inputs-style {
   float: right;
   width: 95%;
   padding: 10px;
-  -moz-border-radius: 19px;
-  -webkit-border-radius: 19px;
-  border-radius: 5px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -440,7 +440,7 @@ input.inputs-style:focus {
 }
 
 .box-shadow-white {
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: 0 4px 6px #eee;
 }
 
@@ -481,7 +481,7 @@ input.inputs-style:focus {
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -528,7 +528,7 @@ input.inputs-style:focus {
   margin-bottom: 10px;
   background-color: #fff;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -541,9 +541,9 @@ textarea.inputs-style {
   margin: 0 auto;
   width: 90%;
   padding: 10px;
-  -moz-border-radius: 19px;
-  -webkit-border-radius: 19px;
-  border-radius: 5px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -570,7 +570,7 @@ textarea.inputs-style:focus {
   font-size: 16px;
   color: #333;
   background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: 6px;
   width: 300px;
   text-align: center;
   margin: 0 auto;
@@ -583,7 +583,7 @@ textarea.inputs-style:focus {
   font-weight: bold;
   padding: 4px 8px;
   background-color: #eee;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: background-color 0.3s;
 }
 

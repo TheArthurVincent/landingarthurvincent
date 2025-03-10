@@ -83,7 +83,7 @@ export function Login() {
                 backgroundColor: "#fff",
                 maxWidth: "fit-content",
                 margin: "auto",
-                borderRadius: "10px",
+                borderRadius: "6px",
               }}
               className="box-shadow-white"
             >

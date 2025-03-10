@@ -145,7 +145,7 @@ export function NewTutoring({ headers }) {
             <div
               style={{
                 cursor: "pointer",
-                borderRadius: "1rem",
+                borderRadius: "6px",
                 backgroundColor: lightGreyColor(),
               }}
               onClick={handleAddTutoring}

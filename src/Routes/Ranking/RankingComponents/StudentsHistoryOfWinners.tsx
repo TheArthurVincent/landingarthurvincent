@@ -12,7 +12,7 @@ const medals = [
     place: "🥇 1st",
     img: "https://ik.imagekit.io/vjz75qw96/assets/icons/10.png",
     backgroundColor: "linear-gradient(135deg, gold, yellow)",
-    borderRadius: "1rem",
+    borderRadius: "6px",
   },
   {
     place: "🥈 2nd",
@@ -149,7 +149,7 @@ export default function StudentsHistoryOfWinners({ headers, monthNow }) {
         margin: "2rem auto",
         padding: "1.5rem",
         background: "#fff",
-        borderRadius: "12px",
+        borderRadius: "6px",
         boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.1)",
       }}
     >
@@ -167,7 +167,7 @@ export default function StudentsHistoryOfWinners({ headers, monthNow }) {
             style={{
               background: `${lightGreyColor()} radial-gradient(white, ${lightGreyColor()})`,
               padding: "1.5rem",
-              borderRadius: "12px",
+              borderRadius: "6px",
               margin: "1rem 0",
               textAlign: "center",
               boxShadow: "0px 6px 10px rgba(0, 0, 0, 0.08)",

@@ -52,7 +52,7 @@ const styles = {
     maxWidth: "90vw",
     margin: "20px auto",
     padding: "10px",
-    borderRadius: "8px",
+    borderRadius: "6px",
   },
   title: {
     fontSize: "20px",
@@ -548,7 +548,7 @@ export default function EnglishClassCourse2({
                 minWidth: "100px",
                 bottom: 5,
                 left: showCourses ? -338 : 3,
-                borderRadius: "10px",
+                borderRadius: "6px",
               }}
             >
               <select
@@ -632,7 +632,7 @@ export default function EnglishClassCourse2({
                         padding: "0.5rem",
                         textAlign: "center",
                         backgroundColor: "#f6f6f6",
-                        borderRadius: "1rem",
+                        borderRadius: "6px",
                         margin: "0.5rem 0",
                         fontStyle: "italic",
                       }}
@@ -942,7 +942,7 @@ export default function EnglishClassCourse2({
               left: 5,
               width: "94vw",
               border: "1px grey solid",
-              borderRadius: "5px",
+              borderRadius: "6px",
               height: "97vh",
               zIndex: 10000000000000,
               backgroundColor: "white",

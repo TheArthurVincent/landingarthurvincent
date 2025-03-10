@@ -73,7 +73,7 @@ export const NewLevelCardComponent = styled.div`
   display: grid;
   position: sticky;
   top: 60px;
-  border-radius: 1rem;
+  border-radius: 6px;
   text-align: center;
   color: white;
   min-width: 200px;

@@ -258,7 +258,7 @@ export function MyClasses({ headers }) {
               key={classItem.id}
               style={{
                 border: "1px solid #ddd",
-                borderRadius: "8px",
+                borderRadius: "6px",
                 padding: "16px",
                 backgroundColor: "#fff",
                 marginBottom: "16px",

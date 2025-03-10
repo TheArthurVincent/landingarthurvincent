@@ -150,7 +150,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
   return (
     <Box
       sx={{
-        borderRadius: "1rem",
+        borderRadius: "6px",
         zIndex: 10000,
         bottom: 10,
         right: 10,
