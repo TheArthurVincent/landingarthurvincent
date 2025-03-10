@@ -118,6 +118,7 @@ export default function StudentsRanking({
     margin-bottom: 5px;
     list-style: none;
     grid-template-columns: 0.5fr 1fr 0.5fr;
+    box-shadow: 5px 5px 10px #aaa;
     display: flex;
     justify-content: space-between;
     align-items: center;
