@@ -130,7 +130,7 @@ export function LevelCard({
             <i
               onClick={() => seeScore(_StudentId)}
               style={{
-                cursor:"pointer",
+                cursor: "pointer",
                 fontSize: "1.5rem",
               }}
               className={items[level].icon}
@@ -158,8 +158,7 @@ export function LevelCard({
                   {UniversalTexts.homework}: {formatNumber(assignmentsDone)}
                 </p>
                 <p style={{ color: "#fff" }}>
-                  {UniversalTexts.flashcardsDailyReviews}:{" "}
-                  {formatNumber(FC)}
+                  {UniversalTexts.flashcardsDailyReviews}: {formatNumber(FC)}
                 </p>
               </DivDisapearBig>
               <div
@@ -199,6 +198,26 @@ export function LevelCard({
                       {UniversalTexts.monthlyScore}:{" "}
                     </span>
                     {formatNumber(monthlyScore)}
+                  </p>
+                  <p style={{ color: "#fff" }}>
+                    <span
+                      style={{
+                        fontWeight: 1000,
+                      }}
+                    >
+                      {UniversalTexts.homework}:{" "}
+                    </span>
+                    {formatNumber(assignmentsDone)}
+                  </p>
+                  <p style={{ color: "#fff" }}>
+                    <span
+                      style={{
+                        fontWeight: 1000,
+                      }}
+                    >
+                      {UniversalTexts.flashcardsDailyReviews}:{" "}
+                    </span>
+                    {formatNumber(FC)}
                   </p>
                 </DivSeeBig>
               </div>

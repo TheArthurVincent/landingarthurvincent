@@ -149,6 +149,7 @@ export default function Homework({ headers, setChange, change }: HWProps) {
         <div
           style={{
             display: "inline",
+            marginBottom:"1rem"
           }}
         >
           <select onChange={handleStudentChange} value={studentID}>
@@ -158,10 +159,6 @@ export default function Homework({ headers, setChange, change }: HWProps) {
               </option>
             ))}
           </select>
-          <ArvinButton color="green" onClick={fetchStudents}>
-            <i className="fa fa-refresh" aria-hidden="true" />
-            <i className="fa fa-user" aria-hidden="true" />
-          </ArvinButton>
         </div>
       )}
       <div>
