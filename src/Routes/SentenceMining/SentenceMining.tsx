@@ -141,7 +141,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   const handleReadText = (index: number, text: string, language: string) => {
-    readText(text, true, language);
+    readText(text, true, "en");
     const newHeardSentences = [...heardSentences];
     newHeardSentences[index] = true;
     setHeardSentences(newHeardSentences);
@@ -309,7 +309,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             }}
           />
 
-          <FormControl>
+          {/* <FormControl>
             <RadioGroup
               row
               value={tense}
@@ -354,7 +354,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 label="Future"
               />
             </RadioGroup>
-          </FormControl>
+          </FormControl> */}
           <FormControl>
             <RadioGroup
               row
