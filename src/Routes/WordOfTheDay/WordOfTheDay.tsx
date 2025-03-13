@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Tooltip } from "@mui/material";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import { backDomain } from "../../Resources/UniversalComponents";
+import { backDomain, formatDate } from "../../Resources/UniversalComponents";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { HOne } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { HThree } from "../MyClasses/MyClasses.Styled";
+import { textTitleFont } from "../../Styles/Styles";
 
 interface WordOfTheDayRv {
   headers: MyHeadersType | null;
@@ -145,21 +147,38 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
 
   return (
     <section style={{ padding: "20px", margin: "auto", maxWidth: "600px" }}>
-      {/* Título Principal */}
+      {/* Título Centralizado */}
       <HOne style={{ textAlign: "center", marginBottom: "20px" }}>
-        <span
-          style={{
-            color: "#777",
-            fontWeight: 600,
-          }}
-        >
-          {" "}
+        <span style={{ color: "#777", fontWeight: 600 }}>
           {UniversalTexts.wordOfTheDay}:{" "}
         </span>
         {theWord} ({sentences[0].translation})
       </HOne>
 
-      {/* Bloco principal da palavra e explicação */}
+      {/* Data e Status */}
+      <p style={{ textAlign: "center" }}>
+        {formatDate(new Date())}
+        <i
+          style={{ color: !see ? "green" : "orange", marginLeft: "10px" }}
+          className={`fa fa-${!see ? "check-circle" : "ellipsis-h"}`}
+          aria-hidden="true"
+        />
+        {see ? (
+          <>
+            <br />
+            {UniversalTexts.earn}
+          </>
+        ) : (
+          <>
+            <br />
+            {UniversalTexts.earned}{" "}
+          </>
+        )}
+      </p>
+
+      <br />
+
+      {/* Bloco de Frases */}
       <div
         style={{
           textAlign: "center",
@@ -179,24 +198,24 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
               alignItems: "center",
               textAlign: "center",
               padding: "15px",
-              borderBottom: "1px solid #ddd",
               marginBottom: "10px",
               width: "100%",
             }}
           >
-            {/* Frase e tradução */}
+            {/* Texto da frase */}
             <div style={{ width: "100%" }}>
               <span
                 style={{
                   fontWeight: "bold",
-                  fontSize: "16px",
+                  fontSize: "22px",
+                  fontFamily: textTitleFont(),
                   display: "block",
                 }}
                 dangerouslySetInnerHTML={{ __html: sentence.text }}
               />
               <span
                 style={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   color: "#666",
                   display: "block",
                   marginTop: "5px",
@@ -234,7 +253,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
               ) : (
                 <Tooltip title={"See it in your flashcards!"}>
                   <ArvinButton
-                    cursor={"pointer"}
+                    cursor="pointer"
                     onClick={() => window.location.assign("/flash-cards")}
                   >
                     <i className="fa fa-files-o" aria-hidden="true" />
@@ -242,44 +261,21 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                 </Tooltip>
               )}
 
+              {/* Botão de áudio */}
               <ArvinButton
                 className="audio-button bgwhite"
                 onClick={() => handleReadText(index, sentence.text, "en")}
               >
                 <i className="fa fa-volume-up" aria-hidden="true" />
               </ArvinButton>
+              <ArvinButton
+                onClick={() => window.location.assign(youglishBaseUrl)}
+              >
+                {UniversalTexts.videosWithTheWord}
+              </ArvinButton>
             </div>
           </div>
         ))}
-
-        {/* Explicação da Palavra */}
-        <div style={{ marginTop: "15px" }}>{theExplanation}</div>
-
-        {/* Botão para vídeos com a palavra */}
-        <ArvinButton
-          color="orange"
-          onClick={() => window.location.assign(youglishBaseUrl)}
-          style={{ marginTop: "15px" }}
-        >
-          {UniversalTexts.videosWithTheWord}: "{sentences[0].text}"
-        </ArvinButton>
-      </div>
-
-      {/* Botões de navegação */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "15px",
-          marginBottom: "20px",
-        }}
-      >
-        <ArvinButton onClick={() => window.location.assign("/flash-cards")}>
-          {UniversalTexts.continueToReview}
-        </ArvinButton>
-        <ArvinButton onClick={() => window.location.assign("/sentence-mining")}>
-          {UniversalTexts.mineMoreWords}
-        </ArvinButton>
       </div>
     </section>
   );
