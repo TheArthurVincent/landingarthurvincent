@@ -660,8 +660,7 @@ export default function EnglishClassCourse2({
                   ) : element.type === "html" ? (
                     <div
                       style={{
-                        padding: "5px",
-                        // display: "grid",
+                        padding: "1rem",
                         justifyContent: "center",
                       }}
                     >
