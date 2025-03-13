@@ -42,7 +42,7 @@ export const DivDisapearBig = styled.div`
 `;
 export const DivSeeBig = styled.div`
   display: none;
-  font-size: 8px;
+  font-size: 10px;
   @media (max-width: 1200px) {
     display: flex;
     gap: 1rem;
