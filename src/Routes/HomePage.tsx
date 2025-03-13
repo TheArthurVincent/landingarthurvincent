@@ -55,7 +55,7 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "Blog",
       path: "/",
-      levelcard: false,
+      levelcard: true,
       component: (
         <Blog
           change={change}

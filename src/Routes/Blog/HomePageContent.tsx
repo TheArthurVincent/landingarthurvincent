@@ -37,10 +37,16 @@ interface BlogProps {
   studentIdd: string;
   picture: string;
   change: boolean;
-  setChange:any
+  setChange: any;
 }
 
-export function Blog({ headers, studentIdd, picture, change,setChange }: BlogProps) {
+export function Blog({
+  headers,
+  studentIdd,
+  picture,
+  change,
+  setChange,
+}: BlogProps) {
   const { UniversalTexts } = useUserContext();
   // Strings
   const [newTitle, setNewTitle] = useState<string>("");
@@ -209,7 +215,6 @@ export function Blog({ headers, studentIdd, picture, change,setChange }: BlogPro
         setPosts(filteredPosts);
         setLoading(false);
       }, 300);
-
     } catch (error) {
       // @ts-ignore
       alert(error.response.data.error);
@@ -261,11 +266,13 @@ export function Blog({ headers, studentIdd, picture, change,setChange }: BlogPro
         <DivFlex>
           <div className="grid-flex-2">
             <DivMarginBorder>
-          
-                <WordOfTheDay change={change} onChange={setChange} headers={headers} />
-
+              <WordOfTheDay
+                change={change}
+                onChange={setChange}
+                headers={headers}
+              />
             </DivMarginBorder>
-            <DivMarginBorder>
+            {/* <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
                 {UniversalTexts.levelCard}
               </HOne>
@@ -275,7 +282,7 @@ export function Blog({ headers, studentIdd, picture, change,setChange }: BlogPro
                 _StudentId={_StudentId}
                 picture={picture}
               />
-            </DivMarginBorder>
+            </DivMarginBorder> */}
           </div>
           <div className="grid-flex-2">
             <DivMarginBorder>
