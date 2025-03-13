@@ -244,7 +244,6 @@ export default function EnglishClassCourse2({
         { classId },
         { headers: actualHeaders }
       );
-
     } catch (error) {
       console.error("Erro ao atualizar o status:", error);
     }
@@ -583,12 +582,14 @@ export default function EnglishClassCourse2({
               </span>
             </div>
           )}
+          {theclass.image && (
+            <ImgLesson src={theclass.image} alt={theclass.subtitle} />
+          )}
           {theclass.video && (
             <div style={{ margin: "1rem auto 0 auto" }}>
               <IFrameVideoBlog src={getVideoEmbedUrl(theclass.video)} />
             </div>
           )}
-
           {theclass.description && (
             <p
               style={{
