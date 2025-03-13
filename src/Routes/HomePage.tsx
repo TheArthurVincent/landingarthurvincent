@@ -62,6 +62,7 @@ export function HomePage({ headers }: HeadersProps) {
           headers={headers}
           studentIdd={_StudentId}
           picture={picture}
+          setChange={setChange}
         />
       ),
     },
@@ -141,6 +142,7 @@ export function HomePage({ headers }: HeadersProps) {
           <Blog
             change={change}
             headers={headers}
+            setChange={setChange}
             studentIdd={_StudentId}
             picture={picture}
           />

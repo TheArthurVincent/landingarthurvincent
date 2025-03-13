@@ -14,7 +14,6 @@ import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import {
   darkGreyColor,
-  lightGreyColor,
   secondaryColor,
   textTitleFont,
 } from "../../Styles/Styles";
@@ -43,7 +42,8 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
   const [context, setContext] = useState<string>("  ");
   const [language, setLanguage] = useState<string>("");
-
+  const [thePermissions, setThePermissions] = useState<string>("");
+  
   const youglishBaseUrl = `https://youglish.com/pronounce/${word}/english/us`;
 
   const [sentences, setSentences] = useState([
@@ -55,7 +55,8 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { id } = JSON.parse(user);
+      const { id,permissions } = JSON.parse(user);
+      setThePermissions(permissions)
       setId(id);
     }
   }, []);
@@ -102,6 +103,29 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     } catch (error: any) {
       console.log(error);
       alert(error.response?.data?.error || "Error fetching flashcards.");
+    }
+  };
+
+  const editWordOfTheDay = async () => {
+    const newWord = [
+      {
+        word: sentences[0].text,
+        translatedWord: sentences[0].translation,
+        sentence: sentences[1].text,
+        translatedSentence: sentences[1].translation,
+        explanation,
+      },
+    ];
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/wordoftheday`,
+        { newWord },
+        { headers: actualHeaders }
+      );
+
+      alert("Palavra do dia alterada adicionada");
+    } catch (error: any) {
+      alert(error.response?.data?.error || "Error adding flashcard.");
     }
   };
 
@@ -191,13 +215,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       marginBottom: "10px",
                     }}
                   >
-                    <div
-                      style={{
-                        fontStyle: "italic",
-                        fontSize: "16px",
-                        color: "#555",
-                      }}
-                    ></div>
                   </div>
                 </div>
                 <div style={{ textAlign: "center", padding: "20px" }}>
@@ -276,7 +293,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )}
           </div>
         )}
-
         <div
           style={{
             display: "flex",
@@ -308,53 +324,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               fontSize: "16px",
             }}
           />
-
-          {/* <FormControl>
-            <RadioGroup
-              row
-              value={tense}
-              onChange={(e) => {
-                setTense(e.target.value);
-              }}
-            >
-              <FormControlLabel
-                value="Past"
-                control={
-                  <Radio
-                    sx={{
-                      color: darkGreyColor(),
-                      "&.Mui-checked": { color: secondaryColor() },
-                    }}
-                  />
-                }
-                label="Past"
-              />
-              <FormControlLabel
-                value="Present"
-                control={
-                  <Radio
-                    sx={{
-                      color: darkGreyColor(),
-                      "&.Mui-checked": { color: secondaryColor() },
-                    }}
-                  />
-                }
-                label="Present"
-              />
-              <FormControlLabel
-                value="Future"
-                control={
-                  <Radio
-                    sx={{
-                      color: darkGreyColor(),
-                      "&.Mui-checked": { color: secondaryColor() },
-                    }}
-                  />
-                }
-                label="Future"
-              />
-            </RadioGroup>
-          </FormControl> */}
           <FormControl>
             <RadioGroup
               row
@@ -370,7 +339,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   <Radio
                     sx={{
                       color: darkGreyColor(),
-
                       "&.Mui-checked": { color: secondaryColor() },
                     }}
                   />
@@ -383,7 +351,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   <Radio
                     sx={{
                       color: darkGreyColor(),
-
                       "&.Mui-checked": { color: secondaryColor() },
                     }}
                   />
@@ -400,6 +367,10 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           >
             Mine new word
           </ArvinButton>
+          {
+            thePermissions == "superadmin" &&
+            <ArvinButton onDoubleClick={editWordOfTheDay}>Word of the day</ArvinButton>
+          }
         </div>
       </section>
     </RouteDiv>

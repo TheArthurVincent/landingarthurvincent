@@ -30,15 +30,17 @@ import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import LevelCardBlog from "../LevelCard/LevelCardBlog";
 import Countdown from "../Ranking/RankingComponents/Countdown";
+import WordOfTheDay from "../WordOfTheDay/WordOfTheDay";
 
 interface BlogProps {
   headers: MyHeadersType | null;
   studentIdd: string;
   picture: string;
   change: boolean;
+  setChange:any
 }
 
-export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
+export function Blog({ headers, studentIdd, picture, change,setChange }: BlogProps) {
   const { UniversalTexts } = useUserContext();
   // Strings
   const [newTitle, setNewTitle] = useState<string>("");
@@ -259,12 +261,9 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         <DivFlex>
           <div className="grid-flex-2">
             <DivMarginBorder>
-              <HOne>Flashcards</HOne>
-              <div className="lesson-container">
-                <a href="/flash-cards" className="lesson-link">
-                  {UniversalTexts.continueToReview}
-                </a>
-              </div>
+          
+                <WordOfTheDay change={change} onChange={setChange} headers={headers} />
+
             </DivMarginBorder>
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("2")}>
