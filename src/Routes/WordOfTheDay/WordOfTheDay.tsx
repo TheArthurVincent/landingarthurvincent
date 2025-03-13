@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Tooltip } from "@mui/material";
+import { CircularProgress, Tooltip } from "@mui/material";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { backDomain, formatDate } from "../../Resources/UniversalComponents";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { HOne } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { HThree } from "../MyClasses/MyClasses.Styled";
 import { textTitleFont } from "../../Styles/Styles";
 
 interface WordOfTheDayRv {
@@ -21,8 +20,8 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
   const [see, setSee] = useState<boolean>(true);
   const [heardSentences, setHeardSentences] = useState([false, false, false]);
   const [theWord, setTheWord] = useState<string>("");
-  const [theExplanation, setExplanation] = useState<string>("");
   const [nowGo, setNowGo] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [sentences, setSentences] = useState([
     { text: "", translation: "", added: false },
     { text: "", translation: "", added: false },
@@ -51,6 +50,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
 
   const actualHeaders = headers || {};
   const fetchObjectUniv = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${backDomain}/api/v1/getobject`);
       const studentsWho =
@@ -60,7 +60,6 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
       if (studentsWho.includes(myId)) {
         setSee(false);
       }
-      const explanation = response.data.ordered[0].explanation;
       const wordOfTheDay = response.data.ordered[0].wordOfTheDay;
       const translationWordOfTheDay =
         response.data.ordered[0].translationWordOfTheDay;
@@ -69,7 +68,6 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
       const translationSentenceOfTheDay =
         response.data.ordered[0].translationSentenceOfTheDay;
       setTheWord(wordOfTheDay);
-      setExplanation(explanation);
       setSentences([
         {
           text: wordOfTheDay,
@@ -84,6 +82,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
       ]);
 
       setNowGo(nowGo);
+      setLoading(false);
     } catch (error: any) {
       alert(error.response?.data?.error || "Error adding flashcard.");
     }
@@ -145,7 +144,9 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
 
   const { UniversalTexts } = useUserContext();
 
-  return (
+  return loading ? (
+    <CircularProgress />
+  ) : (
     <section style={{ padding: "20px", margin: "auto", maxWidth: "600px" }}>
       {/* Título Centralizado */}
       <HOne style={{ textAlign: "center", marginBottom: "20px" }}>
