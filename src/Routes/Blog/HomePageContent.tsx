@@ -272,20 +272,7 @@ export function Blog({
                 headers={headers}
               />
             </DivMarginBorder>
-            {/* <DivMarginBorder>
-              <HOne onClick={() => toggleVisibility("2")}>
-                {UniversalTexts.levelCard}
-              </HOne>
-              <LevelCardBlog
-                change={change}
-                headers={headers}
-                _StudentId={_StudentId}
-                picture={picture}
-              />
-            </DivMarginBorder> */}
-          </div>
-          <div className="grid-flex-2">
-            <DivMarginBorder>
+                     <DivMarginBorder>
               {loadingLESSON ? (
                 <CircularProgress />
               ) : (
@@ -315,6 +302,20 @@ export function Blog({
               )}
             </DivMarginBorder>
 
+            {/* <DivMarginBorder>
+              <HOne onClick={() => toggleVisibility("2")}>
+                {UniversalTexts.levelCard}
+              </HOne>
+              <LevelCardBlog
+                change={change}
+                headers={headers}
+                _StudentId={_StudentId}
+                picture={picture}
+              />
+            </DivMarginBorder> */}
+          </div>
+          <div className="grid-flex-2">
+   
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("4")}>
                 {UniversalTexts.mural}
