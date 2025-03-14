@@ -83,7 +83,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
   const verifySee = (adm: string, score: number) => {
     if (adm == "superadmin") {
       return "block";
-    } else if (score >= 20000) {
+    } else if (score >= 10000) {
       return "block";
     } else {
       return "none";
@@ -97,7 +97,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
           padding: 0,
         }}
         onClick={() => fetchStudents()}
-      >{`> 20.000 only!`}</HTwo>
+      >{`> 10.000 only!`}</HTwo>
      
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
