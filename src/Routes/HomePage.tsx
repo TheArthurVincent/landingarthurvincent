@@ -22,6 +22,7 @@ import EnglishCourses from "./EnglishLessons/Courses";
 import Listening from "./ListeningExercise/Listening";
 import SentenceMining from "./SentenceMining/SentenceMining";
 import BlogPosts from "./Blog/BlogPosts";
+import WordOfTheDayList from "./WordOfTheDay/WordOfTheDayList";
 
 export function HomePage({ headers }: HeadersProps) {
   const [thePermissions, setPermissions] = useState<string>("");
@@ -69,6 +70,10 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "My Classes",
       component: <MyClasses headers={headers} />,
+    },
+    {
+      title: "Words of The Day",
+      component: <WordOfTheDayList headers={headers} />,
     },
     {
       title: "Homework",

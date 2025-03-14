@@ -261,7 +261,6 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                   </ArvinButton>
                 </Tooltip>
               )}
-
               {/* Botão de áudio */}
               <ArvinButton
                 className="audio-button bgwhite"

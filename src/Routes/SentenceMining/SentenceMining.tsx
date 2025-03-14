@@ -119,6 +119,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       );
 
       alert("Palavra do dia alterada adicionada");
+      window.location.assign("/");
     } catch (error: any) {
       alert(error.response?.data?.error || "Error adding flashcard.");
     }
