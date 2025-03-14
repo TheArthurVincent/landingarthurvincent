@@ -30,15 +30,23 @@ import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import LevelCardBlog from "../LevelCard/LevelCardBlog";
 import Countdown from "../Ranking/RankingComponents/Countdown";
+import WordOfTheDay from "../WordOfTheDay/WordOfTheDay";
 
 interface BlogProps {
   headers: MyHeadersType | null;
   studentIdd: string;
   picture: string;
   change: boolean;
+  setChange: any;
 }
 
-export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
+export function Blog({
+  headers,
+  studentIdd,
+  picture,
+  change,
+  setChange,
+}: BlogProps) {
   const { UniversalTexts } = useUserContext();
   // Strings
   const [newTitle, setNewTitle] = useState<string>("");
@@ -207,7 +215,6 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         setPosts(filteredPosts);
         setLoading(false);
       }, 300);
-
     } catch (error) {
       // @ts-ignore
       alert(error.response.data.error);
@@ -259,27 +266,13 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
         <DivFlex>
           <div className="grid-flex-2">
             <DivMarginBorder>
-              <HOne>Flashcards</HOne>
-              <div className="lesson-container">
-                <a href="/flash-cards" className="lesson-link">
-                  {UniversalTexts.continueToReview}
-                </a>
-              </div>
-            </DivMarginBorder>
-            <DivMarginBorder>
-              <HOne onClick={() => toggleVisibility("2")}>
-                {UniversalTexts.levelCard}
-              </HOne>
-              <LevelCardBlog
+              <WordOfTheDay
                 change={change}
+                onChange={setChange}
                 headers={headers}
-                _StudentId={_StudentId}
-                picture={picture}
               />
             </DivMarginBorder>
-          </div>
-          <div className="grid-flex-2">
-            <DivMarginBorder>
+                     <DivMarginBorder>
               {loadingLESSON ? (
                 <CircularProgress />
               ) : (
@@ -309,6 +302,20 @@ export function Blog({ headers, studentIdd, picture, change }: BlogProps) {
               )}
             </DivMarginBorder>
 
+            {/* <DivMarginBorder>
+              <HOne onClick={() => toggleVisibility("2")}>
+                {UniversalTexts.levelCard}
+              </HOne>
+              <LevelCardBlog
+                change={change}
+                headers={headers}
+                _StudentId={_StudentId}
+                picture={picture}
+              />
+            </DivMarginBorder> */}
+          </div>
+          <div className="grid-flex-2">
+   
             <DivMarginBorder>
               <HOne onClick={() => toggleVisibility("4")}>
                 {UniversalTexts.mural}

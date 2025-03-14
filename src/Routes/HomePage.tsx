@@ -55,13 +55,14 @@ export function HomePage({ headers }: HeadersProps) {
     {
       title: "Blog",
       path: "/",
-      levelcard: false,
+      levelcard: true,
       component: (
         <Blog
           change={change}
           headers={headers}
           studentIdd={_StudentId}
           picture={picture}
+          setChange={setChange}
         />
       ),
     },
@@ -141,6 +142,7 @@ export function HomePage({ headers }: HeadersProps) {
           <Blog
             change={change}
             headers={headers}
+            setChange={setChange}
             studentIdd={_StudentId}
             picture={picture}
           />

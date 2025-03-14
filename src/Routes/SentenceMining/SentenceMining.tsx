@@ -14,7 +14,6 @@ import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import {
   darkGreyColor,
-  lightGreyColor,
   secondaryColor,
   textTitleFont,
 } from "../../Styles/Styles";
@@ -34,20 +33,20 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [heardSentences, setHeardSentences] = useState([false, false, false]);
   const [word, setWord] = useState<string>("");
   const [finalWord, setFinalWord] = useState<string>("");
-  const [allHeard, setAllHeard] = useState(false);
   const [disabledButton, setDisabledButton] = useState(true);
 
   const [explanation, setExplanation] = useState<string>("");
+  const [difficulty, setDifficulty] = useState<string>("Basic");
   const [tense, setTense] = useState<string>("Present");
   const [sentenceType, setSentenceType] = useState<string>("Affirmative");
-
+  const [theAdaptedWord, setAdaptedWord] = useState<string>("");
   const [context, setContext] = useState<string>("  ");
   const [language, setLanguage] = useState<string>("");
+  const [thePermissions, setThePermissions] = useState<string>("");
 
-  const youglishBaseUrl = `https://youglish.com/pronounce/${word}/english/us`;
+  const youglishBaseUrl = `https://youglish.com/pronounce/${theAdaptedWord}/english/us`;
 
   const [sentences, setSentences] = useState([
-    { text: "", translation: "", added: false },
     { text: "", translation: "", added: false },
     { text: "", translation: "", added: false },
   ]);
@@ -55,7 +54,8 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { id } = JSON.parse(user);
+      const { id, permissions } = JSON.parse(user);
+      setThePermissions(permissions);
       setId(id);
     }
   }, []);
@@ -71,7 +71,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         `${backDomain}/api/v1/flashcardsvocabulary/${myId}`,
         {
           headers: actualHeaders,
-          params: { context, language, word, tense, sentenceType },
+          params: { context, language, word, tense, sentenceType, difficulty },
         }
       );
 
@@ -88,20 +88,39 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           translation: response.data.translation2,
           added: false,
         },
-        {
-          text: response.data.sentence3,
-          translation: response.data.translation3,
-          added: false,
-        },
       ]);
 
       setExplanation(response.data.explanation);
+      setAdaptedWord(response.data.adaptedWord);
 
       setLoading(false);
       setHeardSentences([false, false, false]);
     } catch (error: any) {
       console.log(error);
       alert(error.response?.data?.error || "Error fetching flashcards.");
+    }
+  };
+
+  const editWordOfTheDay = async () => {
+    const newWord = [
+      {
+        word: sentences[0].text,
+        translatedWord: sentences[0].translation,
+        sentence: sentences[1].text,
+        translatedSentence: sentences[1].translation,
+        explanation,
+      },
+    ];
+    try {
+      const response = await axios.put(
+        `${backDomain}/api/v1/wordoftheday`,
+        { newWord },
+        { headers: actualHeaders }
+      );
+
+      alert("Palavra do dia alterada adicionada");
+    } catch (error: any) {
+      alert(error.response?.data?.error || "Error adding flashcard.");
     }
   };
 
@@ -125,11 +144,8 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         { newCards },
         { headers: actualHeaders }
       );
-
       alert("Card adicionado: " + response.data.addedNewFlashcards);
       onChange(!change);
-
-      // Atualiza o estado para esconder o botão de flashcard
       setSentences((prevSentences) =>
         prevSentences.map((sentence, i) =>
           i === index ? { ...sentence, added: true } : sentence
@@ -145,7 +161,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     const newHeardSentences = [...heardSentences];
     newHeardSentences[index] = true;
     setHeardSentences(newHeardSentences);
-    setAllHeard(newHeardSentences.every(Boolean));
   };
 
   return (
@@ -190,15 +205,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       gap: "10px",
                       marginBottom: "10px",
                     }}
-                  >
-                    <div
-                      style={{
-                        fontStyle: "italic",
-                        fontSize: "16px",
-                        color: "#555",
-                      }}
-                    ></div>
-                  </div>
+                  ></div>
                 </div>
                 <div style={{ textAlign: "center", padding: "20px" }}>
                   <p>
@@ -276,7 +283,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             )}
           </div>
         )}
-
         <div
           style={{
             display: "flex",
@@ -309,16 +315,16 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             }}
           />
 
-          {/* <FormControl>
+          <FormControl>
             <RadioGroup
               row
-              value={tense}
+              value={difficulty}
               onChange={(e) => {
-                setTense(e.target.value);
+                setDifficulty(e.target.value);
               }}
             >
               <FormControlLabel
-                value="Past"
+                value="Basic"
                 control={
                   <Radio
                     sx={{
@@ -327,10 +333,10 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     }}
                   />
                 }
-                label="Past"
+                label="Basic"
               />
               <FormControlLabel
-                value="Present"
+                value="Intermediary"
                 control={
                   <Radio
                     sx={{
@@ -339,22 +345,11 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     }}
                   />
                 }
-                label="Present"
-              />
-              <FormControlLabel
-                value="Future"
-                control={
-                  <Radio
-                    sx={{
-                      color: darkGreyColor(),
-                      "&.Mui-checked": { color: secondaryColor() },
-                    }}
-                  />
-                }
-                label="Future"
+                label="Intermediary"
               />
             </RadioGroup>
-          </FormControl> */}
+          </FormControl>
+
           <FormControl>
             <RadioGroup
               row
@@ -370,7 +365,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   <Radio
                     sx={{
                       color: darkGreyColor(),
-
                       "&.Mui-checked": { color: secondaryColor() },
                     }}
                   />
@@ -383,7 +377,6 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                   <Radio
                     sx={{
                       color: darkGreyColor(),
-
                       "&.Mui-checked": { color: secondaryColor() },
                     }}
                   />
@@ -400,6 +393,11 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           >
             Mine new word
           </ArvinButton>
+          {thePermissions == "superadmin" && (
+            <ArvinButton onDoubleClick={editWordOfTheDay}>
+              Word of the day
+            </ArvinButton>
+          )}
         </div>
       </section>
     </RouteDiv>

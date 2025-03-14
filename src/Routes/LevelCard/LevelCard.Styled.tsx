@@ -31,7 +31,7 @@ export const ExternalDivCardBlogLevel = styled.div`
   display: grid;
   text-align: center;
   min-height: 400px;
-  font-size: 12px;
+  font-size: 14px;
   justify-content: center;
 `;
 export const DivDisapearBig = styled.div`
@@ -42,7 +42,7 @@ export const DivDisapearBig = styled.div`
 `;
 export const DivSeeBig = styled.div`
   display: none;
-  font-size: 8px;
+  font-size: 10px;
   @media (max-width: 1200px) {
     display: flex;
     gap: 1rem;
@@ -63,7 +63,7 @@ export const LevelCardComponent = styled.div`
   text-align: center;
   background-color: white;
   min-width: 155px;
-  font-size: 12px;
+  font-size: 14px;
   justify-content: center;
   text-align: center;
 `;
@@ -78,7 +78,7 @@ export const NewLevelCardComponent = styled.div`
   color: white;
   min-width: 200px;
   height: 300px;
-  font-size: 12px;
+  font-size: 14px;
   justify-content: center;
   text-align: center;
   @media (max-width: 1200px) {
