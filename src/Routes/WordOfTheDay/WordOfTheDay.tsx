@@ -184,48 +184,67 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
         />{" "}
       </HOne>
       {showInfo && (
-        <div
-        
-        onClick={() => setShowInfo(!showInfo)}
-        ><div
-        style={{
-          width:"10000000000000000000px",
-            position:"fixed",
-            height:"10000000000000000000px",
-        display:"block",
+        <div onClick={() => setShowInfo(!showInfo)}>
+          <div
+            style={{
+              width: "10000000000000000000px",
+              position: "fixed",
+              height: "10000000000000000000px",
+              display: "block",
 
-        top:"-20vh",
-        left:"-20vw",
-    zIndex:"100",
-        backgroundColor:transparentWhite()
-        }}
-
-        />
-        <div
-          style={{
-            backgroundColor: "#ffebcc",
-            padding: "15px",
-        zIndex:"200",
-            position:"fixed",
-            top:"20vh",
-            left:"8vw",
-            borderRadius: "8px",
-            border: "2px solid #ff9900",
-            marginBottom: "20px",
-            textAlign: "center",
-          }}
-        >
-          <h2 style={{ color: "#d35400" }}>📢 PALAVRA DO DIA! 🎉</h2>
-          <p>Agora temos a sessão <strong>Word of the Day</strong>! 📖✨</p>
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>🔹 <strong>De segunda a sexta-feira</strong>, uma nova palavra será disponibilizada para você aprender.</li>
-            <li>🔹 Se você adicionar a palavra do dia aos <strong>flashcards</strong>, ganha <strong>100 pontos</strong>! 🏆</li>
-            <li>🔹 <strong>Bônus Semanal</strong>: Se no sábado você enviar <strong>todas as palavras do dia da última semana</strong>, com suas frases <strong>escritas no caderno</strong> e <strong>adicionadas aos flashcards</strong>, ganha <strong>500 pontos</strong>! 🚀</li>
-          </ul>
-          <p><strong>⚠ Atenção:</strong> todas as palavras da semana precisam estar nos flashcards para garantir os pontos!</p>
-          <p>💡 Aproveite essa nova oportunidade para turbinar seu vocabulário e acumular recompensas! 🔥</p>
+              top: "-20vh",
+              left: "-20vw",
+              zIndex: "100",
+              backgroundColor: transparentWhite(),
+            }}
+          />
+          <div
+            style={{
+              backgroundColor: "#ffebcc",
+              padding: "15px",
+              zIndex: "200",
+              position: "fixed",
+              top: "20vh",
+              left: "8vw",
+              borderRadius: "8px",
+              border: "2px solid #ff9900",
+              marginBottom: "20px",
+              textAlign: "center",
+            }}
+          >
+            <h2 style={{ color: "#d35400" }}>📢 PALAVRA DO DIA! 🎉</h2>
+            <p>
+              Agora temos a sessão <strong>Word of the Day</strong>! 📖✨
+            </p>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                🔹 <strong>De segunda a sexta-feira</strong>, uma nova palavra
+                será disponibilizada para você aprender.
+              </li>
+              <li>
+                🔹 Se você adicionar a palavra do dia aos{" "}
+                <strong>flashcards</strong>, ganha <strong>100 pontos</strong>!
+                🏆
+              </li>
+              <li>
+                🔹 <strong>Bônus Semanal</strong>: Se no sábado você enviar{" "}
+                <strong>todas as palavras do dia da última semana</strong>, com
+                suas frases <strong>escritas no caderno</strong> e{" "}
+                <strong>adicionadas aos flashcards</strong>, ganha{" "}
+                <strong>500 pontos</strong>! 🚀
+              </li>
+            </ul>
+            <p>
+              <strong>⚠ Atenção:</strong> todas as palavras da semana precisam
+              estar nos flashcards para garantir os pontos!
+            </p>
+            <p>
+              💡 Aproveite essa nova oportunidade para turbinar seu vocabulário
+              e acumular recompensas! 🔥
+            </p>
+          </div>
         </div>
-        </div>)}
+      )}
       <p
         style={{
           color: "#777",
@@ -352,6 +371,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
           </div>
         ))}
       </div>
+      <a href="/words-of-the-day">{UniversalTexts.seePreviousWords}</a>
     </section>
   );
 };

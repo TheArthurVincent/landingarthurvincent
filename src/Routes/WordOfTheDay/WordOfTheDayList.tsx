@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { CircularProgress, Button } from "@mui/material";
+import { CircularProgress, Button, Tooltip } from "@mui/material";
 
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import { backDomain, formatDate } from "../../Resources/UniversalComponents";
@@ -32,6 +32,7 @@ const WordOfTheDayList = ({ headers }: WordOfTheDayListRv) => {
     try {
       const response = await axios.get(`${backDomain}/api/v1/wordoftheday`);
       setWords(response.data.words);
+      console.log(response.data.words);
     } catch (error: any) {
       alert(error.response?.data?.error || "Error.");
     } finally {
@@ -56,11 +57,9 @@ const WordOfTheDayList = ({ headers }: WordOfTheDayListRv) => {
           <HTwo>
             {wordItem.word} - {wordItem.translatedWord}
           </HTwo>
-
           <p>
             <strong>Date:</strong> {formatDate(wordItem.date)}
           </p>
-
           <div
             style={{
               backgroundColor: "#f5f5f5",
@@ -85,7 +84,6 @@ const WordOfTheDayList = ({ headers }: WordOfTheDayListRv) => {
               <i className="fa fa-volume-up" aria-hidden="true" />
             </ArvinButton>
           </div>
-
           <a
             href={`https://youglish.com/pronounce/${wordItem.word}/english/us`}
             target="_blank"
@@ -94,6 +92,31 @@ const WordOfTheDayList = ({ headers }: WordOfTheDayListRv) => {
             <i className="fa fa-volume-up" aria-hidden="true" /> Hear
             Pronunciation on YouGlish
           </a>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "10px",
+            }}
+          >
+            {wordItem.studentsWhoDidIt.map((word: any, index: number) => {
+              return (
+                <Tooltip title={word.fullName}>
+                <img
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                  src={word.photo}
+                  alt={word.photo}
+                />
+                </Tooltip>
+              );
+            })}
+          </div>{" "}
         </div>
       ))}
     </RouteDiv>
