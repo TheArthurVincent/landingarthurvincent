@@ -7,7 +7,7 @@ import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { HOne } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { textTitleFont } from "../../Styles/Styles";
+import { textTitleFont, transparentWhite } from "../../Styles/Styles";
 
 interface WordOfTheDayRv {
   headers: MyHeadersType | null;
@@ -87,6 +87,8 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
       alert(error.response?.data?.error || "Error adding flashcard.");
     }
   };
+  const [showInfo, setShowInfo] = useState<boolean>(false);
+
   const addNewCards = async () => {
     const newCards = [
       {
@@ -149,21 +151,94 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
   ) : (
     <section style={{ padding: "20px", margin: "auto", maxWidth: "600px" }}>
       {/* Título Centralizado */}
-      <HOne style={{ textAlign: "center", marginBottom: "20px" }}>
-        <span style={{ color: "#777", fontWeight: 600 }}>
-          {UniversalTexts.wordOfTheDay}:{" "}
-        </span>
-        {theWord} ({sentences[0].translation})
-      </HOne>
-
-      {/* Data e Status */}
-      <p style={{ textAlign: "center" }}>
-        {formatDate(new Date())}
+      <HOne
+        style={{
+          textAlign: "center",
+          marginBottom: "0",
+          paddingBottom: "0",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
+        <span style={{ color: "#777", fontWeight: 600 }}></span>
         <i
           style={{ color: !see ? "green" : "orange", marginLeft: "10px" }}
           className={`fa fa-${!see ? "check-circle" : "ellipsis-h"}`}
           aria-hidden="true"
+        />{" "}
+        {theWord} ({sentences[0].translation})
+        <i
+          style={{
+            color: "white",
+            fontSize: "10px",
+            borderRadius: "50%",
+            backgroundColor: "grey",
+            padding: "4px 7px",
+            cursor: "pointer",
+          }}
+          className={`fa fa-info`}
+          aria-hidden="true"
+          onClick={() => setShowInfo(!showInfo)}
+        />{" "}
+      </HOne>
+      {showInfo && (
+        <div
+        
+        onClick={() => setShowInfo(!showInfo)}
+        ><div
+        style={{
+          width:"10000000000000000000px",
+            position:"fixed",
+            height:"10000000000000000000px",
+        display:"block",
+
+        top:"-20vh",
+        left:"-20vw",
+    zIndex:"100",
+        backgroundColor:transparentWhite()
+        }}
+
         />
+        <div
+          style={{
+            backgroundColor: "#ffebcc",
+            padding: "15px",
+        zIndex:"200",
+            position:"fixed",
+            top:"20vh",
+            left:"8vw",
+            borderRadius: "8px",
+            border: "2px solid #ff9900",
+            marginBottom: "20px",
+            textAlign: "center",
+          }}
+        >
+          <h2 style={{ color: "#d35400" }}>📢 PALAVRA DO DIA! 🎉</h2>
+          <p>Agora temos a sessão <strong>Word of the Day</strong>! 📖✨</p>
+          <ul style={{ listStyleType: "none", padding: 0 }}>
+            <li>🔹 <strong>De segunda a sexta-feira</strong>, uma nova palavra será disponibilizada para você aprender.</li>
+            <li>🔹 Se você adicionar a palavra do dia aos <strong>flashcards</strong>, ganha <strong>100 pontos</strong>! 🏆</li>
+            <li>🔹 <strong>Bônus Semanal</strong>: Se no sábado você enviar <strong>todas as palavras do dia da última semana</strong>, com suas frases <strong>escritas no caderno</strong> e <strong>adicionadas aos flashcards</strong>, ganha <strong>500 pontos</strong>! 🚀</li>
+          </ul>
+          <p><strong>⚠ Atenção:</strong> todas as palavras da semana precisam estar nos flashcards para garantir os pontos!</p>
+          <p>💡 Aproveite essa nova oportunidade para turbinar seu vocabulário e acumular recompensas! 🔥</p>
+        </div>
+        </div>)}
+      <p
+        style={{
+          color: "#777",
+          marginBottom: "1rem",
+          fontWeight: 500,
+          fontSize: "12px",
+          textAlign: "center",
+        }}
+      >
+        {UniversalTexts.wordOfTheDay} - {formatDate(new Date())}
+      </p>
+      {/* Data e Status */}
+      {/* <p style={{ textAlign: "center" }}>
         {see ? (
           <>
             <br />
@@ -177,7 +252,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
         )}
       </p>
 
-      <br />
+      <br /> */}
 
       {/* Bloco de Frases */}
       <div
