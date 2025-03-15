@@ -339,8 +339,11 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                   <ArvinButton
                     color={!heardSentences[index] ? "white" : "green"}
                     cursor={!heardSentences[index] ? "not-allowed" : "pointer"}
-                    onClick={addNewCards}
-                    disabled={!heardSentences[index]}
+                    onClick={() => {
+                      !heardSentences[index]
+                        ? alert("Listen first!")
+                        : addNewCards();
+                    }}
                   >
                     <i className="fa fa-files-o" aria-hidden="true" />
                   </ArvinButton>
