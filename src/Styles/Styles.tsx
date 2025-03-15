@@ -10,7 +10,7 @@ export const primaryColor = (): string => "#000";
 export const primaryColor2 = (): string => "#5c5c5c";
 export const secondaryColor = (): string => "#54bf08";
 export const secondaryColor2 = (): string => "#84DE08";
-export const textFont = (): string => "Helvetica";
+export const textFont = (): string => "Lato";
 export const textTitleFont = (): string => "Athiti";
 
 export const textPrimaryColorContrast = (): string => "#fff";

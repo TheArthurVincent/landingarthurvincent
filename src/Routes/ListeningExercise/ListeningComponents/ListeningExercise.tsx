@@ -400,7 +400,7 @@ const ListeningExercise = ({
                         </p>
                         <p
                           style={{
-                            fontFamily: "Helvetica",
+                            fontFamily: "Lato",
                             fontSize: "12px",
                             fontWeight: 400,
                             color: "#555",
