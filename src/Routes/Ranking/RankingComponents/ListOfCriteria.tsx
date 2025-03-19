@@ -26,9 +26,7 @@ interface Button {
 // Lista
 export const listOfCriteria = [
   {
-    title: "Aula particular",
-    comment:
-      "As provas serão realizadas a critério do professor, e avisadas com antecedência de pelo menos 1 mês.",
+    title: "Score",
     icon: "fa fa-book",
     color: "rgb(230, 160, 32)",
     score: [
@@ -39,19 +37,11 @@ export const listOfCriteria = [
         color: "green",
       },
       {
-        description: "Prova",
-        score: 1000,
         color: "green",
-        nobutton: true,
+        score: 75,
+        description: "Participou da aula em grupo",
+        text: "Participou da aula em grupo",
       },
-    ],
-  },
-  {
-    title: "Flashcards",
-    icon: "fa fa-clone",
-    transform: "rotate(-25deg)",
-    color: "rgb(1, 188, 255)",
-    score: [
       {
         description: "Revisou um card",
         score: 3,
@@ -59,63 +49,18 @@ export const listOfCriteria = [
         color: "green",
       },
       {
-        description:
-          "Pontuação por palavra certa no Listening Exercise (caso acerte mais de 95%)",
+        description: "Pontuação por palavra certa no Listening Exercise",
         score: 3,
         nobutton: true,
         color: "green",
       },
       {
-        description:
-          "Pontuação por palavra certa no Listening Exercise (caso acerte mais entre 60% e 95%)",
-        score: 1,
+        description: "Pontuação por palavra certa no Listening Exercise",
+        score: 2,
         nobutton: true,
         color: "green",
       },
-      // {
-      //   description:
-      //     "Pontuação por resposta certa no Q&A (caso não veja o texto)",
-      //   score: 7,
-      //   nobutton: true,
-      //   color: "green",
-      // },
-      // {
-      //   description: "Pontuação por resposta certa no Q&A (caso veja o texto)",
-      //   score: 3,
-      //   nobutton: true,
-      //   color: "green",
-      // },
-    ],
-  },
-  {
-    title: "Group Classes",
-    icon: "fa fa-graduation-cap",
-    color: "#753",
-    score: [
-      {
-        color: "green",
-        score: 750,
-        description: "Homework Group Class",
-        text: "Homework Group Class (entregar na aula particular)",
-      },
-      {
-        description: "Homework Atrasado (> 7 dias atrás) ou incompleto",
-        score: 250,
-        color: "green",
-      },
-      {
-        color: "green",
-        score: 75,
-        description: "Participou da aula em grupo",
-        text: "Participou da aula em grupo",
-      },
-    ],
-  },
-  {
-    title: "Others",
-    icon: "fa fa-pencil",
-    color: "#000",
-    score: [
+
       {
         color: "green",
         score: 250,
@@ -172,7 +117,7 @@ export const listOfButtons: Button[] =
 export const GridRankingExplanation = styled.div`
   display: grid;
   gap: 10px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }

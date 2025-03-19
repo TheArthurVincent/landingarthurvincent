@@ -31,14 +31,13 @@ export default function RankingExplanationComponent() {
               alignItems: "center",
             }}
           >
-            {" "}
             <i
               style={{
                 borderRadius: "50%",
                 backgroundColor: criteria.color,
                 color: "white",
                 padding: "10px",
-                transform: criteria.transform ? criteria.transform : "none",
+                // transform: criteria.transform ? criteria.transform : "none",
               }}
               className={criteria.icon}
               aria-hidden="true"
@@ -79,19 +78,7 @@ export default function RankingExplanationComponent() {
               </p>
             ))}
           </div>
-          {criteria.comment && (
-            <div
-              style={{
-                backgroundColor: "#ddd",
-                borderRadius: "6px",
-                textAlign: "center",
-                padding: "5px",
-                fontStyle: "italic",
-              }}
-            >
-              {criteria.comment}
-            </div>
-          )}
+        
         </GridRankingExplanationCard>
       ))}
     </GridRankingExplanation>

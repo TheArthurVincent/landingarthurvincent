@@ -90,16 +90,6 @@ export default function RankingExplanation() {
           regularmente!
         </div>
       </div>
-      <HThree
-        style={{
-          textAlign: "center",
-          color: primaryColor(),
-          fontWeight: 600,
-          margin: "1rem 0",
-        }}
-      >
-        {UniversalTexts.score}
-      </HThree>
       <RankingExplanationComponent />
 
       <HThree
