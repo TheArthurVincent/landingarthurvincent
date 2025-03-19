@@ -21,7 +21,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [myPermissions, setPermissions] = useState<string>("");
-  const [flashcardsToday, setFlashcardsToday] = useState<number>(0);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [cards, setCards] = useState<any[]>([]);
@@ -34,6 +33,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
 
+  const [flashcardsToday, setFlashcardsToday] = useState<number>(0);
   useEffect(() => {
     switch (category) {
       case "vocabulary":
@@ -170,11 +170,14 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
+    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
+    // @ts-ignore
+    var flashcardsTodayNumber: number = parseFloat(flashcardsToday);
     if (user) {
-      const { permissions, id, flashCardsReviewsToday } = JSON.parse(user);
+      const { permissions, id } = JSON.parse(user);
       setId(id);
       setPermissions(permissions);
-      setFlashcardsToday(flashCardsReviewsToday);
+      setFlashcardsToday(flashcardsTodayNumber);
     }
     setAnswer(false);
     updateInfo(myId, actualHeaders);
@@ -309,14 +312,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
   return (
     <section id="review">
-      {/*  */}
-      {/*  */}
-      {/*  */}
       {/* <Countdown targetDate={new Date("2025-01-31T21:29:59")} text="You have until Jan 31st 2025 - 9h30min PM to score 10 points per card!" /> */}
       {/* <Countdown targetDate={new Date("2025-01-31T21:00:00")} text="On Jan 31st 2025, at 9h00min PM you will have 30 minutes to score 10 points per card!" /> */}
-      {/*  */}
-      {/*  */}
-      {/*  */}
       {see && (
         <div>
           {loading ? (
@@ -520,6 +517,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           )}
         </div>
       )}
+
       <div
         style={{
           display: "flex",
@@ -544,7 +542,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
         </ArvinButton>
       </div>
-      <ProgressCounter flashcardsToday={flashcardsToday} />
       <div
         style={{
           display: "flex",
@@ -597,6 +594,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <option value="weather">Clima</option>
         </select>
       </div>
+      <ProgressCounter flashcardsToday={flashcardsToday} />
     </section>
   );
 };

@@ -6,6 +6,7 @@ export const readText = (
 ) => {
   if ("speechSynthesis" in window) {
     const synth = window.speechSynthesis;
+    console.log(text);
 
     if (!synth) {
       console.error("speechSynthesis não está disponível.");
@@ -24,6 +25,7 @@ export const readText = (
     utterance.volume = 1;
 
     utterance.onerror = (e) => console.error("Erro na leitura:", e);
+    console.log("foi");
 
     if (restart || !synth.speaking || synth.paused) {
       synth.speak(utterance);

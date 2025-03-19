@@ -4,13 +4,14 @@ import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import {
   backDomain,
-  getVideoEmbedUrl,
   onLoggOut,
+  updateInfo,
 } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
-import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
+
 import { secondaryColor, textTitleFont } from "../../../Styles/Styles";
+import { ProgressCounter } from "../../FlashCardsToday/FlashCardsToday";
 
 function highlightDifferences(original: string, userInput: string): string {
   const originalWords = original.split(" ");
@@ -100,11 +101,9 @@ const ListeningExercise = ({
   const [next, setNext] = useState<boolean>(false);
   const [seeProgress, setSeeProgress] = useState(false);
   const [enableVoice, setEnableVoice] = useState(false);
-  const [seeVideo, setSeeVideo] = useState(false);
   const [similarity, setSimilarity] = useState<number>(0);
-  const [actualPointsPerWord, setActualPointsPerWord] = useState<number>(0);
   const [playingAudio, setPlayingAudio] = useState<boolean>(false);
-
+  const [flashcardsToday, setFlashcardsToday] = useState<number>(0);
   const [words, setWords] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [transcript, setTranscript] = useState<string>("");
@@ -116,12 +115,17 @@ const ListeningExercise = ({
   const actualHeaders = headers || {};
 
   useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
+    var user = localStorage.getItem("loggedIn");
+    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
+    // @ts-ignore
+    var flashcardsTodayNumber: number = parseFloat(flashcardsToday);
     if (user) {
       const { id } = JSON.parse(user);
       setId(id);
+      setFlashcardsToday(flashcardsTodayNumber);
     }
-  }, []);
+    updateInfo(myId, actualHeaders);
+  }, [change]);
 
   const reviewListeningExercise = async (score: number, percentage: number) => {
     setNext(true);
@@ -139,7 +143,7 @@ const ListeningExercise = ({
       seeCardsToReview();
     } catch (error) {
       alert("Erro ao enviar cards");
-      // onLoggOut();
+      onLoggOut();
     }
   };
 
@@ -216,7 +220,6 @@ const ListeningExercise = ({
 
     if (userTranscript === "") {
       setSimilarity(0);
-      setActualPointsPerWord(0);
       setScore(0);
       setWords(wordCountInCard);
       reviewListeningExercise(0, 0);
@@ -226,7 +229,6 @@ const ListeningExercise = ({
     if (cleanString(cardText) === cleanString(userTranscript)) {
       setSimilarity(100);
       setScore(wordCountInCard * 3);
-      setActualPointsPerWord(3);
       setWords(wordCountInCard);
       reviewListeningExercise(wordCountInCard * 3, 100);
       return;
@@ -236,7 +238,6 @@ const ListeningExercise = ({
       userTranscript,
       cards[0]?.front?.text.replace(/\s+/g, " ") // Substitui múltiplos espaços por um espaço
     );
-    setActualPointsPerWord(2);
     setSimilarity(simC);
     setWords(wordCountInCard);
     // const points = simC > 40 ? wordCountInCard : 0;
@@ -244,13 +245,13 @@ const ListeningExercise = ({
 
     if (simC > 98) {
       setSimilarity(100);
-      setActualPointsPerWord(3);
       reviewListeningExercise(wordCountInCard * 3, 100);
     } else {
       setScore(points);
-      setActualPointsPerWord(2);
       reviewListeningExercise(points, simC);
     }
+
+    onChange(!change);
   };
 
   const seeCardsToReview = async () => {
@@ -321,7 +322,7 @@ const ListeningExercise = ({
       {see && (
         <div>
           {loading ? (
-                <CircularProgress style={{ color: secondaryColor() }} />
+            <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             <div
               style={{
@@ -544,20 +545,7 @@ const ListeningExercise = ({
         </ArvinButton>
       </div>
 
-      <div
-        style={{
-          display: seeVideo ? "block" : "none",
-          marginTop: "20px",
-          padding: "20px",
-          border: "1px solid #ccc",
-          borderRadius: "6px",
-          backgroundColor: "#f9f9f9",
-        }}
-      >
-        <IFrameVideoBlog
-          src={getVideoEmbedUrl("https://www.youtube.com/watch?v=3DLGazINiRw")}
-        />
-      </div>
+      <ProgressCounter flashcardsToday={flashcardsToday} />
     </section>
   );
 };
