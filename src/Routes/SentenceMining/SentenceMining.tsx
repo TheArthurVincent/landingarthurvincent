@@ -174,7 +174,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         {see && (
           <div style={{ color: "black" }}>
             {loading ? (
-              <CircularProgress />
+              <CircularProgress style={{ color: secondaryColor() }} />
             ) : (
               <div>
                 <div style={{ marginBottom: "15px" }}>

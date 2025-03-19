@@ -13,6 +13,7 @@ import { CircularProgress } from "@mui/material";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import Modules from "./Modules";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import { secondaryColor } from "../../Styles/Styles";
 
 interface EnglishCoursesHomeProps {
   headers: MyHeadersType | null;
@@ -171,7 +172,7 @@ export default function EnglishCourses({ headers }: EnglishCoursesHomeProps) {
             </div>
           </RouteDivCourses>
         ) : (
-          <CircularProgress />
+          <CircularProgress style={{ color: secondaryColor() }} />
         )
       ) : null}
       <Outlet />

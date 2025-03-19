@@ -147,7 +147,7 @@ export function Blog({
         .replace(/\s+/g, "-")
         .replace(/[^\w\-]+/g, "")}/${classId}`,
     },
-    
+
     {
       id: "calendar",
       title: UniversalTexts.nextGroupClasses,
@@ -182,7 +182,7 @@ export function Blog({
       description: UniversalTexts.myClasses,
       img: "https://ik.imagekit.io/vjz75qw96/assets/icons/future.jpg?updatedAt=1720527411882",
       link: "/my-classes",
-    }
+    },
   ];
 
   const editPost = async (id: string): Promise<void> => {
@@ -289,7 +289,7 @@ export function Blog({
           <div className="grid-flex-2">
             <DivMarginBorder>
               {loadingLESSON ? (
-                <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
               ) : (
                 <div className="study-container">
                   <HOne>{UniversalTexts.studyEnglish}</HOne>

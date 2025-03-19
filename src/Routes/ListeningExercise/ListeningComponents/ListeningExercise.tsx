@@ -10,7 +10,7 @@ import {
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { IFrameVideoBlog } from "../../Blog/Blog.Styled";
-import { textTitleFont } from "../../../Styles/Styles";
+import { secondaryColor, textTitleFont } from "../../../Styles/Styles";
 
 function highlightDifferences(original: string, userInput: string): string {
   const originalWords = original.split(" ");
@@ -277,7 +277,7 @@ const ListeningExercise = ({
 
   // Controle do reconhecimento de fala
   const SpeechRecognition =
-  // @ts-ignore
+    // @ts-ignore
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
   recognition.lang = cards[0]?.front?.language == "en" ? "en-US" : "fr-FR";
@@ -321,7 +321,7 @@ const ListeningExercise = ({
       {see && (
         <div>
           {loading ? (
-            <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             <div
               style={{
@@ -442,7 +442,7 @@ const ListeningExercise = ({
                       </p>
                     </div>
                     {seeProgress ? (
-                      <CircularProgress />
+                      <CircularProgress style={{ color: secondaryColor() }} />
                     ) : (
                       <div>
                         <ArvinButton
