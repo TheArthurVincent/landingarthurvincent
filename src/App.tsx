@@ -27,7 +27,7 @@ function App() {
 
   const checkLocalBackground = () => {
     if (window.location.hostname === "localhost") {
-      document.body.style.backgroundColor = "#fff";
+      document.body.style.backgroundColor = "#777";
     } else if (
       window.location.hostname === "arvin-staging.9kwq6c.easypanel.host" ||
       window.location.hostname.includes("easypanel")

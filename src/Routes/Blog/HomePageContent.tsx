@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   RouteDiv,
-  BlogPostTitle,
   BackgroundClickBlog,
   HTwo,
   HOne,
@@ -9,9 +8,7 @@ import {
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
 import axios from "axios";
 import {
-  formatDate,
   backDomain,
-  getVideoEmbedUrl,
   Xp,
   UniversalButtonsDivFlex,
   DivFlex,
@@ -19,17 +16,9 @@ import {
 } from "../../Resources/UniversalComponents";
 import { alwaysWhite, secondaryColor } from "../../Styles/Styles";
 import { Button, CircularProgress } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
-import {
-  DivModal,
-  IFrameVideoPannel,
-  ImgBlog,
-  InternDivModal,
-} from "./Blog.Styled";
+import { DivModal, InternDivModal } from "./Blog.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
-import LevelCardBlog from "../LevelCard/LevelCardBlog";
-import Countdown from "../Ranking/RankingComponents/Countdown";
 import WordOfTheDay from "../WordOfTheDay/WordOfTheDay";
 
 interface BlogProps {
@@ -94,6 +83,7 @@ export function Blog({
   var [course, setCourse] = useState<String>("");
   var [module, setModule] = useState<String>("");
   var [lesson, setLesson] = useState<String>("");
+  var [img, setImg] = useState("");
   var [loadingLESSON, setLoadingLESSON] = useState<Boolean>(true);
   const fetchLastClassId = async (classid: string) => {
     setLoadingLESSON(true);
@@ -109,9 +99,11 @@ export function Blog({
       var cour = response.data.course.title;
       var mod = response.data.module.title;
       var less = response.data.classDetails.title;
+      var imgg = response.data.classDetails.image;
       setCourse(cour);
       setModule(mod);
       setLesson(less);
+      setImg(imgg);
       setLoadingLESSON(false);
     } catch (error) {
       console.log(error, "erro ao listar homework");
@@ -144,23 +136,54 @@ export function Blog({
   };
 
   const actualHeaders = headers || {};
-
-  const seeEdition = async (id: string): Promise<void> => {
-    handleSeeModal();
-    try {
-      const response = await axios.get(`${backDomain}/api/v1/blogpost/${id}`, {
-        headers: actualHeaders,
-      });
-      setID(response.data.formattedBlogPost.id);
-      setNewTitle(response.data.formattedBlogPost.title);
-      setNewUrlVideo(response.data.formattedBlogPost.videoUrl);
-      setNewText(response.data.formattedBlogPost.text);
-      setNewImg(response.data.formattedBlogPost.img);
-    } catch (error) {
-      alert(error);
-      console.error(error);
+  const sessions = [
+    {
+      id: "current-lesson",
+      title: `${UniversalTexts.currentLesson}  - ${lesson}`,
+      description: UniversalTexts.retome,
+      img: img,
+      link: `/english-courses/${course
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w\-]+/g, "")}/${classId}`,
+    },
+    
+    {
+      id: "calendar",
+      title: UniversalTexts.nextGroupClasses,
+      description: UniversalTexts.nextGroupClasses,
+      img: "https://ik.imagekit.io/vjz75qw96/assets/icons/actions.jpg?updatedAt=1720616041429",
+      link: "/my-calendar",
+    },
+    {
+      id: "flash-cards",
+      title: "Flashcards",
+      description: UniversalTexts.revise,
+      img: "https://ik.imagekit.io/vjz75qw96/assets/icons/flashcards.png?updatedAt=1742402052092",
+      link: "/flash-cards",
+    },
+    {
+      id: "listening",
+      title: UniversalTexts.listening,
+      description: UniversalTexts.pratique,
+      img: "https://ik.imagekit.io/vjz75qw96/assets/icons/list.png?updatedAt=1742402052061",
+      link: "/listening",
+    },
+    {
+      id: "sentence-mining",
+      title: UniversalTexts.vocabulary,
+      description: UniversalTexts.enriqueça,
+      img: "https://ik.imagekit.io/vjz75qw96/assets/icons/mining.png?updatedAt=1742402051850",
+      link: "/sentence-mining",
+    },
+    {
+      id: "my-lessons",
+      title: UniversalTexts.myClasses,
+      description: UniversalTexts.myClasses,
+      img: "https://ik.imagekit.io/vjz75qw96/assets/icons/future.jpg?updatedAt=1720527411882",
+      link: "/my-classes",
     }
-  };
+  ];
 
   const editPost = async (id: string): Promise<void> => {
     try {
@@ -215,22 +238,12 @@ export function Blog({
         setPosts(filteredPosts);
         setLoading(false);
       }, 300);
-    } catch (error) {
-      // @ts-ignore
+    } catch (error: any) {
       alert(error.response.data.error);
       window.location.assign("/login");
       setLoading(false);
     }
   }
-
-  const [visible, setVisibleItems] = useState<any>({});
-
-  const toggleVisibility = (id: any) => {
-    setVisibleItems((prevState: any) => ({
-      ...prevState,
-      [id]: !prevState[id],
-    }));
-  };
 
   return (
     <>
@@ -272,121 +285,37 @@ export function Blog({
                 headers={headers}
               />
             </DivMarginBorder>
-                     <DivMarginBorder>
+          </div>
+          <div className="grid-flex-2">
+            <DivMarginBorder>
               {loadingLESSON ? (
                 <CircularProgress />
               ) : (
-                <>
-                  <HOne>{UniversalTexts.continueToStudy}</HOne>
-                  <div className="lesson-container">
-                    <a
-                      href={`/english-courses/${course
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")
-                        .replace(/[^\w\-]+/g, "")}/${classId}`}
-                      className="lesson-link"
-                    >
-                      <>{`${course} - ${module} - ${lesson}`}</>
-                    </a>
-                    <a
-                      style={{
-                        marginTop: "10px",
-                      }}
-                      href={`/homework`}
-                      className="lesson-link"
-                    >
-                      {UniversalTexts.nextHomeworkAssignment}
-                    </a>
-                  </div>
-                </>
-              )}
-            </DivMarginBorder>
-
-            {/* <DivMarginBorder>
-              <HOne onClick={() => toggleVisibility("2")}>
-                {UniversalTexts.levelCard}
-              </HOne>
-              <LevelCardBlog
-                change={change}
-                headers={headers}
-                _StudentId={_StudentId}
-                picture={picture}
-              />
-            </DivMarginBorder> */}
-          </div>
-          <div className="grid-flex-2">
-   
-            <DivMarginBorder>
-              <HOne onClick={() => toggleVisibility("4")}>
-                {UniversalTexts.mural}
-              </HOne>
-              <div>
-                {posts.map((post: any, index: number) => (
-                  <div
-                    key={index}
-                    style={{
-                      maxWidth: "100%",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "10px",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {post.title && (
-                      <BlogPostTitle>
-                        <span
-                          style={{
-                            maxWidth: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          {!loading && (
-                            <button
-                              style={{
-                                cursor: "pointer",
-                                display:
-                                  permissions == "superadmin" ? "grid" : "none",
-                              }}
-                              onClick={() => seeEdition(post._id)}
-                            >
-                              <i className="fa fa-edit" aria-hidden="true" />
-                            </button>
-                          )}
-                          <HTwo> {post.title}</HTwo>
-                        </span>
-                        {post.createdAt && (
-                          <span>{formatDate(post.createdAt)}</span>
-                        )}
-                      </BlogPostTitle>
-                    )}
-                    {post.videoUrl ? (
-                      <div
-                        style={{
-                          margin: "auto",
-                        }}
+                <div className="study-container">
+                  <HOne>{UniversalTexts.studyEnglish}</HOne>
+                  <div className="grid-container">
+                    {sessions.map((session) => (
+                      <a
+                        key={session.id}
+                        href={session.link}
+                        className="grid-item"
                       >
-                        <IFrameVideoPannel
-                          src={getVideoEmbedUrl(post.videoUrl)}
+                        <span className="session-title">{session.title}</span>
+                        <div
+                          className="image-background"
+                          style={{ backgroundImage: `url(${session.img})` }}
                         />
-                      </div>
-                    ) : post.img ? (
-                      <ImgBlog src={post.img} alt="logo" />
-                    ) : null}
-                    <div
-                      style={{
-                        margin: "1rem",
-                        fontSize: "1.1rem",
-                        display: "block",
-                        padding: "1rem 0",
-                      }}
-                      className="limited-text"
-                    >
-                      <div dangerouslySetInnerHTML={{ __html: post.text }} />
-                    </div>
+
+                        <div className="overlay">
+                          <p className="session-description">
+                            {session.description}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
             </DivMarginBorder>
           </div>
         </DivFlex>

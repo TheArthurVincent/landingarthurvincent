@@ -136,6 +136,7 @@ h4 {
   animation-timing-function: ease;
 }
 
+
 .maxwidth {
   max-width: 1800px;
   margin-left: auto;
@@ -147,6 +148,106 @@ body {
   background-color: #bcc2c7;
   background-attachment: fixed;
   background-position: center;
+}
+
+
+
+
+
+
+
+
+
+.study-container {
+  padding: 24px;
+  text-align: center;
+}
+
+.study-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagem de fundo, sem escurecimento inicial */
+.image-background {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Contêiner da sobreposição */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Título inicial no centro, SEM escurecimento */
+.session-title {
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: opacity 0.3s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Descrição oculta por padrão */
+.session-description {
+  color: white;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 15px;
+  border-radius: 5px;
+  max-width: 80%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Efeito hover: escurece a imagem */
+.grid-item:hover .image-background {
+  filter: brightness(50%);
+}
+
+/* Efeito hover: some o título e aparece a descrição */
+.grid-item:hover .session-title {
+  opacity: 0;
+}
+
+.grid-item:hover .session-description {
+  opacity: 1;
 }
 
 .the-hover:hover {
