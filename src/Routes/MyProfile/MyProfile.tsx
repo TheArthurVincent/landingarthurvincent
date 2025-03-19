@@ -7,7 +7,7 @@ import {
   onLoggOut,
   updateInfo,
 } from "../../Resources/UniversalComponents";
-import { alwaysBlack } from "../../Styles/Styles";
+import { alwaysBlack, secondaryColor } from "../../Styles/Styles";
 import { NavLink } from "react-router-dom";
 import { Button, CircularProgress } from "@mui/material";
 import axios from "axios";
@@ -79,7 +79,7 @@ export function MyProfile({ headers }: HeadersProps) {
         <RouteDiv className="grid-flex">
           <Helmets text="My Profile" />
           {loading ? (
-            <CircularProgress />
+            <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             <>
               <div>

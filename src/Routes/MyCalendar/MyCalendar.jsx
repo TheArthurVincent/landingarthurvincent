@@ -1032,7 +1032,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               </button>{" "}
             </div>
             {loading ? (
-              <CircularProgress />
+              <CircularProgress style={{ color: secondaryColor() }} />
             ) : (
               <div
                 style={{
@@ -1316,7 +1316,7 @@ export default function MyCalendar({ headers, thePermissions }) {
               }}
             >
               {loadingModalInfo ? (
-                <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
               ) : (
                 <div
                   style={{
@@ -1436,7 +1436,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                         {UniversalTexts.editPost}
                       </HTwo>
                       {loadingInfo ? (
-                        <CircularProgress />
+                        <CircularProgress style={{ color: secondaryColor() }} />
                       ) : (
                         <>
                           <div
@@ -1776,7 +1776,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 {UniversalTexts.editTurorings}
               </HTwo>
               {loadingModalTutoringsInfo ? (
-                <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
               ) : (
                 <form
                   style={{
@@ -1809,7 +1809,7 @@ export default function MyCalendar({ headers, thePermissions }) {
                 </form>
               )}
               {loadingTutoringDays ? (
-                <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
               ) : (
                 <div>
                   {tutoringsListOfOneStudent

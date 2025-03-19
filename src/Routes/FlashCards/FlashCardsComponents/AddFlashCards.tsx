@@ -13,6 +13,7 @@ import {
   InputLabel,
   CircularProgress,
 } from "@mui/material";
+import { secondaryColor } from "../../../Styles/Styles";
 
 interface Student {
   id: string;
@@ -175,7 +176,7 @@ const AddFlashCards = ({ headers, display }: AddFlashCardsProps) => {
             >
               <Box sx={{ display: "flex" }}>
                 {loading ? (
-                  <CircularProgress />
+                <CircularProgress style={{ color: secondaryColor() }} />
                 ) : (
                   <FormControl sx={{ width: "250px" }}>
                     <InputLabel id="student-select-label">

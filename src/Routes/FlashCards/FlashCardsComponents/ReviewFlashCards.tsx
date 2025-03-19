@@ -5,6 +5,7 @@ import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
 import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
+import { secondaryColor } from "../../../Styles/Styles";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -160,7 +161,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-
   const [totalS, setTotalScore] = useState(0);
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
@@ -174,7 +174,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   }, []);
 
   const actualHeaders = headers || {};
-
 
   const [timerCardCount, setTimerCardCount] = useState(19);
 
@@ -284,7 +283,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-  
   const reviewCard = async (id: string, difficulty: string) => {
     setLoading(true);
     try {
@@ -315,7 +313,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       {see && (
         <div>
           {loading ? (
-            <CircularProgress />
+            <CircularProgress style={{ color: secondaryColor() }} />
           ) : (
             <div
               style={{
