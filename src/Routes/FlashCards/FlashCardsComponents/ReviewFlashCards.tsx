@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  onLoggOut,
+  updateInfo,
+} from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { secondaryColor } from "../../../Styles/Styles";
+import { ProgressCounter } from "../../FlashCardsToday/FlashCardsToday";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -16,6 +21,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [myPermissions, setPermissions] = useState<string>("");
+  const [flashcardsToday, setFlashcardsToday] = useState<number>(0);
+
   const [loading, setLoading] = useState<boolean>(false);
   const [cards, setCards] = useState<any[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -161,17 +168,17 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-  const [totalS, setTotalScore] = useState(0);
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
-      const { totalScore, permissions, id } = JSON.parse(user);
+      const { permissions, id, flashCardsReviewsToday } = JSON.parse(user);
       setId(id);
       setPermissions(permissions);
-      setTotalScore(totalScore);
+      setFlashcardsToday(flashCardsReviewsToday);
     }
     setAnswer(false);
-  }, []);
+    updateInfo(myId, actualHeaders);
+  }, [change]);
 
   const actualHeaders = headers || {};
 
@@ -537,6 +544,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
         </ArvinButton>
       </div>
+      <ProgressCounter flashcardsToday={flashcardsToday} />
       <div
         style={{
           display: "flex",
