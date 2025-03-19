@@ -160,9 +160,9 @@ export function BlogPosts({ headers }: BlogPostsProps) {
   return (
     <>
       <RouteDiv
-      style={{
-        maxWidth:"900px"
-      }}
+        style={{
+          maxWidth: "900px",
+        }}
       >
         <Helmets text="Blog Posts" />
         <div
@@ -176,7 +176,6 @@ export function BlogPosts({ headers }: BlogPostsProps) {
         >
           <div style={{ display: "flex", gap: "5px" }}></div>
         </div>
-
         <div>
           <HOne>{UniversalTexts.mural}</HOne>
           <div>

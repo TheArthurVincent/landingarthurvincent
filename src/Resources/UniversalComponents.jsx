@@ -128,27 +128,16 @@ export const DivGrid = styled.div`
 export const DivMarginBorder = styled.div.attrs({
   className: "box-shadow-white",
 })`
-  padding: 20px 10px;
-  border: 1px solid #fff;
-  width: 95%;
+  padding: 10px;
+  margin: 0.5rem;
   height: fit-content;
-  background-color: #fbfbfb;
+  background-color: rgb(243, 243, 243);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  @media (max-width: 1000px) {
-    width: 98%;
-  }
 `;
 export const DivFlex = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  justify-items: start;
-  align-items: start;
-  @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
-    align-content: start;
-    max-height: fit-content;
-  }
+  display: block;
+  align-content: center;
+  grid-template-columns: 1fr;
 `;
 
 export const Button = styled.button`

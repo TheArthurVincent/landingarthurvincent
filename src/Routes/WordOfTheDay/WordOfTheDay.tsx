@@ -2,16 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress, Tooltip } from "@mui/material";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import {
-  backDomain,
-  formatDate,
-  formatDateBr,
-} from "../../Resources/UniversalComponents";
+import { backDomain, formatDateBr } from "../../Resources/UniversalComponents";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
-import { HOne, HTwo } from "../../Resources/Components/RouteBox";
+import { HTwo } from "../../Resources/Components/RouteBox";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
-import { textTitleFont, transparentWhite } from "../../Styles/Styles";
+import { transparentWhite } from "../../Styles/Styles";
 
 interface WordOfTheDayRv {
   headers: MyHeadersType | null;
@@ -153,7 +149,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
   return loading ? (
     <CircularProgress />
   ) : (
-    <section style={{ padding: "20px", margin: "auto", maxWidth: "600px" }}>
+    <section style={{ padding: 0, margin: "auto", maxWidth: "600px" }}>
       {showInfo && (
         <div onClick={() => setShowInfo(!showInfo)}>
           <div
@@ -234,89 +230,108 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
             }}
           >
             <div style={{ width: "100%" }}>
-              <HOne>
-                <a href="/words-of-the-day">
-                  <i
-                    style={{
-                      color: !see ? "green" : "orange",
-                      marginRight: "10px",
-                    }}
-                    className={`fa fa-${!see ? "check-circle" : "ellipsis-h"}`}
-                    aria-hidden="true"
-                  />
-                </a>
-                {theWord} ({sentences[0].translation}){" "}
-              </HOne>
-              <span
+              <div
                 style={{
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                  display: "block",
+                  display: "flex",
+                  gap: "10px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
                 }}
-                dangerouslySetInnerHTML={{ __html: sentence.text }}
-              />
-              <span
-                style={{
-                  fontSize: "15px",
-                  color: "#666",
-                  display: "block",
-                  marginTop: "5px",
-                }}
-                dangerouslySetInnerHTML={{ __html: sentence.translation }}
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "10px",
-                marginTop: "12px",
-              }}
-            >
-              {see ? (
-                <Tooltip
-                  title={
-                    !heardSentences[index]
-                      ? "Listen first!"
-                      : "Add to flashcards"
-                  }
-                >
-                  <ArvinButton
-                    color={!heardSentences[index] ? "white" : "green"}
-                    cursor={!heardSentences[index] ? "not-allowed" : "pointer"}
-                    onClick={() => {
+              >
+                {see ? (
+                  <Tooltip
+                    title={
                       !heardSentences[index]
-                        ? alert("Listen first!")
-                        : addNewCards();
+                        ? "Listen first!"
+                        : "Add to flashcards"
+                    }
+                  >
+                    <ArvinButton
+                      color={!heardSentences[index] ? "white" : "green"}
+                      cursor={
+                        !heardSentences[index] ? "not-allowed" : "pointer"
+                      }
+                      onClick={() => {
+                        !heardSentences[index]
+                          ? alert("Listen first!")
+                          : addNewCards();
+                      }}
+                    >
+                      <i className="fa fa-files-o" aria-hidden="true" />
+                    </ArvinButton>
+                  </Tooltip>
+                ) : (
+                  <a href="/words-of-the-day">
+                    <i
+                      style={{
+                        cursor: "pointer",
+                        color: !see ? "green" : "orange",
+                        marginRight: "10px",
+                      }}
+                      className={`fa fa-${
+                        !see ? "check-circle" : "ellipsis-h"
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </a>
+                )}
+                <HTwo
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() => window.location.assign(youglishBaseUrl)}
+                >
+                  {theWord} ({sentences[0].translation}){" "}
+                </HTwo>
+              </div>
+              <span
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                <i
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleReadText(index, sentence.text, "en")}
+                  className="fa fa-volume-up"
+                  aria-hidden="true"
+                />
+                <span>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      display: "block",
                     }}
-                  >
-                    <i className="fa fa-files-o" aria-hidden="true" />
-                  </ArvinButton>
-                </Tooltip>
-              ) : (
-                <Tooltip title={"See it in your flashcards!"}>
-                  <ArvinButton
-                    cursor="pointer"
-                    onClick={() => window.location.assign("/flash-cards")}
-                  >
-                    <i className="fa fa-files-o" aria-hidden="true" />
-                  </ArvinButton>
-                </Tooltip>
-              )}
-              <ArvinButton
-                className="audio-button bgwhite"
-                onClick={() => handleReadText(index, sentence.text, "en")}
-              >
-                <i className="fa fa-volume-up" aria-hidden="true" />
-              </ArvinButton>
-              <ArvinButton
-                onClick={() => window.location.assign(youglishBaseUrl)}
-              >
-                <i className="fa fa-video-camera" aria-hidden="true" />
-              </ArvinButton>
-              <ArvinButton onClick={() => setShowInfo(!showInfo)}>
-                <i className="fa fa-info" aria-hidden="true" />
-              </ArvinButton>
+                    dangerouslySetInnerHTML={{
+                      __html: sentence.text,
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      color: "#666",
+                      display: "block",
+                      marginTop: "5px",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: sentence.translation }}
+                  />
+                </span>
+                <i
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setShowInfo(!showInfo)}
+                  className="fa fa-info"
+                  aria-hidden="true"
+                />
+              </span>
             </div>
           </div>
         ))}
