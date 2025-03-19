@@ -109,6 +109,7 @@ const ListeningExercise = ({
   const [transcript, setTranscript] = useState<string>("");
   const [transcriptHighLighted, setTranscriptHighLighted] =
     useState<string>("");
+  const [isShow, setIsShow] = useState<boolean>(false);
 
   const [listening, setListening] = useState<boolean>(false);
 
@@ -274,6 +275,7 @@ const ListeningExercise = ({
     } catch (error) {
       alert("Erro ao carregar cards");
     }
+    setIsShow(true);
   };
 
   // Controle do reconhecimento de fala
@@ -545,7 +547,7 @@ const ListeningExercise = ({
         </ArvinButton>
       </div>
 
-      <ProgressCounter flashcardsToday={flashcardsToday} />
+      <ProgressCounter show={isShow} flashcardsToday={flashcardsToday} />
     </section>
   );
 };

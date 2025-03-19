@@ -30,6 +30,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
+  const [isShow, setIsShow] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
 
@@ -305,6 +306,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       onChange(!change);
       seeCardsToReview();
       timerDisabled();
+      setIsShow(true);
     } catch (error) {
       onLoggOut();
       console.log(error);
@@ -594,7 +596,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <option value="weather">Clima</option>
         </select>
       </div>
-      <ProgressCounter flashcardsToday={flashcardsToday} />
+      <ProgressCounter show={isShow} flashcardsToday={flashcardsToday} />
     </section>
   );
 };

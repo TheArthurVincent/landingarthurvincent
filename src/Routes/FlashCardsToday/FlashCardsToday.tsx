@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Confetti from "react-confetti";
-import { HTwo } from "../../Resources/Components/RouteBox";
 import { secondaryColor } from "../../Styles/Styles";
 
 interface ProgressCounterProps {
   flashcardsToday: number;
+  show: boolean;
 }
 
 export const ProgressCounter: React.FC<ProgressCounterProps> = ({
   flashcardsToday,
+  show,
 }) => {
   const [showConfetti, setShowConfetti] = useState(false);
 
@@ -23,7 +24,7 @@ export const ProgressCounter: React.FC<ProgressCounterProps> = ({
   return (
     <div
       style={{
-        display: "flex",
+        display: show ? "flex" : "none",
         flexDirection: "column",
         alignItems: "center",
       }}
