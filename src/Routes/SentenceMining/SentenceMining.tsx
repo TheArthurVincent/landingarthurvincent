@@ -114,10 +114,10 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const editWordOfTheDay = async () => {
     const newWord = [
       {
-        word: sentences[0].text,
-        translatedWord: sentences[0].translation,
-        sentence: sentences[1].text,
-        translatedSentence: sentences[1].translation,
+        word: sentence1,
+        translatedWord: transation1,
+        sentence: sentence2,
+        translatedSentence: transation2,
         explanation,
       },
     ];
