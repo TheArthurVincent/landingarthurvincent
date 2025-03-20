@@ -546,8 +546,7 @@ const ListeningExercise = ({
           {!see ? "Start" : <i className="fa fa-refresh" />}
         </ArvinButton>
       </div>
-
-      <ProgressCounter show={isShow} flashcardsToday={flashcardsToday} />
+      <ProgressCounter flashcardsToday={flashcardsToday} />
     </section>
   );
 };

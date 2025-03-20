@@ -21,7 +21,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   useState<number>(0);
   const [myId, setId] = useState<string>("");
   const [myPermissions, setPermissions] = useState<string>("");
-
   const [loading, setLoading] = useState<boolean>(false);
   const [cards, setCards] = useState<any[]>([]);
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -33,8 +32,37 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [isShow, setIsShow] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
-
+  const [timerCardCount, setTimerCardCount] = useState(19);
   const [flashcardsToday, setFlashcardsToday] = useState<number>(0);
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
+    // @ts-ignore
+    if (user) {
+      var { permissions, id } = JSON.parse(user);
+      setId(id);
+      setPermissions(permissions);
+    }
+    setAnswer(false);
+    console.log("flashcardsTodayOutside", flashcardsToday);
+    updateInfo(id, actualHeaders);
+  }, [change]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      var flashcardsTodayLocalStorage = localStorage.getItem("flashcardsToday");
+      // @ts-ignore
+      if (flashcardsTodayLocalStorage) {
+        // @ts-ignore
+        var flashcardsTodayNumber: number = parseFloat(
+          flashcardsTodayLocalStorage
+        );
+        setFlashcardsToday(flashcardsTodayNumber);
+      }
+    }, 1000);
+  }, [change]);
+
   useEffect(() => {
     switch (category) {
       case "vocabulary":
@@ -169,24 +197,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
-    // @ts-ignore
-    var flashcardsTodayNumber: number = parseFloat(flashcardsToday);
-    if (user) {
-      const { permissions, id } = JSON.parse(user);
-      setId(id);
-      setPermissions(permissions);
-      setFlashcardsToday(flashcardsTodayNumber);
-    }
-    setAnswer(false);
-    updateInfo(myId, actualHeaders);
-  }, [change]);
-
   const actualHeaders = headers || {};
-
-  const [timerCardCount, setTimerCardCount] = useState(19);
 
   const timerCard = () => {
     setTimerCardCount(20);
@@ -253,6 +264,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   const seeCardsToReview = async () => {
+    updateInfo(myId, actualHeaders);
     timerCard();
     setLoading(true);
     setAnswer(false);
@@ -596,7 +608,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <option value="weather">Clima</option>
         </select>
       </div>
-      <ProgressCounter show={isShow} flashcardsToday={flashcardsToday} />
+      <ProgressCounter flashcardsToday={flashcardsToday} />
     </section>
   );
 };

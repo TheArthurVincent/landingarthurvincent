@@ -5,32 +5,30 @@ import { secondaryColor } from "../../Styles/Styles";
 
 interface ProgressCounterProps {
   flashcardsToday: number;
-  show: boolean;
 }
 
 export const ProgressCounter: React.FC<ProgressCounterProps> = ({
   flashcardsToday,
-  show,
 }) => {
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     if (flashcardsToday >= 25) {
       setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 1000);
+      setTimeout(() => setShowConfetti(false), 3000);
     }
+    console.log("flashcards Today Inside", flashcardsToday);
   }, [flashcardsToday]);
 
   return (
     <div
       style={{
-        display: show ? "flex" : "none",
+        display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
       {showConfetti && <Confetti numberOfPieces={200} />}
-
       <div
         style={{
           width: "100%",
