@@ -88,8 +88,10 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
     }
   };
   const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const addNewCards = async () => {
+    setDisabled(true);
     const newCards = [
       {
         wordOfTheDay: true,
@@ -248,6 +250,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                     }
                   >
                     <ArvinButton
+                      disabled={disabled}
                       color={!heardSentences[index] ? "white" : "green"}
                       cursor={
                         !heardSentences[index] ? "not-allowed" : "pointer"
