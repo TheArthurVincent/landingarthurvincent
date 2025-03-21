@@ -248,9 +248,13 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                   >
                     <ArvinButton
                       disabled={disabled}
-                      color={!heardSentences[index] ? "white" : "green"}
+                      color={
+                        !heardSentences[index] || disabled ? "white" : "green"
+                      }
                       cursor={
-                        !heardSentences[index] ? "not-allowed" : "pointer"
+                        !heardSentences[index] || disabled
+                          ? "not-allowed"
+                          : "pointer"
                       }
                       onClick={() => {
                         setDisabled(true);
