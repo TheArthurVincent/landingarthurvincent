@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import { MyHeadersType } from "../../../Resources/types.universalInterfaces";
-import { backDomain, onLoggOut } from "../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  onLoggOut,
+  updateInfo,
+} from "../../../Resources/UniversalComponents";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { secondaryColor } from "../../../Styles/Styles";
+import { ProgressCounter } from "../../FlashCardsToday/FlashCardsToday";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -24,8 +29,39 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
+  const [isShow, setIsShow] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
+  const [timerCardCount, setTimerCardCount] = useState(19);
+  const [flashcardsToday, setFlashcardsToday] = useState<number>(0);
+
+  useEffect(() => {
+    const user = localStorage.getItem("loggedIn");
+    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
+    // @ts-ignore
+    if (user) {
+      var { permissions, id } = JSON.parse(user);
+      setId(id);
+      setPermissions(permissions);
+    }
+    setAnswer(false);
+    console.log("flashcardsTodayOutside", flashcardsToday);
+    updateInfo(id, actualHeaders);
+  }, [change]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      var flashcardsTodayLocalStorage = localStorage.getItem("flashcardsToday");
+      // @ts-ignore
+      if (flashcardsTodayLocalStorage) {
+        // @ts-ignore
+        var flashcardsTodayNumber: number = parseFloat(
+          flashcardsTodayLocalStorage
+        );
+        setFlashcardsToday(flashcardsTodayNumber);
+      }
+    }, 1000);
+  }, [change]);
 
   useEffect(() => {
     switch (category) {
@@ -161,21 +197,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-  const [totalS, setTotalScore] = useState(0);
-  useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
-    if (user) {
-      const { totalScore, permissions, id } = JSON.parse(user);
-      setId(id);
-      setPermissions(permissions);
-      setTotalScore(totalScore);
-    }
-    setAnswer(false);
-  }, []);
-
   const actualHeaders = headers || {};
-
-  const [timerCardCount, setTimerCardCount] = useState(19);
 
   const timerCard = () => {
     setTimerCardCount(20);
@@ -242,6 +264,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
 
   const seeCardsToReview = async () => {
+    updateInfo(myId, actualHeaders);
     timerCard();
     setLoading(true);
     setAnswer(false);
@@ -295,6 +318,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       onChange(!change);
       seeCardsToReview();
       timerDisabled();
+      setIsShow(true);
     } catch (error) {
       onLoggOut();
       console.log(error);
@@ -302,14 +326,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
   return (
     <section id="review">
-      {/*  */}
-      {/*  */}
-      {/*  */}
       {/* <Countdown targetDate={new Date("2025-01-31T21:29:59")} text="You have until Jan 31st 2025 - 9h30min PM to score 10 points per card!" /> */}
       {/* <Countdown targetDate={new Date("2025-01-31T21:00:00")} text="On Jan 31st 2025, at 9h00min PM you will have 30 minutes to score 10 points per card!" /> */}
-      {/*  */}
-      {/*  */}
-      {/*  */}
       {see && (
         <div>
           {loading ? (
@@ -320,6 +338,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 margin: "auto",
                 textAlign: "center",
                 color: "black",
+                marginBottom: "2rem",
               }}
             >
               <div>
@@ -513,6 +532,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           )}
         </div>
       )}
+
       <div
         style={{
           display: "flex",
@@ -589,6 +609,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <option value="weather">Clima</option>
         </select>
       </div>
+      <ProgressCounter flashcardsToday={flashcardsToday} />
     </section>
   );
 };

@@ -27,8 +27,6 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   const [value, setValue] = useState<string>("1");
   const { UniversalTexts } = useUserContext();
 
-
-
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (user) {
@@ -51,7 +49,7 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
       adm: false,
       component: (
         <ReviewFlashCards
-          onChange={onChange} 
+          onChange={onChange}
           change={change}
           headers={headers}
         />
@@ -80,7 +78,11 @@ const FlashCards = ({ headers, onChange, change }: FlashCardsProps) => {
   const displayIsAdm = myPermissions === "superadmin" ? "block" : "none";
 
   return (
-    <RouteDiv>
+    <RouteDiv
+      style={{
+        maxWidth: "600px",
+      }}
+    >
       <Helmets text="Flashcards" />
       <TabContext value={value}>
         <Box

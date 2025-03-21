@@ -4,7 +4,11 @@ import GroupClasses from "./GroupClasses/GroupClasses";
 import { Login } from "@mui/icons-material";
 import { verifyToken } from "../App";
 import { Outlet, Route, Routes } from "react-router-dom";
-import { onLoggOut, pathGenerator } from "../Resources/UniversalComponents";
+import {
+  onLoggOut,
+  pathGenerator,
+  updateInfo,
+} from "../Resources/UniversalComponents";
 import MyProfile from "./MyProfile/MyProfile";
 import Faq from "./Faq/Faq";
 import MyClasses from "./MyClasses/MyClasses";
@@ -30,11 +34,12 @@ export function HomePage({ headers }: HeadersProps) {
   const [_StudentId, setStudentId] = useState<string>("");
   const [picture, setPicture] = useState<string>("");
   const [change, setChange] = useState<boolean>(true);
+  const [see, setSee] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem("loggedIn");
+    var user = localStorage.getItem("loggedIn");
     if (user) {
-      const { permissions, picture, id } = JSON.parse(user);
+      var { permissions, picture, id } = JSON.parse(user);
       setPermissions(permissions);
       setStudentId(id || _StudentId);
       setPicture(picture);
@@ -43,13 +48,14 @@ export function HomePage({ headers }: HeadersProps) {
       onLoggOut();
       return;
     }
+
+    updateInfo(id, headers);
   }, []);
 
-  const [see, setSee] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setSee(true);
-    }, 700);
+    }, 850);
   }, []);
 
   const appRoutes = [

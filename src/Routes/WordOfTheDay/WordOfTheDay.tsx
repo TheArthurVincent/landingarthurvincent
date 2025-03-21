@@ -55,7 +55,6 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
       const response = await axios.get(`${backDomain}/api/v1/getobject`);
       const studentsWho =
         response.data.ordered[0].studentsWhoDidTheSentenceOfTheDay;
-      console.log("studentsWho.includes(myId):", studentsWho.includes(myId));
       setObj(response.data.ordered[0]);
       if (studentsWho.includes(myId)) {
         setSee(false);
@@ -88,6 +87,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
     }
   };
   const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const addNewCards = async () => {
     const newCards = [
@@ -127,7 +127,6 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
 
   useEffect(() => {
     const verifyIfAdded = obj.studentsWhoDidTheSentenceOfTheDay.includes(myId);
-    console.log(obj.studentsWhoDidTheSentenceOfTheDay);
     setTimeout(() => {
       if (verifyIfAdded) {
         setSee(false);
@@ -248,11 +247,17 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                     }
                   >
                     <ArvinButton
-                      color={!heardSentences[index] ? "white" : "green"}
+                      disabled={disabled}
+                      color={
+                        !heardSentences[index] || disabled ? "white" : "green"
+                      }
                       cursor={
-                        !heardSentences[index] ? "not-allowed" : "pointer"
+                        !heardSentences[index] || disabled
+                          ? "not-allowed"
+                          : "pointer"
                       }
                       onClick={() => {
+                        setDisabled(true);
                         !heardSentences[index]
                           ? alert("Listen first!")
                           : addNewCards();

@@ -3,7 +3,11 @@ import axios from "axios";
 import { CircularProgress, Button, Tooltip } from "@mui/material";
 
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
-import { backDomain, formatDate } from "../../Resources/UniversalComponents";
+import {
+  backDomain,
+  formatDate,
+  formatDateBr,
+} from "../../Resources/UniversalComponents";
 import { readText } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 import { ArvinButton } from "../../Resources/Components/ItemsLibrary";
 import { HOne, HTwo, RouteDiv } from "../../Resources/Components/RouteBox";
@@ -49,20 +53,34 @@ const WordOfTheDayList = ({ headers }: WordOfTheDayListRv) => {
   }
 
   return (
-    <RouteDiv>
+    <RouteDiv
+      style={{
+        maxWidth: "800px",
+      }}
+    >
       <HOne>Word of the Day</HOne>
 
       {words.map((wordItem: any) => (
-        <div key={wordItem._id} style={{ marginBottom: "20px" }}>
-          <HTwo>
-            {wordItem.word} - {wordItem.translatedWord}
+        <div
+          key={wordItem._id}
+          style={{
+            margin: "20px",
+            border: "1px #eee solid",
+            padding: "1rem",
+          }}
+        >
+          <HTwo
+            style={{
+              margin: "20px",
+            }}
+          >
+            <strong>{wordItem.word}</strong> | {wordItem.translatedWord} (
+            {formatDateBr(wordItem.date)})
           </HTwo>
-          <p>
-            <strong>Date:</strong> {formatDate(wordItem.date)}
-          </p>
           <div
             style={{
-              backgroundColor: "#f5f5f5",
+              backgroundColor: "#777",
+              color: "#fff",
               padding: "10px",
               borderRadius: "5px",
               display: "flex",
@@ -84,35 +102,52 @@ const WordOfTheDayList = ({ headers }: WordOfTheDayListRv) => {
               <i className="fa fa-volume-up" aria-hidden="true" />
             </ArvinButton>
           </div>
-          <a
-            href={`https://youglish.com/pronounce/${wordItem.word}/english/us`}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              margin: "10px",
+            }}
           >
-            <i className="fa fa-volume-up" aria-hidden="true" /> Hear
-            Pronunciation on YouGlish
-          </a>
+            <a
+              href={`https://youglish.com/pronounce/${wordItem.word}/english/us`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-volume-up" aria-hidden="true" /> Hear YouGlish
+            </a>{" "}
+            <a
+              href={`https://www.linguee.com/english-portuguese/search?source=auto&query=${wordItem.word}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-volume-up" aria-hidden="true" /> Hear Linguee
+            </a>
+          </div>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              flexWrap: "wrap",
               gap: "10px",
+              margin: "10px",
             }}
           >
             {wordItem.studentsWhoDidIt.map((word: any, index: number) => {
               return (
                 <Tooltip title={word.fullName}>
-                <img
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                  }}
-                  src={word.photo}
-                  alt={word.photo}
-                />
+                  <img
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                    src={word.photo}
+                    alt={word.photo}
+                  />
                 </Tooltip>
               );
             })}

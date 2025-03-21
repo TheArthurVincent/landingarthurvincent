@@ -40,9 +40,14 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [tense, setTense] = useState<string>("Present");
   const [sentenceType, setSentenceType] = useState<string>("Affirmative");
   const [theAdaptedWord, setAdaptedWord] = useState<string>("");
-  const [context, setContext] = useState<string>("  ");
+  const [context, setContext] = useState<string>("");
   const [language, setLanguage] = useState<string>("");
   const [thePermissions, setThePermissions] = useState<string>("");
+
+  const [sentence1, setSentence1] = useState<string>("");
+  const [transation1, setTransation1] = useState<string>("");
+  const [sentence2, setSentence2] = useState<string>("");
+  const [transation2, setTransation2] = useState<string>("");
 
   const youglishBaseUrl = `https://youglish.com/pronounce/${theAdaptedWord}/english/us`;
 
@@ -90,6 +95,11 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
         },
       ]);
 
+      setSentence1(response.data.sentence1);
+      setTransation1(response.data.translation1);
+      setSentence2(response.data.sentence2);
+      setTransation2(response.data.translation2);
+
       setExplanation(response.data.explanation);
       setAdaptedWord(response.data.adaptedWord);
 
@@ -104,10 +114,10 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const editWordOfTheDay = async () => {
     const newWord = [
       {
-        word: sentences[0].text,
-        translatedWord: sentences[0].translation,
-        sentence: sentences[1].text,
-        translatedSentence: sentences[1].translation,
+        word: sentence1,
+        translatedWord: transation1,
+        sentence: sentence2,
+        translatedSentence: transation2,
         explanation,
       },
     ];
@@ -206,7 +216,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                       gap: "10px",
                       marginBottom: "10px",
                     }}
-                  ></div>
+                  />
                 </div>
                 <div style={{ textAlign: "center", padding: "20px" }}>
                   <p>
@@ -395,9 +405,76 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
             Mine new word
           </ArvinButton>
           {thePermissions == "superadmin" && (
-            <ArvinButton onDoubleClick={editWordOfTheDay}>
-              Word of the day
-            </ArvinButton>
+            <>
+              <ArvinButton onDoubleClick={editWordOfTheDay}>
+                Word of the day
+              </ArvinButton>
+
+              <input
+                type="text"
+                value={sentence1}
+                onChange={(e) => {
+                  setSentence1(e.target.value);
+                }}
+                style={{
+                  padding: "8px",
+                  fontWeight: 600,
+                  fontFamily: textTitleFont(),
+                  width: "100%",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                }}
+              />
+              <input
+                type="text"
+                value={transation1}
+                onChange={(e) => {
+                  setTransation1(e.target.value);
+                }}
+                style={{
+                  padding: "8px",
+                  fontWeight: 600,
+                  fontFamily: textTitleFont(),
+                  width: "100%",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                }}
+              />
+              <input
+                type="text"
+                value={sentence2}
+                onChange={(e) => {
+                  setSentence2(e.target.value);
+                }}
+                style={{
+                  padding: "8px",
+                  fontWeight: 600,
+                  fontFamily: textTitleFont(),
+                  width: "100%",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                }}
+              />
+              <input
+                type="text"
+                value={transation2}
+                onChange={(e) => {
+                  setTransation2(e.target.value);
+                }}
+                style={{
+                  padding: "8px",
+                  fontWeight: 600,
+                  fontFamily: textTitleFont(),
+                  width: "100%",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc",
+                  fontSize: "16px",
+                }}
+              />
+            </>
           )}
         </div>
       </section>

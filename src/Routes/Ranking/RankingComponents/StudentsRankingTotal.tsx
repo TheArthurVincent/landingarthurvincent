@@ -9,7 +9,11 @@ import {
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import { levels } from "./RankingLevelsList";
-import { secondaryColor, textFont, textTitleFont } from "../../../Styles/Styles";
+import {
+  secondaryColor,
+  textFont,
+  textTitleFont,
+} from "../../../Styles/Styles";
 import { HeadersProps } from "../../../Resources/types.universalInterfaces";
 
 export default function StudentsRankingTotal({ headers }: HeadersProps) {
@@ -98,7 +102,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
         }}
         onClick={() => fetchStudents()}
       >{`> 10.000 only!`}</HTwo>
-     
+
       {loading ? (
         <CircularProgress style={{ color: secondaryColor() }} />
       ) : (
@@ -121,11 +125,10 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
               (Number(nextLevel.flashcards25Reviews) || 0) -
               (Number(item.flashcards25Reviews) || 0);
 
-
             return (
               <div
                 style={{
-                  display: verifySee(isAdm, item.totalScore),
+                  display: "block",
                   //@ts-ignore
                   border: `1px solid ${theItems[levelNumber - 1].color}`,
                   //@ts-ignore
