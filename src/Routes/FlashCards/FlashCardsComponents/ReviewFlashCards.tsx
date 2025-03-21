@@ -338,6 +338,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 margin: "auto",
                 textAlign: "center",
                 color: "black",
+                marginBottom: "2rem",
               }}
             >
               <div>
