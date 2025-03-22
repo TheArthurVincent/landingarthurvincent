@@ -58,6 +58,17 @@ export function Login() {
 
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 2.5);
 
+  const handleCheckout = async () => {
+    try {
+      const response = await axios.get(`${backDomain}/api/v1/create-plan`);
+      const { checkoutUrl } = response.data;
+      // window.location.href = checkoutUrl;
+      console.log(checkoutUrl);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div
       style={{
@@ -69,7 +80,9 @@ export function Login() {
       }}
     >
       <Helmets text={"Login"} />
+
       <div style={{ width: "100vw" }}>
+        <button onClick={handleCheckout}>Assinar por R$ 89,90/mês</button>
         <div style={{ margin: "auto" }}>
           <div style={{ alignItems: "center", display: "grid" }}>
             <form
@@ -107,7 +120,9 @@ export function Login() {
                   textAlign: "center",
                 }}
               >
-                <NavLink to="/request-reset-password">Esqueci minha senha</NavLink>
+                <NavLink to="/request-reset-password">
+                  Esqueci minha senha
+                </NavLink>
               </div>
               <div
                 style={{
