@@ -74,6 +74,12 @@ export const listOfCriteria = [
         text: "Recomendação",
       },
       {
+        color: "Green",
+        score: 500,
+        description: "Adicionou todas as palavras da semana (Words of the week) aos flashcards e mandou a foto de todas anotadas no caderno.",
+        text: "Adicionou todas as palavras da semana (Words of the week) aos flashcards e mandou a foto de todas anotadas no caderno.",
+      },
+      {
         color: "red",
         score: -150,
         description: "AWOL Faltou na aula e não avisou",
