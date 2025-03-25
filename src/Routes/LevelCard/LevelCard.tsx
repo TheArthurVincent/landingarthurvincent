@@ -108,13 +108,7 @@ export function LevelCard({
   const { UniversalTexts } = useUserContext();
 
   return (
-    <NewLevelCardComponent
-      className="glowing2"
-      style={{
-        boxShadow: "0px 6px 10px rgba(0, 0, 0, 0.08)",
-        // border: `solid 6px ${items[level].color} `,
-      }}
-    >
+    <NewLevelCardComponent className="glowing2 box-shadow-black">
       <DivCardLevel>
         <LevelCardLevel
           style={{ display: showCard }}
