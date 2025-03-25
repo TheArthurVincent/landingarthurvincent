@@ -111,7 +111,8 @@ export function LevelCard({
     <NewLevelCardComponent
       className="glowing2"
       style={{
-        border: `solid 6px ${items[level].color} `,
+        boxShadow: "0px 6px 10px rgba(0, 0, 0, 0.08)",
+        // border: `solid 6px ${items[level].color} `,
       }}
     >
       <DivCardLevel>
