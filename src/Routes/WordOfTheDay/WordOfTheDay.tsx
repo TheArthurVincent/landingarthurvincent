@@ -267,26 +267,21 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                     </ArvinButton>
                   </Tooltip>
                 ) : (
-                  <a href="/words-of-the-day">
-                    <i
-                      style={{
-                        cursor: "pointer",
-                        color: !see ? "green" : "orange",
-                        marginRight: "10px",
-                      }}
-                      className={`fa fa-${
-                        !see ? "check-circle" : "ellipsis-h"
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </a>
+                  <i
+                    style={{
+                      cursor: "pointer",
+                      color: !see ? "green" : "orange",
+                      marginRight: "10px",
+                    }}
+                    className={`fa fa-${!see ? "check-circle" : "ellipsis-h"}`}
+                    aria-hidden="true"
+                  />
                 )}
-                <HTwo
-                  style={{
-                    cursor: "pointer",
-                  }}
-                  onClick={() => window.location.assign(youglishBaseUrl)}
-                >
+                <HTwo>
+                  {/* // style={{ */}
+                  {/* //   cursor: "pointer", */}
+                  {/* // }} */}
+                  {/* // onClick={() => window.location.assign(youglishBaseUrl)} */}
                   {theWord} ({sentences[0].translation}){" "}
                 </HTwo>
               </div>
@@ -338,6 +333,7 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                 />
               </span>
             </div>
+            <a href="/words-of-the-day">Previous words</a>
           </div>
         ))}
       </div>
