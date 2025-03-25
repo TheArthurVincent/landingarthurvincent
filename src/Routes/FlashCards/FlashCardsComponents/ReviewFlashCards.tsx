@@ -119,6 +119,9 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       case "food":
         setTextColor("#FFF5EE"); // Laranja claríssimo
         break;
+      case "vocabulary":
+        setTextColor("#FFF5EE"); // Laranja claríssimo
+        break;
       case "colors":
         setTextColor("#F5F5F5"); // Branco sujo
         break;
@@ -573,6 +576,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           }}
         >
           <option value="nofilter">Ver todos os cards</option>
+          <option value="vocabulary">Vocabulary</option>
           <option value="be">To be</option>
           <option value="possessive">Possessivos</option>
           <option value="modal">Modal verbs</option>
