@@ -114,7 +114,7 @@ export function LevelCard({
           style={{ display: showCard }}
           src={items[level].image}
           alt="card"
-        />{" "}
+        />
         <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />{" "}
       </DivCardLevel>{" "}
       <TextLevelCard>
