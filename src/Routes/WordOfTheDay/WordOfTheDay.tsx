@@ -333,7 +333,13 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                 />
               </span>
             </div>
-            <a href="/words-of-the-day">Previous words</a>
+            <br />
+            <br />
+            <a 
+            style={{
+              fontSize:"9px"
+            }}
+            href="/words-of-the-day">Previous words</a>
           </div>
         ))}
       </div>
