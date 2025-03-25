@@ -269,7 +269,6 @@ const WordOfTheDay = ({ headers, onChange, change }: WordOfTheDayRv) => {
                 ) : (
                   <i
                     style={{
-                      cursor: "pointer",
                       color: !see ? "green" : "orange",
                       marginRight: "10px",
                     }}
