@@ -82,7 +82,7 @@ export function Login() {
       <Helmets text={"Login"} />
 
       <div style={{ width: "100vw" }}>
-        <button onClick={handleCheckout}>Assinar por R$ 89,90/mês</button>
+        {/* <button onClick={handleCheckout}>Assinar por R$ 89,90/mês</button> */}
         <div style={{ margin: "auto" }}>
           <div style={{ alignItems: "center", display: "grid" }}>
             <form
