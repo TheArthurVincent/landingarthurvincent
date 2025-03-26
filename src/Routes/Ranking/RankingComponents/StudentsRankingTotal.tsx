@@ -209,15 +209,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99,
                         }}
                       >
-                        {`São necessários ${
-                          nextLevel.totalScore
-                        } pontos para passar para o nível ${
-                          nextLevel.text
-                        }, e ${item.name} fez ${item.totalScore}. Faltam ${
-                          remainingPoints <= 0
-                            ? 0
-                            : formatNumber(remainingPoints)
-                        }`}
+                        {`São necessários ${nextLevel.totalScore} pontos para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.totalScore}. `}
                       </div>
                     )}
                   </div>
@@ -257,15 +249,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99,
                         }}
                       >
-                        {`São necessários ${
-                          nextLevel.homeworkAssignmentsDone
-                        } lições de casa para passar para o nível ${
-                          nextLevel.text
-                        }, e ${item.name} fez ${
-                          item.homeworkAssignmentsDone
-                        }. Faltam ${
-                          remainingHW <= 0 ? 0 : formatNumber(remainingHW)
-                        }`}
+                        {`São necessários ${nextLevel.homeworkAssignmentsDone} lições de casa para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.homeworkAssignmentsDone}.`}
                       </div>
                     )}
                   </div>
@@ -306,15 +290,7 @@ export default function StudentsRankingTotal({ headers }: HeadersProps) {
                           zIndex: 99,
                         }}
                       >
-                        {`São necessários ${
-                          nextLevel.flashcards25Reviews
-                        } dias com pelo menos 25 revisões de cards para passar para o nível ${
-                          nextLevel.text
-                        }, e ${item.name} fez ${
-                          item.flashcards25Reviews
-                        }. Faltam ${
-                          remainingFC <= 0 ? 0 : formatNumber(remainingFC)
-                        }`}
+                        {`São necessários ${nextLevel.flashcards25Reviews} dias com pelo menos 25 revisões de cards para passar para o nível ${nextLevel.text}, e ${item.name} fez ${item.flashcards25Reviews}. `}
                       </div>
                     )}
                   </div>

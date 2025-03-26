@@ -108,18 +108,13 @@ export function LevelCard({
   const { UniversalTexts } = useUserContext();
 
   return (
-    <NewLevelCardComponent
-      className="glowing2"
-      style={{
-        border: `double 5px ${items[level].color} `,
-      }}
-    >
+    <NewLevelCardComponent className="glowing2 box-shadow-black">
       <DivCardLevel>
         <LevelCardLevel
           style={{ display: showCard }}
           src={items[level].image}
           alt="card"
-        />{" "}
+        />
         <LevelCardPhotoLevel src={pictureStudent} alt="Profile Picture" />{" "}
       </DivCardLevel>{" "}
       <TextLevelCard>
