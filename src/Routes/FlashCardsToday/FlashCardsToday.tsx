@@ -28,7 +28,7 @@ export const ProgressCounter: React.FC<ProgressCounterProps> = ({
         alignItems: "center",
       }}
     >
-      {/* {showConfetti && <Confetti numberOfPieces={200} />} */}
+      {showConfetti && <Confetti numberOfPieces={200} />}
       <div
         style={{
           width: "100%",
