@@ -13,7 +13,7 @@ export const ProgressCounter: React.FC<ProgressCounterProps> = ({
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
-    if (flashcardsToday >= 25) {
+    if (flashcardsToday = 25) {
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 3000);
     }
@@ -28,7 +28,7 @@ export const ProgressCounter: React.FC<ProgressCounterProps> = ({
         alignItems: "center",
       }}
     >
-      {showConfetti && <Confetti numberOfPieces={200} />}
+      {showConfetti && <Confetti numberOfPieces={250} />}
       <div
         style={{
           width: "100%",
