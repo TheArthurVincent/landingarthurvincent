@@ -20,6 +20,7 @@ import { DivModal, InternDivModal } from "./Blog.Styled";
 import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import WordOfTheDay from "../WordOfTheDay/WordOfTheDay";
+import Countdown from "../Ranking/RankingComponents/Countdown";
 
 interface BlogProps {
   headers: MyHeadersType | null;
@@ -249,6 +250,10 @@ export function Blog({
     <>
       <RouteDiv>
         <Helmets text="Home Page" />
+        <Countdown
+          targetDate={new Date("2025-03-31T21:00:00")}
+          text="On Mar 31st 2025, at 9h00min PM you will have 15 minutes to score 10 points per card!"
+        />
         <div
           style={{
             margin: "1rem 0.5rem 0 0",

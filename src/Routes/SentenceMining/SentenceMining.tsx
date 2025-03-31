@@ -347,7 +347,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                 label="Basic"
               />
               <FormControlLabel
-                value="Intermediary"
+                value="Intermediate"
                 control={
                   <Radio
                     sx={{
@@ -356,7 +356,7 @@ const SentenceMining = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                     }}
                   />
                 }
-                label="Intermediary"
+                label="Intermediate"
               />
             </RadioGroup>
           </FormControl>
