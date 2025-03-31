@@ -321,7 +321,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       onChange(!change);
       seeCardsToReview();
       timerDisabled();
-      setIsShow(true);
     } catch (error) {
       onLoggOut();
       console.log(error);
