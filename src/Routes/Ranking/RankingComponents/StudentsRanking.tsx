@@ -275,7 +275,7 @@ export default function StudentsRanking({
   useEffect(() => {
     setInterval(() => {
       fetchStudentsScore();
-    }, 3000);
+    }, 6000);
   }, []);
   ///////////
   ///////////
