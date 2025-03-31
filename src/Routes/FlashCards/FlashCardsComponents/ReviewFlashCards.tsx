@@ -560,7 +560,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
         </ArvinButton>
       </div>
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -612,7 +612,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           <option value="professions">Profissões</option>
           <option value="weather">Clima</option>
         </select>
-      </div>
+      </div> */}
       <ProgressCounter flashcardsToday={flashcardsToday} />
     </section>
   );
