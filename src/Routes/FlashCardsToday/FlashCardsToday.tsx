@@ -15,7 +15,7 @@ export const ProgressCounter: React.FC<ProgressCounterProps> = ({
   useEffect(() => {
     if (flashcardsToday = 25) {
       setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 3000);
+      setTimeout(() => setShowConfetti(false), 4000);
     }
     console.log("flashcards Today Inside", flashcardsToday);
   }, [flashcardsToday]);
