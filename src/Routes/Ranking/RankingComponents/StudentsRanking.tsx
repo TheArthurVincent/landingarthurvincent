@@ -272,11 +272,11 @@ export default function StudentsRanking({
   ///////////
   ///////////
   ///////////
-  useEffect(() => {
-    setInterval(() => {
-      fetchStudentsScore();
-    }, 6000);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     fetchStudentsScore();
+  //   }, 6000);
+  // }, []);
   // ///////////
   ///////////
   ///////////
