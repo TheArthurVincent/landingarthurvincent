@@ -250,6 +250,7 @@ export function Blog({
     <>
       <RouteDiv>
         <Helmets text="Home Page" />
+
         <div
           style={{
             margin: "1rem 0.5rem 0 0",

@@ -329,6 +329,7 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   };
   return (
     <section id="review">
+
       {see && (
         <div>
           {loading ? (
