@@ -170,7 +170,6 @@ export const levels = () => {
       flashcards25Reviews: 300,
       homeworkAssignmentsDone: 100,
       card: "https://ik.imagekit.io/vjz75qw96/cards/9.jpg?updatedAt=1735816547135",
-
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "silver",
