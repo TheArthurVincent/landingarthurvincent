@@ -250,10 +250,7 @@ export function Blog({
     <>
       <RouteDiv>
         <Helmets text="Home Page" />
-        {/* <Countdown
-          targetDate={new Date("2025-03-31T21:00:00")}
-          text="On Mar 31st 2025, at 9h00min PM you will have 15 minutes to score 10 points per card!"
-        /> */}
+
         <div
           style={{
             margin: "1rem 0.5rem 0 0",

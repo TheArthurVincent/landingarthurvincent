@@ -100,7 +100,7 @@ export const levels = () => {
       textcolor: "white",
       text: "Orange Belt",
       card: "https://ik.imagekit.io/vjz75qw96/cards/5.jpg?updatedAt=1735816547006",
-      totalScore: 66000,
+      totalScore: 68000,
       flashcards25Reviews: 80,
       homeworkAssignmentsDone: 35,
       background:
@@ -120,7 +120,7 @@ export const levels = () => {
       homeworkAssignmentsDone: 40,
       card: "https://ik.imagekit.io/vjz75qw96/cards/6.jpg?updatedAt=1735816546984",
       text: "Purple Belt",
-      totalScore: 83000,
+      totalScore: 85000,
       background:
         "https://ik.imagekit.io/vjz75qw96/assets/bg/purple.png?updatedAt=1711540461792",
       image:
@@ -151,7 +151,7 @@ export const levels = () => {
       icon: "fa fa-superpowers",
       totalScore: 150000,
       flashcards25Reviews: 220,
-      homeworkAssignmentsDone: 65,
+      homeworkAssignmentsDone: 70,
       card: "https://ik.imagekit.io/vjz75qw96/cards/8.jpg?updatedAt=1735816547145",
       color: "#000",
       textcolor: "#EAC96F",
@@ -168,9 +168,8 @@ export const levels = () => {
       level: 10,
       totalScore: 200000,
       flashcards25Reviews: 300,
-      homeworkAssignmentsDone: 80,
+      homeworkAssignmentsDone: 100,
       card: "https://ik.imagekit.io/vjz75qw96/cards/9.jpg?updatedAt=1735816547135",
-
       icon: "fa fa-superpowers",
       color: "#000",
       textcolor: "silver",
@@ -187,7 +186,7 @@ export const levels = () => {
       level: 11,
       totalScore: 250000,
       flashcards25Reviews: 400,
-      homeworkAssignmentsDone: 100,
+      homeworkAssignmentsDone: 120,
       icon: "fa fa-superpowers",
       color: "#000",
       card: "https://ik.imagekit.io/vjz75qw96/cards/10.jpg?updatedAt=1735816555699",
