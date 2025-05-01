@@ -13,10 +13,7 @@ export const readText = (
     localStorage.getItem("loggedIn") || "{}"
   ).flashCardsReviewsToday;
   const ehPar = (nm: number) => nm % 2 === 0;
-
   const isEven = ehPar(numberReviewsToday);
-  console.log("numberReviewsToday: ", ehPar(numberReviewsToday));
-
   const synth = window.speechSynthesis;
   if (!synth) {
     console.error("speechSynthesis não está disponível.");
@@ -73,12 +70,6 @@ export const readText = (
     } else {
       utterance.voice = voicesHere[0];
     }
-
-    console.log("voices: ", voices);
-    console.log("nav: ", userAgent);
-    console.log("isEven: ", isEven);
-    console.log("voicesHere: ", voicesHere);
-    console.log("voicesHere[1]: ", voicesHere[0]);
 
     utterance.onerror = (e) => {
       synth.speak(e.utterance);
