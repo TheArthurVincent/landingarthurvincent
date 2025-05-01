@@ -94,6 +94,8 @@ export const readText = (
 
 const getLanguageCode = (lang?: string): string => {
   switch (lang) {
+    case "en":
+      return "en-US";
     case "pt":
       return "pt-BR";
     case "fr":
@@ -102,8 +104,6 @@ const getLanguageCode = (lang?: string): string => {
       return "it-IT";
     case "de":
       return "de-DE";
-    case "en":
-      return "en-US";
     case "en":
     default:
       return "en-US";
