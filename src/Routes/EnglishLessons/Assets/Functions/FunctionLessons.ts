@@ -4,37 +4,92 @@ export const readText = (
   lang?: string,
   voiceBoolean?: boolean
 ) => {
-  if ("speechSynthesis" in window) {
-    const synth = window.speechSynthesis;
-    console.log(text);
+  if (!("speechSynthesis" in window)) {
+    alert("Seu navegador não suporta a síntese de fala!");
+    return;
+  }
 
-    if (!synth) {
-      console.error("speechSynthesis não está disponível.");
-      return;
-    }
+  const numberReviewsToday = JSON.parse(
+    localStorage.getItem("loggedIn") || "{}"
+  ).flashCardsReviewsToday;
+  const ehPar = (nm: number) => nm % 2 === 0;
 
-    if (restart) {
-      synth.cancel();
-    }
+  const isEven = ehPar(numberReviewsToday);
+  console.log("numberReviewsToday: ", ehPar(numberReviewsToday));
+
+  const synth = window.speechSynthesis;
+  if (!synth) {
+    console.error("speechSynthesis não está disponível.");
+    return;
+  }
+
+  if (restart) {
+    synth.cancel();
+  }
+
+  const loadVoices = (): Promise<SpeechSynthesisVoice[]> => {
+    return new Promise((resolve) => {
+      let voices = synth.getVoices();
+      if (voices.length !== 0) {
+        resolve(voices);
+      } else {
+        synth.addEventListener("voiceschanged", () => {
+          voices = synth.getVoices();
+          resolve(voices);
+        });
+      }
+    });
+  };
+
+  const speak = async () => {
+    const voices = await loadVoices();
 
     const utterance = new SpeechSynthesisUtterance(text);
-
     utterance.lang = getLanguageCode(lang);
     utterance.rate = 0.9;
     utterance.pitch = 1;
     utterance.volume = 1;
 
+    const detectBrowser = () => {
+      const ua = navigator.userAgent;
+
+      if (/Edg/.test(ua)) return "Edge";
+      if (/Chrome/.test(ua) && !/Edg/.test(ua)) return "Chrome";
+      if (/Safari/.test(ua) && !/Chrome/.test(ua)) return "Safari";
+      if (/Firefox/.test(ua)) return "Firefox";
+      if (/MSIE|Trident/.test(ua)) return "Internet Explorer";
+
+      return "Desconhecido";
+    };
+
+    const userAgent = detectBrowser();
+
+    const voicesHere = voices.filter((v) =>
+      v.lang.startsWith(getLanguageCode(lang))
+    );
+
+    if (userAgent == "Edge" && !isEven) {
+      utterance.voice = voicesHere[1];
+    } else {
+      utterance.voice = voicesHere[0];
+    }
+
+    console.log("voices: ", voices);
+    console.log("nav: ", userAgent);
+    console.log("isEven: ", isEven);
+    console.log("voicesHere: ", voicesHere);
+    console.log("voicesHere[1]: ", voicesHere[0]);
+
     utterance.onerror = (e) => console.error("Erro na leitura:", e);
-    console.log("foi");
 
     if (restart || !synth.speaking || synth.paused) {
       synth.speak(utterance);
     } else if (synth.speaking) {
       synth.pause();
     }
-  } else {
-    alert("Seu navegador não suporta a síntese de fala!");
-  }
+  };
+
+  speak();
 };
 
 const getLanguageCode = (lang?: string): string => {
@@ -47,6 +102,8 @@ const getLanguageCode = (lang?: string): string => {
       return "it-IT";
     case "de":
       return "de-DE";
+    case "en":
+      return "en-US";
     case "en":
     default:
       return "en-US";

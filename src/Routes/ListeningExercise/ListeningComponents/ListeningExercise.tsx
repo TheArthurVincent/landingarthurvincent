@@ -447,36 +447,60 @@ const ListeningExercise = ({
                     {seeProgress ? (
                       <CircularProgress style={{ color: secondaryColor() }} />
                     ) : (
-                      <div>
-                        <ArvinButton
-                          disabled={playingAudio}
-                          onClick={() => {
-                            setPlayingAudio(true);
-                            setTimeout(() => {
-                              setPlayingAudio(false);
-                            }, 3000);
-                            readText(
-                              cards[0]?.front?.language == "en"
-                                ? cards[0]?.front?.text.replace(/\s+/g, " ")
-                                : cards[0]?.front?.text,
-                              false,
-                              cards[0]?.front?.language
-                            );
-                            setEnableVoice(true);
-                          }}
-                          color={!playingAudio ? "blue" : "grey"}
-                          style={{
-                            cursor: playingAudio ? "not-allowed" : "pointer",
-                            margin: "0 5px",
-                            marginTop: !isDisabled ? "1rem" : 0,
-                          }}
-                        >
-                          {!isDisabled ? (
-                            `Listen again`
-                          ) : (
-                            <i className="fa fa-volume-up" aria-hidden="true" />
-                          )}
-                        </ArvinButton>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-evenly",
+                        }}
+                      >
+                        <div>
+                          <ArvinButton
+                            disabled={playingAudio}
+                            onClick={() => {
+                              setPlayingAudio(true);
+                              setTimeout(() => {
+                                setPlayingAudio(false);
+                              }, 3000);
+                              readText(
+                                cards[0]?.front?.language == "en"
+                                  ? cards[0]?.front?.text.replace(/\s+/g, " ")
+                                  : cards[0]?.front?.text,
+                                false,
+                                cards[0]?.front?.language
+                              );
+                              setEnableVoice(true);
+                            }}
+                            color={!playingAudio ? "blue" : "grey"}
+                            style={{
+                              cursor: playingAudio ? "not-allowed" : "pointer",
+                              margin: "0 5px",
+                              marginTop: !isDisabled ? "1rem" : 0,
+                            }}
+                          >
+                            {!isDisabled ? (
+                              `Listen again`
+                            ) : (
+                              <i
+                                className="fa fa-volume-up"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </ArvinButton>
+
+                          <i
+                            className="fa fa-volume-up chrome"
+                            aria-hidden="true"
+                          />
+
+                          <i
+                            className="fa fa-volume-up edge"
+                            aria-hidden="true"
+                          />
+                          <i
+                            className="fa fa-volume-up safari"
+                            aria-hidden="true"
+                          />
+                        </div>
                         <ArvinButton
                           style={{
                             display: !isDisabled ? "none" : "inline-block",
