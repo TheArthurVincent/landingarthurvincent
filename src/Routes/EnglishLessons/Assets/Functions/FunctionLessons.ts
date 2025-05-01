@@ -48,9 +48,10 @@ export const readText = (
     utterance.volume = 1;
 
     const detectBrowser = () => {
-      const ua = navigator.userAgent;
+      var ua = navigator.userAgent;
 
       if (/Edg/.test(ua)) return "Edge";
+      if (/OPR/.test(ua)) return "Opera";
       if (/Chrome/.test(ua) && !/Edg/.test(ua)) return "Chrome";
       if (/Safari/.test(ua) && !/Chrome/.test(ua)) return "Safari";
       if (/Firefox/.test(ua)) return "Firefox";
@@ -58,15 +59,22 @@ export const readText = (
 
       return "Desconhecido";
     };
-
     const userAgent = detectBrowser();
 
-    const voicesHere = voices.filter((v) =>
-      v.lang.startsWith(getLanguageCode(lang))
-    );
+    console.log(navigator.userAgent, "userAgent: ", userAgent);
 
+    const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
+
+    console.log("voicesHere: ", voicesHere, lang);
     if (userAgent == "Edge" && !isEven) {
       utterance.voice = voicesHere[1];
+    } else if (userAgent == "Chrome" && !isEven) {
+      utterance.voice = voicesHere[2];
+    } else if (userAgent == "Opera" || userAgent == "Safari") {
+      alert(
+        "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
+      );
+      return;
     } else {
       utterance.voice = voicesHere[0];
     }
