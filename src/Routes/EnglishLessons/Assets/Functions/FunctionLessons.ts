@@ -80,13 +80,11 @@ export const readText = (
     console.log("voicesHere: ", voicesHere);
     console.log("voicesHere[1]: ", voicesHere[0]);
 
-    utterance.onerror = (e) => console.error("Erro na leitura:", e);
+    utterance.onerror = (e) => {
+      synth.speak(e.utterance);
+    };
 
-    if (restart || !synth.speaking || synth.paused) {
-      synth.speak(utterance);
-    } else if (synth.speaking) {
-      synth.pause();
-    }
+    synth.speak(utterance);
   };
 
   speak();
