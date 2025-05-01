@@ -44,7 +44,7 @@ export const readText = (
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = getLanguageCode(lang);
     utterance.rate = 0.9;
-    utterance.pitch = 1;
+    utterance.pitch = 0.9;
     utterance.volume = 1;
 
     const detectBrowser = () => {
