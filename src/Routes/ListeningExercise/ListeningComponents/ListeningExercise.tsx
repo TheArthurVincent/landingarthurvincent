@@ -447,7 +447,12 @@ const ListeningExercise = ({
                     {seeProgress ? (
                       <CircularProgress style={{ color: secondaryColor() }} />
                     ) : (
-                      <div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-evenly",
+                        }}
+                      >
                         <ArvinButton
                           disabled={playingAudio}
                           onClick={() => {

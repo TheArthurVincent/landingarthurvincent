@@ -80,7 +80,7 @@ export default function Ranking({ headers }: HeadersProps) {
     setValue(newValue);
   };
 
-  const targetDate = new Date("2025-04-30T22:00:00");
+  const targetDate = new Date("2025-05-31T22:00:00");
 
   return (
     <RouteDiv>
