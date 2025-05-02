@@ -70,7 +70,7 @@ export const readText = (
       utterance.voice = voicesHere[1];
     } else if (userAgent == "Chrome" && !isEven) {
       utterance.voice = voicesHere[2];
-    } else if (userAgent == "Opera" || userAgent == "Safari") {
+    } else if (userAgent == "Opera") {
       alert(
         "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
       );
