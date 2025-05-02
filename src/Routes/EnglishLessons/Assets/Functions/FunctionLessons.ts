@@ -93,9 +93,10 @@ export const readText = (
     if (chosenVoice) {
       selectedVoice = voices.find((v) => v.name === chosenVoice);
     }
-
+    
     if (selectedVoice) {
       utterance.voice = selectedVoice;
+
     } else {
       const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
       if (userAgent === "Opera") {
