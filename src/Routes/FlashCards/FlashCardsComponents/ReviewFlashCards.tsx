@@ -373,14 +373,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               <div>
                 {!cardsLength ? (
                   <>
-                    {myPermissions !== "superadmin" && (
-                      <>
-                        <b> Navegador:</b> {agent}
-                        <br />
-                        <b>Total:</b>
-                        {userNav}
-                      </>
-                    )}
                     <ArvinButton
                       disabled={isDisabled}
                       cursor={isDisabled ? "not-allowed" : "pointer"}
