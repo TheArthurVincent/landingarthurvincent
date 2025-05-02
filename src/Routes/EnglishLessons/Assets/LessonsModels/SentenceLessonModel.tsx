@@ -3,7 +3,10 @@ import { MyHeadersType } from "../../../../Resources/types.universalInterfaces";
 import { readText } from "../Functions/FunctionLessons";
 import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
-import { backDomain, onLoggOut } from "../../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  onLoggOut,
+} from "../../../../Resources/UniversalComponents";
 import axios from "axios";
 import { Tooltip } from "@mui/material";
 
@@ -12,6 +15,7 @@ interface SentenceLessonModelProps {
   element: any;
   studentId: string;
   mainTag: string;
+  selectedVoice: any;
 }
 
 export default function SentenceLessonModel({
@@ -19,6 +23,7 @@ export default function SentenceLessonModel({
   element,
   mainTag,
   studentId,
+  selectedVoice,
 }: SentenceLessonModelProps) {
   const actualHeaders = headers || {};
 
@@ -51,10 +56,9 @@ export default function SentenceLessonModel({
       alert(showThis);
     } catch (error) {
       alert("Erro ao enviar cards");
-      onLoggOut()
+      onLoggOut();
     }
   };
-
 
   return (
     <UlSentences grid={element.grid}>
@@ -77,14 +81,13 @@ export default function SentenceLessonModel({
             <span
               className="audio-button"
               onClick={() => {
-                readText(sentence.english, true);
+                readText(sentence.english, true, "en", selectedVoice);
               }}
             >
               <i className="fa fa-volume-up" aria-hidden="true" />
             </span>
             <br />
             <span style={{ fontStyle: "italic" }}>{sentence.portuguese}</span>
-         
           </LiSentence>
         ))}
     </UlSentences>

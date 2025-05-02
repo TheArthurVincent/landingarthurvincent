@@ -47,6 +47,7 @@ import NoFlashcardsSentenceLessonModel from "./Assets/LessonsModels/NoFlashcards
 import AudioSoundTrack from "./Assets/LessonsModels/AudioSoundTrack";
 import TextAreaLesson from "./Assets/Functions/TextAreaLessons";
 import { useUserContext } from "../../Application/SelectLanguage/SelectLanguage";
+import Voice from "../../Resources/Voice";
 const styles = {
   container: {
     maxWidth: "90vw",
@@ -388,9 +389,21 @@ export default function EnglishClassCourse2({
       // onLoggOut();
     }
   };
+
+  const [selectedVoice, setSelectedVoice] = useState<any>("");
+  const [changeNumber, setChangeNumber] = useState<boolean>(true);
+
+  useEffect(() => {
+    const storedVoice = localStorage.getItem("chosenVoice");
+    setSelectedVoice(storedVoice);
+    console.log(storedVoice);
+  }, [selectedVoice, changeNumber]);
+
   return (
     <div>
       <Helmets text={classTitle} />
+      <Voice changeB={changeNumber} setChangeB={setChangeNumber} />
+
       {loading ? (
         <CircularProgress />
       ) : (
@@ -647,11 +660,13 @@ export default function EnglishClassCourse2({
                       element={element}
                       studentId={studentID}
                       headers={headers}
+                      selectedVoice={selectedVoice}
                     />
                   ) : element.type === "nfsentences" ? (
                     <NoFlashcardsSentenceLessonModel
                       element={element}
                       headers={headers}
+                      selectedVoice={selectedVoice}
                     />
                   ) : element.type === "text" ? (
                     <TextLessonModel
@@ -673,7 +688,11 @@ export default function EnglishClassCourse2({
                       element={element}
                     />
                   ) : element.type === "selectexercise" ? (
-                    <SelectExercise headers={headers} element={element} />
+                    <SelectExercise
+                      headers={headers}
+                      element={element}
+                      selectedVoice={selectedVoice}
+                    />
                   ) : element.type === "images" ? (
                     <ImageLessonModel
                       studentId={studentID}
@@ -681,6 +700,7 @@ export default function EnglishClassCourse2({
                       id={myId}
                       headers={headers}
                       element={element}
+                      selectedVoice={selectedVoice}
                     />
                   ) : element.type === "exercise" ? (
                     <ExerciseLessonModel
@@ -704,6 +724,7 @@ export default function EnglishClassCourse2({
                       element={element}
                       link={element.link}
                       subtitle={element.subtitle}
+                      selectedVoice={selectedVoice}
                     />
                   ) : element.type === "personalqanda" ? (
                     <QandALessonPersonalModel

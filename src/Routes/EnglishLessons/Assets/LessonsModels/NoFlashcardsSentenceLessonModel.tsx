@@ -6,11 +6,13 @@ import { LiSentence, UlSentences } from "../Functions/EnglishActivities.Styled";
 interface NoFlashcardsSentenceLessonModelProps {
   headers: MyHeadersType | null;
   element: any;
+  selectedVoice: any;
 }
 
 export default function NoFlashcardsSentenceLessonModel({
   headers,
   element,
+  selectedVoice,
 }: NoFlashcardsSentenceLessonModelProps) {
   const actualHeaders = headers || {};
 
@@ -23,7 +25,7 @@ export default function NoFlashcardsSentenceLessonModel({
             <span
               className="audio-button"
               onClick={() => {
-                readText(sentence.english, true);
+                readText(sentence.english, true, "en", selectedVoice);
               }}
             >
               <i className="fa fa-volume-up" aria-hidden="true" />

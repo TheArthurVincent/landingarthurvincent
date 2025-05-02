@@ -19,6 +19,7 @@ interface AudioSoundTrackProps {
   src: string;
   text: string;
   element: any;
+  selectedVoice: any;
 }
 
 export default function AudioSoundTrack({
@@ -30,6 +31,7 @@ export default function AudioSoundTrack({
   element,
   mainTag,
   text,
+  selectedVoice,
 }: AudioSoundTrackProps) {
   const actualHeaders = headers || {};
 
@@ -140,7 +142,7 @@ export default function AudioSoundTrack({
                 <span
                   className="audio-button"
                   onClick={() => {
-                    readText(sentence.english, true);
+                    readText(sentence.english, true, "en", selectedVoice);
                   }}
                 >
                   <i className="fa fa-volume-up" aria-hidden="true" />

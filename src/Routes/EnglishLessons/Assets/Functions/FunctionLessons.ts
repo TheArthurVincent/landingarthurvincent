@@ -1,9 +1,9 @@
-import { toast } from "react-toastify";
 const notifyError = (message: string) => {
   const existing = document.getElementById("voice-error-toast");
   if (existing) existing.remove();
 
   const toast = document.createElement("div");
+
   toast.id = "voice-error-toast";
   toast.innerText = message;
   toast.style.position = "fixed";
@@ -99,13 +99,7 @@ export const readText = (
     } else {
       const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
       if (userAgent === "Opera") {
-        notifyError(
-          "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
-        );
-        console.log(
-          "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
-        );
-
+        notifyError("Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome");
         return;
       }
 
@@ -117,11 +111,9 @@ export const readText = (
         utterance.voice = voicesHere[0];
       }
     }
-
     utterance.onerror = (e) => {
       synth.speak(e.utterance);
     };
-
     synth.speak(utterance);
   };
 
@@ -130,18 +122,12 @@ export const readText = (
 
 const getLanguageCode = (lang?: string): string => {
   switch (lang) {
-    case "en":
-      return "en-US";
-    case "pt":
-      return "pt-BR";
-    case "fr":
-      return "fr-FR";
-    case "it":
-      return "it-IT";
-    case "de":
-      return "de-DE";
-    case "en":
-    default:
+    case "en": return "en-US";
+    case "pt": return "pt-BR";
+    case "fr": return "fr-FR";
+    case "it": return "it-IT";
+    case "de": return "de-DE";
+    case "en": default:
       return "en-US";
   }
 };

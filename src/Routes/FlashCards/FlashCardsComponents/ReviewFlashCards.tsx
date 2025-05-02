@@ -12,6 +12,7 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { secondaryColor } from "../../../Styles/Styles";
 import { ProgressCounter } from "../../FlashCardsToday/FlashCardsToday";
 import Countdown from "../../Ranking/RankingComponents/Countdown";
+import Voice from "../../../Resources/Voice";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -30,7 +31,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
-  const [isShow, setIsShow] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
   const [timerCardCount, setTimerCardCount] = useState(19);
@@ -38,7 +38,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
-    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
     // @ts-ignore
     if (user) {
       var { permissions, id } = JSON.parse(user);
@@ -46,7 +45,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       setPermissions(permissions);
     }
     setAnswer(false);
-    console.log("flashcardsTodayOutside", flashcardsToday);
     updateInfo(id, actualHeaders);
   }, [change]);
 
@@ -340,357 +338,317 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
     return "Desconhecido";
   };
+
   const userAgent = detectBrowser();
 
   const [agent, setagent] = useState<any>("0");
   const [userNav, setuserNav] = useState<any>("0");
-  const [thevoices, setvoices] = useState<any>([]);
-  const [voices, setVoices] = useState<any>([]);
-  const [selectedVoice, setSelectedVoice] = useState<string>("");
+  const [selectedVoice, setSelectedVoice] = useState<any>("");
+  const [changeNumber, setChangeNumber] = useState<boolean>(true);
 
   useEffect(() => {
-    const loadVoices = () => {
-      let availableVoices = window.speechSynthesis.getVoices();
-      const englishVoices = availableVoices.filter((voice) =>
-        voice.lang.toLowerCase().includes("en")
-      );
-
-      if (englishVoices.length !== 0) {
-        setVoices(englishVoices);
-      } else {
-        window.speechSynthesis.onvoiceschanged = () => {
-          availableVoices = window.speechSynthesis.getVoices();
-          const englishVoices = availableVoices.filter((voice) =>
-            voice.lang.toLowerCase().includes("en")
-          );
-          setVoices(englishVoices);
-        };
-      }
-    };
-
-    loadVoices();
-  }, []);
-  useEffect(() => {
+    const storedVoice = localStorage.getItem("chosenVoice");
+    setSelectedVoice(storedVoice);
     setagent(userAgent);
     setuserNav(ua);
-    console.log(thevoices);
-  }, []);
+    console.log(storedVoice);
+  }, [selectedVoice, changeNumber]);
 
   return (
-    <>
-      {voices.length > 0 && (
+    <section id="review">
+      <Voice changeB={changeNumber} setChangeB={setChangeNumber} />
+      {see && (
         <div>
-          <label htmlFor="voice-select">Voice: </label>
-          <select
-            id="voice-select"
-            value={selectedVoice}
-            onChange={(e) => setSelectedVoice(e.target.value)}
-          >
-            {voices.map((voice: any, index: number) => (
-              <option key={index} value={voice.name}>
-                {voice.name} ({voice.lang})
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-      <section id="review">
-        {see && (
-          <div>
-            {loading ? (
-              <CircularProgress style={{ color: secondaryColor() }} />
-            ) : (
-              <div
-                style={{
-                  margin: "auto",
-                  textAlign: "center",
-                  color: "black",
-                  marginBottom: "2rem",
-                }}
-              >
-                <div>
-                  {!cardsLength ? (
-                    <>
-                      <br />
-                      {/* myPermissions !== "superadmin" &&  */}
-                      <b> Navegador:</b> {agent}
-                      <br />
-                      <b>Total:</b>
-                      {userNav}
-                      <br />
-                      <ArvinButton
-                        disabled={isDisabled}
-                        cursor={isDisabled ? "not-allowed" : "pointer"}
-                        color={isDisabled ? "grey" : "navy"}
-                        onClick={() => {
-                          setBackCardVisible(!backCardVisible);
-                          setAnswer(!answer);
-                        }}
-                      >
-                        {isDisabled ? (
-                          <span>{count}</span>
-                        ) : (
-                          <span>{answer ? "Back" : "Answer"}</span>
-                        )}
-                      </ArvinButton>
-                      <br />
-                      {answer && (
-                        <div>
+          {loading ? (
+            <CircularProgress style={{ color: secondaryColor() }} />
+          ) : (
+            <div
+              style={{
+                margin: "auto",
+                textAlign: "center",
+                color: "black",
+                marginBottom: "2rem",
+              }}
+            >
+              <div>
+                {!cardsLength ? (
+                  <>
+                    {myPermissions !== "superadmin" && (
+                      <>
+                        <b> Navegador:</b> {agent}
+                        <br />
+                        <b>Total:</b>
+                        {userNav}
+                      </>
+                    )}
+                    <ArvinButton
+                      disabled={isDisabled}
+                      cursor={isDisabled ? "not-allowed" : "pointer"}
+                      color={isDisabled ? "grey" : "navy"}
+                      onClick={() => {
+                        setBackCardVisible(!backCardVisible);
+                        setAnswer(!answer);
+                      }}
+                    >
+                      {isDisabled ? (
+                        <span>{count}</span>
+                      ) : (
+                        <span>{answer ? "Back" : "Answer"}</span>
+                      )}
+                    </ArvinButton>
+                    <br />
+                    {answer && (
+                      <div>
+                        <div
+                          style={{
+                            justifyContent: "center",
+                            display: "flex",
+                            gap: "5px",
+                            marginBottom: "10px",
+                            marginTop: "5px",
+                          }}
+                        >
                           <div
                             style={{
-                              justifyContent: "center",
-                              display: "flex",
+                              display: "grid",
                               gap: "5px",
-                              marginBottom: "10px",
-                              marginTop: "5px",
                             }}
                           >
-                            <div
-                              style={{
-                                display: "grid",
-                                gap: "5px",
+                            <ArvinButton
+                              onClick={() => {
+                                reviewCard(cards[0]._id, "hard");
                               }}
+                              color="red"
                             >
-                              <ArvinButton
-                                onClick={() => {
-                                  reviewCard(cards[0]._id, "hard");
-                                }}
-                                color="red"
-                              >
-                                I missed (Errei)
-                              </ArvinButton>
-                            </div>
-                            <div style={{ display: "grid", gap: "5px" }}>
-                              <ArvinButton
-                                onClick={() => reviewCard(cards[0]._id, "easy")}
-                                color="green"
-                              >
-                                I got it! (Acertei)
-                              </ArvinButton>
-                            </div>
+                              I missed (Errei)
+                            </ArvinButton>
                           </div>
-                          <br />
+                          <div style={{ display: "grid", gap: "5px" }}>
+                            <ArvinButton
+                              onClick={() => reviewCard(cards[0]._id, "easy")}
+                              color="green"
+                            >
+                              I got it! (Acertei)
+                            </ArvinButton>
+                          </div>
                         </div>
-                      )}
+                        <br />
+                      </div>
+                    )}
+                    <div
+                      style={{
+                        margin: "auto",
+                      }}
+                      className={`flashcard ${answer ? "flip" : ""}`}
+                    >
                       <div
                         style={{
-                          margin: "auto",
+                          backgroundColor: textColor,
+                          display: !backCardVisible ? "none" : "block",
                         }}
-                        className={`flashcard ${answer ? "flip" : ""}`}
+                        className="flashcard-front"
                       >
-                        <div
-                          style={{
-                            backgroundColor: textColor,
-                            display: !backCardVisible ? "none" : "block",
-                          }}
-                          className="flashcard-front"
-                        >
-                          <div>
-                            <span
+                        <div>
+                          <span
+                            style={{
+                              fontSize: "12px",
+                            }}
+                          >
+                            {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
+                            {Math.round(cards[0]?.numberOfReviews) == 1
+                              ? "review"
+                              : "reviews"}
+                          </span>
+                          <br />
+                          <br />
+                          <span>
+                            <div
                               style={{
-                                fontSize: "12px",
+                                fontSize: "20px",
+                                marginBottom: "15px",
+                                fontStyle: "italic",
                               }}
                             >
-                              {Math.round(cards[0]?.numberOfReviews) || "no"}{" "}
-                              {Math.round(cards[0]?.numberOfReviews) == 1
-                                ? "review"
-                                : "reviews"}
-                            </span>
-                            <br />
-                            <br />
-                            <span>
-                              <div
-                                style={{
-                                  fontSize: "20px",
-                                  marginBottom: "15px",
-                                  fontStyle: "italic",
-                                }}
+                              {cards[0]?.front?.text}
+                            </div>
+                          </span>
+                          {cards[0].front.language &&
+                            cards[0].front.language !== "pt" && (
+                              <button
+                                className="audio-button bgwhite"
+                                onClick={() =>
+                                  readText(
+                                    cards[0].front.text,
+                                    true,
+                                    cards[0].front.language,
+                                    selectedVoice
+                                  )
+                                }
                               >
-                                {cards[0]?.front?.text}
-                              </div>
-                            </span>
-                            {cards[0].front.language &&
-                              cards[0].front.language !== "pt" && (
-                                <button
-                                  className="audio-button bgwhite"
-                                  onClick={() =>
-                                    readText(
-                                      cards[0].front.text,
-                                      true,
-                                      cards[0].front.language,
-                                      selectedVoice
-                                    )
-                                  }
-                                >
-                                  <i
-                                    className="fa fa-volume-up"
-                                    aria-hidden="true"
-                                  />
-                                </button>
-                              )}
-                          </div>
-                        </div>
-                        <div
-                          style={{
-                            display: backCardVisible ? "none" : "block",
-                          }}
-                          className="flashcard-back"
-                        >
-                          <div>
-                            <span>
-                              {(
-                                <>
-                                  {" "}
-                                  <div
-                                    style={{
-                                      fontSize: "11px",
-                                      marginBottom: "15px",
-                                    }}
-                                  >
-                                    {cards[0]?.front?.text}
-                                  </div>
-                                  <div
-                                    style={{
-                                      fontSize: "20px",
-                                      marginBottom: "15px",
-                                      fontStyle: "italic",
-                                    }}
-                                  >
-                                    {cards[0]?.back?.text}
-                                  </div>
-                                  <div
-                                    style={{
-                                      fontSize: "12px",
-                                      fontStyle: "italic",
-                                      marginBottom: "15px",
-                                    }}
-                                    dangerouslySetInnerHTML={{
-                                      __html: cards[0]?.backComments,
-                                    }}
-                                  />
-                                </>
-                              ) || " "}
-                            </span>
-                            {cards[0].back.language &&
-                              cards[0].back.language !== "pt" && (
-                                <button
-                                  className="audio-button bgwhite"
-                                  onClick={() =>
-                                    readText(
-                                      cards[0].back.text,
-                                      true,
-                                      cards[0].back.language
-                                    )
-                                  }
-                                >
-                                  <i
-                                    className="fa fa-volume-up"
-                                    aria-hidden="true"
-                                  />
-                                </button>
-                              )}
-                          </div>
+                                <i
+                                  className="fa fa-volume-up"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            )}
                         </div>
                       </div>
-                    </>
-                  ) : (
-                    <p>
-                      <b>No flashcards</b>
-                      <br />
-                      <br />
-                      Nenhum flashcard
-                    </p>
-                  )}
-                </div>
+                      <div
+                        style={{
+                          display: backCardVisible ? "none" : "block",
+                        }}
+                        className="flashcard-back"
+                      >
+                        <div>
+                          <span>
+                            {(
+                              <>
+                                {" "}
+                                <div
+                                  style={{
+                                    fontSize: "11px",
+                                    marginBottom: "15px",
+                                  }}
+                                >
+                                  {cards[0]?.front?.text}
+                                </div>
+                                <div
+                                  style={{
+                                    fontSize: "20px",
+                                    marginBottom: "15px",
+                                    fontStyle: "italic",
+                                  }}
+                                >
+                                  {cards[0]?.back?.text}
+                                </div>
+                                <div
+                                  style={{
+                                    fontSize: "12px",
+                                    fontStyle: "italic",
+                                    marginBottom: "15px",
+                                  }}
+                                  dangerouslySetInnerHTML={{
+                                    __html: cards[0]?.backComments,
+                                  }}
+                                />
+                              </>
+                            ) || " "}
+                          </span>
+                          {cards[0].back.language &&
+                            cards[0].back.language !== "pt" && (
+                              <button
+                                className="audio-button bgwhite"
+                                onClick={() =>
+                                  readText(
+                                    cards[0].back.text,
+                                    true,
+                                    cards[0].back.language
+                                  )
+                                }
+                              >
+                                <i
+                                  className="fa fa-volume-up"
+                                  aria-hidden="true"
+                                />
+                              </button>
+                            )}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <p>
+                    <b>No flashcards</b>
+                    <br />
+                    <br />
+                    Nenhum flashcard
+                  </p>
+                )}
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
+      )}
 
-        <div
+      <div
+        style={{
+          display: "flex",
+          gap: "5px",
+          alignItems: "center",
+        }}
+      />
+      <div
+        style={{
+          display: !isDisabled ? "none" : "grid",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        <ArvinButton
           style={{
-            display: "flex",
-            gap: "5px",
-            alignItems: "center",
+            margin: "auto",
+            display: "block",
           }}
-        />
-        <div
-          style={{
-            display: !isDisabled ? "none" : "grid",
-            justifyContent: "center",
-            marginTop: "20px",
+          onClick={seeCardsToReview}
+        >
+          {!see ? "Start" : <i className="fa fa-refresh" aria-hidden="true" />}
+        </ArvinButton>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "10px",
+          alignItems: "center",
+        }}
+      >
+        <select
+          id="category-select"
+          value={category}
+          onChange={(e) => {
+            setCategory(e.target.value);
           }}
         >
-          <ArvinButton
-            style={{
-              margin: "auto",
-              display: "block",
-            }}
-            onClick={seeCardsToReview}
-          >
-            {!see ? (
-              "Start"
-            ) : (
-              <i className="fa fa-refresh" aria-hidden="true" />
-            )}
-          </ArvinButton>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "10px",
-            alignItems: "center",
-          }}
-        >
-          <select
-            id="category-select"
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
-          >
-            <option value="nofilter">Ver todos os cards</option>
-            <option value="vocabulary">Vocabulary</option>
-            <option value="be">To be</option>
-            <option value="possessive">Possessivos</option>
-            <option value="modal">Modal verbs</option>
-            <option value="question">Question words</option>
-            <option value="do">Do & Does</option>
-            <option value="dont">Don't & Doesn't</option>
-            <option value="did">Did & Didn't</option>
-            <option value="irregularpast">Irregular Past</option>
-            <option value="presentperfect">Present Perfect</option>
-            <option value="pastperfect">Past Perfect</option>
-            <option value="travel">Viagem</option>
-            <option value="bodyparts">Partes do corpo</option>
-            <option value="businessenglish">Inglês para negócios</option>
-            <option value="family">Família</option>
-            <option value="animals">Animais</option>
-            <option value="fruits">Frutas</option>
-            <option value="food">Comida</option>
-            <option value="colors">Cores</option>
-            <option value="house">Casa</option>
-            <option value="supermarket">Supermercado</option>
-            <option value="weather">Clima</option>
-            <option value="clothes">Roupas</option>
-            <option value="time">Horários</option>
-            <option value="daysanddates">Dias e Datas</option>
-            <option value="car">Carro</option>
-            <option value="road">Estrada</option>
-            <option value="personality">Personalidade</option>
-            <option value="nature">Natureza</option>
-            <option value="numbers">Números</option>
-            <option value="transportation">Transporte</option>
-            <option value="office">Escritório</option>
-            <option value="diseases">Doenças</option>
-            <option value="professions">Profissões</option>
-            <option value="weather">Clima</option>
-          </select>
-        </div>
-        <ProgressCounter flashcardsToday={flashcardsToday} />
-      </section>
-    </>
+          <option value="nofilter">Ver todos os cards</option>
+          <option value="vocabulary">Vocabulary</option>
+          <option value="be">To be</option>
+          <option value="possessive">Possessivos</option>
+          <option value="modal">Modal verbs</option>
+          <option value="question">Question words</option>
+          <option value="do">Do & Does</option>
+          <option value="dont">Don't & Doesn't</option>
+          <option value="did">Did & Didn't</option>
+          <option value="irregularpast">Irregular Past</option>
+          <option value="presentperfect">Present Perfect</option>
+          <option value="pastperfect">Past Perfect</option>
+          <option value="travel">Viagem</option>
+          <option value="bodyparts">Partes do corpo</option>
+          <option value="businessenglish">Inglês para negócios</option>
+          <option value="family">Família</option>
+          <option value="animals">Animais</option>
+          <option value="fruits">Frutas</option>
+          <option value="food">Comida</option>
+          <option value="colors">Cores</option>
+          <option value="house">Casa</option>
+          <option value="supermarket">Supermercado</option>
+          <option value="weather">Clima</option>
+          <option value="clothes">Roupas</option>
+          <option value="time">Horários</option>
+          <option value="daysanddates">Dias e Datas</option>
+          <option value="car">Carro</option>
+          <option value="road">Estrada</option>
+          <option value="personality">Personalidade</option>
+          <option value="nature">Natureza</option>
+          <option value="numbers">Números</option>
+          <option value="transportation">Transporte</option>
+          <option value="office">Escritório</option>
+          <option value="diseases">Doenças</option>
+          <option value="professions">Profissões</option>
+          <option value="weather">Clima</option>
+        </select>
+      </div>
+      <ProgressCounter flashcardsToday={flashcardsToday} />
+    </section>
   );
 };
 
