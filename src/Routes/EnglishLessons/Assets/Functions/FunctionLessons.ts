@@ -93,14 +93,15 @@ export const readText = (
     if (chosenVoice) {
       selectedVoice = voices.find((v) => v.name === chosenVoice);
     }
-    
+
     if (selectedVoice) {
       utterance.voice = selectedVoice;
-
     } else {
       const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
       if (userAgent === "Opera") {
-        notifyError("Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome");
+        notifyError(
+          "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
+        );
         return;
       }
 
@@ -123,12 +124,18 @@ export const readText = (
 
 const getLanguageCode = (lang?: string): string => {
   switch (lang) {
-    case "en": return "en-US";
-    case "pt": return "pt-BR";
-    case "fr": return "fr-FR";
-    case "it": return "it-IT";
-    case "de": return "de-DE";
-    case "en": default:
+    case "en":
+      return "en-US";
+    case "pt":
+      return "pt-BR";
+    case "fr":
+      return "fr-FR";
+    case "it":
+      return "it-IT";
+    case "de":
+      return "de-DE";
+    case "en":
+    default:
       return "en-US";
   }
 };
