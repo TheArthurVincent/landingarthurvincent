@@ -326,31 +326,12 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
     }
   };
 
-  var ua = navigator.userAgent;
-
-  const detectBrowser = () => {
-    if (/Edg/.test(ua)) return "Edge";
-    if (/OPR/.test(ua)) return "Opera";
-    if (/Chrome/.test(ua) && !/Edg/.test(ua)) return "Chrome";
-    if (/Safari/.test(ua) && !/Chrome/.test(ua)) return "Safari";
-    if (/Firefox/.test(ua)) return "Firefox";
-    if (/MSIE|Trident/.test(ua)) return "Internet Explorer";
-
-    return "Desconhecido";
-  };
-
-  const userAgent = detectBrowser();
-
-  const [agent, setagent] = useState<any>("0");
-  const [userNav, setuserNav] = useState<any>("0");
   const [selectedVoice, setSelectedVoice] = useState<any>("");
   const [changeNumber, setChangeNumber] = useState<boolean>(true);
 
   useEffect(() => {
     const storedVoice = localStorage.getItem("chosenVoice");
     setSelectedVoice(storedVoice);
-    setagent(userAgent);
-    setuserNav(ua);
     console.log(storedVoice);
   }, [selectedVoice, changeNumber]);
 
