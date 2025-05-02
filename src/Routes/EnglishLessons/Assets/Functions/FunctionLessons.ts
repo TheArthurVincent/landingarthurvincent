@@ -1,11 +1,38 @@
+import { toast } from "react-toastify";
+const notifyError = (message: string) => {
+  const existing = document.getElementById("voice-error-toast");
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+  toast.id = "voice-error-toast";
+  toast.innerText = message;
+  toast.style.position = "fixed";
+  toast.style.top = "20px";
+  toast.style.left = "50%";
+  toast.style.transform = "translateX(-50%)";
+  toast.style.background = "#f44336";
+  toast.style.color = "white";
+  toast.style.padding = "10px 20px";
+  toast.style.borderRadius = "8px";
+  toast.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+  toast.style.zIndex = "9999";
+  toast.style.fontFamily = "sans-serif";
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+};
 export const readText = (
   text: string,
   restart: boolean,
   lang?: string,
+  chosenVoice?: string,
   voiceBoolean?: boolean
 ) => {
   if (!("speechSynthesis" in window)) {
-    alert("Seu navegador não suporta a síntese de fala!");
+    notifyError("Seu navegador não suporta a síntese de fala!");
     return;
   }
 
@@ -15,6 +42,7 @@ export const readText = (
   const ehPar = (nm: number) => nm % 2 === 0;
   const isEven = ehPar(numberReviewsToday);
   const synth = window.speechSynthesis;
+
   if (!synth) {
     console.error("speechSynthesis não está disponível.");
     return;
@@ -60,23 +88,34 @@ export const readText = (
       return "Desconhecido";
     };
     const userAgent = detectBrowser();
+    let selectedVoice;
 
-    console.log(navigator.userAgent, "userAgent: ", userAgent);
+    if (chosenVoice) {
+      selectedVoice = voices.find((v) => v.name === chosenVoice);
+    }
 
-    const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
-
-    console.log("voicesHere: ", voicesHere, lang);
-    if (userAgent == "Edge" && !isEven) {
-      utterance.voice = voicesHere[1];
-    } else if (userAgent == "Chrome" && !isEven) {
-      utterance.voice = voicesHere[2];
-    } else if (userAgent == "Opera") {
-      alert(
-        "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
-      );
-      return;
+    if (selectedVoice) {
+      utterance.voice = selectedVoice;
     } else {
-      utterance.voice = voicesHere[0];
+      const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
+      if (userAgent === "Opera") {
+        notifyError(
+          "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
+        );
+        console.log(
+          "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
+        );
+
+        return;
+      }
+
+      if (userAgent === "Edge" && !isEven && voicesHere[1]) {
+        utterance.voice = voicesHere[1];
+      } else if (userAgent === "Chrome" && !isEven && voicesHere[2]) {
+        utterance.voice = voicesHere[2];
+      } else {
+        utterance.voice = voicesHere[0];
+      }
     }
 
     utterance.onerror = (e) => {
