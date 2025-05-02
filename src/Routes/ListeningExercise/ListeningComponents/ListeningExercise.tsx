@@ -12,6 +12,7 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 
 import { secondaryColor, textTitleFont } from "../../../Styles/Styles";
 import { ProgressCounter } from "../../FlashCardsToday/FlashCardsToday";
+import Voice from "../../../Resources/Voice";
 
 function highlightDifferences(original: string, userInput: string): string {
   const originalWords = original.split(" ");
@@ -319,8 +320,18 @@ const ListeningExercise = ({
     window.location.reload();
   };
 
+  const [selectedVoice, setSelectedVoice] = useState<any>("");
+  const [changeNumber, setChangeNumber] = useState<boolean>(true);
+
+  useEffect(() => {
+    const storedVoice = localStorage.getItem("chosenVoice");
+    setSelectedVoice(storedVoice);
+    console.log(storedVoice);
+  }, [selectedVoice, changeNumber]);
+
   return (
     <section id="review">
+      <Voice changeB={changeNumber} setChangeB={setChangeNumber} />
       {see && (
         <div>
           {loading ? (
@@ -465,7 +476,8 @@ const ListeningExercise = ({
                                 ? cards[0]?.front?.text.replace(/\s+/g, " ")
                                 : cards[0]?.front?.text,
                               false,
-                              cards[0]?.front?.language
+                              cards[0]?.front?.language,
+                              selectedVoice
                             );
                             setEnableVoice(true);
                           }}

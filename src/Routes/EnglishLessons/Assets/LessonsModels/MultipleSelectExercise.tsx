@@ -24,11 +24,13 @@ interface SelectExerciseProps {
     subtitle: string;
     options: Exercise[];
   };
+  selectedVoice: any;
 }
 
 const SelectExercise: React.FC<SelectExerciseProps> = ({
   headers,
   element,
+  selectedVoice,
 }) => {
   const [selectedOptions, setSelectedOptions] = useState<{
     [key: number]: string;
@@ -107,7 +109,9 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
               {exercise.audio && (
                 <button
                   className="audio-button"
-                  onClick={() => readText(exercise.audio, true)}
+                  onClick={() =>
+                    readText(exercise.audio, true, "en", selectedVoice)
+                  }
                 >
                   <i className="fa fa-volume-up" aria-hidden="true" />
                 </button>
@@ -132,16 +136,18 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
                 ))}
               </select>
               <br />
-              {exercise.answer && <i
-                style={{
-                  marginTop: "1rem",
-                  color: "#ccc",
-                }}
-                className="fa fa-eye"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onClick={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              />}
+              {exercise.answer && (
+                <i
+                  style={{
+                    marginTop: "1rem",
+                    color: "#ccc",
+                  }}
+                  className="fa fa-eye"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onClick={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                />
+              )}
               {"  "}
               {hoverIndex === index && (
                 <span style={{ fontStyle: "italic" }}>
@@ -192,7 +198,8 @@ const SelectExercise: React.FC<SelectExerciseProps> = ({
                     fontStyle: "italic",
                   }}
                 >
-                  {" - "}{exercise.answer && exercise.answer}
+                  {" - "}
+                  {exercise.answer && exercise.answer}
                 </span>
               </div>
               {exercise.options.map((opt: Option, i: number) => (

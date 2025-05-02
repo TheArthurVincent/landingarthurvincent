@@ -12,6 +12,7 @@ import { ArvinButton } from "../../../Resources/Components/ItemsLibrary";
 import { secondaryColor } from "../../../Styles/Styles";
 import { ProgressCounter } from "../../FlashCardsToday/FlashCardsToday";
 import Countdown from "../../Ranking/RankingComponents/Countdown";
+import Voice from "../../../Resources/Voice";
 
 interface FlashCardsPropsRv {
   headers: MyHeadersType | null;
@@ -30,7 +31,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
   const [see, setSee] = useState<boolean>(false);
   const [count, setCount] = useState<number>(4);
   const [backCardVisible, setBackCardVisible] = useState<boolean>(false);
-  const [isShow, setIsShow] = useState<boolean>(false);
   const [category, setCategory] = useState<string>("nofilter");
   const [textColor, setTextColor] = useState<string>("#000");
   const [timerCardCount, setTimerCardCount] = useState(19);
@@ -38,7 +38,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
 
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
-    var flashcardsToday = localStorage.getItem("flashcardsToday") || 0;
     // @ts-ignore
     if (user) {
       var { permissions, id } = JSON.parse(user);
@@ -46,7 +45,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       setPermissions(permissions);
     }
     setAnswer(false);
-    console.log("flashcardsTodayOutside", flashcardsToday);
     updateInfo(id, actualHeaders);
   }, [change]);
 
@@ -327,9 +325,38 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
       console.log(error);
     }
   };
+
+  var ua = navigator.userAgent;
+
+  const detectBrowser = () => {
+    if (/Edg/.test(ua)) return "Edge";
+    if (/OPR/.test(ua)) return "Opera";
+    if (/Chrome/.test(ua) && !/Edg/.test(ua)) return "Chrome";
+    if (/Safari/.test(ua) && !/Chrome/.test(ua)) return "Safari";
+    if (/Firefox/.test(ua)) return "Firefox";
+    if (/MSIE|Trident/.test(ua)) return "Internet Explorer";
+
+    return "Desconhecido";
+  };
+
+  const userAgent = detectBrowser();
+
+  const [agent, setagent] = useState<any>("0");
+  const [userNav, setuserNav] = useState<any>("0");
+  const [selectedVoice, setSelectedVoice] = useState<any>("");
+  const [changeNumber, setChangeNumber] = useState<boolean>(true);
+
+  useEffect(() => {
+    const storedVoice = localStorage.getItem("chosenVoice");
+    setSelectedVoice(storedVoice);
+    setagent(userAgent);
+    setuserNav(ua);
+    console.log(storedVoice);
+  }, [selectedVoice, changeNumber]);
+
   return (
     <section id="review">
-
+      <Voice changeB={changeNumber} setChangeB={setChangeNumber} />
       {see && (
         <div>
           {loading ? (
@@ -346,6 +373,14 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
               <div>
                 {!cardsLength ? (
                   <>
+                    {myPermissions !== "superadmin" && (
+                      <>
+                        <b> Navegador:</b> {agent}
+                        <br />
+                        <b>Total:</b>
+                        {userNav}
+                      </>
+                    )}
                     <ArvinButton
                       disabled={isDisabled}
                       cursor={isDisabled ? "not-allowed" : "pointer"}
@@ -361,7 +396,6 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                         <span>{answer ? "Back" : "Answer"}</span>
                       )}
                     </ArvinButton>
-                    <br />
                     <br />
                     {answer && (
                       <div>
@@ -446,7 +480,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
                                   readText(
                                     cards[0].front.text,
                                     true,
-                                    cards[0].front.language
+                                    cards[0].front.language,
+                                    selectedVoice
                                   )
                                 }
                               >

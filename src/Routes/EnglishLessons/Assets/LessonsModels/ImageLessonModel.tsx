@@ -8,7 +8,10 @@ import {
 } from "../Functions/EnglishActivities.Styled";
 import TextAreaLesson from "../Functions/TextAreaLessons";
 import axios from "axios";
-import { backDomain, onLoggOut } from "../../../../Resources/UniversalComponents";
+import {
+  backDomain,
+  onLoggOut,
+} from "../../../../Resources/UniversalComponents";
 import { ArvinButton } from "../../../../Resources/Components/ItemsLibrary";
 interface ImageLessonModelProps {
   headers: MyHeadersType | null;
@@ -16,6 +19,7 @@ interface ImageLessonModelProps {
   id: string;
   studentId: string;
   mainTag: string;
+  selectedVoice: any;
 }
 
 export default function ImageLessonModel({
@@ -23,6 +27,7 @@ export default function ImageLessonModel({
   element,
   studentId,
   mainTag,
+  selectedVoice,
 }: ImageLessonModelProps) {
   const actualHeaders = headers || {};
 
@@ -50,7 +55,7 @@ export default function ImageLessonModel({
       alert("Card enviado");
     } catch (error) {
       alert("Erro ao enviar cards");
-      onLoggOut()
+      onLoggOut();
     }
   };
 
@@ -90,7 +95,9 @@ export default function ImageLessonModel({
               >
                 <button
                   className="audio-button"
-                  onClick={() => readText(image.text, true)}
+                  onClick={() =>
+                    readText(image.text, true, "en", selectedVoice)
+                  }
                 >
                   <i className="fa fa-volume-up" aria-hidden="true" />
                 </button>

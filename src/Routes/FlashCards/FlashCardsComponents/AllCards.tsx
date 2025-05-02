@@ -23,6 +23,7 @@ import { languages } from "./AddFlashONEFlashCard";
 import { readText } from "../../EnglishLessons/Assets/Functions/FunctionLessons";
 import { Close, Delete, Edit, Refresh, VolumeUp } from "@mui/icons-material";
 import { secondaryColor } from "../../../Styles/Styles";
+import Voice from "../../../Resources/Voice";
 
 const AllCards = ({ headers }: HeadersProps) => {
   const [myId, setId] = useState<string>("");
@@ -186,9 +187,19 @@ const AllCards = ({ headers }: HeadersProps) => {
     setShowModal(false);
   };
 
+  const [selectedVoice, setSelectedVoice] = useState<any>("");
+  const [changeNumber, setChangeNumber] = useState<boolean>(true);
+
+  useEffect(() => {
+    const storedVoice = localStorage.getItem("chosenVoice");
+    setSelectedVoice(storedVoice);
+    console.log(storedVoice);
+  }, [selectedVoice, changeNumber]);
+
   return (
     <>
       <div style={{ margin: "auto", maxWidth: "40rem" }}>
+        <Voice changeB={changeNumber} setChangeB={setChangeNumber} />
         {/* Header Section */}
         <div
           style={{
@@ -260,7 +271,12 @@ const AllCards = ({ headers }: HeadersProps) => {
                     <button
                       className="audio-button"
                       onClick={() =>
-                        readText(card.front.text, true, card.front.language)
+                        readText(
+                          card.front.text,
+                          true,
+                          card.front.language,
+                          selectedVoice
+                        )
                       }
                     >
                       <i className="fa fa-volume-up" aria-hidden="true" />
@@ -275,7 +291,12 @@ const AllCards = ({ headers }: HeadersProps) => {
                     <button
                       className="audio-button"
                       onClick={() =>
-                        readText(card.back.text, true, card.back.language)
+                        readText(
+                          card.back.text,
+                          true,
+                          card.back.language,
+                          selectedVoice
+                        )
                       }
                     >
                       <i className="fa fa-volume-up" aria-hidden="true" />
