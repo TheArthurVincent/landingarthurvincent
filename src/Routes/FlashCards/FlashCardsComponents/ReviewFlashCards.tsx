@@ -290,7 +290,8 @@ const ReviewFlashCards = ({ headers, onChange, change }: FlashCardsPropsRv) => {
           ? readText(
               response.data.dueFlashcards[0].front?.text,
               false,
-              response.data.dueFlashcards[0].front.language
+              response.data.dueFlashcards[0].front.language,
+              selectedVoice
             )
           : null;
       }

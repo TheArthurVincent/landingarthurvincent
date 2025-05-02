@@ -97,20 +97,11 @@ export const readText = (
     if (selectedVoice) {
       utterance.voice = selectedVoice;
     } else {
-      const voicesHere = voices.filter((v) => v.lang.includes(lang || ""));
       if (userAgent === "Opera") {
         notifyError(
           "Seu navegador não suporta este recurso de voz. Tente o Edge ou o Chrome"
         );
         return;
-      }
-
-      if (userAgent === "Edge" && !isEven && voicesHere[1]) {
-        utterance.voice = voicesHere[1];
-      } else if (userAgent === "Chrome" && !isEven && voicesHere[2]) {
-        utterance.voice = voicesHere[2];
-      } else {
-        utterance.voice = voicesHere[0];
       }
     }
     utterance.onerror = (e) => {
