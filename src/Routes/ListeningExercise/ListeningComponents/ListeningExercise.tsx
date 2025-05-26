@@ -471,10 +471,14 @@ const ListeningExercise = ({
                             setTimeout(() => {
                               setPlayingAudio(false);
                             }, 3000);
+
                             readText(
                               cards[0]?.front?.language == "en"
-                                ? cards[0]?.front?.text.replace(/\s+/g, " ")
-                                : cards[0]?.front?.text,
+                                ? `Listen: ${cards[0]?.front?.text.replace(
+                                    /\s+/g,
+                                    " "
+                                  )}`
+                                : `Listen: ${cards[0]?.front?.text}`,
                               false,
                               cards[0]?.front?.language,
                               selectedVoice
