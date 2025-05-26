@@ -112,14 +112,14 @@ export default function AudioSoundTrack({
         </a>
       </div>
       {text && (
-        <p
+        <div
           style={{
-            margin: "2rem",
-            textAlign: "center",
+            padding: "1rem",
+            justifyContent: "center",
           }}
         >
-          {text}
-        </p>
+          <div dangerouslySetInnerHTML={{ __html: text }} />
+        </div>
       )}
       {element.sentences && (
         <UlSentences grid={element.grid}>
