@@ -21,6 +21,7 @@ import { MyHeadersType } from "../../Resources/types.universalInterfaces";
 import Helmets from "../../Resources/Helmets";
 import WordOfTheDay from "../WordOfTheDay/WordOfTheDay";
 import Countdown from "../Ranking/RankingComponents/Countdown";
+import { notifyError } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 
 interface BlogProps {
   headers: MyHeadersType | null;
@@ -240,9 +241,11 @@ export function Blog({
         setLoading(false);
       }, 300);
     } catch (error: any) {
-      alert(error.response.data.error);
-      window.location.assign("/login");
-      setLoading(false);
+      notifyError(error.response.data.error);
+      setTimeout(() => {
+        window.location.assign("/login");
+        setLoading(false);
+      }, 2500);
     }
   }
 
