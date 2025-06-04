@@ -48,7 +48,7 @@ export const notifyError = (message: string, color?: string) => {
   setTimeout(() => {
     toast.remove();
     style.remove();
-  }, 10000);
+  }, 2500);
 };
 
 
