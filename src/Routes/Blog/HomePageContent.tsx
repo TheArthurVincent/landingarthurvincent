@@ -78,7 +78,7 @@ export function Blog({
       setNextTutoring(tt);
       setLoading(false);
     } catch (error) {
-      console.log(error, "erro ao listar homework");
+      console.log(error, "erro ao listar itens");
     }
   };
 
@@ -87,6 +87,9 @@ export function Blog({
   var [lesson, setLesson] = useState<String>("");
   var [img, setImg] = useState("");
   var [loadingLESSON, setLoadingLESSON] = useState<Boolean>(true);
+
+
+
   const fetchLastClassId = async (classid: string) => {
     setLoadingLESSON(true);
 
@@ -108,9 +111,18 @@ export function Blog({
       setImg(imgg);
       setLoadingLESSON(false);
     } catch (error) {
-      console.log(error, "erro ao listar homework");
+      console.log(error, "Erro ao encontrar aula");
     }
   };
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     const theuser = JSON.parse(localStorage.getItem("loggedIn") || "");
     if (user) {
@@ -126,7 +138,7 @@ export function Blog({
     fetchClasses(getLoggedUser.id);
     setTimeout(() => {
       fetchLastClassId(getLoggedUser.lastClassId);
-    }, 1000);
+    }, 2000);
   }, []);
 
   const handleSeeModal = () => {

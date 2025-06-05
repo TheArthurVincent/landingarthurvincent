@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { backDomain } from "../../Resources/UniversalComponents";
-import { secondaryColor, textTitleFont } from "../../Styles/Styles";
 import { HOne, HTwo } from "../../Resources/Components/RouteBox";
+import { notifyError } from "../EnglishLessons/Assets/Functions/FunctionLessons";
 
 export default function Cadastro() {
   const [form, setForm] = useState({
@@ -12,12 +12,14 @@ export default function Cadastro() {
     lastname: "",
     username: "",
     phoneNumber: "",
-    cpfCnpj: "",
+    doc: "",
     email: "",
     dateOfBirth: "",
-    doc: "",
     address: "",
+    addressNumber: "",
+    zip: "",
     password: "",
+    confirmPassword: "",
     creditCardNumber: "",
     creditCardHolderName: "",
     creditCardExpiryMonth: "",
@@ -27,10 +29,36 @@ export default function Cadastro() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const login = async () => {
+    try {
+      const response = await axios.post(`${backDomain}/api/v1/studentlogin/`, {
+        email: form.email,
+        password: form.password,
+      });
+      const { token, loggedIn, notifications } = response.data;
+      localStorage.removeItem("authorization");
+      localStorage.removeItem("loggedIn");
+
+      if (localStorage.getItem("authorization")) {
+        localStorage.removeItem("authorization");
+      }
+
+      if (localStorage.getItem("loggedIn")) {
+        localStorage.removeItem("loggedIn");
+      }
+
+      localStorage.setItem("authorization", `${token}`);
+      localStorage.setItem("notifications", JSON.stringify(notifications));
+      localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+      window.location.assign("/");
+    } catch (error) {
+      window.location.assign("/login");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -38,18 +66,39 @@ export default function Cadastro() {
     setLoading(true);
     setError("");
 
+    if (form.password !== form.confirmPassword) {
+      setLoading(false);
+      setError("As senhas não coincidem.");
+      return;
+    }
+
     try {
       const response = await axios.post(`${backDomain}/api/v1/cadastro`, form);
       const { customer, subscription } = response.data;
 
-      alert(`Pagamento aprovado! 
-      ID da Assinatura: ${subscription.id} 
-      Próxima Fatura: ${subscription.nextDueDate} 
-      Status: ${subscription.status}`);
+      notifyError(
+        //     `Pagamento aprovado!
+        // ID da Assinatura: ${subscription.id}
+        // Próxima Fatura: ${subscription.nextDueDate}
+        // Status: ${subscription.status}`,
+
+        `Pagamento aprovado!`,
+
+        "green"
+      );
 
       console.log("Dados completos:", response.data);
-    } catch (err) {
+
+      setTimeout(() => {
+        login();
+      }, 1000);
+    } catch (err: any) {
       setError("Erro ao cadastrar. Verifique os dados e tente novamente.");
+      const errorMessage = err.response
+        ? err.response.data.message
+        : "Tente novamente";
+      notifyError(errorMessage);
+      console.log(errorMessage, err);
     } finally {
       setLoading(false);
     }
@@ -76,7 +125,7 @@ export default function Cadastro() {
     },
     grid2: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      gridTemplateColumns: "1fr 1fr 1fr",
       gap: "20px",
     },
     column: {
@@ -114,6 +163,22 @@ export default function Cadastro() {
     },
   };
 
+  const leadsCapture = async () => {
+    if (
+      form.name !== "" &&
+      form.lastname !== "" &&
+      form.phoneNumber !== "" &&
+      form.email !== ""
+    ) {
+      notifyError("Foi pro banco!");
+      //// mandar pra um banco de dados de potenciais
+    }
+  };
+
+  useEffect(() => {
+    leadsCapture();
+  }, [form]);
+
   return (
     <div style={styles.container}>
       <HOne>Cadastro</HOne>
@@ -150,11 +215,21 @@ export default function Cadastro() {
                 required
                 style={styles.input}
               />
+
+              <input
+                type="tel"
+                name="phoneNumber"
+                placeholder="Número de telefone"
+                value={form.phoneNumber}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
               <input
                 type="text"
-                name="cpfCnpj"
+                name="doc"
                 placeholder="CPF ou CNPJ"
-                value={form.cpfCnpj}
+                value={form.doc}
                 onChange={handleChange}
                 required
                 style={styles.input}
@@ -165,15 +240,11 @@ export default function Cadastro() {
                 placeholder="Nome de usuário"
                 value={form.username}
                 onChange={handleChange}
-                required
-                style={styles.input}
-              />
-              <input
-                type="tel"
-                name="phoneNumber"
-                placeholder="Número de telefone"
-                value={form.phoneNumber}
-                onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === " ") {
+                    e.preventDefault();
+                  }
+                }}
                 required
                 style={styles.input}
               />
@@ -195,23 +266,32 @@ export default function Cadastro() {
                 required
                 style={styles.input}
               />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirme sua senha"
+                value={form.confirmPassword}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
             </div>
           </div>
+        </div>
 
-          {/* 📌 COLUNA 2 - ENDEREÇO */}
-          <div style={styles.column}>
-            <HTwo>Endereço</HTwo>
-            <input
-              type="text"
-              name="address"
-              placeholder="Endereço completo"
-              value={form.address}
-              onChange={handleChange}
-              required
-              style={styles.input}
-            />
-          </div>
-
+        {/* 📌 COLUNA 2 - ENDEREÇO */}
+        <div style={styles.column}>
+          {/* <HTwo>Endereço</HTwo>
+          <input
+            type="text"
+            name="address"
+            placeholder="Endereço completo"
+            value={form.address}
+            onChange={handleChange}
+            required
+            style={styles.input}
+          />{" "}
+      */}
           {/* 📌 COLUNA 3 - DADOS DO CARTÃO */}
           <div style={styles.column}>
             <HTwo>Dados do Cartão</HTwo>
@@ -228,7 +308,7 @@ export default function Cadastro() {
               <input
                 type="text"
                 name="creditCardHolderName"
-                placeholder="Nome no Cartão"
+                placeholder="Nome Impresso no Cartão"
                 value={form.creditCardHolderName}
                 onChange={handleChange}
                 required
@@ -242,6 +322,9 @@ export default function Cadastro() {
                 onChange={handleChange}
                 required
                 style={styles.input}
+                inputMode="numeric"
+                pattern="\d{1,2}"
+                maxLength={2}
               />
               <input
                 type="text"
@@ -251,6 +334,9 @@ export default function Cadastro() {
                 onChange={handleChange}
                 required
                 style={styles.input}
+                inputMode="numeric"
+                pattern="\d{4}"
+                maxLength={4}
               />
               <input
                 type="text"
@@ -260,6 +346,39 @@ export default function Cadastro() {
                 onChange={handleChange}
                 required
                 style={styles.input}
+                inputMode="numeric"
+                pattern="\d{3}"
+                maxLength={3}
+              />
+              <input
+                type="text"
+                name="address"
+                placeholder="Endereço"
+                value={form.address}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />{" "}
+              <input
+                type="number"
+                name="addressNumber"
+                placeholder="Número do Endereço"
+                value={form.addressNumber}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />{" "}
+              <input
+                type="text"
+                name="zip"
+                placeholder="CEP"
+                value={form.zip}
+                onChange={handleChange}
+                required
+                style={styles.input}
+                inputMode="numeric"
+                pattern="\d{5}-?\d{3}"
+                maxLength={9}
               />
             </div>
           </div>
