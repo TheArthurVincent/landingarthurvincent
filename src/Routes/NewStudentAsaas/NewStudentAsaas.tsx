@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import React from "react";
 import { backDomain } from "../../Resources/UniversalComponents";
 import { HOne, HTwo } from "../../Resources/Components/RouteBox";
@@ -15,7 +14,10 @@ export default function Cadastro() {
     doc: "",
     email: "",
     dateOfBirth: "",
-    address: "",
+    address: "", // logradouro
+    neighborhood: "", // bairro
+    city: "", // cidade
+    state: "", // estado
     addressNumber: "",
     zip: "",
     password: "",
@@ -60,6 +62,43 @@ export default function Cadastro() {
       window.location.assign("/login");
     }
   };
+  const [usernameEdited, setUsernameEdited] = useState<string>("");
+
+  const generateUsername = (
+    name: string,
+    lastname: string,
+    dateOfBirth: string
+  ) => {
+    const sanitize = (str: string) =>
+      str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+
+    const first = sanitize(name).slice(0, 3);
+    const last = sanitize(lastname).slice(0, 3);
+    const year = dateOfBirth ? new Date(dateOfBirth).getFullYear() : "";
+
+    return `${last}${year}${first}`;
+  };
+  useEffect(() => {
+    if (
+      form.name &&
+      form.lastname &&
+      form.dateOfBirth &&
+      form.username.trim() === ""
+    ) {
+      const newUsername = generateUsername(
+        form.name,
+        form.lastname,
+        form.dateOfBirth
+      );
+      setUsernameEdited(newUsername);
+      setForm((prev) => ({ ...prev, username: newUsername }));
+    }
+    console.log("Username gerado:", form.username, usernameEdited);
+  }, [form]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,18 +113,8 @@ export default function Cadastro() {
 
     try {
       const response = await axios.post(`${backDomain}/api/v1/cadastro`, form);
-      const { customer, subscription } = response.data;
 
-      notifyError(
-        //     `Pagamento aprovado!
-        // ID da Assinatura: ${subscription.id}
-        // Próxima Fatura: ${subscription.nextDueDate}
-        // Status: ${subscription.status}`,
-
-        `Pagamento aprovado!`,
-
-        "green"
-      );
+      notifyError(`Pagamento aprovado!`, "green");
 
       console.log("Dados completos:", response.data);
 
@@ -163,21 +192,78 @@ export default function Cadastro() {
     },
   };
 
+  const [booleanLeadsCapture, setLeadsCapture] = useState<boolean>(true);
   const leadsCapture = async () => {
     if (
+      booleanLeadsCapture &&
       form.name !== "" &&
       form.lastname !== "" &&
       form.phoneNumber !== "" &&
       form.email !== ""
     ) {
-      notifyError("Foi pro banco!");
-      //// mandar pra um banco de dados de potenciais
+      try {
+        const theContent = {
+          name: form.name,
+          lastname: form.lastname,
+          phoneNumber: form.phoneNumber,
+          email: form.email,
+        };
+        const response = await axios.post(
+          `${backDomain}/api/v1/leads`,
+          theContent
+        );
+        console.log("Foi pro banco!", response);
+        setLeadsCapture(false);
+      } catch (error) {
+        console.error("Erro ao capturar lead", error);
+      }
     }
   };
 
   useEffect(() => {
-    leadsCapture();
-  }, [form]);
+    const allFilled =
+      form.name.trim() !== "" &&
+      form.lastname.trim() !== "" &&
+      form.phoneNumber.trim().length >= 11 && // opcional: checagem mínima
+      form.email.trim().includes("@");
+
+    if (booleanLeadsCapture && allFilled) {
+      leadsCapture();
+    }
+  }, [form.name, form.lastname, form.phoneNumber, form.email]);
+
+  useEffect(() => {
+    const fetchAddress = async () => {
+      const cleanCep = form.zip.replace(/\D/g, "");
+      if (cleanCep.length !== 8) return;
+
+      try {
+        const response = await axios.get(
+          `https://viacep.com.br/ws/${cleanCep}/json/`
+        );
+
+        if (response.data.erro) {
+          notifyError("CEP não encontrado.");
+          return;
+        }
+
+        const { logradouro, bairro, localidade, uf } = response.data;
+
+        setForm((prev) => ({
+          ...prev,
+          address: logradouro,
+          neighborhood: bairro,
+          city: localidade,
+          state: uf,
+        }));
+      } catch (error) {
+        notifyError("Erro ao buscar endereço.");
+        console.error("Erro ViaCEP:", error);
+      }
+    };
+
+    fetchAddress();
+  }, [form.zip]);
 
   return (
     <div style={styles.container}>
@@ -215,11 +301,10 @@ export default function Cadastro() {
                 required
                 style={styles.input}
               />
-
               <input
-                type="tel"
+                type="number"
                 name="phoneNumber"
-                placeholder="Número de telefone"
+                placeholder="Número de telefone com DDD"
                 value={form.phoneNumber}
                 onChange={handleChange}
                 required
@@ -239,14 +324,12 @@ export default function Cadastro() {
                 name="username"
                 placeholder="Nome de usuário"
                 value={form.username}
-                onChange={handleChange}
-                onKeyDown={(e) => {
-                  if (e.key === " ") {
-                    e.preventDefault();
-                  }
+                readOnly
+                style={{
+                  ...styles.input,
+                  backgroundColor: "#f0f0f0",
+                  color: "#555",
                 }}
-                required
-                style={styles.input}
               />
               <input
                 type="date"
@@ -281,18 +364,6 @@ export default function Cadastro() {
 
         {/* 📌 COLUNA 2 - ENDEREÇO */}
         <div style={styles.column}>
-          {/* <HTwo>Endereço</HTwo>
-          <input
-            type="text"
-            name="address"
-            placeholder="Endereço completo"
-            value={form.address}
-            onChange={handleChange}
-            required
-            style={styles.input}
-          />{" "}
-      */}
-          {/* 📌 COLUNA 3 - DADOS DO CARTÃO */}
           <div style={styles.column}>
             <HTwo>Dados do Cartão</HTwo>
             <div style={styles.grid2}>
@@ -352,33 +423,55 @@ export default function Cadastro() {
               />
               <input
                 type="text"
+                name="zip"
+                placeholder="CEP"
+                value={form.zip}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, ""); // só números
+                  if (value.length <= 8) {
+                    setForm({ ...form, zip: value });
+                  }
+                }}
+                required
+                style={styles.input}
+                inputMode="numeric"
+                maxLength={8}
+              />
+              <input
+                type="text"
                 name="address"
-                placeholder="Endereço"
+                placeholder="Rua (ex: Av. Paulista)"
                 value={form.address}
                 onChange={handleChange}
                 required
                 style={styles.input}
-              />{" "}
-              <input
-                type="number"
-                name="addressNumber"
-                placeholder="Número do Endereço"
-                value={form.addressNumber}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              />{" "}
+              />
               <input
                 type="text"
-                name="zip"
-                placeholder="CEP"
-                value={form.zip}
+                name="neighborhood"
+                placeholder="Bairro"
+                value={form.neighborhood}
                 onChange={handleChange}
                 required
                 style={styles.input}
-                inputMode="numeric"
-                pattern="\d{5}-?\d{3}"
-                maxLength={9}
+              />
+              <input
+                type="text"
+                name="city"
+                placeholder="Cidade"
+                value={form.city}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
+              <input
+                type="text"
+                name="state"
+                placeholder="Estado (UF)"
+                value={form.state}
+                onChange={handleChange}
+                required
+                style={styles.input}
               />
             </div>
           </div>
