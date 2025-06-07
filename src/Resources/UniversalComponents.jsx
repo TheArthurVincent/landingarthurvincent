@@ -12,67 +12,67 @@ import { Helmet } from "react-helmet";
 import { MyButton } from "./Components/ItemsLibrary";
 import axios from "axios";
 import { io } from "socket.io-client";
+import { notifyError } from "../Routes/NewStudentAsaas/FunctionLessons";
 
-import { levels } from "../Routes/Ranking/RankingComponents/RankingLevelsList";
-import { notifyError } from "../Routes/EnglishLessons/Assets/Functions/FunctionLessons";
+// import { levels } from "../Routes/Ranking/RankingComponents/RankingLevelsList";
 
-const items = levels();
+// const items = levels();
 
-export function updateScore(
-  totalScore,
-  flashcards25Reviews,
-  homeworkAssignmentsDone
-) {
-  var level = 1;
-  var color = "#000";
-  var card =
-    "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171";
-  var icon = "fa fa-clone";
-  var color = "#eee";
-  var textcolor = "black";
-  var text = "White Belt";
-  var discount = "0%";
-  var backgroundcolor = "#ccc";
-  var image2 =
-    "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785";
-  var image =
-    "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696";
-  var background =
-    "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
-  for (let i = 0; i < items.length; i++) {
-    if (
-      totalScore >= items[i].totalScore &&
-      flashcards25Reviews >= items[i].flashcards25Reviews &&
-      homeworkAssignmentsDone >= items[i].homeworkAssignmentsDone
-    ) {
-      level = items[i].level;
-      color = items[i].color;
-      icon = items[i].icon;
-      card = items[i].card || card;
-      textcolor = items[i].textcolor;
-      text = items[i].text;
-      discount = items[i].discount || discount;
-      backgroundcolor = items[i].backgroundcolor;
-      image2 = items[i].image2 || image2;
-      image = items[i].image || image;
-      background = items[i].background || background;
-    }
-  }
+// export function updateScore(
+//   totalScore,
+//   flashcards25Reviews,
+//   homeworkAssignmentsDone
+// ) {
+//   var level = 1;
+//   var color = "#000";
+//   var card =
+//     "https://ik.imagekit.io/vjz75qw96/assets/icons/level%20(10).png?updatedAt=1719515621171";
+//   var icon = "fa fa-clone";
+//   var color = "#eee";
+//   var textcolor = "black";
+//   var text = "White Belt";
+//   var discount = "0%";
+//   var backgroundcolor = "#ccc";
+//   var image2 =
+//     "https://ik.imagekit.io/vjz75qw96/assets/pngs/1.png?updatedAt=1715899265785";
+//   var image =
+//     "https://ik.imagekit.io/vjz75qw96/assets/pngs/white.png?updatedAt=1715899271696";
+//   var background =
+//     "https://ik.imagekit.io/vjz75qw96/assets/assets_for_classes/ASSETS%20AND%20LIABILITIES.jpg?updatedAt=1692919364512";
+//   for (let i = 0; i < items.length; i++) {
+//     if (
+//       totalScore >= items[i].totalScore &&
+//       flashcards25Reviews >= items[i].flashcards25Reviews &&
+//       homeworkAssignmentsDone >= items[i].homeworkAssignmentsDone
+//     ) {
+//       level = items[i].level;
+//       color = items[i].color;
+//       icon = items[i].icon;
+//       card = items[i].card || card;
+//       textcolor = items[i].textcolor;
+//       text = items[i].text;
+//       discount = items[i].discount || discount;
+//       backgroundcolor = items[i].backgroundcolor;
+//       image2 = items[i].image2 || image2;
+//       image = items[i].image || image;
+//       background = items[i].background || background;
+//     }
+//   }
 
-  return {
-    level,
-    color,
-    icon,
-    card,
-    image,
-    image2,
-    textcolor,
-    text,
-    discount,
-    backgroundcolor,
-    background,
-  };
-}
+//   return {
+//     level,
+//     color,
+//     icon,
+//     card,
+//     image,
+//     image2,
+//     textcolor,
+//     text,
+//     discount,
+//     backgroundcolor,
+//     background,
+//   };
+// }
 
 export const UniversalButtonsDivFlex = styled.div`
   display: flex;

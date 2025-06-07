@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import { backDomain } from "../../Resources/UniversalComponents";
 import { HOne, HTwo } from "../../Resources/Components/RouteBox";
-import { notifyError } from "../EnglishLessons/Assets/Functions/FunctionLessons";
+import { notifyError } from "./FunctionLessons";
 
 export default function Cadastro() {
   const [form, setForm] = useState({
@@ -133,6 +133,18 @@ export default function Cadastro() {
     }
   };
 
+  function useWindowWidth() {
+    const [width, setWidth] = useState(window.innerWidth);
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return width;
+  }
+  const width = useWindowWidth();
+  const isMobile = width < 768;
+
   const styles: any = {
     container: {
       display: "flex",
@@ -150,17 +162,22 @@ export default function Cadastro() {
     },
     grid: {
       display: "grid",
-      gridTemplateColumns: "1fr",
-      gap: "20px",
-    },
-    grid3: {
-      display: "grid",
-      gridTemplateColumns: " 1fr 1fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr",
       gap: "20px",
     },
     grid2: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+      gap: "20px",
+    },
+    grid3: {
+      display: "grid",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
+      gap: "20px",
+    },
+    responsiveGrid: {
+      display: "grid",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: "20px",
     },
     column: {
@@ -190,11 +207,6 @@ export default function Cadastro() {
     error: {
       color: "red",
       marginTop: "10px",
-    },
-    responsiveGrid: {
-      display: "grid",
-      gridTemplateColumns: "1fr",
-      gap: "20px",
     },
   };
 

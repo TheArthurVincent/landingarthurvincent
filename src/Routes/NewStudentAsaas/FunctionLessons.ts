@@ -1,4 +1,4 @@
-import { textFont } from "../../../../Styles/Styles";
+import { textFont } from "../../Styles/Styles";
 
 export const notifyError = (message: string, color?: string) => {
   const existing = document.getElementById("voice-error-toast");
