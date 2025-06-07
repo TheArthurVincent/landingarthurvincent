@@ -62,6 +62,7 @@ export function SignUp() {
       dateOfBirth: newDateOfBirth,
       doc: newCPF,
       address: address,
+      uptodate: false,
     };
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -82,7 +83,7 @@ export function SignUp() {
       setButton("...");
       alert(error);
       setButton("Cadastrar");
-      // reset();
+      reset();
     }
   };
 
