@@ -46,35 +46,20 @@ function App() {
                 </div>
               </div>
             </section>
-
             {/* Benefícios */}
             <section className="benefits-section">
-              <h2 className="section-title">Por que aprender com a gente?</h2>
+              <h2 className="section-title">
+                Por que aprender em minha plataforma?
+              </h2>
               <div className="benefits-cards">
                 <div className="benefit-card">
                   <h3>📚 Conteúdo Completo</h3>
                   <p>
-                    Da gramática ao vocabulário do dia a dia, tudo o que você
-                    precisa para falar inglês.
+                    Acesso a cursos do básico ao avançado, organizados para seu
+                    ritmo de aprendizado. Da gramática ao vocabulário do dia a
+                    dia, tudo o que você precisa para falar inglês.
                   </p>
                 </div>
-
-                <div className="benefit-card">
-                  <h3>🎧 Aulas Interativas</h3>
-                  <p>
-                    Aprenda com diálogos, exercícios com áudio e vídeos
-                    dinâmicos.
-                  </p>
-                </div>
-
-                <div className="benefit-card">
-                  <h3>💬 Suporte Individual</h3>
-                  <p>
-                    Tire dúvidas diretamente com o professor e tenha feedback
-                    personalizado.
-                  </p>
-                </div>
-
                 <div className="benefit-card">
                   <h3>🗣️ Conversação em Grupo</h3>
                   <p>
@@ -82,21 +67,24 @@ function App() {
                     para praticar de verdade.
                   </p>
                 </div>
-
                 <div className="benefit-card">
                   <h3>🧠 Flashcards Inteligentes</h3>
                   <p>
                     Memorize vocabulário com nosso sistema de revisão
-                    inteligente com flashcards.
+                    inteligente com flashcards. Você não vai se esquecer do que
+                    aprendeu!
                   </p>
                 </div>
-
                 <div className="benefit-card">
-                  <h3>🎓 Cursos Completos</h3>
+                  <h3>🎧 Aulas Interativas</h3>
                   <p>
-                    Acesso a cursos do básico ao avançado, organizados para seu
-                    ritmo de aprendizado.
+                    Aprenda com diálogos, exercícios com áudio e vídeos
+                    dinâmicos.
                   </p>
+                </div>
+                <div className="benefit-card">
+                  <h3>💬 Suporte Individual</h3>
+                  <p>Tire dúvidas diretamente na plataforma.</p>
                 </div>
 
                 <div className="benefit-card">
