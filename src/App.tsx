@@ -12,24 +12,39 @@ function App() {
         <>
           <div className="container">
             {/* Hero */}
-            <section className="hero">
-              <HOne className="title">Domine o Inglês com Confiança!</HOne>
-              <p className="subtitle">
-                Você vai precisa inglês!
-                <br />
-                Você vai quer inglês!
-                <br />
+            <section className="hero-section">
+              <h1 className="hero-title">Domine o Inglês com Confiança!</h1>
+              <p className="hero-subtitle">
+                Você vai precisar inglês! <br />
+                Você vai querer inglês! <br />
                 Você vai aprender inglês!
               </p>
-              <a target="_blank" href="https://portal.arthurvincent.com.br/signup" className="ctaButton">
-                Quero começar agora
-              </a>
-              <h2 className="sectionTitle">Inscreva-se Gratuitamente</h2>
-              <form className="form">
-                <input type="text" placeholder="Seu nome" required />
-                <input type="email" placeholder="Seu e-mail" required />
-                <button type="submit">Enviar</button>
-              </form>
+
+              <div className="hero-content">
+                <div className="form-container">
+                  <h2 className="form-title">Inscreva-se Gratuitamente</h2>
+                  <form className="signup-form">
+                    <input type="text" placeholder="Seu nome" required />
+                    <input type="email" placeholder="Seu e-mail" required />
+                    <input type="tel" placeholder="Seu telefone" required />
+                    <button type="submit">Enviar</button>
+                  </form>
+                  <a
+                    target="_blank"
+                    href="https://portal.arthurvincent.com.br/signup"
+                    className="cta-button"
+                  >
+                    Quero começar agora
+                  </a>
+                </div>
+
+                <div className="image-container">
+                  <img
+                    src="https://ik.imagekit.io/vjz75qw96/assets/icons/Captura%20de%20tela%202025-06-09%20114556.png?updatedAt=1749480668327"
+                    alt="Arthur"
+                  />
+                </div>
+              </div>
             </section>
 
             {/* Benefícios */}
