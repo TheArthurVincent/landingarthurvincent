@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
-import NewStudentAsaas from "./Routes/NewStudentAsaas/NewStudentAsaas";
 import { HOne } from "./Resources/Components/RouteBox";
 import AppFooter from "./Routes/Footer/Footer";
 
 function App() {
   const routes = [
-    { path: "/cadastro", element: <NewStudentAsaas /> },
     {
       path: "/*",
       element: (
@@ -23,7 +21,7 @@ function App() {
                 <br />
                 Você vai aprender inglês!
               </p>
-              <a href="#formbelow" className="ctaButton">
+              <a target="_blank" href="https://portal.arthurvincent.com.br/signup" className="ctaButton">
                 Quero começar agora
               </a>
               <h2 className="sectionTitle">Inscreva-se Gratuitamente</h2>
@@ -60,9 +58,6 @@ function App() {
                   </p>
                 </div>
               </div>
-            </section>
-            <section id="formbelow">
-              <NewStudentAsaas />
             </section>
             <AppFooter see={true} />
           </div>
