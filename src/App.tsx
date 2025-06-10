@@ -6,7 +6,7 @@ import { LogoSVG } from "./Resources/UniversalComponents";
 import { primaryColor, secondaryColor } from "./Styles/Styles";
 
 function App() {
-  const myLogo = LogoSVG(secondaryColor(), primaryColor(), 4);
+  const myLogo = LogoSVG(primaryColor(), secondaryColor(), 4);
 
   const videos = [
     {
@@ -47,7 +47,7 @@ function App() {
       element: (
         <div className="container">
           {/* Hero */}
-          <section className="hero-section">
+          <section className="hero-section thesection-1">
             {myLogo}
             <p className="hero-subtitle">
               Você precisa aprender inglês! <br />
@@ -82,7 +82,7 @@ function App() {
             </div>
           </section>
           {/* Benefícios */}
-          <section className="benefits-section">
+          <section className="benefits-section thesection-2">
             <h2 className="section-title">
               Por que aprender em minha plataforma?
             </h2>
