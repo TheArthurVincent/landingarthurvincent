@@ -9,6 +9,21 @@ import axios from "axios";
 function App() {
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 4);
 
+  const styles = {
+    section: {
+      width: "100%",
+      padding: "60px 20px",
+      backgroundColor: "#f5f5f5",
+      textAlign: "center",
+    },
+    heading: {
+      fontSize: "28px",
+      marginBottom: "30px",
+      color: "#333",
+    },
+    videoWrapper: {},
+    iframe: {},
+  };
   const videos = [
     {
       title: "🃏 Flashcards",
@@ -198,6 +213,38 @@ function App() {
                   </div>
                 </div>
               )}
+            </div>
+          </section>
+          <section className="hero-section thesection-1">
+            <h2 className="section-title">🎥 Tudo sobre a plataforma!</h2>
+            <div
+              style={{
+                position: "relative",
+                paddingBottom: "56.25%", // 16:9 aspect ratio
+                paddingTop: "25px",
+                height: 0,
+                maxWidth: "960px",
+                margin: "0 auto",
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+              }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/qUiHhLsyiIw"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                }}
+              />
             </div>
           </section>
 
