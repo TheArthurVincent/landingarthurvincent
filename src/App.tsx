@@ -11,6 +11,17 @@ function App() {
 
   const videos = [
     {
+      title: "🃏 Flashcards",
+      description: "Memorize vocabulário com técnica de repetição espaçada.",
+      url: "https://www.youtube.com/embed/bobVcB0crX4",
+    },
+    {
+      title: "🎧 Listening",
+      description:
+        "Melhore sua compreensão auditiva com conteúdos adaptados ao seu nível.",
+      url: "https://www.youtube.com/embed/4wFkC5XOytI",
+    },
+    {
       title: "📚 Conteúdo Completo",
       description:
         "Acesse cursos organizados do nível básico ao avançado. Aprenda gramática, vocabulário, leitura, escuta e conversação com métodos práticos, objetivos e eficientes.",
@@ -22,17 +33,7 @@ function App() {
         "Participe de encontros ao vivo para praticar o inglês com outros alunos e professores.",
       url: "https://www.youtube.com/embed/g4YGm9G9SUw",
     },
-    {
-      title: "🎧 Listening",
-      description:
-        "Melhore sua compreensão auditiva com conteúdos adaptados ao seu nível.",
-      url: "https://www.youtube.com/embed/4wFkC5XOytI",
-    },
-    {
-      title: "🃏 Flashcards",
-      description: "Memorize vocabulário com técnica de repetição espaçada.",
-      url: "https://www.youtube.com/embed/bobVcB0crX4",
-    },
+
     {
       title: "🧠 Sentence Mining",
       description:
@@ -129,15 +130,19 @@ function App() {
                     onChange={handleChange}
                     required
                   />
-                  <button type="submit">Enviar</button>
+                  {/* <button type="submit">Enviar</button> */}
+                  <a
+                    style={{
+                      textAlign: "center",
+                      backgroundColor: secondaryColor(),
+                    }}
+                    target="_blank"
+                    href="https://portal.arthurvincent.com.br/signup"
+                    className="cta-button"
+                  >
+                    Quero começar agora
+                  </a>
                 </form>
-                <a
-                  target="_blank"
-                  href="https://portal.arthurvincent.com.br/signup"
-                  className="cta-button"
-                >
-                  Quero começar agora
-                </a>
               </div>
 
               <div className="image-container">
