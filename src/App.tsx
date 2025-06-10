@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import AppFooter from "./Routes/Footer/Footer";
-import { LogoSVG } from "./Resources/UniversalComponents";
+import { backDomain, LogoSVG } from "./Resources/UniversalComponents";
 import { primaryColor, secondaryColor } from "./Styles/Styles";
+import axios from "axios";
 
 function App() {
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 4);
@@ -40,6 +41,50 @@ function App() {
     },
   ];
   const [selectedVideo, setSelectedVideo] = useState<any>(null);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const [booleanLeadsCapture, setLeadsCapture] = useState<boolean>(true);
+  const [form, setForm] = useState({
+    name: "",
+    phoneNumber: "",
+    email: "",
+  });
+  const leadsCapture = async () => {
+    if (
+      booleanLeadsCapture &&
+      form.name !== "" &&
+      form.phoneNumber !== "" &&
+      form.email !== ""
+    ) {
+      try {
+        const theContent = {
+          name: form.name,
+          phoneNumber: form.phoneNumber,
+          email: form.email,
+        };
+        const response = await axios.post(
+          `${backDomain}/api/v1/leads`,
+          theContent
+        );
+        console.log("Foi pro banco!", response);
+        setLeadsCapture(false);
+      } catch (error) {
+        console.error("Erro ao capturar lead", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const allFilled =
+      form.name.trim() !== "" &&
+      form.phoneNumber.trim().length >= 11 &&
+      form.email.trim().includes("@");
+
+    if (booleanLeadsCapture && allFilled) {
+      leadsCapture();
+    }
+  }, [form.name, form.phoneNumber, form.email]);
 
   const routes = [
     {
@@ -59,9 +104,31 @@ function App() {
               <div className="form-container">
                 <h2 className="form-title">Inscreva-se</h2>
                 <form className="signup-form">
-                  <input type="text" placeholder="Seu nome" required />
-                  <input type="email" placeholder="Seu e-mail" required />
-                  <input type="tel" placeholder="Seu telefone" required />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Nome"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="E-mail"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="number"
+                    name="phoneNumber"
+                    placeholder="Número de telefone com DDD"
+                    value={form.phoneNumber}
+                    onChange={handleChange}
+                    required
+                  />
                   <button type="submit">Enviar</button>
                 </form>
                 <a
