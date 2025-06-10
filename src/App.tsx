@@ -4,6 +4,39 @@ import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import AppFooter from "./Routes/Footer/Footer";
 
 function App() {
+  const videos = [
+    {
+      title: "📚 Conteúdo Completo",
+      description:
+        "Acesse cursos organizados do nível básico ao avançado. Aprenda gramática, vocabulário, leitura, escuta e conversação com métodos práticos, objetivos e eficientes.",
+      url: "https://www.youtube.com/embed/Bz7c-kT6tyE",
+    },
+    {
+      title: "🗣️ Clube de Conversação",
+      description:
+        "Participe de encontros ao vivo para praticar o inglês com outros alunos e professores.",
+      url: "https://www.youtube.com/embed/g4YGm9G9SUw",
+    },
+    {
+      title: "🎧 Listening",
+      description:
+        "Melhore sua compreensão auditiva com conteúdos adaptados ao seu nível.",
+      url: "https://www.youtube.com/embed/4wFkC5XOytI",
+    },
+    {
+      title: "🃏 Flashcards",
+      description: "Memorize vocabulário com técnica de repetição espaçada.",
+      url: "https://www.youtube.com/embed/bobVcB0crX4",
+    },
+    {
+      title: "🧠 Sentence Mining",
+      description:
+        "Aprenda vocabulário e gramática a partir de frases reais e úteis.",
+      url: "https://www.youtube.com/embed/a3IOJN_n5VI",
+    },
+  ];
+  const [selectedVideo, setSelectedVideo] = useState<any>(null);
+
   const routes = [
     {
       path: "/*",
@@ -45,69 +78,52 @@ function App() {
           </section>
           {/* Benefícios */}
 
+          <section className="benefits-section">
+            <h2 className="section-title">
+              Por que aprender em minha plataforma?
+            </h2>
+            <div className="benefits-cards">
+              {videos.map((video: any, index: any) => (
+                <div
+                  key={index}
+                  className="benefit-card"
+                  onClick={() => setSelectedVideo(video)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <h3>{video.title}</h3>
+                  <p>{video.description}</p>
+                </div>
+              ))}
 
-<section className="benefits-section">
-  <h2 className="section-title">
-    Por que aprender em minha plataforma?
-  </h2>
-  <div className="benefits-cards">
-
-    <div className="benefit-card">
-      <h3>📚 Conteúdo Completo</h3>
-      <p>
-        Acesse cursos organizados do nível básico ao avançado. Aprenda gramática, vocabulário, leitura, escuta e conversação com métodos práticos, objetivos e eficientes.
-      </p>
-    </div>
-
-    <div className="benefit-card">
-      <h3>🗣️ Conversação em Grupo</h3>
-      <p>
-        Participe de sessões semanais com outros alunos para praticar inglês em situações reais. Tenha apoio ao vivo para ganhar confiança ao se comunicar.
-      </p>
-    </div>
-
-    <div className="benefit-card">
-      <h3>🧠 Flashcards Inteligentes</h3>
-      <p>
-        Memorize vocabulário com o sistema de repetição espaçada. Aprenda de forma ativa, divertida e com retenção de longo prazo.
-      </p>
-    </div>
-
-    <div className="benefit-card">
-      <h3>🎧 Aulas Interativas</h3>
-      <p>
-        Vá além do tradicional: estude com frases com áudio, diálogos reais, vídeos contextualizados e exercícios que te colocam em contato com o inglês vivo.
-      </p>
-    </div>
-
-    <div className="benefit-card">
-      <h3>👂 Exercícios de Listening</h3>
-      <p>
-        Desenvolva sua escuta com atividades focadas em compreensão auditiva e pronúncia, usando áudios naturais e variados.
-      </p>
-    </div>
-
-    <div className="benefit-card">
-      <h3>🔎 Mineração de Sentenças</h3>
-      <p>
-        Aprenda a buscar frases reais com palavras que deseja aprender e transforme essas descobertas em novos flashcards personalizados.
-      </p>
-    </div>
-
-    <div className="benefit-card">
-      <h3>📞 Contato Direto com o Professor</h3>
-      <p>
-        Receba suporte pela plataforma.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
+              {selectedVideo && (
+                <div
+                  className="modal-overlay"
+                  onClick={() => setSelectedVideo(null)}
+                >
+                  <div
+                    className="modal-content"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src={selectedVideo.url}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                    <button
+                      className="close-button"
+                      onClick={() => setSelectedVideo(null)}
+                    >
+                      Fechar
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
 
           <AppFooter see={true} />
         </div>
