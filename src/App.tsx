@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import AppFooter from "./Routes/Footer/Footer";
+import { LogoSVG } from "./Resources/UniversalComponents";
+import { primaryColor, secondaryColor } from "./Styles/Styles";
 
 function App() {
+  const myLogo = LogoSVG(secondaryColor(), primaryColor(), 4);
+
   const videos = [
     {
       title: "📚 Conteúdo Completo",
@@ -44,12 +48,13 @@ function App() {
         <div className="container">
           {/* Hero */}
           <section className="hero-section">
-            <h1 className="hero-title">Domine o Inglês com Confiança!</h1>
+            {myLogo}
             <p className="hero-subtitle">
               Você precisa aprender inglês! <br />
               Você quer aprender inglês! <br />
               Você vai aprender inglês!
             </p>
+
             <div className="hero-content">
               <div className="form-container">
                 <h2 className="form-title">Inscreva-se</h2>
@@ -77,7 +82,6 @@ function App() {
             </div>
           </section>
           {/* Benefícios */}
-
           <section className="benefits-section">
             <h2 className="section-title">
               Por que aprender em minha plataforma?
