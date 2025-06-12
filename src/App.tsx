@@ -247,7 +247,27 @@ function App() {
               />
             </div>
           </section>
-
+          <section className="benefits-section thesection-2">
+            <h2 className="section-title">💬 Veja o que dizem os alunos</h2>
+            <div className="testimonial-scroller">
+              {[
+                "https://www.youtube.com/embed/-eSmGb2CkPY",
+                "https://www.youtube.com/embed/X0T1y17ycN8",
+                "https://www.youtube.com/embed/hPnj2UgXZUU",
+                "https://www.youtube.com/embed/uLl_ak4AMOk",
+              ].map((url, index) => (
+                <div className="testimonial-video" key={index}>
+                  <iframe
+                    src={url}
+                    title={`Depoimento ${index + 1}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ))}
+            </div>
+          </section>
           <AppFooter see={true} />
         </div>
       ),
