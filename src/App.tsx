@@ -107,67 +107,42 @@ function App() {
       path: "/*",
       element: (
         <div className="container">
-          {/* Hero */}
           <section className="hero-section thesection-1">
-            {myLogo}
-            <p className="hero-subtitle">
-              Você precisa aprender inglês! <br />
-              Você quer aprender inglês! <br />
-              Você vai aprender inglês!
-            </p>
-
-            <div className="hero-content">
-              <div className="form-container">
-                <h2 className="form-title">Inscreva-se</h2>
-                <form className="signup-form">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Nome"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                  />
-
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="E-mail"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="phoneNumber"
-                    placeholder="Número de telefone com DDD"
-                    value={form.phoneNumber}
-                    onChange={handleChange}
-                    required
-                  />
-                  {/* <button type="submit">Enviar</button> */}
-                  <a
-                    style={{
-                      textAlign: "center",
-                      backgroundColor: secondaryColor(),
-                    }}
-                    target="_blank"
-                    href="https://portal.arthurvincent.com.br/signup"
-                    className="cta-button"
-                  >
-                    Quero começar agora
-                  </a>
-                </form>
+            <div className="hero-grid">
+              <div
+                style={{
+                  padding: "1rem",
+                  display:"grid",
+                  justifyContent:"right",
+                justifyItems:"center"
+                }}
+                className="hero-text"
+              >
+                {myLogo}
+                <p className="hero-subtitle">
+                  Você precisa aprender inglês! <br />
+                  Você quer aprender inglês! <br />
+                  Você vai aprender inglês!
+                </p>
+                <a
+                  style={{ backgroundColor: secondaryColor() }}
+                  target="_blank"
+                  href="https://portal.arthurvincent.com.br/signup"
+                  className="cta-button"
+                >
+                  Quero, preciso e vou aprender inglês!
+                </a>
               </div>
 
-              <div className="image-container">
+              <div className="hero-image">
                 <img
-                  src="https://ik.imagekit.io/vjz75qw96/assets/icons/Captura%20de%20tela%202025-06-09%20114556.png?updatedAt=1749480668327"
+                  src="https://ik.imagekit.io/vjz75qw96/assets/icons/eu?updatedAt=1749480447421"
                   alt="Arthur"
                 />
               </div>
             </div>
           </section>
+
           {/* Benefícios */}
           <section className="benefits-section thesection-2">
             <h2 className="section-title">
@@ -215,7 +190,7 @@ function App() {
               )}
             </div>
           </section>
-          <section className="hero-section thesection-1">
+          <section className="hero-section thesection-1 padding-yes">
             <h2 className="section-title">🎥 Tudo sobre a plataforma!</h2>
             <div
               style={{
@@ -246,6 +221,17 @@ function App() {
                 }}
               />
             </div>
+            <a
+              style={{
+                textAlign: "center",
+                backgroundColor: secondaryColor(),
+              }}
+              target="_blank"
+              href="https://portal.arthurvincent.com.br/signup"
+              className="cta-button"
+            >
+              Quero, preciso e vou aprender inglês!
+            </a>
           </section>
           <section className="benefits-section thesection-2">
             <h2 className="section-title">💬 Veja o que dizem os alunos</h2>
@@ -263,7 +249,7 @@ function App() {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                  ></iframe>
+                  />
                 </div>
               ))}
             </div>
