@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { 
+  useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./Application/SelectLanguage/SelectLanguage";
 import AppFooter from "./Routes/Footer/Footer";
-import { backDomain, LogoSVG } from "./Resources/UniversalComponents";
+import { LogoSVG } from "./Resources/UniversalComponents";
 import { primaryColor, secondaryColor } from "./Styles/Styles";
-import axios from "axios";
 
 function App() {
   const myLogo = LogoSVG(primaryColor(), secondaryColor(), 4);
 
-  const styles = {
-    section: {
-      width: "100%",
-      padding: "60px 20px",
-      backgroundColor: "#f5f5f5",
-      textAlign: "center",
-    },
-    heading: {
-      fontSize: "28px",
-      marginBottom: "30px",
-      color: "#333",
-    },
-    videoWrapper: {},
-    iframe: {},
-  };
   const videos = [
     {
       title: "🃏 Flashcards",
@@ -57,50 +42,6 @@ function App() {
     },
   ];
   const [selectedVideo, setSelectedVideo] = useState<any>(null);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  const [booleanLeadsCapture, setLeadsCapture] = useState<boolean>(true);
-  const [form, setForm] = useState({
-    name: "",
-    phoneNumber: "",
-    email: "",
-  });
-  const leadsCapture = async () => {
-    if (
-      booleanLeadsCapture &&
-      form.name !== "" &&
-      form.phoneNumber !== "" &&
-      form.email !== ""
-    ) {
-      try {
-        const theContent = {
-          name: form.name,
-          phoneNumber: form.phoneNumber,
-          email: form.email,
-        };
-        const response = await axios.post(
-          `${backDomain}/api/v1/leads`,
-          theContent
-        );
-        console.log("Foi pro banco!", response);
-        setLeadsCapture(false);
-      } catch (error) {
-        console.error("Erro ao capturar lead", error);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const allFilled =
-      form.name.trim() !== "" &&
-      form.phoneNumber.trim().length >= 11 &&
-      form.email.trim().includes("@");
-
-    if (booleanLeadsCapture && allFilled) {
-      leadsCapture();
-    }
-  }, [form.name, form.phoneNumber, form.email]);
 
   const routes = [
     {
@@ -112,9 +53,11 @@ function App() {
               <div
                 style={{
                   padding: "1rem",
-                  display:"grid",
-                  justifyContent:"right",
-                justifyItems:"center"
+                  display: "grid",
+                  justifyContent: "right",
+                  alignContent: "center",
+                  alignItems: "center",
+                  justifyItems: "center",
                 }}
                 className="hero-text"
               >
@@ -241,6 +184,7 @@ function App() {
                 "https://www.youtube.com/embed/X0T1y17ycN8",
                 "https://www.youtube.com/embed/hPnj2UgXZUU",
                 "https://www.youtube.com/embed/uLl_ak4AMOk",
+                "https://youtube.com/embed/rA9JWtcCDBc",
               ].map((url, index) => (
                 <div className="testimonial-video" key={index}>
                   <iframe
